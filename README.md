@@ -49,6 +49,7 @@ Examples:
 
 ## Differential Testing
 
+When comparing the behavior of polyfills and native implementation, LambdaTester differentiates between several behavioral differences (Section 6.3). The output of differential testing shows how many tests expose differences in Error messages, Warning messages, Standard outputs, Receiver objects, Return objects and Callback arguments.
 
 
 ## Coverage
