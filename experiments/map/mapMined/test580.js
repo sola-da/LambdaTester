@@ -1,0 +1,81 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function () {
+ callbackArguments.push(arguments) 
+
+    return jQuery.clone(this, dataAndEvents, deepDataAndEvents);
+};
+var argument2 = {"8.613087412293895e+307":7.868928288321491e+307,"7.335504224237018e+307":"lz<GaqR","":"fZf","5.103369243827552e+307":1.2186421422982974e+308,"lP":126,"2.8283979772395057e+307":-1};
+var argument3 = function (elem, i) {
+ callbackArguments.push(arguments) 
+
+    return callback.call(elem, elem, i);
+};
+var argument4 = [627,100,403];
+var argument5 = null;
+var argument6 = function () {
+ callbackArguments.push(arguments) 
+
+    var offsetParent = this.offsetParent || document.documentElement;
+    while (offsetParent && (!jQuery.nodeName(offsetParent, 'html') && jQuery.css(offsetParent, 'position') === 'static')) {
+        offsetParent = offsetParent.offsetParent;
+    }
+    return offsetParent || document.documentElement;
+};
+var argument7 = true;
+var argument8 = function (m, j) {
+ callbackArguments.push(arguments) 
+
+    if (m === n)
+        i++;
+};
+var argument9 = null;
+var base_0 = ["o","d","K",242,100,59,823,893]
+var r_0= undefined
+try {
+r_0 = base_0.map(argument1,argument2)
+}
+catch(e) {
+r_0= "Error"
+}
+var base_1 = ["o","d","K",242,100,59,823,893]
+var r_1= undefined
+try {
+r_1 = base_1.map(argument3,argument4,argument5)
+}
+catch(e) {
+r_1= "Error"
+}
+var base_2 = ["o","d","K",242,100,59,823,893]
+var r_2= undefined
+try {
+r_2 = base_2.map(argument6,argument7)
+}
+catch(e) {
+r_2= "Error"
+}
+var base_3 = ["o","d","K",242,100,59,823,893]
+var r_3= undefined
+try {
+r_3 = base_3.map(argument8,argument9)
+}
+catch(e) {
+r_3= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/map/mapMined/test580.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)

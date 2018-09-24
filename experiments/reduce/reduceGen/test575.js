@@ -1,0 +1,83 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function callback(a,b,c,d) { 
+callbackArguments.push(JSON.stringify(arguments))
+base_0[5] = false
+argument3[5] = false
+return a+b*c+d
+};
+var argument2 = true;
+var argument3 = true;
+var argument4 = r_0;
+var argument5 = function callback(a,b,c,d) { 
+callbackArguments.push(JSON.stringify(arguments))
+base_1[2] = {"0":"","25":3.184267589115062e+306,"49":"","460":"","823":655,"AR(":969,"":783,"o":893,"4lP":1.7976931348623157e+308,"B@":"w"}
+base_1[9] = false
+argument4[403] = ["iNN0","Mr","l","h","s",">","z","K"]
+return a-b-c+d
+};
+var argument6 = true;
+var argument7 = true;
+var argument8 = false;
+var argument9 = function callback(a,b,c,d) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument6[2] = false
+return a*b+c+d
+};
+var argument10 = true;
+var argument11 = true;
+var argument12 = null;
+var argument13 = function callback(a,b,c,d) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument12[59] = ["1J","Y{"]
+return a*b-c*d
+};
+var base_0 = ["(","hGK]6","9","ei","Vo","?","5","b"]
+var r_0= undefined
+try {
+r_0 = base_0.reduce(argument1)
+}
+catch(e) {
+r_0= "Error"
+}
+var base_1 = ["(","hGK]6","9","ei","Vo","?","5","b"]
+var r_1= undefined
+try {
+r_1 = base_1.reduce(argument2,argument3,argument4,argument5)
+}
+catch(e) {
+r_1= "Error"
+}
+var base_2 = ["(","hGK]6","9","ei","Vo","?","5","b"]
+var r_2= undefined
+try {
+r_2 = base_2.reduce(argument6,argument7,argument8,argument9)
+}
+catch(e) {
+r_2= "Error"
+}
+var base_3 = ["(","hGK]6","9","ei","Vo","?","5","b"]
+var r_3= undefined
+try {
+r_3 = base_3.reduce(argument10,argument11,argument12,argument13)
+}
+catch(e) {
+r_3= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/reduce/reduceGen/test575.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)

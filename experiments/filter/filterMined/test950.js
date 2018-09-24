@@ -1,0 +1,78 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function (c) {
+ callbackArguments.push(arguments) 
+
+    var source = c[vars.edges.source][vars.id.value], target = c[vars.edges.target][vars.id.value];
+    return claimed.indexOf(source) < 0 && target == primaryId || claimed.indexOf(target) < 0 && source == primaryId;
+};
+var argument2 = true;
+var argument3 = {"460":655,"618":1.3941262271352285e+308,"":823,"1.1045337170220023e+308":627,"5.602305854037741e+307":242,"X`":"Y"};
+var argument4 = function () {
+ callbackArguments.push(arguments) 
+
+    return this.name && !this.disabled && (this.checked || rselectTextarea.test(this.nodeName) || rinput.test(this.message));
+};
+var argument5 = function (value, index, array) {
+ callbackArguments.push(arguments) 
+
+    array[index] = 'a';
+    return true;
+};
+var argument6 = null;
+var argument7 = function () {
+ callbackArguments.push(arguments) 
+
+    var type = this.message;
+    return this.name && !jQuery(this).is(':disabled') && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !rcheckableType.test(type));
+};
+var argument8 = r_0;
+var base_0 = ["?","25a","{",";OZx#Y","3","8","<qV4c`","(","9"]
+var r_0= undefined
+try {
+r_0 = base_0.filter(argument1,argument2,argument3)
+}
+catch(e) {
+r_0= "Error"
+}
+var base_1 = ["?","25a","{",";OZx#Y","3","8","<qV4c`","(","9"]
+var r_1= undefined
+try {
+r_1 = base_1.filter(argument4)
+}
+catch(e) {
+r_1= "Error"
+}
+var base_2 = ["?","25a","{",";OZx#Y","3","8","<qV4c`","(","9"]
+var r_2= undefined
+try {
+r_2 = base_2.filter(argument5,argument6)
+}
+catch(e) {
+r_2= "Error"
+}
+var base_3 = r_1
+var r_3= undefined
+try {
+r_3 = base_3.filter(argument7,argument8)
+}
+catch(e) {
+r_3= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/filter/filterMined/test950.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)

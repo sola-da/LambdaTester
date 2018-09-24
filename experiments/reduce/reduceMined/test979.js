@@ -1,0 +1,90 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function (count, p) {
+ callbackArguments.push(arguments) 
+
+    if (p.name && !p.value) {
+        return count + 1;
+    } else {
+        return count;
+    }
+};
+var argument2 = [5e-324,157,0,843,969];
+var argument3 = null;
+var argument4 = function (prev, curr) {
+ callbackArguments.push(arguments) 
+
+    return prev + curr.time;
+};
+var argument5 = [-1,1.7976931348623157e+308,655];
+var argument6 = false;
+var argument7 = function (a, b) {
+ callbackArguments.push(arguments) 
+
+    return a + b.value;
+};
+var argument8 = 2.4957078973787734e+307;
+var argument9 = {"-100":3.7610515736958835e+307};
+var argument10 = function (memo, item) {
+ callbackArguments.push(arguments) 
+
+    var group;
+    group = memo[memo.length - 1];
+    if (group.length < count) {
+        group.push(item);
+    } else {
+        memo.push([item]);
+    }
+    return memo;
+};
+var argument11 = null;
+var argument12 = "V";
+var base_0 = ["(","[","I","^w{i$","V"]
+var r_0= undefined
+try {
+r_0 = base_0.reduce(argument1,argument2,argument3)
+}
+catch(e) {
+r_0= "Error"
+}
+var base_1 = r_0
+var r_1= undefined
+try {
+r_1 = base_1.reduce(argument4,argument5,argument6)
+}
+catch(e) {
+r_1= "Error"
+}
+var base_2 = r_0
+var r_2= undefined
+try {
+r_2 = base_2.reduce(argument7,argument8,argument9)
+}
+catch(e) {
+r_2= "Error"
+}
+var base_3 = r_0
+var r_3= undefined
+try {
+r_3 = base_3.reduce(argument10,argument11,argument12)
+}
+catch(e) {
+r_3= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/reduce/reduceMined/test979.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)

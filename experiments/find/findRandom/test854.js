@@ -1,0 +1,30 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = {"1.2513536055297242e+308":"S","-100":""};
+var argument2 = true;
+var argument3 = true;
+var base_0 = ["I","?","F","1A","y","5#MEu;dc","g","Z"]
+var r_0= undefined
+try {
+r_0 = base_0.find(argument1,argument2,argument3)
+}
+catch(e) {
+r_0= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/find/findRandom/test854.json",JSON.stringify({"baseObjects":serialize([base_0]),"returnObjects":serialize([r_0]),"callbackArgs":callbackArguments}))
+},300)

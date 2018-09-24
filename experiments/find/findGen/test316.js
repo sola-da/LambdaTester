@@ -1,0 +1,79 @@
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function callback(a,b,c) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument1[4] = 2.2247357351611593e+307
+argument3[4.953791384496108e+307] = {"5":"QL","242":5.693510265776069e+307,"714":1.3059172539879942e+308,"5.430143532888192e+307":1.092362053572321e+308,"1.8217412447577325e+307":-1}
+base_0[7] = null
+return a*b-c
+};
+var argument2 = function callback(a,b,c) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument4['AO?'] = null
+argument4[5] = null
+argument3['j'] = "$i"
+return a+b/c
+};
+var argument3 = function callback(a,b,c) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument5['AO?'] = "4"
+return a*b-c
+};
+var argument4 = 1.693160344388542e+308;
+var argument5 = null;
+var argument6 = function callback(a,b,c) { 
+callbackArguments.push(JSON.stringify(arguments))
+argument8[3] = 9.440061466162911e+306
+return a+b-c
+};
+var argument7 = true;
+var argument8 = null;
+var base_0 = [",","Kl","X","9","A","X","++m","j","6I"]
+var r_0= undefined
+try {
+r_0 = base_0.find(argument1)
+}
+catch(e) {
+r_0= "Error"
+}
+var base_1 = [",","Kl","X","9","A","X","++m","j","6I"]
+var r_1= undefined
+try {
+r_1 = base_1.find(argument2)
+}
+catch(e) {
+r_1= "Error"
+}
+var base_2 = [",","Kl","X","9","A","X","++m","j","6I"]
+var r_2= undefined
+try {
+r_2 = base_2.find(argument3,argument4,argument5)
+}
+catch(e) {
+r_2= "Error"
+}
+var base_3 = [",","Kl","X","9","A","X","++m","j","6I"]
+var r_3= undefined
+try {
+r_3 = base_3.find(argument6,argument7,argument8)
+}
+catch(e) {
+r_3= "Error"
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/find/findGen/test316.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)

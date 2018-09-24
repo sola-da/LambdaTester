@@ -1,0 +1,81 @@
+/**
+ * Created by marija on 22.02.18.
+ */
+
+
+
+var p1 = Promise.resolve(18);
+var p2 = Promise.reject(17);
+
+
+
+
+
+
+
+
+var callbackArguments = [];
+var argument1 = function callback(){
+callbackArguments.push(JSON.stringify(arguments))
+return true
+};
+var argument2 = 8.527534312552302e+307;
+var argument3 = function callback(){
+callbackArguments.push(JSON.stringify(arguments))
+return true
+};
+var argument4 = p1;
+var argument5 = function callback(){
+callbackArguments.push(JSON.stringify(arguments))
+return true
+};
+var argument6 = {"59":1.7397172082414543e+307,"82":5e-324,"627":"",">0":"2)","2.5848964599143364e+307":"s[:e","9.683443093553462e+307":"","-1":7.476006143863615e+307,"3.039901393825401e+307":1.2120924144009725e+308,"":1.852635685395701e+307,"7.257004418299005e+307":655};
+var argument7 = function callback(){
+callbackArguments.push(JSON.stringify(arguments))
+return r_2
+};
+var argument8 = p2;
+var base_0 = p2
+var r_0= undefined
+try {
+r_0 = base_0.catch(argument1,argument2)
+}
+catch(e) {
+r_0= e.message
+}
+var base_1 = p1
+var r_1= undefined
+try {
+r_1 = base_1.catch(argument3,argument4)
+}
+catch(e) {
+r_1= e.message
+}
+var base_2 = r_1
+var r_2= undefined
+try {
+r_2 = base_2.catch(argument5,argument6)
+}
+catch(e) {
+r_2= e.message
+}
+var base_3 = p2
+var r_3= undefined
+try {
+r_3 = base_3.catch(argument7,argument8)
+}
+catch(e) {
+r_3= e.message
+}
+function serialize(array){
+return array.map(function(a){
+if (a === null || a == undefined) return a;
+var name = a.constructor.name;
+if (name==='Object' || name=='Boolean'|| name=='Array'||name=='Number'||name=='String')
+return JSON.stringify(a);
+return name;
+ });
+}
+setTimeout(function(){
+require("fs").writeFileSync("./experiments/promises/promiseGen/test23.json",JSON.stringify({"baseObjects":serialize([base_0,base_1,base_2,base_3]),"returnObjects":serialize([r_0,r_1,r_2,r_3]),"callbackArgs":callbackArguments}))
+},300)
