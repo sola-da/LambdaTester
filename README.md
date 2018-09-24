@@ -4,7 +4,7 @@ Test Generation for Higher-Order Functions in Dynamic Languages
 ## Requirements
 
 ## Test Generation
-To generate tests run the following command:
+To generate tests use the following command:
 
 `node testGeneration.js <function names> <number of tests> <setup code> <is feedback directed> <callback type> <include dynamic analysis> <testFolder> <polyfills to analyze (optional)>`
 
