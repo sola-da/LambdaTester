@@ -427,7 +427,7 @@
                             var file1Name = './generated_' + testFolder + '/test' + i + '_model' + k + '.js';
                             fs.writeFileSync(file1Name, strCode);
 
-                                execSync('timeout 5 node ../jalangi2/src/js/commands/jalangi.js --inlineIID --inlineSource --analysis dynamicAnalysis.js ' + file1Name + ' ' + fnName + ' ' + testFolder);
+                                execSync('timeout 5 node ./jalangi2/src/js/commands/jalangi.js --inlineIID --inlineSource --analysis dynamicAnalysis.js ' + file1Name + ' ' + fnName + ' ' + testFolder);
                                 afterCallbackPaths = JSON.parse(fs.readFileSync('./generated_' + testFolder + '/pathsAfterCallback.json'));
 
 
