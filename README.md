@@ -6,7 +6,10 @@ To generate tests run the following command:
 
 `node testGeneration.js <function names> <number of tests> <setup code> <is feedback directed> <callback type> <include dynamic analysis> <testFolder> <polyfills to analyze (optional)>`
 
+
 Explanation of required inputs:
+
+
     - function names: names of methods under test (e.g., reduce)
     - number of tests: number of tests to be generated
     - setup code: file containing setup code. To test array methods use setupCode/setupArray.js and to test promise methods use setupCode/setupPromise.js 
