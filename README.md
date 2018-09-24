@@ -52,6 +52,8 @@ Examples:
 When comparing the behavior of polyfills and native implementation, LambdaTester differentiates between several behavioral differences (Section 6.3). The output of differential testing shows how many tests expose differences in Error messages, Warning messages, Standard outputs, Receiver objects, Return objects and Callback arguments. To compare polyfill and native implementations use the following command:
 
 `node testRunner.js <type of polyfill: 0 for array, 1 for promise> <polyfill to test> <test folder>`
+
+The *<polyfill to test>* argument contains either the path to the polyfill (in polyfills directory) or the name of the polyfill if installed via npm. If promise libraries are installed via npm and it is enough to pass their names as the argument to testRunner.js.
  
 Directory *experiments* contains generated tests used to evaluate array polyfills and promise libraries. Tests are under *experiments/polyfillName/polyfillNameSuffix* directories where *Suffix* denotes the approach used to generate tests:
 
