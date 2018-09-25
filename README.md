@@ -1,5 +1,5 @@
 # LambdaTester
-Test Generation for Higher-Order Functions in Dynamic Languages
+LambdaTester is a novel test generator for higher-order functions written in JavaScript. The approach is presented in our [OOPSLA](http://software-lab.org/publications/oopsla2018_LambdaTester.pdf) paper.
 
 ## Requirements
 
