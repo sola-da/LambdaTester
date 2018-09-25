@@ -1,10 +1,15 @@
 # LambdaTester
-LambdaTester is a novel test generator for higher-order functions written in JavaScript. The approach is presented in our [OOPSLA](http://software-lab.org/publications/oopsla2018_LambdaTester.pdf) paper.
+LambdaTester is a novel test generator for higher-order functions written in JavaScript. See our [OOPSLA](http://software-lab.org/publications/oopsla2018_LambdaTester.pdf) paper for the detailed approach.
 
 ## Requirements
 
+- [Node.js](https://nodejs.org/en/) (>v6)
+- Install required npm modules with `npm install`
+- [Jalangi2](https://github.com/Samsung/jalangi2). Place Jalangi2 folder and this repository under the same directory.  
+
 ## Overview
-Directories under this repository:
+
+Directories in this repository:
 1. **callbackMining** - the collection of mined callbacks and *callbackProvider.js* script to return callbacks for requested method
 2. **coverage** - instrumented promise libraries and array polyfills. Dump directory for files generated during coverage computation.
 3. **experiments** - generated test suites used for the evaluation. Tests are under *experiments/polyfillName/polyfillNameSuffix* directories where *Suffix* denotes the approach used to generate tests:
