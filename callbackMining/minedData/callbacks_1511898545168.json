@@ -1,0 +1,211 @@
+[
+  {
+    "callback": "function (req, res, next) {\n    if (!req.session.accessToken) {\n        res.send(401, 'Not logged in.');\n    } else {\n        next();\n    }\n}",
+    "receiverBase": "router",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function (req, res, next) {\n    var calendar = new gcal.GoogleCalendar(req.session.accessToken);\n    calendar.events.list(req.session.calendarId, { 'timeMin': new Date().toISOString() }, function (err, eventList) {\n        if (err)\n            return next(err);\n        res.send(JSON.stringify(eventList, null, '\\t'));\n    });\n}",
+    "receiverBase": "router",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, eventList) {\n    if (err)\n        return next(err);\n    res.send(JSON.stringify(eventList, null, '\\t'));\n}",
+    "receiverBase": "events",
+    "receiverCallee": "list"
+  },
+  {
+    "callback": "function (err, response) {\n    if (err)\n        return next(err);\n    res.send(response);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (req, res) {\n    if (!req.session.username)\n        res.redirect('/login');\n    process.save(req, hash, function (status, msg) {\n        console.log('Status : %s , message : %s ', status, msg);\n        res.type('json');\n        if (!status)\n            res.send({ status: 'false' });\n        res.send({ status: 'true' });\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (status, msg) {\n    console.log('Status : %s , message : %s ', status, msg);\n    res.type('json');\n    if (!status)\n        res.send({ status: 'false' });\n    res.send({ status: 'true' });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (req, res) {\n    if (!req.session.username)\n        res.redirect('/login');\n    process.delete_user(req, function (status, msg) {\n        console.log('Status : %s , message : %s ', status, msg);\n        res.type('json');\n        if (!status)\n            res.send({ status: 'false' });\n        res.send({ status: 'true' });\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (status, msg) {\n    console.log('Status : %s , message : %s ', status, msg);\n    res.type('json');\n    if (!status)\n        res.send({ status: 'false' });\n    res.send({ status: 'true' });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "delete_user"
+  },
+  {
+    "callback": "function (description) {\n    description.subType = 'table_description';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (column) {\n    column.subType = 'column';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (columnDescription) {\n    columnDescription.subType = 'column_description';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    screenfull.onchange.call(screenfull, e);\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    screenfull.onerror.call(screenfull, e);\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (color) {\n    return color.rgbValue();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "countBy"
+  },
+  {
+    "callback": "function (color) {\n    return color.rgbValue();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "uniq"
+  },
+  {
+    "callback": "function () {\n    var old = grunt.option('oldver');\n    return old ? RegExp.quote(old) : old;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    generateGlyphiconsData.call(this, grunt);\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function () {\n    var banner = grunt.template.process('<%= banner %>');\n    generateRawFiles(grunt, banner);\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function () {\n    var done = this.async();\n    npmShrinkwrap({\n        dev: true,\n        dirname: __dirname\n    }, function (err) {\n        if (err) {\n            grunt.fail.warn(err);\n        }\n        var dest = 'test-infra/npm-shrinkwrap.json';\n        fs.renameSync('npm-shrinkwrap.json', dest);\n        grunt.log.writeln('File ' + dest.cyan + ' updated.');\n        done();\n    });\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        grunt.fail.warn(err);\n    }\n    var dest = 'test-infra/npm-shrinkwrap.json';\n    fs.renameSync('npm-shrinkwrap.json', dest);\n    grunt.log.writeln('File ' + dest.cyan + ' updated.');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "npmShrinkwrap"
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (val) {\n    return {\n        name: '\\'' + val + '\\'',\n        token: 'keyword'\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return {\n        name: '\\'' + val + '\\'',\n        token: 'text',\n        next: function (stack) {\n            stack.pop();\n        }\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            context.maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (needle) {\n    if (typeList.indexOf(needle) == -1) {\n        hasType = false;\n        return false;\n    }\n}",
+    "receiverBase": "needleList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    callback(null, e.data);\n}",
+    "receiverBase": "$worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    session.clearAnnotations();\n    that.addMarkers(e.data, session);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    updateFloat(true);\n}",
+    "receiverBase": "anchor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, db) {\n    if (err) {\n        throw err;\n    }\n    localDb = db;\n    localDb.collection('storage').ensureIndex({ token: 1 }, function (err, inserted) {\n    });\n    getCollection(next);\n}",
+    "receiverBase": "MongoClient",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, inserted) {\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "ensureIndex"
+  },
+  {
+    "callback": "function () {\n    DP_Debug.dump(env.opt, '', false, 4);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    syncenv.timer = false;\n    caller.onMouseExitArea(env, piece, index, obj);\n    syncenv.chartEnv = false;\n    syncenv.inArea = -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (withinViewport(this, opts)) {\n        elems.push(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (withinViewport(this, opts)) {\n        elems.push(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (withinViewport(this, opts)) {\n        elems.push(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (withinViewport(this, opts)) {\n        elems.push(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (withinViewport(this, opts)) {\n        elems.push(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  }
+]

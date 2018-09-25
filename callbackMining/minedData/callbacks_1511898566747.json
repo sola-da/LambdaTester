@@ -1,0 +1,1270 @@
+[
+  {
+    "callback": "function (chunk) {\n    finalResp += chunk;\n}",
+    "receiverBase": "resp",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    if (typeof reqObj.callback !== 'undefined' && typeof reqObj.callback === 'function')\n        reqObj.callback(JSON.parse(finalResp));\n}",
+    "receiverBase": "resp",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (d) {\n    return typeof d === 'string' ? group[d] : d;\n}",
+    "receiverBase": "size",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    exports.snippetText = undefined;\n    exports.scope = 'logiql';\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (values) {\n    $parseOptions.$values = values ? parseValues(values) : {};\n    return $parseOptions.$values;\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (el) {\n    $parseOptions.$values = parseElement(el) || [];\n    return $parseOptions.$values;\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (match, index) {\n    var locals = {}, label, value, group;\n    locals[valueName] = match;\n    label = displayFn(locals);\n    value = valueFn(locals) || label;\n    group = groupByFn(locals);\n    return {\n        label: label,\n        value: value,\n        group: group ? { label: group } : undefined,\n        disabled: match.disabled\n    };\n}",
+    "receiverBase": "values",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, key) {\n    if (angular.element(value).is('option')) {\n        array.push(optionToData(angular.element(value)));\n    } else if (angular.element(value).is('optgroup')) {\n        var group = optionGroupToData(angular.element(value));\n        angular.forEach(angular.element(value).children(), function (gval, gkey) {\n            array.push(optionToData(angular.element(gval), group));\n        });\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gval, gkey) {\n    array.push(optionToData(angular.element(gval), group));\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, appObj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    appObj.connection(easyrtcid, callback);\n}",
+    "receiverBase": "pub",
+    "receiverCallee": "app"
+  },
+  {
+    "callback": "function (e) {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, newAppObj) {\n    if (!err) {\n        appObj = newAppObj;\n        getOption = appObj.getOption;\n    }\n    asyncCallback(null);\n}",
+    "receiverBase": "pub",
+    "receiverCallee": "app"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        if (!isCallbackRun) {\n            callback(null, false, 'MSG_REJECT_BAD_STRUCTURE');\n            isCallbackRun = true;\n            return;\n        }\n    } else {\n        callback(null, true, null);\n        return;\n    }\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function (currentOptionName, asyncCallback) {\n    appObj.setOption(currentOptionName, options[currentOptionName]);\n    asyncCallback(null);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, roomObj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    callback(null, appObj);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "createRoom"
+  },
+  {
+    "callback": "function (err, sessionObj) {\n    if (err) {\n        next(err);\n        return;\n    }\n    e.app[appName].connection[easyrtcid].toSession = e.app[appName].session[easyrtcsid];\n    _sessionObj = sessionObj;\n    next(null);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "session"
+  },
+  {
+    "callback": "function (err, emitToConnectionObj) {\n    if (!err && currentEasyrtcid != easyrtcid && emitToConnectionObj) {\n        pub.events.emit('emitEasyrtcCmd', emitToConnectionObj, 'roomData', msg, null, function () {\n        });\n    }\n}",
+    "receiverBase": "getApp",
+    "receiverCallee": "connection"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "events",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function (err, appRoomObj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    createConnectionRoom(roomName, appRoomObj, callback);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "room"
+  },
+  {
+    "callback": "function (err, roomDataObj) {\n    next(err);\n}",
+    "receiverBase": "connectionRoomObj",
+    "receiverCallee": "emitRoomDataDelta"
+  },
+  {
+    "callback": "function (err, emitToConnectionObj) {\n    if (!err && currentEasyrtcid != easyrtcid && emitToConnectionObj) {\n        pub.events.emit('emitEasyrtcCmd', emitToConnectionObj, 'roomData', msg, null, function () {\n        });\n    }\n}",
+    "receiverBase": "getApp",
+    "receiverCallee": "connection"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "events",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function (err, roomObj) {\n    _roomObj = roomObj;\n    callback(null, connectionRoomObj);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "room"
+  },
+  {
+    "callback": "function (err, sessionObj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    _sessionObj = sessionObj;\n    callback(null, connectionObj);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "session"
+  },
+  {
+    "callback": "function (currentOptionName, asyncCallback) {\n    roomObj.setOption(currentOptionName, options[currentOptionName]);\n    asyncCallback(null);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (currentEasyrtcid, asyncCallback) {\n    if (skipEasyrtcid && skipEasyrtcid == currentEasyrtcid) {\n        asyncCallback(null);\n        return;\n    }\n    appObj.connection(currentEasyrtcid, function (err, targetConnectionObj) {\n        pub.events.emit('emitEasyrtcCmd', targetConnectionObj, 'roomData', outgoingMsg, function (msg) {\n        }, function (err) {\n            asyncCallback(null);\n        });\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, targetConnectionObj) {\n    pub.events.emit('emitEasyrtcCmd', targetConnectionObj, 'roomData', outgoingMsg, function (msg) {\n    }, function (err) {\n        asyncCallback(null);\n    });\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "connection"
+  },
+  {
+    "callback": "function (msg) {\n}",
+    "receiverBase": "events",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function (err) {\n    asyncCallback(null);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function (err) {\n    next(null);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (currentEasyrtcid, asyncCallback) {\n    appObj.connection(currentEasyrtcid, function (err, connectionObj) {\n        if (err) {\n            asyncCallback(null);\n            return;\n        }\n        connectedObjArray.push(connectionObj);\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, connectionObj) {\n    if (err) {\n        asyncCallback(null);\n        return;\n    }\n    connectedObjArray.push(connectionObj);\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "connection"
+  },
+  {
+    "callback": "function (err) {\n    callback(null, connectedObjArray);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    tree = new SubmoduleTree(subs);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(tree.upExecutionOrder()).toEqual([\n        'a',\n        'b',\n        'c'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    tree = new SubmoduleTree(subs);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(tree.upExecutionOrder()).toEqual([\n        'c',\n        'a',\n        'b'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    tree = new SubmoduleTree(subs);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(tree.upExecutionOrder()).toEqual([\n        'c',\n        'a',\n        'b'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (index, value) {\n    itemMap[value.id] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var id = this;\n    $(f.data).each(function () {\n        if (id.localeCompare('' + this.id) == 0)\n            data.push(this);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (id.localeCompare('' + this.id) == 0)\n        data.push(this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this[f.formatProperty].localeCompare(term) === 0;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (selection) {\n    $scope.analyzeAdhoc($scope.tokenizerSelection, $scope.filterSelection);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (selection) {\n    $scope.analyzeAdhoc($scope.tokenizerSelection, $scope.filterSelection);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    $scope.analyzeAdhoc($scope.tokenizerSelection, $scope.filterSelection);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (response) {\n    var tokens = [];\n    for (i in response.tokens) {\n        tokens.push(response.tokens[i]);\n    }\n    $scope.analyzer.atext['adhoc'] = tokens;\n}",
+    "receiverBase": "post",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (done) {\n    fs.stat(__filename).then(function (stats) {\n        assert.equal(typeof stats.size, 'number');\n        done();\n    }).catch(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (stats) {\n    assert.equal(typeof stats.size, 'number');\n    done();\n}",
+    "receiverBase": "stat",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var stats = fs.statSync(__filename);\n    assert.equal(typeof stats.size, 'number');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    fs.exists(__filename).then(function (exists) {\n        assert(exists);\n        done();\n    }).catch(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (exists) {\n    assert(exists);\n    done();\n}",
+    "receiverBase": "exists",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var exists = fs.existsSync(__filename);\n    assert(exists);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var cp = require('../child_process');\n    it('.exec().then()', function (done) {\n        cp.exec('node --version').then(function (stdout) {\n            assert.equal(stdout.toString('utf8')[0], 'v');\n            done();\n        });\n    });\n    it('.exec().catch()', function (done) {\n        cp.exec('lkajsdfkljalskdfjalsdf').catch(function (err) {\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    cp.exec('node --version').then(function (stdout) {\n        assert.equal(stdout.toString('utf8')[0], 'v');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (stdout) {\n    assert.equal(stdout.toString('utf8')[0], 'v');\n    done();\n}",
+    "receiverBase": "exec",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    cp.exec('lkajsdfkljalskdfjalsdf').catch(function (err) {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    done();\n}",
+    "receiverBase": "exec",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    var crypto = require('../crypto');\n    it('.randomBytes().then()', function (done) {\n        crypto.randomBytes(8).then(function (buf) {\n            assert.equal(buf.length, 8);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    crypto.randomBytes(8).then(function (buf) {\n        assert.equal(buf.length, 8);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (buf) {\n    assert.equal(buf.length, 8);\n    done();\n}",
+    "receiverBase": "randomBytes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var zlib = require('../zlib');\n    it('.gzip().then().gunzip()', function (done) {\n        zlib.gzip('lol').then(function (res) {\n            return zlib.gunzip(res);\n        }).then(function (string) {\n            assert.equal(string, 'lol');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    zlib.gzip('lol').then(function (res) {\n        return zlib.gunzip(res);\n    }).then(function (string) {\n        assert.equal(string, 'lol');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    return zlib.gunzip(res);\n}",
+    "receiverBase": "gzip",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (string) {\n    assert.equal(string, 'lol');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "x",
+    "receiverCallee": "mapPar"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "x",
+    "receiverCallee": "reducePar"
+  },
+  {
+    "callback": "function (styles) {\n    translate(styles, thisRequest.href, thisRequest.media);\n    parsedSheets[thisRequest.href] = true;\n    setTimeout(function () {\n        makeRequests();\n    }, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function () {\n    makeRequests();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var xmlhttpmethod = false;\n    try {\n        xmlhttpmethod = new win.XMLHttpRequest();\n    } catch (e) {\n        xmlhttpmethod = new win.ActiveXObject('Microsoft.XMLHTTP');\n    }\n    return function () {\n        return xmlhttpmethod;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (answers) {\n    console.log(JSON.stringify(answers, null, '  '));\n}",
+    "receiverBase": "inquirer",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function (kv) {\n    return kv[0];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (kv) {\n    return kv[1];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    fun(key, me.massoc(key));\n}",
+    "receiverBase": "massocKeys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (pair) {\n    fun(pair[0], pair[1]);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (i) {\n    ret.push.apply(ret, i);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (i) {\n    return !f(i);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    sortValue = sortFunction(a, b);\n    return sortValue === 0 ? a.ss_i - b.ss_i : sortValue;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (proceed, elem, computed) {\n    return elem.attr ? elem.opacity || 0 : proceed.call(this, elem, computed);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (fx) {\n    var elem = fx.elem, ends;\n    if (!fx.started) {\n        ends = pathAnim.init(elem, elem.d, elem.toD);\n        fx.start = ends[0];\n        fx.end = ends[1];\n        fx.started = true;\n    }\n    elem.attr('d', pathAnim.step(fx.start, fx.end, fx.pos, elem.toD));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addAnimSetter"
+  },
+  {
+    "callback": "function (i, fn) {\n    var base = event[fn];\n    event[fn] = function () {\n        try {\n            base.call(event);\n        } catch (e) {\n            if (fn === 'preventDefault') {\n                defaultPrevented = true;\n            }\n        }\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    return Color(stop[1]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (stop, i) {\n    ret.stops[i] = [\n        ret.stops[i][0],\n        stop.get(format)\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    stop.brighten(alpha);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    var stopObject;\n    if (stop[1].indexOf('rgba') === 0) {\n        colorObject = Color(stop[1]);\n        stopColor = colorObject.get('rgb');\n        stopOpacity = colorObject.get('a');\n    } else {\n        stopColor = stop[1];\n        stopOpacity = 1;\n    }\n    stopObject = renderer.createElement('stop').attr({\n        offset: stop[0],\n        'stop-color': stopColor,\n        'stop-opacity': stopOpacity\n    }).add(gradientObject);\n    gradientObject.stops.push(stopObject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    wrapper[key] = pick(hash[key], wrapper[key]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tspan) {\n    tspan.style.display = display;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    wrapper.safeRemoveChild(shadow);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        label.attr(hoverState).css(hoverStyle);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        stateOptions = [\n            normalState,\n            hoverState,\n            pressedState\n        ][curState];\n        stateStyle = [\n            normalStyle,\n            hoverStyle,\n            pressedStyle\n        ][curState];\n        label.attr(stateOptions).css(stateStyle);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        callback.call(label);\n    }\n}",
+    "receiverBase": "label",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (prop) {\n    if (styles[prop] !== UNDEFINED) {\n        textStyles[prop] = styles[prop];\n        delete styles[prop];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    css(shadow, {\n        marginLeft: translateX + 1,\n        marginTop: translateY + 1\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    renderer.invertChild(child, elem);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    shadow.style[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (member) {\n    if (member.element) {\n        member.css(clipRect.getCSS(member));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop, i) {\n    if (regexRgba.test(stop[1])) {\n        colorObject = Color(stop[1]);\n        stopColor = colorObject.get('rgb');\n        stopOpacity = colorObject.get('a');\n    } else {\n        stopColor = stop[1];\n        stopOpacity = 1;\n    }\n    colors.push(stop[0] * 100 + '% ' + stopColor);\n    if (!i) {\n        opacity1 = stopOpacity;\n        color2 = stopColor;\n    } else {\n        opacity2 = stopOpacity;\n        color1 = stopColor;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    ren.invertChild(child, element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    events[eventType].apply(plotLine, [e]);\n}",
+    "receiverBase": "svgElem",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (arr) {\n    i = arr.length;\n    while (i--) {\n        if (arr[i].id === id) {\n            erase(arr, arr[i]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    xData = series.xData;\n    loopLength = series.xIncrement ? 1 : xData.length - 1;\n    for (i = loopLength; i > 0; i--) {\n        distance = xData[i] - xData[i - 1];\n        if (closestDataRange === UNDEFINED || distance < closestDataRange) {\n            closestDataRange = distance;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.processData(axis.min !== axis.oldMin || axis.max !== axis.oldMax);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    var options = axis.options, horiz = axis.horiz, key = [\n            horiz ? options.left : options.top,\n            horiz ? options.width : options.height,\n            options.pane\n        ].join(',');\n    if (others[key]) {\n        hasOther = true;\n    } else {\n        others[key] = 1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    if (series.isDirtyData || series.isDirty || series.xAxis.isDirty) {\n        isDirtyData = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    delete serie.kdTree;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    axis.userMin = newMin;\n    axis.userMax = newMax;\n    axis.eventArgs = eventArguments;\n    axis.isDirtyExtremes = true;\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (rot) {\n    var score;\n    if (rot && rot >= -90 && rot <= 90) {\n        step = getStep(mathAbs(labelMetrics.h / mathSin(deg2rad * rot)));\n        score = step + mathAbs(rot / 360);\n        if (score < bestScore) {\n            bestScore = score;\n            rotation = rot;\n            newTickInterval = step;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tick) {\n    tick = ticks[tick];\n    if (tick && tick.labelLength > labelLength) {\n        labelLength = tick.labelLength;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    var tick = ticks[pos], label = tick && tick.label;\n    if (label) {\n        if (css) {\n            label.css(merge(css, label.specCss));\n        }\n        delete label.specCss;\n        label.attr(attr);\n        tick.rotation = attr.rotation;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (!ticks[pos]) {\n        ticks[pos] = new Tick(axis, pos);\n    } else {\n        ticks[pos].addLabel();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (side === 0 || side === 2 || {\n            1: 'left',\n            3: 'right'\n        }[side] === axis.labelAlign) {\n        labelOffset = mathMax(ticks[pos].getLabelSize(), labelOffset);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (coll) {\n    var pos;\n    for (pos in coll) {\n        coll[pos].isActive = false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (!minorTicks[pos]) {\n        minorTicks[pos] = new Tick(axis, pos, 'minor');\n    }\n    if (slideInTicks && minorTicks[pos].isNew) {\n        minorTicks[pos].render(null, true);\n    }\n    minorTicks[pos].render(null, false, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos, i) {\n    if (!isLinked || pos >= axis.min && pos <= axis.max) {\n        if (!ticks[pos]) {\n            ticks[pos] = new Tick(axis, pos);\n        }\n        if (slideInTicks && ticks[pos].isNew) {\n            ticks[pos].render(i, true, 0.1);\n        }\n        ticks[pos].render(i);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (plotLineOptions) {\n    axis.addPlotBandOrLine(plotLineOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (plotLine) {\n    plotLine.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.isDirty = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (coll) {\n    destroyObjectProperties(coll);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    if (axis[prop]) {\n        axis[prop] = axis[prop].destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (time) {\n    return interval <= timeUnits.hour && time % timeUnits.day === localTimezoneOffset;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (time) {\n    higherRanks[time] = 'day';\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (tooltip) {\n        tooltip.move(x, y, anchorX, anchorY);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tooltip.label.fadeOut();\n    tooltip.isHidden = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    yAxis = point.series.yAxis;\n    xAxis = point.series.xAxis;\n    plotX += point.plotX + (!inverted && xAxis ? xAxis.left - plotLeft : 0);\n    plotY += (point.plotLow ? (point.plotLow + point.plotHigh) / 2 : point.plotY) + (!inverted && yAxis ? yAxis.top - plotTop : 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    item.setState(HOVER_STATE);\n    pointConfig.push(item.getLabelConfig());\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    var tooltipOptions = item.series.tooltipOptions;\n    return (tooltipOptions.pointFormatter || item.point.tooltipFormatter).call(item.point, tooltipOptions.pointFormat);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (axis) {\n    coordinates[axis.isXAxis ? 'xAxis' : 'yAxis'].push({\n        axis: axis,\n        value: axis.toValue(e[axis.horiz ? 'chartX' : 'chartY'])\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    noSharedTooltip = s.noSharedTooltip && shared;\n    if (s.visible && !noSharedTooltip && pick(s.options.enableMouseTracking, true)) {\n        kdpointT = s.searchPoint(e);\n        if (kdpointT) {\n            kdpoints.push(kdpointT);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (p) {\n    if (p && defined(p.plotX) && defined(p.plotY)) {\n        if (p.dist.distX < distance || (p.dist.distX === distance || p.series.kdDimensions > 1) && p.dist.distR < rdistance) {\n            distance = p.dist.distX;\n            rdistance = p.dist.distR;\n            kdpoint = p;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    point.onMouseOver(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.drawCrosshair(e, pick(kdpoint, hoverPoint));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (pick(axis.options.crosshair && axis.options.crosshair.snap, true)) {\n        axis.drawCrosshair(null, allowMove);\n    } else {\n        axis.hideCrosshair();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.hideCrosshair();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    seriesAttribs = attribs || series.getPlotBox();\n    if (series.xAxis && series.xAxis.zoomEnabled) {\n        series.group.attr(seriesAttribs);\n        if (series.markerGroup) {\n            series.markerGroup.attr(seriesAttribs);\n            series.markerGroup.clip(clip ? chart.clipRect : null);\n        }\n        if (series.dataLabelsGroup) {\n            series.dataLabelsGroup.attr(seriesAttribs);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (args) {\n    chart.zoom(extend(args, hasPinched ? { animation: false } : null));\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (e) {\n    return self.normalize(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e, i) {\n    pinchDown[i] = {\n        chartX: e.chartX,\n        chartY: e.chartY\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.zoomEnabled) {\n        var bounds = chart.bounds[axis.horiz ? 'h' : 'v'], minPixelPadding = axis.minPixelPadding, min = axis.toPixels(pick(axis.options.min, axis.dataMin)), max = axis.toPixels(pick(axis.options.max, axis.dataMax)), absMin = mathMin(min, max), absMax = mathMax(min, max);\n        bounds.min = mathMin(axis.pos, absMin - minPixelPadding);\n        bounds.max = mathMax(axis.pos + axis.len, absMax + minPixelPadding);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    touches[e.pointerId] = {\n        pageX: e.pageX,\n        pageY: e.pageY,\n        target: e.currentTarget\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (e) {\n    touches[e.pointerId] = {\n        pageX: e.pageX,\n        pageY: e.pageY\n    };\n    if (!touches[e.pointerId].target) {\n        touches[e.pointerId].target = e.currentTarget;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (e) {\n    delete touches[e.pointerId];\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (proceed, chart, options) {\n    proceed.call(this, chart, options);\n    if (this.hasZoom || this.followTouchMove) {\n        css(chart.container, {\n            '-ms-touch-action': NONE,\n            'touch-action': NONE\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (proceed) {\n    proceed.apply(this);\n    if (this.hasZoom || this.followTouchMove) {\n        this.batchMSEvents(addEvent);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (proceed) {\n    this.batchMSEvents(removeEvent);\n    proceed.call(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    legend.positionCheckboxes();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (key) {\n    if (item[key]) {\n        item[key] = item[key].destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    legend.destroyItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    var checkbox = item.checkbox, top;\n    if (checkbox) {\n        top = translateY + checkbox.y + (scrollOffset || 0) + 3;\n        css(checkbox, {\n            left: alignAttr.translateX + item.checkboxOffset + checkbox.x - 20 + PX,\n            top: top + PX,\n            display: top > translateY - 6 && top < translateY + clipHeight - 6 ? '' : NONE\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var seriesOptions = series.options;\n    if (!pick(seriesOptions.showInLegend, !defined(seriesOptions.linkedTo) ? UNDEFINED : false, true)) {\n        return;\n    }\n    allItems = allItems.concat(series.legendItems || (seriesOptions.legendType === 'point' ? series.data : series));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (alignments, side) {\n    if (alignments.test(alignment) && !defined(margin[side])) {\n        chart[marginNames[side]] = mathMax(chart[marginNames[side]], chart.legend[(side + 1) % 2 ? 'legendHeight' : 'legendWidth'] + [\n            1,\n            -1,\n            -1,\n            1\n        ][side] * options[side % 2 ? 'x' : 'y'] + pick(options.margin, 12) + spacing[side]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a.options && a.options.legendIndex || 0) - (b.options && b.options.legendIndex || 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "stableSort"
+  },
+  {
+    "callback": "function (item) {\n    legend.renderItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    legend.positionItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item, i) {\n    var y = item._legendItemPos[1], h = mathRound(item.legendItem.getBBox().height), len = pages.length;\n    if (!len || y - pages[len - 1] > clipHeight && (lastY || y) !== pages[len - 1]) {\n        pages.push(lastY || y);\n        len++;\n    }\n    if (i === allItems.length - 1 && y + h - pages[len - 1] > clipHeight) {\n        pages.push(y);\n    }\n    if (y !== lastY) {\n        lastY = y;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    legend.scroll(-1, animation);\n}",
+    "receiverBase": "symbol",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    legend.scroll(1, animation);\n}",
+    "receiverBase": "symbol",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (proceed, item) {\n    var legend = this, runPositionItem = function () {\n            if (item._legendItemPos) {\n                proceed.call(legend, item);\n            }\n        };\n    runPositionItem();\n    setTimeout(runPositionItem);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    chart.initReflow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (serie) {\n    if (serie.isDirty) {\n        if (serie.options.legendType === 'point') {\n            redrawLegend = true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.isDirty) {\n        isDirtyBox = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.isDirtyExtremes) {\n        axis.isDirtyExtremes = false;\n        afterRedraw.push(function () {\n            fireEvent(axis, 'afterSetExtremes', extend(axis.eventArgs, axis.getExtremes()));\n            delete axis.eventArgs;\n        });\n    }\n    if (isDirtyBox || hasStackedSeries) {\n        axis.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    fireEvent(axis, 'afterSetExtremes', extend(axis.eventArgs, axis.getExtremes()));\n    delete axis.eventArgs;\n}",
+    "receiverBase": "afterRedraw",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (serie) {\n    if (serie.isDirty && serie.visible && (!serie.isCartesian || serie.xAxis)) {\n        serie.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (callback) {\n    callback.call();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.index = i;\n    axis.isX = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.index = i;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axisOptions) {\n    axis = new Axis(chart, axisOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    points = points.concat(grep(serie.points || [], function (point) {\n        return point.selected;\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    return point.selected;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (serie) {\n    return serie.selected;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.stacks && axis.hasVisibleSeries) {\n        axis.oldStacks = axis.stacks;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    if (series.options.stacking && (series.visible === true || chart.options.chart.ignoreHiddenSeries === false)) {\n        series.stackKey = series.type + pick(series.options.stack, '');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.getOffset();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, side) {\n    if (!defined(margin[side])) {\n        chart[m] += axisOffset[side];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    removeEvent(win, 'resize', reflow);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    chart.isResizing -= 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (axis) {\n    axis.isDirty = true;\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    serie.isDirty = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setAxisSize();\n    axis.setAxisTranslation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, side) {\n    chart[m] = pick(chart.margin[side], chart.spacing[side]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    klass = seriesTypes[optionsChart.type || optionsChart.defaultSeriesType];\n    value = chart[key] || optionsChart[key] || klass && klass.prototype[key];\n    i = seriesOptions && seriesOptions.length;\n    while (!value && i--) {\n        klass = seriesTypes[seriesOptions[i].type];\n        if (klass && klass.prototype[key]) {\n            value = true;\n        }\n    }\n    chart[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.linkedSeries.length = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var linkedTo = series.options.linkedTo;\n    if (isString(linkedTo)) {\n        if (linkedTo === ':previous') {\n            linkedTo = chart.series[series.index - 1];\n        } else {\n            linkedTo = chart.get(linkedTo);\n        }\n        if (linkedTo) {\n            linkedTo.linkedSeries.push(series);\n            series.linkedParent = linkedTo;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    serie.translate();\n    serie.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (label) {\n    var style = extend(labels.style, label.style), x = pInt(style.left) + chart.plotLeft, y = pInt(style.top) + chart.plotTop + 12;\n    delete style.left;\n    delete style.top;\n    chart.renderer.text(label.html, x, y).attr({ zIndex: 2 }).css(style).add();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.horiz && redoHorizontal || !axis.horiz && redoVertical) {\n        axis.setTickInterval(true);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (credits.href) {\n        location.href = credits.href;\n    }\n}",
+    "receiverBase": "text",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (name) {\n    var prop = chart[name];\n    if (prop && prop.destroy) {\n        chart[name] = prop.destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    chart.firstRender();\n}",
+    "receiverBase": "CanVGController",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    doc.detachEvent('onreadystatechange', chart.firstRender);\n    if (doc.readyState === 'complete') {\n        chart.firstRender();\n    }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (serieOptions) {\n    chart.initSeries(serieOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    if (chart.index !== UNDEFINED) {\n        fn.apply(chart, [chart]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    key = '{point.' + key;\n    if (valuePrefix || valueSuffix) {\n        pointFormat = pointFormat.replace(key + '}', valuePrefix + key + '}' + valueSuffix);\n    }\n    pointFormat = pointFormat.replace(key + '}', key + ':,.' + valueDecimals + 'f}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    series[key + 'Data'] = [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series, i) {\n    series.index = i;\n    series.name = series.name || 'Series ' + (i + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axisOptions = axis.options;\n    if (seriesOptions[AXIS] === axisOptions.index || seriesOptions[AXIS] !== UNDEFINED && seriesOptions[AXIS] === axisOptions.id || seriesOptions[AXIS] === UNDEFINED && axisOptions.index === 0) {\n        axis.series.push(series);\n        series[AXIS] = axis;\n        axis.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point, i) {\n    if (point.y === null) {\n        if (i > lastNull + 1) {\n            segments.push(points.slice(lastNull + 1, i));\n        }\n        lastNull = i;\n    } else if (i === pointsLength - 1) {\n        segments.push(points.slice(lastNull + 1, i + 1));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point, i) {\n    oldData[i].update(point, false, null, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    series[key + 'Data'].length = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (state) {\n    seriesPointAttr[state] = series.convertAttribs(stateOptions[state], seriesPointAttr[NORMAL_STATE]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (AXIS) {\n    axis = series[AXIS];\n    if (axis) {\n        erase(axis.series, series);\n        axis.isDirty = axis.forceRedraw = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    if (series[prop]) {\n        destroy = issue134 && prop === 'group' ? 'hide' : 'destroy';\n        series[prop][destroy]();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (segment) {\n    segmentPath = series.getSegmentPath(segment);\n    if (segment.length > 1) {\n        graphPath = graphPath.concat(segmentPath);\n    } else {\n        singlePoints.push(segment[0]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (threshold, i) {\n    props.push([\n        'colorGraph' + i,\n        threshold.color || series.color,\n        threshold.dashStyle || options.dashStyle\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (groupName) {\n    if (series[groupName]) {\n        series[groupName].attr(size).invert();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    removeEvent(chart, 'resize', setInvert);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (point) {\n    if (point.redraw) {\n        point.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    series.afterAnimate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a, b) {\n    return a[axis] - b[axis];\n}",
+    "receiverBase": "points",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    series = chart.initSeries(options);\n    chart.isDirtyLegend = true;\n    chart.linkSeries();\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (shape) {\n    if (shape) {\n        shape.shift = currentShift + 1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    series.destroy();\n    chart.isDirtyLegend = chart.isDirtyBox = true;\n    chart.linkSeries();\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (prop) {\n    preserve[prop] = series[prop];\n    delete series[prop];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    series[prop] = preserve[prop];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.options.index = i;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (threshold, i) {\n    props.push([\n        'colorArea' + i,\n        threshold.color || series.color,\n        threshold.fillColor || options.fillColor\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    var areaKey = prop[0], area = series[areaKey];\n    if (area) {\n        area.animate({ d: areaPath });\n    } else {\n        series[areaKey] = series.chart.renderer.path(areaPath).attr({\n            fill: pick(prop[2], Color(prop[1]).setOpacity(pick(options.fillOpacity, 0.75)).get()),\n            zIndex: 0\n        }).add(series.group);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.type === series.type) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.type === series.type) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (point[key]) {\n        point[key][vis ? 'show' : 'hide'](true);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    var graphic = point.graphic, args = point.shapeArgs;\n    if (graphic) {\n        graphic.attr({\n            r: series.center[3] / 2,\n            start: startAngleRad,\n            end: startAngleRad\n        });\n        graphic.animate({\n            r: args.r,\n            start: args.start,\n            end: args.end\n        }, series.options.animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.angle !== undefined && (b.angle - a.angle) * sign;\n}",
+    "receiverBase": "points",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    if (series.visible) {\n        dataLabelsGroup.show();\n    }\n    dataLabelsGroup[seriesOptions.animation ? 'animate' : 'attr']({ opacity: 1 }, { duration: 200 });\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel && point.visible) {\n        halves[point.half].push(point);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    var dataLabel = point.dataLabel, _pos;\n    if (dataLabel) {\n        _pos = dataLabel._pos;\n        if (_pos) {\n            dataLabel.attr(dataLabel._attr);\n            dataLabel[dataLabel.moved ? 'animate' : 'attr'](_pos);\n            dataLabel.moved = true;\n        } else if (dataLabel) {\n            dataLabel.attr({ y: -999 });\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel) {\n        point.dataLabel._pos = null;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var dlOptions = series.options.dataLabels;\n    if ((dlOptions.enabled || series._hasPointLabels) && !dlOptions.allowOverlap && series.visible) {\n        each(series.points, function (point) {\n            if (point.dataLabel) {\n                point.dataLabel.labelrank = point.labelrank;\n                labels.push(point.dataLabel);\n            }\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel) {\n        point.dataLabel.labelrank = point.labelrank;\n        labels.push(point.dataLabel);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.graphic) {\n        point.graphic.element.point = point;\n    }\n    if (point.dataLabel) {\n        point.dataLabel.element.point = point;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (series[key]) {\n        series[key].addClass(PREFIX + 'tracker').on('mouseover', onMouseOver).on('mouseout', function (e) {\n            pointer.onTrackerMouseOut(e);\n        }).css(css);\n        if (hasTouch) {\n            series[key].on('touchstart', onMouseOver);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    pointer.onTrackerMouseOut(e);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (tracker) {\n    tracker.addClass(PREFIX + 'tracker').on('mouseover', onMouseOver).on('mouseout', function (e) {\n        pointer.onTrackerMouseOut(e);\n    }).css(css);\n    if (hasTouch) {\n        tracker.on('touchstart', onMouseOver);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    pointer.onTrackerMouseOut(e);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    item.setState(HOVER_STATE);\n    legendItem.css(legend.options.itemHoverStyle);\n}",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    legendItem.css(item.visible ? itemStyle : itemHiddenStyle);\n    item.setState();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var strLegendItemClick = 'legendItemClick', fnLegendItemClick = function () {\n            item.setVisible();\n        };\n    event = { browserEvent: event };\n    if (item.firePointEvent) {\n        item.firePointEvent(strLegendItemClick, event, fnLegendItemClick);\n    } else {\n        fireEvent(item, strLegendItemClick, event, fnLegendItemClick);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var target = event.target;\n    fireEvent(item.series || item, 'checkboxClick', {\n        checked: target.checked,\n        item: item\n    }, function () {\n        item.select();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    item.select();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function () {\n    chart.zoomOut();\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "button"
+  },
+  {
+    "callback": "function () {\n    chart.zoom();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (axis) {\n    hasZoomed = axis.zoom();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axisData) {\n    var axis = axisData.axis, isXAxis = axis.isXAxis;\n    if (pointer[isXAxis ? 'zoomX' : 'zoomY'] || pointer[isXAxis ? 'pinchX' : 'pinchY']) {\n        hasZoomed = axis.zoom(axisData.min, axisData.max);\n        if (axis.displayBtn) {\n            displayButton = true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (loopPoint) {\n    if (loopPoint.selected && loopPoint !== point) {\n        loopPoint.selected = loopPoint.options.selected = false;\n        series.options.data[inArray(loopPoint, series.data)] = loopPoint.options;\n        loopPoint.setState(NORMAL_STATE);\n        loopPoint.firePointEvent('unselect');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (series[key]) {\n        series[key][showOrHide]();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.options.stacking && otherSeries.visible) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    otherSeries.setVisible(vis, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  }
+]

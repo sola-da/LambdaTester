@@ -1,0 +1,261 @@
+[
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_NETWORK;\n    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;\n    Ti.Geolocation.Android.manualMode = false;\n}",
+    "receiverBase": "button1",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.preferredProvider = Ti.Geolocation.PROVIDER_GPS;\n    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;\n    Ti.Geolocation.Android.manualMode = false;\n}",
+    "receiverBase": "button2",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_LOW;\n    Ti.Geolocation.Android.manualMode = false;\n}",
+    "receiverBase": "button3",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_HIGH;\n    Ti.Geolocation.Android.manualMode = false;\n}",
+    "receiverBase": "button4",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.Android.removeLocationProvider(providerPassive);\n    Ti.Geolocation.Android.removeLocationProvider(providerGps);\n    Ti.Geolocation.Android.addLocationProvider(providerNetwork);\n    Ti.Geolocation.Android.manualMode = true;\n}",
+    "receiverBase": "button5",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.Android.removeLocationProvider(providerPassive);\n    Ti.Geolocation.Android.addLocationProvider(providerNetwork);\n    Ti.Geolocation.Android.addLocationProvider(providerGps);\n    Ti.Geolocation.Android.manualMode = true;\n}",
+    "receiverBase": "button6",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.Android.removeLocationProvider(providerPassive);\n    Ti.Geolocation.Android.removeLocationProvider(providerNetwork);\n    Ti.Geolocation.Android.addLocationProvider(providerGps);\n    Ti.Geolocation.Android.manualMode = true;\n}",
+    "receiverBase": "button7",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.Android.addLocationRule(gpsRule);\n}",
+    "receiverBase": "button8",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    Ti.Geolocation.Android.removeLocationRule(gpsRule);\n}",
+    "receiverBase": "button9",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    if ($this.input.length) {\n        var type = $this.input.attr('type');\n        $this.input.attr('type', type == 'text' ? 'password' : 'text');\n        $this.element.text($this.options[type == 'text' ? 'lblShow' : 'lblHide']);\n    }\n}",
+    "receiverBase": "$element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var ele = $(this);\n    if (!ele.data('formPassword')) {\n        e.preventDefault();\n        var obj = new FormPassword(ele, UI.Utils.options(ele.attr('data-uk-form-password')));\n        ele.trigger('click');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (module) {\n    lang.mixin(this, new module());\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (w) {\n    return w.moveTo === '#' + view.id || w.moveTo === view.id;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (child) {\n    if (child.resize) {\n        child.resize();\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child.setArrow && child.setArrow();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child.set('selected', false);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        browser.get('index-jq-nocache.html#!/api/ng.filter:json');\n    });\n    it('should jsonify filtered objects', function () {\n        expect(element(by.binding('{\\'name\\':\\'value\\'}')).getText()).toMatch(/\\{\\n  \"name\": ?\"value\"\\n}/);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    browser.get('index-jq-nocache.html#!/api/ng.filter:json');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(element(by.binding('{\\'name\\':\\'value\\'}')).getText()).toMatch(/\\{\\n  \"name\": ?\"value\"\\n}/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, pid) {\n    if (err)\n        return sys.puts('Error stopping daemon: ' + err);\n    sys.puts('Successfully stopped daemon with pid: ' + pid);\n}",
+    "receiverBase": "daemon",
+    "receiverCallee": "kill"
+  },
+  {
+    "callback": "function (req, res) {\n    res.writeHead(200, { 'Content-Type': 'text/html' });\n    res.write('<h1>Hello, World!</h1>');\n    res.end();\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (err, started) {\n    if (err) {\n        console.dir(err.stack);\n        return sys.puts('Error starting daemon: ' + err);\n    }\n    sys.puts('Successfully started daemon');\n}",
+    "receiverBase": "daemon",
+    "receiverCallee": "daemonize"
+  },
+  {
+    "callback": "function ($scope, $http) {\n    $http.get('articles.json').then(function (articlesResponse) {\n        $scope.articles = articlesResponse.data;\n    });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (articlesResponse) {\n    $scope.articles = articlesResponse.data;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return Q.ninvoke(git, 'clone', url, repoPath);\n}",
+    "receiverBase": "nfcall",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.createFromFolder(repoPath + (opts.path ? '/' + opts.path : ''), attributes, opts);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, stat) {\n    stat.filename = filename;\n    if (err) {\n        callback(err);\n    } else {\n        callback(err, stat);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function () {\n    return Q.ninvoke(git, 'clone', url, repoPath);\n}",
+    "receiverBase": "nfcall",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return Q.nfcall(fs.readdir, repoPath);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (files) {\n    var funcs = [];\n    _.each(files, function (file) {\n        if (ignoreFolders.indexOf(file) === -1) {\n            funcs.push(Q.nfcall(infoStat, repoPath + '/' + file));\n        }\n    });\n    return funcs;\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (file) {\n    if (ignoreFolders.indexOf(file) === -1) {\n        funcs.push(Q.nfcall(infoStat, repoPath + '/' + file));\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var stats = Array.prototype.slice.call(arguments, 0);\n    var funcs = [];\n    _.each(stats, function (stat) {\n        if (stat.isDirectory()) {\n            funcs.push(self.createFromFolder(stat.filename, { name: stat.filename.replace(/^.*[\\\\\\/]/, '') }));\n        }\n    });\n    return funcs;\n}",
+    "receiverBase": "then",
+    "receiverCallee": "spread"
+  },
+  {
+    "callback": "function (stat) {\n    if (stat.isDirectory()) {\n        funcs.push(self.createFromFolder(stat.filename, { name: stat.filename.replace(/^.*[\\\\\\/]/, '') }));\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (declare, RoundRectList, DataListMixin) {\n    return declare('dojox.mobile.RoundRectDataList', [\n        RoundRectList,\n        DataListMixin\n    ], {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function ($controller, $rootScope, $httpBackend, CONFIG) {\n    scope = $rootScope.$new();\n    httpMock = $httpBackend;\n    config = CONFIG;\n    httpMock.whenGET(config.BABITCH_WS_URL + '/players').respond(Fixtures.players);\n    httpMock.whenGET(config.BABITCH_WS_URL + '/games?page=1&per_page=100').respond(Fixtures.games);\n    theBabitchHomeCtrl = $controller('babitchHomeCtrl', { $scope: scope });\n    httpMock.flush();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    httpMock.verifyNoOutstandingExpectation();\n    httpMock.verifyNoOutstandingRequest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    expect(scope.stats.playersList.length).toBe(22);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(scope.stats.gamesList.length).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(scope.stats.statsPlayers.length).toBe(22);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(scope.stats.statsTeams.length).toBe(5);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_super) {\n    var Main;\n    __extends(Mains, _super);\n    function Mains() {\n        _ref = Mains.__super__.constructor.apply(this, arguments);\n        return _ref;\n    }\n    Main = app.models.Main;\n    return Mains;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (method) {\n    Shred.prototype[method] = function (options) {\n        options.method = method;\n        return this.request(options);\n    };\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (__dependency1__, __exports__) {\n    'use strict';\n    var Base = __dependency1__['default'];\n    __exports__['default'] = Base.extend({\n        restore: function (data) {\n            return new Ember.RSVP.resolve();\n        },\n        authenticate: function (options) {\n            return new Ember.RSVP.resolve();\n        },\n        invalidate: function (data) {\n            return new Ember.RSVP.resolve();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (__dependency1__) {\n    'use strict';\n    var initializer = __dependency1__['default'];\n    Ember.onLoad('Ember.Application', function (Application) {\n        Application.initializer(initializer);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (Application) {\n    Application.initializer(initializer);\n}",
+    "receiverBase": "Ember",
+    "receiverCallee": "onLoad"
+  },
+  {
+    "callback": "function (__dependency1__, __exports__) {\n    'use strict';\n    var TestAuthenticator = __dependency1__['default'];\n    __exports__['default'] = {\n        name: 'simple-auth-testing',\n        before: 'simple-auth',\n        initialize: function (container, application) {\n            container.register('simple-auth-authenticator:test', TestAuthenticator);\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (app) {\n    var session = app.__container__.lookup(Configuration.session);\n    session.authenticate('simple-auth-authenticator:test');\n    return wait();\n}",
+    "receiverBase": "Test",
+    "receiverCallee": "registerAsyncHelper"
+  },
+  {
+    "callback": "function (app) {\n    var session = app.__container__.lookup(Configuration.session);\n    if (session.get('isAuthenticated')) {\n        session.invalidate();\n    }\n    return wait();\n}",
+    "receiverBase": "Test",
+    "receiverCallee": "registerAsyncHelper"
+  },
+  {
+    "callback": "function (__exports__) {\n    __exports__['default'] = global.SimpleAuth.Authenticators.Base;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (__exports__) {\n    __exports__['default'] = global.SimpleAuth.Configuration;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (args) {\n    promise.resolve({\n        args: args,\n        input: command\n    });\n}",
+    "receiverBase": "argsPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    console.log('data', data);\n    t.deepEquals(data.args, {}, '');\n}",
+    "receiverBase": "parse",
+    "receiverCallee": "then"
+  }
+]

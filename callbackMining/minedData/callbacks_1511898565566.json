@@ -1,0 +1,156 @@
+[
+  {
+    "callback": "function () {\n    return !!Date.now ? Date.now : function () {\n        return +new Date();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (route) {\n    route(app);\n}",
+    "receiverBase": "routes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (entry) {\n    if (_.isString(entry)) {\n        return entry;\n    } else {\n        return JSON.stringify(entry);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    var cc = x.charCodeAt(0);\n    if (cc > 31 && cc < 127) {\n        return x;\n    } else {\n        if (cc < 16) {\n            return bold('<0' + cc.toString(16) + '>');\n        } else {\n            return bold('<' + cc.toString(16) + '>');\n        }\n    }\n}",
+    "receiverBase": "toString",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return nav.navigate(nav.location || Application.navigator.home, nav.state);\n}",
+    "receiverBase": "processAll",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sched.requestDrain(sched.Priority.aboveNormal + 1);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    ui.enableAnimations();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        reject(err);\n    else\n        resolve(res);\n}",
+    "receiverBase": "args",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    callback.call(ctx, ex);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function (value) {\n    asap(function () {\n        callback.call(ctx, null, value);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback.call(ctx, null, value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function (err) {\n    asap(function () {\n        callback.call(ctx, err);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback.call(ctx, err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function (atomicType) {\n    if (components.typed[atomicType.name] && components.typed[atomicType.name].length > 0) {\n        atomicType.components = components.typed[atomicType.name];\n        components.menu.push(atomicType);\n        if (atomicType.inOverview) {\n            components.overview = components.overview.concat(components.typed[atomicType.name]);\n        }\n        delete components.typed[atomicType.name];\n    }\n}",
+    "receiverBase": "atomicStructure",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (word) {\n    return word.charAt(0).toUpperCase() + word.substring(1);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (file) {\n    var key = path.basename(file, '.json');\n    data[key] = require(file);\n}",
+    "receiverBase": "dataFiles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, res) {\n    res.writeHeader(200, {\n        'Content-Length': body.length.toString(),\n        'Content-Type': 'text/plain'\n    });\n    console.log('method: ' + req.method);\n    if (req.method != 'HEAD')\n        res.write(body);\n    res.end();\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n    var request = http.request({\n            port: common.PORT,\n            method: 'HEAD',\n            path: '/'\n        }, function (response) {\n            console.log('got response');\n            response.on('data', function () {\n                process.exit(2);\n            });\n            response.on('end', function () {\n                process.exit(0);\n            });\n        });\n    request.end();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (response) {\n    console.log('got response');\n    response.on('data', function () {\n        process.exit(2);\n    });\n    response.on('end', function () {\n        process.exit(0);\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    process.exit(2);\n}",
+    "receiverBase": "response",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.exit(0);\n}",
+    "receiverBase": "response",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.exit(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (code, output) {\n    assert.equal(code, 0);\n    assert.ok(output === '5566\\n' || output === '5566\\nundefined\\n');\n    shell.exec('node -e \"console.log(5678);\"', { silent: true }, function (code, output) {\n        assert.equal(code, 0);\n        assert.ok(output === '5678\\n' || output === '5678\\nundefined\\n');\n        shell.exit(123);\n    });\n}",
+    "receiverBase": "shell",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (code, output) {\n    assert.equal(code, 0);\n    assert.ok(output === '5678\\n' || output === '5678\\nundefined\\n');\n    shell.exit(123);\n}",
+    "receiverBase": "shell",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (tests, url) {\n    resolvingSuite.add(buildEqualityTestCase(url, Y.bind(URL, this, url), function (testCase, test, url) {\n        return url.resolve(test).toString();\n    }, tests));\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (testCase, test, url) {\n    return url.resolve(test).toString();\n}",
+    "receiverBase": "",
+    "receiverCallee": "buildEqualityTestCase"
+  },
+  {
+    "callback": "function (year) {\n    objEach(year, function (month) {\n        objEach(month, function (day) {\n            output.push(day);\n        }, this);\n    }, this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "objEach"
+  },
+  {
+    "callback": "function (month) {\n    objEach(month, function (day) {\n        output.push(day);\n    }, this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "objEach"
+  },
+  {
+    "callback": "function (day) {\n    output.push(day);\n}",
+    "receiverBase": "",
+    "receiverCallee": "objEach"
+  },
+  {
+    "callback": "function (curNode) {\n    this._rerenderCalendarPane(ydate.addMonths(currentDate, counter++), curNode);\n}",
+    "receiverBase": "calendarPanes",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    partials.body_template += substitute(CalendarBase.CALDAY_ROW_TEMPLATE, { calday_row: v });\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayEach"
+  }
+]

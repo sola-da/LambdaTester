@@ -1,0 +1,891 @@
+[
+  {
+    "callback": "function () {\n    for (var collectionName in connection.collections) {\n        var collection = connection.collections[collectionName];\n        for (var docName in collection) {\n            collection[docName].retry();\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.seq - b.seq;\n}",
+    "receiverBase": "opQueue",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (_$rootScope_, _$compile_, _$controller_, _$interval_) {\n    scope = _$rootScope_.$new();\n    $compile = _$compile_;\n    scope.configOptions = {\n        lineWidth: 1,\n        maxValue: 100\n    };\n    scope.badConfigOptions = {};\n    scope.value = 25;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        var gauge = $compile('<div gauge-js></div>')(scope);\n    }).toThrow('guage-js can only be set on a canvas element. DIV will not work.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var gauge = $compile('<div gauge-js></div>')(scope);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        var gauge = $compile('<canvas gauge-js ng-module=\"value\" options=\"configOptions\"></canvas>')(scope);\n    }).not.toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var gauge = $compile('<canvas gauge-js ng-module=\"value\" options=\"configOptions\"></canvas>')(scope);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    spyOn(Gauge.prototype, 'setOptions').andCallThrough();\n    var gauge = $compile('<canvas gauge-js ng-module=\"value\" options=\"configOptions\"></canvas>')(scope);\n    scope.$apply();\n    expect(Gauge.prototype.setOptions).toHaveBeenCalledWith(scope.configOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    gauge = $compile('<canvas gauge-js ng-module=\"value\" options=\"configOptions\"></canvas>')(scope);\n    gaugeScope = gauge.isolateScope();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(gaugeScope.currentValue).toBe(25);\n    expect(gaugeScope.options).toBe(scope.configOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var oldDataUrl = gauge[0].toDataURL();\n    scope.value = 100;\n    scope.$apply();\n    expect(gauge[0].toDataURL()).not.toBe(oldDataUrl);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var oldDataUrl = gauge[0].toDataURL();\n    scope.configOptions = 1000;\n    scope.$apply();\n    expect(gauge[0].toDataURL()).not.toBe(oldDataUrl);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    resultObject = res;\n}",
+    "receiverBase": "windowHandleSize",
+    "receiverCallee": "webdrivercss"
+  },
+  {
+    "callback": "function (done) {\n    glob('webdrivercss/*.png', function (err, files) {\n        should.not.exist(err);\n        files.should.have.length(12);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, files) {\n    should.not.exist(err);\n    files.should.have.length(12);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "glob"
+  },
+  {
+    "callback": "function (done) {\n    glob('webdrivercss/*.png', function (err, files) {\n        should.not.exist(err);\n        files.forEach(function (file, i) {\n            file.match(/(.)+\\.\\d+px(\\.baseline)*\\.png/g).should.have.length(1);\n        });\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, files) {\n    should.not.exist(err);\n    files.forEach(function (file, i) {\n        file.match(/(.)+\\.\\d+px(\\.baseline)*\\.png/g).should.have.length(1);\n    });\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "glob"
+  },
+  {
+    "callback": "function (file, i) {\n    file.match(/(.)+\\.\\d+px(\\.baseline)*\\.png/g).should.have.length(1);\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, files) {\n    should.not.exist(err);\n    files.forEach(function (file, i) {\n        var width = parseInt(file.match(/\\d+/g)[0], 10);\n        gm('webdrivercss/screenWidthTest.' + width + 'px.png').size(function (err, size) {\n            should.not.exist(err);\n            if (size.width === 321)\n                size.width = 320;\n            size.width.should.be.equal(width);\n            if (i === files.length - 1)\n                done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "glob"
+  },
+  {
+    "callback": "function (file, i) {\n    var width = parseInt(file.match(/\\d+/g)[0], 10);\n    gm('webdrivercss/screenWidthTest.' + width + 'px.png').size(function (err, size) {\n        should.not.exist(err);\n        if (size.width === 321)\n            size.width = 320;\n        size.width.should.be.equal(width);\n        if (i === files.length - 1)\n            done();\n    });\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, size) {\n    should.not.exist(err);\n    if (size.width === 321)\n        size.width = 320;\n    size.width.should.be.equal(width);\n    if (i === files.length - 1)\n        done();\n}",
+    "receiverBase": "gm",
+    "receiverCallee": "size"
+  },
+  {
+    "callback": "function (done) {\n    this.browser.windowHandleSize(function (err, res) {\n        should.not.exist(err);\n        res.value.width.should.be.equal(999);\n        res.value.height.should.be.equal(999);\n    }).call(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.value.width.should.be.equal(999);\n    res.value.height.should.be.equal(999);\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "windowHandleSize"
+  },
+  {
+    "callback": "function () {\n    it('should contain results of both elements', function () {\n        expect(resultObject.test).to.exist;\n        expect(resultObject.test_two).to.exist;\n    });\n    it('should contain result for each screenresolution', function () {\n        expect(resultObject.test).to.have.length(4);\n        expect(resultObject.test_two).to.have.length(2);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(resultObject.test).to.exist;\n    expect(resultObject.test_two).to.exist;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(resultObject.test).to.have.length(4);\n    expect(resultObject.test_two).to.have.length(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (Rx, exports) {\n    return factory(root, exports, Rx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    elseSourceOrScheduler || (elseSourceOrScheduler = observableEmpty());\n    isPromise(thenSource) && (thenSource = observableFromPromise(thenSource));\n    isPromise(elseSourceOrScheduler) && (elseSourceOrScheduler = observableFromPromise(elseSourceOrScheduler));\n    typeof elseSourceOrScheduler.now === 'function' && (elseSourceOrScheduler = observableEmpty(elseSourceOrScheduler));\n    return condition() ? thenSource : elseSourceOrScheduler;\n}",
+    "receiverBase": "",
+    "receiverCallee": "observableDefer"
+  },
+  {
+    "callback": "function () {\n    isPromise(defaultSourceOrScheduler) && (defaultSourceOrScheduler = observableFromPromise(defaultSourceOrScheduler));\n    defaultSourceOrScheduler || (defaultSourceOrScheduler = observableEmpty());\n    typeof defaultSourceOrScheduler.now === 'function' && (defaultSourceOrScheduler = observableEmpty(defaultSourceOrScheduler));\n    var result = sources[selector()];\n    isPromise(result) && (result = observableFromPromise(result));\n    return result || defaultSourceOrScheduler;\n}",
+    "receiverBase": "",
+    "receiverCallee": "observableDefer"
+  },
+  {
+    "callback": "function (x) {\n    observer.onNext(x);\n    var result = null;\n    try {\n        result = selector(x);\n    } catch (e) {\n        observer.onError(e);\n    }\n    q.push(result);\n    activeCount++;\n    ensureActive();\n}",
+    "receiverBase": "work",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    d.remove(m1);\n    activeCount--;\n    if (activeCount === 0) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "work",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (value) {\n    if (!finished) {\n        hasResults[i] = true;\n        results[i] = value;\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    finished = true;\n    subscriber.onError(e);\n    group.dispose();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!finished) {\n        if (!hasResults[i]) {\n            subscriber.onCompleted();\n            return;\n        }\n        hasCompleted[i] = true;\n        for (var ix = 0; ix < count; ix++) {\n            if (!hasCompleted[ix]) {\n                return;\n            }\n        }\n        finished = true;\n        subscriber.onNext(results);\n        subscriber.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (left) {\n    hasLeft = true;\n    lastLeft = left;\n}",
+    "receiverBase": "first",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    rightSubscription.dispose();\n    observer.onError(err);\n}",
+    "receiverBase": "first",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (right) {\n    hasRight = true;\n    lastRight = right;\n}",
+    "receiverBase": "second",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    leftSubscription.dispose();\n    observer.onError(err);\n}",
+    "receiverBase": "second",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    var chain;\n    return source.map(function (x) {\n        var curr = new ChainObservable(x);\n        chain && chain.onNext(x);\n        chain = curr;\n        return curr;\n    }).tap(noop, function (e) {\n        chain && chain.onError(e);\n    }, function () {\n        chain && chain.onCompleted();\n    }).observeOn(scheduler).map(selector);\n}",
+    "receiverBase": "",
+    "receiverCallee": "observableDefer"
+  },
+  {
+    "callback": "function (x) {\n    var curr = new ChainObservable(x);\n    chain && chain.onNext(x);\n    chain = curr;\n    return curr;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    chain && chain.onError(e);\n}",
+    "receiverBase": "map",
+    "receiverCallee": "tap"
+  },
+  {
+    "callback": "function () {\n    chain && chain.onCompleted();\n}",
+    "receiverBase": "map",
+    "receiverCallee": "tap"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(self.head);\n    g.add(self.tail.mergeAll().subscribe(observer));\n}",
+    "receiverBase": "currentThreadScheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function () {\n    g.remove(innerSubscription);\n    hasCurrent = false;\n    if (isStopped && g.length === 1) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isStopped = true;\n    if (!hasCurrent && g.length === 1) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    var result;\n    try {\n        result = selectorFunc(x, index++, innerSource);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    observer.onNext(result);\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    observer.onError(e);\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    g.remove(innerSubscription);\n    hasCurrent = false;\n    if (isStopped && g.length === 1) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    observer.onError(e);\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isStopped = true;\n    if (g.length === 1 && !hasCurrent) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (_super) {\n    __extends(SearchBar, _super);\n    function SearchBar() {\n        _super.call(this);\n        this._ios = new UISearchBar();\n        this._delegate = UISearchBarDelegateImpl.new().initWithOwner(this);\n        this._ios.delegate = this._delegate;\n    }\n    Object.defineProperty(SearchBar.prototype, 'ios', {\n        get: function () {\n            return this._ios;\n        },\n        enumerable: true,\n        configurable: true\n    });\n    return SearchBar;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    angular.module('app').controller('MainCtrl', MainCtrl);\n    function MainCtrl() {\n        var vm = this;\n        vm.items = [\n            'Home',\n            'Dashboard',\n            'About'\n        ];\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (proc) {\n    filter_procs[Filter.getProcessID(conf.MACHINE_NAME, proc.pm2_env.name, proc.pm2_env.pm_id)] = [\n        Math.floor(proc.monit.cpu),\n        Math.floor(proc.monit.memory)\n    ];\n}",
+    "receiverBase": "processes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if ('object' == typeof exports && 'undefined' != typeof module)\n        module.exports = e();\n    else if ('function' == typeof define && define.amd)\n        define([], e);\n    else {\n        var f;\n        'undefined' != typeof window ? f = window : 'undefined' != typeof global ? f = global : 'undefined' != typeof self && (f = self), f.ReactRouter = e();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (params, paramName) {\n    params[paramName] = rootParams[paramName];\n    return params;\n}",
+    "receiverBase": "paramNames",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (m) {\n    if (m.route !== match.route)\n        return false;\n    for (var property in m.params)\n        if (m.params[property] !== match.params[property])\n            return false;\n    return true;\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (match) {\n    return function () {\n        var handler = match.route.props.handler;\n        if (!transition.isAborted && handler.willTransitionFrom)\n            return handler.willTransitionFrom(transition, match.component);\n        var promise = transition.promise;\n        delete transition.promise;\n        return promise;\n    };\n}",
+    "receiverBase": "reversedArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (match) {\n    return function () {\n        var handler = match.route.props.handler;\n        if (!transition.isAborted && handler.willTransitionTo)\n            handler.willTransitionTo(transition, match.params, query);\n        var promise = transition.promise;\n        delete transition.promise;\n        return promise;\n    };\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (promise, hook) {\n    return promise ? promise.then(hook) : hook();\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    setTimeout(callback);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    setTimeout(function () {\n        callback(error);\n    });\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback(error);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (match) {\n    return previousMatches.indexOf(match) !== -1;\n}",
+    "receiverBase": "currentMatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (match) {\n    return match.route.props.ignoreScrollBehavior;\n}",
+    "receiverBase": "commonMatches",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (route) {\n    return route.props.name === routeName;\n}",
+    "receiverBase": "activeRoutes",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (error, abortReason, nextState) {\n    if (error) {\n        this.props.onError.call(this, error);\n    } else if (abortReason instanceof Redirect) {\n        this.replaceWith(abortReason.to, abortReason.params, abortReason.query);\n    } else if (abortReason) {\n        this.goBack();\n    } else {\n        this._nextStateChangeHandler = this._finishTransitionTo.bind(this, path, actionType, this.state.matches);\n        this.setState(nextState);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "dispatch"
+  },
+  {
+    "callback": "function (match) {\n    return !hasMatch(nextMatches, match);\n}",
+    "receiverBase": "currentMatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (match) {\n    return !hasMatch(currentMatches, match);\n}",
+    "receiverBase": "nextMatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (match) {\n    return match.route;\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (paramName) {\n    invariant(props.paramNames.indexOf(paramName) !== -1, 'The nested route path \"%s\" is missing the \"%s\" parameter of its parent path \"%s\"', props.path, paramName, container.props.path);\n}",
+    "receiverBase": "paramNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    if (child = processRoute(child, container, namedRoutes))\n        routes.push(child);\n}",
+    "receiverBase": "Children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (match, paramName) {\n    if (paramName) {\n        paramNames.push(paramName);\n        return '([^/?#]+)';\n    } else if (match === '*') {\n        paramNames.push('splat');\n        return '(.*?)';\n    } else {\n        return '\\\\' + match;\n    }\n}",
+    "receiverBase": "pattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (paramName, index) {\n    params[paramName] = match[index + 1];\n}",
+    "receiverBase": "paramNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var markup = component.mountComponent(id, transaction, 0);\n    callback(null, null, ReactMarkupChecksum.addChecksumToMarkup(markup));\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function () {\n    callback(null, null, component.mountComponent(id, transaction, 0));\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (a, b) {\n    return assign({}, b, a);\n}",
+    "receiverBase": "",
+    "receiverCallee": "createTransferStrategy"
+  },
+  {
+    "callback": "function (className) {\n    return classNames[className];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return args[argIndex++];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return args[argIndex++];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (define) {\n    'use strict';\n    define(function (_dereq_) {\n        var makePromise = _dereq_('./makePromise');\n        var Scheduler = _dereq_('./Scheduler');\n        var async = _dereq_('./async');\n        return makePromise({ scheduler: new Scheduler(async) });\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_dereq_) {\n    var makePromise = _dereq_('./makePromise');\n    var Scheduler = _dereq_('./Scheduler');\n    var async = _dereq_('./async');\n    return makePromise({ scheduler: new Scheduler(async) });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (document, MutationObserver) {\n    var scheduled;\n    var el = document.createElement('div');\n    var o = new MutationObserver(run);\n    o.observe(el, { attributes: true });\n    function run() {\n        var f = scheduled;\n        scheduled = void 0;\n        f();\n    }\n    return function (f) {\n        scheduled = f;\n        el.setAttribute('class', 'x');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (cjsRequire) {\n    var vertx;\n    try {\n        vertx = cjsRequire('vertx');\n    } catch (ignore) {\n    }\n    if (vertx) {\n        if (typeof vertx.runOnLoop === 'function') {\n            return vertx.runOnLoop;\n        }\n        if (typeof vertx.runOnContext === 'function') {\n            return vertx.runOnContext;\n        }\n    }\n    var capturedSetTimeout = setTimeout;\n    return function (t) {\n        capturedSetTimeout(t, 0);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x) {\n    f.call(c, z, x, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "visit"
+  },
+  {
+    "callback": "function (contentType) {\n    var obj = {}, fieldLabelId = 'fields.' + _.first(contentType.fields)._id.toString(), exists = _.find(keys, function (id) {\n            return id === fieldLabelId;\n        });\n    if (_.isUndefined(exists)) {\n        obj[fieldLabelId] = value;\n        keys.push(fieldLabelId);\n        arr.push(obj);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (id) {\n    return id === fieldLabelId;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (key) {\n    var tmpFilter = _.extend(filter, { key: key }), queryObj = {};\n    queryObj[key] = comparisons.parse(tmpFilter);\n    queryArgs.push(queryObj);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    this._add(children);\n    handle.detach();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (child) {\n    child.set('selected', value, { src: this });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    if (v.get('selected') > 0) {\n        selected.push(v);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, k) {\n    oChild = this._add(v, index + k);\n    if (oChild) {\n        children.push(oChild);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    child = this.remove(0);\n    if (child) {\n        removed.push(child);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    child.render(renderTo);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    child.destroy();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (port) {\n    portsSelect.appendChild(utils.createElement('option', {\n        innerText: port,\n        value: port,\n        selected: currentPort === port\n    }));\n}",
+    "receiverBase": "ports",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (listeners) {\n    _updatePushPanel(listeners);\n    jQuery('#port-select').effect('highlight', { color: '#62B4C8' }, 1000);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var port = document.getElementById('port-select').value, text = document.getElementById(PUSH_OPTIONS.PAYLOAD).value, pushData = {\n            headerField: ['21f39092'],\n            requestURI: '/',\n            source: 'ripple',\n            isChannelEncrypted: false,\n            payload: text\n        };\n    event.trigger('Push', [\n        pushData,\n        port\n    ], true);\n}",
+    "receiverBase": "getElementById",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    db.save(PUSH_OPTIONS.PAYLOAD, document.getElementById(PUSH_OPTIONS.PAYLOAD).value);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "bindAutoSaveEvent"
+  },
+  {
+    "callback": "function () {\n    return oSettings.oLanguage.sProcessing == 'Processing...';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_processing').innerHTML = 'Processing...';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnTest"
+  },
+  {
+    "callback": "function () {\n    oSession.fnRestore();\n    oTable = $('#example').dataTable({\n        'sAjaxSource': '../../../examples/ajax/sources/arrays.txt',\n        'bProcessing': true,\n        'oLanguage': { 'sProcessing': 'unit test' }\n    });\n    oSettings = oTable.fnSettings();\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return oSettings.oLanguage.sProcessing == 'unit test';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_processing').innerHTML = 'unit test';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnTest"
+  },
+  {
+    "callback": "function (data) {\n    $('#container').highcharts('StockChart', {\n        rangeSelector: { selected: 1 },\n        title: { text: 'AAPL Stock Price' },\n        series: [{\n                name: 'AAPL Stock Price',\n                data: data,\n                marker: {\n                    enabled: true,\n                    radius: 3\n                },\n                shadow: true,\n                tooltip: { valueDecimals: 2 }\n            }]\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - General - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/general\\/$/, 'Landed on the correct URL');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function then() {\n    test.assertExists('.settings-nav-users.active a', 'Users link is active');\n    test.assertDoesntExist('.settings-nav-general.active a', 'General link is not active');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function then() {\n    test.assertExists('.settings-nav-general.active a', 'General link is active');\n    test.assertDoesntExist('.settings-nav-users.active a', 'User link is not active');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - General - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/general\\/$/, 'Landed on the correct URL');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got success notification');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function () {\n    casper.click('.js-modal-logo');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function () {\n    casper.click('.js-modal-cover');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function listenForRequests() {\n    casper.on('resource.requested', handleSettingsRequest);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    casper.thenClick('header .btn-blue').waitFor(function successNotification() {\n        return this.evaluate(function () {\n            return document.querySelectorAll('.js-bb-notification section').length > 0;\n        });\n    }, function doneWaiting() {\n        test.pass('Waited for notification');\n    }, casper.failOnTimeout(test, 'Saving the general pane did not result in a notification'));\n}",
+    "receiverBase": "waitForSelector",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function successNotification() {\n    return this.evaluate(function () {\n        return document.querySelectorAll('.js-bb-notification section').length > 0;\n    });\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function () {\n    return document.querySelectorAll('.js-bb-notification section').length > 0;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function doneWaiting() {\n    test.pass('Waited for notification');\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function checkSettingsWereSaved() {\n    casper.removeListener('resource.requested', handleSettingsRequest);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got success notification');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - General - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/general\\/$/, 'Landed on the correct URL');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assertSelectorHasText('.notification-error', 'too long');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelectorTextChange"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assertSelectorHasText('.notification-error', 'too long');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelectorTextChange"
+  },
+  {
+    "callback": "function checkSlugInputValue() {\n    test.assertField('general[postsPerPage]', '5');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function checkSlugInputValue() {\n    test.assertField('general[postsPerPage]', '5');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function canTransition() {\n    test.assert(true, 'Can transition to users screen from settings.general');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/$/, 'settings.users transitions to correct url');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenTransitionAndWaitForScreenLoad"
+  },
+  {
+    "callback": "function then() {\n    test.assertEval(function testOwnerRoleNotAnOption() {\n        var options = document.querySelectorAll('.invite-new-user select#new-user-role option'), i = 0;\n        for (; i < options.length; i = i + 1) {\n            if (options[i].text === 'Owner') {\n                return false;\n            }\n        }\n        return true;\n    }, '\"Owner\" is not a role option for new users');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForOpaque"
+  },
+  {
+    "callback": "function testOwnerRoleNotAnOption() {\n    var options = document.querySelectorAll('.invite-new-user select#new-user-role option'), i = 0;\n    for (; i < options.length; i = i + 1) {\n        if (options[i].text === 'Owner') {\n            return false;\n        }\n    }\n    return true;\n}",
+    "receiverBase": "test",
+    "receiverCallee": "assertEval"
+  },
+  {
+    "callback": "function then() {\n    test.assertEval(function authorIsSelectedByDefault() {\n        var options = document.querySelectorAll('.invite-new-user select#new-user-role option'), i = 0;\n        for (; i < options.length; i = i + 1) {\n            if (options[i].selected) {\n                return options[i].text === 'Author';\n            }\n        }\n        return false;\n    }, 'The \"Author\" role is selected by default when adding a new user');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function authorIsSelectedByDefault() {\n    var options = document.querySelectorAll('.invite-new-user select#new-user-role option'), i = 0;\n    for (; i < options.length; i = i + 1) {\n        if (options[i].selected) {\n            return options[i].text === 'Author';\n        }\n    }\n    return false;\n}",
+    "receiverBase": "test",
+    "receiverCallee": "assertEval"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost Admin title is correct');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'settings.users.user has correct URL');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function listenForRequests() {\n    casper.on('resource.requested', handleUserRequest);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function successNotification() {\n    return this.evaluate(function () {\n        return document.querySelectorAll('.js-bb-notification section').length > 0;\n    });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function () {\n    return document.querySelectorAll('.js-bb-notification section').length > 0;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function doneWaiting() {\n    test.pass('Waited for notification');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function checkUserWasSaved() {\n    casper.removeListener('resource.requested', handleUserRequest);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got success notification');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function testTransitionToGeneral() {\n    casper.waitForSelector(generalTabDetector, function then() {\n        casper.on('resource.requested', handleSettingsRequest);\n        test.assertEval(function testGeneralIsActive() {\n            return document.querySelector('.settings-nav-general').classList.contains('active');\n        }, 'general tab is marked active');\n    }, casper.failOnTimeout(test, 'waitForSelector `usersTabDetector` timed out'));\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function then() {\n    casper.on('resource.requested', handleSettingsRequest);\n    test.assertEval(function testGeneralIsActive() {\n        return document.querySelector('.settings-nav-general').classList.contains('active');\n    }, 'general tab is marked active');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function testGeneralIsActive() {\n    return document.querySelector('.settings-nav-general').classList.contains('active');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "assertEval"
+  },
+  {
+    "callback": "function successNotification() {\n    return this.evaluate(function () {\n        return document.querySelectorAll('.js-bb-notification section').length > 0;\n    });\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function () {\n    return document.querySelectorAll('.js-bb-notification section').length > 0;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function doneWaiting() {\n    test.pass('Waited for notification');\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function checkSettingsWereSaved() {\n    casper.removeListener('resource.requested', handleSettingsRequest);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got success notification');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function () {\n    casper.removeListener('resource.requested', handleUserRequest);\n    casper.removeListener('resource.requested', handleSettingsRequest);\n}",
+    "receiverBase": "CasperTest",
+    "receiverCallee": "beforeDone"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function getSlugValue() {\n    slug = this.evaluate(function () {\n        return document.querySelector('#user-slug').value;\n    });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return document.querySelector('#user-slug').value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function changeSlugInput() {\n    casper.fillSelectors('.user-profile', { '#user-slug': '   ' }, false);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function checkSlugInputValue() {\n    casper.wait(250);\n    test.assertField('user', slug);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function getSlugValue() {\n    slug = this.evaluate(function () {\n        return document.querySelector('#user-slug').value;\n    });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return document.querySelector('#user-slug').value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function changeSlug() {\n    casper.fillSelectors('.user-profile', { '#user-slug': slug + '!' }, false);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function testGoodResponse(resource) {\n    test.assert(resource.status < 400);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForResource"
+  },
+  {
+    "callback": "function checkSlugInputValue() {\n    test.assertField('user', slug);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function getEmail() {\n    email = this.evaluate(function () {\n        return document.querySelector('#user-email').value;\n    });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return document.querySelector('#user-email').value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function setEmailToInvalid() {\n    var brokenEmail = email.replace('.', '-');\n    casper.fillSelectors('.user-profile', { '#user-email': brokenEmail }, false);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got error notification');\n    test.assertSelectorDoesntHaveText('.notification-error', '[object Object]');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function resetEmailToValid() {\n    casper.fillSelectors('.user-profile', { '#user-email': email }, false);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assert(true, 'Got success notification');\n    test.assertSelectorDoesntHaveText('.notification-success', '[object Object]');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelector"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function checkCharacterCount() {\n    test.assert(getRemainingBioCharacterCount() === '200', 'Bio remaining characters is 200');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function setBioToValid() {\n    casper.fillSelectors('.user-profile', { '#user-bio': 'asdf\\n' }, false);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function checkCharacterCount() {\n    test.assert(getRemainingBioCharacterCount() === '195', 'Bio remaining characters is 195');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function setBioToInvalid() {\n    this.fillSelectors('form.user-profile', { '#user-bio': new Array(202).join('a') });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assertSelectorHasText('.notification-error', 'is too long');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelectorTextChange"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function setWebsiteToInvalid() {\n    this.fillSelectors('form.user-profile', { '#user-website': 'notaurl' });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assertSelectorHasText('.notification-error', 'not a valid url');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelectorTextChange"
+  },
+  {
+    "callback": "function testTitleAndUrl() {\n    test.assertTitle('Settings - User - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/settings\\/users\\/test\\/$/, 'Ghost doesn\\'t require login this time');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function setLocationToInvalid() {\n    this.fillSelectors('form.user-profile', { '#user-location': new Array(1002).join('a') });\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function onSuccess() {\n    test.assertSelectorHasText('.notification-error', 'is too long');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "waitForSelectorTextChange"
+  },
+  {
+    "callback": "function (data) {\n    console.log(data);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.source == window && event.data && event.data.source == 'CastApi' && event.data.event == 'Hello') {\n        initialize_cast_api();\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    send_message_to_cc({\n        'type': 'message',\n        'body': 'ready'\n    });\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  }
+]

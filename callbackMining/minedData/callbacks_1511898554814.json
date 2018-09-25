@@ -1,0 +1,321 @@
+[
+  {
+    "callback": "function (event, delta) {\n    methods.onScroll($this, settings, delta);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function () {\n    methods.onScroll($this, settings);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function (e) {\n    lastY = e.originalEvent.touches[0].pageY;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function (e) {\n    swipe = e.originalEvent.touches[0].pageY + lastY;\n    st = $(this).scrollTop();\n    if (swipe < settings.swipeDistance) {\n        e.preventDefault();\n    }\n    if (swipe > settings.swipeDistance && lastY <= 40) {\n        methods.onSwipe($this, settings);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function () {\n    swipe = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function () {\n    if (settings.reloadPage) {\n        window.location.reload(true);\n    }\n    called = false;\n}",
+    "receiverBase": "delay",
+    "receiverCallee": "slideUp"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    $this.empty();\n    $this.removeData('hook');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    if (!self[name] || superClass[name] === self[name]) {\n        self[name] = {};\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    if (superClass[name] !== self[name]) {\n        self[name] = can.extend({}, superClass[name], self[name]);\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "converter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (val, name) {\n    var type, converter;\n    if (val instanceof can.Map && can.inArray(val._cid, stack) > -1) {\n        where[name] = val.attr('id');\n    } else {\n        type = Class.attributes ? Class.attributes[name] : 0;\n        converter = Class.serialize ? Class.serialize[type] : 0;\n        where[name] = val && typeof val.serialize === 'function' ? val.serialize(undefined, stack) : converter ? converter(val, type) : val;\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (func, args) {\n    try {\n        return func.apply(undefined, args);\n    } catch (e) {\n        return isError(e) ? e : new Error(e);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "restParam"
+  },
+  {
+    "callback": "function () {\n    it('should instantiate and run', function () {\n        var usernameInput = element(by.model('username'));\n        var name = element(by.binding('username'));\n        browser.get('index.html#/form');\n        expect(name.getText()).toEqual('Anon');\n        usernameInput.clear();\n        usernameInput.sendKeys('Jane');\n        expect(name.getText()).toEqual('Jane');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var usernameInput = element(by.model('username'));\n    var name = element(by.binding('username'));\n    browser.get('index.html#/form');\n    expect(name.getText()).toEqual('Anon');\n    usernameInput.clear();\n    usernameInput.sendKeys('Jane');\n    expect(name.getText()).toEqual('Jane');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    el = $('#selectable1');\n    el.selectable({\n        start: function (ev, ui) {\n            ok(true, 'drag fired start callback');\n            equals(this, el[0], 'context of callback');\n        }\n    });\n    el.simulate('drag', 20, 20);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    el = $('#selectable1');\n    el.selectable({\n        start: function (ev, ui) {\n            ok(true, 'drag fired stop callback');\n            equals(this, el[0], 'context of callback');\n        }\n    });\n    el.simulate('drag', 20, 20);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function ($compile, $rootScope) {\n    element = angular.element('<am-search></am-search>');\n    $compile(element)($rootScope);\n    $rootScope.$digest();\n    scope = element.isolateScope();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    it('should not show the results if inProgress is true', function () {\n        scope.vm.inProgress = true;\n        scope.$digest();\n        expect(element.find('.search-loading').find('.desc').text()).toBe('Loading...');\n        expect(element.find('.search-results').length).toBe(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    scope.vm.inProgress = true;\n    scope.$digest();\n    expect(element.find('.search-loading').find('.desc').text()).toBe('Loading...');\n    expect(element.find('.search-results').length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.inProgress = false;\n    scope.vm.searchResults = {\n        artists: [],\n        albums: [],\n        tracks: []\n    };\n    scope.$digest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    scope.vm.inProgress = false;\n    scope.$digest();\n    expect(element.find('.search-loading').find('.desc').length).toBe(0);\n    expect(element.find('.search-results').length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.find('.search-loading').find('.desc').length).toBe(0);\n    expect(element.find('.search-results').find('.desc').text()).toBe('No results found');\n    expect(element.find('.search-results').find('.search.tracks').length).toBe(0);\n    expect(element.find('.search-results').find('.search.artists').length).toBe(0);\n    expect(element.find('.search-results').find('.search.albums').length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.searchResults.tracks.push({\n        ID: 32525,\n        Name: 'asdfisgdfgsf'\n    }, {\n        ID: 23535,\n        Name: 'asdf9sa7dgf9u'\n    });\n    scope.$digest();\n    expect(element.find('.search-results').find('.search.tracks').find('li[am-track]').length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.redirectToResults = jasmine.createSpy('redirectToResults');\n    scope.vm.searchResults.tracks.push({\n        ID: 32525,\n        Name: 'asdfisgdfgsf'\n    });\n    scope.$digest();\n    element.find('.search-results').find('.search.tracks').find('.link-right').trigger('click');\n    expect(scope.vm.redirectToResults).toHaveBeenCalledWith('tracks');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.searchResults.albums.push({\n        ID: 22425,\n        Name: 'asdfs9a7gf87gi'\n    }, {\n        ID: 25112,\n        Name: 'asdfs9adfgiusdfu'\n    });\n    scope.$digest();\n    expect(element.find('.search-results').find('.search.albums').find('li[am-album]').length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.redirectToResults = jasmine.createSpy('redirectToResults');\n    scope.vm.searchResults.albums.push({\n        ID: 12547,\n        Name: 'asdfs97agfiuhsdjfi'\n    });\n    scope.$digest();\n    element.find('.search-results').find('.search.albums').find('.link-right').trigger('click');\n    expect(scope.vm.redirectToResults).toHaveBeenCalledWith('albums');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.searchResults.artists.push({\n        ID: 35398,\n        Name: 'asdf87gsda7fuih'\n    }, {\n        ID: 12976,\n        Name: 'asd9f7g8gisadfh'\n    });\n    scope.$digest();\n    expect(element.find('.search-results').find('.search.artists').find('li[am-artist]').length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.redirectToResults = jasmine.createSpy('redirectToResults');\n    scope.vm.searchResults.artists.push({\n        ID: 39182,\n        Name: 'asdf9asg7df807gsa8f7'\n    });\n    scope.$digest();\n    element.find('.search-results').find('.search.artists').find('.link-right').trigger('click');\n    expect(scope.vm.redirectToResults).toHaveBeenCalledWith('artists');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.searchShown = true;\n    scope.$emit('hideDropdowns', 'asdf');\n    expect(scope.vm.searchShown).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.vm.searchShown = true;\n    scope.$emit('hideDropdowns', 'search');\n    expect(scope.vm.searchShown).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function ($) {\n    'use strict';\n    $.Kinetic.prototype.jumpTo = function (options) {\n        this.stop();\n        this.el.scrollLeft = options.x;\n        this.el.scrollTop = options.y;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    this.modalSpy = stubModals();\n    chorus.models.Config.instance().set({ externalAuthEnabled: false });\n    this.user = new chorus.models.User({\n        username: 'bill',\n        id: '42'\n    });\n    spyOn(chorus.views.UserSidebar.prototype, 'setUser').andCallThrough();\n    this.view = new chorus.views.UserSidebar({\n        model: this.user,\n        listMode: false\n    });\n    this.view.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.server.lastFetchFor(this.view.collection)).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.server.completeFetchFor(this.view.collection, [backboneFixtures.activity.dataSourceCreated()]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('.tab_control .activity_list')).toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setLoggedInUser({\n        admin: true,\n        username: 'edcadmin'\n    });\n    this.view.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('.actions a.delete_user')).toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setLoggedInUser({\n        admin: true,\n        username: this.user.get('username')\n    });\n    this.view.render();\n    expect(this.view.$('.actions a.delete_user')).not.toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('a.change_password')).toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setLoggedInUser({ admin: false });\n    this.view.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    setLoggedInUser({\n        username: 'bill',\n        id: '42'\n    });\n    this.view.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('a.edit_user')).toExist();\n    expect(this.view.$('a.edit_user')).toHaveAttr('href', '#/users/42/edit');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('a.delete_user')).not.toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(this.view.$('a.change_password')).toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('does not show the \\'edit user\\' link', function () {\n        this.view.options.editMode = true;\n        this.view.render();\n        expect(this.view.$('a.edit_user')).not.toExist();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    this.view.options.editMode = true;\n    this.view.render();\n    expect(this.view.$('a.edit_user')).not.toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('does not show the change password option', function () {\n        this.view.config.set({ externalAuthEnabled: true });\n        this.view.render();\n        expect(this.view.$('a.change_password')).not.toExist();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    this.view.config.set({ externalAuthEnabled: true });\n    this.view.render();\n    expect(this.view.$('a.change_password')).not.toExist();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        setLoggedInUser({ admin: true });\n        this.view.options.listMode = true;\n        this.view.render();\n    });\n    itBehavesLike.aDialogLauncher('a.edit_tags', chorus.dialogs.EditTags);\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    setLoggedInUser({ admin: true });\n    this.view.options.listMode = true;\n    this.view.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    this.user2 = backboneFixtures.user({ title: 'Lame Test-Driver' });\n    this.view.setUser(this.user2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.user2.activities()).toHaveBeenFetched();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.view.setUser.reset();\n    chorus.PageEvents.trigger('user:selected', backboneFixtures.user());\n    expect(this.view.setUser).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (result) {\n    return Highlight.allFold(result.text, queryChars);\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    return Highlight.allFold(result.text, [query]);\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    return Highlight.allFold(result.text, [query], { startsWith: true });\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    return Highlight.allFold(result.text, queryWords);\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    return Highlight.wordsFold(result.text, query);\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Customers');\n    newEm().executeQuery(query).then(assertGotSomeResults).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Employees').where('FirstName', 'contains', 'n');\n    newEm().executeQuery(query).then(assertGotSomeResults).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Employees').where('EmployeeID', 'eq', 1);\n    newEm().executeQuery(query).then(assertGotSomeResults).then(assertTransformedUrl).then(assertCanUseQueryLocally).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Employees/1');\n    newEm().executeQuery(query).then(assertGotSomeResults).then(assertUrlUnchanged).then(assertCannotUseQueryLocally).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Customers').orderBy('CompanyName').top(10);\n    newEm().executeQuery(query).then(assertGotSomeResults).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var query = EntityQuery.from('Customers').where('CustomerID', '==', alfredsID);\n    newEm().executeQuery(query).then(assertGotSomeResults).then(assertTransformedUrl).then(assertCanUseQueryLocally).fail(handleFail).fin(start);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  }
+]

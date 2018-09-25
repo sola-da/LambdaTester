@@ -1,0 +1,266 @@
+[
+  {
+    "callback": "function () {\n    'use strict';\n    var ShaderAttribute = function (program, name, type, index) {\n        this.program = program;\n        this.name = name;\n        this.type = type;\n        this.index = index;\n    };\n    ShaderAttribute.prototype = { constructor: ShaderAttribute };\n    return ShaderAttribute;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    $(this).trigger('resizeEnd');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if ($.isFunction(table.config.widgetOptions.scroller_resizeWidth)) {\n        $win.unbind('resize' + namespace, ts.window_resize);\n        table.config.widgetOptions.scroller_resizeWidth();\n        $win.bind('resize' + namespace, ts.window_resize);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (wo.scroller_jumpToHeader) {\n        var pos = $win.scrollTop() - $hdr.offset().top;\n        if ($(this).scrollTop() !== 0 && pos < tbHt && pos > 0) {\n            $win.scrollTop($hdr.offset().top);\n        }\n    }\n    $hdr.parent().add($ft.parent()).scrollLeft($(this).scrollLeft());\n}",
+    "receiverBase": "$tblWrap",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory();\n    } else {\n        root.axis = factory();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    var exports = {};\n    var types = 'Array Object String Date RegExp Function Boolean Number Null Undefined'.split(' ');\n    var type = function () {\n        return Object.prototype.toString.call(this).slice(8, -1);\n    };\n    for (var i = types.length; i--;) {\n        exports['is' + types[i]] = function (self) {\n            return function (elem) {\n                return type.call(elem) === self;\n            };\n        }(types[i]);\n    }\n    return exports;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (self) {\n    return function (elem) {\n        return type.call(elem) === self;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function () {\n        return _this.options.onInit.apply(element, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function () {\n        return _this.options.onSwitchChange.apply(element, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function () {\n        if (_this.options.animate) {\n            return _this.$wrapper.addClass('' + _this.options.baseClass + '-animate');\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (index, width) {\n        if (_this.options.labelWidth !== 'auto') {\n            return _this.options.labelWidth;\n        }\n        if (width < handleWidth) {\n            return handleWidth;\n        } else {\n            return width;\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        e.preventDefault();\n        return _this.$wrapper.addClass('' + _this.options.baseClass + '-focused');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        e.preventDefault();\n        return _this.$wrapper.removeClass('' + _this.options.baseClass + '-focused');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        if (!e.which || _this.options.disabled || _this.options.readonly) {\n            return;\n        }\n        switch (e.which) {\n        case 37:\n            e.preventDefault();\n            e.stopImmediatePropagation();\n            return _this.state(false);\n        case 39:\n            e.preventDefault();\n            e.stopImmediatePropagation();\n            return _this.state(true);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        _this.state(false);\n        return _this.$element.trigger('focus.bootstrapSwitch');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        _this.state(true);\n        return _this.$element.trigger('focus.bootstrapSwitch');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        var difference;\n        if (_this._dragStart == null) {\n            return;\n        }\n        e.preventDefault();\n        difference = (e.pageX || e.originalEvent.touches[0].pageX) - _this._dragStart;\n        if (difference < -_this._handleWidth || difference > 0) {\n            return;\n        }\n        _this._dragEnd = difference;\n        return _this.$container.css('margin-left', '' + _this._dragEnd + 'px');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (e) {\n        return _this.$label.trigger('mouseup.bootstrapSwitch');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_this) {\n    return function (event) {\n        event.preventDefault();\n        event.stopImmediatePropagation();\n        if (event.target === $externalLabel[0]) {\n            return _this.toggleState();\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return window.setTimeout(function () {\n        return $form.find('input').filter(function () {\n            return $(this).data('bootstrap-switch');\n        }).each(function () {\n            return $(this).bootstrapSwitch('state', this.checked);\n        });\n    }, 1);\n}",
+    "receiverBase": "$form",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return $form.find('input').filter(function () {\n        return $(this).data('bootstrap-switch');\n    }).each(function () {\n        return $(this).bootstrapSwitch('state', this.checked);\n    });\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return $(this).data('bootstrap-switch');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return $(this).bootstrapSwitch('state', this.checked);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this, data;\n    $this = $(this);\n    data = $this.data('bootstrap-switch');\n    if (!data) {\n        $this.data('bootstrap-switch', data = new BootstrapSwitch(this, option));\n    }\n    if (typeof option === 'string') {\n        return ret = data[option].apply(data, args);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    var el = $(s);\n    var status;\n    if (!el.length) {\n        status = 'does not exist';\n    } else if (el.is(':visible')) {\n        status = 'visible';\n    } else {\n        status = 'hidden';\n    }\n    print(s, ':', status);\n}",
+    "receiverBase": "call",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return !$('#togetherjs-chat-notifier').is(':visible');\n}",
+    "receiverBase": "",
+    "receiverCallee": "wait"
+  },
+  {
+    "callback": "function () {\n    Test.newPeer();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var id = Math.floor(Math.random() * 1000);\n    Test.newPeer({\n        name: 'Faker ' + id,\n        clientId: 'random-' + id\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.which == 13) {\n        Test.newPeer({ url: ev.target.value });\n        ev.target.value = '';\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function () {\n    Test.incoming({\n        type: 'bye',\n        clientId: 'faker'\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    Test.incoming({\n        type: 'bye',\n        clientId: 'faker',\n        reason: 'declined-join'\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    Test.incoming({\n        type: 'url-change-nudge',\n        clientId: 'faker',\n        url: peers.getPeer('faker').url,\n        to: peers.Self.id\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    Test.incoming({\n        type: 'keydown',\n        clientId: 'faker'\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    this.css('-webkit-transform', '');\n    this.css('-moz-transform', '');\n    this.css('-ms-transform', '');\n    this.css('-o-transform', '');\n    this.css('transform', '');\n    this.css('opacity', '');\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (currentKind) {\n    return kind === currentKind ? true : false;\n}",
+    "receiverBase": "allowedKinds",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return $scope.active_endpoint;\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    console.log('watch value changed', value);\n    $rootScope.enterpriseMode = value === 'enterprise';\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (isEnterprise) {\n    $scope.active_endpoint = isEnterprise ? 'enterprise' : 'public';\n    ghAPI.setActiveEndpoint($scope.active_endpoint);\n    console.log($scope.active_endpoint);\n    appSettings.set({ active_endpoint: $scope.active_endpoint });\n    if (isEnterpriseAndEmpty()) {\n        $scope.showEnterprise();\n    }\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (settings) {\n    $scope.enterprise = settings.endpoints['enterprise'];\n    $scope.active_endpoint = settings.active_endpoint;\n}",
+    "receiverBase": "loadSettings",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    appSettings.set({ token: response.data.token });\n    ghAPI.setToken(response.data.token);\n    console.log('saved token');\n    $location.url('/');\n}",
+    "receiverBase": "loadSettings",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $('.info').slideUp();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('.warn').slideUp();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    appSettings.loadSettings().then(function (result) {\n        appSettings.set({ token: $scope.manualToken });\n        ghAPI.setToken($scope.manualToken);\n        $location.url('/');\n    });\n}",
+    "receiverBase": "isTokenValid",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    appSettings.set({ token: $scope.manualToken });\n    ghAPI.setToken($scope.manualToken);\n    $location.url('/');\n}",
+    "receiverBase": "loadSettings",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    $('.warn').slideDown('slow');\n    $('.warn span').text('Log-in failed - Token is invalid');\n    setTimeout(function () {\n        $('.warn').slideUp();\n    }, 2500);\n}",
+    "receiverBase": "isTokenValid",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $('.warn').slideUp();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (index) {\n    var self = jQuery(this);\n    var numOfButtons = jQuery('li', self).length;\n    var initBtnWidth = 100 / numOfButtons;\n    jQuery('li', self).css('width', initBtnWidth + '%').attr('data-initwidth', initBtnWidth);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    var txtWidth = parseFloat(jQuery(this).attr('data-size')) + 55;\n    var btnWidth = parseFloat(jQuery(this).width());\n    totalBtnSze = totalBtnSze + btnWidth;\n    totalTxtSze = totalTxtSze + txtWidth;\n}",
+    "receiverBase": "not",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, count) {\n    if (jQuery(this).hasClass('small') === false) {\n        var txtWidth = parseFloat(jQuery(this).attr('data-size')) + 55;\n        var btnWidth = parseFloat(jQuery(this).width());\n        if (txtWidth > btnWidth) {\n            var btn2small = jQuery('li', self).not('.small').last();\n            jQuery(btn2small).addClass('small');\n            sizeSmallBtns();\n        }\n    }\n    if (!--count)\n        backUpFromSmall();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    jQuery(this).addClass('rrssb-' + (index + 1));\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    var txtWdth = parseFloat(jQuery(this).width());\n    jQuery(this).closest('li').attr('data-size', txtWdth);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var timers = {};\n    return function (callback, ms, uniqueId) {\n        if (!uniqueId) {\n            uniqueId = 'Don\\'t call this twice without a uniqueId';\n        }\n        if (timers[uniqueId]) {\n            clearTimeout(timers[uniqueId]);\n        }\n        timers[uniqueId] = setTimeout(callback, ms);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    var _this = jQuery(this);\n    popupCenter(_this.attr('href'), _this.find('.text').html(), 580, 470);\n    e.preventDefault();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    rrssbMagicLayout(sizeSmallBtns);\n    waitForFinalEvent(function () {\n        rrssbMagicLayout(sizeSmallBtns);\n    }, 200, 'finished resizing');\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    rrssbMagicLayout(sizeSmallBtns);\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitForFinalEvent"
+  },
+  {
+    "callback": "function () {\n    rrssbInit();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "ready"
+  }
+]

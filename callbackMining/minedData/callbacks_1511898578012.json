@@ -1,0 +1,1642 @@
+[
+  {
+    "callback": "function (c) {\n    if (start) {\n        n.append(c);\n    }\n    if (c === aNode) {\n        start = true;\n    }\n}",
+    "receiverBase": "childs",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    inst.Selection.filterBlocks();\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "later"
+  },
+  {
+    "callback": "function () {\n    this.setupComponent();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var eventSpy = spyOnEvent(document, Pixelated.events.ui.page.previous);\n    this.component.select('previous').click();\n    expect(eventSpy).toHaveBeenTriggeredOn(document);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var eventSpy = spyOnEvent(document, Pixelated.events.ui.page.next);\n    this.component.select('next').click();\n    expect(eventSpy).toHaveBeenTriggeredOn(document);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.component.trigger(document, Pixelated.events.ui.page.changed, { currentPage: 0 });\n    expect(this.component.select('currentPage').text()).toBe('0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index) {\n    return array.indexOf(item) === index;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (elem, i) {\n    var ret;\n    if (Kimbo.isFunction(selector)) {\n        ret = !!selector.call(elem, i, elem);\n    } else if (Kimbo.isString(selector)) {\n        ret = _matches(elem, selector);\n    } else if (selector.nodeType) {\n        ret = elem === selector;\n    } else if (selector instanceof Kimbo) {\n        ret = elem === selector[0];\n    }\n    return ret;\n}",
+    "receiverBase": "_filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (elem, i) {\n    return callback.call(elem, elem, i);\n}",
+    "receiverBase": "Kimbo",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (node) {\n    node = closest(node);\n    if (node) {\n        result.push(node);\n    }\n}",
+    "receiverBase": "Kimbo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, fn) {\n    Kimbo.fn[name] = function (selector) {\n        var ret;\n        if (!this.length) {\n            return this;\n        }\n        ret = Kimbo.map(this, fn);\n        ret = this.length > 1 && !IS_UNIQUE[name] ? _unique(ret) : ret;\n        if (Kimbo.isString(selector)) {\n            ret = _.kimbo(ret).filter(selector);\n        }\n        return _.kimbo(ret);\n    };\n}",
+    "receiverBase": "Kimbo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    eval(code);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var entities = {\n            '&': '&amp;',\n            '>': '&gt;',\n            '<': '&lt;',\n            '\"': '&quot;'\n        }, keys = [], p, regex;\n    for (p in entities) {\n        keys.push(p);\n    }\n    regex = new RegExp('(' + keys.join('|') + ')', 'g');\n    return function (value) {\n        return !value ? value : String(value).replace(regex, function (match, capture) {\n            return entities[capture];\n        });\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (match, capture) {\n    return entities[capture];\n}",
+    "receiverBase": "String",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, capture) {\n    if (capture in entities) {\n        return entities[capture];\n    } else {\n        return String.fromCharCode(parseInt(capture.substr(2), 10));\n    }\n}",
+    "receiverBase": "String",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m, i) {\n    return args[i];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var array = [], lengthBefore, j = 20;\n    if (!array.splice) {\n        return false;\n    }\n    while (j--) {\n        array.push('A');\n    }\n    array.splice(15, 0, 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F', 'F');\n    lengthBefore = array.length;\n    array.splice(13, 0, 'XXX');\n    if (lengthBefore + 1 != array.length) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var a = [\n            1,\n            2,\n            3,\n            4,\n            5\n        ].sort(function () {\n            return 0;\n        });\n    return a[0] === 1 && a[1] === 2 && a[2] === 3 && a[3] === 4 && a[4] === 5;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return 0;\n}",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.length > b.length) {\n        return 1;\n    } else if (a.length < b.length) {\n        return -1;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "arrays",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    fn.apply(me, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    fn.apply(me, callArgs);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var useNative = null;\n    return function () {\n        if (useNative === null) {\n            useNative = Ext.USE_NATIVE_JSON && window.JSON && JSON.toString() == '[object JSON]';\n        }\n        return useNative;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    var c = m[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var ec;\n    return function (o) {\n        if (!ec) {\n            ec = isNative() ? JSON.stringify : doEncode;\n        }\n        return ec(o);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (alias, origin) {\n    this.override(alias, function () {\n        return this[origin].apply(this, arguments);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "flexSetter"
+  },
+  {
+    "callback": "function () {\n    return this[origin].apply(this, arguments);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (Class, data) {\n    var Base = Ext.Base, extend = data.extend, Parent;\n    delete data.extend;\n    if (extend && extend !== Object) {\n        Parent = extend;\n    } else {\n        Parent = Base;\n    }\n    Class.extend(Parent);\n    Class.triggerExtended.apply(Class, arguments);\n    if (data.onClassExtended) {\n        Class.onExtended(data.onClassExtended, Class);\n        delete data.onClassExtended;\n    }\n}",
+    "receiverBase": "ExtClass",
+    "receiverCallee": "registerPreprocessor"
+  },
+  {
+    "callback": "function (Class, data) {\n    Class.addStatics(data.statics);\n    delete data.statics;\n}",
+    "receiverBase": "ExtClass",
+    "receiverCallee": "registerPreprocessor"
+  },
+  {
+    "callback": "function (Class, data) {\n    Class.addInheritableStatics(data.inheritableStatics);\n    delete data.inheritableStatics;\n}",
+    "receiverBase": "ExtClass",
+    "receiverCallee": "registerPreprocessor"
+  },
+  {
+    "callback": "function () {\n    if (mixins instanceof Array) {\n        for (i = 0, ln = mixins.length; i < ln; i++) {\n            mixin = mixins[i];\n            name = mixin.prototype.mixinId || mixin.$className;\n            Class.mixin(name, mixin);\n        }\n    } else {\n        for (name in mixins) {\n            if (mixins.hasOwnProperty(name)) {\n                Class.mixin(name, mixins[name]);\n            }\n        }\n    }\n}",
+    "receiverBase": "Function",
+    "receiverCallee": "interceptBefore"
+  },
+  {
+    "callback": "function () {\n    this.onCreated(function () {\n        var overridenClass = this.get(overriddenClassName);\n        if (overridenClass.singleton) {\n            overridenClass.self.override(data);\n        } else {\n            overridenClass.override(data);\n        }\n        if (createdFn) {\n            createdFn.call(overridenClass, overridenClass);\n        }\n        this.triggerCreated(className);\n    }, this, overriddenClassName);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    var overridenClass = this.get(overriddenClassName);\n    if (overridenClass.singleton) {\n        overridenClass.self.override(data);\n    } else {\n        overridenClass.override(data);\n    }\n    if (createdFn) {\n        createdFn.call(overridenClass, overridenClass);\n    }\n    this.triggerCreated(className);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "onCreated"
+  },
+  {
+    "callback": "function (name, cls, data) {\n    var aliases = data.alias, i, ln;\n    for (i = 0, ln = aliases.length; i < ln; i++) {\n        alias = aliases[i];\n        this.setAlias(cls, alias);\n    }\n}",
+    "receiverBase": "Manager",
+    "receiverCallee": "registerPostprocessor"
+  },
+  {
+    "callback": "function (name, cls, data, fn) {\n    fn.call(this, name, new cls(), data);\n    return false;\n}",
+    "receiverBase": "Manager",
+    "receiverCallee": "registerPostprocessor"
+  },
+  {
+    "callback": "function (name, cls, data) {\n    var alternates = data.alternateClassName, i, ln, alternate;\n    if (!(alternates instanceof Array)) {\n        alternates = [alternates];\n    }\n    for (i = 0, ln = alternates.length; i < ln; i++) {\n        alternate = alternates[i];\n        this.set(alternate, cls);\n    }\n}",
+    "receiverBase": "Manager",
+    "receiverCallee": "registerPostprocessor"
+  },
+  {
+    "callback": "function (cls, data) {\n    if (data.$className) {\n        cls.$className = data.$className;\n    }\n}",
+    "receiverBase": "Class",
+    "receiverCallee": "registerPreprocessor"
+  },
+  {
+    "callback": "function (name, path) {\n    this.config.paths[name] = path;\n    setPathCount += 1;\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "flexSetter"
+  },
+  {
+    "callback": "function () {\n    if (!isFileLoaded[url]) {\n        scriptElements[url] = me.injectScriptElement(noCacheUrl, onLoad, onScriptError, scope);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "onDocumentReady"
+  },
+  {
+    "callback": "function (name, cls, data) {\n    var uses = arrayFrom(data.uses), items = [], i, ln, item;\n    for (i = 0, ln = uses.length; i < ln; i++) {\n        item = uses[i];\n        if (typeof item == 'string') {\n            items.push(item);\n        }\n    }\n    Loader.addOptionalRequires(items);\n}",
+    "receiverBase": "Manager",
+    "receiverCallee": "registerPostprocessor"
+  },
+  {
+    "callback": "function (className) {\n    this.historyPush(className);\n}",
+    "receiverBase": "Manager",
+    "receiverCallee": "onCreated"
+  },
+  {
+    "callback": "function () {\n    var scripts = document.getElementsByTagName('script'), currentScript = scripts[scripts.length - 1], src = currentScript.src, path = src.substring(0, src.lastIndexOf('/') + 1), Loader = Ext.Loader;\n    Loader.setConfig({\n        enabled: true,\n        disableCaching: !/[?&](cache|breakpoint)/i.test(location.search),\n        paths: { 'Ext': path + 'src' }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    mask.destroy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name) {\n    if (usePrototypeKeys || source.hasOwnProperty(name)) {\n        dest[name] = source[name];\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Ext.Viewport.on('ready', callback, null, { single: true });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    Ext.factoryConfig(config, function (cfg) {\n        callback(Ext.create(className, cfg));\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (cfg) {\n    callback(Ext.create(className, cfg));\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "factoryConfig"
+  },
+  {
+    "callback": "function () {\n    if (navigator.standalone) {\n        setTimeout(function () {\n            setTimeout(function () {\n                triggerFn();\n            }, 1);\n        }, 1);\n    } else {\n        setTimeout(function () {\n            triggerFn();\n        }, 1);\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        triggerFn();\n    }, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    triggerFn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    triggerFn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var browserEnv = Ext.browser = new this(Ext.global.navigator.userAgent);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (name, fn) {\n    this.has[name] = fn.call(this);\n    return this;\n}",
+    "receiverBase": "Function",
+    "receiverCallee": "flexSetter"
+  },
+  {
+    "callback": "function () {\n    Ext.ns('Ext.core');\n    Ext.core.DomQuery = Ext.DomQuery = new this();\n    Ext.query = Ext.Function.alias(Ext.DomQuery, 'select');\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var camelCaseRe = /([a-z])([A-Z])/g, cache = {};\n    function decamel(match, p1, p2) {\n        return p1 + '-' + p2.toLowerCase();\n    }\n    return function (s) {\n        return cache[s] || (cache[s] = s.replace(camelCaseRe, decamel));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    Ext.ns('Ext.core');\n    Ext.core.DomHelper = Ext.DomHelper = new this();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return !Ext.browser.is.IE ? function () {\n        var dom = this.dom;\n        return Boolean(dom && dom.offsetParent);\n    } : function () {\n        var dom = this.dom;\n        return Boolean(dom && (dom.offsetHeight !== 0 && dom.offsetWidth !== 0));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    Element.mixin('observable', Ext.mixin.Observable);\n}",
+    "receiverBase": "ClassManager",
+    "receiverCallee": "onCreated"
+  },
+  {
+    "callback": "function (e) {\n    rt = Ext.fly(insertEl, '_internal').insertSibling(e, where, returnDom);\n    if (isAfter) {\n        insertEl = rt;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Ext.fly(dom).removeCls(Ext.baseCSSPrefix + 'repaint');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var transformStyleName = 'webkitTransform' in document.createElement('div').style ? 'webkitTransform' : 'transform';\n    return function (x, y, z) {\n        this.dom.style[transformStyleName] = 'translate3d(' + (x || 0) + 'px, ' + (y || 0) + 'px, ' + (z || 0) + 'px)';\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (el, self, i) {\n    if (fn(el, i) !== false) {\n        els[els.length] = me.transformElement(el);\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    yels.push(Ext.get(e));\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val) {\n    if (el = elements[val] || elements[val = me.indexOf(val)]) {\n        if (removeDom) {\n            if (el.dom) {\n                el.remove();\n            } else {\n                Ext.removeNode(el);\n            }\n        }\n        Ext.Array.erase(elements, val, 1);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (from, to) {\n    targetClass.override(to, function () {\n        if (mixin[from].apply(this, arguments) !== false) {\n            return this.callOverridden(arguments);\n        }\n    });\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (mixin[from].apply(this, arguments) !== false) {\n        return this.callOverridden(arguments);\n    }\n}",
+    "receiverBase": "targetClass",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (from, to) {\n    targetClass.override(to, function () {\n        var ret = this.callOverridden(arguments);\n        mixin[from].apply(this, arguments);\n        return ret;\n    });\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ret = this.callOverridden(arguments);\n    mixin[from].apply(this, arguments);\n    return ret;\n}",
+    "receiverBase": "targetClass",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    this.createAlias({\n        on: 'addListener',\n        un: 'removeListener',\n        onBefore: 'addBeforeListener',\n        onAfter: 'addAfterListener',\n        unBefore: 'removeBeforeListener',\n        unAfter: 'removeAfterListener'\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (map, key, item) {\n    if (key == id) {\n        fn.call(scope || item, item);\n        all.un('add', fn, scope);\n    }\n}",
+    "receiverBase": "all",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (m, i) {\n    return args[i];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var ms1d = 86400000, ms7d = 7 * ms1d;\n    return function (date) {\n        var DC3 = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate() + 3) / ms1d, AWN = Math.floor(DC3 / 7), Wyr = new Date(AWN * ms7d).getUTCFullYear();\n        return AWN - Math.floor(Date.UTC(Wyr, 0, 7) / ms7d) + 1;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var daysInMonth = [\n            31,\n            28,\n            31,\n            30,\n            31,\n            30,\n            31,\n            31,\n            30,\n            31,\n            30,\n            31\n        ];\n    return function (date) {\n        var m = date.getMonth();\n        return m == 1 && utilDate.isLeapYear(date) ? 29 : daysInMonth[m];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (m, i) {\n    return args[i];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var proto = this.prototype;\n    proto.fnArgs = 'out,values,parent,xindex,xcount';\n    proto.callFn = '.call(this,' + proto.fnArgs + ')';\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (!this.isAnimating) {\n        this.refresh();\n    }\n}",
+    "receiverBase": "wrapper",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    me.activeAnimation = null;\n    controller.resume();\n}",
+    "receiverBase": "activeAnimation",
+    "receiverCallee": "setOnEnd"
+  },
+  {
+    "callback": "function (key, value) {\n    if (!Ext.isObject(value) && currentAlignmentInfo[key] != value) {\n        isAligned = false;\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (element, interrupted) {\n    if (interrupted || Ext.Animator.hasRunningAnimations(element)) {\n        controller.firingArguments[1] = null;\n        controller.firingArguments[2] = null;\n    }\n}",
+    "receiverBase": "outAnimation",
+    "receiverCallee": "setOnBeforeEnd"
+  },
+  {
+    "callback": "function () {\n    controller.resume();\n}",
+    "receiverBase": "outAnimation",
+    "receiverCallee": "setOnEnd"
+  },
+  {
+    "callback": "function () {\n    parent.removeCls('x-layout-card-perspective');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (item) {\n    this.remove(item);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o) {\n    return o && value.test(o[property]);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "findIndexBy"
+  },
+  {
+    "callback": "function (item) {\n    return item.id || item.property;\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (a, b) {\n    var v = fn(a[property], b[property]) * dsc;\n    if (v === 0) {\n        v = a.index < b.index ? -1 : 1;\n    }\n    return v;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    var v = sorterFn(a.value, b.value);\n    if (v === 0) {\n        v = a.index < b.index ? -1 : 1;\n    }\n    return v;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    callback(currTime + timeToCall);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (item) {\n    if (item.dom.offsetWidth > 0) {\n        item.dom.setAttribute('disabled', true);\n        item.dom.setAttribute('overlayfix', true);\n    }\n}",
+    "receiverBase": "select",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    item.dom.removeAttribute('disabled');\n    item.dom.removeAttribute('overlayfix');\n}",
+    "receiverBase": "select",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (defaultAnimation) {\n        defaultAnimation.enable();\n    }\n    animation.destroy();\n}",
+    "receiverBase": "animation",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.addMember('defaultItemClass', this);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    scope.fireEvent(name, scope, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setHandler"
+  },
+  {
+    "callback": "function () {\n    delete me.pressedTimeout;\n    if (element) {\n        element.addCls(pressedCls);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (e) {\n    if (!me.isInputRegex.test(e.target.tagName)) {\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    request.timedout = true;\n    me.abort(request);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name, value) {\n    if (Ext.isArray(value)) {\n        Ext.each(value, function (v) {\n            addField(name, v);\n        });\n    } else {\n        addField(name, value);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (v) {\n    addField(name, v);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Ext.callback(me.onUploadComplete, me, [\n        frame,\n        options,\n        id\n    ]);\n    frame.removeEventListener('load', arguments.callee);\n}",
+    "receiverBase": "frame",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (h) {\n    Ext.removeNode(h);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Ext.removeNode(frame);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e, fn) {\n    fn = bind(me[fn], me);\n    me.mediaEvents[e] = fn;\n    dom.addEventListener(e, fn);\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    dom.play();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event, fn) {\n    dom.removeEventListener(event, fn);\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (position) {\n    me.fireUpdate(position);\n    if (callback) {\n        callback.call(scope || me, me, me);\n    }\n}",
+    "receiverBase": "provider",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function (error) {\n    failFunction(null, error);\n}",
+    "receiverBase": "provider",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    Ext.Viewport.hideMenu(this.$side);\n}",
+    "receiverBase": "mask",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (!me.ignoreInput) {\n        me.fireEvent('keyup', e);\n        me.ignoreInput = false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    me.isFocused = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (buttonConfig) {\n    if (!buttonConfig) {\n        return;\n    }\n    buttonBarItems.push(Ext.apply({\n        userConfig: userConfig,\n        scope: this,\n        handler: 'onClick'\n    }, buttonConfig));\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (MessageBox) {\n    Ext.onSetup(function () {\n        Ext.Msg = new MessageBox();\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    Ext.Msg = new MessageBox();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "onSetup"
+  },
+  {
+    "callback": "function (result) {\n    this.fulfill(result);\n    return result;\n}",
+    "receiverBase": "me",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < ln; i++) {\n        e = events[i];\n        me.fireEvent('toggle', me, e.item, e.toggle);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (item) {\n    item.setDisabled(disabled);\n}",
+    "receiverBase": "items",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    me.play();\n    setTimeout(function () {\n        media.hide();\n    }, 10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    media.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (refName, info) {\n    var args = [\n            refName,\n            info\n        ];\n    return function () {\n        return me.getRef.apply(me, args.concat.apply(args, arguments));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    me.refCache[ref] = null;\n}",
+    "receiverBase": "cached",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (className) {\n    if (Ext.isString(className)) {\n        if (Ext.isString(className) && (Ext.Loader.getPrefix(className) === '' || className === appName)) {\n            className = appName + '.' + classType + '.' + namespace + '.' + className;\n        }\n        classNames.push(className);\n        allClasses.push(className);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (this.getEnableLoader() !== false) {\n        Ext.require(this.getProfiles(), this.onProfilesLoaded, this);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (storeName) {\n    if (Ext.isString(storeName)) {\n        classes.push(storeName);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    Ext.get('frame-workaround').destroy();\n}",
+    "receiverBase": "Animator",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.offset - b.offset;\n}",
+    "receiverBase": "stops",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (deg) {\n    return Ext.draw.Draw.rad(deg);\n}",
+    "receiverBase": "degrees",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    Ext.apply(this, easings);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    this.def = Ext.create('Ext.draw.sprite.AttributeDefinition', this.def);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (fontWeights) {\n    return function (n) {\n        if (!n) {\n            return '';\n        } else if (n === 'normal') {\n            return '';\n        } else if (!isNaN(n)) {\n            n = +n;\n            if (100 <= n && n <= 900) {\n                return n;\n            }\n        } else if (n in fontWeights) {\n            return n;\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (textAligns) {\n    return function (n) {\n        if (n === 'middle') {\n            return 'center';\n        } else if (!n) {\n            return 'center';\n        } else if (!Ext.isString(n)) {\n            return undefined;\n        } else if (n in textAligns) {\n            return n;\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (textBaselines) {\n    return function (n) {\n        if (n === false) {\n            return 'alphabetic';\n        } else if (n in textBaselines) {\n            return n;\n        } else if (n === 'center') {\n            return 'middle';\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a, arg1) {\n    return arg1.replace(Ext.draw.sprite.Text.shortHand2Re, '$$$$');\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var flyMatrix = null, simplefly = function (elements) {\n            flyMatrix.elements = elements;\n            return flyMatrix;\n        };\n    return function (elements) {\n        if (!flyMatrix) {\n            flyMatrix = new Ext.draw.Matrix();\n        }\n        flyMatrix.elements = elements;\n        Ext.draw.Matrix.fly = simplefly;\n        return flyMatrix;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "getKeys",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (item) {\n    item.remove(sprite);\n}",
+    "receiverBase": "getGroups",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (group) {\n    if (!result.contains()) {\n        group.destroy();\n    }\n}",
+    "receiverBase": "oldGroups",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    delete me.repaint;\n    me.element.repaint();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (Ext.os.is.Android4 && Ext.browser.is.Chrome) {\n        this.prototype.splitThreshold = 3000;\n    } else if (Ext.os.is.Android) {\n        this.prototype.splitThreshold = 10000000000;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (surface) {\n    surface.setRegion([\n        0,\n        0,\n        size.width,\n        size.height\n    ]);\n}",
+    "receiverBase": "getItems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (location.search.match('svg')) {\n        Ext.draw.Component.prototype.engine = 'Ext.draw.engine.Svg';\n    } else if (Ext.os.is.BlackBerry && Ext.os.version.getMajor() === 10 || Ext.browser.is.AndroidStock4 && (Ext.os.version.getMinor() === 1 || Ext.os.version.getMinor() === 2 || Ext.os.version.getMinor() === 3)) {\n        Ext.draw.Component.prototype.engine = 'Ext.draw.engine.Svg';\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    me.doSync();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (Ext.browser.is.AndroidStock2) {\n        this.prototype.throttleGap = 20;\n    } else if (Ext.os.is.Android4) {\n        this.prototype.throttleGap = 40;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (position, labelText, i) {\n    position = position / (attr.max + 1) * Math.PI * 2 + attr.baseRotation;\n    ctx.moveTo(attr.centerX + attr.length * Math.cos(position), attr.centerY + attr.length * Math.sin(position));\n    ctx.lineTo(attr.centerX + (attr.length + majorTickSize) * Math.cos(position), attr.centerY + (attr.length + majorTickSize) * Math.sin(position));\n}",
+    "receiverBase": "me",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (position, labelText, i) {\n    anchor = position * yy + dy + endGap;\n    me.putMarker('horizontal-' + (i % 2 ? 'odd' : 'even'), {\n        y: anchor,\n        height: lastAnchor - anchor\n    }, j = i, true);\n    lastAnchor = anchor;\n}",
+    "receiverBase": "me",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (position, labelText, i) {\n    anchor = position * xx + dx + startGap;\n    me.putMarker('vertical-' + (i % 2 ? 'odd' : 'even'), {\n        x: anchor,\n        width: lastAnchor - anchor\n    }, j = i, true);\n    lastAnchor = anchor;\n}",
+    "receiverBase": "me",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (position, labelText, i) {\n    anchor = position / attr.max * attr.length;\n    me.putMarker('circular-' + (i % 2 ? 'odd' : 'even'), {\n        scalingX: anchor,\n        scalingY: anchor\n    }, i, true);\n    lastAnchor = anchor;\n}",
+    "receiverBase": "me",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (position, labelText, i) {\n    anchor = position / (attr.max + 1) * Math.PI * 2 + attr.baseRotation;\n    me.putMarker('radial-' + (i % 2 ? 'odd' : 'even'), {\n        rotationRads: anchor,\n        rotationCenterX: 0,\n        rotationCenterY: 0,\n        scalingX: attr.length,\n        scalingY: attr.length\n    }, i, true);\n    lastAnchor = anchor;\n}",
+    "receiverBase": "me",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (sorter) {\n    return sorter.getId();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (item) {\n    if (item.getSorterFn() === sorter) {\n        currentSorters.remove(item);\n    }\n}",
+    "receiverBase": "currentSorters",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (filter) {\n    return filter.getId();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (item) {\n    if (item.getProperty() === filter) {\n        currentFilters.remove(item);\n    }\n}",
+    "receiverBase": "currentFilters",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    if (item.getFilterFn() === filter) {\n        currentFilters.remove(item);\n    }\n}",
+    "receiverBase": "currentFilters",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    if (item.getProperty() === filter.property && item.getValue() === filter.value) {\n        currentFilters.remove(item);\n    }\n}",
+    "receiverBase": "currentFilters",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Ext.apply(this.prototype, {\n        nullResultSet: new Ext.data.ResultSet({\n            total: 0,\n            count: 0,\n            records: [],\n            success: false\n        })\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (field) {\n    if (field.getPersist()) {\n        name = field.config[nameProperty] || field.getName();\n        value = record.get(field.getName());\n        if (field.getType().type == 'date') {\n            value = this.writeDate(field, value);\n        }\n        data[name] = value;\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (record) {\n    batch.add(new Ext.data.Operation({\n        action: action,\n        records: [record],\n        model: model\n    }));\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (record1, record2) {\n    return record1._tmpIndex > record2._tmpIndex ? 1 : -1;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (record1, record2) {\n    return record1._tmpIndex > record2._tmpIndex ? 1 : -1;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    Ext.regModel = function () {\n        return this.ModelManager.registerType.apply(this.ModelManager, arguments);\n    };\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (associatedRecord) {\n    associatedRecord[inverse.getInstanceName()] = record;\n}",
+    "receiverBase": "store",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (assoc) {\n    return assoc.getType().toLowerCase() === 'belongsto' && assoc.getAssociatedModel().modelName === ownerName;\n}",
+    "receiverBase": "associations",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (assoc) {\n    var type = assoc.getType().toLowerCase();\n    return (type === 'hasmany' || type === 'hasone') && assoc.getAssociatedModel().modelName === ownerName && assoc.getForeignKey() === foreignKey;\n}",
+    "receiverBase": "associations",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (assoc) {\n    return assoc.getType().toLowerCase() === 'belongsto' && assoc.getAssociatedModel().modelName === ownerName;\n}",
+    "receiverBase": "associations",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (field) {\n    if (field.getPersist()) {\n        name = field.getName();\n        me.modified[name] = me.get(name);\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (associationName) {\n    associationsCollection.add(Ext.data.association.Association.create(this));\n}",
+    "receiverBase": "Function",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (sorter) {\n    var property = sorter.getProperty(), field;\n    if (!sorter.isGrouper && property && !sorter.getTransform()) {\n        field = fields.get(property);\n        if (field) {\n            sorter.setTransform(field.getSortType());\n        }\n    }\n}",
+    "receiverBase": "getSorters",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (record) {\n    return record.getId() == id;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (record) {\n    return record.get(fieldName) === value;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "findIndexBy"
+  },
+  {
+    "callback": "function (item) {\n    return item.phantom === true && item.isValid();\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filterBy"
+  },
+  {
+    "callback": "function (item) {\n    return item.dirty === true && item.phantom !== true && item.isValid();\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filterBy"
+  },
+  {
+    "callback": "function (date) {\n    return Ext.Date.format(new Date(date), format);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setRenderer"
+  },
+  {
+    "callback": "function (axis) {\n    result[axis] = {};\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, val) {\n    if (val === true) {\n        result[key] = {};\n    } else if (val !== false) {\n        result[key] = val;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function () {\n    chart.resumeThicknessChanged();\n    surface.remove(me.selectionRect);\n    me.selectionRect = null;\n    me.zoomAnimationInProgress = false;\n}",
+    "receiverBase": "fx",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.toggleMode();\n}",
+    "receiverBase": "result",
+    "receiverCallee": "setHandler"
+  },
+  {
+    "callback": "function (axis) {\n    axis.hideLabels();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachInteractiveAxes"
+  },
+  {
+    "callback": "function (axis) {\n    axis.showLabels();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachInteractiveAxes"
+  },
+  {
+    "callback": "function (axis) {\n    oldVisibleRanges[axis.getId()] = axis.getVisibleRange();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachInteractiveAxes"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var klass = this;\n    klass.prototype.onAxesChanged = Ext.chart.series.Cartesian.prototype.onAxesChanged;\n    klass.prototype.getSprites = Ext.chart.series.Cartesian.prototype.getSprites;\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    Ext.data.SimpleStore = Ext.data.ArrayStore;\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (n) {\n    n.destroy(true);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.get(attribute) == value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "findChildBy"
+  },
+  {
+    "callback": "function () {\n    me.expand(recursive, callback, scope);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.set('expanded', true);\n    Ext.callback(callback, scope || me, [me.childNodes]);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "fireAction"
+  },
+  {
+    "callback": "function () {\n    me.set('expanded', false);\n    Ext.callback(callback, scope || me, [me.childNodes]);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "fireAction"
+  },
+  {
+    "callback": "function (node) {\n    if (node.isLeaf()) {\n        return 1;\n    }\n    return 0;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setGrouper"
+  },
+  {
+    "callback": "function () {\n    e.resume();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.Global = new this({ id: 'uuid' });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (field) {\n    if (field.getType().type === 'date' && !field.getDateFormat()) {\n        field.setDateFormat(defaultDateFormat);\n    }\n}",
+    "receiverBase": "getFields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (transaction) {\n    if (!tableExists) {\n        me.createTable(transaction);\n    }\n    me.insertRecords(records, transaction, function (resultSet, error) {\n        if (operation.process(operation.getAction(), resultSet) === false) {\n            me.fireEvent('exception', me, operation);\n        }\n        if (error) {\n            operation.setException(error);\n        }\n    }, me);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (resultSet, error) {\n    if (operation.process(operation.getAction(), resultSet) === false) {\n        me.fireEvent('exception', me, operation);\n    }\n    if (error) {\n        operation.setException(error);\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "insertRecords"
+  },
+  {
+    "callback": "function (transaction, error) {\n    me.setException(operation, error);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (record) {\n    return record.getId();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (transaction, error) {\n    me.setException(operation, error);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (!tableExists) {\n        me.createTable(transaction);\n    }\n    me.updateRecords(transaction, records, function (resultSet, errors) {\n        if (operation.process(operation.getAction(), resultSet) === false) {\n            me.fireEvent('exception', me, operation);\n        }\n        if (errors) {\n            operation.setException(errors);\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (resultSet, errors) {\n    if (operation.process(operation.getAction(), resultSet) === false) {\n        me.fireEvent('exception', me, operation);\n    }\n    if (errors) {\n        operation.setException(errors);\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "updateRecords"
+  },
+  {
+    "callback": "function (transaction, error) {\n    me.setException(operation, error);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (!tableExists) {\n        me.createTable(transaction);\n    }\n    me.destroyRecords(transaction, records, function (resultSet, error) {\n        if (operation.process(operation.getAction(), resultSet) === false) {\n            me.fireEvent('exception', me, operation);\n        }\n        if (error) {\n            operation.setException(error);\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (resultSet, error) {\n    if (operation.process(operation.getAction(), resultSet) === false) {\n        me.fireEvent('exception', me, operation);\n    }\n    if (error) {\n        operation.setException(error);\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "destroyRecords"
+  },
+  {
+    "callback": "function (transaction, error) {\n    me.setException(operation, error);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, operation);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, resultSet) {\n    executed++;\n    insertedRecords.push({\n        clientId: id,\n        id: uniqueIdStrategy ? id : resultSet.insertId,\n        data: data,\n        node: data\n    });\n    if (executed === totalRecords && typeof callback == 'function') {\n        callback.call(scope || me, result, errors.length > 0 ? errors : null);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, error) {\n    executed++;\n    errors.push({\n        clientId: id,\n        error: error\n    });\n    if (executed === totalRecords && typeof callback == 'function') {\n        callback.call(scope || me, result, errors);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, resultSet) {\n    rows = resultSet.rows;\n    count = rows.length;\n    for (i = 0, ln = count; i < ln; i++) {\n        data = rows.item(i);\n        records.push({\n            clientId: null,\n            id: data[idProperty],\n            data: data,\n            node: data\n        });\n    }\n    result.setSuccess(true);\n    result.setTotal(count);\n    result.setCount(count);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, result);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, error) {\n    result.setSuccess(false);\n    result.setTotal(0);\n    result.setCount(0);\n    if (typeof callback == 'function') {\n        callback.call(scope || me, result, error);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, resultSet) {\n    executed++;\n    updatedRecords.push({\n        clientId: id,\n        id: id,\n        data: data,\n        node: data\n    });\n    if (executed === totalRecords && typeof callback == 'function') {\n        callback.call(scope || me, result, errors.length > 0 ? errors : null);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, error) {\n    executed++;\n    errors.push({\n        clientId: id,\n        error: error\n    });\n    if (executed === totalRecords && typeof callback == 'function') {\n        callback.call(scope || me, result, errors);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, resultSet) {\n    for (i = 0, ln = records.length; i < ln; i++) {\n        record = records[i];\n        destroyedRecords.push({ id: record.getId() });\n    }\n    if (typeof callback == 'function') {\n        callback.call(scope || me, result);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, error) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, result, error);\n    }\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (field) {\n    if (field.getPersist()) {\n        name = field.getName();\n        if (name === idProperty && !uniqueIdStrategy) {\n            return;\n        }\n        value = record.get(name);\n        if (field.getType().type == 'date') {\n            value = me.writeDate(field, value);\n        }\n        data[name] = value;\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (transaction) {\n    transaction.executeSql('DROP TABLE ' + table);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, error) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, false, table, error);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction) {\n    if (typeof callback == 'function') {\n        callback.call(scope || me, true, table);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    osc.noteOff(0);\n    if (callback)\n        callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (me.fireEvent('beforepoll', me) !== false) {\n        if (Ext.isFunction(url)) {\n            url(baseParams);\n        } else {\n            Ext.Ajax.request({\n                url: url,\n                callback: me.onData,\n                scope: me,\n                params: baseParams\n            });\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (item) {\n    return item.getId();\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function () {\n    var test = Element.prototype, matchesSelector = 'webkitMatchesSelector' in test ? 'webkitMatchesSelector' : 'msMatchesSelector' in test ? 'msMatchesSelector' : 'mozMatchesSelector' in test ? 'mozMatchesSelector' : null;\n    if (matchesSelector) {\n        return function (element, selector) {\n            return element[matchesSelector](selector);\n        };\n    }\n    return function (element, selector) {\n        Ext.DomQuery.is(element, selector);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    me.fireSingleTap(e, touch);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.fireLongPress(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this.override({\n        handledEvents: [\n            'longpress',\n            'taphold'\n        ],\n        fire: function (eventName) {\n            if (eventName === 'longpress') {\n                var args = Array.prototype.slice.call(arguments);\n                args[0] = 'taphold';\n                this.fire.apply(this, args);\n            }\n            return this.callOverridden(arguments);\n        }\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (field) {\n    if (field.getChecked()) {\n        values.push(field.getValue());\n    }\n}",
+    "receiverBase": "getSameGroupFields",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    field.setChecked(values.indexOf(field.getValue()) !== -1);\n}",
+    "receiverBase": "getSameGroupFields",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    field.setChecked(field.originalState);\n}",
+    "receiverBase": "getSameGroupFields",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (item) {\n    slots.push(me.createSlot(item, days, months, years));\n}",
+    "receiverBase": "slotOrder",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (field) {\n    field.setDisabled(newDisabled);\n}",
+    "receiverBase": "getFieldsAsArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    if (field.isFile === true) {\n        multipartDetected = true;\n        return false;\n    }\n}",
+    "receiverBase": "getFieldsAsArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (data, response, success) {\n    me.setMasked(false);\n    if (success) {\n        if (data.success) {\n            successFn(response, data);\n        } else {\n            failureFn(response, data);\n        }\n    } else {\n        failureFn(response, data);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "submit"
+  },
+  {
+    "callback": "function (name, value) {\n    if (Ext.isArray(value)) {\n        Ext.each(value, function (v) {\n            formData.append(name, v);\n        });\n    } else {\n        formData.append(name, value);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (v) {\n    formData.append(name, v);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data, response, success) {\n    me.setMasked(false);\n    if (success) {\n        successFn(response, data);\n    } else {\n        failureFn(response, data);\n    }\n}",
+    "receiverBase": "args",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (field) {\n    field.reset();\n}",
+    "receiverBase": "getFieldsAsArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    field.setDisabled(newDisabled);\n}",
+    "receiverBase": "getFieldsAsArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    window.addEventListener('message', doApplyTo, false);\n    window.postMessage(message, '*');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "requestAnimationFrame"
+  },
+  {
+    "callback": "function () {\n    titleElement.setLeft(properties.titleLeft);\n    me.isAnimating = false;\n    me.refreshTitlePosition();\n}",
+    "receiverBase": "me",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    leftGhost.ghost.destroy();\n    titleGhost.ghost.destroy();\n}",
+    "receiverBase": "me",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    if (callback) {\n        callback.call(me);\n    }\n}",
+    "receiverBase": "animation",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    row.removeCls(Ext.baseCSSPrefix + 'list-item-dragging');\n    list.updateListItem(row, row.$dataIndex, listItemInfo);\n    row.$position = position;\n    list.fireEvent('dragsort', list, row, this.currentDragRowIndex, this.dragRowIndex);\n    this.animating = false;\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.override({\n        activate: function () {\n            this.setActive(true);\n        },\n        deactivate: function () {\n            this.setActive(false);\n        }\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    return '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    this.isMaximizing = false;\n    this.updateSize();\n    controller.resume();\n    this.fireEvent('ready', this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.isMaximizing = false;\n    this.updateSize();\n    firingArguments[2] = this.windowWidth;\n    firingArguments[3] = this.windowHeight;\n    controller.resume();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function repeat() {\n    elapse += delay;\n    if (condition.call(scope) === true) {\n        if (onSatisfied) {\n            onSatisfied.call(scope);\n        }\n    } else {\n        if (elapse >= timeoutDuration) {\n            if (onTimeout) {\n                onTimeout.call(scope);\n            }\n        } else {\n            setTimeout(repeat, delay);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    window.scrollTo(0, 0);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    menu.isAnimating = false;\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    menu.isAnimating = false;\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    menu.isAnimating = false;\n    menu.hide();\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    menu.isAnimating = false;\n    menu.hide();\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (shouldRevert) {\n        menu.hide();\n    }\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (shouldRevert) {\n        menu.hide();\n    }\n}",
+    "receiverBase": "getTranslatable",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    dummy.style.display = 'none';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    focusedElement.style.display = '';\n    eventController.resume();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return this.getWindowOuterHeight() !== this.windowOuterHeight;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    this.windowOuterHeight = this.getWindowOuterHeight();\n    this.updateSize();\n    eventController.firingArguments[2] = this.windowWidth;\n    eventController.firingArguments[3] = this.windowHeight;\n    eventController.resume();\n    this.orientationChanging = false;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    var oldWidth = this.windowWidth, oldHeight = this.windowHeight, width = this.getWindowWidth(), height = this.getWindowHeight(), currentOrientation = this.getOrientation(), newOrientation = this.determineOrientation();\n    return oldWidth !== width && oldHeight !== height && currentOrientation !== newOrientation;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    var currentOrientation = this.getOrientation(), newOrientation = this.determineOrientation();\n    this.fireOrientationChangeEvent(newOrientation, currentOrientation);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    this.scrollToTop();\n    return currentHeight !== this.getWindowHeight();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    if (!stretchHeights[orientation]) {\n        height = stretchHeights[orientation] = this.getWindowHeight();\n        this.setHeight(height);\n    }\n    this.fireMaximizeEvent();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    height = stretchHeights[orientation] = this.getWindowHeight();\n    this.setHeight(height);\n    this.fireMaximizeEvent();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    if (window.scrollX !== 0) {\n        window.scrollTo(0, window.scrollY);\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    var oldWidth = this.windowWidth, oldHeight = this.windowHeight, width = this.getWindowWidth(), height = this.getWindowHeight(), currentOrientation = this.getOrientation(), newOrientation = this.determineOrientation();\n    return oldWidth !== width && oldHeight !== height && currentOrientation !== newOrientation;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function () {\n    var currentOrientation = this.getOrientation(), newOrientation = this.determineOrientation();\n    this.fireOrientationChangeEvent(newOrientation, currentOrientation);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitUntil"
+  },
+  {
+    "callback": "function ($scope, $http) {\n    $scope.user = {\n        id: 1,\n        name: 'awesome user'\n    };\n    $scope.updateUser = function (data) {\n        return $http.post('/updateUser', {\n            id: $scope.user.id,\n            name: data\n        });\n    };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function () {\n    composite.add(widget1);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "assertException"
+  },
+  {
+    "callback": "function () {\n    composite.addBefore(widget2, widget3);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "assertException"
+  },
+  {
+    "callback": "function () {\n    composite.addAfter(widget2, widget3);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "assertException"
+  },
+  {
+    "callback": "function () {\n    composite.removeAt(1);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "assertException"
+  },
+  {
+    "callback": "function (socket) {\n    connections++;\n    socket.destroy();\n}",
+    "receiverBase": "net",
+    "receiverCallee": "Server"
+  },
+  {
+    "callback": "function (socket) {\n    connections++;\n    socket.destroy();\n}",
+    "receiverBase": "net",
+    "receiverCallee": "Server"
+  },
+  {
+    "callback": "function () {\n    server2errors++;\n    console.error('server2 error');\n}",
+    "receiverBase": "server2",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.error('server1 listening');\n    server1listening = true;\n    server2.listen(common.PORT);\n    setTimeout(function () {\n        server2.listen(common.PORT + 1, function () {\n            console.error('server2 listening');\n            server2listening = true;\n            server1.close();\n            server2.close();\n        });\n    }, 100);\n}",
+    "receiverBase": "server1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    server2.listen(common.PORT + 1, function () {\n        console.error('server2 listening');\n        server2listening = true;\n        server1.close();\n        server2.close();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    console.error('server2 listening');\n    server2listening = true;\n    server1.close();\n    server2.close();\n}",
+    "receiverBase": "server2",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    assert.equal(1, server2errors);\n    assert.ok(server2listening);\n    assert.ok(server1listening);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (r) {\n    return _.result(r, attribute);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (r) {\n    return r.get(attribute);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (memo, key) {\n    if (_.isUndefined(memo)) {\n        return self.rel(key);\n    } else if (_.isArray(memo)) {\n        return _.flatten(_.map(memo, function (item) {\n            return item.rel(key);\n        }));\n    } else if (memo) {\n        return memo.rel(key);\n    } else {\n        return null;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (item) {\n    return item.rel(key);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var out = currAlignment.all('p'), alignRegion = container.get('region');\n    Y.Assert.areEqual('#widget3-example', out.item(0).get('text'));\n    Y.Assert.areEqual('centered', out.item(1).get('text'));\n    test.isCentered(alignRegion, widget3, '#widget3-example, centered failed');\n    test.wait();\n}",
+    "receiverBase": "test",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function () {\n    var out = currAlignment.all('p');\n    Y.Assert.areEqual('viewport', out.item(0).get('text'));\n    Y.Assert.areEqual('centered', out.item(1).get('text'));\n    test.isCentered(widget3.get('viewportRegion'), widget3, 'viewport, centered failed');\n    test.wait();\n}",
+    "receiverBase": "test",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function () {\n    var out = currAlignment.all('p'), alignRegion = container.get('region');\n    Y.Assert.areEqual('#widget3-example', out.item(0).get('text'));\n    Y.Assert.areEqual('[center, center]', out.item(1).get('text'));\n    test.isCentered(alignRegion, widget3, '#widget3-example, [center, center] failed');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function (err) {\n    self._delegateError(err, sequence);\n}",
+    "receiverBase": "sequence",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (packet) {\n    self._emitPacket(packet);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self._dequeue();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    self._delegateError(err, sequence);\n}",
+    "receiverBase": "sequence",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sequence) {\n    sequence.end(err);\n}",
+    "receiverBase": "_queue",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sequence) {\n    return sequence.hasErrorHandler();\n}",
+    "receiverBase": "_queue",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (compilation, params) {\n    compilation.dependencyFactories.set(ConstDependency, new NullFactory());\n    compilation.dependencyTemplates.set(ConstDependency, new ConstDependency.Template());\n}",
+    "receiverBase": "compiler",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function walkDefinitions(definitions, prefix) {\n    Object.keys(definitions).forEach(function (key) {\n        var code = definitions[key];\n        if (code && typeof code === 'object' && !(code instanceof RegExp)) {\n            walkDefinitions(code, prefix + key + '.');\n            applyObjectDefine(prefix + key, code);\n            return;\n        }\n        applyDefineKey(prefix, key);\n        applyDefine(prefix + key, code);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (key) {\n    var code = definitions[key];\n    if (code && typeof code === 'object' && !(code instanceof RegExp)) {\n        walkDefinitions(code, prefix + key + '.');\n        applyObjectDefine(prefix + key, code);\n        return;\n    }\n    applyDefineKey(prefix, key);\n    applyDefine(prefix + key, code);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    var code = obj[key];\n    return JSON.stringify(key) + ':' + toCode(code);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (_, i) {\n    var fullKey = prefix + splittedKey.slice(0, i + 1).join('.');\n    compiler.parser.plugin('can-rename ' + fullKey, function () {\n        return true;\n    });\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    if (recurse)\n        return;\n    recurse = true;\n    var res = compiler.parser.evaluate(code);\n    recurse = false;\n    res.setRange(expr.range);\n    return res;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    var dep = new ConstDependency('(' + code + ')', expr.range);\n    dep.loc = expr.loc;\n    this.state.current.addDependency(dep);\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    if (recurseTypeof)\n        return;\n    recurseTypeof = true;\n    var res = compiler.parser.evaluate(typeofCode);\n    recurseTypeof = false;\n    res.setRange(expr.range);\n    return res;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    var res = compiler.parser.evaluate(typeofCode);\n    if (!res.isString())\n        return;\n    var dep = new ConstDependency(JSON.stringify(res.string), expr.range);\n    dep.loc = expr.loc;\n    this.state.current.addDependency(dep);\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    return new BasicEvaluatedExpression().setRange(expr.range);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    return new BasicEvaluatedExpression().setString('object').setRange(expr.range);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    var dep = new ConstDependency('(' + code + ')', expr.range);\n    dep.loc = expr.loc;\n    this.state.current.addDependency(dep);\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (expr) {\n    var dep = new ConstDependency('\"object\"', expr.range);\n    dep.loc = expr.loc;\n    this.state.current.addDependency(dep);\n    return true;\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "plugin"
+  }
+]

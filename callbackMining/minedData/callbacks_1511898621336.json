@@ -1,0 +1,985 @@
+[
+  {
+    "callback": "function () {\n    process.exit(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.app.stop(true);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (isTimeout) {\n    if (!isTimeout) {\n        utils.invokeCallback(cb, null, { code: 'ok' });\n    } else {\n        utils.invokeCallback(cb, null, {\n            code: 'remained',\n            serverIds: serverIds\n        });\n    }\n    setTimeout(function () {\n        process.exit(-1);\n    }, Constants.TIME.TIME_WAIT_MONITOR_KILL);\n}",
+    "receiverBase": "countDownLatch",
+    "receiverCallee": "createCountDownLatch"
+  },
+  {
+    "callback": "function () {\n    process.exit(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    app.stop(true);\n    utils.invokeCallback(cb, null, { status: 'all' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!successFlag) {\n        utils.invokeCallback(cb, new Error('all servers start failed.'));\n        return;\n    }\n    utils.invokeCallback(cb, null, utils.arrayDiff(serverIds, successIds));\n}",
+    "receiverBase": "countDownLatch",
+    "receiverCallee": "createCountDownLatch"
+  },
+  {
+    "callback": "function (msg) {\n    if (!utils.size(msg)) {\n        latch.done();\n        return;\n    }\n    setTimeout(function () {\n        runServer(app, msg, function (err, status) {\n            if (!!err) {\n                logger.error('restart ' + id + ' failed.');\n            } else {\n                successIds.push(id);\n                successFlag = true;\n            }\n            latch.done();\n        });\n    }, Constants.TIME.TIME_WAIT_RESTART);\n}",
+    "receiverBase": "agent",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    runServer(app, msg, function (err, status) {\n        if (!!err) {\n            logger.error('restart ' + id + ' failed.');\n        } else {\n            successIds.push(id);\n            successFlag = true;\n        }\n        latch.done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, status) {\n    if (!!err) {\n        logger.error('restart ' + id + ' failed.');\n    } else {\n        successIds.push(id);\n        successFlag = true;\n    }\n    latch.done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "runServer"
+  },
+  {
+    "callback": "function () {\n    utils.invokeCallback(cb, null, { msg: serverInfo });\n}",
+    "receiverBase": "countDownLatch",
+    "receiverCallee": "createCountDownLatch"
+  },
+  {
+    "callback": "function () {\n    cb(null, { status: 'ok' });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (stdout || stderr) {\n        utils.invokeCallback(cb, 'busy');\n    } else {\n        p = server.clientPort;\n        exec(cmd + p, function (err, stdout, stderr) {\n            if (stdout || stderr) {\n                utils.invokeCallback(cb, 'busy');\n            } else {\n                utils.invokeCallback(cb, 'leisure');\n            }\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (stdout || stderr) {\n        utils.invokeCallback(cb, 'busy');\n    } else {\n        utils.invokeCallback(cb, 'leisure');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    cb(null, { status: 'ok' });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (status) {\n    if (status === 'busy') {\n        utils.invokeCallback(cb, new Error('Port occupied already, check your server to add.'));\n    } else {\n        starter.run(app, server, function (err) {\n            if (err) {\n                utils.invokeCallback(cb, new Error(err), null);\n                return;\n            }\n        });\n        process.nextTick(function () {\n            utils.invokeCallback(cb, null, { status: 'ok' });\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkPort"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        utils.invokeCallback(cb, new Error(err), null);\n        return;\n    }\n}",
+    "receiverBase": "starter",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    utils.invokeCallback(cb, null, { status: 'ok' });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (!successFlag) {\n        utils.invokeCallback(cb, new Error('all servers start failed.'));\n        return;\n    }\n    utils.invokeCallback(cb, null, fails);\n}",
+    "receiverBase": "countDownLatch",
+    "receiverCallee": "createCountDownLatch"
+  },
+  {
+    "callback": "function () {\n    checkPort(server, function (status) {\n        if (status === 'busy') {\n            fails.push(server);\n            latch.done();\n        } else {\n            starter.run(app, server, function (err) {\n                if (err) {\n                    fails.push(server);\n                    latch.done();\n                }\n            });\n            process.nextTick(function () {\n                successFlag = true;\n                latch.done();\n            });\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (status) {\n    if (status === 'busy') {\n        fails.push(server);\n        latch.done();\n    } else {\n        starter.run(app, server, function (err) {\n            if (err) {\n                fails.push(server);\n                latch.done();\n            }\n        });\n        process.nextTick(function () {\n            successFlag = true;\n            latch.done();\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkPort"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        fails.push(server);\n        latch.done();\n    }\n}",
+    "receiverBase": "starter",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    successFlag = true;\n    latch.done();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input);\n    equal(multiselect.input[0].getAttribute('role'), 'listbox');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('id', 'test'));\n    var id = multiselect.tagList.attr('id') + ' ' + multiselect.ul.attr('id');\n    equal(multiselect.input.attr('aria-owns'), id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('disabled', 'disabled'));\n    equal(multiselect.input.attr('aria-disabled'), 'true');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input);\n    equal(multiselect.input.attr('aria-disabled'), 'false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input);\n    equal(multiselect.input.attr('aria-expanded'), 'false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ]\n        });\n    multiselect.open();\n    equal(multiselect.input.attr('aria-expanded'), 'true');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ]\n        });\n    multiselect.open();\n    multiselect.close();\n    ok(!multiselect.popup.visible());\n    equal(multiselect.input.attr('aria-expanded'), 'false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ]\n        });\n    equal(multiselect.ul.attr('aria-hidden'), 'true');\n    multiselect.open();\n    equal(multiselect.ul.attr('aria-hidden'), 'false');\n    multiselect.close();\n    equal(multiselect.ul.attr('aria-hidden'), 'true');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            filter: 'startswith'\n        });\n    equal(multiselect.ul.attr('aria-live'), 'polite');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            filter: 'startswith'\n        });\n    multiselect._showBusy();\n    setTimeout(function () {\n        start();\n        equal(multiselect.input.attr('aria-busy'), 'true');\n    }, 150);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    start();\n    equal(multiselect.input.attr('aria-busy'), 'true');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input, {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            filter: 'startswith'\n        });\n    multiselect._hideBusy();\n    equal(multiselect.input.attr('aria-busy'), 'false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('id', 'test'), {\n            highlightFirst: false,\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            filter: 'startswith'\n        });\n    ok(!multiselect.input.attr('aria-activedescendant'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('id', 'test'), {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            value: 'item1'\n        });\n    multiselect.open();\n    equal(multiselect.input.attr('aria-activedescendant'), multiselect.current().attr('id'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('id', 'test'), {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            value: 'item1'\n        });\n    multiselect.open();\n    multiselect.close();\n    ok(multiselect.input.attr('aria-activedescendant'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var multiselect = new MultiSelect(input.attr('id', 'test'), {\n            dataSource: [\n                'item1',\n                'item2'\n            ],\n            value: 'item1'\n        });\n    multiselect.input.focus().trigger({\n        type: 'keydown',\n        keyCode: kendo.keys.LEFT\n    });\n    ok(multiselect.currentTag().attr('id'));\n    equal(multiselect.input.attr('aria-activedescendant'), multiselect.currentTag().attr('id'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var isFn = function (value) {\n        return typeof value == 'function' || false;\n    };\n    if (isFn(/x/)) {\n        isFn = function (value) {\n            return typeof value == 'function' && toString.call(value) == '[object Function]';\n        };\n    }\n    return isFn;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (value, key, b) {\n    if (hasOwnProperty.call(b, key)) {\n        size++;\n        return result = hasOwnProperty.call(a, key) && deepEquals(a[key], value, stackA, stackB);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "internalForIn"
+  },
+  {
+    "callback": "function (value, key, a) {\n    if (hasOwnProperty.call(a, key)) {\n        return result = --size > -1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "internalForIn"
+  },
+  {
+    "callback": "function () {\n    if (!parent.isDisposed) {\n        parent.isDisposed = true;\n        parent.disposable.dispose();\n    }\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function (state2) {\n    var isAdded = false, isDone = false, d = scheduler.scheduleWithState(state2, function (scheduler1, state3) {\n            if (isAdded) {\n                group.remove(d);\n            } else {\n                isDone = true;\n            }\n            recursiveAction(state3);\n            return disposableEmpty;\n        });\n    if (!isDone) {\n        group.add(d);\n        isAdded = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "action"
+  },
+  {
+    "callback": "function (scheduler1, state3) {\n    if (isAdded) {\n        group.remove(d);\n    } else {\n        isDone = true;\n    }\n    recursiveAction(state3);\n    return disposableEmpty;\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "scheduleWithState"
+  },
+  {
+    "callback": "function (state2, dueTime1) {\n    var isAdded = false, isDone = false, d = scheduler[method].call(scheduler, state2, dueTime1, function (scheduler1, state3) {\n            if (isAdded) {\n                group.remove(d);\n            } else {\n                isDone = true;\n            }\n            recursiveAction(state3);\n            return disposableEmpty;\n        });\n    if (!isDone) {\n        group.add(d);\n        isAdded = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "action"
+  },
+  {
+    "callback": "function (scheduler1, state3) {\n    if (isAdded) {\n        group.remove(d);\n    } else {\n        isDone = true;\n    }\n    recursiveAction(state3);\n    return disposableEmpty;\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (dt) {\n    self(action, dt);\n}",
+    "receiverBase": "",
+    "receiverCallee": "action"
+  },
+  {
+    "callback": "function (_action, self) {\n    _action(function () {\n        self(_action);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "scheduleRecursiveWithState"
+  },
+  {
+    "callback": "function () {\n    self(_action);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_action"
+  },
+  {
+    "callback": "function (s, p) {\n    return invokeRecDate(s, p, 'scheduleWithRelativeAndState');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_scheduleRelative"
+  },
+  {
+    "callback": "function (s, p) {\n    return invokeRecDate(s, p, 'scheduleWithAbsoluteAndState');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_scheduleAbsolute"
+  },
+  {
+    "callback": "function () {\n    s = action(s);\n}",
+    "receiverBase": "root",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    root.clearInterval(id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function (schedulerProto) {\n    schedulerProto.catchError = schedulerProto['catch'] = function (handler) {\n        return new CatchScheduler(this, handler);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var localSetTimeout, localClearTimeout = noop;\n    if ('WScript' in this) {\n        localSetTimeout = function (fn, time) {\n            WScript.Sleep(time);\n            fn();\n        };\n    } else if (!!root.setTimeout) {\n        localSetTimeout = root.setTimeout;\n        localClearTimeout = root.clearTimeout;\n    } else {\n        throw new Error('No concurrency detected!');\n    }\n    return {\n        setTimeout: localSetTimeout,\n        clearTimeout: localClearTimeout\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (!disposable.isDisposed) {\n        disposable.setDisposable(action(scheduler, state));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "scheduleMethod"
+  },
+  {
+    "callback": "function () {\n    clearMethod(id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function () {\n    if (!disposable.isDisposed) {\n        disposable.setDisposable(action(scheduler, state));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "localSetTimeout"
+  },
+  {
+    "callback": "function () {\n    localClearTimeout(id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function (state1) {\n    if (failed) {\n        return null;\n    }\n    try {\n        return action(state1);\n    } catch (e) {\n        failed = true;\n        if (!self._handler(e)) {\n            throw e;\n        }\n        d.dispose();\n        return null;\n    }\n}",
+    "receiverBase": "_scheduler",
+    "receiverCallee": "schedulePeriodicWithState"
+  },
+  {
+    "callback": "function () {\n    notification._acceptObservable(observer);\n    notification.kind === 'N' && observer.onCompleted();\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function () {\n    self();\n}",
+    "receiverBase": "currentValue",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isDisposed = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function (exn) {\n    lastException = exn;\n    self();\n}",
+    "receiverBase": "currentValue",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isDisposed = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function () {\n    self.observer.onNext(value);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    self.observer.onError(err);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    self.observer.onCompleted();\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (self) {\n    var work;\n    if (parent.queue.length > 0) {\n        work = parent.queue.shift();\n    } else {\n        parent.isAcquired = false;\n        return;\n    }\n    try {\n        work();\n    } catch (ex) {\n        parent.queue = [];\n        parent.hasFaulted = true;\n        throw ex;\n    }\n    self();\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "scheduleRecursive"
+  },
+  {
+    "callback": "function () {\n    d.setDisposable(new ScheduledDisposable(scheduler, source.subscribe(observer)));\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function () {\n    var subject = new Rx.AsyncSubject();\n    promise.then(function (value) {\n        if (!subject.isDisposed) {\n            subject.onNext(value);\n            subject.onCompleted();\n        }\n    }, subject.onError.bind(subject));\n    return subject;\n}",
+    "receiverBase": "",
+    "receiverCallee": "observableDefer"
+  },
+  {
+    "callback": "function (value) {\n    if (!subject.isDisposed) {\n        subject.onNext(value);\n        subject.onCompleted();\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (v) {\n    value = v;\n    hasValue = true;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    hasValue && resolve(value);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(arr);\n    observer.onCompleted();\n}",
+    "receiverBase": "self",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onCompleted();\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function (self) {\n    if (count < len) {\n        observer.onNext(array[count++]);\n        self();\n    } else {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "scheduleRecursive"
+  },
+  {
+    "callback": "function (self) {\n    var hasResult, result;\n    try {\n        if (first) {\n            first = false;\n        } else {\n            state = iterate(state);\n        }\n        hasResult = condition(state);\n        if (hasResult) {\n            result = resultSelector(state);\n        }\n    } catch (exception) {\n        observer.onError(exception);\n        return;\n    }\n    if (hasResult) {\n        observer.onNext(result);\n        self();\n    } else {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "scheduleRecursive"
+  },
+  {
+    "callback": "function (i, self) {\n    if (i < count) {\n        observer.onNext(start + i);\n        self(i + 1);\n    } else {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "scheduleRecursiveWithState"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(value);\n    observer.onCompleted();\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function () {\n    observer.onError(exception);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "schedule"
+  },
+  {
+    "callback": "function (left) {\n    choiceL();\n    if (choice === leftChoice) {\n        observer.onNext(left);\n    }\n}",
+    "receiverBase": "leftSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    choiceL();\n    if (choice === leftChoice) {\n        observer.onError(err);\n    }\n}",
+    "receiverBase": "leftSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    choiceL();\n    if (choice === leftChoice) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "leftSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (right) {\n    choiceR();\n    if (choice === rightChoice) {\n        observer.onNext(right);\n    }\n}",
+    "receiverBase": "rightSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    choiceR();\n    if (choice === rightChoice) {\n        observer.onError(err);\n    }\n}",
+    "receiverBase": "rightSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    choiceR();\n    if (choice === rightChoice) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "rightSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (exception) {\n    var d, result;\n    try {\n        result = handler(exception);\n    } catch (ex) {\n        observer.onError(ex);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    d = new SingleAssignmentDisposable();\n    subscription.setDisposable(d);\n    d.setDisposable(result.subscribe(observer));\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x, j) {\n    return j !== i;\n}",
+    "receiverBase": "isDone",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i) {\n    var source = args[i], sad = new SingleAssignmentDisposable();\n    isPromise(source) && (source = observableFromPromise(source));\n    sad.setDisposable(source.subscribe(function (x) {\n        values[i] = x;\n        next(i);\n    }, observer.onError.bind(observer), function () {\n        done(i);\n    }));\n    subscriptions[i] = sad;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x) {\n    values[i] = x;\n    next(i);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    done(i);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    group.remove(subscription);\n    if (q.length > 0) {\n        subscribe(q.shift());\n    } else {\n        activeCount--;\n        isStopped && activeCount === 0 && observer.onCompleted();\n    }\n}",
+    "receiverBase": "xs",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (innerSource) {\n    if (activeCount < maxConcurrentOrOther) {\n        activeCount++;\n        subscribe(innerSource);\n    } else {\n        q.push(innerSource);\n    }\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isStopped = true;\n    activeCount === 0 && observer.onCompleted();\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (innerSource) {\n    var innerSubscription = new SingleAssignmentDisposable();\n    group.add(innerSubscription);\n    isPromise(innerSource) && (innerSource = observableFromPromise(innerSource));\n    innerSubscription.setDisposable(innerSource.subscribe(observer.onNext.bind(observer), observer.onError.bind(observer), function () {\n        group.remove(innerSubscription);\n        isStopped && group.length === 1 && observer.onCompleted();\n    }));\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    group.remove(innerSubscription);\n    isStopped && group.length === 1 && observer.onCompleted();\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isStopped = true;\n    group.length === 1 && observer.onCompleted();\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (self) {\n    var current, d;\n    if (pos < sources.length) {\n        current = sources[pos++];\n        isPromise(current) && (current = observableFromPromise(current));\n        d = new SingleAssignmentDisposable();\n        subscription.setDisposable(d);\n        d.setDisposable(current.subscribe(observer.onNext.bind(observer), self, self));\n    } else {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "immediateScheduler",
+    "receiverCallee": "scheduleRecursive"
+  },
+  {
+    "callback": "function (left) {\n    isOpen && observer.onNext(left);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isOpen && observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isOpen = true;\n    rightSubscription.dispose();\n}",
+    "receiverBase": "other",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    rightSubscription.dispose();\n}",
+    "receiverBase": "other",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    latest === id && observer.onNext(x);\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    latest === id && observer.onError(e);\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (latest === id) {\n        hasLatest = false;\n        isStopped && observer.onCompleted();\n    }\n}",
+    "receiverBase": "innerSource",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    isStopped = true;\n    !hasLatest && observer.onCompleted();\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (left) {\n    if (index < len) {\n        var right = second[index++], result;\n        try {\n            result = resultSelector(left, right);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n        observer.onNext(result);\n    } else {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "first",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    return [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayInitialize"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayInitialize"
+  },
+  {
+    "callback": "function (x) {\n    return x.length > 0;\n}",
+    "receiverBase": "queues",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (x) {\n    return x.shift();\n}",
+    "receiverBase": "queues",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x, j) {\n    return j !== i;\n}",
+    "receiverBase": "isDone",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (x) {\n    return x;\n}",
+    "receiverBase": "isDone",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (i) {\n    var source = sources[i], sad = new SingleAssignmentDisposable();\n    isPromise(source) && (source = observableFromPromise(source));\n    sad.setDisposable(source.subscribe(function (x) {\n        queues[i].push(x);\n        next(i);\n    }, observer.onError.bind(observer), function () {\n        done(i);\n    }));\n    subscriptions[i] = sad;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x) {\n    queues[i].push(x);\n    next(i);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    done(i);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    return [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayInitialize"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayInitialize"
+  },
+  {
+    "callback": "function (x) {\n    return x.length > 0;\n}",
+    "receiverBase": "queues",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (x) {\n    return x.shift();\n}",
+    "receiverBase": "queues",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x, j) {\n    return j !== i;\n}",
+    "receiverBase": "isDone",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i) {\n    subscriptions[i] = new SingleAssignmentDisposable();\n    subscriptions[i].setDisposable(sources[i].subscribe(function (x) {\n        queues[i].push(x);\n        next(i);\n    }, observer.onError.bind(observer), function () {\n        done(i);\n    }));\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x) {\n    queues[i].push(x);\n    next(i);\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    done(i);\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    for (var qIdx = 0, qLen = queues.length; qIdx < qLen; qIdx++) {\n        queues[qIdx] = [];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function (x) {\n    return x.toArray();\n}",
+    "receiverBase": "windowWithCount",
+    "receiverCallee": "selectMany"
+  },
+  {
+    "callback": "function (x) {\n    return x.length > 0;\n}",
+    "receiverBase": "selectMany",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (x) {\n    return x.accept(observer);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    try {\n        onNextFunc(x);\n    } catch (e) {\n        observer.onError(e);\n    }\n    observer.onNext(x);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    if (onError) {\n        try {\n            onError(err);\n        } catch (e) {\n            observer.onError(e);\n        }\n    }\n    observer.onError(err);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (onCompleted) {\n        try {\n            onCompleted();\n        } catch (e) {\n            observer.onError(e);\n        }\n    }\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    try {\n        subscription.dispose();\n    } catch (e) {\n        throw e;\n    } finally {\n        action();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "disposableCreate"
+  },
+  {
+    "callback": "function (value) {\n    observer.onNext(notificationCreateOnNext(value));\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    observer.onNext(notificationCreateOnError(e));\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(notificationCreateOnCompleted());\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    !hasValue && (hasValue = true);\n    try {\n        if (hasAccumulation) {\n            accumulation = accumulator(accumulation, x);\n        } else {\n            accumulation = hasSeed ? accumulator(seed, x) : x;\n            hasAccumulation = true;\n        }\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    observer.onNext(accumulation);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    !hasValue && hasSeed && observer.onNext(seed);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    q.push(x);\n    q.length > count && observer.onNext(q.shift());\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    q.push(x);\n    q.length > count && q.shift();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    while (q.length > 0) {\n        observer.onNext(q.shift());\n    }\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    q.push(x);\n    q.length > count && q.shift();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(q);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    for (var i = 0, len = q.length; i < len; i++) {\n        q[i].onNext(x);\n    }\n    var c = n - count + 1;\n    c >= 0 && c % skip === 0 && q.shift().onCompleted();\n    ++n % skip === 0 && createWindow();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e) {\n    while (q.length > 0) {\n        q.shift().onError(e);\n    }\n    observer.onError(e);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    while (q.length > 0) {\n        q.shift().onCompleted();\n    }\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x, i) {\n    var result = selector.call(thisArg, x, i, source);\n    isPromise(result) && (result = observableFromPromise(result));\n    (Array.isArray(result) || isIterable(result)) && (result = observableFrom(result));\n    return result;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x, i) {\n    var selectorResult = selector(x, i);\n    isPromise(selectorResult) && (selectorResult = observableFromPromise(selectorResult));\n    (Array.isArray(selectorResult) || isIterable(selectorResult)) && (selectorResult = observableFrom(selectorResult));\n    return selectorResult.map(function (y, i2) {\n        return resultSelector(x, y, i, i2);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "concatMap"
+  },
+  {
+    "callback": "function (y, i2) {\n    return resultSelector(x, y, i, i2);\n}",
+    "receiverBase": "selectorResult",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return selector;\n}",
+    "receiverBase": "",
+    "receiverCallee": "concatMap"
+  },
+  {
+    "callback": "function (x) {\n    var result;\n    try {\n        result = onNext.call(thisArg, x, index++);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    var result;\n    try {\n        result = onError.call(thisArg, err);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    var result;\n    try {\n        result = onCompleted.call(thisArg);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    found = true;\n    observer.onNext(x);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!found) {\n        observer.onNext(defaultValue);\n    }\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    var key = x;\n    if (keySelector) {\n        try {\n            key = keySelector(x);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n    }\n    hashSet.push(key) && observer.onNext(x);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (value) {\n    var result;\n    try {\n        result = selector.call(thisArg, value, count++, parent);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    observer.onNext(result);\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    return x[prop];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    var result;\n    try {\n        result = onNext.call(thisArg, x, index++);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (err) {\n    var result;\n    try {\n        result = onError.call(thisArg, err);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    var result;\n    try {\n        result = onCompleted.call(thisArg);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    isPromise(result) && (result = observableFromPromise(result));\n    observer.onNext(result);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x, i) {\n    var result = selector.call(thisArg, x, i, source);\n    isPromise(result) && (result = observableFromPromise(result));\n    (Array.isArray(result) || isIterable(result)) && (result = observableFrom(result));\n    return result;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x, i) {\n    var selectorResult = selector(x, i);\n    isPromise(selectorResult) && (selectorResult = observableFromPromise(selectorResult));\n    (Array.isArray(selectorResult) || isIterable(selectorResult)) && (selectorResult = observableFrom(selectorResult));\n    return selectorResult.map(function (y, i2) {\n        return resultSelector(x, y, i, i2);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "flatMap"
+  },
+  {
+    "callback": "function (y, i2) {\n    return resultSelector(x, y, i, i2);\n}",
+    "receiverBase": "selectorResult",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return selector;\n}",
+    "receiverBase": "",
+    "receiverCallee": "flatMap"
+  },
+  {
+    "callback": "function (x) {\n    if (remaining <= 0) {\n        observer.onNext(x);\n    } else {\n        remaining--;\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    if (!running) {\n        try {\n            running = !predicate.call(thisArg, x, i++, source);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n    }\n    running && observer.onNext(x);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    if (remaining-- > 0) {\n        observer.onNext(x);\n        remaining === 0 && observer.onCompleted();\n    }\n}",
+    "receiverBase": "observable",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    if (running) {\n        try {\n            running = predicate.call(thisArg, x, i++, observable);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n        if (running) {\n            observer.onNext(x);\n        } else {\n            observer.onCompleted();\n        }\n    }\n}",
+    "receiverBase": "observable",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (value) {\n    var shouldRun;\n    try {\n        shouldRun = predicate.call(thisArg, value, count++, parent);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    shouldRun && observer.onNext(value);\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (v) {\n    try {\n        xform.step(observer, v);\n    } catch (e) {\n        observer.onError(e);\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    xform.result(observer);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    return Rx;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (loc) {\n    var coord = loc.coord || (loc.coord = map.locationCoordinate(loc)), point = map.coordinatePoint(coord);\n    if ('radius' in loc)\n        point.radius = loc.radius;\n    return point;\n}",
+    "receiverBase": "locations",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (socket) {\n    console.log('connected socket (' + socket.version + ')');\n    socket.on('message', function (message) {\n        console.log('rvcd', message);\n        socket.send('echo: ' + message);\n    });\n    socket.on('close', function () {\n        console.log('closed server socket');\n    });\n}",
+    "receiverBase": "websock",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (message) {\n    console.log('rvcd', message);\n    socket.send('echo: ' + message);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('closed server socket');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var socket = websock.connect('ws://localhost:54321', { protocol: 8 });\n    socket.on('open', function () {\n        socket.send('from node');\n    });\n    socket.on('message', function (message) {\n        console.log('rvcd', message);\n        socket.end();\n    });\n    socket.on('close', function () {\n        console.log('closed client socket');\n    });\n}",
+    "receiverBase": "websock",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    socket.send('from node');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    console.log('rvcd', message);\n    socket.end();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('closed client socket');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (declare, CheckBox, _RadioButtonMixin) {\n    return declare('dijit.form.RadioButton', [\n        CheckBox,\n        _RadioButtonMixin\n    ], { baseClass: 'dijitRadio' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (data) {\n    data.unshift(data.pop());\n    return data;\n}",
+    "receiverBase": "toPath",
+    "receiverCallee": "transform"
+  },
+  {
+    "callback": "function (data, index) {\n    console.log('#' + index + ' ' + JSON.stringify(data));\n}",
+    "receiverBase": "transform",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (count) {\n    console.log('Number of lines: ' + count);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (error) {\n    console.log(error.message);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (match, key) {\n    return str[key];\n}",
+    "receiverBase": "bundle",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, key) {\n    return [\n        timePattern,\n        datePattern\n    ][key];\n}",
+    "receiverBase": "bundle",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (s) {\n    return s.replace('.', '').toLowerCase();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return d.toLowerCase();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (chunk, i) {\n    if (!chunk) {\n        chunks[i] = '';\n    } else {\n        chunks[i] = (literal ? applyLiteral : applyPattern)(chunk.replace(/''/g, '\\''));\n        literal = !literal;\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (desc) {\n    var bundle = dojo.i18n.getLocalization(desc.pkg, desc.name, locale);\n    gregorian = dojo.mixin(gregorian, bundle);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (result) {\n    result = normalize.call(this.document, result);\n    if (result == null)\n        return null;\n    if (!isChildNode(result))\n        result = makeElement.call(this.document, childName, result);\n    return result;\n}",
+    "receiverBase": "result",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item, key) {\n    content.push(cb.call(this.domjs, item, key, list));\n}",
+    "receiverBase": "list",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    $searchBar.animate({ width: searchBarWidth }, 500, function () {\n        $searchBar.css({ width: '60%' });\n    });\n    $searchSection.animate({ left: 0 }, 500, function () {\n        $('#dropbeat .body-section .search-result-section').show();\n        if (callback && typeof callback === 'function') {\n            callback();\n        }\n    });\n}",
+    "receiverBase": "$searchSection",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    $searchBar.css({ width: '60%' });\n}",
+    "receiverBase": "$searchBar",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    $('#dropbeat .body-section .search-result-section').show();\n    if (callback && typeof callback === 'function') {\n        callback();\n    }\n}",
+    "receiverBase": "$searchSection",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function (ev) {\n    node = getActiveNode(offsetNodes);\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "hitch"
+  }
+]

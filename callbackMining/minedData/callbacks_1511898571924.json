@@ -1,0 +1,130 @@
+[
+  {
+    "callback": "function (el, model, template, dependencies) {\n    if (listener) {\n        model.removeListener(listener);\n    }\n    listener = model.when(dependencies, function () {\n        var args = arguments, data = {};\n        dependencies.forEach(function (property, i) {\n            data[property] = args[i];\n        });\n        el.innerHTML = template(data);\n    });\n}",
+    "receiverBase": "view",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    var args = arguments, data = {};\n    dependencies.forEach(function (property, i) {\n        data[property] = args[i];\n    });\n    el.innerHTML = template(data);\n}",
+    "receiverBase": "model",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (property, i) {\n    data[property] = args[i];\n}",
+    "receiverBase": "dependencies",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, res, next) {\n    if (config.token) {\n        req.token = config.token;\n    }\n    console.log(req.method, req.url, req.body);\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function (values, enc, next) {\n    values.forEach(function (value) {\n        stats[value.type]++;\n    });\n    next();\n}",
+    "receiverBase": "through",
+    "receiverCallee": "obj"
+  },
+  {
+    "callback": "function (value) {\n    stats[value.type]++;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (next) {\n    console.log('stats', stats);\n    next();\n}",
+    "receiverBase": "through",
+    "receiverCallee": "obj"
+  },
+  {
+    "callback": "function ($) {\n    var my = { public_attribute: 'foo' };\n    var private_attribute = 'bar';\n    my.public_function = function () {\n        console.log(my.public_attribute);\n        private_function();\n    };\n    function private_function() {\n        console.log(private_attribute);\n    }\n    return my;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function ($) {\n    app.router = new Router();\n    Backbone.history.start({ pushState: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "jQuery"
+  },
+  {
+    "callback": "function (evt) {\n    var href = $(this).attr('href');\n    var protocol = this.protocol + '//';\n    if (href && href.slice(0, protocol.length) !== protocol && href.indexOf('javascript:') !== 0) {\n        evt.preventDefault();\n        app.router.navigate(href, true);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.model.deleteById(id, function () {\n        CoreService.toastSuccess(gettextCatalog.getString('Item deleted'), gettextCatalog.getString('Your item has been deleted!'));\n        $state.reload();\n    }, function (err) {\n        CoreService.toastError(gettextCatalog.getString('Oops'), gettextCatalog.getString('Error deleting item: ') + err);\n    });\n}",
+    "receiverBase": "CoreService",
+    "receiverCallee": "confirm"
+  },
+  {
+    "callback": "function () {\n    CoreService.toastSuccess(gettextCatalog.getString('Item deleted'), gettextCatalog.getString('Your item has been deleted!'));\n    $state.reload();\n}",
+    "receiverBase": "model",
+    "receiverCallee": "deleteById"
+  },
+  {
+    "callback": "function (err) {\n    CoreService.toastError(gettextCatalog.getString('Oops'), gettextCatalog.getString('Error deleting item: ') + err);\n}",
+    "receiverBase": "model",
+    "receiverCallee": "deleteById"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "CoreService",
+    "receiverCallee": "confirm"
+  },
+  {
+    "callback": "function (value, key) {\n    if (!isFunction(value) && !isUndefined(value)) {\n        text.push(encode(key) + '=' + encode(String(value)));\n    }\n}",
+    "receiverBase": "O",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, d) {\n    fetched = true;\n    test.isFalse(e);\n    test.equal(d, expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (e, d) {\n    test.isFalse(e);\n    test.equal(d, expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    hiddenScripts.push({\n        selector: $(this).data('selector'),\n        src: this.innerHTML\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    cleanupScripts.push({\n        selector: $(this).data('selector'),\n        src: this.innerHTML\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (editor, output) {\n    return function (event) {\n        output.html('');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (prop, val) {\n    val = $.trim(val);\n    iframe[0].contentWindow[val] = window[val];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(codeblock).is(this.selector)) {\n        combinedSource += this.src + '\\n';\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(codeblock).is(this.selector)) {\n        combinedSource = combinedSource + this.src + '\\n';\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    codemirrorify($.deck('getSlide', 0));\n    codemirrorify($.deck('getSlide', 1));\n}",
+    "receiverBase": "$d",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event, from, to) {\n    var $slides = $[deck]('getSlides');\n    if (to > 0) {\n        codemirrorify($.deck('getSlide', to - 1));\n    }\n    codemirrorify($.deck('getSlide', to));\n    if (to + 1 < $slides.length) {\n        codemirrorify($.deck('getSlide', to + 1));\n    }\n}",
+    "receiverBase": "$d",
+    "receiverCallee": "bind"
+  }
+]

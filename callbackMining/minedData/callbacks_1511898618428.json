@@ -1,0 +1,157 @@
+[
+  {
+    "callback": "function (require, exports, module) {\n    return function transitionEnd(node, fn, capturing) {\n        function asyncFn(event) {\n            Promise.resolve().then(function () {\n                fn(event);\n            }).catch(function (error) {\n                console.error(error);\n            });\n        }\n        node.addEventListener('transitionend', asyncFn, capturing);\n        return asyncFn;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    fn(event);\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    console.error(error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function (require) {\n    var _ = require('underscore'), Marionette = require('marionette');\n    return Marionette.ItemView.extend({ template: _.template('<h2>i am the cat man</h2>') });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (singleLine) {\n    console.log(singleLine);\n}",
+    "receiverBase": "_diffContents",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    settings.paste_preprocess.call(self, self, e);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    settings.paste_postprocess.call(self, self, e);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ui, value) {\n    if (value.content) {\n        self.clipboard.pasteHtml(value.content);\n    }\n    if (value.text) {\n        self.clipboard.pasteText(value.text);\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "addCommand"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    e.stopPropagation();\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var dataTransfer = e.dataTransfer;\n    if (dataTransfer && dataTransfer.files && dataTransfer.files.length > 0) {\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (str) {\n    return str.replace(/[|,:]/g, '~');\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "cached"
+  },
+  {
+    "callback": "function () {\n    availHandle.handle = Event.delegate.apply(Event, args);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "onAvailable"
+  },
+  {
+    "callback": "function (sub) {\n    if (domEventHandle.sub == sub) {\n        delete delegates[delegateKey];\n        Y.detachAll(ename);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    delegate.listeners = delegate.listeners - 1;\n    if (delegate.listeners === 0) {\n        delegate.handle.detach();\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    var context = contextParser.emptyContext(), suite = {\n            name: 'users',\n            tests: [{\n                    name: 'list',\n                    api_calls: [{ request: { path: '/v1/users' } }]\n                }]\n        };\n    contextParser.handleProperty(context, 'suite', suite);\n    assert.equal(context.suites.length, 1);\n    assert.equal(context.suites[0].tests[0].api_calls[0].request.path, '/v1/users');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var context = contextParser.emptyContext(), suite = {\n            name: 'users',\n            tests: [{\n                    name: 'list',\n                    requests: [{ request: { path: '/v1/users' } }]\n                }]\n        };\n    assert.throws(function () {\n        contextParser.handleProperty(context, 'suite', suite);\n    }, errorValidator('invalid_schema'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    contextParser.handleProperty(context, 'suite', suite);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function (done) {\n    socket = new WebSocket(TEST_SERVER_URL);\n    socket.addEventListener('open', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    socket.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    var parent = window.zone;\n    socket.addEventListener('message', function (contents) {\n        expect(window.zone.parent).toBe(parent);\n        expect(contents).toBe('HI');\n        done();\n    });\n    socket.send('hi');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (contents) {\n    expect(window.zone.parent).toBe(parent);\n    expect(contents).toBe('HI');\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (done) {\n    var log = '';\n    function logOnMessage() {\n        log += 'a';\n        expect(log).toEqual('a');\n        socket.removeEventListener('message', logOnMessage);\n        socket.send('hi');\n        setTimeout(function () {\n            expect(log).toEqual('a');\n            done();\n        }, 10);\n    }\n    ;\n    socket.addEventListener('message', logOnMessage);\n    socket.send('hi');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(log).toEqual('a');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    var parent = window.zone;\n    socket.onmessage = function (contents) {\n        expect(window.zone.parent).toBe(parent);\n        expect(contents.data).toBe('hi');\n        done();\n    };\n    socket.send('hi');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var log = '';\n    socket.onmessage = function () {\n        log += 'a';\n        expect(log).toEqual('b');\n        done();\n    };\n    socket.onmessage = function () {\n        log += 'b';\n        expect(log).toEqual('b');\n        done();\n    };\n    socket.send('hi');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var log = '';\n    socket.onmessage = function () {\n        log += 'a';\n    };\n    socket.onmessage = null;\n    socket.send('hi');\n    expect(log).toEqual('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (request, collection) {\n    var limit = request.params.limit || 100;\n    if (limit > 1000)\n        limit = 1000;\n    return { results: db.getCollection(collection).find(request.params.where ? JSON.parse(request.params.where) : {}).skip(request.params.skip || 0).limit(limit).toArray().map(wrap) };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (request, collection, id) {\n    return wrap(db.getCollection(collection).findOne({ _id: new ObjectId(id) }));\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (request, collection) {\n    var object = request.body;\n    object.createdAt = object.updatedAt = new Date();\n    var id = db.getCollection(collection).save(object)._id;\n    return {\n        objectId: id,\n        createdAt: object.createdAt\n    };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (request, collection, id) {\n    var objectId = new ObjectId(id);\n    var object = db.getCollection(collection).findOne({ _id: new ObjectId(id) });\n    if (!object) {\n        throw new NotFound();\n    }\n    object = objects.merge(object, request.body);\n    object.updatedAt = new Date();\n    delete object._id;\n    db.getCollection(collection).update({ _id: objectId }, object);\n    return { updatedAt: object.updatedAt };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (request, collection, id) {\n    if (!db.getCollection(collection).remove({ _id: new ObjectId(id) })) {\n        throw new NotFound();\n    }\n}",
+    "receiverBase": "app",
+    "receiverCallee": "del"
+  }
+]

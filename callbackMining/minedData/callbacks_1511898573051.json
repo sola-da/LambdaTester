@@ -1,0 +1,781 @@
+[
+  {
+    "callback": "function (e) {\n    var key = e.which || e.keyCode;\n    if (key == 13) {\n        handleMessage();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    handleMessage();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var key = e.which || e.keyCode;\n    if (key == 13) {\n        handleNickname();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    handleNickname();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var key = e.which || e.keyCode;\n    if (key == 13) {\n        createRoom();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    createRoom();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#nickname-popup .input input').val('');\n    Avgrund.show('#nickname-popup');\n    window.setTimeout(function () {\n        $('#nickname-popup .input input').focus();\n    }, 100);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#nickname-popup .input input').focus();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#addroom-popup .input input').val('');\n    Avgrund.show('#addroom-popup');\n    window.setTimeout(function () {\n        $('#addroom-popup .input input').focus();\n    }, 100);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#addroom-popup .input input').focus();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('.chat-rooms ul li.selected').css('top', $(this).scrollTop());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var self = this;\n    window.setTimeout(function () {\n        if ($(self).scrollTop() + $(self).height() < $(self).find('ul').height()) {\n            $(self).addClass('scroll');\n        } else {\n            $(self).removeClass('scroll');\n        }\n    }, 50);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($(self).scrollTop() + $(self).height() < $(self).find('ul').height()) {\n        $(self).addClass('scroll');\n    } else {\n        $(self).removeClass('scroll');\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var room = $(this).attr('data-roomId');\n    if (room != currentRoom) {\n        socket.emit('unsubscribe', { room: currentRoom });\n        socket.emit('subscribe', { room: room });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "live"
+  },
+  {
+    "callback": "function () {\n    socket.emit('connect', { nickname: nickname });\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $('.chat-shadow').animate({ 'opacity': 0 }, 200, function () {\n        $(this).hide();\n        $('.chat input').focus();\n    });\n    clientId = data.clientId;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).hide();\n    $('.chat input').focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function (data) {\n    for (var i = 0, len = data.rooms.length; i < len; i++) {\n        if (data.rooms[i] != '') {\n            addRoom(data.rooms[i], false);\n        }\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    var nickname = data.client.nickname;\n    var message = data.message;\n    insertMessage(nickname, message, true, false, false);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).hide();\n    $('.chat input').focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function (data) {\n    addRoom(data.room, true);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    removeRoom(data.room, true);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    if (data.state == 'online') {\n        addClient(data.client, true);\n    } else if (data.state == 'offline') {\n        removeClient(data.client, true);\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(container).removeClass(effect);\n    $(input).removeClass(bgColor);\n    $(input).focus();\n    lockShakeAnimation = false;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    bindDOMEvents();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    equal(jQuery('#foo').find('.blogTest').text(), 'Yahoo', 'Basic selector');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    var j = jQuery('#nonnodes').contents();\n    equal(j.find('div').length, 0, 'Check node,textnode,comment to find zero divs');\n    equal(j.find('div').andSelf().length, 3, 'Check node,textnode,comment to find zero divs, but preserves pushStack');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    equal(jQuery('#text2').index(), 2, 'Returns the index of a child amongst its siblings');\n    equal(jQuery('<div/>').index(), -1, 'Node without parent returns -1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    deepEqual(jQuery('#qunit-fixture p').filter(function () {\n        return !jQuery('a', this).length;\n    }).get(), q('sndp', 'first'), 'filter(Function)');\n    deepEqual(jQuery('#qunit-fixture p').filter(function (i, elem) {\n        return !jQuery('a', elem).length;\n    }).get(), q('sndp', 'first'), 'filter(Function) using arg');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return !jQuery('a', this).length;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, elem) {\n    return !jQuery('a', elem).length;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    var element = document.getElementById('text1');\n    deepEqual(jQuery('#form input').filter(element).get(), q('text1'), 'filter(Element)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    var elements = [document.getElementById('text1')];\n    deepEqual(jQuery('#form input').filter(elements).get(), q('text1'), 'filter(Element)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    var elements = jQuery('#text1');\n    deepEqual(jQuery('#form input').filter(elements).get(), q('text1'), 'filter(Element)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    deepEqual(jQuery('#qunit-fixture').closest('div:first').get(), [], 'closest(div:first)');\n    deepEqual(jQuery('#qunit-fixture div').closest('body:first div:last').get(), q('fx-tests'), 'closest(body:first div:last)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    var selects = jQuery('#form select');\n    deepEqual(selects.not(selects[1]).get(), q('select1', 'select3', 'select4', 'select5'), 'filter out DOM element');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    deepEqual(jQuery('#qunit-fixture p').not(function () {\n        return jQuery('a', this).length;\n    }).get(), q('sndp', 'first'), 'not(Function)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return jQuery('a', this).length;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "not"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    equal(jQuery('#qunit-fixture > p#ap > a').not(document.getElementById('google')).length, 2, 'not(DOMElement)');\n    equal(jQuery('p').not(document.getElementsByTagName('p')).length, 0, 'not(Array-like DOM collection)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    deepEqual(jQuery('p').not(jQuery('#ap, #sndp, .result')).get(), q('firstp', 'en', 'sap', 'first'), 'not(jQuery)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    deepEqual(jQuery('#sndp').siblings(':has(code)').get(), q('sap'), 'Check for filtered siblings (has code child element)');\n    deepEqual(jQuery('#sndp').siblings(':has(a)').get(), q('en', 'sap'), 'Check for filtered siblings (has anchor child element)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(2);\n    deepEqual(jQuery('#foo').children().get(), q('sndp', 'en', 'sap'), 'Check for children');\n    deepEqual(jQuery('#foo').children('#en, #sap').get(), q('en', 'sap'), 'Check for multiple filters');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    deepEqual(jQuery('#foo').children(':has(code)').get(), q('sndp', 'sap'), 'Check for filtered children');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(5);\n    equal(jQuery('#foo').prev()[0].id, 'ap', 'Simple prev check');\n    deepEqual(jQuery('#nonnodes').contents().eq(1).prev().get(), q('nonnodesElement'), 'Text node prev check');\n    equal(jQuery('#foo').prev('p')[0].id, 'ap', 'Filtered prev check');\n    equal(jQuery('#foo').prev('div').length, 0, 'Filtered prev check, no match');\n    equal(jQuery('#foo').prev('p, div')[0].id, 'ap', 'Multiple filters');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (method, reversed) {\n    var actual = elems[method]().get(), forward = jQuery.unique([].concat(actual));\n    deepEqual(actual, reversed ? forward.reverse() : forward, 'Correct sort direction for ' + method);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    expect(3);\n    var $divs = jQuery('div');\n    equal($divs.eq(-1).length, 1, 'The number -1 returns a selection that has length 1');\n    equal($divs.eq('-1').length, 1, 'The string \\'-1\\' returns a selection that has length 1');\n    deepEqual($divs.eq('-1'), $divs.eq(-1), 'String and number -1 match');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(5);\n    var nonnodes = jQuery('#nonnodes').contents();\n    equal(nonnodes.filter('[id]').length, 1, '.filter');\n    equal(nonnodes.find('[id]').length, 0, '.find');\n    strictEqual(nonnodes.is('[id]'), true, '.is');\n    deepEqual(nonnodes.closest('[id=\\'nonnodes\\']').get(), q('nonnodes'), '.closest');\n    deepEqual(nonnodes.parents('[id=\\'nonnodes\\']').get(), q('nonnodes'), '.parents');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return arguments;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a, b) {\n    return a.id - b.id;\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (r) {\n    var data = [\n            r.uname,\n            r.pw,\n            r.global_rank,\n            r.email,\n            JSON.stringify({\n                image: r.profile_image,\n                text: r.profile_text\n            }),\n            Date.now()\n        ];\n    aq.queue(function (lock) {\n        queryNew(insert, data, function (err) {\n            if (!err) {\n                console.log('Imported user ' + r.uname);\n            }\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    queryNew(insert, data, function (err) {\n        if (!err) {\n            console.log('Imported user ' + r.uname);\n        }\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (err) {\n    if (!err) {\n        console.log('Imported user ' + r.uname);\n    }\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryNew"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    cb();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.id - b.id;\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (r) {\n    var data = [\n            r.name,\n            r.owner,\n            Date.now()\n        ];\n    aq.queue(function (lock) {\n        queryNew(insert, data, function (err) {\n            if (!err) {\n                console.log('Imported channel record ' + r.name + ' (' + r.owner + ')');\n            }\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    queryNew(insert, data, function (err) {\n        if (!err) {\n            console.log('Imported channel record ' + r.name + ' (' + r.owner + ')');\n        }\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (err) {\n    if (!err) {\n        console.log('Imported channel record ' + r.name + ' (' + r.owner + ')');\n    }\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryNew"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    cb();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (r) {\n    aq.queue(function (lock) {\n        console.log('Creating channel tables for ' + r.name);\n        tables.createChannelTables(r.name, queryNew, function () {\n            copyChannelTables(r.name, function () {\n                lock.release();\n            });\n        });\n    });\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    console.log('Creating channel tables for ' + r.name);\n    tables.createChannelTables(r.name, queryNew, function () {\n        copyChannelTables(r.name, function () {\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    copyChannelTables(r.name, function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "tables",
+    "receiverCallee": "createChannelTables"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "copyChannelTables"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    cb();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (r) {\n    return r.rank > 1;\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r) {\n    if (r.rank === 10) {\n        r.rank = 5;\n    } else if (r.rank > 3 && r.rank < 10) {\n        r.rank = 4;\n    }\n    return [\n        r.name,\n        r.rank\n    ];\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (r) {\n    return [\n        r.id,\n        r.title,\n        r.seconds,\n        r.type\n    ];\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    aq.queue(function (lock) {\n        console.log('Copying `chan_' + name + '_library`');\n        queryNew('INSERT INTO `chan_' + name + '_library` VALUES ?', [s], function () {\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "subs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    console.log('Copying `chan_' + name + '_library`');\n    queryNew('INSERT INTO `chan_' + name + '_library` VALUES ?', [s], function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryNew"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    copyBans();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (r) {\n    return [\n        r.id,\n        r.ip,\n        r.name,\n        r.bannedby,\n        r.reason\n    ];\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, bans) {\n    if (err) {\n        cb(err);\n        return;\n    }\n    bans = bans.map(function (b) {\n        return [\n            b.ip,\n            b.reason\n        ];\n    });\n    queryNew('INSERT INTO `global_bans` VALUES ?', [bans], cb);\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryOld"
+  },
+  {
+    "callback": "function (b) {\n    return [\n        b.ip,\n        b.reason\n    ];\n}",
+    "receiverBase": "bans",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (pl) {\n    return [\n        pl.user,\n        pl.name,\n        pl.contents,\n        pl.count,\n        pl.duration\n    ];\n}",
+    "receiverBase": "pls",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    aq.queue(function (lock) {\n        queryNew('INSERT INTO `user_playlists` VALUES ?', [s], function () {\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "subs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    queryNew('INSERT INTO `user_playlists` VALUES ?', [s], function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryNew"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    cb();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (al) {\n    return [\n        al.visit_id,\n        al.ip,\n        al.name,\n        al.time\n    ];\n}",
+    "receiverBase": "aliases",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    aq.queue(function (lock) {\n        queryNew('INSERT INTO `aliases` VALUES ?', [s], function () {\n            lock.release();\n        });\n    });\n}",
+    "receiverBase": "subs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lock) {\n    queryNew('INSERT INTO `aliases` VALUES ?', [s], function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "queryNew"
+  },
+  {
+    "callback": "function (lock) {\n    lock.release();\n    cb();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('2.x host: ', function (host) {\n        olddb.host = host;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (host) {\n    olddb.host = host;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('2.x username: ', function (user) {\n        olddb.user = user;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (user) {\n    olddb.user = user;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('2.x password: ', function (pw) {\n        olddb.password = pw;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (pw) {\n    olddb.password = pw;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('2.x database: ', function (db) {\n        olddb.database = db;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (db) {\n    olddb.database = db;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('3.0 host: ', function (host) {\n        newdb.host = host;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (host) {\n    newdb.host = host;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('3.0 username: ', function (user) {\n        newdb.user = user;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (user) {\n    newdb.user = user;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('3.0 password: ', function (pw) {\n        newdb.password = pw;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (pw) {\n    newdb.password = pw;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    rl.question('3.0 database: ', function (db) {\n        newdb.database = db;\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (db) {\n    newdb.database = db;\n    lock.release();\n}",
+    "receiverBase": "rl",
+    "receiverCallee": "question"
+  },
+  {
+    "callback": "function (lock) {\n    oldpool = mysql.createPool(olddb);\n    newpool = mysql.createPool(newdb);\n    queryOld = query.bind(this, oldpool);\n    queryNew = query.bind(this, newpool);\n    startImport();\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (lock) {\n    importUsers(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importUsers"
+  },
+  {
+    "callback": "function (lock) {\n    importChannelRegistrations(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importChannelRegistrations"
+  },
+  {
+    "callback": "function (lock) {\n    importChannelTables(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importChannelTables"
+  },
+  {
+    "callback": "function (lock) {\n    importGlobalBans(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importGlobalBans"
+  },
+  {
+    "callback": "function (lock) {\n    importUserPlaylists(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importUserPlaylists"
+  },
+  {
+    "callback": "function (lock) {\n    importAliases(function () {\n        lock.release();\n    });\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    lock.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "importAliases"
+  },
+  {
+    "callback": "function (lock) {\n    process.exit(0);\n}",
+    "receiverBase": "aq",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    return car.getProperty('options');\n}",
+    "receiverBase": "Q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function () {\n    logger.success('loaded options for id=' + car.getProperty('id'));\n    car.areOptionsLoaded = true;\n    return car.getProperty('options');\n}",
+    "receiverBase": "loadNavigationProperty",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    logger.success(msg);\n}",
+    "receiverBase": "saveChanges",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (eventType) {\n    window.addEventListener(eventType, function handleNetworkEvent(event) {\n        radio.handle('network.' + event.type);\n    });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function handleNetworkEvent(event) {\n    radio.handle('network.' + event.type);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (alarm) {\n    if (alarm.name !== 'broadcasts') {\n        return;\n    }\n    self.requestBroadcasts();\n}",
+    "receiverBase": "onAlarm",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function broadcastHttpGetSuccess(response) {\n    var broadcasts = Broadcast.parseResponse(response.target.response);\n    self.dispatchBroadcasts(broadcasts);\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (alarms) {\n    var exists = alarms.some(function (alarm) {\n            return alarm.name === alarmName;\n        });\n    if (!exists) {\n        chrome.alarms.create(alarmName, { periodInMinutes: 0.5 });\n    }\n    self.requestBroadcasts();\n}",
+    "receiverBase": "alarms",
+    "receiverCallee": "getAll"
+  },
+  {
+    "callback": "function (alarm) {\n    return alarm.name === alarmName;\n}",
+    "receiverBase": "alarms",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (state) {\n    if (message.state !== state) {\n        return false;\n    }\n    var stateCase = Background.badgeStates[state];\n    chrome.browserAction.setPopup({ popup: stateCase.popup === false ? '' : 'now-playing/popup.html' });\n    self.setBadge(stateCase.text, stateCase.color || '');\n    return true;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (event) {\n    try {\n        _.assign(self, JSON.parse(event.target.responseText));\n        self.setupChannelBadge();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "request",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    deepEqual($('input.should-be-native').siblings('.ui-slider-track').length, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#step-slider'), step = parseInt(slider.attr('step'), 10);\n    slider.val(step + 1);\n    slider.slider('refresh');\n    ok(step > 1, 'the step is greater than one');\n    ok(slider.val() > 0, 'the value has been altered');\n    deepEqual(slider.val() % step, 0, 'value has \\'snapped\\' to a step');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#empty-string-val-slider');\n    deepEqual(slider.attr('min'), '10', 'slider min is greater than 0');\n    deepEqual(slider.val('').slider('refresh').val(), slider.attr('min'), 'val is equal to min attr');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#slider-switch');\n    deepEqual(slider.siblings('.ui-slider-switch').find('a').attr('title'), $(slider.find('option')[slider[0].selectedIndex]).text(), 'verify that the link title is set to the selected option text');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var $highlighted = $('#background-slider'), $unhighlighted = $('#no-background-slider');\n    deepEqual($highlighted.siblings('.ui-slider-track').find('.ui-slider-bg').length, 1, 'highlighted slider should have a div for the track bg');\n    deepEqual($unhighlighted.siblings('.ui-slider-track').find('.ui-slider-bg').length, 0, 'unhighlighted slider _not_ should have a div for the track bg');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var label = $('[for=label-id-slider]');\n    equal(label.attr('id'), 'label-id', 'label id was not changed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#empty-string-val-slider'), label = $('[for=empty-string-val-slider]');\n    equal(label.attr('id'), slider.attr('id') + '-label', 'the label id is based off the slider id');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    deepEqual($('.textinput-test').find('.ui-input-clear').length, 0, 'slider input does not get clear button');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!$('#textinput-test').parents().is('div.ui-input-text'), 'slider input is not wrapped in div.ui-input-text');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('#tooltip-test').siblings('div.ui-slider-popup');\n    deepEqual(tooltip.length, 1, 'is present');\n    deepEqual(tooltip.is(':visible'), false, 'is initially hidden');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#tooltip-test-both');\n    var sliderHandle = slider.siblings('.ui-slider-track').children('.ui-slider-handle');\n    slider.val('9').blur();\n    ok(slider.val() === sliderHandle.text(), 'slider text should match handle text');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var slider = $('#disable-input-test');\n    slider.slider('disable');\n    ok(slider.hasClass('ui-state-disabled'), 'disabling slider also disables the input');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function strIndexOf(c, str) {\n    return str.indexOf(c);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_curry2"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    if (!self.locked) {\n        var element = $(this), ajax = element.data('reveal-ajax');\n        self.locked = true;\n        if (typeof ajax === 'undefined') {\n            self.open.call(self, element);\n        } else {\n            var url = ajax === true ? element.attr('href') : ajax;\n            self.open.call(self, element, { url: url });\n        }\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    if (!self.locked) {\n        var settings = $.extend({}, self.settings, self.data_options($('.reveal-modal.open')));\n        if ($(e.target)[0] === $('.' + settings.bgClass)[0] && !settings.closeOnBackgroundClick) {\n            return;\n        }\n        self.locked = true;\n        self.close.call(self, $(this).closest('.reveal-modal'));\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var open_modal = $('.reveal-modal.open'), settings = $.extend({}, self.settings, self.data_options(open_modal));\n    if (event.which === 27 && settings.closeOnEsc) {\n        open_modal.foundation('reveal', 'close');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    it('can be imported without blowing up', function () {\n        var app = require('../app');\n        assert(app !== undefined);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var app = require('../app');\n    assert(app !== undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (t, combinator, type, value, attrName, attrType, attrValue) {\n    if (value) {\n        if (type == '.') {\n            matcher = and(matcher, className(value));\n        } else {\n            matcher = and(matcher, tag(value));\n        }\n    } else if (combinator) {\n        matcher = (combinator == ' ' ? ancestor : parent)(matcher);\n    } else if (attrName) {\n        matcher = and(matcher, attr(attrName, attrValue, attrType));\n    }\n    return '';\n}",
+    "receiverBase": "selector",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (query) {\n    return matchesSelector.call(node, query);\n}",
+    "receiverBase": "",
+    "receiverCallee": "useRoot"
+  },
+  {
+    "callback": "function (node) {\n    bool = node.offsetTop === 9;\n}",
+    "receiverBase": "",
+    "receiverCallee": "injectElementWithStyles"
+  },
+  {
+    "callback": "function (node, rule) {\n    ret = node.offsetLeft === 9 && node.offsetHeight === 3;\n}",
+    "receiverBase": "",
+    "receiverCallee": "injectElementWithStyles"
+  },
+  {
+    "callback": "function (node, rule) {\n    var style = document.getElementById('smodernizr'), sheet = style.sheet || style.styleSheet, cssText = sheet ? sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '' : '';\n    bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "injectElementWithStyles"
+  },
+  {
+    "callback": "function (node) {\n    bool = node.offsetHeight >= 3;\n}",
+    "receiverBase": "",
+    "receiverCallee": "injectElementWithStyles"
+  },
+  {
+    "callback": "function (props) {\n    for (var i = 0, len = props.length; i < len; i++) {\n        attrs[props[i]] = !!(props[i] in inputElem);\n    }\n    if (attrs.list) {\n        attrs.list = !!(document.createElement('datalist') && window.HTMLDataListElement);\n    }\n    return attrs;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    document.createElement('a');\n    var frag = document.createDocumentFragment();\n    return typeof frag.cloneNode == 'undefined' || typeof frag.createDocumentFragment == 'undefined' || typeof frag.createElement == 'undefined';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (nodeName) {\n    data.createElem(nodeName);\n    data.frag.createElement(nodeName);\n    return 'c(\"' + nodeName + '\")';\n}",
+    "receiverBase": "join",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    ('c' == a.t ? B.injectCss : B.injectJs)(a.s, 0, a.a, a.x, a.e, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "m"
+  },
+  {
+    "callback": "function () {\n    t.removeChild(l);\n}",
+    "receiverBase": "",
+    "receiverCallee": "m"
+  },
+  {
+    "callback": "function () {\n    k(), e && e(i.origUrl, h, g), j && j(i.origUrl, h, g), y[i.url] = 2;\n}",
+    "receiverBase": "f",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    var b = 0, c;\n    for (c in a)\n        a.hasOwnProperty(c) && b++;\n    return b;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    return function () {\n        var b = [].slice.call(arguments);\n        a && a.apply(this, b), l();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    l || (l = 1, c(1));\n}",
+    "receiverBase": "",
+    "receiverCallee": "m"
+  }
+]

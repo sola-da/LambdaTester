@@ -1,0 +1,800 @@
+[
+  {
+    "callback": "function () {\n    ok(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var userId = this.ga.trackPage('user/1');\n    ok(userId);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    this.ga.trackPage('testing/1', function (err) {\n        ok(!err);\n        start();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function (err) {\n    ok(!err);\n    start();\n}",
+    "receiverBase": "ga",
+    "receiverCallee": "trackPage"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    var userId = this.ga.trackPage('user/1');\n    this.ga.trackPage('user/2', userId, function (err) {\n        ok(!err);\n        start();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function (err) {\n    ok(!err);\n    start();\n}",
+    "receiverBase": "ga",
+    "receiverCallee": "trackPage"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    this.ga.trackEvent({\n        category: 'Videos',\n        action: 'Video Loading',\n        label: 'Gone With the Wind',\n        value: 3\n    }, function (err) {\n        ok(!err);\n        start();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function (err) {\n    ok(!err);\n    start();\n}",
+    "receiverBase": "ga",
+    "receiverCallee": "trackEvent"
+  },
+  {
+    "callback": "function (event) {\n    var panel = event.data[0];\n    var iframe = panel.element.getElementsByTag('iframe').getItem(0).getFrameDocument();\n    if (!iframe.getById('cke_ui_color')) {\n        var node = getStylesheet(iframe);\n        uiColorMenus.push(node);\n        var color = editor.getUiColor();\n        if (color)\n            updateStylesheets([node], uiColorMenuCss, [[\n                    uiColorRegexp,\n                    color\n                ]]);\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (p) {\n    return p.trim();\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    if (p in deps) {\n        return true;\n    }\n    done({\n        code: 'UPDATE_PKG_NOT_FOUND',\n        message: '\"' + p + '\" is not a dependency of the current package.',\n        data: { name: p }\n    });\n}",
+    "receiverBase": "packages",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (name) {\n    return name + '@' + deps[name];\n}",
+    "receiverBase": "names",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tab) {\n    if (tab.get('selected')) {\n        selection = tab;\n        return true;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (node, i) {\n    var panelNode = panels ? panels.item(i) : null;\n    tabview.add({\n        boundingBox: node,\n        contentBox: node.one(DOT + _classNames.tabLabel),\n        panelNode: panelNode\n    });\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    itemScope.$onReorder(oldIndex, newIndex);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    if (listView) {\n        listView.deregister && listView.deregister();\n        listView = null;\n    }\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (value) {\n    listCtrl.canSwipeItems(value);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    listCtrl.showDelete(value);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    listCtrl.showReorder(value);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return listCtrl.showDelete();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (isShown, wasShown) {\n    if (!isShown && !wasShown) {\n        return;\n    }\n    if (isShown)\n        listCtrl.closeOptionButtons();\n    listCtrl.canSwipeItems(!isShown);\n    $element.children().toggleClass('list-left-editing', isShown);\n    $element.toggleClass('disable-pointer-events', isShown);\n    var deleteButton = jqLite($element[0].getElementsByClassName('item-delete'));\n    setButtonShown(deleteButton, listCtrl.showDelete);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return listCtrl.showReorder();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (isShown, wasShown) {\n    if (!isShown && !wasShown) {\n        return;\n    }\n    if (isShown)\n        listCtrl.closeOptionButtons();\n    listCtrl.canSwipeItems(!isShown);\n    $element.children().toggleClass('list-right-editing', isShown);\n    $element.toggleClass('disable-pointer-events', isShown);\n    var reorderButton = jqLite($element[0].getElementsByClassName('item-reorder'));\n    setButtonShown(reorderButton, listCtrl.showReorder);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    shown() && el.addClass('active') || el.removeClass('visible');\n}",
+    "receiverBase": "ionic",
+    "receiverCallee": "requestAnimationFrame"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            fields: [\n                'Id',\n                'Name'\n            ],\n            table: 'Account',\n            conditions: { Id: '0011000000NPNrW' },\n            limit: 10,\n            offset: 20\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id, Name FROM Account ' + 'WHERE Id = \\'0011000000NPNrW\\' LIMIT 10 OFFSET 20');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id, Name FROM Account ' + 'WHERE Id = \\'0011000000NPNrW\\' LIMIT 10 OFFSET 20');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id, Name FROM Account ' + 'WHERE Id = \\'0011000000NPNrW\\' OR Id = \\'00110000005WlZd\\'');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id, Name FROM Account ' + 'WHERE Type = \\'Partner\\' AND (Id = \\'0011000000NPNrW\\' OR Id = \\'00110000005WlZd\\')');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE Account.Type = \\'Partner\\' OR (Amount >= 1000 AND Amount < 2000)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE NOT (Amount >= 1000 AND Amount < 2000 AND Account.Type = \\'Customer\\')');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Opportunity',\n            conditions: {\n                $not: { Name: { $like: 'Test%' } },\n                Amount: { $gte: 1000 }\n            }\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE (NOT Name LIKE \\'Test%\\') AND Amount >= 1000');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE (NOT Name LIKE \\'Test%\\') AND Amount >= 1000');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE Account.Type = \\'Partner\\' OR (NOT (Amount >= 1000 AND Amount < 2000 AND Account.Type = \\'Customer\\'))');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE CloseDate >= LAST_N_DAYS:10 AND CloseDate <= TOMORROW ' + 'AND CloseDate > 2010-11-05 AND CreatedDate < 2010-11-01T19:45:04Z');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Account',\n            conditions: {\n                Name: { $like: 'John\\'s%' },\n                'Owner.Name': { $nlike: '%Test%' }\n            }\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Account ' + 'WHERE Name LIKE \\'John\\\\\\'s%\\' AND (NOT Owner.Name LIKE \\'%Test%\\')');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Account ' + 'WHERE Name LIKE \\'John\\\\\\'s%\\' AND (NOT Owner.Name LIKE \\'%Test%\\')');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Contact ' + 'WHERE Account.Id IN (\\'0011000000NPNrW\\', \\'00110000005WlZd\\') ' + 'AND Owner.Id NOT IN (\\'00510000000N2C2\\')');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Task',\n            conditions: {\n                WhatId: { $exists: true },\n                WhoId: { $exists: false }\n            }\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Task ' + 'WHERE WhatId != null AND WhoId = null');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Task ' + 'WHERE WhatId != null AND WhoId = null');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Account',\n            conditions: {\n                Type: { $ne: null },\n                LastActivityDate: null\n            }\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Account ' + 'WHERE Type != null AND LastActivityDate = null');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Account ' + 'WHERE Type != null AND LastActivityDate = null');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Account',\n            conditions: { Type: undefined }\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Account');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Account');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Opportunity',\n            sort: '-CreatedDate',\n            limit: 10\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'ORDER BY CreatedDate DESC ' + 'LIMIT 10');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'ORDER BY CreatedDate DESC ' + 'LIMIT 10');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE Owner.Name LIKE \\'A%\\' ' + 'ORDER BY CreatedDate DESC, Name ASC ' + 'LIMIT 10');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var soql = SOQLBuilder.createSOQL({\n            table: 'Opportunity',\n            conditions: { 'Owner.Name': { $like: 'A%' } },\n            sort: {\n                CreatedDate: 'descending',\n                Name: 'ascending'\n            },\n            limit: 10\n        });\n    it('should equal to soql', function () {\n        assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE Owner.Name LIKE \\'A%\\' ' + 'ORDER BY CreatedDate DESC, Name ASC ' + 'LIMIT 10');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    assert.ok(soql === 'SELECT Id FROM Opportunity ' + 'WHERE Owner.Name LIKE \\'A%\\' ' + 'ORDER BY CreatedDate DESC, Name ASC ' + 'LIMIT 10');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (acc, key) {\n    acc[key] = options[key];\n    return acc;\n}",
+    "receiverBase": "BLOCK_OPTION_KEYS",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (item) {\n    return item.blockID !== block.blockID;\n}",
+    "receiverBase": "blocks",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (b) {\n    return !b.isEmpty();\n}",
+    "receiverBase": "getBlocksByType",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (b) {\n    return b.blockID === blockID;\n}",
+    "receiverBase": "blocks",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (b) {\n    return utils.classify(b.type) === type;\n}",
+    "receiverBase": "blocks",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (b) {\n    return block_ids.includes(b.blockID);\n}",
+    "receiverBase": "blocks",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (indicator, index) {\n    indicator.classList.toggle('active', index == this.currentSectionIndex);\n}",
+    "receiverBase": "indicators",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (section) {\n    section.style.transition = '';\n}",
+    "receiverBase": "sections",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    dojo.io.iframe.send({\n        url: utilUrl,\n        timeout: 5000\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    button = dojo.byId('downloadButton');\n    dojo.connect(button, 'onclick', _downloadDialog, 'show');\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "addOnLoad"
+  },
+  {
+    "callback": "function (value, index) {\n    model.push(value.id);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, index) {\n    model.push({\n        'id': value,\n        'text': value\n    });\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (current, old) {\n    if (!current) {\n        return;\n    }\n    if (current === old) {\n        return;\n    }\n    controller.$render();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal, scope) {\n    if (!newVal) {\n        return;\n    }\n    $timeout(function () {\n        elm.select2('val', controller.$viewValue);\n        elm.trigger('change');\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    elm.select2('val', controller.$viewValue);\n    elm.trigger('change');\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (value) {\n    var div = elm.prev();\n    div.toggleClass('ng-invalid', !controller.$valid).toggleClass('ng-valid', controller.$valid).toggleClass('ng-invalid-required', !controller.$valid).toggleClass('ng-valid-required', controller.$valid).toggleClass('ng-dirty', controller.$dirty).toggleClass('ng-pristine', controller.$pristine);\n    return value;\n}",
+    "receiverBase": "$parsers",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    if (scope.$$phase) {\n        return;\n    }\n    scope.$apply(function () {\n        controller.$setViewValue(convertToAngularModel(elm.select2('data')));\n    });\n}",
+    "receiverBase": "elm",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    controller.$setViewValue(convertToAngularModel(elm.select2('data')));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (value) {\n    controller.$setViewValue(convertToAngularModel(value));\n    callback(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "initSelection"
+  },
+  {
+    "callback": "function () {\n    elm.select2('destroy');\n}",
+    "receiverBase": "elm",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (value) {\n    elm.select2('enable', !value);\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (value) {\n    elm.select2('readonly', !!value);\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (newVal) {\n    elm.select2(opts);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    elm.select2(opts);\n    elm.val(controller.$viewValue);\n    controller.$render();\n    if (!opts.initSelection && !isSelect) {\n        controller.$setViewValue(convertToAngularModel(elm.select2('data')));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory();\n    } else {\n        root.Handlebars = root.Handlebars || factory();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    var __exports__;\n    function SafeString(string) {\n        this.string = string;\n    }\n    SafeString.prototype.toString = function () {\n        return '' + this.string;\n    };\n    __exports__ = SafeString;\n    return __exports__;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (arguments.length === 1) {\n        return undefined;\n    } else {\n        throw new Exception('Missing helper: \\'' + arguments[arguments.length - 1].name + '\\'');\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (conditional, options) {\n    if (isFunction(conditional)) {\n        conditional = conditional.call(this);\n    }\n    if (!options.hash.includeZero && !conditional || Utils.isEmpty(conditional)) {\n        return options.inverse(this);\n    } else {\n        return options.fn(this);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (conditional, options) {\n    return instance.helpers['if'].call(this, conditional, {\n        fn: options.inverse,\n        inverse: options.fn,\n        hash: options.hash\n    });\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (context, options) {\n    if (isFunction(context)) {\n        context = context.call(this);\n    }\n    var fn = options.fn;\n    if (!Utils.isEmpty(context)) {\n        if (options.data && options.ids) {\n            var data = createFrame(options.data);\n            data.contextPath = Utils.appendContextPath(options.data.contextPath, options.ids[0]);\n            options = { data: data };\n        }\n        return fn(context, options);\n    } else {\n        return options.inverse(this);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (message, options) {\n    var level = options.data && options.data.level != null ? parseInt(options.data.level, 10) : 1;\n    instance.log(level, message);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (obj, field) {\n    return obj && obj[field];\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function () {\n    app.router.navigate('m', { trigger: false });\n}",
+    "receiverBase": "modal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (p) {\n    var curr = path.join(dir, p);\n    var stat = fs.statSync(curr);\n    if (stat.isDirectory()) {\n        ret = ret.concat(_readDir(curr));\n    } else {\n        ret.push(curr);\n    }\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    var curr = path.join(dir, p);\n    var stat = fs.statSync(curr);\n    if (stat.isDirectory()) {\n        _rmDir(curr);\n    } else {\n        try {\n            fs.unlinkSync(curr);\n        } catch (e) {\n            if (e.code === 'EPERM') {\n                fs.chmodSync(curr, '0666');\n                fs.unlinkSync(curr);\n            } else {\n                throw e;\n            }\n        }\n    }\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ev, p) {\n    if (inclPat.test(p) && !exclPat.test(p)) {\n        callback(path.join(watchPath, p));\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "watch"
+  },
+  {
+    "callback": "function (err, files) {\n    if (err) {\n        return log.fatal(err);\n    }\n    for (var f in files) {\n        _watch(path.join(filePath, files[f]), opts, callback);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readdir"
+  },
+  {
+    "callback": "function (id) {\n    this.remove(id);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    expect(new URI().toString()).toEqual(window.location.href.replace(/#$|\\?$|\\?(?=#)/, ''));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('http://www.calyptus.eu').toString()).toEqual('http://www.calyptus.eu/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('http://www.calyptus.eu/').toString()).toEqual('http://www.calyptus.eu/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('./mydirectory/myfile.html', { base: 'http://www.calyptus.eu/' }).toString()).toEqual('http://www.calyptus.eu/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('mydirectory/myfile.html', { base: 'http://www.calyptus.eu' }).toString()).toEqual('http://www.calyptus.eu/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('../myfile.html', { base: 'http://www.calyptus.eu/mydirectory/#' }).toString()).toEqual('http://www.calyptus.eu/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('../../myfile.html', { base: 'http://www.calyptus.eu/mydirectory/mydirectory2/' }).toString()).toEqual('http://www.calyptus.eu/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('../test/../myfile.html', { base: 'http://www.calyptus.eu/mydirectory/mydirectory2/' }).toString()).toEqual('http://www.calyptus.eu/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('http://otherdomain/mydirectory/myfile.html', { base: 'http://www.calyptus.eu/' }).toString()).toEqual('http://otherdomain/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('/mydirectory/myfile.html', { base: 'http://www.calyptus.eu/mydirectory2/myfile.html' }).toString()).toEqual('http://www.calyptus.eu/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('mydirectory/myfile.html', { base: 'http://www.calyptus.eu/mydirectory2/myfile.html' }).toString()).toEqual('http://www.calyptus.eu/mydirectory2/mydirectory/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('mydirectory', { base: 'http://www.calyptus.eu/mydirectory2/myfile.html' }).toString()).toEqual('http://www.calyptus.eu/mydirectory2/mydirectory');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('..', { base: 'http://www.calyptus.eu/mydirectory/mydirectory2/myfile.html' }).toString()).toEqual('http://www.calyptus.eu/mydirectory/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('http://www.calyptus.eu/myfile.html?email=somebody@gmail.com').get('host')).toEqual('www.calyptus.eu');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    uri = new URI('http://www.calyptus.eu/mydirectory/mydirectory2/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(uri.toString()).toEqual('http://www.calyptus.eu/mydirectory/mydirectory2/myfile.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    uri.setData('keyName', 'myOtherValue');\n    expect(uri.get('query')).toEqual('keyName=myOtherValue');\n    uri.setData({ keyName: 'my value' });\n    expect(uri.get('query')).toEqual('keyName=my%20value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        uri = new URI('http://www.calyptus.eu/mydirectory/mydirectory2/myfile.html?keyName=my%20value');\n    });\n    it('URI.getData() should return an object with the value set above', function () {\n        expect(uri.getData().keyName).toEqual('my value');\n    });\n    it('URI.getData(\\'keyName\\') should return the string with the value set above', function () {\n        expect(uri.getData('keyName')).toEqual('my value');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    uri = new URI('http://www.calyptus.eu/mydirectory/mydirectory2/myfile.html?keyName=my%20value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(uri.getData().keyName).toEqual('my value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(uri.getData('keyName')).toEqual('my value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new Request({ url: new URI() }).get();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new Element('a').set('href', new URI()).get('href')).toEqual(new URI().toString());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new URI('http://www.calyptus.eu/') + '?test').toEqual('http://www.calyptus.eu/?test');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect('URL: ' + new URI('http://www.calyptus.eu/')).toEqual('URL: http://www.calyptus.eu/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(/^http/.test(new URI('http://www.calyptus.eu/'))).toEqual(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    myURI = new URI('http://user:password@www.test.com:8383/the/path.html?param=value&animal=cat#car=ferrari');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(myURI.get('fragment')).toEqual('car=ferrari');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    myURI.setData({ color: 'blue' }, true, 'fragment');\n    expect(myURI.get('fragment')).toEqual('car=ferrari&color=blue');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var inicialQuery = myURI.get('query');\n    expect(inicialQuery).toEqual('param=value&animal=cat');\n    myURI.setData({\n        foo: 'bar',\n        animal: 'dog'\n    }, true);\n    var finalQuery = myURI.get('query');\n    expect(finalQuery).toEqual('param=value&animal=dog&foo=bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj instanceof base).toBe(true);\n    expect(obj instanceof subClass).toBe(true);\n    expect(obj1 instanceof subClass).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj.method).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj.method1).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj.method2).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj.constructor).toBe(subClass);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj.constructor.superclass.constructor).toBe(base);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(obj1.method1).not.toBe(undefined);\n    expect(obj1.method2).not.toBe(undefined);\n    expect(obj1.method2).not.toBe(undefined);\n    expect(obj1.constructor.superclass.constructor).toBe(subClass);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var a1 = new a();\n    expect(a1.m1).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(a.ATTRS.p1.v1).toBe('1');\n    expect(a.ATTRS.p1.v3).toBe('b3');\n    expect(a.ATTRS.p1.v4).toBe('4');\n    expect(a.ATTRS.p2.v).toBe('b1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('\\u6D4B\\u8BD5\\u521B\\u5EFA\\u547D\\u540D\\u7A7A\\u95F4', function () {\n        expect(BUI.test).toBe(undefined);\n        BUI.namespace('test.unit');\n        expect(BUI.test).not.toBe(undefined);\n        expect(BUI.test.unit).not.toBe(undefined);\n        BUI.test.a = 'test';\n        var obj = {};\n        BUI.test.obj = obj;\n        BUI.namespace('test.a');\n        expect(BUI.test.a).toBe('test');\n        expect(BUI.test.obj).toBe(obj);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(BUI.test).toBe(undefined);\n    BUI.namespace('test.unit');\n    expect(BUI.test).not.toBe(undefined);\n    expect(BUI.test.unit).not.toBe(undefined);\n    BUI.test.a = 'test';\n    var obj = {};\n    BUI.test.obj = obj;\n    BUI.namespace('test.a');\n    expect(BUI.test.a).toBe('test');\n    expect(BUI.test.obj).toBe(obj);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function a() {\n    }\n    BUI.augment(a, {\n        method1: function () {\n        }\n    });\n    var a1 = new a();\n    expect(a.method1).toBe(undefined);\n    expect(a1.method1).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function a() {\n    }\n    BUI.augment(a, {\n        method1: function () {\n            return 1;\n        }\n    }, {\n        method1: function () {\n            return 2;\n        },\n        method2: function () {\n            return 2;\n        }\n    });\n    var a1 = new a();\n    expect(a.method1).toBe(undefined);\n    expect(a1.method1).not.toBe(undefined);\n    expect(a1.method1()).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    a.fire('click');\n    expect(callback).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    callback.reset();\n    a.off('click', callback);\n    a.fire('click');\n    expect(callback).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    a.on('up', callback);\n    a.on('up', callback1);\n    var obj = { a: 123 };\n    a.fire('up', obj);\n    expect(callback).toHaveBeenCalledWith(obj);\n    expect(callback1).toHaveBeenCalledWith(obj);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    a.pauseEvent('up');\n    var newCal = jasmine.createSpy();\n    a.on('up', newCal);\n    var obj = { a: 123 };\n    a.fire('up', obj);\n    expect(newCal).not.toHaveBeenCalled();\n    a.resumeEvent('up');\n    var obj = { a: 123 };\n    a.fire('up', obj);\n    expect(newCal).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    callback.reset();\n    a.clearListeners();\n    a.fire('up');\n    expect(callback).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = {\n            a: {},\n            b: { c: {} }\n        }, obj1 = BUI.cloneObject(obj);\n    expect(obj).not.toBe(obj1);\n    expect(obj.a).not.toBe(obj1.a);\n    expect(obj.b.c).not.toBe(obj1.b.c);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var a = { a: 'a' }, b = { b: 'b' };\n    var c = BUI.merge(a, b);\n    expect(c).not.toBe(a);\n    expect(a.a).toBe(c.a);\n    expect(b.b).toBe(c.b);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(a.get('m1')).toBe(1);\n    expect(a.get('m2')).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    a.addAttr('a1', { value: val });\n    expect(a.get('a1')).toBe(val);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var val = 3;\n    a.set('a2', val);\n    expect(a.get('a2')).toBe(val);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var val = 4;\n    var callback = jasmine.createSpy();\n    a.on('afterA1Change', callback);\n    a.set('a1', val, { silent: 1 });\n    expect(callback).not.toHaveBeenCalled();\n    a.set('a1', val);\n    expect(callback).toHaveBeenCalled;\n    a.off('afterA1Change', callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    a.removeAttr('a1');\n    expect(a.get('a1')).toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    a.addAttr('b', {\n        getter: function (value) {\n            return value * 2;\n        }\n    });\n    a.set('b', val);\n    expect(a.get('b')).toBe(val * 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function A() {\n    }\n    BUI.extend(A, BUI.Component.UIBase);\n    var B = BUI.Component.UIBase.extend({});\n    var b = new B();\n    it('\\u68C0\\u6D4B\\u57FA\\u7840\\u5C5E\\u6027', function () {\n        expect(b.get('rendered')).toBe(false);\n        b.render();\n        expect(b.get('rendered')).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(b.get('rendered')).toBe(false);\n    b.render();\n    expect(b.get('rendered')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var control = new BUI.Component.Controller({\n            render: '#c1',\n            content: '<p>\\u7B2C\\u4E00\\u4E2A\\u63A7\\u4EF6</p>',\n            allowTextSelection: true\n        });\n    control.render();\n    expect(control).not.toBe(undefined);\n    expect(control.get('el')).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy(), control = new BUI.Component.Controller({\n            content: '<p>\\u7B2C\\u4E09\\u4E2A\\u63A7\\u4EF6</p>',\n            allowTextSelection: true,\n            listeners: { 'click': callback }\n        });\n    control.render();\n    control.fire('click');\n    expect(callback).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var cls = 'test-cls', control = new BUI.Component.Controller({\n            srcNode: '#c4',\n            elCls: cls\n        });\n    control.render();\n    expect(control.get('id')).toBe('c4');\n    expect(control.get('el').hasClass(cls)).toBe(true);\n    expect(control.get('el').html()).toBe($('#c4').html());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = $('#c5'), control = new BUI.Component.Controller({ srcNode: el });\n    control.render();\n    expect(control.get('title')).toBe(el.attr('title'));\n    expect(control.get('value')).toBe(el.attr('data-value'));\n    expect(control.get('el').html()).toBe(el.html());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(control.get('blTrue')).not.toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(control.get('blTrue')).toBe(true);\n    expect(control.get('blFalse')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(control.get('numA')).toBe(123);\n    expect(control.get('numB')).toBe('a234');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item) {\n    expect(item instanceof BClass).toBe(true);\n    expect(item.get('el').length).not.toBe(0);\n    expect(item.get('a')).toBe(item.get('el').text());\n}",
+    "receiverBase": "BUI",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var id = '1';\n    expect(control.getChild(id)).not.toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var id = '2';\n    expect(control.getChild(id)).toBe(null);\n    expect(control.getChild(id, true)).not.toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var items = control.getChildrenBy(function (item) {\n            return item.get('content') === '22';\n        }, true);\n    expect(items.length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item) {\n    return item.get('content') === '22';\n}",
+    "receiverBase": "control",
+    "receiverCallee": "getChildrenBy"
+  },
+  {
+    "callback": "function () {\n    var id = '4', control1 = control.getChild(id);\n    expect(control1).not.toBe(null);\n    control1.remove(true);\n    expect(control.getChild(id)).toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(BUI.JSON).not.toBe(undefined);\n    expect(BUI.JSON.parse).not.toBe(undefined);\n    expect(BUI.JSON.stringify).not.toBe(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = { a: 123 }, str = '{\"a\":123}';\n    expect(BUI.JSON.stringify(obj)).toBe(str);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var str = '{a:123}', obj = BUI.JSON.looseParse(str);\n    expect(obj).not.toBe(undefined);\n    expect(obj.a).toBe(123);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

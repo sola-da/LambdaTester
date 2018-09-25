@@ -1,0 +1,920 @@
+[
+  {
+    "callback": "function () {\n    it('accepts a detector as an argument', function () {\n        var detector = new Detector(['']);\n        var reporter = new BaseReporter(detector);\n        expect(reporter._detector).to.be(detector);\n    });\n    it('registers a listener for the found event', function () {\n        var detector = new Detector(['']);\n        var reporter = new BaseReporter(detector);\n        expect(detector.listeners('found')).to.have.length(1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var detector = new Detector(['']);\n    var reporter = new BaseReporter(detector);\n    expect(reporter._detector).to.be(detector);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var detector = new Detector(['']);\n    var reporter = new BaseReporter(detector);\n    expect(detector.listeners('found')).to.have.length(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chalk.enabled = false;\n    output = null;\n    process.stdout.write = function (string) {\n        output = string;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chalk.enabled = enabled;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function (done) {\n    var detector = new Detector([fixtures.emptyFile]);\n    var reporter = new TestReporter(detector);\n    detector.run(function (err) {\n        restoreWrite();\n        if (err)\n            return done(err);\n        expect(output).to.not.be(null);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    restoreWrite();\n    if (err)\n        return done(err);\n    expect(output).to.not.be(null);\n    done();\n}",
+    "receiverBase": "detector",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (done) {\n    var detector = new Detector([fixtures.emptyFile]);\n    var reporter = new TestReporter(detector);\n    detector.run(function (err) {\n        restoreWrite();\n        if (err)\n            return done(err);\n        expect(output).to.be('\\n No magic numbers found across 1 file\\n');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    restoreWrite();\n    if (err)\n        return done(err);\n    expect(output).to.be('\\n No magic numbers found across 1 file\\n');\n    done();\n}",
+    "receiverBase": "detector",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (done) {\n    var detector = new Detector([\n            fixtures.secondsInMinute,\n            fixtures.emptyFile\n        ]);\n    var reporter = new TestReporter(detector);\n    detector.run(function (err) {\n        restoreWrite();\n        if (err)\n            return done(err);\n        expect(output).to.be('\\n 1 magic number found across 2 files\\n');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    restoreWrite();\n    if (err)\n        return done(err);\n    expect(output).to.be('\\n 1 magic number found across 2 files\\n');\n    done();\n}",
+    "receiverBase": "detector",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (choice) {\n    if (this.opt.default.indexOf(choice.value) >= 0) {\n        choice.checked = true;\n    }\n}",
+    "receiverBase": "choices",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    m.$replay();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    m.$reset();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    m.$verify();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    if (m.$tearDown) {\n        m.$tearDown();\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (NavData) {\n    return {\n        restrict: 'EA',\n        scope: {},\n        templateUrl: 'views/home/nav.html',\n        link: function (scope, element, attrs) {\n            var vm = scope.vm = {};\n            vm.data = NavData;\n        }\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (background) {\n    var rule = background.rule;\n    var declarations = rule.declarations.reduce(function (declarations, declaration) {\n            declarations.push(declaration);\n            if (declaration == background.declaration) {\n                declaration.value = declaration.value.replace(urlPattern, 'url(' + sprite.data + ')');\n            }\n            return declarations;\n        }, []);\n    rule.declarations = declarations;\n    rules.push(rule);\n}",
+    "receiverBase": "backgrounds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (declarations, declaration) {\n    declarations.push(declaration);\n    if (declaration == background.declaration) {\n        declaration.value = declaration.value.replace(urlPattern, 'url(' + sprite.data + ')');\n    }\n    return declarations;\n}",
+    "receiverBase": "declarations",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (event) {\n    if (1 === event.target.childNodes.length) {\n        window.location.hash = 'psly-' + $(event.target.children[0]).attr('href').slice(1);\n    }\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $body.scrollspy('refresh');\n    if (/^#psly-/i.test(window.location.hash)) {\n        var h = window.location.hash.replace('psly-', '');\n        if ($(h).length)\n            window.location.hash = h;\n    }\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('.sidebar .active').each(function () {\n        $(this).removeClass('active');\n    });\n    $('.sidebar ul:first li:first').addClass('active');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).removeClass('active');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.top').affix();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return lineObject.hasRegExpOption;\n}",
+    "receiverBase": "wordBuilder",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (word) {\n    if (alphabetRegExp.test(word)) {\n        return '\\\\b' + representWord(word) + '\\\\b';\n    } else {\n        return representWord(word);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "stringPatternForField"
+  },
+  {
+    "callback": "function () {\n    return lineObject.hasRegExpOption;\n}",
+    "receiverBase": "wordBuilder",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (word) {\n    var place = [];\n    place.push(lineObject.beforeChar ? wrapAsPlaceHolder(lineObject.beforeChar) : '');\n    place.push(representWord(word));\n    place.push(lineObject.afterChar ? wrapAsPlaceHolder(lineObject.afterChar) : '');\n    if (alphabetRegExp.test(word)) {\n        return place.join('\\\\b');\n    } else {\n        return place.join('');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "stringPatternForField"
+  },
+  {
+    "callback": "function () {\n    return lineObject.hasRegExpOption;\n}",
+    "receiverBase": "wordBuilder",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (word) {\n    if (alphabetRegExp.test(word)) {\n        return '(?:' + wrapAsPlaceHolder(lineObject.beforeChar) + '\\\\b' + representWord(word) + ')' + '|' + '(?:' + representWord(word) + '\\\\b' + wrapAsPlaceHolder(lineObject.afterChar) + ')';\n    } else {\n        return '(?:' + wrapAsPlaceHolder(lineObject.beforeChar) + representWord(word) + ')' + '|' + '(?:' + representWord(word) + wrapAsPlaceHolder(lineObject.afterChar) + ')';\n    }\n}",
+    "receiverBase": "beforeFieldWords",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (pattern) {\n    return {\n        'pattern': pattern,\n        'expected': '$1' + replaceMatchedValue(lineObject.afterField) + '$2'\n    };\n}",
+    "receiverBase": "beforeStringPattern",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (all, comment) {\n    commentField = comment;\n    return '';\n}",
+    "receiverBase": "line",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var withoutSpace = /\\S/;\n    var field = optionalFields[0];\n    if (field != null && withoutSpace.test(field)) {\n        return field.trim();\n    } else {\n        return null;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var withoutSpace = /\\S/;\n    var field = optionalFields[1];\n    if (field != null && withoutSpace.test(field)) {\n        return field.trim();\n    } else {\n        return null;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (line) {\n    try {\n        return lineParse(line);\n    } catch (error) {\n        console.error(error);\n    }\n}",
+    "receiverBase": "contentByLine",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function Q_all_eachFulfilled(value) {\n    answers[index] = value;\n    if (--countDown === 0) {\n        deferred.resolve(answers);\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Q_all_eachEstimate(newEstimate) {\n    var oldEstimate = estimates[index];\n    estimates[index] = newEstimate;\n    if (newEstimate > estimate) {\n        estimate = newEstimate;\n    } else if (oldEstimate === estimate && newEstimate <= estimate) {\n        computeEstimate();\n    }\n    if (estimates.length === questions.length && estimate !== setEstimate) {\n        deferred.setEstimate(estimate);\n        setEstimate = estimate;\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "observeEstimate"
+  },
+  {
+    "callback": "function Q_allSettled_each(promise) {\n    promise = Q(promise);\n    function regardless() {\n        return promise.inspect();\n    }\n    return promise.then(regardless, regardless);\n}",
+    "receiverBase": "questions",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function Q_joined(x, y) {\n    if (x === y) {\n        return x;\n    } else {\n        throw new Error('Can\\'t join: not the same: ' + x + ' ' + y);\n    }\n}",
+    "receiverBase": "Q",
+    "receiverCallee": "spread"
+  },
+  {
+    "callback": "function (answerP) {\n    Q(answerP).then(deferred.resolve, deferred.reject);\n}",
+    "receiverBase": "answerPs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function Q_promised_spread(self, args) {\n    return callback.apply(self, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "Q_spread"
+  },
+  {
+    "callback": "function Promise_thenResolve_resolved() {\n    return value;\n}",
+    "receiverBase": "Q_all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_thenReject_resolved() {\n    throw error;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    return callback.call().then(function Promise_finally_fulfilled() {\n        return value;\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_finally_fulfilled() {\n    return value;\n}",
+    "receiverBase": "call",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (reason) {\n    return callback.call().then(function Promise_finally_rejected() {\n        throw reason;\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_finally_rejected() {\n    throw reason;\n}",
+    "receiverBase": "call",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_dispatch_task() {\n    Q_getHandler(self).dispatch(resolve, op, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function Promise_spread_fulfilled(array) {\n    return fulfilled.apply(void 0, array);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_timeout_task() {\n    deferred.reject(new Error(message || 'Timed out after ' + ms + ' ms'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function Promise_timeout_fulfilled(value) {\n    clearTimeout(timeoutId);\n    deferred.resolve(value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_timeout_rejected(error) {\n    clearTimeout(timeoutId);\n    deferred.reject(error);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_delay_fulfilled(value) {\n    var deferred = defer();\n    deferred.setEstimate(Date.now() + ms);\n    setTimeout(function Promise_delay_task() {\n        deferred.resolve(value);\n    }, ms);\n    return deferred.promise;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function Promise_delay_task() {\n    deferred.resolve(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return self.callInvoke(callback, args.map(function (arg) {\n        if (Q_isPromise(arg) && arg.toBePassed()) {\n            return arg.inspect().value;\n        } else {\n            return arg;\n        }\n    }), thisp);\n}",
+    "receiverBase": "Q_all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (arg) {\n    if (Q_isPromise(arg) && arg.toBePassed()) {\n        return arg.inspect().value;\n    } else {\n        return arg;\n    }\n}",
+    "receiverBase": "args",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function Pending_dispatch_task() {\n    operands[0].call(void 0, self.estimate);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function Pending_become_eachMessage(message) {\n    asap(function Pending_become_eachMessage_task() {\n        var handler = Q_getHandler(promise);\n        handler.dispatch.apply(handler, message);\n    });\n}",
+    "receiverBase": "messages",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function Pending_become_eachMessage_task() {\n    var handler = Q_getHandler(promise);\n    handler.dispatch.apply(handler, message);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function Pending_eachObserver(observer) {\n    asap(function Pending_setEstimate_eachObserver_task() {\n        observer.call(void 0, estimate);\n    });\n}",
+    "receiverBase": "observers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function Pending_setEstimate_eachObserver_task() {\n    observer.call(void 0, estimate);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function Thenable_cast_task() {\n    try {\n        thenable.then(deferred.resolve, deferred.reject);\n    } catch (exception) {\n        deferred.reject(exception);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "asap"
+  },
+  {
+    "callback": "function (value) {\n    nodeback(null, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (value, rejected) {\n    return Q(value).catch(rejected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value, regardless) {\n    return Q(value).finally(regardless);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (promise, value) {\n    return Q(promise).thenResolve(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (promise, reason) {\n    return Q(promise).thenResolve(reason);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return Q(value).isPending();\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return Q(value).isFulfilled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return Q(value).isRejected();\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value, op, operands) {\n    return Q(value).dispatch(op, operands);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object, name) {\n    return Q(object).get(name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object) {\n    return Q(object).keys();\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object, name, args) {\n    return Q(object).post(name, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object, name, args) {\n    return Q(object).post(name, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object, name) {\n    return Q(object).post(name, Array.prototype.slice.call(arguments, 2));\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    if (Q_isPromise(value) && value.isFulfilled()) {\n        return value.inspect().value;\n    } else {\n        return value;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback, args) {\n    return Q(callback).dispatch('call', [args]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback) {\n    return Q(callback).dispatch('call', [Array.prototype.slice.call(arguments, 1)]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object) {\n    var promise = Q(object);\n    var args = Array.prototype.slice.call(arguments, 1);\n    return function fbound() {\n        return promise.dispatch('call', [\n            args.concat(Array.prototype.slice.call(arguments)),\n            this\n        ]);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (args) {\n    return this.dispatch('call', [args]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    return this.dispatch('call', [Array.prototype.slice.call(arguments)]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (rejected) {\n    return this.catch(rejected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (regardless) {\n    return this.finally(regardless);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (name, args) {\n    return this.dispatch('invoke', [\n        name,\n        args\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    return Q.fbind.apply(Q, [void 0].concat(Array.prototype.slice.call(arguments)));\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    return this.dispatch('invoke', [\n        name,\n        Array.prototype.slice.call(arguments, 1)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    return this.dispatch('invoke', [\n        name,\n        Array.prototype.slice.call(arguments, 1)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (value) {\n    return value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback, args) {\n    var deferred = Q.defer();\n    var nodeArgs = Array.prototype.slice.call(args);\n    nodeArgs.push(deferred.makeNodeResolver());\n    Q(callback).apply(this, nodeArgs).catch(deferred.reject);\n    return deferred.promise;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (args) {\n    return Q.nfapply(this, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback) {\n    var args = Array.prototype.slice.call(arguments, 1);\n    return Q.nfapply(callback, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    var args = new Array(arguments.length);\n    for (var index = 0; index < arguments.length; index++) {\n        args[index] = arguments[index];\n    }\n    return Q.nfapply(this, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback) {\n    var baseArgs = Array.prototype.slice.call(arguments, 1);\n    return function () {\n        var nodeArgs = baseArgs.concat(Array.prototype.slice.call(arguments));\n        var deferred = Q.defer();\n        nodeArgs.push(deferred.makeNodeResolver());\n        Q(callback).apply(this, nodeArgs).catch(deferred.reject);\n        return deferred.promise;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    var args = new Array(arguments.length);\n    for (var index = 0; index < arguments.length; index++) {\n        args[index] = arguments[index];\n    }\n    return Q.nfbind(this, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (callback, thisp) {\n    var baseArgs = Array.prototype.slice.call(arguments, 2);\n    return function () {\n        var nodeArgs = baseArgs.concat(Array.prototype.slice.call(arguments));\n        var deferred = Q.defer();\n        nodeArgs.push(deferred.makeNodeResolver());\n        function bound() {\n            return callback.apply(thisp, arguments);\n        }\n        Q(bound).apply(this, nodeArgs).catch(deferred.reject);\n        return deferred.promise;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (object, name, nodeArgs) {\n    var deferred = Q.defer();\n    nodeArgs.push(deferred.makeNodeResolver());\n    Q(object).dispatch('invoke', [\n        name,\n        nodeArgs\n    ]).catch(deferred.reject);\n    return deferred.promise;\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function (name, args) {\n    return Q.npost(this, name, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deprecate"
+  },
+  {
+    "callback": "function () {\n    mocks = [\n        mockProxy(),\n        mockProxy(),\n        mockProxy()\n    ];\n    collection = new tabris.ProxyCollection(mocks);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(collection[0]).toBe(mocks[0]);\n    expect(collection[1]).toBe(mocks[1]);\n    expect(collection[2]).toBe(mocks[2]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.length).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.first()).toBe(mocks[0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.last()).toBe(mocks[2]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr1 = collection.toArray();\n    var arr2 = collection.toArray();\n    expect(arr1).toEqual(mocks);\n    expect(arr2).toEqual(mocks);\n    expect(arr1).not.toBe(arr2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy();\n    collection.forEach(callback);\n    expect(callback).toHaveBeenCalledWith(mocks[0], 0, collection);\n    expect(callback).toHaveBeenCalledWith(mocks[1], 1, collection);\n    expect(callback).toHaveBeenCalledWith(mocks[2], 2, collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.indexOf(mocks[0])).toBe(0);\n    expect(collection.indexOf(mocks[1])).toBe(1);\n    expect(collection.indexOf(mocks[2])).toBe(2);\n    expect(collection.indexOf(null)).toBe(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.filter(function (proxy) {\n        return proxy !== mocks[1];\n    }).toArray()).toEqual([\n        mocks[0],\n        mocks[2]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (proxy) {\n    return proxy !== mocks[1];\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    mocks[0].type = 'Foo';\n    mocks[1].type = 'Bar';\n    mocks[2].type = 'Foo';\n    expect(collection.filter('Foo').toArray()).toEqual([\n        mocks[0],\n        mocks[2]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    mocks[0].type = 'Foo';\n    mocks[1].type = 'Bar';\n    mocks[2].type = 'Foo';\n    expect(collection.filter('*').toArray()).toEqual(mocks);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    mocks[0].id = 'foo';\n    mocks[1].id = 'bar';\n    mocks[2].id = 'bar';\n    expect(collection.filter('#bar').toArray()).toEqual([\n        mocks[1],\n        mocks[2]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    collection.set('foo', 'bar');\n    expect(mocks[0].set).toHaveBeenCalledWith('foo', 'bar');\n    expect(mocks[1].set).toHaveBeenCalledWith('foo', 'bar');\n    expect(mocks[2].set).toHaveBeenCalledWith('foo', 'bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.set('foo', 'bar')).toBe(collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var props = { foo: 'bar' };\n    var options = { delay: 3000 };\n    collection.animate(props, options);\n    expect(mocks[0].animate).toHaveBeenCalledWith(props, options);\n    expect(mocks[1].animate).toHaveBeenCalledWith(props, options);\n    expect(mocks[2].animate).toHaveBeenCalledWith(props, options);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.animate({}, {})).toBe(collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var listener = function () {\n    };\n    collection.on('foo', listener);\n    expect(mocks[0].on).toHaveBeenCalledWith('foo', listener);\n    expect(mocks[1].on).toHaveBeenCalledWith('foo', listener);\n    expect(mocks[2].on).toHaveBeenCalledWith('foo', listener);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.on('foo', function () {\n    })).toBe(collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var listener = function () {\n    };\n    collection.off('foo', listener);\n    expect(mocks[0].off).toHaveBeenCalledWith('foo', listener);\n    expect(mocks[1].off).toHaveBeenCalledWith('foo', listener);\n    expect(mocks[2].off).toHaveBeenCalledWith('foo', listener);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.off('foo', function () {\n    })).toBe(collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "off"
+  },
+  {
+    "callback": "function () {\n    collection.dispose();\n    expect(mocks[0].dispose).toHaveBeenCalled();\n    expect(mocks[1].dispose).toHaveBeenCalled();\n    expect(mocks[2].dispose).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(collection.dispose()).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    mocks[0].get.and.returnValue('foo');\n    expect(collection.get('bar')).toBe('foo');\n    expect(mocks[0].get).toHaveBeenCalledWith('bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new tabris.ProxyCollection([]).get('foo')).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var parents = [\n            mockProxy(),\n            mockProxy()\n        ];\n    mocks[0].parent.and.returnValue(parents[0]);\n    mocks[2].parent.and.returnValue(parents[1]);\n    expect(collection.parent().toArray()).toEqual(parents);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var parents = [\n            mockProxy(),\n            mockProxy()\n        ];\n    mocks[0].parent.and.returnValue(parents[0]);\n    mocks[1].parent.and.returnValue(parents[0]);\n    mocks[2].parent.and.returnValue(parents[1]);\n    expect(collection.parent().toArray()).toEqual(parents);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(new tabris.ProxyCollection([]).parent()).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var parent = mockProxy();\n    collection.appendTo(parent);\n    expect(parent.append).toHaveBeenCalledWith(collection);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var children = [\n            mockProxy(),\n            mockProxy(),\n            mockProxy(),\n            mockProxy()\n        ];\n    mocks[0]._children = children.slice(0, 2);\n    mocks[2]._children = children.slice(2, 4);\n    expect(collection.children().toArray()).toEqual(children);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var children = [\n            mockProxy(),\n            mockProxy(),\n            mockProxy(),\n            mockProxy()\n        ];\n    children[0].type = children[2].type = 'Foo';\n    mocks[0]._children = children.slice(0, 2);\n    mocks[2]._children = children.slice(2, 4);\n    expect(collection.children('Foo').toArray()).toEqual([\n        children[0],\n        children[2]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var children = [\n            mockProxy(),\n            mockProxy(),\n            mockProxy(),\n            mockProxy()\n        ];\n    mocks[0]._children = [children[0]];\n    mocks[2]._children = [children[1]];\n    children[1]._children = children.slice(2, 4);\n    expect(collection.find('*').toArray().length).toEqual(children.length);\n    expect(collection.find('*').toArray()).toEqual(children);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (Y) {\n    var suite = new YUITest.TestSuite('MModel-tests'), model = null, A = YUITest.Assert;\n    suite.add(new YUITest.TestCase({\n        name: 'M model user tests',\n        setUp: function () {\n            model = Y.mojito.models.M;\n        },\n        tearDown: function () {\n            model = null;\n        },\n        'test mojit model': function () {\n            A.isNotNull(model);\n            A.isFunction(model.getMessage);\n        }\n    }));\n    YUITest.TestRunner.add(suite);\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\nFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First1',\n                'Last1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\nFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': 'First1,Last1,email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address,';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address,',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\n';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\n\"First,1\",\"Last,1\",\"email1@email.com\"';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First,1',\n                'Last,1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\n\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': '\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(myParser(parsedData.line + '\\n\"First,\"\",2\"\"\",\"Last\"\"2\"\"\",\"email2@email.com\"', false), {\n        line: '',\n        rows: [\n            [\n                'First,\"1\"',\n                'Last,\"1\"',\n                'email1@email.com'\n            ],\n            [\n                'First,\"2\"',\n                'Last,\"2\"',\n                'email2@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var data = '\"\",\"\",\"\"\\n,Last4,email4@email.com';\n    var myParser = parser({ delimiter: ',' }), parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [\n            [\n                '',\n                '',\n                ''\n            ],\n            [\n                '',\n                'Last4',\n                'email4@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\"',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\",';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\",',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"\\n';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\rFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First1',\n                'Last1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\rFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': 'First1,Last1,email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address,';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address,',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\"First,1\",\"Last,1\",\"email1@email.com\"';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First,1',\n                'Last,1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': '\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(myParser(parsedData.line + '\\r\"First,\"\",2\"\"\",\"Last\"\"2\"\"\",\"email2@email.com\"', false), {\n        line: '',\n        rows: [\n            [\n                'First,\"1\"',\n                'Last,\"1\"',\n                'email1@email.com'\n            ],\n            [\n                'First,\"2\"',\n                'Last,\"2\"',\n                'email2@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var data = '\"\",\"\",\"\"\\r,Last4,email4@email.com';\n    var myParser = parser({ delimiter: ',' }), parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [\n            [\n                '',\n                '',\n                ''\n            ],\n            [\n                '',\n                'Last4',\n                'email4@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\"',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\",';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\",',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"\\r';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\\nFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First1',\n                'Last1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\\nFirst1,Last1,email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': 'First1,Last1,email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address,';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': 'first_name,last_name,email_address,',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\\n';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\\n\"First,1\",\"Last,1\",\"email1@email.com\"';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, false), {\n        'line': '',\n        'rows': [\n            [\n                'first_name',\n                'last_name',\n                'email_address'\n            ],\n            [\n                'First,1',\n                'Last,1',\n                'email1@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\r\\n\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com';\n    var myParser = parser({ delimiter: ',' });\n    assert.deepEqual(myParser(data, true), {\n        'line': '\"First,\"\"1\"\"\",\"Last,\"\"1\"\"\",\"email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(myParser(parsedData.line + '\\r\\n\"First,\"\",2\"\"\",\"Last\"\"2\"\"\",\"email2@email.com\"', false), {\n        line: '',\n        rows: [\n            [\n                'First,\"1\"',\n                'Last,\"1\"',\n                'email1@email.com'\n            ],\n            [\n                'First,\"2\"',\n                'Last,\"2\"',\n                'email2@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var data = '\"\",\"\",\"\"\\r\\n,Last4,email4@email.com';\n    var myParser = parser({ delimiter: ',' }), parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [\n            [\n                '',\n                '',\n                ''\n            ],\n            [\n                '',\n                'Last4',\n                'email4@email.com'\n            ]\n        ]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\"',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\",';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '\"first_name\",\"last_name\",\"email_address\",',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"first_name\",\"last_name\",\"email_address\"\\r\\n';\n    var myParser = parser({ delimiter: ',' });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'first_name,last_name,email_address\\n#First1,Last1,email1@email.com';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    assert.deepEqual(myParser(data, true), {\n        'line': '#First1,Last1,email1@email.com',\n        'rows': [[\n                'first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '#first_name,last_name,email_address';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    var parsedData = myParser(data, true);\n    assert.deepEqual(parsedData, {\n        'line': '#first_name,last_name,email_address',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = 'f#irst_name,last_name,email_address';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    var parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                'f#irst_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '\"#first_name\",last_name,email_address';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    var parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': [[\n                '#first_name',\n                'last_name',\n                'email_address'\n            ]]\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '#Comment1\\n#Comment2';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    var parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    var data = '#Comment1\\n#Comment2\\n';\n    var myParser = parser({\n            delimiter: ',',\n            comment: '#'\n        });\n    var parsedData = myParser(data, false);\n    assert.deepEqual(parsedData, {\n        'line': '',\n        'rows': []\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "should"
+  },
+  {
+    "callback": "function () {\n    $body.scrollspy('refresh');\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $('.bs-top').affix();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var btn = $(this);\n    btn.button('loading');\n    setTimeout(function () {\n        btn.button('reset');\n    }, 3000);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    btn.button('reset');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

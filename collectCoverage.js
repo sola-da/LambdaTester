@@ -15,7 +15,7 @@ if (process.argv.length < 5){
     process.exit(1);
 }
 
-var covergaeRootDir = "coverage-generated";
+var covergaeRootDir = "coverage";
 
 
 var testDir = process.argv[2];
@@ -37,7 +37,7 @@ else if(isPromisePolyfill === 0){
 
 
 var destDir = path.join(covergaeRootDir, polyfillName+ "_" + path.basename(testDir));
-//console.log("Generated files will be in: " + destDir);
+
 if(!fs.existsSync(destDir))
     fs.mkdirSync(destDir);
 

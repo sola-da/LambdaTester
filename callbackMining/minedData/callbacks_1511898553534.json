@@ -1,0 +1,277 @@
+[
+  {
+    "callback": "function (e) {\n    var settings = S(this).data(self.attr_name(true) + '-init') || self.settings;\n    if (!settings.is_hover || Modernizr.touch) {\n        e.preventDefault();\n        self.toggle($(this));\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var parent = S(e.target).closest('[' + self.attr_name() + '-content]');\n    if (S(e.target).data(self.data_attr()) || S(e.target).parent().data(self.data_attr())) {\n        return;\n    }\n    if (!S(e.target).data('revealId') && (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') || $.contains(parent.first()[0], e.target)))) {\n        e.stopPropagation();\n        return;\n    }\n    self.close.call(self, S('[' + self.attr_name() + '-content]'));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.settings.opened.call(this);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.settings.closed.call(this);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.resize.call(self);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "throttle"
+  },
+  {
+    "callback": "function () {\n    if (self.S(this).hasClass(self.settings.active_class)) {\n        self.S(this).css(Foundation.rtl ? 'right' : 'left', '-99999px').removeClass(self.settings.active_class).prev('[' + self.attr_name() + ']').removeClass(self.settings.active_class);\n        self.S(this).trigger('closed', [dropdown]);\n    }\n}",
+    "receiverBase": "dropdown",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    self.close.call(self, self.S(this));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (img) {\n    self.populate(img, self.flipFlags);\n}",
+    "receiverBase": "gfx",
+    "receiverCallee": "loadImage"
+  },
+  {
+    "callback": "function (err, response, body) {\n    if (err) {\n        cb(err, url);\n    } else {\n        Y.Get._exec(body, url, cb);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, mod) {\n    if (err) {\n        cb(err, url);\n    } else {\n        Y.Get._exec(mod, url, cb);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err, url) {\n    if (!Y.config) {\n        Y.config = { debug: true };\n    }\n    if (options.onProgress) {\n        options.onProgress.call(options.context || Y, url);\n    }\n    if (err) {\n        fail(options, err);\n    } else {\n        c++;\n        check();\n    }\n}",
+    "receiverBase": "Get",
+    "receiverCallee": "_include"
+  },
+  {
+    "callback": "function (changed) {\n    _.each(changed, function (value, key) {\n        if (key == 'lookAt')\n            return;\n        if (key == 'theta')\n            value = clamp(value);\n        controls[key] = value;\n    });\n    if (changed.lookAt) {\n        controls.lookAt.set.apply(controls.lookAt, changed.lookAt);\n    }\n    controls.update();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (value, key) {\n    if (key == 'lookAt')\n        return;\n    if (key == 'theta')\n        value = clamp(value);\n    controls[key] = value;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    Model = Collection.extend({\n        identity: 'user',\n        adapter: 'foo',\n        attributes: {\n            name: {\n                type: 'string',\n                defaultsTo: 'Foo Bar',\n                columnName: 'login'\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    var adapterDef = {\n            createEach: function (col, valuesList, cb) {\n                assert(valuesList[0].login);\n                return cb(null, valuesList);\n            }\n        };\n    new Model({ adapters: { foo: adapterDef } }, function (err, coll) {\n        if (err)\n            done(err);\n        coll.createEach([{ name: 'foo' }], done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, values) {\n    assert(values[0].name);\n    assert(!values[0].login);\n    done();\n}",
+    "receiverBase": "coll",
+    "receiverCallee": "createEach"
+  },
+  {
+    "callback": "function () {\n    $event[dispatchMethod].apply(context, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    instance.element.addClass(instance.options.containerClass);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    instance.resize();\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "delegate"
+  },
+  {
+    "callback": "function (i, atom) {\n    return atom.nodeType === 1;\n}",
+    "receiverBase": "$atoms",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    $this = $(this);\n    sortData = {};\n    for (var key in getSortData) {\n        if (!isIncrementingElemCount && key === 'original-order') {\n            sortData[key] = $.data(this, 'isotope-sort-data')[key];\n        } else {\n            sortData[key] = getSortData[key]($this, instance);\n        }\n    }\n    $.data(this, 'isotope-sort-data', sortData);\n}",
+    "receiverBase": "$atoms",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function ($newAtoms) {\n    var $newFilteredAtoms = instance._filter($newAtoms);\n    instance._addHideAppended($newFilteredAtoms);\n    instance._sort();\n    instance.reLayout();\n    instance._revealAppended($newFilteredAtoms, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addItems"
+  },
+  {
+    "callback": "function ($newAtoms) {\n    instance._addHideAppended($newAtoms);\n    instance.layout($newAtoms);\n    instance._revealAppended($newAtoms, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addItems"
+  },
+  {
+    "callback": "function () {\n    $newAtoms.removeClass('no-transition');\n    instance.styleQueue.push({\n        $el: $newAtoms,\n        style: instance.options.visibleStyle\n    });\n    instance._isInserting = false;\n    instance._processStyleQueue($newAtoms, callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var style = this.style;\n    style.position = '';\n    style.top = '';\n    style.left = '';\n    style.opacity = '';\n    if (usingTransforms) {\n        style[transformProp] = '';\n    }\n}",
+    "receiverBase": "removeClass",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), atomW = $this.outerWidth(true), atomH = $this.outerHeight(true);\n    if (props.x !== 0 && atomW + props.x > containerWidth) {\n        props.x = 0;\n        props.y = props.height;\n    }\n    instance._pushPosition($this, props.x, props.y);\n    props.height = Math.max(props.y + atomH, props.height);\n    props.x += atomW;\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), col = props.index % props.cols, row = Math.floor(props.index / props.cols), x = (col + 0.5) * props.columnWidth - $this.outerWidth(true) / 2, y = (row + 0.5) * props.rowHeight - $this.outerHeight(true) / 2;\n    instance._pushPosition($this, x, y);\n    props.index++;\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var $this = $(this);\n    instance._pushPosition($this, 0, instance.straightDown.y);\n    instance.straightDown.y += $this.outerHeight(true);\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), atomW = $this.outerWidth(true), atomH = $this.outerHeight(true);\n    if (props.y !== 0 && atomH + props.y > containerHeight) {\n        props.x = props.width;\n        props.y = 0;\n    }\n    instance._pushPosition($this, props.x, props.y);\n    props.width = Math.max(props.x + atomW, props.width);\n    props.y += atomH;\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), col = Math.floor(props.index / props.rows), row = props.index % props.rows, x = (col + 0.5) * props.columnWidth - $this.outerWidth(true) / 2, y = (row + 0.5) * props.rowHeight - $this.outerHeight(true) / 2;\n    instance._pushPosition($this, x, y);\n    props.index++;\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var $this = $(this);\n    instance._pushPosition($this, instance.straightAcross.x, 0);\n    instance.straightAcross.x += $this.outerWidth(true);\n}",
+    "receiverBase": "$elems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var src = this.src;\n    this.src = blank;\n    this.src = src;\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var instance = $.data(this, 'isotope');\n    if (!instance) {\n        logError('cannot call methods on isotope prior to initialization; ' + 'attempted to call method \\'' + options + '\\'');\n        return;\n    }\n    if (!$.isFunction(instance[options]) || options.charAt(0) === '_') {\n        logError('no such method \\'' + options + '\\' for isotope instance');\n        return;\n    }\n    instance[options].apply(instance, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var instance = $.data(this, 'isotope');\n    if (instance) {\n        instance.option(options);\n        instance._init(callback);\n    } else {\n        $.data(this, 'isotope', new $.Isotope(options, this, callback));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (k1) {\n    self._set(k1, v, k_);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (k1) {\n    self._del(k1, v, k_);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    return i.all(order);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (k, v) {\n    c += this._sub ? v.count() : v.length;\n}",
+    "receiverBase": "_bp",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (attribute) {\n    storeElement.removeAttribute(attribute.name);\n}",
+    "receiverBase": "attributes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    selectionChangeEvent = event;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    selectionChangeEvent = event;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    selectionChangeEvent = event;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    selectionChangeEvent = event;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    selectionChangeEvent = event;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (flow) {\n    actionFlow = flow;\n    actionFlow.branch('fakebranch');\n}",
+    "receiverBase": "actionHandler",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n    replayed = true;\n}",
+    "receiverBase": "mockEventReplayer",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n    replayed = true;\n}",
+    "receiverBase": "mockEventReplayer",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n    replayed = true;\n}",
+    "receiverBase": "mockEventReplayer",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n    flowFactoryInvoked = true;\n    return actionFlow;\n}",
+    "receiverBase": "mockFlowFactory",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n    handled = true;\n}",
+    "receiverBase": "mockHandler",
+    "receiverCallee": "$does"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "d",
+    "receiverCallee": "registerNamespaceHandler"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "d",
+    "receiverCallee": "registerNamespaceHandler"
+  },
+  {
+    "callback": "function (mBootstrap, mSetup) {\n    mBootstrap.startup().then(function (core) {\n        var serviceRegistry = core.serviceRegistry;\n        var pluginRegistry = core.pluginRegistry;\n        var preferences = core.preferences;\n        mSetup.setUpEditor(serviceRegistry, pluginRegistry, preferences, true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (core) {\n    var serviceRegistry = core.serviceRegistry;\n    var pluginRegistry = core.pluginRegistry;\n    var preferences = core.preferences;\n    mSetup.setUpEditor(serviceRegistry, pluginRegistry, preferences, true);\n}",
+    "receiverBase": "startup",
+    "receiverCallee": "then"
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "callback": "function (err, user) {\n    if (!user) {\n        res.send(404, { message: 'No such username / password' });\n    } else {\n        req.session.passport.user = user.id;\n        res.send(user);\n    }\n}",
+    "receiverBase": "User",
+    "receiverCallee": "authenticate"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        clearInterval(interval);\n        logger.query({ order: 'asc' }, function (err, results) {\n            callback(null, results);\n        });\n    }, 100);\n}",
+    "receiverBase": "fileTransport",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    clearInterval(interval);\n    logger.query({ order: 'asc' }, function (err, results) {\n        callback(null, results);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, results) {\n    callback(null, results);\n}",
+    "receiverBase": "logger",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function () {\n    logger.info(++logIndex);\n    stress(200);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (log) {\n    if (+log.message !== ++testIndex) {\n        throw new Error('Number skipped');\n    }\n}",
+    "receiverBase": "file",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (context, factory) {\n    'use strict';\n    if (typeof module !== 'undefined' && module.exports) {\n        module.exports = factory();\n    } else if (typeof define === 'function' && define.amd) {\n        define([], factory);\n    } else {\n        context.buzz = factory();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    this.currentTime = 0;\n    this.play();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (set === true) {\n        set = false;\n        this.sound.currentTime = time;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "whenReady"
+  },
+  {
+    "callback": "function () {\n    if (!eventsOnce[pid]) {\n        eventsOnce[pid] = true;\n        func.call(self);\n    }\n    self.unbind(type + '.' + pid);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (from < to && self.volume < to) {\n        self.setVolume(self.volume += 1);\n        doFade();\n    } else if (from > to && self.volume > to) {\n        self.setVolume(self.volume -= 1);\n        doFade();\n    } else if (callback instanceof Function) {\n        callback.apply(self);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    doFade();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "whenReady"
+  },
+  {
+    "callback": "function () {\n    this.stop();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "fadeOut"
+  },
+  {
+    "callback": "function () {\n    func.call(self);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    self.sound.networkState = 3;\n    self.trigger('sourceerror', e);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (command) {\n    self.commands[command] = function (argv, callback) {\n        log.verbose('command', command, argv);\n        return require('./' + command)(self, argv, callback);\n    };\n}",
+    "receiverBase": "commands",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (arg) {\n    if (arg in this.aliases) {\n        arg = this.aliases[arg];\n    }\n    return arg;\n}",
+    "receiverBase": "argv",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (arg) {\n    if (arg in this.commands) {\n        var args = argv.splice(0, argv.indexOf(arg));\n        argv.shift();\n        if (commands.length > 0) {\n            commands[commands.length - 1].args = args;\n        }\n        commands.push({\n            name: arg,\n            args: []\n        });\n    }\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    if (name.indexOf(npm_config_prefix) !== 0)\n        return;\n    var val = process.env[name];\n    if (name === npm_config_prefix + 'loglevel') {\n        log.level = val;\n    } else {\n        name = name.substring(npm_config_prefix.length);\n        this.opts[name] = val;\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    return '    - ' + c + ' - ' + require('./' + c).usage;\n}",
+    "receiverBase": "commands",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    document.body.appendChild(br.presenter.view.knockout.TooltipPlugin.element[0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    given('form.viewOpened = true');\n    and('form.model.theField.value = \\'1234\\'');\n    when('form.model.theField.value => \\'Hello World\\'');\n    then('form.view.(#theField).value = \\'Hello World\\'');\n    and('test.page.(.ui-tooltip).isVisible = false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    given('form.viewOpened = true');\n    when('form.model.theField.hasError => true');\n    and('form.model.theField.failureMessage => \\'Uh Oh! Failure!!\\'');\n    and('form.view.(#theField).focusIn => true');\n    then('test.page.(.ui-tooltip).isVisible = true');\n    and('test.page.(.ui-tooltip-content).text = \\'Uh Oh! Failure!!\\'');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    given('test.continuesFrom = \\'test the tooltip appears when field has an error\\'');\n    when('form.model.theField.hasError => false');\n    and('form.view.(#theField).focusOut => true');\n    then('test.page.(.ui-tooltip).isVisible = false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

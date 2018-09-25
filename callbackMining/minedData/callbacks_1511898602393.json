@@ -1,0 +1,320 @@
+[
+  {
+    "callback": "function () {\n    for (var i = 0; i < elements.length; ++i) {\n        var elem = elements[i];\n        if (!reverse && elem.value || reverse && (typeof elem.value === 'undefined' || elem.value === '')) {\n            window.clearInterval(interval);\n            return cb(true);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    callback(null, outputData.data);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (e) {\n    var href = this.href, link = href.replace(/https?:\\/\\/([^\\/]+)(.*)/, '$1');\n    if (link != '' && link != host && !$(this).hasClass('fancybox')) {\n        window.open(href);\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i) {\n    var _i = i;\n    $(this).find('img').each(function () {\n        var alt = this.alt;\n        if (alt != '') {\n            $(this).after('<span class=\"caption\">' + alt + '</span>');\n        }\n        $(this).wrap('<a href=\"' + this.src + '\" title=\"' + alt + '\" class=\"fancybox\" rel=\"gallery' + _i + '\" />');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var alt = this.alt;\n    if (alt != '') {\n        $(this).after('<span class=\"caption\">' + alt + '</span>');\n    }\n    $(this).wrap('<a href=\"' + this.src + '\" title=\"' + alt + '\" class=\"fancybox\" rel=\"gallery' + _i + '\" />');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    mobilenav.find('.on').each(function () {\n        $(this).removeClass('on').next().hide();\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $(this).removeClass('on').next().hide();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!$(this).hasClass('on')) {\n        var width = $(this).width() + 42;\n        $(this).addClass('on').next().show().css({ width: width });\n    } else {\n        $(this).removeClass('on').next().hide();\n    }\n}",
+    "receiverBase": "mobilenav",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!$(this).hasClass('on')) {\n        var width = mobilenav.width() - 51;\n        mobilenav.children('.menu').children().eq(0).removeClass('on').next().hide();\n        $(this).addClass('on').next().show().css({ width: width }).children().children().eq(0).focus();\n    } else {\n        $(this).removeClass('on').next().hide().children().children().eq(0).val('');\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (source) {\n    if (/\\.js$/.test(source))\n        pbjs.sources[source.substring(0, source.lastIndexOf('.'))] = require(__dirname + '/pbjs/sources/' + source);\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (target) {\n    if (/\\.js$/.test(target))\n        pbjs.targets[target.substring(0, target.lastIndexOf('.'))] = require(__dirname + '/pbjs/targets/' + target);\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    cli.log('                             ' + util.pad(key, 10) + '   ' + pbjs.sources[key].description);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    cli.log('                             ' + util.pad(key, 10) + '   ' + pbjs.targets[key].description);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (path) {\n    if (!fs.existsSync(path)) {\n        if (!options.quiet)\n            cli.fail('No such include directory: ' + path);\n        return pbjs.STATUS_ERR_INCLUDE_DIR;\n    }\n}",
+    "receiverBase": "includePath",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    localStorage[formName + '-' + item.srcElement.id] = item.srcElement.value;\n    var debug = document.getElementById('data-persistence-debug');\n    debug.innerHTML = 'Last auto-saved <code>' + item.srcElement.id + '</code> at: ' + new Date();\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (success, error_code) {\n    if (success) {\n        return next();\n    }\n    return res.json(403, {\n        recaptcha: true,\n        error: {\n            code: 403,\n            message: 'Login error',\n            details: 'Invalid recaptcha'\n        }\n    });\n}",
+    "receiverBase": "recaptcha",
+    "receiverCallee": "verify"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = require('./lib/chai');\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (chain) {\n    Assertion.addProperty(chain, function () {\n        return this;\n    });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'negate', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'deep', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(flag(this, 'object'), 'expected #{this} to be truthy', 'expected #{this} to be falsy');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(true === flag(this, 'object'), 'expected #{this} to be true', 'expected #{this} to be false', this.negate ? false : true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(false === flag(this, 'object'), 'expected #{this} to be false', 'expected #{this} to be true', this.negate ? true : false);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(null === flag(this, 'object'), 'expected #{this} to be null', 'expected #{this} not to be null');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(undefined === flag(this, 'object'), 'expected #{this} to be undefined', 'expected #{this} not to be undefined');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(null != flag(this, 'object'), 'expected #{this} to exist', 'expected #{this} to not exist');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    var obj = flag(this, 'object'), expected = obj;\n    if (Array.isArray(obj) || 'string' === typeof object) {\n        expected = obj.length;\n    } else if (typeof obj === 'object') {\n        expected = Object.keys(obj).length;\n    }\n    this.assert(!expected, 'expected #{this} to be empty', 'expected #{this} not to be empty');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function (re, msg) {\n    if (msg)\n        flag(this, 'message', msg);\n    var obj = flag(this, 'object');\n    this.assert(re.exec(obj), 'expected #{this} to match ' + re, 'expected #{this} not to match ' + re);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (str, msg) {\n    if (msg)\n        flag(this, 'message', msg);\n    var obj = flag(this, 'object');\n    new Assertion(obj, msg).is.a('string');\n    this.assert(~obj.indexOf(str), 'expected #{this} to contain ' + _.inspect(str), 'expected #{this} to not contain ' + _.inspect(str));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (key) {\n    return ~actual.indexOf(key);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (key) {\n    return _.inspect(key);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (method, msg) {\n    if (msg)\n        flag(this, 'message', msg);\n    var obj = flag(this, 'object'), itself = flag(this, 'itself'), context = 'function' === _.type(obj) && !itself ? obj.prototype[method] : obj[method];\n    this.assert('function' === typeof context, 'expected #{this} to respond to ' + _.inspect(method), 'expected #{this} to not respond to ' + _.inspect(method));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'itself', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function (matcher, msg) {\n    if (msg)\n        flag(this, 'message', msg);\n    var obj = flag(this, 'object');\n    this.assert(matcher(obj), 'expected #{this} to satisfy ' + _.objDisplay(matcher), 'expected #{this} to not satisfy' + _.objDisplay(matcher), this.negate ? false : true, matcher(obj));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (expected, delta, msg) {\n    if (msg)\n        flag(this, 'message', msg);\n    var obj = flag(this, 'object');\n    this.assert(Math.abs(obj - expected) <= delta, 'expected #{this} to be close to ' + expected + ' +/- ' + delta, 'expected #{this} not to be close to ' + expected + ' +/- ' + delta);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (elem) {\n    return superset.indexOf(elem) !== -1;\n}",
+    "receiverBase": "subset",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function alias(name, as) {\n    assert[as] = assert[name];\n    return alias;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (chai, util) {\n        chai.expect = function (val, message) {\n            return new chai.Assertion(val, message);\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (asserterName) {\n    if (!excludeNames.test(asserterName)) {\n        var pd = Object.getOwnPropertyDescriptor(ctx, asserterName);\n        Object.defineProperty(assert, asserterName, pd);\n    }\n}",
+    "receiverBase": "asserterNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (ctx, name, method) {\n        ctx[name] = function () {\n            var result = method.apply(this, arguments);\n            return result === undefined ? this : result;\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (ctx, name, getter) {\n        Object.defineProperty(ctx, name, {\n            get: function () {\n                var result = getter.call(this);\n                return result === undefined ? this : result;\n            },\n            configurable: true\n        });\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (obj, key, value) {\n        var flags = obj.__flags || (obj.__flags = Object.create(null));\n        if (arguments.length === 3) {\n            flags[key] = value;\n        } else {\n            return flags[key];\n        }\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (obj, args) {\n        var actual = args[4];\n        return 'undefined' !== typeof actual ? actual : obj._obj;\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function getEnumerableProperties(object) {\n        var result = [];\n        for (var name in object) {\n            result.push(name);\n        }\n        return result;\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (func) {\n        if (func.name)\n            return func.name;\n        var match = /^\\s?function ([^(]*)\\(/.exec(func);\n        return match && match[1] ? match[1] : '';\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (value) {\n    var re = /\\[(\\d+)\\]$/, mArr = re.exec(value);\n    if (mArr)\n        return { i: parseFloat(mArr[1]) };\n    else\n        return { p: value };\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    if (!key.match(/^\\d+$/)) {\n        output.push(formatProperty(ctx, value, recurseTimes, visibleKeys, key, true));\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (line) {\n    return '  ' + line;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (line) {\n    return '   ' + line;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (prev, cur) {\n    numLinesEst++;\n    if (cur.indexOf('\\n') >= 0)\n        numLinesEst++;\n    return prev + cur.length + 1;\n}",
+    "receiverBase": "output",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    module.exports = function (ctx, name, method) {\n        var _method = ctx[name], _super = function () {\n                return this;\n            };\n        if (_method && 'function' === typeof _method)\n            _super = _method;\n        ctx[name] = function () {\n            var result = method(_super).apply(this, arguments);\n            return result === undefined ? this : result;\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (exports, require, module) {\n    var flag = require('./flag');\n    module.exports = function (obj, args) {\n        var negate = flag(obj, 'negate'), expr = args[0];\n        return negate ? !expr : expr;\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    return require('chai');\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    slc.options[0].selected = false;\n    if (slc.options[index].value == '')\n        slc.options[index].selected = false;\n    else\n        slc.options[index].selected = true;\n    if (doFilter)\n        o.Filter();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (ed, e) {\n    var node = ed.selection.getNode();\n    if (getContentEditable(node) === 'false' && node == e.target) {\n        moveSelection();\n    }\n}",
+    "receiverBase": "onMouseDown",
+    "receiverCallee": "addToTop"
+  },
+  {
+    "callback": "function (match) {\n    var args = arguments, index = args[args.length - 2];\n    if (index > 0 && content.charAt(index - 1) == '\"') {\n        return match;\n    }\n    return '<span class=\"' + cls + '\" data-mce-content=\"' + ed.dom.encode(args[0]) + '\">' + ed.dom.encode(typeof args[1] === 'string' ? args[1] : args[0]) + '</span>';\n}",
+    "receiverBase": "content",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (nodes) {\n    var i = nodes.length, className, node;\n    while (i--) {\n        node = nodes[i];\n        className = ' ' + node.attr('class') + ' ';\n        if (className.indexOf(editClass) !== -1) {\n            node.attr(internalName, 'true');\n        } else if (className.indexOf(nonEditClass) !== -1) {\n            node.attr(internalName, 'false');\n        }\n    }\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "addAttributeFilter"
+  },
+  {
+    "callback": "function (nodes, name) {\n    var i = nodes.length, node;\n    while (i--) {\n        node = nodes[i];\n        if (nonEditableRegExps && node.attr('data-mce-content')) {\n            node.name = '#text';\n            node.type = 3;\n            node.raw = true;\n            node.value = node.attr('data-mce-content');\n        } else {\n            node.attr(externalName, null);\n            node.attr(internalName, null);\n        }\n    }\n}",
+    "receiverBase": "serializer",
+    "receiverCallee": "addAttributeFilter"
+  },
+  {
+    "callback": "function (nodes, name) {\n    var i = nodes.length, node;\n    while (i--) {\n        node = nodes[i];\n        node.attr(internalName, node.attr(externalName));\n        node.attr(externalName, null);\n    }\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "addAttributeFilter"
+  },
+  {
+    "callback": "function (elements) {\n    assert.lengthOf(elements, 1, 'Expected to load page 1');\n}",
+    "receiverBase": "findAllByCssSelector",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (elements) {\n    assert.lengthOf(elements, 2, 'Expected 2 results');\n}",
+    "receiverBase": "findAllByCssSelector",
+    "receiverCallee": "then"
+  }
+]

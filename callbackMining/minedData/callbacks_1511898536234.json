@@ -1,0 +1,92 @@
+[
+  {
+    "callback": "function (err) {\n    if (err) {\n        filenamesTried.push(fullFilename);\n        tryPathIndex(i + 1);\n    } else {\n        fs.readFile(fullFilename, 'utf-8', function (e, data) {\n            if (e) {\n                reject(e);\n                return;\n            }\n            fulfill({\n                contents: data,\n                filename: fullFilename\n            });\n        });\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function (e, data) {\n    if (e) {\n        reject(e);\n        return;\n    }\n    fulfill({\n        contents: data,\n        filename: fullFilename\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    if (settings.skip_invisible && !$this.is(':visible')) {\n        return;\n    }\n    if ($.abovethetop(this, settings) || $.leftofbegin(this, settings)) {\n    } else if (!$.belowthefold(this, settings) && !$.rightoffold(this, settings)) {\n        $this.trigger('appear');\n    } else {\n        if (++counter > settings.failure_limit) {\n            return false;\n        }\n    }\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (event) {\n    return update();\n}",
+    "receiverBase": "$container",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $self.hide().attr('src', $self.data(settings.data_attribute))[settings.effect](settings.effect_speed);\n    self.loaded = true;\n    var temp = $.grep(elements, function (element) {\n            return !element.loaded;\n        });\n    elements = $(temp);\n    if (settings.load) {\n        var elements_left = elements.length;\n        settings.load.call(self, elements_left, settings);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (element) {\n    return !element.loaded;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (event) {\n    if (!self.loaded) {\n        $self.trigger('appear');\n    }\n}",
+    "receiverBase": "$self",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    update();\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    self.value = !self.value;\n}",
+    "receiverBase": "self",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (val) {\n    if (val && val.email === login) {\n        found = val;\n        return false;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, res) {\n    if (res && res.email) {\n        res.funny = res.email;\n        delete res.email;\n    }\n    cb(err, res);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_find"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.send(200, users);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    console.log('done');\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function () {\n    console.log('done');\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function () {\n    console.log('done');\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function () {\n    console.log('done');\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function (e, i) {\n    this.list[e] = this.list[e] || {\n        handlers: [],\n        data: '',\n        state: 0\n    };\n    (this.uuid2Evts[uuid] = this.uuid2Evts[uuid] || []).push(e);\n    this.list[e].handlers.push(uuid);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ele) {\n    if (!options.hasOwnProperty(ele)) {\n        var err = errMsg.INVALID_ARGS + ': ' + ele + ' is must';\n        throw new Error(err);\n    }\n}",
+    "receiverBase": "must",
+    "receiverCallee": "forEach"
+  }
+]

@@ -1,0 +1,399 @@
+[
+  {
+    "callback": "function () {\n    assert.equals(spy.callCount, 1, 'called once');\n    assert(spy.firstCall.args.length, 'has argument');\n    assert.same(spy.firstCall.args[0].target, el2, 'event object has correct property');\n    done();\n}",
+    "receiverBase": "trigger",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    assert.equals(spy.callCount, 1, 'called once');\n    assert(spy.firstCall.args.length, 'has argument');\n    verifyFn(spy.firstCall.args[0]);\n    done();\n}",
+    "receiverBase": "trigger",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.stopPropagation, 'event object has stopPropagation method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.preventDefault, 'event object has preventDefault method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.stopImmediatePropagation, 'event object has stopImmediatePropagation method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.stopPropagation, 'event object has stopPropagation method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.preventDefault, 'event object has preventDefault method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function (event) {\n    assert.isFunction(event.stopImmediatePropagation, 'event object has stopImmediatePropagation method');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function () {\n    refute(parentSpy.called, 'parent should not receive event');\n    refute(txt.value.length, 'input is has no text after keypress');\n    done();\n}",
+    "receiverBase": "trigger",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    assert.equals(spy1.callCount, 1, 'first spy should be called');\n    assert.equals(spy2.callCount, 0, 'second spy should not be called');\n    assert.equals(spy3.callCount, 0, 'third spy should not be called');\n    done();\n}",
+    "receiverBase": "trigger",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    assert.equals(spy.callCount, 1, 'called once');\n    assert(spy.firstCall.args.length, 'has argument');\n    assert(spy.firstCall.args[0].keyCode, 'event object has keyCode');\n    done();\n}",
+    "receiverBase": "trigger",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (el) {\n    Syn[syn || type](el);\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (event) {\n    verifyEventObject(event, type, clickIgnorables);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function () {\n    window.history.pushState({}, 'test state', '#test-state');\n    window.history.go(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (event) {\n    try {\n        verifyEventObject(event, type, commonIgnorables);\n    } catch (e) {\n    }\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (el) {\n    Syn.key(el, 'f');\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (event) {\n    verifyEventObject(event, type, keyIgnorables);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (el) {\n    Syn.trigger('keyup', {\n        which: 'g',\n        keyCode: 'f'\n    }, el);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (event) {\n    verifyEventObject(event, 'keyup', keyIgnorables);\n    assert.equals(event.keyCode, 'f', 'correct keyCode');\n    done();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "getEventObject"
+  },
+  {
+    "callback": "function (Marionette, Radio, tpl) {\n    return Marionette.ItemView.extend({ template: tpl });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (index) {\n    self.pieces[index]++;\n}",
+    "receiverBase": "wire",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < self.numPieces; ++i) {\n        self.pieces[i] -= wire.peerPieces.get(i);\n    }\n}",
+    "receiverBase": "wire",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (wire) {\n    self.recalculate();\n    initWire(wire);\n}",
+    "receiverBase": "swarm",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (wire) {\n    for (var i = 0; i < self.numPieces; ++i) {\n        self.pieces[i] += wire.peerPieces.get(i);\n    }\n}",
+    "receiverBase": "wires",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    loadingCalls.push(file.rootSrc);\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    code.push(file.content, 'steal.loaded(\\'' + file.rootSrc + '\\')');\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    return $this.children().length === 0 && $.trim($this.text()).length > 0;\n}",
+    "receiverBase": "$5",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (klass) {\n    return $a.hasClass(klass);\n}",
+    "receiverBase": "standard",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    Router.go('replacementIndex');\n}",
+    "receiverBase": "Router",
+    "receiverCallee": "route"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    expect(Object.keys(res.body.files).toString()).to.be('.gitignore');\n    fs.readFile(dir + '/.gitignore', function (err, data) {\n        if (data.toString().indexOf(testFile) > 0) {\n            done();\n        } else {\n            throw new Error('Test file is not added to the .gitignore file.');\n        }\n    });\n}",
+    "receiverBase": "common",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, data) {\n    if (data.toString().indexOf(testFile) > 0) {\n        done();\n    } else {\n        throw new Error('Test file is not added to the .gitignore file.');\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    expect(Object.keys(res.body.files).toString()).to.be('.gitignore');\n    fs.readFile(dir + '/.gitignore', function (err, data) {\n        if (data.toString().indexOf(testFile) > 0) {\n            done();\n        } else {\n            throw new Error('Test file is not added to the .gitignore file.');\n        }\n    });\n}",
+    "receiverBase": "common",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, data) {\n    if (data.toString().indexOf(testFile) > 0) {\n        done();\n    } else {\n        throw new Error('Test file is not added to the .gitignore file.');\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        done();\n        return true;\n    } else {\n        throw new Error('Did not errored when existing file has been added');\n    }\n}",
+    "receiverBase": "common",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    expect(Object.keys(res.body.files).toString()).to.be('.gitignore');\n    fs.readFile(dir + '/.gitignore', function (err, data) {\n        if (data.toString().indexOf(testFile) > 0) {\n            done();\n        } else {\n            throw new Error('Test file is not added to the .gitignore file.');\n        }\n    });\n}",
+    "receiverBase": "common",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, data) {\n    if (data.toString().indexOf(testFile) > 0) {\n        done();\n    } else {\n        throw new Error('Test file is not added to the .gitignore file.');\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (i, next) {\n    cache.add('test-job', i, [[\n            'foo',\n            'bar',\n            'baz',\n            'buzz',\n            i\n        ].join('/')], next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var manager = new neuron.JobManager({ cache: true });\n    manager.addJob('test-job', { work: helpers.waitAndRespond(100) });\n    manager.on('finish', function (job, worker) {\n        results.push(worker);\n        if (worker.id === '9') {\n            that.callback(null, results);\n        }\n    });\n    manager.load();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (job, worker) {\n    results.push(worker);\n    if (worker.id === '9') {\n        that.callback(null, results);\n    }\n}",
+    "receiverBase": "manager",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    dust.load(name, stream.head, Context.wrap(context)).end();\n}",
+    "receiverBase": "dust",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    tmpl(master.head, Context.wrap(context)).end();\n}",
+    "receiverBase": "dust",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (chunk) {\n    dust.onLoad(name, function (err, src) {\n        if (err)\n            return chunk.setError(err);\n        if (!dust.cache[name])\n            dust.loadSource(dust.compile(src, name));\n        dust.cache[name](chunk, context).end();\n    });\n}",
+    "receiverBase": "chunk",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, src) {\n    if (err)\n        return chunk.setError(err);\n    if (!dust.cache[name])\n        dust.loadSource(dust.compile(src, name));\n    dust.cache[name](chunk, context).end();\n}",
+    "receiverBase": "dust",
+    "receiverCallee": "onLoad"
+  },
+  {
+    "callback": "function (name, chunk) {\n    dust.load(name, chunk, context).end();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "capture"
+  },
+  {
+    "callback": "function (chunk) {\n    var stub = new Stub(function (err, out) {\n            if (err) {\n                chunk.setError(err);\n            } else {\n                callback(out, chunk);\n            }\n        });\n    body(stub.head, context).end();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    return ['body'].concat(p);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return result8[1].text === result12.text;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (t, b, e, n) {\n    e.push([\n        'param',\n        [\n            'literal',\n            'block'\n        ],\n        b\n    ]);\n    t.push(e);\n    return t;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (t) {\n    t.push(['bodies']);\n    return t;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (t, n, c, p) {\n    return [\n        t,\n        n,\n        c,\n        p\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return n;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return n;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return n ? [\n        'context',\n        n\n    ] : ['context'];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, v) {\n    return [\n        'param',\n        [\n            'literal',\n            k\n        ],\n        v\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, v) {\n    return [\n        'param',\n        [\n            'literal',\n            k\n        ],\n        v\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    return ['params'].concat(p);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, v) {\n    return [\n        'param',\n        [\n            'literal',\n            k\n        ],\n        v\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, v) {\n    return [\n        'param',\n        [\n            'literal',\n            k\n        ],\n        v\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    return ['bodies'].concat(p);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n, f) {\n    return [\n        'reference',\n        n,\n        f\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    return [\n        'literal',\n        k\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n, c) {\n    return [\n        'partial',\n        n,\n        c\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return n;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return n;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (f) {\n    return ['filters'].concat(f);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    return [\n        'special',\n        k\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    return wrap(['path'].concat(p), cacheKey);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    return wrap([\n        'key',\n        k\n    ], cacheKey);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    return k;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    return k;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, d) {\n    if (k) {\n        d.unshift(k);\n        return [\n            false,\n            d\n        ];\n    }\n    return [\n        true,\n        d\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return [\n        true,\n        []\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (h, t) {\n    return h + t.join('');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return [\n        'literal',\n        ''\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (l) {\n    return [\n        'literal',\n        l\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    return ['body'].concat(p);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (l) {\n    return [\n        'buffer',\n        l\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e, w) {\n    return [\n        'format',\n        e,\n        w.join('')\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (b) {\n    return [\n        'buffer',\n        b.join('')\n    ];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (b) {\n    return b.join('');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return '\"';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return [\n        'comment',\n        c.join('')\n    ];\n}",
+    "receiverBase": ""
+  }
+]

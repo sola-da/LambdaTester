@@ -1,0 +1,160 @@
+[
+  {
+    "callback": "function () {\n    console.log('---- STEP', game.stepCount, '-------------------------------');\n    game.step();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    console.log('---- START DEBUGGING -------------------------------');\n    game.enableStep();\n    sprite2.debug = true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['moment'], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('../moment'));\n    } else {\n        factory((typeof global !== 'undefined' ? global : this).moment);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    Ext.apply(Ext.form.field.ComboBox.prototype.defaultListConfig, { loadingText: 'Nalagam...' });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return Backbone.View.extend({\n        render: function () {\n            this.$el.html('#MHSC');\n            return this;\n        },\n        events: { 'click': 'click' },\n        click: function () {\n            this.model.set({\n                'text': this.$el.text(),\n                typed: false\n            });\n            this.collection.search.call(this.collection, this.$el.text());\n            return this;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (module_as_string) {\n    require.async('module_as_string', function (module_as_string_expected) {\n        ok(module_as_string === module_as_string_expected, 'require.js() acts like require.async() if in-package/declared module passed');\n        start();\n    });\n}",
+    "receiverBase": "require",
+    "receiverCallee": "js"
+  },
+  {
+    "callback": "function (module_as_string_expected) {\n    ok(module_as_string === module_as_string_expected, 'require.js() acts like require.async() if in-package/declared module passed');\n    start();\n}",
+    "receiverBase": "require",
+    "receiverCallee": "async"
+  },
+  {
+    "callback": "function (module_as_string) {\n    require.async('module_as_string', function (module_as_string_expected) {\n        ok(module_as_string === module_as_string_expected, 'require.css() acts like require.async() if in-package/declared module passed');\n        start();\n    });\n}",
+    "receiverBase": "require",
+    "receiverCallee": "css"
+  },
+  {
+    "callback": "function (module_as_string_expected) {\n    ok(module_as_string === module_as_string_expected, 'require.css() acts like require.async() if in-package/declared module passed');\n    start();\n}",
+    "receiverBase": "require",
+    "receiverCallee": "async"
+  },
+  {
+    "callback": "function () {\n    return {\n        label: $(this).text(),\n        value: this.value\n    };\n}",
+    "receiverBase": "children",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if ($(this).text().match(matcher)) {\n        this.selected = valid = true;\n        return false;\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (input.autocomplete('widget').is(':visible')) {\n        input.autocomplete('close');\n        return;\n    }\n    input.autocomplete('search', '');\n    input.focus();\n}",
+    "receiverBase": "addClass",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (el, i) {\n    if ((el.id || el.value) && (xhr || matcher.test(el.label))) {\n        return {\n            label: el.label.replace(new RegExp('(?![^&;]+;)(?!<[^<>]*)(' + $.ui.autocomplete.escapeRegex(request.term) + ')(?![^<>]*>)(?![^&;]+;)', 'gi'), '<strong>$1</strong>'),\n            value: el.label,\n            id: el.id || el.value\n        };\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    spec[key] = compileType(env, type.fields[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    return compileType(env, type);\n}",
+    "receiverBase": "types",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    equal(XF.getComponentByID('test').id, 'test');\n    equal('test' in XF.getRegisteredComponents(), true);\n    equal(XF.getComponentByID('test').defaults.autoload, true);\n    equal(XF.getComponentByID('test').defaults.autorender, true);\n    equal(XF.getComponentByID('test').defaults.updateOnShow, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(XF.getComponentByID('test').model, null);\n    equal(XF.getComponentByID('test').Model, null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(XF.getComponentByID('test').Collection.isPrototypeOf(XF.Collection), false);\n    equal(XF.getComponentByID('test').collection.url, 'test.json');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(XF.getComponentByID('test').View.isPrototypeOf(XF.View), false);\n    equal(XF.getComponentByID('test').view.useCache, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal($('#testcomponent').length, 1, 'Component add: ' + ($('#testcomponent').length === 1 ? true : false));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(XF.getComponentByID('test').collection.models[0].attributes.status, 'success');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (name, context, definition) {\n    if (typeof module != 'undefined' && module.exports)\n        module.exports = definition();\n    else if (typeof define == 'function' && define.amd)\n        define(definition);\n    else\n        context[name] = definition();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    self.abort();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    o.success.apply(o, arguments);\n}",
+    "receiverBase": "_fulfillmentHandlers",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    o.error.apply(o, arguments);\n}",
+    "receiverBase": "_errorHandlers",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    o.complete.apply(o, arguments);\n}",
+    "receiverBase": "_completeHandlers",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (name, value) {\n    if (name in hash) {\n        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]]);\n        hash[name].push(value);\n    } else\n        hash[name] = value;\n}",
+    "receiverBase": "eachFormElement",
+    "receiverCallee": "apply"
+  },
+  {
+    "callback": "function (name, value) {\n    arr.push({\n        name: name,\n        value: value\n    });\n}",
+    "receiverBase": "eachFormElement",
+    "receiverCallee": "apply"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        this.apple = new Apple();\n    });\n    afterEach(function () {\n        delete this.apple;\n    });\n    it('should go crunch', function () {\n        expect(this.apple).property('sound', 'crunch');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    this.apple = new Apple();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    delete this.apple;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.apple).property('sound', 'crunch');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

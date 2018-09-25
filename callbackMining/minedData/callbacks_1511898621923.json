@@ -1,0 +1,523 @@
+[
+  {
+    "callback": "function (Network, Nick, Channel) {\n    _Channel = Channel;\n    _Nick = Nick;\n    _Network = Network;\n    network = Network({\n        name: 'Network',\n        nick: Nick('me'),\n        channels: [Channel('#mock')]\n    });\n    network.lineBuffer = [];\n    network.writeLine = function (line) {\n        this.lineBuffer.push(line);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    it('should add nicks to channel nicklist', function () {\n        network.onMessage(':irc.demonastery.org 353 me @ #mock :me @you');\n        expect(network.channels[0].nicks[0].name).toBe('me');\n        expect(network.channels[0].nicks[0].mode).toBe('');\n        expect(network.channels[0].nicks[1].name).toBe('you');\n        expect(network.channels[0].nicks[1].mode).toBe('@');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':irc.demonastery.org 353 me @ #mock :me @you');\n    expect(network.channels[0].nicks[0].name).toBe('me');\n    expect(network.channels[0].nicks[0].mode).toBe('');\n    expect(network.channels[0].nicks[1].name).toBe('you');\n    expect(network.channels[0].nicks[1].mode).toBe('@');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should update the topic variable', function () {\n        network.onMessage(':irc.demonastery.org 332 me #mock :new subject :D');\n        expect(network.channels[0].topic).toBe('new subject :D');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':irc.demonastery.org 332 me #mock :new subject :D');\n    expect(network.channels[0].topic).toBe('new subject :D');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should update the topic variable', function () {\n        network.onMessage(':you!user@host TOPIC #mock :new subject :D');\n        expect(network.channels[0].topic).toBe('new subject :D');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':you!user@host TOPIC #mock :new subject :D');\n    expect(network.channels[0].topic).toBe('new subject :D');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should join any joinChannels', function () {\n        network.joinChannels = [\n            '#one',\n            '#two'\n        ];\n        network.onMessage(':irc.demonastery.org 376 me :End of /MOTD command.');\n        expect(network.lineBuffer).toContain('JOIN #one,#two');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.joinChannels = [\n        '#one',\n        '#two'\n    ];\n    network.onMessage(':irc.demonastery.org 376 me :End of /MOTD command.');\n    expect(network.lineBuffer).toContain('JOIN #one,#two');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should modify nick, and re-nick', function () {\n        network.onMessage(':irc.demonastery.org 433 me :Nickname is already in use');\n        expect(network.nick.name).toBe('me_');\n        expect(network.lineBuffer).toContain('NICK me_');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':irc.demonastery.org 433 me :Nickname is already in use');\n    expect(network.nick.name).toBe('me_');\n    expect(network.lineBuffer).toContain('NICK me_');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should handle ourselves joining', function () {\n        network.onMessage(':me!user@host JOIN :#Channel');\n        expect(network.channels[1].name).toBe('#Channel');\n    });\n    it('should handle others joining', function () {\n        network.onMessage(':you!user@host JOIN :#mock');\n        expect(network.channels[0].nicks[0].name).toBe('you');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':me!user@host JOIN :#Channel');\n    expect(network.channels[1].name).toBe('#Channel');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':you!user@host JOIN :#mock');\n    expect(network.channels[0].nicks[0].name).toBe('you');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should handle ourselves leaving', function () {\n        network.onMessage(':me!user@host PART :#mock');\n        expect(network.channels[0]).toBeUndefined();\n    });\n    it('should handle others leaving', function () {\n        network.channels[0].nicks = [_Nick('you')];\n        network.onMessage(':you!user@host PART :#mock');\n        expect(network.channels[0].nicks[0]).toBeUndefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':me!user@host PART :#mock');\n    expect(network.channels[0]).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    network.channels[0].nicks = [_Nick('you')];\n    network.onMessage(':you!user@host PART :#mock');\n    expect(network.channels[0].nicks[0]).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should handle ourselves leaving', function () {\n        network.onMessage(':me!user@host PART #mock');\n        expect(network.channels[0]).toBeUndefined();\n    });\n    it('should handle others leaving', function () {\n        network.channels[0].nicks = [_Nick('you')];\n        network.onMessage(':you!user@host PART #mock');\n        expect(network.channels[0].nicks[0]).toBeUndefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':me!user@host PART #mock');\n    expect(network.channels[0]).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    network.channels[0].nicks = [_Nick('you')];\n    network.onMessage(':you!user@host PART #mock');\n    expect(network.channels[0].nicks[0]).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should handle others quitting', function () {\n        network.channels[0].nicks = [_Nick('you')];\n        network.onMessage(':you!user@host QUIT :message');\n        expect(network.channels[0].nicks[0]).toBeUndefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.channels[0].nicks = [_Nick('you')];\n    network.onMessage(':you!user@host QUIT :message');\n    expect(network.channels[0].nicks[0]).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should reply with PONG', function () {\n        network.onMessage('PING :test');\n        expect(network.lineBuffer).toContain('PONG :test');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage('PING :test');\n    expect(network.lineBuffer).toContain('PONG :test');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should add the message to a buffer', function () {\n        network.channels[0].nicks.push(_Nick('you'));\n        network.onMessage(':you!user@host PRIVMSG #mock :Here is my' + ' message :)');\n        expect(network.channels[0].buffer[1].nick.name).toBe('you');\n        expect(network.channels[0].buffer[1].message).toBe('Here is my message :)');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.channels[0].nicks.push(_Nick('you'));\n    network.onMessage(':you!user@host PRIVMSG #mock :Here is my' + ' message :)');\n    expect(network.channels[0].buffer[1].nick.name).toBe('you');\n    expect(network.channels[0].buffer[1].message).toBe('Here is my message :)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should add the message to a buffer', function () {\n        network.channels[0].nicks.push(_Nick('you'));\n        network.onMessage(':you!user@host NOTICE #mock :Here is my' + ' message :)');\n        expect(network.channels[0].buffer[1].nick.name).toBe('you');\n        expect(network.channels[0].buffer[1].message).toBe('Here is my message :)');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.channels[0].nicks.push(_Nick('you'));\n    network.onMessage(':you!user@host NOTICE #mock :Here is my' + ' message :)');\n    expect(network.channels[0].buffer[1].nick.name).toBe('you');\n    expect(network.channels[0].buffer[1].message).toBe('Here is my message :)');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should update the nicklist of a channel', function () {\n        network.onMessage(':irc.demonastery.org 352 me #mock ~user host server you H :0 realname');\n        expect(network.channels[0].nicks[0].name).toBe('you');\n        expect(network.channels[0].nicks[0].mode).toBe('');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    network.onMessage(':irc.demonastery.org 352 me #mock ~user host server you H :0 realname');\n    expect(network.channels[0].nicks[0].name).toBe('you');\n    expect(network.channels[0].nicks[0].mode).toBe('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var node = $(respond.editor.currNode);\n    if (node) {\n        node.remove();\n        respond.editor.currNode = null;\n        $('.context-menu').find('.config').removeClass('active');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var el = $(respond.editor.currElement);\n    if (el) {\n        el.remove();\n        respond.editor.currElement = null;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var el = $(respond.editor.currElement);\n    if (el) {\n        el.parent().remove();\n        respond.editor.currElement = null;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var node = $(respond.editor.currBlock);\n    if (node) {\n        node.remove();\n        respond.editor.currBlock = null;\n        $('.context-menu').find('.config').removeClass('active');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which === 27 || e.keyCode === 27) {\n        $('.editor-menu a.draggable').draggable({ 'revert': true }).trigger('mouseup');\n        cancel = true;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keyup"
+  },
+  {
+    "callback": "function () {\n    cancel = false;\n    $('.editor-menu a.draggable').draggable({ 'revert': false });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (cancel == false) {\n        var action = $(this).attr('data-action') + '.create';\n        utilities.executeFunctionByName(action, window);\n        cancel = false;\n    } else {\n        $('#editor-placeholder').remove();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var action = $(this).attr('data-action') + '.create';\n    utilities.executeFunctionByName(action, window);\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    scope.node = {};\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (index, attr) {\n    if (expr.test(attr.nodeName)) {\n        var key = attr.nodeName.replace('data-', '');\n        var value = attr.nodeValue;\n        if ($.isNumeric(value) === true) {\n            value = parseFloat(value);\n        }\n        scope.$apply(function () {\n            scope.node[key] = value;\n        });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    scope.node[key] = value;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    $('.editor-actions a').removeClass('active');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).toggleClass('active');\n    $(this).next().toggleClass('active');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    scope.element = {};\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (index, attr) {\n    if (expr.test(attr.nodeName)) {\n        var key = attr.nodeName.replace('data-', '');\n        var value = attr.nodeValue;\n        if ($.isNumeric(value) === true) {\n            value = parseFloat(value);\n        }\n        scope.$apply(function () {\n            scope.element[key] = value;\n        });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    scope.element[key] = value;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    if ($(this).hasClass('disabled')) {\n        return false;\n    }\n    var curr = $(this.parentNode.parentNode.parentNode);\n    var next = $(this.parentNode.parentNode.parentNode).next();\n    $(curr).swap(next);\n    $(context).find('a.up').removeClass('disabled');\n    $(context).find('a.up').first().addClass('disabled');\n    $(context).find('a.down').removeClass('disabled');\n    $(context).find('a.down').last().addClass('disabled');\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($(this).hasClass('disabled')) {\n        return false;\n    }\n    var curr = $(this.parentNode.parentNode.parentNode);\n    var next = $(this.parentNode.parentNode.parentNode).prev();\n    $(curr).swap(next);\n    $(context).find('a.up').removeClass('disabled');\n    $(context).find('a.up').first().addClass('disabled');\n    $(context).find('a.down').removeClass('disabled');\n    $(context).find('a.down').last().addClass('disabled');\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var scope = angular.element($('section.main')).scope();\n    scope.setModified();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var scope = angular.element($('section.main')).scope();\n    scope.setModified();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var scope = angular.element($('section.main')).scope();\n    scope.setModified();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var scope = angular.element($('section.main')).scope();\n    scope.setModified();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function getModule(currentModule) {\n    var part = moduleParts.shift().replace('.js', '');\n    if (currentModule[part]) {\n        if (moduleParts.length == 0) {\n            return currentModule[part];\n        } else {\n            return getModule(currentModule[part]);\n        }\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (m) {\n    var module = require(m);\n    self.absurd.plugin(file.replace('.js', ''), function (absurd, value) {\n        return module(value);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (absurd, value) {\n    return module(value);\n}",
+    "receiverBase": "absurd",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (pluginName) {\n    self.absurd.plugin(pluginName, function (absurd, value, prefixes) {\n        if (prefixes === false) {\n            prefixes = '';\n        }\n        var s, r = {};\n        if (s = snippets[pluginName + ':' + value]) {\n            s = s.split(':');\n            r[prefixes + s[0]] = s[1] || '';\n        } else if (s = snippets[pluginName]) {\n            r[prefixes + s] = value;\n        }\n        return r;\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (absurd, value, prefixes) {\n    if (prefixes === false) {\n        prefixes = '';\n    }\n    var s, r = {};\n    if (s = snippets[pluginName + ':' + value]) {\n        s = s.split(':');\n        r[prefixes + s[0]] = s[1] || '';\n    } else if (s = snippets[pluginName]) {\n        r[prefixes + s] = value;\n    }\n    return r;\n}",
+    "receiverBase": "absurd",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function () {\n    var Parser = require('jison').Parser, grammar = require(this.data).grammar;\n    parser = new Parser(grammar, { debug: grunt.option('debug') }), fs = require('fs');\n    fs.writeFileSync(this.target, parser.generate());\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerMultiTask"
+  },
+  {
+    "callback": "function () {\n    var cjsify = require('commonjs-everywhere').cjsify, escodegen = require('escodegen'), target = this.target, ast = cjsify(this.data.entry, this.data.dir, this.data.options), output = escodegen.generate(ast);\n    grunt.file.write(target, output);\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerMultiTask"
+  },
+  {
+    "callback": "function (v, k) {\n    var isBad = grunt.utils._.any(badCache, function (dir) {\n            return k.indexOf(path.resolve(dir)) === 0;\n        });\n    if (!isBad)\n        return;\n    delete require.cache[k];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dir) {\n    return k.indexOf(path.resolve(dir)) === 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function ($scope) {\n    $scope.user = {\n        name: 'John Doe',\n        age: 27,\n        email: 'john@doe.com'\n    };\n    $scope.family = [\n        'James Doe',\n        'Clarissa Doe',\n        'Ted Doe'\n    ];\n    $scope.loggedIn = true;\n}",
+    "receiverBase": "module",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function () {\n    require(['controllers/app'], function (app) {\n        app.init();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (app) {\n    app.init();\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (template) {\n    var data = { location: self.options.location };\n    self.$el.height('100%');\n    self.$el.html(Mustache.render(template, data));\n    if (typeof application === 'undefined') {\n        $('#videocanvas').html('<video id=\\'videotag\\' src=\\'https://my.flatturtle.com/uploads/hub/' + self.options.location + '\\' width=100% height=100%></video>');\n    }\n    self.render();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        console.log('Could not delete ', filename, err);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function () {\n    fs.readFile(testFile, 'utf8', that.callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    fs.readFile(path.join(__dirname, 'date-file-test' + thisTime), 'utf8', self.callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event, args) {\n    var stateName = $stateParams.userId ? 'dashboard.byCompany.byUser.events.event' : 'dashboard.byCompany.events.event';\n    $state.go(stateName, { eventId: parseInt(args.markerName) });\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    if (typeof window != 'undefined' && window.constructor.name == 'DOMWindow' || typeof process != 'undefined') {\n        return this.constructor.name;\n    }\n    var str = Object.prototype.toString.call(this);\n    str = str.substring(8, str.length - 1);\n    if (str == 'Window') {\n        str = 'DOMWindow';\n    } else if (str == 'Document') {\n        str = 'HTMLDocument';\n    }\n    return str;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (i) {\n    var proto = Object.getPrototypeOf(this);\n    if (proto !== Object) {\n        proto.$index = function (i) {\n            return this[i];\n        };\n    }\n    return this[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (index) {\n    var i = index | 0;\n    if (i !== index) {\n        throw new IllegalArgumentException('index is not int');\n    } else if (i < 0 || i >= this.length) {\n        throw new IndexOutOfRangeException(index);\n    }\n    return this[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (i) {\n    return this[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (i, value) {\n    var proto = Object.getPrototypeOf(this);\n    if (proto !== Object) {\n        proto.$setindex = function (i, value) {\n            return this[i] = value;\n        };\n    }\n    return this[i] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (index, value) {\n    var i = index | 0;\n    if (i !== index) {\n        throw new IllegalArgumentException('index is not int');\n    } else if (i < 0 || i >= this.length) {\n        throw new IndexOutOfRangeException(index);\n    }\n    return this[i] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (other) {\n    return this === other;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (name, args) {\n    $throw(new NoSuchMethodException(this, name, args));\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0) {\n    return this.noSuchMethod('add', [$0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0, $1, $2) {\n    return this.noSuchMethod('addEventListener', [\n        $0,\n        $1,\n        $2\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0) {\n    return this.noSuchMethod('forEach', [$0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function () {\n    return this.noSuchMethod('getContext', []);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0, $1) {\n    return this.noSuchMethod('moveTo', [\n        $0,\n        $1\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0) {\n    return this.noSuchMethod('substring', [$0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0, $1) {\n    return this.noSuchMethod('webkitRequestAnimationFrame', [\n        $0,\n        $1\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function () {\n    return this.length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (value) {\n    return this.length = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function (value) {\n    this.push(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function () {\n    this.set$length(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function () {\n    return new ListIterator(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function ($0) {\n    return this.forEach(to$call$1($0));\n}",
+    "receiverBase": "",
+    "receiverCallee": "$defProp"
+  },
+  {
+    "callback": "function _(key, value) {\n    f(key);\n}",
+    "receiverBase": "_backingMap",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return new EventListenerListImplementation($this._ptr, type);\n}",
+    "receiverBase": "_listenerMap",
+    "receiverCallee": "putIfAbsent"
+  },
+  {
+    "callback": "function (e) {\n    mouse.x = e.get$offsetX();\n    mouse.y = e.get$offsetY();\n    mouse.event = e;\n}",
+    "receiverBase": "get$mouseMove",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (point) {\n    point.setVanishingPoint(vpX, vpY);\n    point.setCenter(0, 0, 200);\n}",
+    "receiverBase": "points",
+    "receiverCallee": "forEach$1"
+  },
+  {
+    "callback": "function (next) {\n    next();\n}",
+    "receiverBase": "SportSchema",
+    "receiverCallee": "pre"
+  },
+  {
+    "callback": "function (error, sport) {\n    if (error) {\n        console.log('error');\n    } else {\n        console.log('success');\n    }\n}",
+    "receiverBase": "newSport",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (error, sport) {\n    if (error) {\n        console.log('error');\n    } else {\n        console.log('success');\n    }\n}",
+    "receiverBase": "newSport2",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (frames) {\n    var i = 0, n = frames.length, found;\n    for (; i !== n; ++i) {\n        found = frames[i].functionRegistry;\n        if (found) {\n            return found;\n        }\n    }\n    return globalFunctionRegistry;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (r) {\n    if (r instanceof Rule && r.variable) {\n        return !ruleset.variable(r.name);\n    }\n    return true;\n}",
+    "receiverBase": "eval",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r) {\n    if (r instanceof Rule && r.variable) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r) {\n    if (r.makeImportant) {\n        return r.makeImportant();\n    } else {\n        return r;\n    }\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (hash, r) {\n    if (r instanceof Rule && r.variable === true) {\n        hash[r.name] = r;\n    }\n    if (r.type === 'Import' && r.root && r.root.variables) {\n        var vars = r.root.variables();\n        for (var name in vars) {\n            if (vars.hasOwnProperty(name)) {\n                hash[name] = vars[name];\n            }\n        }\n    }\n    return hash;\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var text = [\n            'HTTP/1.1 200 OK',\n            'Date: Mon, 11 Feb 2013 08:31:14 GMT',\n            'Server: Apache',\n            'Accept-Ranges: bytes',\n            'Content-Length: 1',\n            'Connection: close',\n            'Content-Type: text/html'\n        ].join('\\r\\n');\n    header.parse(text);\n    expect(header.get('server')).to.eql('Apache');\n    expect(header.getText()).to.eql(text);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var f = dhm._fontResizeNode;\n    if (f) {\n        if (dojo.isIE && f.onresize) {\n            f.onresize = null;\n        } else if (f.contentWindow && f.contentWindow.onresize) {\n            f.contentWindow.onresize = null;\n        }\n        dhm._fontResizeNode = null;\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "addOnUnload"
+  }
+]

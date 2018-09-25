@@ -1,0 +1,159 @@
+[
+  {
+    "callback": "function () {\n    $(this).stop().fadeTo(500, 1);\n}",
+    "receiverBase": "fadeTo",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function () {\n    $(this).stop().fadeTo(500, 0.1);\n}",
+    "receiverBase": "mouseover",
+    "receiverCallee": "mouseout"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    $location.hash('');\n    var dest = $('#' + attr.scroll.replace(/(:|\\.|\\[|\\]|,)/g, '\\\\$1'));\n    if (dest && dest.offset()) {\n        $location.hash(attr.scroll);\n        $('html,body').animate({ scrollTop: dest.offset().top }, 300);\n    }\n}",
+    "receiverBase": "element",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var expected = 20;\n    var result = cut._handlePxs(20, false, false);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expected = 0;\n    var result = cut._handlePxs(0, true, false);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expected = 0;\n    var result = cut._handlePxs(0, false, false);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expected = '20px';\n    var result = cut._handlePxs(20, true, false);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expected = 0.2;\n    var result = cut._handlePxs(20, false, true);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expected = '20%';\n    var result = cut._handlePxs(20, true, true);\n    expect(expected).to.be.equal(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var clipPathText = 'polygon(2px 1px, 0 7px, 8px 8px)';\n    var attrSpy = sinon.spy(jQueryMock, 'attr');\n    cut._createWebkitClipPath([\n        [\n            2,\n            1\n        ],\n        [\n            0,\n            7\n        ],\n        [\n            8,\n            8\n        ]\n    ]);\n    expect(attrSpy.calledOnce).to.be.equal(false);\n    expect($el.css.withArgs('-webkit-clip-path', clipPathText).calledOnce).to.be.equal(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    cut.isPercentage = true;\n    var clipPathText = 'polygon(2% 1%, 0 7%, 8% 8%)';\n    var attrSpy = sinon.spy(jQueryMock, 'attr');\n    cut._createWebkitClipPath([\n        [\n            2,\n            1\n        ],\n        [\n            0,\n            7\n        ],\n        [\n            8,\n            8\n        ]\n    ]);\n    expect(attrSpy.calledOnce).to.be.equal(false);\n    expect($el.css.withArgs('-webkit-clip-path', clipPathText).calledOnce).to.be.equal(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (i, img) {\n    $log.log(img);\n    $scope.model.value += img.url;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function fail(msg, index) {\n    throw LessError({\n        index: index,\n        type: 'Parse',\n        message: msg,\n        filename: fileInfo.filename\n    }, imports);\n}",
+    "receiverBase": "parserInput",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function getModule(currentModule) {\n    var part = moduleParts.shift().replace('.js', '');\n    if (currentModule[part]) {\n        if (moduleParts.length == 0) {\n            return currentModule[part];\n        } else {\n            return getModule(currentModule[part]);\n        }\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (m) {\n    var module = require(m);\n    self.absurd.plugin(file.replace('.js', ''), function (absurd, value) {\n        return module(value);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (absurd, value) {\n    return module(value);\n}",
+    "receiverBase": "absurd",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function (pluginName) {\n    self.absurd.plugin(pluginName, function (absurd, value, prefixes) {\n        if (prefixes === false) {\n            prefixes = '';\n        }\n        var s, r = {};\n        if (s = snippets[pluginName + ':' + value]) {\n            s = s.split(':');\n            r[prefixes + s[0]] = s[1] || '';\n        } else if (s = snippets[pluginName]) {\n            r[prefixes + s] = value;\n        }\n        return r;\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (absurd, value, prefixes) {\n    if (prefixes === false) {\n        prefixes = '';\n    }\n    var s, r = {};\n    if (s = snippets[pluginName + ':' + value]) {\n        s = s.split(':');\n        r[prefixes + s[0]] = s[1] || '';\n    } else if (s = snippets[pluginName]) {\n        r[prefixes + s] = value;\n    }\n    return r;\n}",
+    "receiverBase": "absurd",
+    "receiverCallee": "plugin"
+  },
+  {
+    "callback": "function () {\n    $ = jqw.$;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    CSVData = require('../../src/core/csv_data.js')($);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    csv = new CSVData();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(CSVData).not.toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(typeof csv.getIterator).toBe('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(typeof csv.filename).toBe('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var spy = jasmine.createSpy();\n    csv = new CSVData([], NodeJQueryHelper.localFileURL(__dirname, '/fixtures/csv_test1.csv'));\n    csv.addListener('dataReady', function () {\n        done();\n        spy();\n        expect(spy).toHaveBeenCalled();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    done();\n    spy();\n    expect(spy).toHaveBeenCalled();\n}",
+    "receiverBase": "csv",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy(), dataVariables = [\n            new DataVariable('column1', 0, DataValue.NUMBER),\n            new DataVariable('column2', 1, DataValue.NUMBER),\n            new DataVariable('column3', 2, DataValue.NUMBER),\n            new DataVariable('column4', 3, DataValue.NUMBER)\n        ];\n    csv = new CSVData(dataVariables, NodeJQueryHelper.localFileURL(__dirname, '/fixtures/csv_test1.csv'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    dataVariables = [\n        new DataVariable('column1', 0, DataValue.NUMBER),\n        new DataVariable('column2', 1, DataValue.NUMBER),\n        new DataVariable('column3', 2, DataValue.NUMBER),\n        new DataVariable('column4', 3, DataValue.NUMBER)\n    ];\n    csv = new CSVData(dataVariables, NodeJQueryHelper.localFileURL(__dirname, '/fixtures/csv_test1.csv'));\n    csv.addListener('dataReady', function () {\n        csv.normalize();\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    csv.normalize();\n    done();\n}",
+    "receiverBase": "csv",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    expect(typeof csv.getIterator).toEqual('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value, key) {\n    if (b.hasOwnProperty(key) && Y_Lang.isObject(value) && !Y_Lang.isFunction(value) && !Y_Lang.isArray(value)) {\n        newstyles[key] = this._mergeStyles(value, b[key]);\n    } else {\n        newstyles[key] = value;\n    }\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (Y) {\n    Y.use('yui2-swf');\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  }
+]

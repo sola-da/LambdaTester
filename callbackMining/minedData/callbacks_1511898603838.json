@@ -1,0 +1,636 @@
+[
+  {
+    "callback": "function (value, name) {\n    if (value !== 'disable') {\n        transaction.setRequestHeader(name, headers[name]);\n    }\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    io._abort(transaction, 'timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.complete(transaction, config);\n    io._result(transaction, config);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (rowJSON) {\n    if (started) {\n        writeStream.write(',\\n');\n    }\n    writeStream.write(JSON.stringify(rowJSON));\n    if (started == false) {\n        started = true;\n    }\n}",
+    "receiverBase": "csvConverter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    writeStream.write('\\n]');\n}",
+    "receiverBase": "csvConverter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    console.error(err);\n    process.exit(-1);\n}",
+    "receiverBase": "csvConverter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        logger.error(err);\n    }\n    cb();\n}",
+    "receiverBase": "imin",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (error) {\n    if (config.compress) {\n        minimizeImage(outputFile, config.storage, function () {\n            onFinish(error);\n        });\n    } else {\n        onFinish(error);\n    }\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "execProcess"
+  },
+  {
+    "callback": "function () {\n    onFinish(error);\n}",
+    "receiverBase": "",
+    "receiverCallee": "minimizeImage"
+  },
+  {
+    "callback": "function (error) {\n    logger.debug('Process finished work: %s', base64);\n    return onFinish(file, error);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runCapturingProcess"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        retrieveImageFromStorage();\n    } else {\n        retrieveImageFromSite();\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (e) {\n    el.morphFx.start('.Rating .ratingActive');\n    el.wrapper.addEvent('mousemove', el.mouseCrap);\n}",
+    "receiverBase": "wrapper",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (e) {\n    el.removeEvent(el.mouseCrap);\n    el.morphFx.start('.Rating .ratingFill');\n    el.widthFx.start('width', el.currentFill);\n}",
+    "receiverBase": "wrapper",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (e) {\n    var rating = new RabidRatings({ url: ratings_submit_url });\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    var ds = document.createElement('script');\n    ds.type = 'text/javascript';\n    ds.async = true;\n    ds.src = 'http://static.duoshuo.com/embed.js';\n    ds.charset = 'UTF-8';\n    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    Titanium.Facebook.forceDialogAuth = !Titanium.Facebook.forceDialogAuth;\n    forceButton.title = 'Force dialog: ' + Titanium.Facebook.forceDialogAuth;\n}",
+    "receiverBase": "forceButton",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (v, k) {\n    return parseInt(distanceRatio * (style.to[k] - style.from[k]) + style.from[k]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    if (result.status == 0) {\n        self.saveScreenshotToFile(fileName, result.value);\n        if (typeof callback === 'function') {\n            callback(result);\n        }\n    } else {\n        if (typeof callback === 'function') {\n            callback(result);\n        }\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "screenshot"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    var changeWasCalled = false;\n    dataSource.read();\n    dataSource.bind('change', function () {\n        changeWasCalled = true;\n    });\n    dataSource.query({});\n    ok(changeWasCalled);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    changeWasCalled = true;\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    dataSource.query({ pageSize: 1 });\n    equal(dataSource.pageSize(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    dataSource.query({ page: 1 });\n    equal(dataSource.page(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    dataSource.query({\n        sort: {\n            field: 'foo',\n            dir: 'asc'\n        }\n    });\n    ok($.isArray(dataSource.sort()));\n    equal(dataSource.sort()[0].field, 'foo');\n    equal(dataSource.sort()[0].dir, 'asc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    var comparer = function () {\n    };\n    dataSource.query({\n        sort: {\n            dir: 'asc',\n            compare: comparer\n        }\n    });\n    equal(dataSource.sort()[0].compare, comparer);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: data });\n    dataSource.query({\n        sort: [\n            {\n                field: 'foo',\n                dir: 'asc'\n            },\n            {\n                field: 'bar',\n                dir: 'desc'\n            }\n        ]\n    });\n    equal(dataSource.sort().length, 2);\n    equal(dataSource.sort()[1].field, 'bar');\n    equal(dataSource.sort()[1].dir, 'desc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        pageSize: 1,\n        page: 2\n    });\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0], 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        sort: {\n            field: 'age',\n            dir: 'desc'\n        }\n    });\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 2);\n    equal(view[1].age, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        sort: {\n            field: 'age',\n            dir: 'desc'\n        }\n    });\n    dataSource.query({});\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n    equal(dataSource.sort(), undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.sort({\n        field: 'age',\n        dir: 'desc'\n    });\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 2);\n    equal(view[1].age, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        page: 2,\n        pageSize: 1,\n        sort: {\n            field: 'age',\n            dir: 'desc'\n        }\n    });\n    var view = dataSource.view();\n    equal(view[0].age, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            { age: 1 },\n            { age: 2 }\n        ];\n    var dataSource = new DataSource({ data: data });\n    dataSource.read();\n    dataSource.query({\n        page: 2,\n        pageSize: 1,\n        sort: {\n            field: 'age',\n            dir: 'desc'\n        }\n    });\n    var view = dataSource.data();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    start();\n    ok(true);\n    var view = dataSource.view();\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n}",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    start();\n    var view = dataSource.view();\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n}",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({ read: 'foo' });\n    var dataSource = new DataSource({\n            transport: transport,\n            schema: { model: { fields: { bar: 'foo' } } },\n            serverSorting: true\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.sort({\n        field: 'bar',\n        dir: 'asc'\n    });\n    equal(dataSource.sort()[0].field, 'bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({ read: 'foo' });\n    var dataSource = new DataSource({\n            transport: transport,\n            schema: { model: { fields: { bar: 'foo' } } },\n            serverFiltering: true\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.filter({\n        field: 'bar',\n        operator: 'eq',\n        value: '42'\n    });\n    equal(dataSource.filter().filters[0].field, 'bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.next();\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0], 2);\n    equal(dataSource.page(), 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.page(3);\n    dataSource.next();\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0], 3);\n    equal(dataSource.page(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({\n            read: 'foo',\n            parameterMap: function (options) {\n                equal(options.page, 2);\n                return options;\n            }\n        });\n    var dataSource = new DataSource({\n            transport: transport,\n            serverPaging: true,\n            pageSize: 1\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.next();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({\n            read: 'foo',\n            parameterMap: function (options) {\n                ok(false);\n                return options;\n            }\n        });\n    var dataSource = new DataSource({\n            transport: transport,\n            serverPaging: true\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.next();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ]\n        });\n    dataSource.next();\n    equal(dataSource.view().length, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 3\n        });\n    dataSource.read();\n    var page = dataSource.next();\n    equal(dataSource.total(), 3);\n    equal(page, undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    stub(dataSource, { query: dataSource.query });\n    dataSource.next({ custom: 'custom' });\n    equal(dataSource.args('query', 0)[0].custom, 'custom');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    stub(dataSource, { query: dataSource.query });\n    dataSource.next({ page: 3 });\n    equal(dataSource.args('query', 0)[0].page, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.page(3);\n    var page = dataSource.prev();\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0], 2);\n    equal(dataSource.page(), 2);\n    equal(page, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.prev();\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0], 1);\n    equal(dataSource.page(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({\n            read: 'foo',\n            parameterMap: function (options) {\n                equal(options.page, 1);\n            }\n        });\n    var dataSource = new DataSource({\n            transport: transport,\n            serverPaging: true,\n            pageSize: 1\n        });\n    dataSource._skip = 1;\n    $.mockjax({ url: 'foo' });\n    dataSource.prev();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({\n            read: 'foo',\n            parameterMap: function (options) {\n                ok(false);\n                return options;\n            }\n        });\n    var dataSource = new DataSource({\n            transport: transport,\n            serverPaging: true\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.prev();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ]\n        });\n    dataSource.prev();\n    equal(dataSource.view().length, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var transport = new RemoteTransport({\n            read: 'foo',\n            parameterMap: function (options) {\n                ok(false);\n                return options;\n            }\n        });\n    var dataSource = new DataSource({\n            transport: transport,\n            serverPaging: true,\n            pageSize: 1\n        });\n    $.mockjax({ url: 'foo' });\n    dataSource.prev();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.page(3);\n    stub(dataSource, { query: dataSource.query });\n    dataSource.prev({ custom: 'custom' });\n    equal(dataSource.args('query', 0)[0].custom, 'custom');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                1,\n                2,\n                3\n            ],\n            pageSize: 1\n        });\n    dataSource.read();\n    dataSource.page(3);\n    stub(dataSource, { query: dataSource.query });\n    dataSource.prev({ page: 1 });\n    equal(dataSource.args('query', 0)[0].page, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ],\n            pageSize: 2,\n            sort: {\n                field: 'age',\n                dir: 'desc'\n            }\n        });\n    dataSource.read();\n    dataSource.page(2);\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0].age, 1);\n    equal(dataSource.page(), 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.page(2);\n    var view = dataSource.view();\n    equal(view.length, 3);\n    equal(view[0].age, 1);\n    equal(dataSource.page(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            pageSize: 1,\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.page(42);\n    equal(dataSource.page(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            pageSize: 1,\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.page(0);\n    equal(dataSource.page(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ],\n            page: 1\n        });\n    dataSource.read();\n    dataSource.pageSize(2);\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(dataSource.pageSize(), 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.query({\n        page: 1,\n        pageSize: 2\n    });\n    equal(dataSource.view().length, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    var changeWasCalled = false;\n    dataSource.bind('change', function () {\n        changeWasCalled = true;\n    });\n    dataSource.query({\n        page: 1,\n        pageSize: 2\n    });\n    ok(changeWasCalled);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    changeWasCalled = true;\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.query({\n        page: 1,\n        pageSize: 2\n    });\n    equal(dataSource.total(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { id: 1 },\n                { id: 2 }\n            ],\n            pageSize: 1,\n            page: 2\n        });\n    dataSource.filter({\n        field: 'id',\n        operator: '==',\n        value: 2\n    });\n    equal(dataSource.page(), 1);\n    equal(dataSource.view()[0].id, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { id: 1 },\n                { id: 2 }\n            ]\n        });\n    dataSource.filter({\n        field: 'id',\n        operator: '==',\n        value: 1\n    });\n    equal(dataSource.filter().filters[0].operator, 'eq');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                {\n                    id: 1,\n                    bar: 'foo'\n                },\n                {\n                    id: 2,\n                    bar: 'baz'\n                }\n            ]\n        });\n    dataSource.query({\n        filter: {\n            field: 'bar',\n            operator: '==',\n            value: 'baz'\n        }\n    });\n    equal(dataSource.total(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    start();\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n}",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    id: 1,\n                    bar: 'foo'\n                }]\n        });\n    dataSource.read();\n    var item = dataSource.at(0);\n    dataSource.remove(item);\n    dataSource.add(item);\n    equal(dataSource.total(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var data = new kendo.data.ObservableArray([\n            {\n                id: 1,\n                bar: 'foo'\n            },\n            {\n                id: 2,\n                bar: 'baz'\n            }\n        ]), dataSource = new DataSource({ data: data });\n    dataSource.read();\n    dataSource.add({});\n    dataSource.cancelChanges();\n    equal(dataSource.total(), 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        page: 2,\n        pageSize: 1,\n        filter: {\n            field: 'age',\n            operator: '!=',\n            value: 2\n        }\n    });\n    var view = dataSource.view();\n    equal(view[0].age, 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        filter: {\n            field: 'age',\n            operator: '==',\n            value: 2\n        }\n    });\n    dataSource.query({});\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n    equal(dataSource.filter(), undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.filter({\n        field: 'age',\n        operator: '!=',\n        value: 2\n    });\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 1 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({ group: [{ field: 'age' }] });\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].items.length, 2);\n    equal(view[1].items.length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    start();\n    var view = dataSource.view()[0].items;\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n}",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            { age: 1 },\n            { age: 3 },\n            { age: 1 }\n        ];\n    var dataSource = new DataSource({\n            data: data,\n            page: 1,\n            pageSize: 2\n        });\n    dataSource.read();\n    dataSource.group({ field: 'age' });\n    var view = dataSource.view();\n    equal(view.length, 1);\n    equal(view[0].items.length, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 }\n            ]\n        });\n    dataSource.query({ group: { field: 'age' } });\n    equal(dataSource.group().length, 1);\n    equal(dataSource.group()[0].field, 'age');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({ group: { field: 'age' } });\n    dataSource.query({});\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].age, 1);\n    equal(view[1].age, 2);\n    equal(dataSource.group(), undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 1 },\n                { age: 3 }\n            ]\n        });\n    dataSource.read();\n    dataSource.group('age');\n    var view = dataSource.view();\n    equal(view.length, 2);\n    equal(view[0].items.length, 2);\n    equal(view[1].items.length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 }\n            ]\n        });\n    dataSource.read();\n    dataSource.query({\n        aggregate: [{\n                field: 'foo',\n                aggregate: 'sum'\n            }]\n    });\n    dataSource.query({});\n    equal(dataSource.aggregate(), undefined);\n    ok($.isEmptyObject(dataSource.aggregates()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    start();\n    equal(dataSource.aggregates().foo.sum, 0);\n}",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var options, dataSource = new DataSource({\n            transport: {\n                read: function () {\n                    options = arguments[0].data;\n                }\n            }\n        });\n    dataSource.query({ foo: 'bar' });\n    equal(options.foo, 'bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            page: 2,\n            pageSize: 3\n        });\n    equal(dataSource.skip(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ]\n        });\n    dataSource.query({ skip: 3 });\n    equal(dataSource.skip(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4\n        });\n    equal(dataSource.take(), 4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4\n        });\n    dataSource.query({ take: 3 });\n    equal(dataSource.take(), 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4\n        });\n    dataSource.read();\n    dataSource.bind('progress', function () {\n        ok(true);\n    });\n    dataSource.query({ take: 3 });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(true);\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var called = false, dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4,\n            requestStart: function () {\n                called = true;\n            }\n        });\n    dataSource.read();\n    ok(called);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4,\n            progress: function () {\n                ok(true);\n            }\n        });\n    dataSource.read();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ],\n            pageSize: 4,\n            requestStart: function (e) {\n                e.preventDefault();\n            }\n        });\n    dataSource.read();\n    ok(!dataSource.data().length);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var called = false, dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ]\n        });\n    dataSource.read();\n    dataSource.bind('requestEnd', function () {\n        ok(true);\n    });\n    dataSource.query();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(true);\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var called = false, dataSource = new DataSource({\n            data: [\n                { age: 1 },\n                { age: 2 },\n                { age: 3 },\n                { age: 4 },\n                { age: 5 },\n                { age: 6 },\n                { age: 7 },\n                { age: 8 }\n            ]\n        });\n    dataSource.read();\n    dataSource.bind('requestEnd', function (e) {\n        ok(e.type, 'read');\n    });\n    dataSource.query();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (e) {\n    ok(e.type, 'read');\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var view, dataSource = new DataSource({\n            data: [{\n                    foo: 1,\n                    bar: '1'\n                }],\n            change: function () {\n                view = dataSource.view();\n            }\n        });\n    dataSource.fetch();\n    equal(view.length, 1);\n    equal(view[0].foo, '1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var view, called = 0, dataSource = new DataSource({\n            data: [{\n                    foo: 1,\n                    bar: '1'\n                }]\n        });\n    dataSource.fetch(function () {\n        called++;\n        view = dataSource.view();\n    });\n    dataSource.fetch();\n    ok(view);\n    equal(called, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    called++;\n    view = dataSource.view();\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    foo: 1,\n                    bar: '1'\n                }]\n        });\n    dataSource.fetch(function () {\n        equal(this, dataSource);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(this, dataSource);\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function () {\n    var wasCalled = false, dataSource = new DataSource({\n            data: [{\n                    foo: 1,\n                    bar: '1'\n                }]\n        });\n    dataSource.read();\n    dataSource.one('requestStart', function (e) {\n        e.preventDefault();\n    });\n    dataSource.fetch(function () {\n        wasCalled = true;\n    });\n    ok(!wasCalled, 'fetch callback was executed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    wasCalled = true;\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    wasCalled = true;\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            serverPaging: true,\n            schema: {\n                total: function () {\n                    return '2';\n                }\n            }\n        });\n    dataSource.read();\n    dataSource.data().push({\n        foo: 1,\n        bar: 'bar 1'\n    }, {\n        foo: 2,\n        bar: 'bar 2'\n    });\n    equal(dataSource.view().length, 2);\n    equal(dataSource.total(), 4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [\n                {\n                    foo: 1,\n                    bar: 'bar 1'\n                },\n                {\n                    foo: 2,\n                    bar: 'bar 2'\n                }\n            ]\n        });\n    dataSource.read();\n    dataSource.data().splice(0, 2);\n    equal(dataSource.view().length, 0);\n    equal(dataSource.total(), 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            schema: {\n                model: {\n                    id: 'foo',\n                    fields: {\n                        foo: { type: 'number' },\n                        bar: 'bar'\n                    }\n                }\n            }\n        });\n    dataSource.add(new kendo.data.Model());\n    equal(dataSource.view().length, 1);\n    equal(dataSource.total(), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    id: 1,\n                    foo: 'bar'\n                }]\n        });\n    dataSource.read();\n    dataSource.remove(dataSource.at(0));\n    dataSource.fetch();\n    equal(dataSource.view().length, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    id: 1,\n                    foo: 'bar'\n                }],\n            serverPaging: true\n        });\n    dataSource.read();\n    dataSource.remove(dataSource.at(0));\n    dataSource.fetch();\n    equal(dataSource.view().length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    id: 1,\n                    foo: 'bar'\n                }]\n        });\n    equal(typeof dataSource.fetch().done, 'function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            data: [{\n                    id: 1,\n                    foo: 'bar'\n                }]\n        });\n    var promise = dataSource.fetch();\n    equal(promise.state(), 'resolved');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            transport: {\n                read: function (options) {\n                    setTimeout(function () {\n                        options.success([]);\n                    }, 1);\n                }\n            }\n        });\n    var promise = dataSource.fetch();\n    promise.done(function () {\n        start();\n        ok(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    options.success([]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    start();\n    ok(true);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            transport: {\n                read: function (options) {\n                    setTimeout(function () {\n                        options.error([]);\n                    }, 1);\n                }\n            }\n        });\n    var promise = dataSource.fetch();\n    promise.fail(function () {\n        start();\n        ok(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    options.error([]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    start();\n    ok(true);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({\n            transport: {\n                read: function (options) {\n                    options.success([]);\n                }\n            },\n            serverSorting: true\n        });\n    ok($.isFunction(dataSource.query().then));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: [{ id: 1 }] });\n    dataSource.read();\n    ok($.isFunction(dataSource.query().then));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: [{ id: 1 }] });\n    dataSource.read();\n    dataSource.query().then(function () {\n        ok(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(true);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dataSource = new DataSource({ data: [{ id: 1 }] });\n    dataSource.read();\n    dataSource.bind('requestStart', function (e) {\n        e.preventDefault();\n    });\n    dataSource.query().then(function () {\n        ok(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "dataSource",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    ok(true);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    tester = ngMidwayTester('App');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    tester.destroy();\n    tester = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    expect(tester.inject('$filter')('range')).not.to.equal(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var id = 'temp-filter-test-element';\n    var html = '<div id=\"' + id + '\"><div class=\"repeated\" ng-repeat=\"n in [] | range:10\">...</div></div>';\n    var element = angular.element(html);\n    var scope = tester.rootScope().$new();\n    tester.compile(element, scope);\n    var elm = element[0];\n    setTimeout(function () {\n        var kids = elm.getElementsByTagName('div');\n        expect(kids.length).to.equal(10);\n        done();\n    }, 1000);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var kids = elm.getElementsByTagName('div');\n    expect(kids.length).to.equal(10);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, response, body) {\n    _yuitest_coverfunc('build/get-nodejs/get-nodejs.js', '(anonymous 2)', 89);\n    _yuitest_coverline('build/get-nodejs/get-nodejs.js', 90);\n    if (err) {\n        _yuitest_coverline('build/get-nodejs/get-nodejs.js', 91);\n        cb(err, url);\n    } else {\n        _yuitest_coverline('build/get-nodejs/get-nodejs.js', 93);\n        Y.Get._exec(body, url, cb);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, mod) {\n    _yuitest_coverfunc('build/get-nodejs/get-nodejs.js', '(anonymous 3)', 106);\n    _yuitest_coverline('build/get-nodejs/get-nodejs.js', 107);\n    if (err) {\n        _yuitest_coverline('build/get-nodejs/get-nodejs.js', 108);\n        cb(err, url);\n    } else {\n        _yuitest_coverline('build/get-nodejs/get-nodejs.js', 110);\n        Y.Get._exec(mod, url, cb);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  }
+]

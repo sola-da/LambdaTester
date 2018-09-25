@@ -1,0 +1,416 @@
+[
+  {
+    "callback": "function (cnt) {\n    var count = cnt[0]['COUNT(*)'];\n    if (count != 0) {\n        migrator.migrate().success(function () {\n            logger.info('successfully migrated');\n        }).error(function (err) {\n            logger.error('failed to migrate', { error: err });\n        });\n    }\n}",
+    "receiverBase": "query",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function () {\n    logger.info('successfully migrated');\n}",
+    "receiverBase": "migrate",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (err) {\n    logger.error('failed to migrate', { error: err });\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    migrator.getUndoneMigrations(function (err, migs) {\n        var values = [];\n        for (var i = 0; i < migs.length; i++) {\n            var mig = migs[i];\n            values.push('(\\'' + mig.migrationId + '\\', \\'' + mig.migrationId + '\\')');\n        }\n        sequelize.query('INSERT INTO SequelizeMeta (\\'from\\', \\'to\\') VALUES ' + values.join(',') + ';');\n    });\n}",
+    "receiverBase": "query",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (err, migs) {\n    var values = [];\n    for (var i = 0; i < migs.length; i++) {\n        var mig = migs[i];\n        values.push('(\\'' + mig.migrationId + '\\', \\'' + mig.migrationId + '\\')');\n    }\n    sequelize.query('INSERT INTO SequelizeMeta (\\'from\\', \\'to\\') VALUES ' + values.join(',') + ';');\n}",
+    "receiverBase": "migrator",
+    "receiverCallee": "getUndoneMigrations"
+  },
+  {
+    "callback": "function (e, d) {\n    return [e].filter(function (n) {\n        return !!n;\n    }).concat(d);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return !!n;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    var f = function (a) {\n        return a.map(function (e) {\n            if (typeof e == 'object' && e instanceof Array) {\n                return f(e);\n            } else {\n                return e;\n            }\n        }).join('');\n    };\n    return {\n        type: 'raw',\n        data: f(d)\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    if (typeof e == 'object' && e instanceof Array) {\n        return f(e);\n    } else {\n        return e;\n    }\n}",
+    "receiverBase": "a",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return {\n        type: 'string',\n        data: d.join('').replace(/\\\\/g, '\\\\')\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (s, p, d) {\n    return {\n        type: 'number',\n        data: parseFloat((s ? '-' : '') + p + '.' + (d ? d[1] : 0))\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    return {\n        type: 'list',\n        data: a\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (f, o) {\n    return [f].concat(o ? o.map(function (e) {\n        return e ? e[2] : null;\n    }).filter(function (e) {\n        return !!e;\n    }) : []);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return e ? e[2] : null;\n}",
+    "receiverBase": "o",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return !!e;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return {\n        type: 'white_space',\n        data: d.join('')\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (d) {\n    return {\n        type: 'identifier',\n        name: d ? d.map(function (e) {\n            return typeof e == 'string' ? e : e.join('');\n        }).join('').replace(/\\.$/, '') : []\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return typeof e == 'string' ? e : e.join('');\n}",
+    "receiverBase": "d",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    return {\n        type: 'path',\n        parts: p ? p.map(function (p) {\n            return p.name;\n        }) : []\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    return p.name;\n}",
+    "receiverBase": "p",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (n, a) {\n    return {\n        type: 'function',\n        name: n,\n        arguments: a ? a[1] : []\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n, s, f) {\n    return {\n        source: s,\n        negative: n ? true : false,\n        filters: f ? f.map(function (f) {\n            return f[1];\n        }) : []\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (f) {\n    return f[1];\n}",
+    "receiverBase": "f",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t, e) {\n    return {\n        type: t,\n        expression: e\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e, c) {\n    return {\n        source: e,\n        comparison: c ? c[1] : null\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return {\n        type: 'print',\n        expression: e\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (d) {\n    return {\n        type: 'comment',\n        data: d.join('')\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c, d, l, e) {\n    var ls = [];\n    for (var i = 0; i < l.length; i++) {\n        ls.push({\n            condition: l[i][0],\n            action: l[i][1]\n        });\n    }\n    return {\n        type: 'if',\n        condition: c,\n        action: d,\n        elsifs: ls.length ? ls : null,\n        else: e ? e[1] : null\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k, v, s) {\n    return {\n        source: s,\n        key: v ? k : null,\n        value: v ? v[3] : k\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c, d, e) {\n    return {\n        type: 'for',\n        config: c,\n        action: d,\n        else: e ? e[1] : null\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return e;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e, d) {\n    return {\n        type: 'block',\n        expression: e,\n        content: d\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return {\n        type: 'extends',\n        expression: e\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    return {\n        type: 'include',\n        expression: e\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    I18n.reset();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.defaultLocale).toEqual('en');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.locale).toEqual('en');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.defaultSeparator).toEqual('.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.fallbacks).toEqual(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.missingTranslationPrefix).toEqual('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(I18n.missingBehaviour).toEqual('message');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    os = new ExtMVC.OS();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    expect(os.getController('index')).to(equal, null);\n    os.registerController('index', MVCTest.controllers.IndexController);\n    expect(os.controllers['index']).to(equal, MVCTest.controllers.IndexController);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    os.registerController('index', MVCTest.controllers.IndexController);\n    expect(os.getController('index') instanceof MVCTest.controllers.IndexController).to(equal, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should call onLaunch', function () {\n        var called = false;\n        os.onLaunch = function () {\n            called = true;\n        };\n        os.launch();\n        expect(called).to(equal, true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var called = false;\n    os.onLaunch = function () {\n        called = true;\n    };\n    os.launch();\n    expect(called).to(equal, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should not overwrite the current router', function () {\n        os.router = 'not a real router';\n        os.initializeRouter();\n        expect(os.router).to(equal, 'not a real router');\n    });\n    it('should assign a new Router instance to this.router', function () {\n        os.initializeRouter();\n        expect(os.router instanceof ExtMVC.Router).to(equal, true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    os.router = 'not a real router';\n    os.initializeRouter();\n    expect(os.router).to(equal, 'not a real router');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    os.initializeRouter();\n    expect(os.router instanceof ExtMVC.Router).to(equal, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    os.dispatch(dispatchConfig);\n    expect(os.params).to(equal, dispatchConfig);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    os.dispatch({ controller: 'someController' });\n    expect(os.params).to(equal, {\n        controller: 'someController',\n        action: 'index'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var controllerName = '';\n    var correctResponse = os.getController('index');\n    os.getController = function (conName) {\n        controllerName = conName;\n        return correctResponse;\n    };\n    os.dispatch({ controller: 'index' });\n    expect(controllerName).to(equal, 'index');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var fired = false;\n    os.getController('index').registerAction('test', function () {\n        fired = true;\n    });\n    os.dispatch({\n        controller: 'index',\n        action: 'test'\n    });\n    expect(fired).to(equal, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    fired = true;\n}",
+    "receiverBase": "getController",
+    "receiverCallee": "registerAction"
+  },
+  {
+    "callback": "function () {\n    for (var pi in UE.plugins) {\n        UE.plugins[pi].call(me);\n    }\n    me.langIsReady = true;\n    me.fireEvent('langReady');\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "loadFile"
+  },
+  {
+    "callback": "function () {\n    setValue(form, me);\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    setValue(this, me);\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.focus(me.options.focusInEnd);\n    !me.options.autoClearinitialContent && me._selectionChange();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (e.type == 'blur') {\n        me._bakRange = me.selection.getRange();\n        try {\n            me.selection.getNative().removeAllRanges();\n        } catch (e) {\n        }\n    } else {\n        try {\n            me._bakRange && me._bakRange.select();\n        } catch (e) {\n        }\n    }\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.body.contentEditable = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.body.style.height = me.iframe.offsetHeight - 20 + 'px';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (node) {\n    return node.tagName == 'FORM';\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "findParent"
+  },
+  {
+    "callback": "function (si) {\n    headHtmlForIE9 += si.href ? '<link rel=\"stylesheet\" type=\"text/css\" href=\"' + si.href + '\" />' : '<style>' + si.cssText + '</style>';\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (si) {\n    headHtmlForIE9 += si.outerHTML;\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b, c) {\n    return dtd.$block[c] ? '\\n' : b ? b : '';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (evt) {\n    if (evt.type == 'keydown' && (evt.ctrlKey || evt.metaKey || evt.shiftKey || evt.altKey)) {\n        return;\n    }\n    if (evt.button == 2)\n        return;\n    me._selectionChange(250, evt);\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    innerDrag = 1;\n}",
+    "receiverBase": "domUtils",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!innerDrag) {\n        var sel = me.selection, range = sel.getRange();\n        if (range) {\n            var common = range.getCommonAncestor();\n            if (common && me.serialize) {\n                var f = me.serialize, node = f.filter(f.transformInput(f.parseHTML(f.word(common.innerHTML))));\n                common.innerHTML = f.toHTML(node);\n            }\n        }\n    }\n    innerDrag = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.focus();\n    me._selectionChange();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    range.select(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    it('should colour strings', function () {\n        var red = colour('red', 'foo');\n        assert(red.indexOf('\\x1B') !== -1);\n    });\n    it('should strip colours strings', function () {\n        var red = colour('red', 'foo');\n        var plain = colour.strip(red);\n        assert(plain.indexOf('\\x1B') === -1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var red = colour('red', 'foo');\n    assert(red.indexOf('\\x1B') !== -1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var red = colour('red', 'foo');\n    var plain = colour.strip(red);\n    assert(plain.indexOf('\\x1B') === -1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var src = editor.getValue();\n    try {\n        var res = evaluator(src);\n    } catch (err) {\n        res = err.message;\n    }\n    output.innerHTML = '';\n    if (res instanceof Element) {\n        output.appendChild(res);\n    } else {\n        output.textContent = res;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "throttle"
+  },
+  {
+    "callback": "function (event) {\n    lastEventId = Number(event.lastEventId);\n    var div = document.createElement('div');\n    var text = document.createTextNode(event.data);\n    div.appendChild(text);\n    msgs.insertBefore(div, msgs.firstChild);\n    checkId();\n}",
+    "receiverBase": "es",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    functions = [];\n}",
+    "receiverBase": "CKEDITOR",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var test = document.createElement('div').style;\n    var cssFloat = typeof test.cssFloat != 'undefined' ? 'cssFloat' : typeof test.styleFloat != 'undefined' ? 'styleFloat' : 'float';\n    return function (cssName) {\n        if (cssName == 'float')\n            return cssFloat;\n        else {\n            return cssName.replace(/-./g, function (match) {\n                return match.substr(1).toUpperCase();\n            });\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (match) {\n    return match.substr(1).toUpperCase();\n}",
+    "receiverBase": "cssName",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var last = 0;\n    return function () {\n        return ++last;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (args)\n        func.apply(scope, [].concat(args));\n    else\n        func.apply(scope);\n}",
+    "receiverBase": "ownerWindow",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var trimRegex = /(?:^[ \\t\\n\\r]+)|(?:[ \\t\\n\\r]+$)/g;\n    return function (str) {\n        return str.replace(trimRegex, '');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var trimRegex = /^[ \\t\\n\\r]+/g;\n    return function (str) {\n        return str.replace(trimRegex, '');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var trimRegex = /[ \\t\\n\\r]+$/g;\n    return function (str) {\n        return str.replace(trimRegex, '');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return fn.apply(scope || this, arguments);\n}",
+    "receiverBase": "functions",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    return function (length) {\n        return length + (!length || isNaN(Number(length)) ? '' : 'px');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    expect(Thingy.author).toBeDefined();\n    expect(Array.isArray(Thingy.author)).toBe(true);\n    expect(Thingy.author[0]).toBe('Michael Mathews <micmath@gmail.com>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(Thingy2.author).toBeDefined();\n    expect(Array.isArray(Thingy2.author)).toBe(true);\n    expect(Thingy2.author).toContain('Jane Doe <jane.doe@gmail.com>');\n    expect(Thingy2.author).toContain('John Doe <john.doe@gmail.com>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

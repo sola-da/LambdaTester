@@ -1,0 +1,497 @@
+[
+  {
+    "callback": "function (key, cbKeys) {\n    redisClient.zcount(key, '-inf', '+inf', function (err, count) {\n        if (!err) {\n            scheduledCounts[key] = count;\n        }\n        cbKeys(null);\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachLimit"
+  },
+  {
+    "callback": "function (err, count) {\n    if (!err) {\n        scheduledCounts[key] = count;\n    }\n    cbKeys(null);\n}",
+    "receiverBase": "redisClient",
+    "receiverCallee": "zcount"
+  },
+  {
+    "callback": "function (error) {\n    Object.keys(scheduledCounts).forEach(function (schedule) {\n        console.log(schedule + ',' + scheduledCounts[schedule]);\n    });\n    process.exit(0);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachLimit"
+  },
+  {
+    "callback": "function (schedule) {\n    console.log(schedule + ',' + scheduledCounts[schedule]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    return cache.isString(ec[m]) ? ec[m] : m;\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function ($0, $1, $2, $3) {\n    c[$1] = es(($2 ? $2.replace(/\\\\\"/g, '\"') : undefined) || ($3 ? $3.replace(/\\\\'/g, '\\'') : undefined));\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (t) {\n    var js = readFile('steal/build/pluginify/test/test_steals.js');\n    var firstFunc = steal.build.pluginify.getFunction(js, 0);\n    t.equals(firstFunc, readFile('steal/build/pluginify/test/firstFunc.js'));\n    var secondFunc = steal.build.pluginify.getFunction(js, 1);\n    t.equals(secondFunc, readFile('steal/build/pluginify/test/secondFunc.js'));\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    var js = readFile('jquery/view/micro/micro.js');\n    var firstFunc = steal.build.pluginify.getFunction(js, 0);\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    s.build.pluginify('jquery/controller', {\n        nojquery: true,\n        out: 'steal/build/pluginify/test/controller.js'\n    });\n    steal.build.open('steal/build/pluginify/test/controller.html', function (opener) {\n    });\n    s.test.wait('jQuery.Controller');\n    s.test.ok(true, 'controller exists');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (opener) {\n}",
+    "receiverBase": "build",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    require('./test/selenium/basic-test.js')(this.async());\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function () {\n    server = nock('http://localhost:5555');\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    server.post('/session').reply(303, 'OK', { 'Location': '/session/1234' });\n    browser = wd.promiseChainRemote('http://localhost:5555/');\n    browser.init().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/elements', {\n        'using': '-ios uiautomation',\n        'value': 'random stuff'\n    }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: [{ ELEMENT: '0' }]\n    });\n    browser.elements('-ios uiautomation', 'random stuff').should.eventually.exist.elementsByIosUIAutomation('random stuff').should.eventually.exist.nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/elements', {\n        'using': '-android uiautomator',\n        'value': 'random stuff'\n    }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: [{ ELEMENT: '0' }]\n    });\n    browser.elements('-android uiautomator', 'random stuff').should.eventually.exist.elementsByAndroidUIAutomator('random stuff').should.eventually.exist.nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/elements', {\n        'using': 'accessibility id',\n        'value': 'random stuff'\n    }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: [{ ELEMENT: '0' }]\n    });\n    browser.elements('accessibility id', 'random stuff').should.eventually.exist.elementsByAccessibilityId('random stuff').should.eventually.exist.nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_el) {\n    el = _el;\n}",
+    "receiverBase": "elementById",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var action = new wd.TouchAction();\n    action.press({\n        x: 100,\n        y: 5\n    }).release();\n    return browser.performTouchAction(action);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var action = new wd.TouchAction(browser);\n    action.press({\n        x: 100,\n        y: 5\n    }).release();\n    return action.perform();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_el) {\n    el = _el;\n}",
+    "receiverBase": "elementById",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction().add(a1, a2);\n    return browser.performMultiAction(el, ma);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction().add(a1, a2);\n    return browser.performMultiAction(el, ma);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction().add(a1, a2);\n    return el.performMultiAction(ma);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction(el).add(a1, a2);\n    return ma.perform();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction().add(a1, a2);\n    return browser.performMultiAction(ma);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var a1 = new wd.TouchAction().tap({\n            x: 100,\n            y: 200\n        });\n    var a2 = new wd.TouchAction().tap({\n            x: 50,\n            y: 25\n        });\n    var ma = new wd.MultiAction(browser).add(a1, a2);\n    return ma.perform();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/shake', {}).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.shakeDevice().shake().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/lock', { seconds: 3 }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.lockDevice(3).lock(3).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/keyevent', { keycode: 3 }).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.deviceKeyEvent(3).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/keyevent', {\n        keycode: 3,\n        metastate: 'abcd'\n    }).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.deviceKeyEvent(3, 'abcd').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/keyevent', { keycode: 3 }).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.pressDeviceKey(3).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return el.rotate({\n        x: 114,\n        y: 198,\n        duration: 5,\n        radius: 3,\n        rotation: 220,\n        touchCount: 2\n    });\n}",
+    "receiverBase": "rotate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.get('/session/1234/appium/device/current_activity').times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: '.activities.PeopleActivity'\n    });\n    browser.getCurrentDeviceActivity().should.become('.activities.PeopleActivity').getCurrentActivity().should.become('.activities.PeopleActivity').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/install_app', { appPath: 'http://appium.s3.amazonaws.com/UICatalog6.0.app.zip' }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.installAppOnDevice('http://appium.s3.amazonaws.com/UICatalog6.0.app.zip').installApp('http://appium.s3.amazonaws.com/UICatalog6.0.app.zip').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/remove_app', { appId: 'rubish' }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.removeAppFromDevice('rubish').removeApp('rubish').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/app_installed', { bundleId: 'coolApp' }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: true\n    });\n    browser.isAppInstalledOnDevice('coolApp').should.eventually.be.ok.isAppInstalled('coolApp').should.eventually.be.ok.nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/toggle_airplane_mode', {}).times(3).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.toggleAirplaneModeOnDevice().toggleAirplaneMode().toggleFlightMode().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/toggle_wifi', {}).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.toggleWiFiOnDevice().toggleWiFi().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/toggle_location_services', {}).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.toggleLocationServicesOnDevice().toggleLocationServices().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/toggle_data', {}).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.toggleDataOnDevice().toggleData().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/launch', {}).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.launchApp().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/close', {}).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.closeApp().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/reset', {}).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.resetApp().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/background', { seconds: 3 }).reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.backgroundApp(3).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var selector = 'abcd';\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/complex_find', { selector: 'abcd' }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: { ELEMENT: '0' }\n    });\n    browser.complexFindInApp(selector).then(function (el) {\n        el.value.should.equal('0');\n    }).complexFind(selector).then(function (el) {\n        el.value.should.equal('0');\n    }).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (el) {\n    el.value.should.equal('0');\n}",
+    "receiverBase": "complexFindInApp",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (el) {\n    el.value.should.equal('0');\n}",
+    "receiverBase": "complexFind",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    var selector = 'all';\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/complex_find', { selector: 'all' }).times(2).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: [{ ELEMENT: '0' }]\n    });\n    browser.complexFindInApp(selector).then(function (els) {\n        els[0].value.should.equal('0');\n    }).complexFind(selector).then(function (els) {\n        els[0].value.should.equal('0');\n    }).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (els) {\n    els[0].value.should.equal('0');\n}",
+    "receiverBase": "complexFindInApp",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (els) {\n    els[0].value.should.equal('0');\n}",
+    "receiverBase": "complexFind",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/app/strings', { language: 'en' }).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: 'abcdefghj'\n    });\n    browser.getAppStrings('en').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (el) {\n    return browser.setImmediateValueInApp(el, '12345').setImmediateValue(el, '12345').then(function () {\n        return el.setImmediateValueInApp('12345').setImmediateValue('12345');\n    });\n}",
+    "receiverBase": "elementById",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return el.setImmediateValueInApp('12345').setImmediateValue('12345');\n}",
+    "receiverBase": "setImmediateValue",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/network_connection', { parameters: { type: 5 } }).reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: 5\n    });\n    browser.setNetworkConnection(5).should.eventually.equal(5).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.get('/session/1234/network_connection').reply(200, {\n        status: 0,\n        sessionId: '1234',\n        value: { value: 5 }\n    });\n    browser.getNetworkConnection().should.eventually.deep.equal({ value: 5 }).nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/appium/device/open_notifications').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.openNotifications().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.get('/session/1234/ime/available_engines').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.availableIMEEngines().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/ime/activate').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.activateIMEEngine('some.ime').nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.post('/session/1234/ime/deactivate').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.deactivateIMEEngine().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.get('/session/1234/ime/activated').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.isIMEActive().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    nock.cleanAll();\n    server.get('/session/1234/ime/active_engine').reply(200, {\n        status: 0,\n        sessionId: '1234'\n    });\n    browser.activeIMEEngine().nodeify(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    server.post('/session').reply(303, 'OK', { 'Location': '/session/1234' });\n    browser = wd.remote('http://localhost:5555/');\n    browser.init(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (err, _el) {\n    should.not.exist(err);\n    el = _el;\n    done();\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "elementById"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "performTouchAction"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "action",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (err, _el) {\n    should.not.exist(err);\n    el = _el;\n    done();\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "elementById"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "performMultiAction"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "el",
+    "receiverCallee": "performMultiAction"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "ma",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "performMultiAction"
+  },
+  {
+    "callback": "function (err, res) {\n    should.not.exist(err);\n    res.should.exist;\n    done();\n}",
+    "receiverBase": "ma",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function () {\n    w[JSON.stringify(f.extval($(this)))] = $(this);\n}",
+    "receiverBase": "$c",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $x = $(this);\n    if ($x.is('.ui-sortable-placeholder')) {\n        a.push(f.extval($m));\n    } else\n        a.push(f.extval($x));\n}",
+    "receiverBase": "$c",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    a.push(f.extval($(this)));\n}",
+    "receiverBase": "$c",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    a.push(f.extval($(this)));\n}",
+    "receiverBase": "$c",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ind) {\n    var val = $(this).val();\n    if (String(v) === String(val))\n        pos = ind;\n}",
+    "receiverBase": "$o",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ind) {\n    var $x = $(this);\n    if (pos != ind && $x.is(':checked'))\n        $x.attr('checked', false).checkboxradio('refresh');\n}",
+    "receiverBase": "$o",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).attr('checked', false);\n}",
+    "receiverBase": "$o",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ind) {\n    var $x = $(this), val = $x.val(), on = $x.is(':checked');\n    if (v.indexOf(val) != -1) {\n        a.push(val);\n        if (!on)\n            $x.attr('checked', true);\n    } else if (on)\n        $x.attr('checked', false);\n    if (jqcheck)\n        $x.checkboxradio('refresh');\n}",
+    "receiverBase": "$o",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ind) {\n    var $x = $(this);\n    if ($x.is(':checked'))\n        a.push($x.val());\n}",
+    "receiverBase": "$o",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var $x = $(this);\n    if (f.extval($x) == v)\n        $o.selectmenu('value', i);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jon = ($(this).val() || $(this).button('option', 'label')) == v ? $(this) : jon;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, a, b) {\n    if ($.type(b) != 'object')\n        return b;\n    else\n        return Object.merge(a, b, false);\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "merge"
+  },
+  {
+    "callback": "function (a, i) {\n    this[i] = String(a).compact();\n}",
+    "receiverBase": "split",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, i) {\n    this[i] = String(a).compact();\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    cChange($(this).find('body').html());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cChange($ibody.html());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cChange($ibody.html());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt) {\n    if (evt.type == 'change')\n        evt.stopPropagation();\n    $this.data('my')._changed($this, $root, uiNode, p);\n}",
+    "receiverBase": "$this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (i, v) {\n    var t = typeof v;\n    if (t == 'string' || t == 'function')\n        ui[i] = { bind: v };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    f.update($x.find(key), noRecalc ? null : undefined, d.params.recalcDepth);\n}",
+    "receiverBase": "ui",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    var $obj = $x.find(key);\n    $obj.unbind('.my').removeData('my');\n}",
+    "receiverBase": "ui",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (complete) {\n        complete.call(hash.context, xhr);\n    }\n}",
+    "receiverBase": "Em",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    if (success) {\n        success.call(hash.context, payload);\n    }\n}",
+    "receiverBase": "Em",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    if (error) {\n        error.call(hash.context, xhr);\n    }\n}",
+    "receiverBase": "Em",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (socket) {\n    delivery = dl.listen(socket);\n    delivery.on('receive.success', function (file) {\n        fs.writeFile(file.name, file.buffer, function (err) {\n            if (err) {\n                console.log('File could not be saved.');\n            } else {\n                console.log('File saved.');\n            }\n            ;\n        });\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    fs.writeFile(file.name, file.buffer, function (err) {\n        if (err) {\n            console.log('File could not be saved.');\n        } else {\n            console.log('File saved.');\n        }\n        ;\n    });\n}",
+    "receiverBase": "delivery",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        console.log('File could not be saved.');\n    } else {\n        console.log('File saved.');\n    }\n    ;\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function () {\n    if (_backend == 'localStorage' || _backend == 'globalStorage') {\n        updateTime = _storage_service.jStorage_update;\n    } else if (_backend == 'userDataBehavior') {\n        _storage_elm.load('jStorage');\n        try {\n            updateTime = _storage_elm.getAttribute('jStorage_update');\n        } catch (E5) {\n        }\n    }\n    if (updateTime && updateTime != _observerUpdate) {\n        _observerUpdate = updateTime;\n        _checkUpdatedKeys();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

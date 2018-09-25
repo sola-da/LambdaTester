@@ -1,0 +1,3337 @@
+[
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (_, slash, key, option) {\n    var optional = option === '?' ? option : null;\n    var star = option === '*' ? option : null;\n    keys.push({\n        name: key,\n        optional: !!optional\n    });\n    slash = slash || '';\n    return '' + (optional ? '' : slash) + '(?:' + (optional ? slash : '') + (star && '(.+?)' || '([^/]+)') + (optional || '') + ')' + (optional || '');\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (value, key) {\n    locals[key] = angular.isString(value) ? $injector.get(value) : $injector.invoke(value);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (response) {\n    return response.data;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (locals) {\n    if (next == $route.current) {\n        if (next) {\n            next.locals = locals;\n            angular.copy(next.params, $routeParams);\n        }\n        $rootScope.$broadcast('$routeChangeSuccess', next, last);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    if (next == $route.current) {\n        $rootScope.$broadcast('$routeChangeError', next, last, error);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (route, path) {\n    if (!match && (params = switchRouteMatcher($location.path(), route))) {\n        match = inherit(route, {\n            params: angular.extend({}, $location.search(), params),\n            pathParams: params\n        });\n        match.$$route = route;\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (segment, i) {\n    if (i === 0) {\n        result.push(segment);\n    } else {\n        var segmentMatch = segment.match(/(\\w+)(.*)/);\n        var key = segmentMatch[1];\n        result.push(params[key]);\n        result.push(segmentMatch[2] || '');\n        delete params[key];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    previousElement = null;\n}",
+    "receiverBase": "$animate",
+    "receiverCallee": "leave"
+  },
+  {
+    "callback": "function (clone) {\n    $animate.enter(clone, null, currentElement || $element, function onNgViewEnter() {\n        if (angular.isDefined(autoScrollExp) && (!autoScrollExp || scope.$eval(autoScrollExp))) {\n            $anchorScroll();\n        }\n    });\n    cleanupLastView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$transclude"
+  },
+  {
+    "callback": "function onNgViewEnter() {\n    if (angular.isDefined(autoScrollExp) && (!autoScrollExp || scope.$eval(autoScrollExp))) {\n        $anchorScroll();\n    }\n}",
+    "receiverBase": "$animate",
+    "receiverCallee": "enter"
+  },
+  {
+    "callback": "function (e) {\n    var n = 'on' + e;\n    var m = obs[n];\n    if (m)\n        withDefaults[n] = function () {\n            m.apply(obs, arguments);\n        };\n    else\n        withDefaults[n] = function () {\n        };\n}",
+    "receiverBase": "Events",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (nm) {\n    return nm + '=\"' + a[nm] + '\"';\n}",
+    "receiverBase": "getPropertyArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    Single[t] = t;\n    Token[t] = '\\'' + t + '\\'';\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (kw) {\n    Keyword[kw] = kw;\n    Token[kw] = 'keyword \\'' + kw + '\\'';\n}",
+    "receiverBase": "keywords",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj) {\n    if (obj) {\n        for (var key in obj) {\n            result[key] = obj[key];\n        }\n    }\n}",
+    "receiverBase": "objs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    a.push(item);\n}",
+    "receiverBase": "_a",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    handlers[name] = [];\n}",
+    "receiverBase": "eventNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    try {\n        builder(promise);\n    } catch (e) {\n        promise.reject(e);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var cl = consumers.length;\n    if (cl === 0 && !success) {\n        var error = result[0] instanceof Error ? result[0].message + '\\n' + result[0].stack : result;\n        console.error('Possibly uncaught error: ', error);\n    }\n    for (var i = 0; i < cl; i++) {\n        notifyConsumer(consumers[i]);\n    }\n    consumers = undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    notifyConsumer(consumer);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (fun, index) {\n    if (typeof fun !== 'function') {\n        throw new Error('asyncGroup got non-function: ' + fun);\n    }\n    var _result = fun();\n    if (_result && _result.then && typeof _result.then === 'function') {\n        _result.then(function (result) {\n            finishOne(result, index);\n        }, failOne);\n    } else {\n        finishOne(_result, index);\n    }\n}",
+    "receiverBase": "functions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (result) {\n    finishOne(result, index);\n}",
+    "receiverBase": "_result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (promise) {\n    util.asyncGroup.apply(util, array.map(function (element, index) {\n        return util.curry(iterator, element, index);\n    })).then(function (results, errors) {\n        promise.fulfill(array, errors);\n    });\n}",
+    "receiverBase": "util",
+    "receiverCallee": "getPromise"
+  },
+  {
+    "callback": "function (element, index) {\n    return util.curry(iterator, element, index);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (results, errors) {\n    promise.fulfill(array, errors);\n}",
+    "receiverBase": "apply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (element) {\n    return util.curry(mapper, element);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (element) {\n    return testFunction(element).then(function (result) {\n        if (result) {\n            a.push(element);\n        }\n    });\n}",
+    "receiverBase": "util",
+    "receiverCallee": "asyncEach"
+  },
+  {
+    "callback": "function (result) {\n    if (result) {\n        a.push(element);\n    }\n}",
+    "receiverBase": "testFunction",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return a;\n}",
+    "receiverBase": "asyncEach",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (key) {\n    localStorage.removeItem(key);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "grepLocalStorage"
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    return simplify;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.get(k) - b.get(k);\n}",
+    "receiverBase": "",
+    "receiverCallee": "sel_cmp"
+  },
+  {
+    "callback": "function (tab) {\n    for (var i = 0; i < 256; ++i) {\n        var v = i, r = i, s = 7;\n        for (v >>>= 1; v; v >>>= 1) {\n            r <<= 1;\n            r |= v & 1;\n            --s;\n        }\n        tab[i] = r << s & 255;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    return 'i' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'this._stride' + i + '*i' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'b' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'c' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'this._shape' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return [\n        '(typeof i',\n        i,\n        '!==\\'number\\'||i',\n        i,\n        '<0)?this._shape',\n        i,\n        ':i',\n        i,\n        '|0'\n    ].join('');\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'this._stride' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'a' + i + '=this._shape' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'c' + i + '=this._stride' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'a' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'c' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'a' + i + '=this._shape' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'b' + i + '=this._stride' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'a' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'b' + i;\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (n, idx) {\n    return n + '=(' + n + '===undefined?' + idx + ':' + n + '|0)';\n}",
+    "receiverBase": "args",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'shape[' + i + ']';\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    return 'stride[' + i + ']';\n}",
+    "receiverBase": "indices",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    try {\n        var buf = new ArrayBuffer(0);\n        var arr = new Uint8Array(buf);\n        arr.foo = function () {\n            return 42;\n        };\n        return 42 === arr.foo() && typeof arr.subarray === 'function';\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (d) {\n    var val = parseFloat(fetchValue(vars, d, vars.color.value));\n    if (typeof val == 'number' && !isNaN(val) && data_range.indexOf(val) < 0)\n        data_range.push(val);\n}",
+    "receiverBase": "pool",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return vars.id.value in d;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (key) {\n    if (availableKeys.indexOf(vars[key].value) >= 0) {\n        data = data.filter(function (d) {\n            var val = fetchValue(vars, d, vars[key].value);\n            if (key === 'size') {\n                return typeof val === 'number';\n            } else {\n                return val !== null;\n            }\n        });\n    }\n}",
+    "receiverBase": "filters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, d, vars[key].value);\n    if (key === 'size') {\n        return typeof val === 'number';\n    } else {\n        return val !== null;\n    }\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (f) {\n    if (typeof f === 'function') {\n        match = f(val);\n    } else if (f === val) {\n        match = true;\n    }\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    if (!match) {\n        match = test_value(fetchValue(vars, d, n));\n    }\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    var first_match = nest_check(d[vars.edges.source]), second_match = nest_check(d[vars.edges.target]);\n    return first_match && second_match;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (y, i) {\n    if (i != 0) {\n        var prev = vars.data.time.values[i - 1];\n        step.push(y - prev);\n        if (i === vars.data.time.values.length - 1) {\n            vars.data.time.total = y - vars.data.time.values[0];\n        }\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a * b;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (y, i) {\n    if (i != 0) {\n        var prev = vars.data.time.values[0];\n        vars.data.time.dataSteps.push(getDiff(prev, y, periods.indexOf(vars.data.time.stepType)));\n    } else {\n        vars.data.time.dataSteps = [0];\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (depth, i) {\n    var nestingDepth = vars.id.nesting.slice(0, i + 1);\n    vars.data.nested.all[depth] = dataNest(vars, vars.data.value, nestingDepth);\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    var d = new Date(fetchValue(vars, d, vars.time.value).toString());\n    d.setTime(d.getTime() + d.getTimezoneOffset() * 60 * 1000);\n    return d.getTime() === ms;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (depth, i) {\n    var nestingDepth = vars.id.nesting.slice(0, i + 1);\n    vars.data.nested[ms][depth] = dataNest(vars, timeData, nestingDepth);\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    get_keys(d);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    var axisKey = vars[axis].value;\n    if (requirements.indexOf(axis) >= 0 && axisKey && vars[axis].scale.value === 'continuous') {\n        exceptions.push(axisKey);\n        nestedData.key(function (d) {\n            return fetchValue(vars, d, axisKey);\n        });\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, axisKey);\n}",
+    "receiverBase": "nestedData",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (level, i) {\n    nestedData.key(function (d) {\n        if (typeof level === 'function') {\n            return level(d);\n        }\n        return fetchValue(vars, d, level);\n    });\n    checkAxes();\n}",
+    "receiverBase": "nestingLevels",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    if (typeof level === 'function') {\n        return level(d);\n    }\n    return fetchValue(vars, d, level);\n}",
+    "receiverBase": "nestedData",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (d) {\n    return true;\n}",
+    "receiverBase": "nestedData",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (l) {\n    if ('d3plus' in l) {\n        if (l.d3plus.merged instanceof Array) {\n            if (!returnObj.d3plus.merged)\n                returnObj.d3plus.merged = [];\n            returnObj.d3plus.merged = returnObj.d3plus.merged.concat(l.d3plus.merged);\n        }\n        if (l.d3plus.text)\n            returnObj.d3plus.text = l.d3plus.text;\n    }\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    var key = vars[c].value || c;\n    returnObj.d3plus[key] = d3.sum(leaves, function (d) {\n        if (vars[c].value) {\n            var a = fetchValue(vars, d, vars[c].value);\n            if (typeof a !== 'number') {\n                a = a ? 1 : 0;\n            }\n        } else if (c === 'total') {\n            var a = 1;\n        } else {\n            var a = 0;\n        }\n        return a;\n    });\n}",
+    "receiverBase": "segments",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    if (vars[c].value) {\n        var a = fetchValue(vars, d, vars[c].value);\n        if (typeof a !== 'number') {\n            a = a ? 1 : 0;\n        }\n    } else if (c === 'total') {\n        var a = 1;\n    } else {\n        var a = 0;\n    }\n    return a;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (obj) {\n    return rename_key_value(obj);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    find_keys(c, depth, keys);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj) {\n    find_keys(obj, 0, {});\n    return obj;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, split);\n}",
+    "receiverBase": "nest",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (l) {\n    return fetchValue(vars, l, vars.size.value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "d3"
+  },
+  {
+    "callback": "function (l) {\n    return fetchValue(vars, l, vars.size.value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (d, i) {\n    if (vars.depth.value == i) {\n        var prev = m[vars.id.nesting[i - 1]];\n        if (typeof prev === 'string') {\n            m[d] = 'd3plus_other_' + prev;\n        } else {\n            m[d] = 'd3plus_other';\n        }\n    } else if (i > vars.depth.value) {\n        delete m[d];\n    }\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (r) {\n    if (m[parent] == r[parent]) {\n        m.d3plus.merged.push(r);\n    }\n}",
+    "receiverBase": "removed",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (y) {\n    if (typeof y === 'function') {\n        vars.data.time.values.forEach(function (t) {\n            if (y(t.getTime()))\n                years.push(t.getTime());\n        });\n    } else if (y.constructor === Date) {\n        years.push(new Date(y).getTime());\n    } else {\n        var d = new Date(y.toString());\n        if (d !== 'Invalid Date') {\n            d.setTime(d.getTime() + d.getTimezoneOffset() * 60 * 1000);\n            years.push(d.getTime());\n        }\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    if (y(t.getTime()))\n        years.push(t.getTime());\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    return years.indexOf(t.getTime()) < 0;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (f) {\n    var vals = vars[f][filter].value.slice(0);\n    vals.unshift(f);\n    cacheID = cacheID.concat(vals);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (y) {\n    if (vars.data.nested[y]) {\n        returnData = returnData.concat(vars.data.nested[y][vars.id.value]);\n    } else\n        missing.push(y);\n}",
+    "receiverBase": "years",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    return format(new Date(m));\n}",
+    "receiverBase": "missing",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a) {\n    if (vars[a].value === vars.time.value && vars[a].scale.value === 'continuous') {\n        separated = true;\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (i) {\n    var n = fetchValue(vars, i, t, key);\n    if (n) {\n        if (n instanceof Array && d3plus.object.validate(n[0])) {\n            n = d3plus.util.uniques(n, t);\n        }\n        name = name.concat(n);\n    }\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    if (n instanceof Array) {\n        return n.map(function (nn) {\n            return vars.format.value(nn.toString(), t);\n        });\n    } else if (n) {\n        return vars.format.value(n.toString(), t);\n    }\n}",
+    "receiverBase": "name",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (nn) {\n    return vars.format.value(nn.toString(), t);\n}",
+    "receiverBase": "n",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return uniques.indexOf(d[id_var]) >= 0;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d[id_var] === id;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    newAttr.push(attr[d]);\n}",
+    "receiverBase": "id",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    var source = e[vars.edges.source][vars.id.value], target = e[vars.edges.target][vars.id.value];\n    if (source === target) {\n        var str = vars.format.locale.value.dev.sameEdge;\n        d3plus.console.warning(d3plus.string.format(str, '\"' + source + '\"'), 'edges');\n        return false;\n    } else {\n        return true;\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (attr) {\n    if (/^data-/.test(attr.name)) {\n        var camelCaseName = attr.name.substr(5).replace(/-(.)/g, function ($0, $1) {\n                return $1.toUpperCase();\n            });\n        obj[camelCaseName] = attr.value;\n    }\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function ($0, $1) {\n    return $1.toUpperCase();\n}",
+    "receiverBase": "substr",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    if (elem.getAttribute(a) !== null) {\n        obj[a] = elem.getAttribute(a);\n    }\n}",
+    "receiverBase": "attributes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (o, i) {\n    var data_obj = {};\n    data_obj.text = this.innerHTML;\n    get_attributes(data_obj, this);\n    elementData.push(data_obj);\n    if (this.selected) {\n        for (var i = vars.id.nesting.length - 1; i >= 0; i--) {\n            var level = vars.id.nesting[i];\n            if (level in data_obj) {\n                vars.self.focus(data_obj[level]);\n                break;\n            }\n        }\n    }\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o, i) {\n    var data_obj = {};\n    get_attributes(data_obj, this);\n    var id = data_obj[vars.id.value] || this.id || false;\n    if (id && isNaN(parseFloat(id))) {\n        var label = d3.select('label[for=' + id + ']');\n        if (!label.empty()) {\n            data_obj.text = label.html();\n            label.call(hideElement);\n        }\n    }\n    elementData.push(data_obj);\n    if (this.checked) {\n        vars.focus.value[0] = data_obj[vars.id.value];\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    return typeof n.x == 'number' && typeof n.y == 'number';\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var _j, _len, _results1;\n    _results1 = [];\n    for (_j = 0, _len = data.length; _j < _len; _j++) {\n        point = data[_j];\n        _results1.push(Math.pow(point[0], degree));\n    }\n    return _results1;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = data.length; _i < _len; _i++) {\n        point = data[_i];\n        _results.push(point[1]);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _j, _results;\n    _results = [];\n    for (q = _j = 0; 0 <= N ? _j < N : _j > N; q = 0 <= N ? ++_j : --_j) {\n        _results.push(1);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = points.length; _i < _len; _i++) {\n        p = points[_i];\n        _results.push(tree.knn(p, K + 1).slice(1));\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _ref, _results;\n    _results = [];\n    for (i = _i = 0, _ref = points.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {\n        _results.push(sqDist(i, neighbors[i][K - 1]));\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _ref, _results;\n    _results = [];\n    for (i = _i = 0, _ref = points.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {\n        _results.push(ldr(i));\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _j, _len, _ref, _ref1, _results;\n    _results = [];\n    for (i = _i = 0, _ref = points.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {\n        avg_lrd = 0;\n        _ref1 = neighbors[i];\n        for (_j = 0, _len = _ref1.length; _j < _len; _j++) {\n            j = _ref1[_j];\n            avg_lrd += ldrs[j];\n        }\n        avg_lrd /= K;\n        _results.push([\n            i,\n            avg_lrd / ldrs[i]\n        ]);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a, b) {\n    return b[1] - a[1];\n}",
+    "receiverBase": "result",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (p) {\n    return Math.abs(p - median);\n}",
+    "receiverBase": "points",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p, i) {\n    return [\n        i,\n        Math.abs(p - median) / mad\n    ];\n}",
+    "receiverBase": "points",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a, b) {\n    return b[1] - a[1];\n}",
+    "receiverBase": "result",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (d) {\n    return sizes.push({\n        height: this.offsetHeight || this.getBoundingClientRect().height,\n        text: d,\n        width: this.getComputedTextLength()\n    });\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    var level = getLevel(d);\n    return d && level in d ? d[level] : false;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    var level = getLevel(d);\n    if (d[level] === vars.focus.value[0]) {\n        this.selected = true;\n    } else {\n        this.selected = false;\n    }\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    vars.margin.left = this.offsetWidth;\n}",
+    "receiverBase": "text",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (b) {\n    return checks.indexOf(b[vars.id.value]) >= 0;\n}",
+    "receiverBase": "button",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (c) {\n    return c;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (c) {\n    return c === 'label' ? 'block' : 'absolute';\n}",
+    "receiverBase": "append",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    var extra = '';\n    if (c === 'selected' && iconGraphic.indexOf('fa-') === 0) {\n        extra = ' fa ' + iconGraphic;\n    }\n    return 'd3plus_button_element d3plus_button_' + c + extra;\n}",
+    "receiverBase": "order",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'label') {\n        var k = vars.text.value && vars.text.value in d && !(d[vars.text.value] instanceof Array) ? vars.text.value : vars.id.value;\n        return vars.format.value(d[k]);\n    }\n    return c === 'selected' && iconGraphic.indexOf('fa-') < 0 ? iconGraphic : '';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "html"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'icon') {\n        return 'url(\\'' + d[vars.icon.value] + '\\')';\n    }\n    return 'none';\n}",
+    "receiverBase": "html",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'icon' && d.style === 'knockout') {\n        return d[vars.color.value] || vars.ui.color.primary.value;\n    }\n    return 'transparent';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    return c === 'label' ? vars.font.align.value : 'center';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    return c == 'label' ? 'static' : 'absolute';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'label') {\n        return 'auto';\n    }\n    if (vars.height.value) {\n        buffer = vars.height.value - vars.ui.padding * 2 - vars.ui.border * 2;\n    } else {\n        buffer = vars.font.size + vars.ui.padding + vars.ui.border;\n    }\n    return buffer + 'px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'icon') {\n        return buffer + 'px';\n    }\n    return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'label') {\n        return '0px';\n    }\n    if (this.offsetHeight || this.getBoundingClientRect().height) {\n        var h = this.offsetHeight || this.getBoundingClientRect().height;\n    } else if (c === 'selected') {\n        var h = vars.font.size;\n    } else {\n        var h = buffer;\n    }\n    return -h / 2 + 'px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    return c === 'label' ? 'auto' : '50%';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'icon' && !reversed || c === 'selected' && reversed) {\n        return vars.ui.padding + 'px';\n    }\n    return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    if (c === 'icon' && reversed || c === 'selected' && !reversed) {\n        return vars.ui.padding + 'px';\n    }\n    return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    return c === 'selected' ? vars.draw.timing / 1000 + 's' : 'none';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    var degree = c === 'selected' ? vars.icon.select.rotate : 'none';\n    return 'rotate(' + degree + 'deg)';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (c) {\n    return c === 'selected' ? vars.icon.select.opacity : 1;\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d, i) {\n    vars.self.hover(d[vars.id.value]);\n    if (d3plus.ie || !vars.draw.timing) {\n        d3.select(this).style('cursor', 'pointer').call(color, vars);\n    } else {\n        d3.select(this).style('cursor', 'pointer').transition().duration(vars.timing.mouseevents).call(color, vars);\n    }\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    vars.self.hover(false);\n    if (d3plus.ie || !vars.draw.timing) {\n        d3.select(this).style('cursor', 'auto').call(color, vars);\n    } else {\n        d3.select(this).style('cursor', 'auto').transition().duration(vars.timing.mouseevents).call(color, vars);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.id.value in d) {\n        vars.self.focus(d[vars.id.value]).draw();\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    var match = false;\n    for (var i = 0; i < vars.id.nesting.length; i++) {\n        var level = vars.id.nesting[i];\n        match = level in d && d[level] === vars.focus.value[0];\n        if (match) {\n            depth = i;\n            break;\n        }\n    }\n    return match;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    vars.self.open(!vars.open.value).draw();\n}",
+    "receiverBase": "button",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (t) {\n    return t;\n}",
+    "receiverBase": "searchKeys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (t) {\n    return t != '';\n}",
+    "receiverBase": "searchWords",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    if ('endPoint' in d.d3plus && d.d3plus.endPoint === vars.depth.value) {\n        d.d3plus.icon = false;\n    }\n    return true;\n}",
+    "receiverBase": "filtered",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    searchData = searchData.concat(vars.data.nested.all[n]);\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d, i) {\n    d.d3plus_order = i;\n}",
+    "receiverBase": "filtered",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    vars.self.draw({ 'update': false }).draw();\n}",
+    "receiverBase": "value",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var search = vars.search.enabled ? d3.event.relatedTarget != vars.container.value.select('input').node() : true;\n    if (search) {\n        vars.self.draw({ 'update': false }).draw();\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    vars.self.focus(this.value).draw();\n}",
+    "receiverBase": "value",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var key = d3.event.keyCode;\n    if (key != 9) {\n        d3.event.preventDefault();\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (f) {\n    return f[vars.id.value] === value;\n}",
+    "receiverBase": "filtered",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    vars.self.depth(depth).id({ 'solo': solo }).draw();\n}",
+    "receiverBase": "states",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (d, i) {\n    if (d.value == vars.focus) {\n        index = i;\n    }\n}",
+    "receiverBase": "options",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d, i) {\n    if (d.value == vars.hover) {\n        index = i;\n    }\n}",
+    "receiverBase": "options",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d, i) {\n    if (d[vars.id.value] == vars.focus.value[0]) {\n        option = this;\n    }\n}",
+    "receiverBase": "options",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.text.solo[0] !== this.value) {\n        vars.self.text({ 'solo': [this.value] });\n        data(vars);\n        items(vars);\n        update(vars);\n    }\n}",
+    "receiverBase": "select",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d, i) {\n    var color = d3plus.color.lighter(vars.ui.color.secondary.value);\n    d3.select(this).style('cursor', 'pointer').transition().duration(vars.timing.mouseevents).style('background-color', color).style('color', d3plus.color.text(color));\n}",
+    "receiverBase": "title",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    var color = vars.ui.color.secondary.value;\n    d3.select(this).style('cursor', 'auto').transition().duration(vars.timing.mouseevents).style('background-color', color).style('color', d3plus.color.text(color));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    vars.history.back();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (vars.open.value) {\n        d3.select(this).style('z-index', 9999);\n    }\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!vars.open.value) {\n        d3.select(this).style('z-index', 'auto');\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (vars.open.value) {\n        return 9999;\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    if (vars.font.align.value === 'left') {\n        return vars.margin.left + 'px';\n    } else if (vars.font.align.value === 'center') {\n        return vars.margin.left - (vars.width.secondary - vars.width.value) / 2 + 'px';\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.font.align.value === 'right' ? '0px' : 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.open.value ? '9999' : '-1';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.open.flipped.value ? 'auto' : vars.margin.top + 'px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.open.flipped.value ? vars.margin.top + 'px' : 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.open.flipped.value ? 'auto' : vars.margin.top + 'px';\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return vars.open.flipped.value ? vars.margin.top + 'px' : 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).style('display', vars.open.value ? 'block' : null);\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).transition().duration(vars.draw.timing).call(finish);\n}",
+    "receiverBase": "call",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    d[vars.text.value || vars.id.value] = d[key];\n}",
+    "receiverBase": "newData",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (o) {\n    w.push(this.offsetWidth);\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var element = d3.event.target || d3.event.toElement, parent = element.parentNode;\n    if (parent && [\n            'd3plus_node',\n            'd3plus_drop_title'\n        ].indexOf(parent.className) >= 0) {\n        element = parent.parentNode;\n    }\n    if (element && parent && !d3plus.util.child(vars.container.ui, element) && vars.open.value) {\n        vars.self.open(!vars.open.value).draw();\n    }\n}",
+    "receiverBase": "select",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (value) {\n    if (value[0] !== vars.focus.value[0]) {\n        vars.self.focus(value[0]).draw();\n    }\n}",
+    "receiverBase": "color",
+    "receiverCallee": "focus"
+  },
+  {
+    "callback": "function (e) {\n    return e.indexOf('Error') !== 0 && e.indexOf('d3plus.js:') < 0 && e.indexOf('d3plus.min.js:') < 0;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d[0];\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    return d[1];\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = poly.length; _i < _len; _i++) {\n        p = poly[_i];\n        _results.push({\n            x: p[0],\n            y: p[1]\n        });\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = tempPoly.length; _i < _len; _i++) {\n        p = tempPoly[_i];\n        _results.push([\n            p.x,\n            p.y\n        ]);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (d) {\n    return d[0];\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    return d[1];\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    vars.self[d] = function (dep, n) {\n        return function (x) {\n            if (vars.dev.value && vars.methodGroup) {\n                d3plus.console.groupEnd();\n                vars.methodGroup = false;\n            }\n            var str = vars.format.locale.value.dev.deprecated;\n            dep = '.' + dep + '()';\n            d3plus.console.error(d3plus.string.format(str, dep, '.' + n + '()'), n);\n            return vars.self;\n        };\n    }(d, method);\n}",
+    "receiverBase": "deps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep, n) {\n    return function (x) {\n        if (vars.dev.value && vars.methodGroup) {\n            d3plus.console.groupEnd();\n            vars.methodGroup = false;\n        }\n        var str = vars.format.locale.value.dev.deprecated;\n        dep = '.' + dep + '()';\n        d3plus.console.error(d3plus.string.format(str, dep, '.' + n + '()'), n);\n        return vars.self;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    if (typeof a === 'string') {\n        recs.push('\"' + a + '\"');\n    } else if (typeof a === 'function') {\n        recs.push(a.toString().split('()')[0].substring(9));\n    } else {\n        recs.push(a.toString());\n    }\n}",
+    "receiverBase": "accepted",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (r) {\n    object[r] = false;\n}",
+    "receiverBase": "reset",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    if (!(m in vars)) {\n        vars[m] = {};\n    }\n    vars[m] = d3plus.object.merge(d3plus.method[m], vars[m]);\n    if (styles.indexOf(m) >= 0) {\n        vars[m] = d3plus.object.merge(initStyle[m], vars[m]);\n        styles.splice(styles.indexOf(m), 1);\n    }\n    d3plus.method.init(vars, vars[m], m);\n    vars.self[m] = d3plus.method.function(m, vars);\n}",
+    "receiverBase": "methods",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    vars[m] = d3plus.object.merge(vars[m] || {}, initStyle[m]);\n    d3plus.method.init(vars, vars[m], m);\n    vars.self[m] = d3plus.method.function(m, vars);\n}",
+    "receiverBase": "styles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    titles.push(vars.format.value(c));\n}",
+    "receiverBase": "columns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    var arr = [];\n    columns.forEach(function (c) {\n        arr.push(fetchValue(vars, n, c));\n    });\n    csv_to_return.push(arr);\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    arr.push(fetchValue(vars, n, c));\n}",
+    "receiverBase": "columns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c, i) {\n    dataString = c.join(',');\n    csv_data += i < csv_to_return.length ? dataString + '\\n' : dataString;\n}",
+    "receiverBase": "csv_to_return",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    var method = c.method;\n    delete c.method;\n    changesObject[method] = c;\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (edge) {\n    var match = false;\n    if (edge[self.source][id] == focus) {\n        match = true;\n        if (objects) {\n            targets.push(edge[self.target]);\n        }\n    } else if (edge[self.target][id] == focus) {\n        match = true;\n        if (objects) {\n            targets.push(edge[self.source]);\n        }\n    }\n    return match;\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d, i) {\n    if (d && d[vars.id.value] === value[0]) {\n        vars.data.element.value.node().selectedIndex = i;\n    }\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    if (d && d[vars.id.value] === value[0]) {\n        this.checked = true;\n    } else {\n        this.checked = false;\n    }\n}",
+    "receiverBase": "value",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, i) {\n    value[i] = parseFloat(v, 10);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    self[side] = value;\n}",
+    "receiverBase": "sides",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    self[k] = 0;\n}",
+    "receiverBase": "sides",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    return typeof d3plus.style[s] === 'object';\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var _results;\n    _results = [];\n    for (cid in communities) {\n        community = communities[cid];\n        _results.push([\n            cid,\n            community.nodes.length\n        ]);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a, b) {\n    return b[1] - a[1];\n}",
+    "receiverBase": "commSizes",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    var _k, _len2, _results;\n    _results = [];\n    for (_k = 0, _len2 = commSizes.length; _k < _len2; _k++) {\n        commSize = commSizes[_k];\n        _results.push(communities[commSize[0]].nodes);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (nodeid) {\n    return function (node) {\n        return node[nodeid];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (startpoint) {\n    return function (edge) {\n        return edge[startpoint];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (endpoint) {\n    return function (edge) {\n        return edge[endpoint];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (distance) {\n    return function (edge) {\n        return distance;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (distance) {\n    return function (edge) {\n        return edge[distance];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _results;\n    _results = [];\n    for (id in visited) {\n        _results.push(nodes[id].node);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = edges.length; _i < _len; _i++) {\n        edge = edges[_i];\n        if (nodeid(startpoint(edge)) in visited && nodeid(endpoint(edge)) in visited) {\n            _results.push(edge);\n        }\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    return superscript[c];\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (txt, i) {\n    if (bigs.indexOf(txt.toLowerCase()) >= 0) {\n        return txt.toUpperCase();\n    } else {\n        if (smalls.indexOf(txt.toLowerCase()) >= 0 && i !== 0 && i !== text.length - 1) {\n            return txt.toLowerCase();\n        }\n    }\n    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (t) {\n    return [\n        'string',\n        'number'\n    ].indexOf(typeof t) >= 0;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    return d.width * d.height;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function () {\n    d3plus.textwrap.getDimensions(vars);\n    d3plus.textwrap.getSize(vars);\n    if (vars.size.value[0] <= vars.height.value) {\n        d3plus.textwrap.getText(vars);\n        d3plus.textwrap.wrap(vars);\n    }\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    return vars.size.value in n;\n}",
+    "receiverBase": "nameList",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return !(vars.size.value in n);\n}",
+    "receiverBase": "nameList",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (data) {\n    var html = vars.tooltip.html.value.callback ? vars.tooltip.html.value.callback(data) : data;\n    make_tooltip(html);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "json"
+  },
+  {
+    "callback": "function (d) {\n    if (d.anchor.y != 'center' && !d.flip)\n        return '-5px';\n    else\n        return 'auto';\n}",
+    "receiverBase": "arrow",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (d.anchor.y != 'center' && d.flip)\n        return '-5px';\n    else if (d.anchor.y == 'center')\n        return '50%';\n    else\n        return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (d.anchor.y == 'center' && d.flip)\n        return '-5px';\n    else if (d.anchor.y != 'center')\n        return '50%';\n    else\n        return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (d.anchor.y == 'center' && !d.flip)\n        return '-5px';\n    else\n        return 'auto';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    d3plus.tooltip.remove(params.id);\n}",
+    "receiverBase": "style",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    close_descriptions();\n}",
+    "receiverBase": "style",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).style('cursor', 'pointer').style(vendor + 'box-shadow', '0 1px 3px rgba(0, 0, 0, 0.5)');\n}",
+    "receiverBase": "html",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).style('cursor', 'auto').style(vendor + 'box-shadow', '0 1px 3px rgba(0, 0, 0, 0.25)');\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3plus.tooltip.remove(params.id);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.event.stopPropagation();\n}",
+    "receiverBase": "html",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.event.stopPropagation();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.event.stopPropagation();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var c = d3.select(this.parentNode.parentNode).style('color');\n    d3.select(this).style('background-color', c);\n    desc.style('height', dh + 'px');\n}",
+    "receiverBase": "text",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.event.stopPropagation();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    close_descriptions();\n    var c = d3.select(this.parentNode).style('color');\n    help.style('background-color', c);\n    desc.style('height', dh + 'px');\n}",
+    "receiverBase": "style",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.event.stopPropagation();\n    close_descriptions();\n}",
+    "receiverBase": "block",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var w = parseFloat(d3.select(this.parentNode).style('width'), 10);\n    return w - val_width - 30 + 'px';\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    var h = parseFloat(d3.select(this).style('height'), 10);\n    val_heights[d.name] = h;\n}",
+    "receiverBase": "style",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    return val_heights[d.name] + 'px';\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (v) {\n    v = vars.format.value(v, key);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (a.indexOf(e) < 0)\n        a.push(e);\n}",
+    "receiverBase": "extras",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    format_key(t);\n}",
+    "receiverBase": "a",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n, i) {\n    if (i > depth && a[n])\n        delete a[n];\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (vars.tooltip.value.long[group].indexOf(e) >= 0 && (a[group] && a[group].indexOf(e) < 0 || !a[group])) {\n        if (!a[group])\n            a[group] = [];\n        a[group].push(e);\n        placed.push(e);\n    } else if (a[group] && a[group].indexOf(e) >= 0) {\n        placed.push(e);\n    }\n}",
+    "receiverBase": "extras",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (placed.indexOf(e) < 0) {\n        if (!a[''])\n            a[''] = [];\n        a[''].push(e);\n    }\n}",
+    "receiverBase": "extras",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (a[group] instanceof Array && a[group].indexOf(e) >= 0) {\n        present.push(e);\n    } else if (typeof a[group] == 'string' && a[group] == e) {\n        present.push(e);\n    }\n}",
+    "receiverBase": "extras",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (present.indexOf(e) < 0) {\n        a[''].push(e);\n    }\n}",
+    "receiverBase": "extras",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    format_key(t, '');\n}",
+    "receiverBase": "a",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    format_key(t, group);\n}",
+    "receiverBase": "a",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    if (Math.abs(value - p) < Math.abs(value - closest)) {\n        return closest = p;\n    }\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (o) {\n    return ret.push(d3plus.util.copy(o));\n}",
+    "receiverBase": "variable",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node2) {\n    var n2, xx, yy;\n    if (checked.indexOf(node2) < 0) {\n        n2 = accessor ? accessor(node2) : [\n            node2.x,\n            node2.y\n        ];\n        xx = Math.abs(n1[0] - n2[0]);\n        yy = Math.abs(n1[1] - n2[1]);\n        return distances.push(Math.sqrt(xx * xx + yy * yy));\n    }\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "distances",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "vals",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    var current = d3.select(this).style('position'), remain = [\n            'absolute',\n            'fixed'\n        ].indexOf(current) >= 0;\n    return remain ? current : 'relative';\n}",
+    "receiverBase": "value",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (d.dragging) {\n    } else if (vars.types[vars.type.value].zoom && vars.zoom.pan.value && vars.zoom.behavior.scaleExtent()[0] < vars.zoom.scale) {\n        d3.select(this).style('cursor', d3plus.prefix() + 'grab');\n    } else {\n        d3.select(this).style('cursor', 'auto');\n    }\n}",
+    "receiverBase": "overlay",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.types[vars.type.value].zoom && vars.zoom.pan.value && vars.zoom.behavior.scaleExtent()[0] < vars.zoom.scale) {\n        d.dragging = false;\n        d3.select(this).style('cursor', d3plus.prefix() + 'grab');\n    } else {\n        d3.select(this).style('cursor', 'auto');\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.types[vars.type.value].zoom && vars.zoom.pan.value && vars.zoom.behavior.scaleExtent()[0] < vars.zoom.scale) {\n        d.dragging = true;\n        d3.select(this).style('cursor', d3plus.prefix() + 'grabbing');\n    } else {\n        d3.select(this).style('cursor', 'auto');\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (r) {\n    if (typeof r === 'string') {\n        if (!vars[r].value)\n            missing.push('\"' + r + '\"');\n    } else if (typeof r === 'function') {\n        var reqReturn = r(vars);\n        if (!reqReturn.status && reqReturn.text) {\n            missing.push('\"' + reqReturn.text + '\"');\n        }\n    }\n}",
+    "receiverBase": "reqs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (r) {\n    if (!window[r])\n        missing.push('\"' + r + '\"');\n}",
+    "receiverBase": "reqs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    d3plus.shape.labels(vars, 'edges');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    d3plus.zoom.labels(vars);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    d3plus.shape.labels(vars, 'edge_focus');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (l) {\n    var source = l[vars.edges.source][vars.id.value], target = l[vars.edges.target][vars.id.value];\n    if (source == vars.focus.value[0] || target == vars.focus.value[0]) {\n        var elem = vars.g.edge_focus.node().appendChild(this.cloneNode(true));\n        d3.select(elem).datum(l).attr('opacity', 1).selectAll('line, path').datum(l);\n    }\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return vars.edges.size ? d3.select(this).style('stroke-width') : vars.data.stroke.width * 2;\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'source' && marker ? 'url(#d3plus_edge_marker_focus' + d + ')' : 'none';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'target' && marker ? 'url(#d3plus_edge_marker_focus' + d + ')' : 'none';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (u) {\n    if (!vars[u].loaded && vars[u].url) {\n        steps.push({\n            'function': function (vars, next) {\n                dataLoad(vars, u, next);\n            },\n            'message': locale.message.loading,\n            'wait': true\n        });\n    }\n}",
+    "receiverBase": "urlLoads",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "area",
+    "receiverCallee": "x"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.y0;\n}",
+    "receiverBase": "x",
+    "receiverCallee": "y0"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.y;\n}",
+    "receiverBase": "y0",
+    "receiverCallee": "y1"
+  },
+  {
+    "callback": "function (d) {\n    return area(d.values);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (v) {\n    tops.push([\n        v.d3plus.x,\n        v.d3plus.y\n    ]);\n    bottoms.push([\n        v.d3plus.x,\n        v.d3plus.y0\n    ]);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return area(d.values);\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return area(d.values);\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.id;\n}",
+    "receiverBase": "append",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (c, i) {\n    var test = d3plus.util.copy(d);\n    test.geometry.coordinates = [test.geometry.coordinates[i]];\n    var a = vars.path.area(test);\n    if (a >= vars.coords.threshold) {\n        areas.push(a);\n        return true;\n    }\n    return false;\n}",
+    "receiverBase": "coordinates",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "areas",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (c, i) {\n    var test = d3plus.util.copy(d);\n    test.geometry.coordinates = [test.geometry.coordinates[i]];\n    var a = vars.path.area(test);\n    if (a == areas[areas.length - 1]) {\n        largest.geometry.coordinates = test.geometry.coordinates;\n    }\n    return a >= d3.quantile(areas, 0.9);\n}",
+    "receiverBase": "coordinates",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    var a = vars.arcs[d.d3plus.shapeType][d.d3plus.id].a;\n    return a > Math.PI * 2 ? Math.PI * 2 : a;\n}",
+    "receiverBase": "startAngle",
+    "receiverCallee": "endAngle"
+  },
+  {
+    "callback": "function (d) {\n    if (shape == 'donut' && !d.d3plus.static) {\n        var r = vars.arcs[d.d3plus.shapeType][d.d3plus.id].r;\n        return r * vars.data.donut.size;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "endAngle",
+    "receiverCallee": "innerRadius"
+  },
+  {
+    "callback": "function (d) {\n    var r = vars.arcs[d.d3plus.shapeType][d.d3plus.id].r;\n    if (d.d3plus.shapeType != 'donut')\n        return r * 2;\n    else\n        return r;\n}",
+    "receiverBase": "innerRadius",
+    "receiverCallee": "outerRadius"
+  },
+  {
+    "callback": "function (d) {\n    delete vars.arcs[d.d3plus.shapeType][d.d3plus.id];\n}",
+    "receiverBase": "call",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    return [d];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    if (!d.d3plus) {\n        var s = shape_lookup[vars.shape.value];\n    } else if (!d.d3plus.shape) {\n        var s = shape_lookup[vars.shape.value];\n        d.d3plus.shapeType = s;\n    } else {\n        var s = d.d3plus.shape;\n        d.d3plus.shapeType = s;\n    }\n    if (!shapes[s]) {\n        shapes[s] = [];\n    }\n    shapes[s].push(d);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    if (vars[axis].scale.value == 'continuous') {\n        d.d3plus.id += '_' + fetchValue(vars, d, vars[axis].value);\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    var x = d.d3plus.x || 0, y = d.d3plus.y || 0;\n    if ([\n            'line',\n            'area',\n            'coordinates'\n        ].indexOf(shape) < 0) {\n        return 'translate(' + x + ',' + y + ')scale(' + scale + ')';\n    } else {\n        return 'scale(' + scale + ')';\n    }\n}",
+    "receiverBase": "g",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (v) {\n    v = id(v);\n    v.d3plus.shapeType = 'circle';\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (l) {\n    var id = d[vars.id.value], source = l[vars.edges.source][vars.id.value], target = l[vars.edges.target][vars.id.value];\n    if (source == id || target == id) {\n        var elem = vars.g.edge_hover.node().appendChild(this.cloneNode(true));\n        d3.select(elem).datum(l).attr('opacity', 1).selectAll('line, path').datum(l);\n    }\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return vars.edges.size ? d3.select(this).style('stroke-width') : vars.data.stroke.width * 2;\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'source' && marker ? 'url(#d3plus_edge_marker_highlight' + d + ')' : 'none';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'target' && marker ? 'url(#d3plus_edge_marker_highlight' + d + ')' : 'none';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (x) {\n    return x.d3plus[vars.continuous_axis];\n}",
+    "receiverBase": "util",
+    "receiverCallee": "uniques"
+  },
+  {
+    "callback": "function (x) {\n    return x.d3plus[vars.continuous_axis];\n}",
+    "receiverBase": "util",
+    "receiverCallee": "uniques"
+  },
+  {
+    "callback": "function () {\n    vars.self.id({ 'solo': previous }).title({\n        'sub': {\n            'font': { 'color': prev_color },\n            'value': prev_sub\n        },\n        'total': { 'font': { 'color': prev_total } }\n    }).draw();\n}",
+    "receiverBase": "states",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    vars.self.depth(vars.depth.value - 1).id({ 'solo': previous }).title({\n        'sub': {\n            'font': { 'color': prev_color },\n            'value': prev_sub\n        },\n        'total': { 'font': { 'color': prev_total } }\n    }).draw();\n}",
+    "receiverBase": "states",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (e) {\n    return e[vars.edges.size];\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (n) {\n    return n.d3plus.r;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "min"
+  },
+  {
+    "callback": "function (e) {\n    return vars.edges.scale(e[vars.edges.size]);\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'source' && marker ? 'url(#d3plus_edge_marker_default' + d + ')' : 'none';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (e) {\n    var direction = vars.edges.arrows.direction.value;\n    if ('bucket' in e.d3plus) {\n        var d = '_' + e.d3plus.bucket;\n    } else {\n        var d = '';\n    }\n    return direction == 'target' && marker ? 'url(#d3plus_edge_marker_default' + d + ')' : 'none';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.edges.source].d3plus.edges[d[vars.edges.target][vars.id.value]].x;\n}",
+    "receiverBase": "l",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.edges.source].d3plus.edges[d[vars.edges.target][vars.id.value]].y;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.edges.target].d3plus.edges[d[vars.edges.source][vars.id.value]].x;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.edges.target].d3plus.edges[d[vars.edges.source][vars.id.value]].y;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return curve(d.d3plus.spline);\n}",
+    "receiverBase": "l",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (id) {\n    var depth = id.split('_');\n    if (depth.length == 2 && vars.edges.scale) {\n        depth = parseInt(depth[1]);\n        var m = markerSize[depth];\n    } else {\n        var m = markerSize;\n    }\n    if (vars.edges.arrows.direction.value == 'target') {\n        return 'M 0,-' + m / 2 + ' L ' + m * 0.85 + ',0 L 0,' + m / 2 + ' L 0,-' + m / 2;\n    } else {\n        return 'M 0,-' + m / 2 + ' L -' + m * 0.85 + ',0 L 0,' + m / 2 + ' L 0,-' + m / 2;\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var type = d.split('_')[0];\n    if (type == 'default') {\n        return vars.edges.color;\n    } else if (type == 'focus') {\n        return vars.color.focus;\n    } else {\n        return vars.color.primary;\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return 'd3plus_edge_marker_' + d;\n}",
+    "receiverBase": "append",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return [d];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return [d];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return [d];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return [d];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return -w / 2 - mod / 2;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return -h / 2 - mod / 2;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return w + mod;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return h + mod;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    var rounded = [\n            'circle',\n            'donut'\n        ].indexOf(vars.shape.value) >= 0;\n    return rounded ? (w + mod) / 2 : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    var rounded = [\n            'circle',\n            'donut'\n        ].indexOf(vars.shape.value) >= 0;\n    return rounded ? (h + mod) / 2 : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (['square'].indexOf(vars.shape.value) >= 0) {\n        return vars.shape.rendering.value;\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var a = vars.arcs[d.d3plus.shapeType][d.d3plus.id].a;\n    return a > Math.PI * 2 ? Math.PI * 2 : a;\n}",
+    "receiverBase": "startAngle",
+    "receiverCallee": "endAngle"
+  },
+  {
+    "callback": "function (d) {\n    if (shape == 'donut' && !d.d3plus.static) {\n        var r = vars.arcs[d.d3plus.shapeType][d.d3plus.id].r;\n        return r * vars.data.donut.size;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "endAngle",
+    "receiverCallee": "innerRadius"
+  },
+  {
+    "callback": "function (d) {\n    var r = vars.arcs[d.d3plus.shapeType][d.d3plus.id].r;\n    if (d.d3plus.shapeType != 'donut')\n        return r * 2;\n    else\n        return r;\n}",
+    "receiverBase": "innerRadius",
+    "receiverCallee": "outerRadius"
+  },
+  {
+    "callback": "function (d) {\n    if (!d)\n        var d = { 'scale': scale[1] };\n    var size = parseFloat(d3.select(this).attr('font-size'), 10);\n    d.visible = size / d.scale * vars.zoom.scale >= 7;\n    return d.visible ? 1 : 0;\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.shape === 'circle' ? 'middle' : 'start';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (t) {\n    return t.mouse ? 'auto' : 'none';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    if (t.color)\n        return t.color;\n    var color = d3plus.shape.color(t.parent, vars), legible = d3plus.color.text(color), opacity = t.text ? 0.15 : 1;\n    return d3plus.color.mix(color, legible, 0.2, opacity);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    var a = t.angle || 0, x = t.translate && t.translate.x ? t.translate.x : 0, y = t.translate && t.translate.y ? t.translate.y : 0;\n    return 'rotate(' + a + ',' + x + ',' + y + ')scale(' + 1 / scale[1] + ')';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.w + '' + t.h + '' + t.text;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (t) {\n    if (!t)\n        return false;\n    return t.w + '_' + t.h + '_' + t.x + '_' + t.y + '_' + t.names.join('_');\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "line",
+    "receiverCallee": "x"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.y;\n}",
+    "receiverBase": "x",
+    "receiverCallee": "y"
+  },
+  {
+    "callback": "function (d) {\n    return d.key;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return line(d.values);\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return line(d.values);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.id;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return line(d.values);\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.id;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.key;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (l) {\n    return line(l.values);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (m) {\n    if (!vars.draw.frozen) {\n        d3.select(this.parentNode).selectAll('path.d3plus_line').transition().duration(vars.timing.mouseevents).style('stroke-width', vars.data.stroke.width * 2);\n        d3.select(this.parentNode).selectAll('rect').transition().duration(vars.timing.mouseevents).style('stroke-width', vars.data.stroke.width * 2).call(update, 2);\n    }\n}",
+    "receiverBase": "mouse",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    if (!vars.draw.frozen) {\n        d3.select(this.parentNode).selectAll('path.d3plus_line').transition().duration(vars.timing.mouseevents).style('stroke-width', vars.data.stroke.width);\n        d3.select(this.parentNode).selectAll('rect').transition().duration(vars.timing.mouseevents).style('stroke-width', vars.data.stroke.width).call(update);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (l) {\n    return line(l.values);\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (l) {\n    return line(l.values);\n}",
+    "receiverBase": "mouse",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "n",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.y;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return d.d3plus.x - (w / 2 + mod / 2);\n}",
+    "receiverBase": "n",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return d.d3plus.y - (h / 2 + mod / 2);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return w + mod;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return h + mod;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return (w + mod) / 2;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return (h + mod) / 2;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return -w / 2;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return -h / 2;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return w;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return h;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var rounded = vars.shape.value == 'circle';\n    var w = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.width;\n    return rounded ? (w + 2) / 2 : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var rounded = vars.shape.value == 'circle';\n    var h = d.d3plus.r ? d.d3plus.r * 2 : d.d3plus.height;\n    return rounded ? (h + 2) / 2 : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if ('rotate' in d.d3plus) {\n        return 'rotate(' + d.d3plus.rotate + ')';\n    }\n    return '';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.shape.value == 'square' && !('rotate' in d.d3plus)) {\n        return vars.shape.rendering.value;\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (d.d3plus && d.d3plus.spline) {\n        return 'none';\n    } else {\n        return d3plus.shape.color(d, vars);\n    }\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (d.values) {\n        var color = d3plus.shape.color(d.values[0], vars);\n    } else {\n        var color = d3plus.shape.color(d, vars);\n    }\n    return d3.rgb(color).darker(0.5);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (!vars.size.value)\n        return 0;\n    return fetchValue(vars, d, vars.size.value, null, 'min');\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "min"
+  },
+  {
+    "callback": "function (d) {\n    if (!vars.size.value)\n        return 0;\n    return fetchValue(vars, d, vars.size.value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    if (!vars.size.value)\n        return 0;\n    return fetchValue(vars, d, vars.size.value);\n}",
+    "receiverBase": "size",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function (d) {\n    return size(d);\n}",
+    "receiverBase": "padding",
+    "receiverCallee": "radius"
+  },
+  {
+    "callback": "function (t) {\n    t.xoffset = xoffset;\n    t.yoffset = yoffset + label_height;\n    if (t.depth < vars.depth.value) {\n        t.d3plus.static = true;\n    } else {\n        t.d3plus.static = false;\n    }\n    if (temp.length == 1) {\n        t.d3plus.label = false;\n    } else {\n        t.d3plus.label = true;\n    }\n}",
+    "receiverBase": "temp",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.r;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    d.x = (d.x - column_width / 2) * downscale + column_width / 2;\n    d.d3plus.x = d.x + d.xoffset;\n    d.y = (d.y - column_height / 2) * downscale + column_height / 2;\n    d.d3plus.y = d.y + d.yoffset;\n    d.r = d.r * downscale;\n    d.d3plus.r = d.r;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.depth - b.depth;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (d) {\n    return d.depth == 0;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    if (!d.d3plus.label_height)\n        d.d3plus.label_height = 0;\n    return d[vars.id.nesting[d.depth]];\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "l",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.y - d.r - d.d3plus.label_height - padding;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var color = fetchColor(vars, d);\n    return d3plus.color.legible(color);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    if (d.r > 10 && label_height > 10) {\n        var names = fetchText(vars, d, d.depth);\n        d3plus.textwrap().container(d3.select(this)).height(label_height).text(names).width(column_width - padding * 2).draw();\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    d.d3plus.label_height = d3.select(this).node().getBBox().height;\n    return d.d3plus.y - d.r - d.d3plus.label_height - padding;\n}",
+    "receiverBase": "each",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.x.value];\n}",
+    "receiverBase": "nest",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (leaves) {\n    return d3.sum(leaves, function (d) {\n        return fetchValue(vars, d, vars[axis].value);\n    });\n}",
+    "receiverBase": "key",
+    "receiverCallee": "rollup"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, vars[axis].value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (d) {\n    return d.values;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (t) {\n    return t >= vars[axis + '_range'][0] && t <= vars[axis + '_range'][1];\n}",
+    "receiverBase": "tickValues",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, vars[axis].value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, vars[axis].value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, d, vars.size.value);\n    return val == 0 ? null : val;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, d, vars.size.value);\n    return val == 0 ? null : val;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (t) {\n    return t <= range[1] && t >= range[0];\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    var lighter = vars[axis].scale.value == 'log' && d.toString().charAt(0) != '1';\n    return lighter ? 0.25 : 1;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'x' ? vars.x_scale(d) : 0;\n}",
+    "receiverBase": "t",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'x' ? vars.x_scale(d) : graph.width;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'y' ? vars.y_scale(d) : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'y' ? vars.y_scale(d) : graph.height;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return vars.format.value(d, vars.y.value);\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    return vars.format.value(d, vars.x.value);\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    return d.height;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "max"
+  },
+  {
+    "callback": "function () {\n    return vars.axes.mirror.value ? 1 : 0;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    var w = graph.width, h = graph.height;\n    return 'M ' + w + ' ' + h + ' L 0 ' + h + ' L ' + w + ' 0 Z';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    if (vars.data.app.length == 0)\n        return 0;\n    else\n        return 1;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    if (vars.data.app.length == 0)\n        return 0;\n    else\n        return 1;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (l) {\n    if (typeof l == 'number' || typeof l == 'string') {\n        return l;\n    } else {\n        return d3.keys(l)[0];\n    }\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return get_val(d) ? vars[axis + '_scale'](get_val(d)) : 0;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return get_val(d) ? vars[axis + '_scale'](get_val(d)) : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var yes = get_val(d) > vars[axis + '_scale'].domain()[1] && get_val(d) < vars[axis + '_scale'].domain()[0];\n    return get_val(d) !== null && yes ? 1 : 0;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    if (get_val(d) !== null) {\n        var v = vars.format.value(get_val(d), y_name);\n        return get_name(d) ? vars.format.value(get_name(d)) + ': ' + v : v;\n    } else\n        return null;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return vars[axis + '_scale'](get_val(d)) + padding + 'px';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var id = fetchValue(vars, d, vars.id.value), depth = d.d3plus.depth ? d.d3plus.depth : 0;\n    return d3plus.string.strip(id) + '_' + depth + '_' + vars.shape.value;\n}",
+    "receiverBase": "nest",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (t) {\n    return t.getTime();\n}",
+    "receiverBase": "availables",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a, b) {\n    var xsort = a.d3plus[vars.continuous_axis] - b.d3plus[vars.continuous_axis];\n    if (xsort)\n        return xsort;\n    var ksort = a[vars[vars.continuous_axis].value] - b[vars[vars.continuous_axis].value];\n    return ksort;\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (l) {\n    if (l.d3plus.merged instanceof Array) {\n        if (!d.d3plus.merged)\n            d.d3plus.merged = [];\n        d.d3plus.merged = d.d3plus.merged.concat(l.d3plus.merged);\n    }\n    if (l.d3plus.text)\n        d.d3plus.text = l.d3plus.text;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n, i) {\n    if (i <= vars.depth.value && !d[n]) {\n        d[n] = d3plus.util.uniques(d.values, n).filter(function (unique) {\n            return unique && unique != 'undefined';\n        })[0];\n    }\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (unique) {\n    return unique && unique != 'undefined';\n}",
+    "receiverBase": "uniques",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (v) {\n    var val = fetchValue(vars, v, sort);\n    if (val) {\n        if (typeof val == 'number') {\n            d[sort] += val;\n        } else {\n            d[sort] = val;\n        }\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.values;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "values"
+  },
+  {
+    "callback": "function (d) {\n    return d.d3plus.x;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "x"
+  },
+  {
+    "callback": "function (d) {\n    var flip = graph.height, val = fetchValue(vars, d, vars.y.value);\n    return flip - vars.y_scale(val);\n}",
+    "receiverBase": "x",
+    "receiverCallee": "y"
+  },
+  {
+    "callback": "function (d, y0, y) {\n    var flip = graph.height;\n    if (vars[vars.stacked_axis].scale.value == 'share') {\n        d.d3plus.y0 = (1 - y0) * flip;\n        d.d3plus.y = d.d3plus.y0 - y * flip;\n    } else {\n        d.d3plus.y0 = flip - y0;\n        d.d3plus.y = d.d3plus.y0 - y;\n    }\n    d.d3plus.y += graph.margin.top;\n    d.d3plus.y0 += graph.margin.top;\n}",
+    "receiverBase": "y",
+    "receiverCallee": "out"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'y' ? 0 : d.d3plus.x - graph.margin.left;\n}",
+    "receiverBase": "l",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'y' ? -5 : d.d3plus.x - graph.margin.left;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'x' ? graph.height : d.d3plus.y - graph.margin.top;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return axis == 'x' ? graph.height + 5 : d.d3plus.y - graph.margin.top;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d3plus.color.legible(fetchColor(vars, d));\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] + '_' + d.d3plus.depth;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    var ret = d.axis == 'x' ? d.x : d.x - d.r;\n    return ret;\n}",
+    "receiverBase": "l",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var ret = d.axis == 'y' ? d.y : d.y + d.r;\n    return ret;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis + '_' + d.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'x' ? d.x : d.x - d.r;\n}",
+    "receiverBase": "call",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'y' ? d.y : d.y + d.r;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return fetchColor(vars, node);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'x' ? d.x : graph.margin.left - vars.axes.ticks.size;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'y' ? d.y : graph.height + graph.margin.top + vars.axes.ticks.size;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d3plus.color.legible(fetchColor(vars, node));\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis + '_' + d.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis + '_' + d.id;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, node.d3plus_data || node, vars[d.axis].value);\n    return vars.format.value(val, vars[d.axis].value);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'x' ? d.x : graph.margin.left - 5 - vars.axes.ticks.size;\n}",
+    "receiverBase": "text",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'y' ? d.y : graph.height + graph.margin.top + 5 + vars.axes.ticks.size;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'y' ? vars.axes.ticks.font.size * 0.35 : vars.axes.ticks.font.size;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis == 'y' ? 'end' : 'middle';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return d3plus.color.legible(fetchColor(vars, node));\n}",
+    "receiverBase": "style",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.axis + '_' + d.id;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    var width = d3.select('text#' + d.axis + '_' + d.id).node().getBBox().width;\n    var ret = d.axis == 'x' ? d.x : graph.margin.left - vars.axes.ticks.size;\n    return d.axis == 'x' ? ret - width / 2 - 5 : ret - width - 10;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var height = d3.select('text#' + d.axis + '_' + d.id).node().getBBox().height;\n    var ret = d.axis == 'y' ? d.y : graph.height + graph.margin.top;\n    return d.axis == 'x' ? ret + vars.axes.ticks.size : ret - height / 2 - 5;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var text = d3.select('text#' + d.axis + '_' + d.id).node().getBBox();\n    return text.width + 10;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var text = d3.select('text#' + d.axis + '_' + d.id).node().getBBox();\n    return text.height + 10;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d3plus.color.legible(fetchColor(vars, node));\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (f) {\n    f[vars.id.value] = f.id;\n    if (vars.coords.solo.value.length) {\n        return vars.coords.solo.value.indexOf(f.id) >= 0;\n    } else if (vars.coords.mute.value.length) {\n        return vars.coords.mute.value.indexOf(f.id) < 0;\n    }\n    return true;\n}",
+    "receiverBase": "features",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return n.x;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (n) {\n    return n.y;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, d, vars.size.value);\n    return val === 0 ? null : val;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (a) {\n    return a[vars.id.value] == n[vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.d3plus.r - a.d3plus.r;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (l, i) {\n    l[vars.edges.source].d3plus = {};\n    var source = lookup[l[vars.edges.source][vars.id.value]];\n    l[vars.edges.source].d3plus.r = source.r;\n    l[vars.edges.source].d3plus.x = source.x;\n    l[vars.edges.source].d3plus.y = source.y;\n    l[vars.edges.target].d3plus = {};\n    var target = lookup[l[vars.edges.target][vars.id.value]];\n    l[vars.edges.target].d3plus.r = target.r;\n    l[vars.edges.target].d3plus.x = target.x;\n    l[vars.edges.target].d3plus.y = target.y;\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return edge[vars.edges.source][vars.id.value] === d[vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return edge[vars.edges.target][vars.id.value] === d[vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (node) {\n    var val;\n    val = fetchValue(vars, node, vars.size.value);\n    return val || 0;\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] === id;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] === vars.focus.value[0];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] === c[vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (c) {\n    return c[vars.edges.source][vars.id.value] != vars.focus.value[0] && c[vars.edges.target][vars.id.value] != vars.focus.value[0];\n}",
+    "receiverBase": "connections",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    var lengthdiff = a.d3plus.edges.length - b.d3plus.edges.length;\n    if (lengthdiff) {\n        return lengthdiff;\n    } else {\n        return d3plus.array.sort([\n            a,\n            b\n        ], sort, vars.order.sort.value, vars.color.value || [], vars);\n    }\n}",
+    "receiverBase": "primaries",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (c) {\n    var source = c[vars.edges.source][vars.id.value], target = c[vars.edges.target][vars.id.value];\n    return claimed.indexOf(source) < 0 && target == primaryId || claimed.indexOf(target) < 0 && source == primaryId;\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (c) {\n    var source = c[vars.edges.source], target = c[vars.edges.target];\n    var claim = target[vars.id.value] == primaryId ? source : target;\n    claimed.push(claim[vars.id.value]);\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    var a = a[vars.edges.source][vars.id.value] == p[vars.id.value] ? a[vars.edges.target] : a[vars.edges.source], b = b[vars.edges.source][vars.id.value] == p[vars.id.value] ? b[vars.edges.target] : b[vars.edges.source];\n    return d3plus.array.sort([\n        a,\n        b\n    ], sort, vars.order.sort.value, vars.color.value || [], vars);\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a) {\n    return a[vars.id.value] === c[vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return [\n        n.d3plus.x,\n        n.d3plus.y\n    ];\n}",
+    "receiverBase": "util",
+    "receiverCallee": "distances"
+  },
+  {
+    "callback": "function (n) {\n    return [\n        n.d3plus.x,\n        n.d3plus.y\n    ];\n}",
+    "receiverBase": "util",
+    "receiverCallee": "distances"
+  },
+  {
+    "callback": "function (d) {\n    return ids.indexOf(d[vars.id.value]) >= 0;\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, vars.size.value);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "extent"
+  },
+  {
+    "callback": "function (s) {\n    s.d3plus.ring = 2;\n    var val = vars.size.value ? fetchValue(vars, s, vars.size.value) : 2;\n    s.d3plus.r = radius(val);\n}",
+    "receiverBase": "secondaries",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    p.d3plus.ring = 1;\n    var val = vars.size.value ? fetchValue(vars, p, vars.size.value) : 1;\n    p.d3plus.r = radius(val);\n}",
+    "receiverBase": "primaries",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node) {\n    edge[node] = nodes.filter(function (n) {\n        return n[vars.id.value] == edge[node][vars.id.value];\n    })[0];\n}",
+    "receiverBase": "check",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    return n[vars.id.value] == edge[node][vars.id.value];\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (s) {\n    return s[vars.id.value] == c[vars.id.value];\n}",
+    "receiverBase": "secondaries",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (s) {\n    return s[vars.id.value] == c[vars.id.value];\n}",
+    "receiverBase": "primaries",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return n[vars.id.value] == edge[node][vars.id.value];\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (p) {\n    secondaries = secondaries.concat(vars.edges.connections(p[vars.id.value], vars.id.value, true));\n}",
+    "receiverBase": "primaries",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (id) {\n    var d = data.filter(function (d) {\n            return d[vars.id.value] == id;\n        })[0];\n    if (!d) {\n        var obj = { 'd3plus': {} };\n        obj[vars.id.value] = id;\n        returnData.push(obj);\n    } else {\n        returnData.push(d);\n    }\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] == id;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n, i) {\n    if (i < vars.depth.value) {\n        grouped_data.key(function (d) {\n            return fetchValue(vars, d.d3plus, n);\n        });\n    }\n}",
+    "receiverBase": "nesting",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d.d3plus, n);\n}",
+    "receiverBase": "grouped_data",
+    "receiverCallee": "key"
+  },
+  {
+    "callback": "function (d) {\n    var val = fetchValue(vars, d, vars.size.value);\n    if (val && typeof val === 'number') {\n        strippedData.push({\n            'd3plus': d,\n            'id': d[vars.id.value],\n            'value': fetchValue(vars, d, vars.size.value)\n        });\n    }\n}",
+    "receiverBase": "app",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.values;\n}",
+    "receiverBase": "size",
+    "receiverCallee": "children"
+  },
+  {
+    "callback": "function (a, b) {\n    var sizeDiff = a.value - b.value;\n    return sizeDiff === 0 ? a.id < b.id : sizeDiff;\n}",
+    "receiverBase": "padding",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (d) {\n    return !d.values && d.area;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    d.d3plus.d3plus = d3plus.object.merge(d.d3plus.d3plus, {\n        'x': d.x + d.dx / 2,\n        'y': d.y + d.dy / 2,\n        'width': d.dx,\n        'height': d.dy,\n        'share': d.value / root.value\n    });\n    returnData.push(d.d3plus);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    positionStyles[p] = p == position ? vars.margin.bottom + 'px' : 'auto';\n}",
+    "receiverBase": "accepted",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.method || false;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d) {\n    var container = d3.select(this);\n    d.form = d3plus.form().container(container).focus(vars[d.method].value, function (value) {\n        if (value[0] !== vars[d.method].value) {\n            vars.self[d.method](value[0]).draw();\n        }\n    }).id('id').text('text').type('auto');\n}",
+    "receiverBase": "style",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    if (value[0] !== vars[d.method].value) {\n        vars.self[d.method](value[0]).draw();\n    }\n}",
+    "receiverBase": "container",
+    "receiverCallee": "focus"
+  },
+  {
+    "callback": "function (o) {\n    var obj = {\n            'id': o,\n            'text': vars.format.value(o)\n        };\n    data.push(obj);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, vars.id.value) == vars.focus.value[0];\n}",
+    "receiverBase": "pool",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    if (d3plus.font.awesome) {\n        var arrow = '<span style=\\'font-family:FontAwesome;margin-right:5px;\\'>&#xf104</span>';\n    } else {\n        var arrow = '&laquo; ';\n    }\n    return arrow + vars.format.value(vars.format.locale.value.ui.back);\n}",
+    "receiverBase": "call",
+    "receiverCallee": "html"
+  },
+  {
+    "callback": "function () {\n    if (!vars.small && vars.history.states.length > 0) {\n        d3.select(this).style('cursor', 'pointer').transition().duration(vars.timing.mouseevents).style('color', d3plus.color.lighter(color, 0.25));\n    }\n}",
+    "receiverBase": "button",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!vars.small && vars.history.states.length > 0) {\n        d3.select(this).style('cursor', 'auto').transition().duration(vars.timing.mouseevents).style('color', color);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    vars.history.back();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a) {\n    return a[vars.id.value] === data[i][vars.id.value];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, colorKey);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "uniques"
+  },
+  {
+    "callback": "function (d) {\n    var col = fetchColor(vars, d, colorKey), val = fetchValue(vars, d, colorName);\n    return col + val;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (g, i) {\n    var x = start_x + i * (vars.ui.padding + square_size);\n    return 'translate(' + x + ',' + vars.ui.padding + ')';\n}",
+    "receiverBase": "group",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (icon.indexOf('/') == 0 || icon.indexOf(window.location.hostname) >= 0) {\n        d3plus.util.dataurl(icon, function (base64) {\n            pattern.select('image').attr('xlink:href', base64);\n        });\n    } else {\n        pattern.select('image').attr('xlink:href', icon);\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (base64) {\n    pattern.select('image').attr('xlink:href', base64);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "dataurl"
+  },
+  {
+    "callback": "function (t) {\n    var idIndex = vars.id.nesting.indexOf(colorKey), text = idIndex >= 0 ? fetchText(vars, t, idIndex) : [vars.format.value(fetchValue(vars, t, colorName, colorKey))];\n    if (text.length === 1 && text[0].length) {\n        d3plus.textwrap().container(d3.select(this)).height(square_size - vars.ui.padding * 2).resize(vars.labels.resize.value).text(text[0]).width(square_size - vars.ui.padding * 2).draw();\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (t) {\n    var h = this.getBBox().height, diff = parseFloat(d3.select(this).style('font-size'), 10) / 5;\n    return square_size / 2 - h / 2 - diff / 2;\n}",
+    "receiverBase": "each",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    var w = this.getComputedTextLength();\n    return square_size / 2 - w / 2;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    d3plus.tooltip.remove(vars.type.value);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i) {\n    return Math.round(i / (colors.length - 1) * 100) + '%';\n}",
+    "receiverBase": "stops",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (i) {\n    return colors[i];\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.legend.align == 'middle') {\n        return vars.width.value / 2;\n    } else if (vars.legend.align == 'end') {\n        return vars.width.value;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.legend.align == 'middle') {\n        return vars.width.value / 2;\n    } else if (vars.legend.align == 'end') {\n        return vars.width.value;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return this.getBBox().height + vars.legend.gradient.height + vars.ui.padding * 2;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return vars.format.value(values[d], key);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return this.getBBox().height + vars.legend.gradient.height + vars.ui.padding * 2;\n}",
+    "receiverBase": "text",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var w = this.offsetWidth;\n    if (w > label_width)\n        label_width = w;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    return start_x + label_width * d;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.legend.align == 'middle') {\n        return vars.width.value / 2;\n    } else if (vars.legend.align == 'end') {\n        return vars.width.value;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    var mod = d == 0 ? 1 : 0;\n    return start_x + label_width * d - mod;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.legend.align == 'middle') {\n        return vars.width.value / 2 - key_width / 2;\n    } else if (vars.legend.align == 'end') {\n        return vars.width.value - key_width - vars.ui.padding;\n    } else {\n        return vars.ui.padding;\n    }\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    return position == 'center' ? '50%' : '0px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    return position == 'center' ? 'auto' : vars.width.value + 'px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    var offset = vars.width.value - vars.width.viz;\n    return position == 'center' ? -(this.offsetWidth / 2 + offset / 2) + 'px' : '0px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    if (position == 'center') {\n        return '50%';\n    } else if (position == 'top') {\n        return '0px';\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    if (position == 'bottom') {\n        return '0px';\n    } else {\n        return 'auto';\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function () {\n    if (size == 'large') {\n        var height = this.offsetHeight || this.getBoundingClientRect().height;\n        return -height / 2 + 'px';\n    }\n    return '0px';\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    years.push(new Date(d));\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (y) {\n    var i = vars.data.time.dataSteps.indexOf(y);\n    return i >= 0 ? vars.data.time.values[i] : years[y];\n}",
+    "receiverBase": "range",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return t.width;\n}",
+    "receiverBase": "textSizes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return t.height;\n}",
+    "receiverBase": "textSizes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d, i) {\n    return i;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (d, i) {\n    if (i === 0 || i === years.length - 1)\n        return timeFormat(d);\n    var prev = (i - 1) % tickStep === 0, next = (i + 1) % tickStep === 0, data = vars.data.time.dataSteps.indexOf(i) >= 0, fits = yearWidths[i - 1] / 2 + yearWidths[i] + yearWidths[i + 1] / 2 + vars.ui.padding * 4 < label_width * 2;\n    return i % tickStep === 0 || !prev && !next && data && old_width < label_width * 3 ? timeMultiFormat(d) : '';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d, i) {\n    return vars.data.time.dataSteps.indexOf(i) >= 0 ? 1 : 0.4;\n}",
+    "receiverBase": "text",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d, i) {\n    var x = start_x + label_width * i + label_width / 2, y = timelineHeight / 2 + vars.ui.padding + 1;\n    if (textRotate) {\n    } else {\n    }\n    return 'translate(' + Math.round(x) + ',' + Math.round(y) + ')rotate(' + textRotate + ')';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    return year_ticks;\n}",
+    "receiverBase": "orient",
+    "receiverCallee": "ticks"
+  },
+  {
+    "callback": "function () {\n    var c = vars.timeline.hover.value;\n    if ([\n            'grab',\n            'grabbing'\n        ].indexOf(c) >= 0)\n        c = d3plus.prefix() + c;\n    d3.select(this).style('cursor', c);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var c = vars.timeline.hover.value;\n    if ([\n            'grab',\n            'grabbing'\n        ].indexOf(c) >= 0)\n        c = d3plus.prefix() + c;\n    d3.select(this).style('cursor', c);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    var mod = this.parentNode.className.baseVal === 'resize e' ? -vars.timeline.handles.size : 0;\n    return 'translate(' + mod + ',0)';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).select('rect').transition().duration(vars.timing.mouseevents).attr('fill', vars.timeline.handles.hover);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d3.select(this).select('rect').transition().duration(vars.timing.mouseevents).attr('fill', vars.timeline.handles.color);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    return d[vars.id.value] == vars.focus.value[0];\n}",
+    "receiverBase": "app",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, total_key);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (d) {\n    return fetchValue(vars, d, total_key);\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (d) {\n    if (vars.time.solo.value.length > 0) {\n        var match = vars.time.solo.value.indexOf(fetchValue(vars, d, vars.time.value)) >= 0;\n    } else if (vars.time.mute.value.length > 0) {\n        var match = vars.time.solo.value.indexOf(fetchValue(vars, d, vars.time.value)) < 0;\n    } else {\n        var match = true;\n    }\n    if (match) {\n        return fetchValue(vars, d, total_key);\n    }\n}",
+    "receiverBase": "d3",
+    "receiverCallee": "sum"
+  },
+  {
+    "callback": "function (t) {\n    var align = t.style.font.align;\n    if (align == 'center') {\n        return 'middle';\n    } else if (align == 'left' && !d3plus.rtl || align == 'right' && d3plus.rtl) {\n        return 'start';\n    } else if (align == 'left' && d3plus.rtl || align == 'right' && !d3plus.rtl) {\n        return 'end';\n    }\n}",
+    "receiverBase": "title",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (t) {\n    var align = t.style.font.align;\n    if (align == 'center') {\n        return vars.width.value / 2;\n    } else if (align == 'left' && !d3plus.rtl || align == 'right' && d3plus.rtl) {\n        return vars.padding;\n    } else if (align == 'left' && d3plus.rtl || align == 'right' && !d3plus.rtl) {\n        return vars.width.value - vars.padding;\n    }\n}",
+    "receiverBase": "style",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.style.font.size;\n}",
+    "receiverBase": "title",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.link ? vars.links.font.color : t.style.font.color;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.link ? vars.links.font.family.value : t.style.font.family.value;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.link ? vars.links.font.weight : t.style.font.weight;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (t) {\n    return t.link ? vars.links.font.decoration.value : t.style.font.decoration.value;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (t) {\n    return t.link ? vars.links.font.transform.value : t.style.font.transform.value;\n}",
+    "receiverBase": "style",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (t) {\n    return t.type;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (t) {\n    var y = t.style.position == 'top' ? 0 : vars.height.value;\n    return 'translate(0,' + y + ')';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    d3plus.textwrap().container(d3.select(this).select('text')).height(vars.height.value / 8).size(false).text(d.value).width(titleWidth).draw();\n    d.y = vars.margin[d.style.position];\n    vars.margin[d.style.position] += this.getBBox().height + d.style.padding * 2;\n}",
+    "receiverBase": "titles",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (t) {\n    if (t.link) {\n        d3.select(this).transition().duration(vars.timing.mouseevents).style('cursor', 'pointer').select('text').attr('fill', vars.links.hover.color).attr('font-family', vars.links.hover.family.value).attr('font-weight', vars.links.hover.weight).style('text-decoration', vars.links.hover.decoration.value).style('text-transform', vars.links.hover.transform.value);\n    }\n}",
+    "receiverBase": "each",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (t) {\n    if (t.link) {\n        d3.select(this).transition().duration(vars.timing.mouseevents).style('cursor', 'auto').select('text').call(style);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (t) {\n    if (t.link) {\n        var target = t.link.charAt(0) != '/' ? '_blank' : '_self';\n        window.open(t.link, target);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (t) {\n    var pos = t.style.position, y = pos == 'top' ? 0 + t.y : vars.height.value - t.y;\n    if (pos == 'bottom') {\n        y -= this.getBBox().height + t.style.padding;\n    } else {\n        y += t.style.padding;\n    }\n    return 'translate(0,' + y + ')';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (f) {\n    f(vars, nextStep);\n}",
+    "receiverBase": "step",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    runFunction('otherwise');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    vars.zoom('in');\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    vars.zoom('out');\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    vars.zoom('reset');\n    vars.draw.update();\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    if (!d)\n        var d = { 'scale': max_scale };\n    var size = parseFloat(d3.select(this).attr('font-size'), 10);\n    d.visible = size / d.scale * vars.zoom.scale >= 7;\n    return d.visible ? 1 : 0;\n}",
+    "receiverBase": "duration",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    if (!d)\n        var d = { 'scale': max_scale };\n    var size = parseFloat(d3.select(this).attr('font-size'), 10);\n    d.visible = size / d.scale * vars.zoom.scale >= 7;\n    return d.visible ? 1 : 0;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    d3plus.zoom.labels(vars);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (_, DropList) {\n    var dropLists = {};\n    _.each(document.querySelectorAll('[data-ui-droplist-role=\\'open\\']'), function (link) {\n        var group = link.getAttribute('data-ui-droplist-group');\n        if (dropLists[group] === undefined) {\n            dropLists[group] = new DropList(group);\n        }\n    });\n    return dropLists;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (link) {\n    var group = link.getAttribute('data-ui-droplist-group');\n    if (dropLists[group] === undefined) {\n        dropLists[group] = new DropList(group);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof exports === 'object') {\n        module.exports = factory();\n    } else if (typeof define === 'function' && define.amd) {\n        define([], factory);\n    } else {\n        root['Chartist'] = factory();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (mql) {\n    mql.removeListener(updateCurrentOptions);\n}",
+    "receiverBase": "mediaQueryListeners",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    handler(data);\n}",
+    "receiverBase": "handlers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    if (attributes[key] === undefined) {\n        return;\n    }\n    if (ns) {\n        node.setAttributeNS(ns, [\n            Chartist.xmlNs.prefix,\n            ':',\n            key\n        ].join(''), attributes[key]);\n    } else {\n        node.setAttribute(key, attributes[key]);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (elem, pos, self) {\n    return self.indexOf(elem) === pos;\n}",
+    "receiverBase": "concat",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (name) {\n    return removedClasses.indexOf(name) === -1;\n}",
+    "receiverBase": "classes",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    createChart(optionsProvider.currentOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    createChart(optionsProvider.currentOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (previousValue, currentValue) {\n    return previousValue + currentValue;\n}",
+    "receiverBase": "dataArray",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (val) {\n    return val !== 0;\n}",
+    "receiverBase": "series",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    createChart(optionsProvider.currentOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (data) {\n    var siteCount = data.length;\n    var servicesUpdate = {};\n    for (var i = 0; i < siteCount; i++)\n        servicesUpdate[data[i].domain] = true;\n    services = servicesUpdate;\n    localStorage.services = JSON.stringify(services);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function (tabId, changeInfo) {\n    changeInfo.status == 'loading' && delete tabs[tabId];\n}",
+    "receiverBase": "onUpdated",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (scene, index) {\n    setIcon({ path: (SAFARI ? 'chrome' : '') + '/images/' + scene + '/' + (index + 2) + fileExtension });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (scene, index) {\n    setIcon({ path: (SAFARI ? 'chrome' : '') + '/images/' + scene + '/' + (frameCount - index) + fileExtension });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, prnt) {\n    var rev = pos + '-' + id;\n    if (isLeaf) {\n        height[rev] = 0;\n    }\n    if (prnt !== undefined) {\n        edges.push({\n            from: prnt,\n            to: rev\n        });\n    }\n    return rev;\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (edge) {\n    if (height[edge.from] === undefined) {\n        height[edge.from] = 1 + height[edge.to];\n    } else {\n        height[edge.from] = Math.min(height[edge.from], 1 + height[edge.to]);\n    }\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (optKey) {\n    delete subOpts[optKey];\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return reject(err);\n    }\n    finalResults.total_rows = res.total_rows;\n    resolve(res.rows[0] || {\n        key: key,\n        error: 'not_found'\n    });\n}",
+    "receiverBase": "api",
+    "receiverCallee": "_allDocs"
+  },
+  {
+    "callback": "function (results) {\n    finalResults.rows = results;\n    return finalResults;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (eventName) {\n    if (~eventNames.indexOf(eventName)) {\n        listeners--;\n        if (listeners) {\n            return;\n        }\n    } else {\n        return;\n    }\n    changes.cancel();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (doc, opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    if (typeof doc !== 'object' || Array.isArray(doc)) {\n        return callback(errors.error(errors.NOT_AN_OBJECT));\n    }\n    this.bulkDocs({ docs: [doc] }, opts, yankError(callback));\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (doc) {\n    if (doc._rev !== rev) {\n        throw errors.error(errors.REV_CONFLICT);\n    }\n    return createAttachment(doc);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.reason === errors.MISSING_DOC.message) {\n        return createAttachment({ _id: docId });\n    } else {\n        throw err;\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, obj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    if (obj._rev !== rev) {\n        callback(errors.error(errors.REV_CONFLICT));\n        return;\n    }\n    if (!obj._attachments) {\n        return callback();\n    }\n    delete obj._attachments[attachmentId];\n    if (Object.keys(obj._attachments).length === 0) {\n        delete obj._attachments;\n    }\n    self.put(obj, callback);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    var idx = missingForId.indexOf(rev);\n    if (idx === -1) {\n        return;\n    }\n    missingForId.splice(idx, 1);\n    if (opts.status !== 'available') {\n        addToMissing(id, rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (rev) {\n    addToMissing(id, rev);\n}",
+    "receiverBase": "missingForId",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err && err.status === 404 && err.message === 'missing') {\n        missing.set(id, { missing: req[id] });\n    } else if (err) {\n        return callback(err);\n    } else {\n        processDoc(id, rev_tree);\n    }\n    if (++count === ids.length) {\n        var missingObj = {};\n        missing.forEach(function (value, key) {\n            missingObj[key] = value;\n        });\n        return callback(null, missingObj);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (value, key) {\n    missingObj[key] = value;\n}",
+    "receiverBase": "missing",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (rev) {\n    if (height[rev] > maxHeight) {\n        candidates.push(rev);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    if (opts.status === 'available' && candidates.indexOf(rev) !== -1) {\n        revs.push(rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    var self = this;\n    opts = utils.clone(opts || {});\n    self.get('_local/compaction').catch(function () {\n        return false;\n    }).then(function (doc) {\n        if (typeof self._compact === 'function') {\n            if (doc && doc.last_seq) {\n                opts.last_seq = doc.last_seq;\n            }\n            return self._compact(opts, callback);\n        }\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function (doc) {\n    if (typeof self._compact === 'function') {\n        if (doc && doc.last_seq) {\n            opts.last_seq = doc.last_seq;\n        }\n        return self._compact(opts, callback);\n    }\n}",
+    "receiverBase": "catch",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return upsert(self, '_local/compaction', function deltaFunc(doc) {\n        if (!doc.last_seq || doc.last_seq < lastSeq) {\n            doc.last_seq = lastSeq;\n            return doc;\n        }\n        return false;\n    });\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function deltaFunc(doc) {\n    if (!doc.last_seq || doc.last_seq < lastSeq) {\n        doc.last_seq = lastSeq;\n        return doc;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "upsert"
+  },
+  {
+    "callback": "function () {\n    callback(null, { ok: true });\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (leaf) {\n    self.get(id, {\n        rev: leaf,\n        revs: opts.revs,\n        attachments: opts.attachments\n    }, function (err, doc) {\n        if (!err) {\n            result.push({ ok: doc });\n        } else {\n            result.push({ missing: leaf });\n        }\n        count--;\n        if (!count) {\n            callback(null, result);\n        }\n    });\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (!err) {\n        result.push({ ok: doc });\n    } else {\n        result.push({ missing: leaf });\n    }\n    count--;\n    if (!count) {\n        callback(null, result);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err) {\n        return callback(err);\n    }\n    leaves = merge.collectLeaves(rev_tree).map(function (leaf) {\n        return leaf.rev;\n    });\n    finishOpenRevs();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (leaf) {\n    return leaf.rev;\n}",
+    "receiverBase": "collectLeaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (arr) {\n    return arr.ids.map(function (x) {\n        return x.id;\n    }).indexOf(doc._rev.split('-')[1]) !== -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayFirst"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    return rev.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    pos--;\n    return {\n        rev: pos + '-' + rev.id,\n        status: rev.opts.status\n    };\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    this._getAttachment(attachments[key], {\n        encode: true,\n        ctx: ctx\n    }, function (err, data) {\n        var att = doc._attachments[key];\n        att.data = data;\n        delete att.stub;\n        delete att.length;\n        if (!--count) {\n            callback(null, doc);\n        }\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, data) {\n    var att = doc._attachments[key];\n    att.data = data;\n    delete att.stub;\n    delete att.length;\n    if (!--count) {\n        callback(null, doc);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getAttachment"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return callback(err);\n    }\n    if (res.doc._attachments && res.doc._attachments[attachmentId]) {\n        opts.ctx = res.ctx;\n        self._getAttachment(res.doc._attachments[attachmentId], opts, callback);\n    } else {\n        return callback(errors.error(errors.MISSING_DOC));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_get"
+  },
+  {
+    "callback": "function (incompatibleOpt) {\n    return incompatibleOpt in opts;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (callback) {\n    this._closed = true;\n    return this._close(callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (callback) {\n    var self = this;\n    this._info(function (err, info) {\n        if (err) {\n            return callback(err);\n        }\n        info.db_name = info.db_name || self._db_name;\n        info.auto_compaction = !!(self.auto_compaction && self.type() !== 'http');\n        callback(null, info);\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, info) {\n    if (err) {\n        return callback(err);\n    }\n    info.db_name = info.db_name || self._db_name;\n    info.auto_compaction = !!(self.auto_compaction && self.type() !== 'http');\n    callback(null, info);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_info"
+  },
+  {
+    "callback": "function (callback) {\n    return this._id(callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (a, b) {\n    var idCompare = utils.compare(a._id, b._id);\n    if (idCompare !== 0) {\n        return idCompare;\n    }\n    var aStart = a._revisions ? a._revisions.start : 0;\n    var bStart = b._revisions ? b._revisions.start : 0;\n    return utils.compare(aStart, bStart);\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (doc) {\n    if (doc._deleted) {\n        delete doc._attachments;\n    }\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return callback(err);\n    }\n    if (!opts.new_edits) {\n        res = res.filter(function (x) {\n            return x.error;\n        });\n    }\n    callback(null, res);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_bulkDocs"
+  },
+  {
+    "callback": "function (x) {\n    return x.error;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return callback(err);\n    }\n    return callback(null, { db: depDB });\n}",
+    "receiverBase": "",
+    "receiverCallee": "upsert"
+  },
+  {
+    "callback": "function () {\n    browser.get('./examples/example-example41/index.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(friends.count()).toBe(10);\n    expect(friends.get(0).getText()).toEqual('[1] John who is 25 years old.');\n    expect(friends.get(1).getText()).toEqual('[2] Jessie who is 30 years old.');\n    expect(friends.last().getText()).toEqual('[10] Samantha who is 60 years old.');\n    expect(element(by.binding('friends.length')).getText()).toMatch('I have 10 friends. They are:');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(friends.count()).toBe(10);\n    element(by.model('q')).sendKeys('ma');\n    expect(friends.count()).toBe(2);\n    expect(friends.get(0).getText()).toEqual('[1] Mary who is 28 years old.');\n    expect(friends.last().getText()).toEqual('[2] Samantha who is 60 years old.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    fs.existsSync('./test/dist/sprite.png').should.be.true;\n    lwip.open('./test/dist/sprite.png', function (err, img) {\n        should(err).not.be.ok;\n        img.width().should.equal(520);\n        img.height().should.equal(1064);\n        fs.unlinkSync('./test/dist/sprite.png');\n        fs.rmdirSync('./test/dist');\n        done();\n    });\n}",
+    "receiverBase": "sprite",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (err, img) {\n    should(err).not.be.ok;\n    img.width().should.equal(520);\n    img.height().should.equal(1064);\n    fs.unlinkSync('./test/dist/sprite.png');\n    fs.rmdirSync('./test/dist');\n    done();\n}",
+    "receiverBase": "lwip",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function (err, css) {\n    css.should.containEql('.icon-camera');\n    css.should.containEql('.icon-cart');\n    css.should.containEql('.icon-command');\n    css.should.containEql('.icon-font');\n    fs.unlinkSync('./test/dist/sprite.png');\n    fs.unlinkSync('./test/dist/sprite.css');\n    fs.rmdirSync('./test/dist');\n    done();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err, css) {\n    css.should.containEql('.icon-camera');\n    css.should.containEql('.icon-cart');\n    css.should.containEql('.icon-command');\n    css.should.containEql('.icon-font');\n    fs.unlinkSync('./test/dist/sprite.png');\n    fs.unlinkSync('./test/dist/sprite.css');\n    fs.rmdirSync('./test/dist');\n    done();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (done) {\n    vfs.src('./test/fixtures/*.png').pipe(sprite.stream({ name: 'sprite' })).pipe(through2.obj(function (file, enc, cb) {\n        file.relative.should.equal('sprite.png');\n        lwip.open(file.contents, 'png', function (err, img) {\n            should(err).not.be.ok;\n            img.width().should.equal(136);\n            img.height().should.equal(544);\n            cb();\n        });\n    })).on('data', noop).on('end', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file, enc, cb) {\n    file.relative.should.equal('sprite.png');\n    lwip.open(file.contents, 'png', function (err, img) {\n        should(err).not.be.ok;\n        img.width().should.equal(136);\n        img.height().should.equal(544);\n        cb();\n    });\n}",
+    "receiverBase": "through2",
+    "receiverCallee": "obj"
+  },
+  {
+    "callback": "function (err, img) {\n    should(err).not.be.ok;\n    img.width().should.equal(136);\n    img.height().should.equal(544);\n    cb();\n}",
+    "receiverBase": "lwip",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    (function () {\n        sprite.create({\n            src: ['./test/fixtures/*.png'],\n            name: 'sprite'\n        });\n    }.should.throw(/^output/));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    (function () {\n        sprite.create({\n            out: './test/dist',\n            name: 'sprite'\n        });\n    }.should.throw(/^glob/));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value, key) {\n    if (value === undefined)\n        delete doc[key];\n    else\n        doc[key] = value;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (doc, index) {\n    res.push(callback.call(thisArg, doc, index, self));\n}",
+    "receiverBase": "self",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (doc) {\n    res.push(doc);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    f.apply(context, args);\n}",
+    "receiverBase": "_observeQueue",
+    "receiverCallee": "queueTask"
+  },
+  {
+    "callback": "function (doc, i) {\n    var fields = EJSON.clone(doc);\n    delete fields._id;\n    if (ordered)\n        query.addedBefore(doc._id, fields, null);\n    query.added(doc._id, fields);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    handle.stop();\n}",
+    "receiverBase": "Deps",
+    "receiverCallee": "onInvalidate"
+  },
+  {
+    "callback": "function (fnName) {\n    if (changers[fnName])\n        options[fnName] = notifyChange;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (qid) {\n    if (self.queries[qid])\n        LocalCollection._recomputeResults(self.queries[qid]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    callback(null, doc._id);\n}",
+    "receiverBase": "Meteor",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (id) {\n    var strId = LocalCollection._idStringify(id);\n    if (_.has(self.docs, strId) && selector_f(self.docs[strId]))\n        remove.push(strId);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (query, qid) {\n    if (query.selector_f(removeDoc)) {\n        if (query.cursor.skip || query.cursor.limit)\n            queriesToRecompute.push(qid);\n        else\n            queryRemove.push({\n                qid: qid,\n                doc: removeDoc\n            });\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (remove) {\n    var query = self.queries[remove.qid];\n    if (query)\n        LocalCollection._removeFromResults(query, remove.doc);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (qid) {\n    var query = self.queries[qid];\n    if (query)\n        LocalCollection._recomputeResults(query);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    callback(null, result);\n}",
+    "receiverBase": "Meteor",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (query, qid) {\n    if ((query.cursor.skip || query.cursor.limit) && !query.paused)\n        qidToOriginalResults[qid] = EJSON.clone(query.results);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dummy, qid) {\n    var query = self.queries[qid];\n    if (query)\n        LocalCollection._recomputeResults(query, qidToOriginalResults[qid]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    callback(null, result);\n}",
+    "receiverBase": "Meteor",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (x) {\n    return _.indexOf([\n        1,\n        0,\n        true,\n        false\n    ], x) === -1;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (key) {\n    return key === '_id';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reject"
+  },
+  {
+    "callback": "function (key, idx) {\n    if (!_.has(treePos, key))\n        treePos[key] = {};\n    else if (_.isBoolean(treePos[key])) {\n        var currentPath = keyPath.join('.');\n        var anotherPath = keyPath.slice(0, idx + 1).join('.');\n        throw MinimongoError('both ' + currentPath + ' and ' + anotherPath + ' found in fields option, using both of them may trigger ' + 'unexpected behavior. Did you mean to use only one of them?');\n    }\n    treePos = treePos[key];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (subdoc) {\n    return transform(subdoc, ruleTree);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rule, key) {\n    if (!_.has(doc, key))\n        return;\n    if (_.isObject(rule)) {\n        if (_.isObject(doc[key]))\n            res[key] = transform(doc[key], rule);\n    } else if (including)\n        res[key] = doc[key];\n    else\n        delete res[key];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, key) {\n    return key === '$near' || _.isObject(val) && isGeoQuery(val);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (val, key) {\n    if (_.contains([\n            '$or',\n            '$and',\n            '$nor',\n            '$not'\n        ], key))\n        return isGeoQuery(val);\n    return _.isObject(val) && isGeoQuerySpecial(val);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  }
+]

@@ -1,0 +1,1454 @@
+[
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not compact, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(new JsonLdError('The compaction context must not be null.', 'jsonld.CompactError'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(null, null);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (options.skipExpansion) {\n        return callback(null, input);\n    }\n    jsonld.expand(input, options, callback);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, activeCtx) {\n    if (err) {\n        return callback(new JsonLdError('Could not process context before compaction.', 'jsonld.CompactError', { cause: err }));\n    }\n    try {\n        var compacted = new Processor().compact(activeCtx, null, expanded, options);\n        cleanup(null, compacted, activeCtx, options);\n    } catch (ex) {\n        callback(ex);\n    }\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "processContext"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not expand, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not flatten, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, compacted) {\n    if (err) {\n        return callback(new JsonLdError('Could not compact flattened output.', 'jsonld.FlattenError', { cause: err }));\n    }\n    callback(null, compacted);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "compact"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not frame, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, compacted, ctx) {\n    if (err) {\n        return callback(new JsonLdError('Could not compact framed output.', 'jsonld.FrameError', { cause: err }));\n    }\n    var graph = _compactIri(ctx, '@graph');\n    compacted[graph] = _removePreserve(ctx, compacted[graph], opts);\n    callback(null, compacted);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "compact"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not normalize, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, dataset) {\n    if (err) {\n        return callback(new JsonLdError('Could not convert input to RDF dataset before normalization.', 'jsonld.NormalizeError', { cause: err }));\n    }\n    new Processor().normalize(dataset, options, callback);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "toRDF"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not convert from RDF, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (options.format) {\n        if (options.format in _rdfParsers) {\n            dataset = _rdfParsers[options.format](dataset);\n        } else {\n            throw new JsonLdError('Unknown input format.', 'jsonld.UnknownFormat', { format: options.format });\n        }\n    }\n    new Processor().fromRDF(dataset, options, callback);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(new TypeError('Could not convert to RDF, too few arguments.'));\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, value) {\n    if (err) {\n        resolver.reject(err);\n    } else {\n        resolver.resolve(value);\n    }\n}",
+    "receiverBase": "args",
+    "receiverCallee": "concat"
+  },
+  {
+    "callback": "function (remoteContext) {\n    callback(null, remoteContext.url, remoteContext.context);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, compacted) {\n    callback(err, compacted);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "compact"
+  },
+  {
+    "callback": "function (err, ctx) {\n    if (err) {\n        return callback(err);\n    }\n    try {\n        ctx = new Processor().processContext(activeCtx, ctx, options);\n        callback(null, ctx);\n    } catch (ex) {\n        callback(ex);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_retrieveContextUrls"
+  },
+  {
+    "callback": "function (e) {\n    return !jsonld.compareValues(e, value);\n}",
+    "receiverBase": "getValues",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    hashUnnamed(0);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function () {\n    hashUnnamed(i + 1);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.hash;\n    b = b.hash;\n    return a < b ? -1 : a > b ? 1 : 0;\n}",
+    "receiverBase": "results",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err, result) {\n    if (err) {\n        return callback(err);\n    }\n    results.push(result);\n    nameGroupMember(group, n + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_hashPaths"
+  },
+  {
+    "callback": "function () {\n    groupNodes(0);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function () {\n    groupNodes(i + 1);\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function () {\n    permutate();\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function (err, result) {\n    if (err) {\n        return callback(err);\n    }\n    path += pathNamerCopy.getName(bnode) + '<' + result.hash + '>';\n    pathNamerCopy = result.pathNamer;\n    if (chosenPath !== null && path.length >= chosenPath.length && path > chosenPath) {\n        return nextPermutation(true);\n    }\n    nextRecursion(n + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_hashPaths"
+  },
+  {
+    "callback": "function () {\n    permutate();\n}",
+    "receiverBase": "jsonld",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function (err, ctx) {\n    if (err) {\n        return callback(err);\n    }\n    urls[url] = ctx['@context'];\n    count -= 1;\n    if (count === 0) {\n        finished();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "retrieve"
+  },
+  {
+    "callback": "function () {\n    return factory();\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrapper"
+  },
+  {
+    "callback": "function () {\n    return factory;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "defineProperty"
+  },
+  {
+    "callback": "function (i, cellProperties) {\n    return function (result) {\n        if (typeof result !== 'boolean') {\n            throw new Error('Validation error: result is not boolean');\n        }\n        if (result === false && cellProperties.allowInvalid === false) {\n            changes.splice(i, 1);\n            cellProperties.valid = true;\n            --i;\n        }\n        waitingForValidator.removeValidatorFormQueue();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (validator) {\n    return function (value, callback) {\n        callback(validator.test(value));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    validator.call(cellProperties, value, function (valid) {\n        valid = Handsontable.hooks.run(instance, 'afterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n        cellProperties.valid = valid;\n        done(valid);\n        Handsontable.hooks.run(instance, 'postAfterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (valid) {\n    valid = Handsontable.hooks.run(instance, 'afterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n    cellProperties.valid = valid;\n    done(valid);\n    Handsontable.hooks.run(instance, 'postAfterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    applyChanges(changes, source);\n}",
+    "receiverBase": "",
+    "receiverCallee": "validateChanges"
+  },
+  {
+    "callback": "function () {\n    applyChanges(changes, source);\n}",
+    "receiverBase": "",
+    "receiverCallee": "validateChanges"
+  },
+  {
+    "callback": "function () {\n    waitingForValidator.removeValidatorFormQueue();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "validateCell"
+  },
+  {
+    "callback": "function () {\n    var element = document.createElement('div');\n    element.classList.add('test', 'test2');\n    return element.classList.contains('test2');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (event) {\n    if (!that.isTextSelectionAllowed(event.target)) {\n        clearTextSelection();\n        event.preventDefault();\n        window.focus();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (instance.selection.isInProgress() && !event.shiftKey) {\n        instance.selection.finish();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (instance.selection.isInProgress() && event.which === 1) {\n        instance.selection.finish();\n    }\n    isMouseDown = false;\n    if (Handsontable.helper.isOutsideInput(document.activeElement)) {\n        instance.unlisten();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (that.settings.fragmentSelection) {\n        return;\n    }\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (index, TH) {\n    that.appendRowHeader(index, TH);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (index, TH) {\n    that.appendColHeader(index, TH);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (event) {\n    if (event.target === that.wt.wtTable.spreader && event.which === 3) {\n        Handsontable.helper.stopPropagation(event);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (event.target === that.wt.wtTable.spreader && event.which === 3) {\n        Handsontable.helper.stopPropagation(event);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (that.settings.observeDOMVisibility) {\n        if (that.wt.drawInterrupted) {\n            that.instance.forceFullRender = true;\n            that.render();\n        }\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    instance.runHooks('afterDocumentKeyDown', event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    destroyed = true;\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (dataSaved) {\n    if (dataSaved) {\n        _this.prepareEditor();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "closeEditor"
+  },
+  {
+    "callback": "function (row, index) {\n    return logicRows.indexOf(index) == -1;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    eventManager.clear();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function (event) {\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    Handsontable.helper.stopPropagation(event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    Handsontable.helper.stopPropagation(event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (this.checked) {\n        instance.setDataAtRowProp(row, prop, cellProperties.checkedTemplate);\n    } else {\n        instance.setDataAtRowProp(row, prop, cellProperties.uncheckedTemplate);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (Handsontable) {\n    function HtmlRenderer(instance, TD, row, col, prop, value, cellProperties) {\n        Handsontable.renderers.cellDecorator.apply(this, arguments);\n        Handsontable.Dom.fastInnerHTML(TD, value);\n    }\n    Handsontable.renderers.registerRenderer('html', HtmlRenderer);\n    Handsontable.renderers.HtmlRenderer = HtmlRenderer;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    _this._fireCallbacks(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (result) {\n    _this.state = Handsontable.EditorState.FINISHED;\n    _this.discardEditor(result);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function () {\n    that.destroy();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    that.refreshDimensions();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    Handsontable.helper.stopPropagation(event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    Handsontable.helper.stopPropagation(event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    editor.refreshDimensions();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    editor.refreshDimensions();\n    editor.focus();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    editor.refreshDimensions();\n    editor.focus();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    editor.eventManager.clear();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    that.destroy();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (event) {\n    that.prepareAndSave();\n    that.instance.selection.transformStart(0, -1, null, true);\n    that.updateEditorData();\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    that.prepareAndSave();\n    that.instance.selection.transformStart(0, 1, null, true);\n    that.updateEditorData();\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    that.prepareAndSave();\n    that.instance.selection.transformStart(-1, 0, null, true);\n    that.updateEditorData();\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    that.prepareAndSave();\n    that.instance.selection.transformStart(1, 0, null, true);\n    that.updateEditorData();\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    var touch = event.touches[0];\n    that.updateEditorPosition(touch.pageX - onTouchOffset.x, touch.pageY - onTouchOffset.y);\n    that.hideCellPointer();\n    event.preventDefault();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (!Handsontable.Dom.isChildOf(event.target, that.editorContainer) && !Handsontable.Dom.isChildOf(event.target, that.instance.rootElement)) {\n        that.close();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (that.instance.view.wt.wtOverlays.leftOverlay.trimmingContainer != window) {\n        that.hideCellPointer();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (that.instance.view.wt.wtOverlays.topOverlay.trimmingContainer != window) {\n        that.hideCellPointer();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.parentDestroyed = true;\n    that.destroyElements();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (event) {\n    Handsontable.helper.stopPropagation(event);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.instance.selection.refreshBorders();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (that.htEditor) {\n        that.htEditor.destroy();\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    editor.queryChoices(editor.TEXTAREA.value);\n    skipOne = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.queryChoices(that.TEXTAREA.value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (choices) {\n    that.updateChoicesList(choices);\n}",
+    "receiverBase": "cellProperties",
+    "receiverCallee": "source"
+  },
+  {
+    "callback": "function (choice) {\n    if (filteringCaseSensitive) {\n        return choice.indexOf(query) != -1;\n    } else {\n        return choice.toLowerCase().indexOf(lowerCaseQuery) != -1;\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    if (b.index === -1) {\n        return -1;\n    }\n    if (a.index === -1) {\n        return 1;\n    }\n    if (a.index < b.index) {\n        return -1;\n    } else if (b.index < a.index) {\n        return 1;\n    } else if (a.index === b.index) {\n        if (a.charsLeft < b.charsLeft) {\n            return -1;\n        } else if (a.charsLeft > b.charsLeft) {\n            return 1;\n        } else {\n            return 0;\n        }\n    }\n}",
+    "receiverBase": "choicesRelevance",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (Handsontable) {\n    var DropdownEditor = Handsontable.editors.AutocompleteEditor.prototype.extend();\n    DropdownEditor.prototype.prepare = function () {\n        Handsontable.editors.AutocompleteEditor.prototype.prepare.apply(this, arguments);\n        this.cellProperties.filter = false;\n        this.cellProperties.strict = true;\n    };\n    Handsontable.editors.DropdownEditor = DropdownEditor;\n    Handsontable.editors.registerEditor('dropdown', DropdownEditor);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var instance;\n    return {\n        getInstance: function () {\n            if (!instance) {\n                instance = new CopyPasteClass();\n            } else if (instance.hasBeenDestroyed()) {\n                instance.init();\n            }\n            instance.refCounter++;\n            return instance;\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    _this.selectNodeText(_this.elTextarea);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _this.triggerCut(event);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _this.triggerPaste(event);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0, len = _this.cutCallbacks.length; i < len; i++) {\n        _this.cutCallbacks[i](event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var val = string || _this.elTextarea.value;\n    for (var i = 0, len = _this.pasteCallbacks.length; i < len; i++) {\n        _this.pasteCallbacks[i](val, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    function Mirror(obj) {\n        this.observers = [];\n        this.obj = obj;\n    }\n    return Mirror;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    function ObserverInfo(callback, observer) {\n        this.callback = callback;\n        this.observer = observer;\n    }\n    return ObserverInfo;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    dirtyCheck();\n    currentInterval = 0;\n    observer.next = setTimeout(slowCheck, intervals[currentInterval++]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (Handsontable.Dom.hasClass(e.target, 'columnSorting')) {\n        var col = getColumn(e.target);\n        plugin.sortByColumn.call(instance, col);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    instance.updateSettings({ observeChanges: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    plugin.sort.call(instance);\n    instance.render();\n    instance.selectCell(plugin.untranslateRow.call(instance, selection.row), selection.col);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    htSortColumn.init.call(this, 'afterInit');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htSortColumn.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    contextMenu.destroy();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (r, c) {\n    that.getCellMeta(r, c).readOnly = atLeastOneReadOnly ? false : true;\n}",
+    "receiverBase": "getSelectedRange",
+    "receiverCallee": "forAll"
+  },
+  {
+    "callback": "function (r, c) {\n    var metaClassName = hot.getCellMeta(r, c).className;\n    if (metaClassName && metaClassName.indexOf(className) != -1) {\n        hasAlignment = true;\n        return false;\n    }\n}",
+    "receiverBase": "getSelectedRange",
+    "receiverCallee": "forAll"
+  },
+  {
+    "callback": "function (r, c) {\n    if (hot.getCellMeta(r, c).readOnly) {\n        atLeastOneReadOnly = true;\n        return false;\n    }\n}",
+    "receiverBase": "getSelectedRange",
+    "receiverCallee": "forAll"
+  },
+  {
+    "callback": "function (event) {\n    that.performAction(event, htContextMenu);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    instance.deselectCell();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    instance.selectCell(row, col);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    instance.selectCell(row, col);\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (checkColumnHeader(e.target)) {\n        var th = getTHFromTargetElement(e.target);\n        if (th) {\n            if (pressed) {\n                var col = instance.view.wt.wtTable.getCoords(th).col;\n                if (col >= 0) {\n                    endCol = col;\n                    refreshHandlePosition(e.target, endCol - startCol);\n                }\n            } else {\n                setupHandlePosition.call(instance, th);\n            }\n        }\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (Handsontable.Dom.hasClass(e.target, 'manualColumnMover')) {\n        startX = Handsontable.helper.pageX(e);\n        setupGuidePosition.call(instance);\n        pressed = instance;\n        startCol = currentCol;\n        endCol = currentCol;\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        refreshGuidePosition(Handsontable.helper.pageX(e) - startX);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (colpos) {\n    var i, newpos = colpos;\n    for (i = 0; i < rmindx.length; i++) {\n        if (colpos > rmindx[i]) {\n            newpos--;\n        }\n    }\n    return newpos;\n}",
+    "receiverBase": "colpos",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (colpos) {\n    return colpos >= index ? colpos + amount : colpos;\n}",
+    "receiverBase": "colpos",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    htManualColumnMove.init.call(this, 'afterInit');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualColumnMove.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    if (checkColumnHeader(e.target)) {\n        var th = getTHFromTargetElement(e.target);\n        if (th) {\n            if (!pressed) {\n                setupHandlePosition.call(instance, th);\n            }\n        }\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (dblclick >= 2) {\n        newSize = instance.determineColumnWidth.call(instance, currentCol);\n        setManualSize(currentCol, newSize);\n        instance.forceFullRender = true;\n        instance.view.render();\n        Handsontable.hooks.run(instance, 'afterColumnResize', currentCol, newSize);\n    }\n    dblclick = 0;\n    autoresizeTimeout = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        currentWidth = startWidth + (Handsontable.helper.pageX(e) - startX);\n        newSize = setManualSize(currentCol, currentWidth);\n        refreshHandlePosition();\n        refreshGuidePosition();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (pressed) {\n        hideHandleAndGuide();\n        pressed = false;\n        if (newSize != startWidth) {\n            instance.forceFullRender = true;\n            instance.view.render();\n            saveManualColumnWidths.call(instance);\n            Handsontable.hooks.run(instance, 'afterColumnResize', currentCol, newSize);\n        }\n        setupHandlePosition.call(instance, currentTH);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    htManualColumnResize.init.call(this, 'afterInit');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualColumnResize.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    if (checkRowHeader(e.target)) {\n        var th = getTHFromTargetElement(e.target);\n        if (th) {\n            if (!pressed) {\n                setupHandlePosition.call(instance, th);\n            }\n        }\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (dblclick >= 2) {\n        setManualSize(currentRow, null);\n        instance.forceFullRender = true;\n        instance.view.render();\n        Handsontable.hooks.run(instance, 'afterRowResize', currentRow, newSize);\n    }\n    dblclick = 0;\n    autoresizeTimeout = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        currentHeight = startHeight + (Handsontable.helper.pageY(e) - startY);\n        newSize = setManualSize(currentRow, currentHeight);\n        refreshHandlePosition();\n        refreshGuidePosition();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        hideHandleAndGuide();\n        pressed = false;\n        if (newSize != startHeight) {\n            instance.forceFullRender = true;\n            instance.view.render();\n            saveManualRowHeights.call(instance);\n            Handsontable.hooks.run(instance, 'afterRowResize', currentRow, newSize);\n        }\n        setupHandlePosition.call(instance, currentTH);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    htManualRowResize.init.call(this, 'afterInit');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualRowResize.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (patches) {\n    if (instance.observeChangesActive) {\n        runHookForOperation.call(instance, patches);\n        instance.render();\n    }\n    instance.runHooks('afterChangesObserved');\n}",
+    "receiverBase": "jsonpatch",
+    "receiverCallee": "observe"
+  },
+  {
+    "callback": "function (patch) {\n    var parsedPath = parsePath(patch.path);\n    if ([\n            'add',\n            'remove'\n        ].indexOf(patch.op) != -1 && !isNaN(parsedPath.col)) {\n        if (newOrRemovedColumns.indexOf(parsedPath.col) != -1) {\n            return false;\n        } else {\n            newOrRemovedColumns.push(parsedPath.col);\n        }\n    }\n    return true;\n}",
+    "receiverBase": "rawPatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (patch) {\n    return !/[\\/]length/gi.test(patch.path);\n}",
+    "receiverBase": "rawPatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (changes, source) {\n    if (source != 'loadData') {\n        afterTableAlter.call(this);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    instance.resumeObservingChanges();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function (changes, origin) {\n    if (changes) {\n        var action = new Handsontable.UndoRedo.ChangeAction(changes);\n        plugin.done(action);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount, createdAutomatically) {\n    if (createdAutomatically) {\n        return;\n    }\n    var action = new Handsontable.UndoRedo.CreateRowAction(index, amount);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount) {\n    var originalData = plugin.instance.getData();\n    index = (originalData.length + index) % originalData.length;\n    var removedData = originalData.slice(index, index + amount);\n    var action = new Handsontable.UndoRedo.RemoveRowAction(index, removedData);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount, createdAutomatically) {\n    if (createdAutomatically) {\n        return;\n    }\n    var action = new Handsontable.UndoRedo.CreateColumnAction(index, amount);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (stateBefore, range, type, alignment) {\n    var action = new Handsontable.UndoRedo.CellAlignmentAction(stateBefore, range, type, alignment);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    that.ignoreNewActions = false;\n    that.undoneActions.push(action);\n}",
+    "receiverBase": "action",
+    "receiverCallee": "undo"
+  },
+  {
+    "callback": "function () {\n    that.ignoreNewActions = false;\n    that.doneActions.push(action);\n}",
+    "receiverBase": "action",
+    "receiverCallee": "redo"
+  },
+  {
+    "callback": "function (scrollX, scrollY) {\n    if (scrollX < 0) {\n        scrollHandler.scrollLeft -= 50;\n    } else if (scrollX > 0) {\n        scrollHandler.scrollLeft += 50;\n    }\n    if (scrollY < 0) {\n        scrollHandler.scrollTop -= 20;\n    } else if (scrollY > 0) {\n        scrollHandler.scrollTop += 20;\n    }\n}",
+    "receiverBase": "dragToScroll",
+    "receiverCallee": "setCallback"
+  },
+  {
+    "callback": "function () {\n    var instance = this;\n    var eventManager = Handsontable.eventManager(this);\n    eventManager.addEventListener(document, 'mouseup', function () {\n        instance.dragToScrollListening = false;\n    });\n    eventManager.addEventListener(document, 'mousemove', function (event) {\n        if (instance.dragToScrollListening) {\n            dragToScroll.check(event.clientX, event.clientY);\n        }\n    });\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    instance.dragToScrollListening = false;\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (instance.dragToScrollListening) {\n        dragToScroll.check(event.clientX, event.clientY);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    var eventManager = Handsontable.eventManager(this);\n    eventManager.clear();\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    setupListening(this);\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    setupListening(this);\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (changes, source) {\n    if (changes && changes.length) {\n        this.selectCell(areaStart.row, areaStart.col, areaEnd.row, areaEnd.col);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function (r, c) {\n    var metaBorders = hot.getCellMeta(r, c).borders;\n    if (metaBorders) {\n        if (direction) {\n            if (!metaBorders[direction].hasOwnProperty('hide')) {\n                atLeastOneHasBorder = true;\n                return false;\n            }\n        } else {\n            atLeastOneHasBorder = true;\n            return false;\n        }\n    }\n}",
+    "receiverBase": "getSelectedRange",
+    "receiverCallee": "forAll"
+  },
+  {
+    "callback": "function (e) {\n    if (checkRowHeader(e.target)) {\n        var th = getTHFromTargetElement(e.target);\n        if (th) {\n            if (pressed) {\n                endRow = instance.view.wt.wtTable.getCoords(th).row;\n                refreshHandlePosition(th, endRow - startRow);\n            } else {\n                setupHandlePosition.call(instance, th);\n            }\n        }\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (Handsontable.Dom.hasClass(e.target, 'manualRowMover')) {\n        startY = Handsontable.helper.pageY(e);\n        setupGuidePosition.call(instance);\n        pressed = instance;\n        startRow = currentRow;\n        endRow = currentRow;\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        refreshGuidePosition(Handsontable.helper.pageY(e) - startY);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    htManualRowMove.init.call(this, 'afterInit');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualRowMove.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    _this.addingStarted = false;\n    _this.instance.alter('insert_row');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.instance.alter('insert_row');\n    that.addingStarted = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var autofill = new Autofill(this);\n    if (typeof this.getSettings().fillHandle !== 'undefined') {\n        if (autofill.handle && this.getSettings().fillHandle === false) {\n            autofill.disable();\n        } else if (!autofill.handle && this.getSettings().fillHandle !== false) {\n            this.autofill = autofill;\n            this.autofill.init();\n        }\n    }\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (item) {\n    return item['rows'];\n}",
+    "receiverBase": "cellsGroups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    return item['cols'];\n}",
+    "receiverBase": "cellsGroups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    return item['level'] === groupLevel;\n}",
+    "receiverBase": "_groups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    return item['cols'];\n}",
+    "receiverBase": "_groups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    return item['rows'];\n}",
+    "receiverBase": "_groups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    if (tmp.indexOf(item.id) === -1) {\n        tmp.push(item.id);\n        return item;\n    }\n}",
+    "receiverBase": "_groups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (items) {\n    items = items.filter(function (item) {\n        return item['cols'];\n    });\n    if (items.length) {\n        var sortedGroup = items.sort(compare('level', 'desc')), lastLevel = sortedGroup[0].level;\n        if (level < lastLevel) {\n            level = lastLevel;\n        }\n    }\n}",
+    "receiverBase": "rangeGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    return item['cols'];\n}",
+    "receiverBase": "items",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (items) {\n    items = items.filter(function (item) {\n        return item['rows'];\n    });\n    if (items.length) {\n        var sortedGroup = items.sort(compare('level', 'desc')), lastLevel = sortedGroup[0].level;\n        if (level < lastLevel) {\n            level = lastLevel;\n        }\n    }\n}",
+    "receiverBase": "rangeGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    return item['rows'];\n}",
+    "receiverBase": "items",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    var _group = [], isRow = false, isCol = false;\n    if (Array.isArray(item.rows)) {\n        _group = item.rows;\n        isRow = true;\n    } else if (Array.isArray(item.cols)) {\n        _group = item.cols;\n        isCol = true;\n    }\n    var from = _group[0], to = _group[_group.length - 1];\n    if (isRow) {\n        groupRows(from, to);\n    } else if (isCol) {\n        groupCols(from, to);\n    }\n}",
+    "receiverBase": "initialGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (this.getSettings().groups && !Handsontable.Grouping) {\n        init.call(this, arguments);\n    } else if (!this.getSettings().groups && Handsontable.Grouping) {\n        Handsontable.Grouping.resetGroups();\n        Handsontable.Grouping = void 0;\n    }\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    var clipboard = event.clipboardData;\n    clipboard.setData('text/plain', plugin.copy());\n    plugin.instance.getSettings().outsideClickDeselects = plugin.outsideClickDeselectsCache;\n}",
+    "receiverBase": "zeroClipboardInstance",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    removeCurrenClass();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (e) {\n    removeCurrenClass();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    removeZeroClipboardClass();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (e) {\n    removeZeroClipboardClass();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    cmCopyPaste.setupZeroClipboard(this);\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (Handsontable.Dom.hasClass(event.target, 'topLeftSelectionHandle-HitArea')) {\n        removeFromDragged.call(that, 'topLeft');\n        that.touchStartRange = void 0;\n        event.preventDefault();\n        return false;\n    } else if (Handsontable.Dom.hasClass(event.target, 'bottomRightSelectionHandle-HitArea')) {\n        removeFromDragged.call(that, 'bottomRight');\n        that.touchStartRange = void 0;\n        event.preventDefault();\n        return false;\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    Handsontable.freezeOverlays = true;\n    for (var i = 0, cloneCount = that.clones.length; i < cloneCount; i++) {\n        Handsontable.Dom.addClass(that.clones[i], 'hide-tween');\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0, cloneCount = that.clones.length; i < cloneCount; i++) {\n        Handsontable.Dom.removeClass(that.clones[i], 'show-tween');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    touchScrollHandler.init.call(touchScrollHandler, this);\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    down = true;\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    down = false;\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    dblClickOrigin[0] = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (that.instance.touchMoving === true) {\n        that.instance.touchMoving = void 0;\n        eventManager.removeEventListener('touchmove', onTouchMove, false);\n        return;\n    } else {\n        onMouseDown(event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    dblClickOrigin[1] = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    that.instance.touchApplied = true;\n    if (Handsontable.Dom.isChildOf(event.target, classSelector)) {\n        onTouchStart.call(event.target, event);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    that.instance.touchApplied = false;\n    if (Handsontable.Dom.isChildOf(event.target, classSelector)) {\n        onTouchEnd.call(event.target, event);\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (!that.instance.touchApplied) {\n        that.instance.momentumScrolling.ongoing = false;\n        that.instance.getSetting('onAfterMomentumScroll');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.instance.draw();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    that.requestAnimFrame.call(window, function () {\n        that.syncScrollPositions(e);\n    });\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.syncScrollPositions(e);\n}",
+    "receiverBase": "requestAnimFrame",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (e) {\n    that.requestAnimFrame.call(window, function () {\n        that.syncScrollPositions(e);\n    });\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.syncScrollPositions(e);\n}",
+    "receiverBase": "requestAnimFrame",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (e) {\n    that.requestAnimFrame.call(window, function () {\n        that.translateMouseWheelToScroll(e);\n    });\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.translateMouseWheelToScroll(e);\n}",
+    "receiverBase": "requestAnimFrame",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (e) {\n    that.requestAnimFrame.call(window, function () {\n        that.syncScrollPositions(e);\n    });\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.syncScrollPositions(e);\n}",
+    "receiverBase": "requestAnimFrame",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (e) {\n    that.requestAnimFrame.call(window, function () {\n        that.translateMouseWheelToScroll(e);\n    });\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.translateMouseWheelToScroll(e);\n}",
+    "receiverBase": "requestAnimFrame",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (e) {\n    that.refreshAll();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    var overlay;\n    if (that.topOverlay.clone.wtTable.holder.contains(e.target)) {\n        overlay = 'top';\n    } else if (that.leftOverlay.clone.wtTable.holder.contains(e.target)) {\n        overlay = 'left';\n    }\n    if (overlay == 'top' && e.wheelDeltaY !== 0) {\n        e.preventDefault();\n    } else if (overlay == 'left' && e.wheelDeltaX !== 0) {\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback, element) {\n        return window.setTimeout(callback, 1000 / 60);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return window.cancelAnimationFrame || window.webkitCancelRequestAnimationFrame || window.mozCancelRequestAnimationFrame || window.oCancelRequestAnimationFrame || window.msCancelRequestAnimationFrame || clearTimeout;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var elem;\n    var styleObj = {\n            getPropertyValue: function getPropertyValue(prop) {\n                if (prop == 'float') {\n                    prop = 'styleFloat';\n                }\n                return elem.currentStyle[prop.toUpperCase()] || null;\n            }\n        };\n    window.getComputedStyle = function (el) {\n        elem = el;\n        return styleObj;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    that.clientHeight = that.getWorkspaceHeight();\n}",
+    "receiverBase": "eventManager",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (prev, next) {\n    var mp = multiplier(prev), mn = multiplier(next);\n    return mp > mn ? mp : mn;\n}",
+    "receiverBase": "args",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    return numeral;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    fiveui.UpdateManager = function (msg) {\n        var manager = this;\n        msg.register('updateRuleSet', function (newRuleSet) {\n            manager.trigger('updateRuleSet.' + newRuleSet.id, false, newRuleSet);\n        });\n    };\n    _.extend(fiveui.UpdateManager.prototype, Backbone.Events);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (newRuleSet) {\n    manager.trigger('updateRuleSet.' + newRuleSet.id, false, newRuleSet);\n}",
+    "receiverBase": "msg",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (it) {\n    return it.hasTag('trophy');\n}",
+    "receiverBase": "exterior",
+    "receiverCallee": "find_items"
+  },
+  {
+    "callback": "function (it) {\n    return it.hasTag('trophy');\n}",
+    "receiverBase": "interior",
+    "receiverCallee": "find_items"
+  },
+  {
+    "callback": "function (response) {\n    self.items = response.data;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (errResponse) {\n    console.error('Error while fetching notes');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    self.newTodo = {};\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    logger.info('zk expired');\n}",
+    "receiverBase": "zk",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return self.emit('error', err);\n    }\n    self.ensureRoots(self.emit.bind(self, 'connect'));\n}",
+    "receiverBase": "zk",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (err, data) {\n    var str = data ? data.toString() : '';\n    done(id, str);\n}",
+    "receiverBase": "zk",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, result) {\n    logger.info('create/replace', path);\n    cb(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function (root, next) {\n    self.zk.mkdirp(root, next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        logger.error('create consumer roots', err);\n    }\n    cb(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachSeries"
+  },
+  {
+    "callback": "function (topic) {\n    if (regex.test(topic)) {\n        topicCounts[topic] = count;\n    }\n}",
+    "receiverBase": "topics",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (topic) {\n    if (!regex.test(topic)) {\n        topicCounts[topic] = count;\n    }\n}",
+    "receiverBase": "topics",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, x, stat) {\n    if (err) {\n        return next(err);\n    }\n    next(null, {\n        id: id,\n        topics: parseTopicPattern(topics, x.toString('utf8'))\n    });\n}",
+    "receiverBase": "zk",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, results) {\n    var result = {};\n    if (results) {\n        results.forEach(function (r) {\n            result[r.id] = r.topics;\n        });\n    }\n    logger.info('consumers', result);\n    cb(err, result);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "mapSeries"
+  },
+  {
+    "callback": "function (r) {\n    result[r.id] = r.topics;\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (property) {\n    if (!_.isUndefined(resource[property])) {\n        content[resourceName][property] = resource[property];\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (entry) {\n    setName(entry, nameProperty);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    this[name] = lang.delegate(def[name], kwArgs[name]);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    if (this.hasOwnProperty(name)) {\n        theme[name] = this[name];\n    }\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    theme = this.addMixin(theme, elementType, m);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var markerName = 'marker' + name.charAt(0).toUpperCase() + name.substr(1), b = markerName in mixin;\n    if (name in mixin) {\n        lang.setObject('series.' + name, mixin[name], t);\n        if (!b) {\n            lang.setObject('marker.' + name, mixin[name], t);\n        }\n    }\n    if (b) {\n        lang.setObject('marker.' + name, mixin[markerName], t);\n    }\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    f(this[name]);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (o) {\n    if (o && o.fill) {\n        o.fill = dgg.reverse(o.fill);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "inspectObjects"
+  },
+  {
+    "callback": "function (aTelVariant) {\n    assert.isUndefined(index.byTel[aTelVariant]);\n}",
+    "receiverBase": "variants",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (aTelVariant) {\n    assert.equal(index.byTel[aTelVariant], uid);\n}",
+    "receiverBase": "mockTelVariants",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    assert.fail('Error not expected: ' + this.error.name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    assert.fail('Succcess not expected');\n}",
+    "receiverBase": "",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    realDatastore = navigator.getDataStores;\n    navigator.getDataStores = MockNavigatorDatastore.getDataStores;\n    MockNavigatorDatastore._records = {};\n    realPhoneNumberService = navigator.mozPhoneNumberService;\n    navigator.mozPhoneNumberService = MockPhoneNumberService;\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteSetup"
+  },
+  {
+    "callback": "function (done) {\n    fb.contacts.init(function () {\n        assertNewIndex();\n        assert.equal(MockDatastore.name, fb.contacts.datastore.name);\n        done();\n    }, function (err) {\n        done(function () {\n            assert.fail('Error reported by initialization!: ' + err);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assertNewIndex();\n    assert.equal(MockDatastore.name, fb.contacts.datastore.name);\n    done();\n}",
+    "receiverBase": "contacts",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (err) {\n    done(function () {\n        assert.fail('Error reported by initialization!: ' + err);\n    });\n}",
+    "receiverBase": "contacts",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    assert.fail('Error reported by initialization!: ' + err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.save(MockFbFriendData);\n    req.onsuccess = function () {\n        assertAdded(MockFbFriendData);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.save(MockFbFriendData);\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, fb.contacts.ALREADY_EXISTS);\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.getByPhone(mockTel);\n    req.onsuccess = function () {\n        assertFound(req);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.getByPhone('67(67)67-67  6');\n    req.onsuccess = function () {\n        assertFound(req);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.getByPhone('987654321');\n    req.onsuccess = function () {\n        assertNotFound(req);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.get(mockUid);\n    req.onsuccess = function () {\n        assertFound(req);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.get('hhhhh');\n    req.onsuccess = function () {\n        assertNotFound(req);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var objToRemove = createFbContact('678903', 'Carlos', '+34699999888');\n    doRemove(objToRemove, false, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var objToRemove = createFbContact('99999', 'Carlos', '+34699999888');\n    var req = fb.contacts.remove(objToRemove);\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, fb.contacts.UID_NOT_FOUND);\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var req = fb.contacts.flush();\n    req.onsuccess = function () {\n        assert.deepEqual(fb.contacts.dsIndex, MockDatastore._records[1]);\n        done();\n    };\n    req.onerror = errorNotExpected.bind(req, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var objToRemove = createFbContact('999999', 'Pedro', '+34611789654');\n    doRemove(objToRemove, true, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (aTelVariant) {\n    assert.equal(index.byTel[aTelVariant], MockFbFriendData.uid);\n}",
+    "receiverBase": "telVariants",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (aTelVariant) {\n    assert.isUndefined(index.byTel[aTelVariant]);\n}",
+    "receiverBase": "telMockVariants",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (done) {\n    var updatedObj = createFbContact('9999', MockFbFriendData.name, '+34657890876');\n    var req = fb.contacts.update(updatedObj);\n    successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UIDNotFound');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    var clearReq = fb.contacts.clear();\n    clearReq.onsuccess = function () {\n        assertNewIndex();\n        done();\n    };\n    clearReq.onerror = errorNotExpected.bind(clearReq, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = true;\n    MockDatastore._inError = false;\n    fb.contacts.restart();\n    fb.contacts.init(successNotExpected.bind(null, done), function (err) {\n        assert.equal(err.name, 'DatastoreNotFound');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err.name, 'DatastoreNotFound');\n    done();\n}",
+    "receiverBase": "contacts",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = false;\n    MockDatastore._inError = true;\n    fb.contacts.restart();\n    var req = fb.contacts.get('hhhhh');\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UnknownError');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = false;\n    MockDatastore._inError = true;\n    var req = fb.contacts.getByPhone('hhhhh');\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UnknownError');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = false;\n    MockDatastore._inError = true;\n    var req = fb.contacts.save(MockFbFriendData);\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UnknownError');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = false;\n    MockDatastore._inError = true;\n    var req = fb.contacts.update({});\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UnknownError');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (done) {\n    MockNavigatorDatastore._notFound = false;\n    MockDatastore._inError = true;\n    var req = fb.contacts.remove('45678');\n    req.onsuccess = successNotExpected.bind(null, done);\n    req.onerror = function () {\n        assert.equal(req.error.name, 'UnknownError');\n        done();\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    this.sinon.useFakeTimers();\n    fb.contacts.restart();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    fb.contacts.restart();\n}",
+    "receiverBase": "",
+    "receiverCallee": "teardown"
+  },
+  {
+    "callback": "function () {\n    var savedAPI = navigator.getDataStores;\n    navigator.getDataStores = null;\n    var success = sinon.stub();\n    var error = sinon.stub();\n    fb.contacts.init(success, error);\n    this.sinon.clock.tick();\n    sinon.assert.notCalled(success);\n    sinon.assert.calledWith(error, { name: 'DatastoreNotFound' });\n    navigator.getDataStores = savedAPI;\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    navigator.getDataStores = realDatastore;\n    navigator.mozPhoneNumberService = realPhoneNumberService;\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteTeardown"
+  },
+  {
+    "callback": "function (v, k) {\n    return k + '=' + v;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (Random) {\n    describe('die', function () {\n        it('returns an integer distribution from 1 to sideCount', function () {\n            var sideCount = 1337;\n            var dummy = function () {\n            };\n            spyOn(Random, 'integer').andReturn(dummy);\n            var actual = Random.die(sideCount);\n            expect(Random.integer).toHaveBeenCalledWith(1, sideCount);\n            expect(actual).toBe(dummy);\n        });\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    it('returns an integer distribution from 1 to sideCount', function () {\n        var sideCount = 1337;\n        var dummy = function () {\n        };\n        spyOn(Random, 'integer').andReturn(dummy);\n        var actual = Random.die(sideCount);\n        expect(Random.integer).toHaveBeenCalledWith(1, sideCount);\n        expect(actual).toBe(dummy);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var sideCount = 1337;\n    var dummy = function () {\n    };\n    spyOn(Random, 'integer').andReturn(dummy);\n    var actual = Random.die(sideCount);\n    expect(Random.integer).toHaveBeenCalledWith(1, sideCount);\n    expect(actual).toBe(dummy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.loadHelpers();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    should.exist(handlebars.helpers.page_url);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    helpers.page_url(1).should.equal('/');\n    helpers.page_url(2).should.equal('/page/2/');\n    helpers.page_url(50).should.equal('/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var tagContext = { tagSlug: 'pumpkin' };\n    helpers.page_url.call(tagContext, 1).should.equal('/tag/pumpkin/');\n    helpers.page_url.call(tagContext, 2).should.equal('/tag/pumpkin/page/2/');\n    helpers.page_url.call(tagContext, 50).should.equal('/tag/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var authorContext = { authorSlug: 'pumpkin' };\n    helpers.page_url.call(authorContext, 1).should.equal('/author/pumpkin/');\n    helpers.page_url.call(authorContext, 2).should.equal('/author/pumpkin/page/2/');\n    helpers.page_url.call(authorContext, 50).should.equal('/author/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.overrideConfig({ url: 'http://testurl.com/blog' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    utils.restoreConfig();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    helpers.page_url(1).should.equal('/blog/');\n    helpers.page_url(2).should.equal('/blog/page/2/');\n    helpers.page_url(50).should.equal('/blog/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var authorContext = { authorSlug: 'pumpkin' };\n    helpers.page_url.call(authorContext, 1).should.equal('/blog/author/pumpkin/');\n    helpers.page_url.call(authorContext, 2).should.equal('/blog/author/pumpkin/page/2/');\n    helpers.page_url.call(authorContext, 50).should.equal('/blog/author/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var tagContext = { tagSlug: 'pumpkin' };\n    helpers.page_url.call(tagContext, 1).should.equal('/blog/tag/pumpkin/');\n    helpers.page_url.call(tagContext, 2).should.equal('/blog/tag/pumpkin/page/2/');\n    helpers.page_url.call(tagContext, 50).should.equal('/blog/tag/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.loadHelpers();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    should.exist(handlebars.helpers.pageUrl);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    helpers.pageUrl(1).should.equal('/');\n    helpers.pageUrl(2).should.equal('/page/2/');\n    helpers.pageUrl(50).should.equal('/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var authorContext = { authorSlug: 'pumpkin' };\n    helpers.pageUrl.call(authorContext, 1).should.equal('/author/pumpkin/');\n    helpers.pageUrl.call(authorContext, 2).should.equal('/author/pumpkin/page/2/');\n    helpers.pageUrl.call(authorContext, 50).should.equal('/author/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var tagContext = { tagSlug: 'pumpkin' };\n    helpers.pageUrl.call(tagContext, 1).should.equal('/tag/pumpkin/');\n    helpers.pageUrl.call(tagContext, 2).should.equal('/tag/pumpkin/page/2/');\n    helpers.pageUrl.call(tagContext, 50).should.equal('/tag/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.overrideConfig({ url: 'http://testurl.com/blog' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    utils.restoreConfig();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    helpers.pageUrl(1).should.equal('/blog/');\n    helpers.pageUrl(2).should.equal('/blog/page/2/');\n    helpers.pageUrl(50).should.equal('/blog/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var tagContext = { tagSlug: 'pumpkin' };\n    helpers.pageUrl.call(tagContext, 1).should.equal('/blog/tag/pumpkin/');\n    helpers.pageUrl.call(tagContext, 2).should.equal('/blog/tag/pumpkin/page/2/');\n    helpers.pageUrl.call(tagContext, 50).should.equal('/blog/tag/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var tagContext = { tagSlug: 'pumpkin' };\n    helpers.pageUrl.call(tagContext, 1).should.equal('/blog/tag/pumpkin/');\n    helpers.pageUrl.call(tagContext, 2).should.equal('/blog/tag/pumpkin/page/2/');\n    helpers.pageUrl.call(tagContext, 50).should.equal('/blog/tag/pumpkin/page/50/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

@@ -1,0 +1,287 @@
+[
+  {
+    "callback": "function (str) {\n    return str.trim();\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (file) {\n    if (path.extname(file) == '.js' && path.basename(file, '.js') != 'package') {\n        readClientFile(file, {\n            'sumeru': fw,\n            'Model': Model\n        });\n    }\n    ;\n}",
+    "receiverBase": "allTheDirFiles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (error, data) {\n    if (error)\n        done(error);\n    else {\n        results[current] = data;\n        run(current + 1);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "tasks"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    exports.snippetText = undefined;\n    exports.scope = 'lean';\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (err, success) {\n    test.save(save_callback);\n}",
+    "receiverBase": "test",
+    "receiverCallee": "reset"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write('end');\n}",
+    "receiverBase": "stdin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, fileInfo) {\n    assert.ifError(err);\n    assert.ok(fileInfo, !null);\n    client.remove(fileInfo.fid, function (err, resp, body) {\n        assert.ok(resp.statusCode, 200);\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "write"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.ok(resp.statusCode, 200);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function () {\n    self.on_connect();\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (buffer_from_socket) {\n    self.on_data(buffer_from_socket);\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    self.on_error(msg.message);\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.connection_gone('close');\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.connection_gone('end');\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.should_buffer = false;\n    self.emit('drain');\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.unref();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    throw callback_err;\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    throw callback_err;\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    self.do_auth();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (parser) {\n    if (parser.name === self.options.parser) {\n        self.parser_module = parser;\n        if (exports.debug_mode) {\n            console.log('Using parser module: ' + self.parser_module.name);\n        }\n        return true;\n    }\n}",
+    "receiverBase": "parsers",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (reply) {\n    if (reply instanceof Error) {\n        self.return_error(reply);\n    } else {\n        self.return_error(new Error(reply));\n    }\n}",
+    "receiverBase": "reply_parser",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (reply) {\n    self.return_reply(reply);\n}",
+    "receiverBase": "reply_parser",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    self.emit('error', new Error('Redis reply parser error: ' + err.stack));\n}",
+    "receiverBase": "reply_parser",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key) {\n    var parts = key.split(' ');\n    if (exports.debug_mode) {\n        console.warn('sending pub/sub on_ready ' + parts[0] + ', ' + parts[1]);\n    }\n    callback_count++;\n    self.send_command(parts[0] + 'scribe', [parts[1]], callback);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (line) {\n    var parts = line.split(':');\n    if (parts[1]) {\n        obj[parts[0]] = parts[1];\n    }\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (num) {\n    obj.versions.push(+num);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    self.ready_check();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, res) {\n    self.on_info_cmd(err, res);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function () {\n    if (exports.debug_mode) {\n        console.log('Retrying connection...');\n    }\n    self.retry_totaltime += self.retry_delay;\n    if (self.connect_timeout && self.retry_totaltime >= self.connect_timeout) {\n        self.retry_timer = null;\n        console.error('node_redis: Couldn\\'t get Redis connection after ' + self.retry_totaltime + 'ms.');\n        return;\n    }\n    self.stream.connect(self.port, self.host);\n    self.retry_timer = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    throw callback_err;\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    throw err;\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    throw err;\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (elem) {\n    return elem.replace(/\\\\\"/g, '\"');\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    obj[val] = true;\n}",
+    "receiverBase": "seta",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (val) {\n    obj[val] = true;\n}",
+    "receiverBase": "setb",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err === null) {\n        self.selected_db = db;\n    }\n    if (typeof callback === 'function') {\n        callback(err, res);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "send_command"
+  },
+  {
+    "callback": "function (key) {\n    tmp_args.push(key);\n    tmp_args.push(args[1][key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    args.push(key);\n    args.push(obj[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, reply) {\n    if (err) {\n        var cur = self.queue[index];\n        if (typeof cur[cur.length - 1] === 'function') {\n            cur[cur.length - 1](err);\n        } else {\n            errors.push(new Error(err));\n        }\n    }\n}",
+    "receiverBase": "_client",
+    "receiverCallee": "send_command"
+  },
+  {
+    "callback": "function (err, reply) {\n    if (err && /NOSCRIPT/.test(err.message)) {\n        args[0] = source;\n        eval_orig.call(self, args, callback);\n    } else if (callback) {\n        callback(err, reply);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "evalsha"
+  },
+  {
+    "callback": "function (Y, NAME) {\n    Y.StackedAreaSeries = Y.Base.create('stackedAreaSeries', Y.AreaSeries, [Y.StackingUtil], {\n        setAreaData: function () {\n            Y.StackedAreaSeries.superclass.setAreaData.apply(this);\n            this._stackCoordinates.apply(this);\n        },\n        drawSeries: function () {\n            this.drawFill.apply(this, this._getStackedClosingPoints());\n        }\n    }, { ATTRS: { type: { value: 'stackedArea' } } });\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (data) {\n    d.resolve(data.items);\n}",
+    "receiverBase": "jsonp",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $log.error('Error: ', headers);\n    d.reject(data);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (node) {\n    node.graphics.removeAll(node.userData.rulelines);\n    node.userData.rulelines = [];\n    createRule.call(this, node);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    switch (event.which) {\n    case 461:\n    case 27:\n        event.preventDefault();\n        self.clearDefaults();\n        history.back(1);\n        break;\n    case 33:\n    case 403:\n    case 412:\n        self.prevPage();\n        break;\n    case 34:\n    case 406:\n    case 417:\n        self.nextPage();\n        break;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function () {\n    $(this).focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function (index, item) {\n    html = '<li><a href data-key-index=\"' + i++ + '\" data-action=\"view\" data-section=\"' + self.section + '\" data-key=\"' + self.key + '\" data-filter=\"' + $(this).attr('key') + '\">' + $(this).attr('title').replace('By ', '') + '</a></li>';\n    $('#menuFilterContent ul').append(html);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, item) {\n    html = '<li><a href data-key-index=\"' + i++ + '\" data-action=\"view\" data-section=\"' + self.section + '\" data-key=\"' + self.key + '\" data-filter=\"' + $(this).attr('key') + '\">' + $(this).attr('title').replace('By ', '') + '</a></li>';\n    $('#menuFilterContent ul').append(html);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    localStorage.setItem(self.PLEX_VIEW_MODE, 'thumbs');\n    self.view(self.section, self.key, self.filter, self.filterKey, self.viewStart);\n    self.hideMenu();\n    event.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    localStorage.setItem(self.PLEX_VIEW_MODE, 'list');\n    self.view(self.section, self.key, self.filter, self.filterKey, self.viewStart);\n    self.hideMenu();\n    event.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (event) {\n    self.filter = $(this).data('filter');\n    localStorage.setItem(self.PLEX_LAST_VIEW_PREFIX + $(this).data('key'), $(this).data('filter'));\n    self.clearDefaults();\n    self.filterKey = '';\n    self.view($(this).data('section'), $(this).data('key'), $(this).data('filter'), self.filterKey, 0);\n    self.hideMenu();\n    event.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    item.find('.subtitle').css('textOverflow', 'clip');\n    clearInterval(self.titleScroll);\n    self.titleScroll = setInterval(function () {\n        if (left <= item.find('.subtitle')[0].scrollWidth) {\n            item.find('.subtitle').scrollLeft(left += 2);\n        } else {\n            clearInterval(self.titleScroll);\n        }\n    }, 50);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    if (left <= item.find('.subtitle')[0].scrollWidth) {\n        item.find('.subtitle').scrollLeft(left += 2);\n    } else {\n        clearInterval(self.titleScroll);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (event) {\n    clearInterval(self.titleScroll);\n    $(this).find('.subtitle').scrollLeft(0);\n    $(this).find('.subtitle').css('textOverflow', 'ellipsis');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "blur"
+  },
+  {
+    "callback": "function (event) {\n    $(this).focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "mouseenter"
+  },
+  {
+    "callback": "function () {\n    if ($(this).prev().length > 0) {\n        if ($(this).position().top != $(this).prev().position().top)\n            return false;\n        row++;\n    } else {\n        row++;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    self.setDebug();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

@@ -1,0 +1,2323 @@
+[
+  {
+    "callback": "function (txn, res, next) {\n    if (txn.req.scope != 'read') {\n        return next(new Error('something is wrong'));\n    }\n    res.end('abc');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    res.end = function (data) {\n        result = data;\n        done();\n    };\n    server._respond(txn, res, function (e) {\n        done(new Error('should not be called'));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    done(new Error('should not be called'));\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(result).to.equal('abc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result, err;\n    before(function (done) {\n        var txn = { req: { type: 'unsupported' } };\n        var res = {};\n        res.end = function (data) {\n            done(new Error('should not be called'));\n        };\n        server._respond(txn, res, function (e) {\n            err = e;\n            done();\n        });\n    });\n    it('should not error', function () {\n        expect(err).to.be.undefined;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var txn = { req: { type: 'unsupported' } };\n    var res = {};\n    res.end = function (data) {\n        done(new Error('should not be called'));\n    };\n    server._respond(txn, res, function (e) {\n        err = e;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    err = e;\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (txn, res, next) {\n    res.end('abc');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    res.end = function (data) {\n        result = data;\n        done();\n    };\n    server._respond(txn, res, function (e) {\n        done(new Error('should not be called'));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    done(new Error('should not be called'));\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(result).to.equal('abc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (txn, res, next) {\n    res.star = true;\n    next();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (txn, res, next) {\n    if (!res.star) {\n        return next(new Error('something is wrong'));\n    }\n    res.end('abc');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    res.end = function (data) {\n        result = data;\n        done();\n    };\n    response = res;\n    server._respond(txn, res, function (e) {\n        done(new Error('should not be called'));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    done(new Error('should not be called'));\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(result).to.equal('abc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (txn, res, next) {\n    next(new Error('something went wrong'));\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    res.end = function (data) {\n        done(new Error('should not be called'));\n    };\n    server._respond(txn, res, function (e) {\n        err = e;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    err = e;\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.an.instanceOf(Error);\n    expect(err.message).to.equal('something went wrong');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (txn, res, next) {\n    throw new Error('something was thrown');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "grant"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    res.end = function (data) {\n        done(new Error('should not be called'));\n    };\n    server._respond(txn, res, function (e) {\n        err = e;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    err = e;\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.an.instanceOf(Error);\n    expect(err.message).to.equal('something was thrown');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var err;\n    before(function (done) {\n        var txn = {\n                req: {\n                    type: 'foo',\n                    scope: 'read'\n                }\n            };\n        var res = {};\n        server._respond(txn, res, function (e) {\n            err = e;\n            done();\n        });\n    });\n    it('should not error', function () {\n        expect(err).to.be.undefined;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var txn = {\n            req: {\n                type: 'foo',\n                scope: 'read'\n            }\n        };\n    var res = {};\n    server._respond(txn, res, function (e) {\n        err = e;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (e) {\n    err = e;\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "_respond"
+  },
+  {
+    "callback": "function () {\n    expect(err).to.be.undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    this.style.cursor = 'default';\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function () {\n    me.setPosition(this.getPosition());\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    cDraggingMapByCluster = cMouseDownInCluster;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    cMouseDownInCluster = true;\n    cDraggingMapByCluster = false;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function () {\n    mc.getMap().fitBounds(theBounds);\n    if (mz !== null && mc.getMap().getZoom() > mz) {\n        mc.getMap().setZoom(mz + 1);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var mc = cClusterIcon.cluster_.getMarkerClusterer();\n    google.maps.event.trigger(mc, 'mouseover', cClusterIcon.cluster_);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function () {\n    var mc = cClusterIcon.cluster_.getMarkerClusterer();\n    google.maps.event.trigger(mc, 'mouseout', cClusterIcon.cluster_);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function () {\n    cMarkerClusterer.resetViewport_(false);\n    if (this.getZoom() === (this.get('minZoom') || 0) || this.getZoom() === this.get('maxZoom')) {\n        google.maps.event.trigger(this, 'idle');\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    cMarkerClusterer.redraw_();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    if (cMarkerClusterer.ready_) {\n        this.isAdded = false;\n        cMarkerClusterer.repaint();\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    var i;\n    for (i = 0; i < oldClusters.length; i++) {\n        oldClusters[i].remove();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    cMarkerClusterer.createClusters_(iLast);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (me.marker_.getDraggable() || me.marker_.getClickable()) {\n        this.style.cursor = 'pointer';\n        google.maps.event.trigger(me.marker_, 'mouseover', e);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (e) {\n    if ((me.marker_.getDraggable() || me.marker_.getClickable()) && !cDraggingLabel) {\n        this.style.cursor = me.marker_.getCursor();\n        google.maps.event.trigger(me.marker_, 'mouseout', e);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (e) {\n    cDraggingLabel = false;\n    if (me.marker_.getDraggable()) {\n        cMouseIsDown = true;\n        this.style.cursor = cDraggingCursor;\n    }\n    if (me.marker_.getDraggable() || me.marker_.getClickable()) {\n        google.maps.event.trigger(me.marker_, 'mousedown', e);\n        cAbortEvent(e);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (e) {\n    if (cDraggingLabel) {\n        if (e.keyCode === 27) {\n            cRaiseEnabled = false;\n            me.marker_.setPosition(cStartPosition);\n            me.marker_.getMap().setCenter(cStartCenter);\n            google.maps.event.trigger(document, 'mouseup', e);\n        }\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (e) {\n    if (me.marker_.getDraggable() || me.marker_.getClickable()) {\n        if (cIgnoreClick) {\n            cIgnoreClick = false;\n        } else {\n            google.maps.event.trigger(me.marker_, 'click', e);\n            cAbortEvent(e);\n        }\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (e) {\n    if (me.marker_.getDraggable() || me.marker_.getClickable()) {\n        google.maps.event.trigger(me.marker_, 'dblclick', e);\n        cAbortEvent(e);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (mEvent) {\n    if (!cDraggingLabel) {\n        cRaiseEnabled = this.get('raiseOnDrag');\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (mEvent) {\n    if (!cDraggingLabel) {\n        if (cRaiseEnabled) {\n            me.setPosition(cRaiseOffset);\n            me.labelDiv_.style.zIndex = 1000000 + (this.get('labelInBackground') ? -1 : +1);\n        }\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (mEvent) {\n    if (!cDraggingLabel) {\n        if (cRaiseEnabled) {\n            me.setPosition(0);\n        }\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setPosition();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setZIndex();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setVisible();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setVisible();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setTitle();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setContent();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setAnchor();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setStyles();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    me.setStyles();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (version) {\n    return function () {\n        if (version === nthCall) {\n            return fn.apply(that, argz);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (l) {\n    return google.maps.event.removeListener(l);\n}",
+    "receiverBase": "listeners_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj1) {\n    return _.find(array2, function (obj2) {\n        if (comparison != null) {\n            return comparison(obj1, obj2);\n        } else {\n            return _.isEqual(obj1, obj2);\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (obj2) {\n    if (comparison != null) {\n        return comparison(obj1, obj2);\n    } else {\n        return _.isEqual(obj1, obj2);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (o) {\n    return o != null;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (value) {\n    if (comparison != null) {\n        return comparison(value, target);\n    } else {\n        return _.isEqual(value, target);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (value) {\n    return !_.containsObject(array2, value, comparison);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (combined, toAdd) {\n    return _.extend(combined, toAdd);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (o) {\n    return results.push(iterator(o));\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return doneCallBack(results);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return window._async;\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    return {\n        onChildCreation: function (child) {\n        }\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (map) {\n    return scope.map = map;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return eventHandler.apply(scope, [\n        gObject,\n        eventName,\n        model,\n        arguments\n    ]);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (l) {\n    return google.maps.event.removeListener(l);\n}",
+    "receiverBase": "listeners",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    if (gMarker) {\n        if (!everSet) {\n            everSet = true;\n        }\n        return bounds.extend(gMarker.getPosition());\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (everSet) {\n        return gMap.fitBounds(bounds);\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (polygon, index) {\n    if (polygon[0].length > this.max) {\n        this.max = polygon[0].length;\n        return this.index = index;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (polygon, index) {\n    if (polygon[0].length > this.max) {\n        this.max = polygon[0].length;\n        return this.index = index;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    if (obj) {\n        return obj = obj[value];\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (ctr !== expect) {\n        return ohCrap();\n    } else {\n        return d.resolve(promises());\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (_super) {\n    __extends(Linked, _super);\n    function Linked(scope, element, attrs, ctrls) {\n        this.scope = scope;\n        this.element = element;\n        this.attrs = attrs;\n        this.ctrls = ctrls;\n    }\n    return Linked;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (c) {\n    var id;\n    if (c == null) {\n        Logger.error('child undefined in ModelsWatcher.');\n        return;\n    }\n    if (c.model == null) {\n        Logger.error('child.model undefined in ModelsWatcher.');\n        return;\n    }\n    id = c.model[idKey];\n    if (mappedScopeModelIds[id] == null) {\n        return removals.push(c);\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return callBack({\n        adds: adds,\n        removals: removals,\n        updates: updates\n    });\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (_.indexOf(propsToPop, key) === -1) {\n        return all.push(_this[key]);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (_.indexOf(propsToPop, prop) === -1) {\n        return all.push(prop);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (k) {\n    return _this.remove(k);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return window.PropMap;\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (gMarker) {\n    return _this.add(gMarker);\n}",
+    "receiverBase": "gMarkers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    return _this.remove(gMarker);\n}",
+    "receiverBase": "gMarkers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    return _this.add(gMarker);\n}",
+    "receiverBase": "gMarkers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (marker) {\n    return _this.remove(marker);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    if (!gMarker.isDrawn) {\n        if (gMarker.doAdd) {\n            gMarker.setMap(_this.gMap);\n            return gMarker.isDrawn = true;\n        } else {\n            return deletes.push(gMarker);\n        }\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    gMarker.isDrawn = false;\n    return _this.remove(gMarker, true);\n}",
+    "receiverBase": "deletes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (gMarker) {\n    return gMarker.setMap(null);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    handler.apply(this, arguments);\n    return $timeout(function () {\n    }, true);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (_handler, key) {\n    return remove.push(addEvent(target, key, _handler));\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (listener) {\n    return google.maps.event.removeListener(listener);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    return poly.getPath().push(e.latLng);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    var path;\n    google.maps.event.removeListener(move);\n    path = poly.getPath();\n    poly.setMap(null);\n    polys.push(new google.maps.Polygon({\n        map: map,\n        path: path\n    }));\n    poly = null;\n    google.maps.event.clearListeners(map.getDiv(), 'mousedown');\n    return enable();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListenerOnce"
+  },
+  {
+    "callback": "function (e) {\n    return drawFreeHand(_this.map, _this.polys, enable);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addDomListener"
+  },
+  {
+    "callback": "function (theMap) {\n    self.gMarkerLabel.setMap(theMap);\n    return google.maps.Marker.prototype.setMap.apply(this, arguments);\n}",
+    "receiverBase": "gMarker",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this.setMyScope(newValue, oldValue);\n        return _this.needRedraw = true;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (pathPoints) {\n    if (scope.fit) {\n        return _this.extendMapBounds(map, pathPoints);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "arraySync"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setEditable(newValue) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setDraggable(newValue) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setVisible(newValue) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setOptions(_this.buildOpts(_this.polyline.getPath())) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setOptions(_this.buildOpts(_this.polyline.getPath())) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setOptions(_this.buildOpts(_this.polyline.getPath())) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setOptions(_this.buildOpts(_this.polyline.getPath())) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var _ref;\n    if (newValue !== oldValue) {\n        return (_ref = _this.polyline) != null ? _ref.setOptions(_this.buildOpts(_this.polyline.getPath())) : void 0;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    _this.clean();\n    return _this.scope = null;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (defaultValue, key) {\n    if (angular.isUndefined(_this.scope[key]) || _this.scope[key] === null) {\n        return opts[key] = defaultValue;\n    } else {\n        return opts[key] = _this.scope[key];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return _this.destroy();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    var _ref;\n    if (!_this.element || !_this.html) {\n        return;\n    }\n    if (_this.html !== _this.element.html()) {\n        if (_this.gWin) {\n            if ((_ref = _this.opts) != null) {\n                _ref.content = void 0;\n            }\n            _this.remove();\n            _this.createGWin();\n            return _this.showHide();\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    if (_this.markerCtrl) {\n        _this.markerCtrl.setAnimation(_this.oldMarkerAnimation);\n        if (_this.markerIsVisibleAfterWindowClose) {\n            _.delay(function () {\n                _this.markerCtrl.setVisible(false);\n                return _this.markerCtrl.setVisible(_this.markerIsVisibleAfterWindowClose);\n            }, 250);\n        }\n    }\n    _this.gWin.isOpen(false);\n    if (_this.scope.closeClick != null) {\n        return _this.scope.closeClick();\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    _this.markerCtrl.setVisible(false);\n    return _this.markerCtrl.setVisible(_this.markerIsVisibleAfterWindowClose);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "delay"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        if (newValue) {\n            return _this.showWindow();\n        } else {\n            return _this.hideWindow();\n        }\n    } else {\n        if (_this.gWin != null) {\n            if (newValue && !_this.gWin.getMap()) {\n                return _this.showWindow();\n            }\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this.opts = newValue;\n        if (_this.gWin != null) {\n            return _this.gWin.setOptions(_this.opts);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (content) {\n    var compiled, templateScope;\n    templateScope = _this.scope.$new();\n    if (angular.isDefined(_this.scope.templateParameter)) {\n        templateScope.parameter = _this.scope.templateParameter;\n    }\n    compiled = $compile(content.data)(templateScope);\n    return _this.gWin.setContent(compiled[0]);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (h) {\n    return google.maps.event.removeListener(h);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _this.onDestroy(scope);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (!_.isEqual(newValue, oldValue)) {\n        return _this.onWatch(propNameToWatch, scope, newValue, oldValue);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this.doShow = newValue;\n        if (newValue) {\n            return _this.layer.setMap(_this.gMap);\n        } else {\n            return _this.layer.setMap(null);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this.layer.setMap(null);\n        _this.layer = null;\n        return _this.createGoogleLayer();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return _this.layer.setMap(null);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    if (_this.doClick && scope.click != null) {\n        return _this.scope.click();\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return _this.doRebuildAll = newValue;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return _this.newChildMarker(model, scope);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    _this.gMarkerManager.draw();\n    if (scope.fit) {\n        return _this.gMarkerManager.fit();\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    if (child != null) {\n        if (child.destroy != null) {\n            child.destroy();\n        }\n        return _this.scope.markerModels.remove(child.id);\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (modelToAdd) {\n    return _this.newChildMarker(modelToAdd, scope);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _async.each(payload.updates, function (update) {\n        return _this.updateChild(update.child, update.model);\n    }, function () {\n        if (payload.adds.length > 0 || payload.removals.length > 0 || payload.updates.length > 0) {\n            _this.gMarkerManager.draw();\n            return scope.markerModels = _this.scope.markerModels;\n        }\n    });\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (update) {\n    return _this.updateChild(update.child, update.model);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (payload.adds.length > 0 || payload.removals.length > 0 || payload.updates.length > 0) {\n        _this.gMarkerManager.draw();\n        return scope.markerModels = _this.scope.markerModels;\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (model) {\n    if (model != null) {\n        return model.destroy();\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (g) {\n    return _this.scope.markerModels[g.key].model;\n}",
+    "receiverBase": "gMarkers",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (name) {\n    return _this[name + 'Key'] = void 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this[nameKey] = typeof newValue === 'function' ? newValue() : newValue;\n        return _async.each(_.values(_this.plurals), function (model) {\n            return model.scope[name] = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n        }, function () {\n        });\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return model.scope[name] = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (!_.isEqual(newValue, oldValue)) {\n        if (_this.doINeedToWipe(newValue)) {\n            return _this.rebuildAll(scope, true, true);\n        } else {\n            return _this.createChildScopes(false);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return model.destroy();\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (doDelete) {\n        delete _this.plurals;\n    }\n    _this.plurals = new PropMap();\n    if (doCreate) {\n        return _this.createChildScopes();\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _this.rebuildAll(scope, false, true);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (name) {\n    var nameKey;\n    nameKey = name + 'Key';\n    _this[nameKey] = typeof scope[name] === 'function' ? scope[name]() : scope[name];\n    return _this.watch(scope, name, nameKey);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue && newValue == null) {\n        _this.idKey = newValue;\n        return _this.rebuildAll(scope, true, true);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return _this.createChild(model, _this.gMap);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _this.firstTime = false;\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (state) {\n    var payload;\n    payload = state;\n    return _async.each(payload.removals, function (id) {\n        var child;\n        child = _this.plurals[id];\n        if (child != null) {\n            child.destroy();\n            return _this.plurals.remove(id);\n        }\n    }, function () {\n        return _async.each(payload.adds, function (modelToAdd) {\n            return _this.createChild(modelToAdd, _this.gMap);\n        }, function () {\n        });\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "figureOutState"
+  },
+  {
+    "callback": "function (id) {\n    var child;\n    child = _this.plurals[id];\n    if (child != null) {\n        child.destroy();\n        return _this.plurals.remove(id);\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _async.each(payload.adds, function (modelToAdd) {\n        return _this.createChild(modelToAdd, _this.gMap);\n    }, function () {\n    });\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (modelToAdd) {\n    return _this.createChild(modelToAdd, _this.gMap);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return _this.setChildScope(childScope, newValue);\n    }\n}",
+    "receiverBase": "childScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (name) {\n    var nameKey, newValue;\n    nameKey = name + 'Key';\n    newValue = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n    if (newValue !== childScope[name]) {\n        return childScope[name] = newValue;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    return _this[name + 'Key'] = void 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (map) {\n    var markerCtrl;\n    _this.gMap = map;\n    markerCtrl = ctrls.length > 1 && ctrls[1] != null ? ctrls[1] : void 0;\n    if (!markerCtrl) {\n        _this.go(scope);\n        return;\n    }\n    return markerCtrl.getScope().deferred.promise.then(function () {\n        _this.markerScope = markerCtrl.getScope();\n        return _this.go(scope);\n    });\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    _this.markerScope = markerCtrl.getScope();\n    return _this.go(scope);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return _this.doRebuildAll = newValue;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this[nameKey] = typeof newValue === 'function' ? newValue() : newValue;\n        return _async.each(_.values(_this.windows), function (model) {\n            return model.scope[name] = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n        }, function () {\n        });\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return model.scope[name] = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (!_.isEqual(newValue, oldValue)) {\n        if (_this.doRebuildAll || _this.doINeedToWipe(newValue)) {\n            return _this.rebuildAll(scope, true, true);\n        } else {\n            return _this.createChildScopesWindows(false);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    return model.destroy();\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (doDelete) {\n        delete _this.windows;\n    }\n    _this.windows = new PropMap();\n    if (doCreate) {\n        return _this.createChildScopesWindows();\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _this.rebuildAll(scope, false, true);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (name) {\n    var nameKey;\n    nameKey = name + 'Key';\n    _this[nameKey] = typeof scope[name] === 'function' ? scope[name]() : scope[name];\n    return _this.watch(scope, name, nameKey);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue && newValue == null) {\n        _this.idKey = newValue;\n        return _this.rebuildAll(scope, true, true);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (model) {\n    var gMarker;\n    gMarker = hasGMarker ? scope[modelsPropToIterate][[model[_this.idKey]]].gMarker : void 0;\n    return _this.createWindow(model, gMarker, _this.gMap);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _this.firstTime = false;\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    if (child != null) {\n        if (child.destroy != null) {\n            child.destroy();\n        }\n        return _this.windows.remove(child.id);\n    }\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _async.each(payload.adds, function (modelToAdd) {\n        var gMarker;\n        gMarker = scope[modelsPropToIterate][modelToAdd[_this.idKey]].gMarker;\n        return _this.createWindow(modelToAdd, gMarker, _this.gMap);\n    }, function () {\n    });\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (modelToAdd) {\n    var gMarker;\n    gMarker = scope[modelsPropToIterate][modelToAdd[_this.idKey]].gMarker;\n    return _this.createWindow(modelToAdd, gMarker, _this.gMap);\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "_async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        _this.setChildScope(childScope, newValue);\n        if (_this.markerScope) {\n            return _this.windows[newValue[_this.idKey]].markerCtrl = _this.markerScope.markerModels[newValue[_this.idKey]].gMarker;\n        }\n    }\n}",
+    "receiverBase": "childScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (name) {\n    var nameKey, newValue;\n    nameKey = name + 'Key';\n    newValue = _this[nameKey] === 'self' ? model : model[_this[nameKey]];\n    if (newValue !== childScope[name]) {\n        return childScope[name] = newValue;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (template) {\n    var templateCtrl, templateScope;\n    templateScope = scope.$new();\n    controlDiv.append(template);\n    if (index) {\n        controlDiv[0].index = index;\n    }\n    if (angular.isDefined(scope.controller)) {\n        templateCtrl = $controller(scope.controller, { $scope: templateScope });\n        controlDiv.children().data('$ngControllerController', templateCtrl);\n    }\n    return control = $compile(controlDiv.contents())(templateScope);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (error) {\n    return _this.$log.error('mapControl: template could not be found');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    return map.controls[google.maps.ControlPosition[position]].push(control[0]);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var firstTime;\n    firstTime = true;\n    return listener = scope.$watch('polygons', function (newValue, oldValue) {\n        var removals;\n        if (firstTime) {\n            firstTime = false;\n            return;\n        }\n        removals = _.differenceObjects(oldValue, newValue);\n        return removals.forEach(function (p) {\n            return p.setMap(null);\n        });\n    });\n}",
+    "receiverBase": "engage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    var removals;\n    if (firstTime) {\n        firstTime = false;\n        return;\n    }\n    removals = _.differenceObjects(oldValue, newValue);\n    return removals.forEach(function (p) {\n        return p.setMap(null);\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (p) {\n    return p.setMap(null);\n}",
+    "receiverBase": "removals",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return ExtendGWin.init();\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (map) {\n    scope.deferred.resolve(map);\n    return resolveSpawned();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    dragging = true;\n    return _.defer(function () {\n        return scope.$apply(function (s) {\n            if (s.dragging != null) {\n                return s.dragging = dragging;\n            }\n        });\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (s.dragging != null) {\n            return s.dragging = dragging;\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (s.dragging != null) {\n        return s.dragging = dragging;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    dragging = false;\n    return _.defer(function () {\n        return scope.$apply(function (s) {\n            if (s.dragging != null) {\n                return s.dragging = dragging;\n            }\n        });\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (s.dragging != null) {\n            return s.dragging = dragging;\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (s.dragging != null) {\n        return s.dragging = dragging;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    var c;\n    c = _m.center;\n    return _.defer(function () {\n        return scope.$apply(function (s) {\n            if (angular.isDefined(s.center.type)) {\n                s.center.coordinates[1] = c.lat();\n                return s.center.coordinates[0] = c.lng();\n            } else {\n                s.center.latitude = c.lat();\n                return s.center.longitude = c.lng();\n            }\n        });\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (angular.isDefined(s.center.type)) {\n            s.center.coordinates[1] = c.lat();\n            return s.center.coordinates[0] = c.lng();\n        } else {\n            s.center.latitude = c.lat();\n            return s.center.longitude = c.lng();\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (angular.isDefined(s.center.type)) {\n        s.center.coordinates[1] = c.lat();\n        return s.center.coordinates[0] = c.lng();\n    } else {\n        s.center.latitude = c.lat();\n        return s.center.longitude = c.lng();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    if (scope.zoom !== _m.zoom) {\n        return _.defer(function () {\n            return scope.$apply(function (s) {\n                return s.zoom = _m.zoom;\n            });\n        });\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        return s.zoom = _m.zoom;\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    return s.zoom = _m.zoom;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (s.bounds !== null && s.bounds !== undefined && s.bounds !== void 0) {\n            s.bounds.northeast = {\n                latitude: ne.lat(),\n                longitude: ne.lng()\n            };\n            return s.bounds.southwest = {\n                latitude: sw.lat(),\n                longitude: sw.lng()\n            };\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (s.bounds !== null && s.bounds !== undefined && s.bounds !== void 0) {\n        s.bounds.northeast = {\n            latitude: ne.lat(),\n            longitude: ne.lng()\n        };\n        return s.bounds.southwest = {\n            latitude: sw.lat(),\n            longitude: sw.lng()\n        };\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue === _m.zoom) {\n        return;\n    }\n    return _.defer(function () {\n        return _m.setZoom(newValue);\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return _m.setZoom(newValue);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (!_.isEqual(newValue, oldValue)) {\n        opts.options = newValue;\n        if (_m != null) {\n            return _m.setOptions(opts);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (!_.isEqual(newValue, oldValue)) {\n        opts.styles = newValue;\n        if (_m != null) {\n            return _m.setOptions(opts);\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (map) {\n    if (!_this.gMarkerManager) {\n        _this.gMarkerManager = new MarkerManager(map);\n    }\n    new MarkerParentModel(scope, element, attrs, map, _this.$timeout, _this.gMarkerManager, doFit);\n    scope.deferred.resolve();\n    if (scope.control != null) {\n        return scope.control.getGMarkers = _this.gMarkerManager.getGMarkers;\n    }\n}",
+    "receiverBase": "mapPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (map) {\n    var parentModel;\n    parentModel = new MarkersParentModel(scope, element, attrs, map, _this.$timeout);\n    scope.deferred.resolve();\n    if (scope.control != null) {\n        scope.control.getGMarkers = function () {\n            var _ref;\n            return (_ref = parentModel.gMarkerManager) != null ? _ref.getGMarkers() : void 0;\n        };\n        return scope.control.getChildMarkers = function () {\n            return parentModel.markerModels;\n        };\n    }\n}",
+    "receiverBase": "mapPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (map) {\n    return new PolylineChildModel(scope, attrs, map, _this.DEFAULTS);\n}",
+    "receiverBase": "mapPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (map) {\n    return new PolylinesParentModel(scope, element, attrs, map, _this.DEFAULTS);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return _this.init(scope, element, isIconVisibleOnClick, mapCtrl, markerScope);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (markerScope.gMarker != null && !window.markerCtrl) {\n        window.markerCtrl = gMarker;\n        window.handleClick(true);\n    }\n    if (!_this.validateCoords(newValue)) {\n        return window.hideWindow();\n    }\n    if (!angular.equals(newValue, oldValue)) {\n        return window.getLatestPosition(_this.getCoords(newValue));\n    }\n}",
+    "receiverBase": "markerScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return _this.childWindows = _.withoutObjects(_this.childWindows, [window], function (child1, child2) {\n        return child1.scope.$id === child2.scope.$id;\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (child1, child2) {\n    return child1.scope.$id === child2.scope.$id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "withoutObjects"
+  },
+  {
+    "callback": "function (child) {\n    return child.gWin;\n}",
+    "receiverBase": "childWindows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (child) {\n    return child.gWin;\n}",
+    "receiverBase": "windows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return _this.init(markerScope, scope);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return label != null ? label.destroy() : void 0;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (defaultValue, key) {\n    if (angular.isUndefined(scope[key]) || scope[key] === null) {\n        return opts[key] = defaultValue;\n    } else {\n        return opts[key] = scope[key];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setEditable(newValue);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setDraggable(newValue);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setVisible(newValue);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return polygon.setOptions(buildOpts(polygon.getPath()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue !== oldValue) {\n        return polygon.setOptions(buildOpts(polygon.getPath()));\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (pathPoints) {\n    if (scope.fit) {\n        return GmapUtil.extendMapBounds(map, pathPoints);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "arraySync"
+  },
+  {
+    "callback": "function () {\n    polygon.setMap(null);\n    if (arraySyncer) {\n        arraySyncer();\n        return arraySyncer = null;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (defaultValue, key) {\n    if (angular.isUndefined(scope[key]) || scope[key] === null) {\n        return opts[key] = defaultValue;\n    } else {\n        return opts[key] = scope[key];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (newVals, oldVals) {\n    if (newVals !== oldVals) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (newVals, oldVals) {\n    if (newVals !== oldVals) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (newVals, oldVals) {\n    if (newVals !== oldVals) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        return circle.setOptions(buildOpts());\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    scope.radius = circle.getRadius();\n    return $timeout(function () {\n        return scope.$apply();\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    if (angular.isDefined(scope.center.type)) {\n        scope.center.coordinates[1] = circle.getCenter().lat();\n        scope.center.coordinates[0] = circle.getCenter().lng();\n    } else {\n        scope.center.latitude = circle.getCenter().lat();\n        scope.center.longitude = circle.getCenter().lng();\n    }\n    return $timeout(function () {\n        return scope.$apply();\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    return circle.setMap(null);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (defaultValue, key) {\n    if (angular.isUndefined(scope[key]) || scope[key] === null) {\n        return opts[key] = defaultValue;\n    } else {\n        return opts[key] = scope[key];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    dragging = true;\n    return _.defer(function () {\n        return scope.$apply(function (s) {\n            if (s.dragging != null) {\n                return s.dragging = dragging;\n            }\n        });\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (s.dragging != null) {\n            return s.dragging = dragging;\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (s.dragging != null) {\n        return s.dragging = dragging;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    google.maps.event.clearListeners(rectangle, 'mousemove');\n    google.maps.event.clearListeners(rectangle, 'mouseup');\n    dragging = false;\n    return _.defer(function () {\n        return scope.$apply(function (s) {\n            if (s.dragging != null) {\n                return s.dragging = dragging;\n            }\n        });\n    });\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (s.dragging != null) {\n            return s.dragging = dragging;\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (s.dragging != null) {\n        return s.dragging = dragging;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    return scope.$apply(function (s) {\n        if (!rectangle.dragging) {\n            if (s.bounds !== null && s.bounds !== undefined && s.bounds !== void 0) {\n                s.bounds.ne = {\n                    latitude: ne.lat(),\n                    longitude: ne.lng()\n                };\n                s.bounds.sw = {\n                    latitude: sw.lat(),\n                    longitude: sw.lng()\n                };\n            }\n        }\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (s) {\n    if (!rectangle.dragging) {\n        if (s.bounds !== null && s.bounds !== undefined && s.bounds !== void 0) {\n            s.bounds.ne = {\n                latitude: ne.lat(),\n                longitude: ne.lng()\n            };\n            s.bounds.sw = {\n                latitude: sw.lat(),\n                longitude: sw.lng()\n            };\n        }\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setEditable(newValue);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setDraggable(newValue);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setVisible(newValue);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setOptions(buildOpts(rectangle.getBounds()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setOptions(buildOpts(rectangle.getBounds()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setOptions(buildOpts(rectangle.getBounds()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setOptions(buildOpts(rectangle.getBounds()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    return rectangle.setOptions(buildOpts(rectangle.getBounds()));\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return rectangle.setMap(null);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (map) {\n    if (scope.onCreated != null) {\n        return new LayerParentModel(scope, element, attrs, map, scope.onCreated);\n    } else {\n        return new LayerParentModel(scope, element, attrs, map);\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (m) {\n    m.setMap(null);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    cMarkerClusterer.createClusters_(iLast);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (marker) {\n    marker.isAdded = false;\n    if (opt_hide) {\n        marker.setMap(null);\n    }\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (index, data) {\n    totalTime += data['Execution Time'];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, data) {\n    console.log(data['Name'] + ': ' + data['Execution Time'] + 'ms');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    update();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (component) {\n    new component(_self);\n}",
+    "receiverBase": "Utils",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (c) {\n    c.setValue(100);\n}",
+    "receiverBase": "items",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (panel) {\n}",
+    "receiverBase": "panels",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (mtlfile) {\n    mtlDone = false;\n    mtlLoader.load(mtlLoader.baseUrl + mtlfile);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "parse"
+  },
+  {
+    "callback": "function (object) {\n    if (object instanceof THREE.Mesh) {\n        if (object.material.name) {\n            var material = materialsCreator.create(object.material.name);\n            if (material) {\n                object.material = material;\n            }\n        }\n    }\n}",
+    "receiverBase": "obj3d",
+    "receiverCallee": "traverse"
+  },
+  {
+    "callback": "function (event) {\n    scope.dispatchEvent({\n        type: 'progress',\n        loaded: event.loaded,\n        total: event.total\n    });\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    scope.dispatchEvent({\n        type: 'error',\n        message: 'Couldn\\'t load URL [' + url + ']'\n    });\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    $(settings.tooltipClass).hide();\n    methods.showOrCreateTip($(this));\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    $(this).fadeOut(150);\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var $this = $(this);\n    if (e.type === 'mouseenter') {\n        methods.showOrCreateTip($this);\n    } else if (e.type === 'mouseleave') {\n        methods.hide($this);\n    }\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (el, i) {\n    if ($.inArray(el, inheritables) !== -1) {\n        return el;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    $(window).off('.tooltip');\n    $(settings.selector).off('.tooltip');\n    $(settings.tooltipClass).each(function (i) {\n        $($(settings.selector).get(i)).attr('title', $(this).text());\n    }).remove();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    $($(settings.selector).get(i)).attr('title', $(this).text());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    $('.developerMode').fadeToggle();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var replaceMarker = $('<div/>', {\n            id: 'new-element',\n            class: 'accept-tab new-element'\n        });\n    $('.elements-list.page-layer.accept-tab.tabIn').append(replaceMarker);\n    uiObject.onAddTab();\n    var element = $('.tabbox:last').addClass('scrollTo');\n    new_item_added_event(element);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var replaceMarker = $('<div/>', {\n            id: 'new-element',\n            class: 'accept-container new-element scrollTo'\n        });\n    $('.inside.accept-container:last').append(replaceMarker);\n    uiObject.onAddContainer();\n    var element = $('.containerbox:last').addClass('scrollTo');\n    if (!uiObject.isPageEmpty())\n        new_item_added_event(element);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var replaceMarker = $('<div/>', {\n            id: 'new-element',\n            class: 'accept-field new-element'\n        });\n    $('.inside.accept-field:last').append(replaceMarker);\n    uiObject.onAddField();\n    var element = $('.fieldbox:last').addClass('scrollTo');\n    if (!uiObject.isPageEmpty())\n        new_item_added_event(element);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n    e.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (isDoubleArray === true)\n        values[element_name][iterator].push($(this).val());\n    else\n        values[element_name].push($(this).val());\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n    return true;\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (key, element) {\n    names.push($(element).prop('name').replace('[]', ''));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($('.data-function').parent().attr('class') == 'developerMode')\n        $('.ui-sortable').sortable('option', 'cancel', '.data-function');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "mousedown"
+  },
+  {
+    "callback": "function () {\n    var tabIndex = $(this).data('index');\n    sortOrder[tabIndex] = { none: 'none' };\n    $(this).find('.page-container').each(function () {\n        var containerIndex = $(this).data('index');\n        sortOrder[tabIndex][containerIndex] = { none: 'none' };\n        $(this).find('.page-field').each(function () {\n            var fieldIndex = $(this).data('index');\n            sortOrder[tabIndex][containerIndex][fieldIndex] = fieldIndex;\n        });\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var containerIndex = $(this).data('index');\n    sortOrder[tabIndex][containerIndex] = { none: 'none' };\n    $(this).find('.page-field').each(function () {\n        var fieldIndex = $(this).data('index');\n        sortOrder[tabIndex][containerIndex][fieldIndex] = fieldIndex;\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var fieldIndex = $(this).data('index');\n    sortOrder[tabIndex][containerIndex][fieldIndex] = fieldIndex;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    if (!empty(repl))\n        repl.find('.inside.accept-field').append($('<div>').addClass('new-element'));\n    uiObject.onCloneField($(this));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, element) {\n    names.push($(element).prop('name').replace('[]', ''));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.settings-dialog .accept-changes').focus();\n    var options = uiObject.grabCurrentOptions($('.settings-dialog'));\n    options.validation = null;\n    options.required = null;\n    options.values = '';\n    uiObject.fillSettingsDialog(options);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    current_options[$(this).prop('name')] = 'false';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var find = $(this).data('index').toString();\n    for (var key in cookie_arr) {\n        if (find == cookie_arr[key]) {\n            $(this).find('.postbox').find('.inside').hide();\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    hide_from_cookie();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    removeItem = {\n        'typeItem': type,\n        'parentItem': $($this).parents('.meta-box-sortables')[0],\n        'item': $this\n    };\n    $this.remove();\n}",
+    "receiverBase": "$this",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function (i) {\n    if (!i)\n        this.remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('#menu-management-liquid .inside').fadeIn('fast');\n    $.cookie('options-page-' + pageObject.getStructure().settings.alias, null);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#menu-management-liquid .inside').fadeOut('fast');\n    var indexes = Array();\n    $('.page-element').each(function (i) {\n        var index = $(this).data('index').toString();\n        indexes.push(index);\n    });\n    $.cookie('options-page-' + pageObject.getStructure().settings.alias, null);\n    $.cookie('options-page-' + pageObject.getStructure().settings.alias, indexes, { expires: 14 });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i) {\n    var index = $(this).data('index').toString();\n    indexes.push(index);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode == 13 && $(e['target']).data('set') != 'values') {\n        $('.settings-dialog .accept-changes').click();\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function (response) {\n    ajax_result = $.parseJSON(response);\n    if (ajax_result.page_alias !== '')\n        page.settings.alias = ajax_result.page_alias;\n    $.ajax({\n        type: 'post',\n        url: ajaxurl,\n        data: {\n            action: 'add_page_to_pages_list',\n            json_form: JSON.stringify(page),\n            page_id: page.settings.page_id\n        }\n    });\n    window.location = ajax_result.reload_url;\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    window.open('admin.php?page=' + pageObject.getPageSettings().alias);\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('.settings-dialog').dialog('close');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var newAlias = $('.slug-editor-input').val();\n    $.ajax({\n        type: 'POST',\n        url: ajaxurl,\n        data: {\n            action: 'check_is_options_page_alias_unique',\n            alias: newAlias\n        }\n    }).done(function (response) {\n        if (!response)\n            $('#editable-post-name').text(newAlias);\n    });\n    $('#slug-editor').hide();\n    $('#slug-static').show();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (response) {\n    if (!response)\n        $('#editable-post-name').text(newAlias);\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    $('#slug-editor').hide();\n    $('#slug-static').show();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (response) {\n    if (!response) {\n        $('#editable-post-name').text(val);\n        $('#slug-editor').hide();\n        $('#slug-static').show();\n    }\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    $('#editable-post-name').text($('input[name=\"primary-page-slug\"]').val());\n    $('#slug-editor').hide();\n    $('#slug-static').show();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($(this).hasClass('nav-tab-active')) {\n        return false;\n    } else {\n        $('.nav-tabs a').removeClass('nav-tab-active');\n        $(this).addClass('nav-tab-active');\n        $('.elements-list, .page-layer, .page-global-settings, .tabIn').hide();\n        $('.' + $(this).data('switchto')).show();\n    }\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    switchCustomIconAdvanced();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (typeof pageJSON != 'undefined') {\n        if (pageObject.restore(pageJSON)) {\n            $('.page-layer').append($('<div>').addClass('first'));\n        }\n    }\n    uiObject.init();\n    uiObject.initOther();\n    uiObject.onAddTab();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (elem, i) {\n    return callback.call(elem, i, elem);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function doScrollCheck() {\n    if (!jQuery.isReady) {\n        try {\n            top.doScroll('left');\n        } catch (e) {\n            return setTimeout(doScrollCheck, 50);\n        }\n        detach();\n        jQuery.ready();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, name) {\n    class2type['[object ' + name + ']'] = name.toLowerCase();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (argument) {\n    argument = +argument;\n    return markFunction(function (seed, matches) {\n        var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n        while (i--) {\n            if (seed[j = matchIndexes[i]]) {\n                seed[j] = !(matches[j] = seed[j]);\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n    while (i--) {\n        if (seed[j = matchIndexes[i]]) {\n            seed[j] = !(matches[j] = seed[j]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    setDocument();\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<a href=\\'#\\'></a>';\n    addHandle('type|href|height|width', interpolationHandler, div.firstChild.getAttribute('href') === '#');\n    addHandle(booleans, boolHandler, div.getAttribute('disabled') == null);\n    div.className = 'i';\n    return !div.getAttribute('className');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<input>';\n    div.firstChild.setAttribute('value', '');\n    return div.firstChild.getAttribute('value') === '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.appendChild(doc.createComment(''));\n    return !div.getElementsByTagName('*').length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<div class=\\'a\\'></div><div class=\\'a i\\'></div>';\n    div.firstChild.className = 'i';\n    return div.getElementsByClassName('i').length === 2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    docElem.appendChild(div).id = expando;\n    return !doc.getElementsByName || !doc.getElementsByName(expando).length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select><option selected=\\'\\'></option></select>';\n    if (!div.querySelectorAll('[selected]').length) {\n        rbuggyQSA.push('\\\\[' + whitespace + '*(?:value|' + booleans + ')');\n    }\n    if (!div.querySelectorAll(':checked').length) {\n        rbuggyQSA.push(':checked');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    var input = doc.createElement('input');\n    input.setAttribute('type', 'hidden');\n    div.appendChild(input).setAttribute('t', '');\n    if (div.querySelectorAll('[t^=\\'\\']').length) {\n        rbuggyQSA.push('[*^$]=' + whitespace + '*(?:\\'\\'|\"\")');\n    }\n    if (!div.querySelectorAll(':enabled').length) {\n        rbuggyQSA.push(':enabled', ':disabled');\n    }\n    div.querySelectorAll('*,:x');\n    rbuggyQSA.push(',.*:');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    support.disconnectedMatch = matches.call(div, 'div');\n    matches.call(div, '[s!=\\'\\']:x');\n    rbuggyMatches.push('!=', pseudos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div1) {\n    return div1.compareDocumentPosition(doc.createElement('div')) & 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (elem) {\n    return pattern.test(typeof elem.className === 'string' && elem.className || typeof elem.getAttribute !== strundefined && elem.getAttribute('class') || '');\n}",
+    "receiverBase": "",
+    "receiverCallee": "classCache"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var idx, matched = fn(seed, argument), i = matched.length;\n    while (i--) {\n        idx = indexOf.call(seed, matched[i]);\n        seed[idx] = !(matches[idx] = matched[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches, context, xml) {\n    var elem, unmatched = matcher(seed, null, xml, []), i = seed.length;\n    while (i--) {\n        if (elem = unmatched[i]) {\n            seed[i] = !(matches[i] = elem);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (selector) {\n    return function (elem) {\n        return Sizzle(selector, elem).length > 0;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (text) {\n    return function (elem) {\n        return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    return [0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    return [length - 1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    return [argument < 0 ? argument + length : argument];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 0;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 1;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; --i >= 0;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; ++i < length;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === checkContext;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (elem) {\n    return indexOf.call(checkContext, elem) > -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (_, flag) {\n    object[flag] = true;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function add(args) {\n    jQuery.each(args, function (_, arg) {\n        var type = jQuery.type(arg);\n        if (type === 'function') {\n            if (!options.unique || !self.has(arg)) {\n                list.push(arg);\n            }\n        } else if (arg && arg.length && type !== 'string') {\n            add(arg);\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_, arg) {\n    var type = jQuery.type(arg);\n    if (type === 'function') {\n        if (!options.unique || !self.has(arg)) {\n            list.push(arg);\n        }\n    } else if (arg && arg.length && type !== 'string') {\n        add(arg);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, arg) {\n    var index;\n    while ((index = jQuery.inArray(arg, list, index)) > -1) {\n        list.splice(index, 1);\n        if (firing) {\n            if (index <= firingLength) {\n                firingLength--;\n            }\n            if (index <= firingIndex) {\n                firingIndex--;\n            }\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var action = tuple[0], fn = jQuery.isFunction(fns[i]) && fns[i];\n    deferred[tuple[1]](function () {\n        var returned = fn && fn.apply(this, arguments);\n        if (returned && jQuery.isFunction(returned.promise)) {\n            returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n        } else {\n            newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var returned = fn && fn.apply(this, arguments);\n    if (returned && jQuery.isFunction(returned.promise)) {\n        returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n    } else {\n        newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "deferred"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var list = tuple[2], stateString = tuple[3];\n    promise[tuple[1]] = list.add;\n    if (stateString) {\n        list.add(function () {\n            state = stateString;\n        }, tuples[i ^ 1][2].disable, tuples[2][2].lock);\n    }\n    deferred[tuple[0]] = function () {\n        deferred[tuple[0] + 'With'](this === deferred ? promise : this, arguments);\n        return this;\n    };\n    deferred[tuple[0] + 'With'] = list.fireWith;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    state = stateString;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    support.noCloneEvent = false;\n}",
+    "receiverBase": "div",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    support.boxSizing = div.offsetWidth === 4;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "swap"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeData(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery._removeData(elem, type + 'queue');\n    jQuery._removeData(elem, key);\n}",
+    "receiverBase": "Callbacks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var queue = jQuery.queue(this, type, data);\n    jQuery._queueHooks(this, type);\n    if (type === 'fx' && queue[0] !== 'inprogress') {\n        jQuery.dequeue(this, type);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.dequeue(this, type);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (next, hooks) {\n    var timeout = setTimeout(next, time);\n    hooks.stop = function () {\n        clearTimeout(timeout);\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeAttr(this, name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    try {\n        this[name] = undefined;\n        delete this[name];\n    } catch (e) {\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).addClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).removeClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value == null ? '' : value + '';\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = {\n        set: function (elem, value) {\n            if (value === '') {\n                elem.setAttribute(name, 'auto');\n                return value;\n            }\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.propHooks[name] = {\n        get: function (elem) {\n            return elem.getAttribute(name, 4);\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.propFix[this.toLowerCase()] = this;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = {\n        set: function (elem, value) {\n            if (jQuery.isArray(value)) {\n                return elem.checked = jQuery.inArray(jQuery(elem).val(), value) >= 0;\n            }\n        }\n    };\n    if (!jQuery.support.checkOn) {\n        jQuery.valHooks[this].get = function (elem) {\n            return elem.getAttribute('value') === null ? 'on' : elem.value;\n        };\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target, form = jQuery.nodeName(elem, 'input') || jQuery.nodeName(elem, 'button') ? elem.form : undefined;\n    if (form && !jQuery._data(form, 'submitBubbles')) {\n        jQuery.event.add(form, 'submit._submit', function (event) {\n            event._submit_bubble = true;\n        });\n        jQuery._data(form, 'submitBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    event._submit_bubble = true;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (event.originalEvent.propertyName === 'checked') {\n        this._just_changed = true;\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this._just_changed && !event.isTrigger) {\n        this._just_changed = false;\n    }\n    jQuery.event.simulate('change', this, event, true);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target;\n    if (rformElems.test(elem.nodeName) && !jQuery._data(elem, 'changeBubbles')) {\n        jQuery.event.add(elem, 'change._change', function (event) {\n            if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n                jQuery.event.simulate('change', this.parentNode, event, true);\n            }\n        });\n        jQuery._data(elem, 'changeBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n        jQuery.event.simulate('change', this.parentNode, event, true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.add(this, types, fn, data, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.remove(this, types, fn, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.trigger(type, data, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < len; i++) {\n        if (jQuery.contains(self[i], this)) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < len; i++) {\n        if (jQuery.contains(this, targets[i])) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (elem) {\n    return elem.nodeType === 1;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem, i) {\n    return !!qualifier.call(elem, i, elem) !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === qualifier !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return jQuery.inArray(elem, qualifier) >= 0 !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (value) {\n    return value === undefined ? jQuery.text(this) : this.empty().append((this[0] && this[0].ownerDocument || document).createTextNode(value));\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        var target = manipulationTarget(this, elem);\n        target.appendChild(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        var target = manipulationTarget(this, elem);\n        target.insertBefore(elem, target.firstChild);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this.nextSibling);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function () {\n    return jQuery.clone(this, dataAndEvents, deepDataAndEvents);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem) {\n    return [\n        elem.nextSibling,\n        elem.parentNode\n    ];\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem) {\n    var next = args[i++], parent = args[i++];\n    if (parent) {\n        if (next && next.parentNode !== parent) {\n            next = this.nextSibling;\n        }\n        jQuery(this).remove();\n        parent.insertBefore(elem, next);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (index) {\n    var self = set.eq(index);\n    if (isFunction) {\n        args[0] = value.call(this, index, self.html());\n    }\n    self.domManip(args, callback, allowIntersection);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, original) {\n    jQuery.fn[name] = function (selector) {\n        var elems, i = 0, ret = [], insert = jQuery(selector), last = insert.length - 1;\n        for (; i <= last; i++) {\n            elems = i === last ? this : this.clone(true);\n            jQuery(insert[i])[original](elems);\n            core_push.apply(ret, elems.get());\n        }\n        return this.pushStack(ret);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elem = this;\n    while (elem.firstChild && elem.firstChild.nodeType === 1) {\n        elem = elem.firstChild;\n    }\n    return elem;\n}",
+    "receiverBase": "wrap",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapInner(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var self = jQuery(this), contents = self.contents();\n    if (contents.length) {\n        contents.wrapAll(html);\n    } else {\n        self.append(html);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(isFunction ? html.call(this, i) : html);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!jQuery.nodeName(this, 'body')) {\n        jQuery(this).replaceWith(this.childNodes);\n    }\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem, name, value) {\n    var len, styles, map = {}, i = 0;\n    if (jQuery.isArray(name)) {\n        styles = getStyles(elem);\n        len = name.length;\n        for (; i < len; i++) {\n            map[name[i]] = jQuery.css(elem, name[i], false, styles);\n        }\n        return map;\n    }\n    return value !== undefined ? jQuery.style(elem, name, value) : jQuery.css(elem, name);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    if (bool ? state : isHidden(this)) {\n        jQuery(this).show();\n    } else {\n        jQuery(this).hide();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return getWidthOrHeight(elem, name, extra);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "swap"
+  },
+  {
+    "callback": "function (i, prop) {\n    jQuery.cssHooks[prop] = {\n        get: function (elem, computed) {\n            if (computed) {\n                computed = curCSS(elem, prop);\n                return rnumnonpx.test(computed) ? jQuery(elem).position()[prop] + 'px' : computed;\n            }\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elements = jQuery.prop(this, 'elements');\n    return elements ? jQuery.makeArray(elements) : this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var type = this.type;\n    return this.name && !jQuery(this).is(':disabled') && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !manipulation_rcheckableType.test(type));\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, elem) {\n    var val = jQuery(this).val();\n    return val == null ? null : jQuery.isArray(val) ? jQuery.map(val, function (val) {\n        return {\n            name: elem.name,\n            value: val.replace(rCRLF, '\\r\\n')\n        };\n    }) : {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    add(this.name, this.value);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, v) {\n    if (traditional || rbracket.test(prefix)) {\n        add(prefix, v);\n    } else {\n        buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.fn[name] = function (data, fn) {\n        return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, prefilterOrFactory) {\n    var dataTypeOrTransport = prefilterOrFactory(options, originalOptions, jqXHR);\n    if (typeof dataTypeOrTransport === 'string' && !seekingTransport && !inspected[dataTypeOrTransport]) {\n        options.dataTypes.unshift(dataTypeOrTransport);\n        inspect(dataTypeOrTransport);\n        return false;\n    } else if (seekingTransport) {\n        return !(selected = dataTypeOrTransport);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (responseText) {\n    response = arguments;\n    self.html(selector ? jQuery('<div>').append(jQuery.parseHTML(responseText)).find(selector) : responseText);\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (i, type) {\n    jQuery.fn[type] = function (fn) {\n        return this.on(type, fn);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jqXHR.abort('timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, method) {\n    jQuery[method] = function (url, data, callback, type) {\n        if (jQuery.isFunction(data)) {\n            type = type || callback;\n            callback = data;\n            data = undefined;\n        }\n        return jQuery.ajax({\n            url: url,\n            type: method,\n            dataType: type,\n            data: data,\n            success: callback\n        });\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    if (s.cache === undefined) {\n        s.cache = false;\n    }\n    if (s.crossDomain) {\n        s.type = 'GET';\n        s.global = false;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "ajaxPrefilter"
+  },
+  {
+    "callback": "function () {\n    window[callbackName] = overwritten;\n    if (s[callbackName]) {\n        s.jsonpCallback = originalSettings.jsonpCallback;\n        oldCallbacks.push(callbackName);\n    }\n    if (responseContainer && jQuery.isFunction(overwritten)) {\n        overwritten(responseContainer[0]);\n    }\n    responseContainer = overwritten = undefined;\n}",
+    "receiverBase": "jqXHR",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    fxNow = undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    delete tick.elem;\n}",
+    "receiverBase": "Deferred",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    anim.always(function () {\n        hooks.unqueued--;\n        if (!jQuery.queue(elem, 'fx').length) {\n            hooks.empty.fire();\n        }\n    });\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    hooks.unqueued--;\n    if (!jQuery.queue(elem, 'fx').length) {\n        hooks.empty.fire();\n    }\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    style.overflow = opts.overflow[0];\n    style.overflowX = opts.overflow[1];\n    style.overflowY = opts.overflow[2];\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    jQuery(elem).hide();\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    var prop;\n    jQuery._removeData(elem, 'fxshow');\n    for (prop in orig) {\n        jQuery.style(elem, prop, orig[prop]);\n    }\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (i, name) {\n    var cssFn = jQuery.fn[name];\n    jQuery.fn[name] = function (speed, easing, callback) {\n        return speed == null || typeof speed === 'boolean' ? cssFn.apply(this, arguments) : this.animate(genFx(name, true), speed, easing, callback);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, props) {\n    jQuery.fn[name] = function (speed, easing, callback) {\n        return this.animate(props, speed, easing, callback);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    return elem === fn.elem;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (i) {\n    jQuery.offset.setOffset(this, options, i);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var offsetParent = this.offsetParent || docElem;\n    while (offsetParent && (!jQuery.nodeName(offsetParent, 'html') && jQuery.css(offsetParent, 'position') === 'static')) {\n        offsetParent = offsetParent.offsetParent;\n    }\n    return offsetParent || docElem;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem, method, val) {\n    var win = getWindow(elem);\n    if (val === undefined) {\n        return win ? prop in win ? win[prop] : win.document.documentElement[method] : elem[method];\n    }\n    if (win) {\n        win.scrollTo(!top ? val : jQuery(win).scrollLeft(), top ? val : jQuery(win).scrollTop());\n    } else {\n        elem[method] = val;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function (elem, type, value) {\n    var doc;\n    if (jQuery.isWindow(elem)) {\n        return elem.document.documentElement['client' + name];\n    }\n    if (elem.nodeType === 9) {\n        doc = elem.documentElement;\n        return Math.max(elem.body['scroll' + name], doc['scroll' + name], elem.body['offset' + name], doc['offset' + name], doc['client' + name]);\n    }\n    return value === undefined ? jQuery.css(elem, type, extra) : jQuery.style(elem, type, value, extra);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    return jQuery;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (done) {\n    chai.passport(strategy).success(function (u, i) {\n        user = u;\n        info = i;\n        done();\n    }).req(function (req) {\n        req.headers.authorization = 'Bearer vF9dft4qmT';\n    }).authenticate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (u, i) {\n    user = u;\n    info = i;\n    done();\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (req) {\n    req.headers.authorization = 'Bearer vF9dft4qmT';\n}",
+    "receiverBase": "success",
+    "receiverCallee": "req"
+  },
+  {
+    "callback": "function () {\n    expect(user).to.be.an.object;\n    expect(user.id).to.equal('1234');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(info).to.be.an.object;\n    expect(info.scope).to.equal('read');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    chai.passport(strategy).success(function (u, i) {\n        user = u;\n        info = i;\n        done();\n    }).req(function (req) {\n        req.body = {};\n        req.body.access_token = 'vF9dft4qmT';\n    }).authenticate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (u, i) {\n    user = u;\n    info = i;\n    done();\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (req) {\n    req.body = {};\n    req.body.access_token = 'vF9dft4qmT';\n}",
+    "receiverBase": "success",
+    "receiverCallee": "req"
+  },
+  {
+    "callback": "function () {\n    expect(user).to.be.an.object;\n    expect(user.id).to.equal('1234');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(info).to.be.an.object;\n    expect(info.scope).to.equal('read');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    chai.passport(strategy).success(function (u, i) {\n        user = u;\n        info = i;\n        done();\n    }).req(function (req) {\n        req.query = {};\n        req.query.access_token = 'vF9dft4qmT';\n    }).authenticate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (u, i) {\n    user = u;\n    info = i;\n    done();\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (req) {\n    req.query = {};\n    req.query.access_token = 'vF9dft4qmT';\n}",
+    "receiverBase": "success",
+    "receiverCallee": "req"
+  },
+  {
+    "callback": "function () {\n    expect(user).to.be.an.object;\n    expect(user.id).to.equal('1234');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(info).to.be.an.object;\n    expect(info.scope).to.equal('read');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var challenge;\n    before(function (done) {\n        chai.passport(strategy).fail(function (c) {\n            challenge = c;\n            done();\n        }).req(function (req) {\n            req.headers.authorization = 'Bearer WRONG';\n        }).authenticate();\n    });\n    it('should fail with challenge', function () {\n        expect(challenge).to.be.a.string;\n        expect(challenge).to.equal('Bearer realm=\"Users\", error=\"invalid_token\"');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    chai.passport(strategy).fail(function (c) {\n        challenge = c;\n        done();\n    }).req(function (req) {\n        req.headers.authorization = 'Bearer WRONG';\n    }).authenticate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (c) {\n    challenge = c;\n    done();\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (req) {\n    req.headers.authorization = 'Bearer WRONG';\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "req"
+  },
+  {
+    "callback": "function () {\n    expect(challenge).to.be.a.string;\n    expect(challenge).to.equal('Bearer realm=\"Users\", error=\"invalid_token\"');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var challenge;\n    before(function (done) {\n        chai.passport(strategy).fail(function (c) {\n            challenge = c;\n            done();\n        }).req(function (req) {\n        }).authenticate();\n    });\n    it('should fail with challenge', function () {\n        expect(challenge).to.be.a.string;\n        expect(challenge).to.equal('Bearer realm=\"Users\"');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    chai.passport(strategy).fail(function (c) {\n        challenge = c;\n        done();\n    }).req(function (req) {\n    }).authenticate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (c) {\n    challenge = c;\n    done();\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (req) {\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "req"
+  },
+  {
+    "callback": "function () {\n    expect(challenge).to.be.a.string;\n    expect(challenge).to.equal('Bearer realm=\"Users\"');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

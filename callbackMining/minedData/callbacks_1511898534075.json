@@ -1,0 +1,1613 @@
+[
+  {
+    "callback": "function (readChrc) {\n    if (chrome.runtime.lastError) {\n        console.log(chrome.runtime.lastError.message);\n        return;\n    }\n    if (readChrc.instanceId != self.batteryLevelChrc_.instanceId) {\n        return;\n    }\n    console.log('Request to read battery level complete.');\n}",
+    "receiverBase": "bluetoothLowEnergy",
+    "receiverCallee": "readCharacteristicValue"
+  },
+  {
+    "callback": "function (adapterState) {\n    if (chrome.runtime.lastError) {\n        console.log(chrome.runtime.lastError.message);\n    }\n    self.updateDiscoveryToggleState(adapterState.discovering);\n    updateAdapterState(adapterState);\n}",
+    "receiverBase": "bluetooth",
+    "receiverCallee": "getAdapterState"
+  },
+  {
+    "callback": "function () {\n    var discoveryHandler = function () {\n        if (chrome.runtime.lastError) {\n            console.log('Failed to ' + (self.discovering_ ? 'stop' : 'start') + ' discovery ' + chromium.runtime.lastError.message);\n        }\n    };\n    if (self.discovering_) {\n        chrome.bluetooth.stopDiscovery(discoveryHandler);\n    } else {\n        chrome.bluetooth.startDiscovery(discoveryHandler);\n    }\n}",
+    "receiverBase": "getInstance",
+    "receiverCallee": "setDiscoveryToggleHandler"
+  },
+  {
+    "callback": "function () {\n    if (chrome.runtime.lastError) {\n        console.log('Failed to connect to Battery device \"' + selectedValue + '\" ' + chrome.runtime.lastError.message);\n        return;\n    }\n    console.log('Connected to Battery device: ' + selectedValue);\n}",
+    "receiverBase": "bluetoothLowEnergy",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (services) {\n    if (chrome.runtime.lastError) {\n        console.log(chrome.runtime.lastError.message);\n        self.selectService(undefined);\n        return;\n    }\n    var foundService = null;\n    for (var i = 0; i < services.length; i++) {\n        if (services[i].uuid == BATTERY_SERVICE_UUID) {\n            foundService = services[i];\n            break;\n        }\n    }\n    self.selectService(foundService);\n}",
+    "receiverBase": "bluetoothLowEnergy",
+    "receiverCallee": "getServices"
+  },
+  {
+    "callback": "function (device) {\n    if (!device.uuids || device.uuids.indexOf(BATTERY_SERVICE_UUID) < 0) {\n        return;\n    }\n    if (self.deviceMap_.hasOwnProperty(device.address)) {\n        return;\n    }\n    console.log('Found device with Battery service: ' + device.address);\n    self.deviceMap_[device.address] = device.name ? device.name : device.address;\n    UI.getInstance().updateDeviceSelector(self.deviceMap_);\n}",
+    "receiverBase": "onDeviceAdded",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (device) {\n    if (!self.deviceMap_.hasOwnProperty(device.address)) {\n        return;\n    }\n    console.log('Battery device removed: ' + device.address);\n    delete self.deviceMap_[device.address];\n    if (self.service_ && self.service_.deviceAddress == device.address) {\n        chrome.bluetoothLowEnergy.disconnect(device.address);\n        self.selectService(undefined);\n        UI.getInstance().triggerDeviceSelection();\n    }\n    UI.getInstance().updateDeviceSelector(self.deviceMap_);\n}",
+    "receiverBase": "onDeviceRemoved",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (device) {\n    if (chrome.runtime.lastError) {\n        console.log(chrome.runtime.lastError.message);\n        return;\n    }\n    storeDevice(device.address, device);\n}",
+    "receiverBase": "bluetooth",
+    "receiverCallee": "getDevice"
+  },
+  {
+    "callback": "function (services) {\n    if (chrome.runtime.lastError) {\n        console.log(chrome.runtime.lastError.message);\n        storeDevice(device.address, null);\n        return;\n    }\n    var found = false;\n    for (var i = 0; i < services.length; i++) {\n        if (services[i].uuid == BATTERY_SERVICE_UUID) {\n            found = true;\n            break;\n        }\n    }\n    if (found) {\n        return;\n    }\n    console.log('Removing device: ' + device.address);\n    storeDevice(device.address, null);\n}",
+    "receiverBase": "bluetoothLowEnergy",
+    "receiverCallee": "getServices"
+  },
+  {
+    "callback": "function (service) {\n    if (!self.service_ || service.instanceId != self.service_.instanceId) {\n        return;\n    }\n    console.log('The selected service has changed');\n    self.selectService(service);\n}",
+    "receiverBase": "onServiceChanged",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (chrc) {\n    if (self.batteryLevelChrc_ && chrc.instanceId == self.batteryLevelChrc_.instanceId) {\n        console.log('Battery Level value changed');\n        self.batteryLevelChrc_ = chrc;\n        self.updateBatteryLevelValue();\n        return;\n    }\n}",
+    "receiverBase": "onCharacteristicValueChanged",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    var demo = new main.BatteryLevelDemo();\n    demo.init();\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (Rx, exports) {\n    return factory(root, exports, Rx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (x) {\n    hasValue = true;\n    value = x;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!hasValue) {\n        observer.onError(new Error(sequenceContainsNoElements));\n    } else {\n        observer.onNext(value);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(list);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(true);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(false);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (v) {\n    return !predicate(v);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (x) {\n    if (i++ >= n && comparer(x, searchElement)) {\n        observer.onNext(true);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(false);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (count) {\n    return count + 1;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "aggregate"
+  },
+  {
+    "callback": "function (x) {\n    if (i >= n && x === searchElement) {\n        observer.onNext(i);\n        observer.onCompleted();\n    }\n    i++;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(-1);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (prev, curr) {\n    return prev + curr;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (x, y) {\n    return comparer(x, y) * -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "extremaBy"
+  },
+  {
+    "callback": "function (x) {\n    return firstOnly(x);\n}",
+    "receiverBase": "minBy",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return firstOnly(x);\n}",
+    "receiverBase": "maxBy",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (prev, cur) {\n    return {\n        sum: prev.sum + cur,\n        count: prev.count + 1\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "scan"
+  },
+  {
+    "callback": "function (s) {\n    if (s.count === 0) {\n        throw new Error('The input sequence was empty');\n    }\n    return s.sum / s.count;\n}",
+    "receiverBase": "finalValue",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    var equal, v;\n    if (qr.length > 0) {\n        v = qr.shift();\n        try {\n            equal = comparer(v, x);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n        if (!equal) {\n            observer.onNext(false);\n            observer.onCompleted();\n        }\n    } else if (doner) {\n        observer.onNext(false);\n        observer.onCompleted();\n    } else {\n        ql.push(x);\n    }\n}",
+    "receiverBase": "first",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    donel = true;\n    if (ql.length === 0) {\n        if (qr.length > 0) {\n            observer.onNext(false);\n            observer.onCompleted();\n        } else if (doner) {\n            observer.onNext(true);\n            observer.onCompleted();\n        }\n    }\n}",
+    "receiverBase": "first",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    var equal;\n    if (ql.length > 0) {\n        var v = ql.shift();\n        try {\n            equal = comparer(v, x);\n        } catch (exception) {\n            observer.onError(exception);\n            return;\n        }\n        if (!equal) {\n            observer.onNext(false);\n            observer.onCompleted();\n        }\n    } else if (donel) {\n        observer.onNext(false);\n        observer.onCompleted();\n    } else {\n        qr.push(x);\n    }\n}",
+    "receiverBase": "second",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    doner = true;\n    if (qr.length === 0) {\n        if (ql.length > 0) {\n            observer.onNext(false);\n            observer.onCompleted();\n        } else if (donel) {\n            observer.onNext(true);\n            observer.onCompleted();\n        }\n    }\n}",
+    "receiverBase": "second",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    if (i === 0) {\n        observer.onNext(x);\n        observer.onCompleted();\n    }\n    i--;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!hasDefault) {\n        observer.onError(new Error(argumentOutOfRange));\n    } else {\n        observer.onNext(defaultValue);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    if (seenValue) {\n        observer.onError(new Error('Sequence contains more than one element'));\n    } else {\n        value = x;\n        seenValue = true;\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!seenValue && !hasDefault) {\n        observer.onError(new Error(sequenceContainsNoElements));\n    } else {\n        observer.onNext(value);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    observer.onNext(x);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!hasDefault) {\n        observer.onError(new Error(sequenceContainsNoElements));\n    } else {\n        observer.onNext(defaultValue);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    value = x;\n    seenValue = true;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    if (!seenValue && !hasDefault) {\n        observer.onError(new Error(sequenceContainsNoElements));\n    } else {\n        observer.onNext(value);\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    var shouldRun;\n    try {\n        shouldRun = predicate.call(thisArg, x, i, source);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    if (shouldRun) {\n        observer.onNext(yieldIndex ? i : x);\n        observer.onCompleted();\n    } else {\n        i++;\n    }\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(yieldIndex ? -1 : undefined);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(s);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (x) {\n    var key;\n    try {\n        key = keySelector(x);\n    } catch (e) {\n        observer.onError(e);\n        return;\n    }\n    var element = x;\n    if (elementSelector) {\n        try {\n            element = elementSelector(x);\n        } catch (e) {\n            observer.onError(e);\n            return;\n        }\n    }\n    m.set(key, element);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    observer.onNext(m);\n    observer.onCompleted();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (original, key) {\n    var keys = key.split('.');\n    var value = values[keys.shift()];\n    while (keys.length && value !== undefined) {\n        var k = keys.shift();\n        value = k ? value[k] : value + '.';\n    }\n    if (value !== undefined) {\n        if (!isString(value)) {\n            return math.format(value, precision);\n        } else {\n            return value;\n        }\n    }\n    return original;\n}",
+    "receiverBase": "template",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (parnt, callback) {\n    if (Designer.env.enableTagCreation && parnt._tag) {\n        Designer.html.initTags({\n            'id': parnt.node.id,\n            'parentTag': parnt._tag\n        });\n    }\n}",
+    "receiverBase": "BaseWidget",
+    "receiverCallee": "doAfter"
+  },
+  {
+    "callback": "function (_detach) {\n    var parnt = this.parentWidget;\n    _detach();\n    if (Designer.env.enableTagCreation && parnt && parnt.node && parnt.node.id && parnt._tag) {\n        if (Designer.ui.outlineTag.getNodeByProperty('tagId', Designer.getById(parnt.node.id).id)) {\n            Designer.html.initTags({\n                'id': parnt.node.id,\n                'parentTag': parnt._tag\n            });\n        }\n    }\n}",
+    "receiverBase": "BaseWidget",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    testLessErrorsInDocument();\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($provide) {\n    $provide.value('$window', {\n        localStorage: storageMock(),\n        sessionStorage: storageMock()\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider).toBeDefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.driver).toEqual('local');\n        lockerProvider.defaults({ driver: 'session' });\n        expect(lockerProvider.defaults.driver).toEqual('session');\n        expect(lockerProvider.defaults.namespace).toEqual('locker');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.driver).toEqual('local');\n    lockerProvider.defaults({ driver: 'session' });\n    expect(lockerProvider.defaults.driver).toEqual('session');\n    expect(lockerProvider.defaults.namespace).toEqual('locker');\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.driver).toEqual('local');\n        lockerProvider.defaults({\n            driver: function () {\n                var shouldUseSession = true;\n                if (shouldUseSession)\n                    return 'session';\n            }\n        });\n        expect(lockerProvider.defaults.driver).toEqual('session');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.driver).toEqual('local');\n    lockerProvider.defaults({\n        driver: function () {\n            var shouldUseSession = true;\n            if (shouldUseSession)\n                return 'session';\n        }\n    });\n    expect(lockerProvider.defaults.driver).toEqual('session');\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(function () {\n            locker.driver('somethingNotExpected');\n        }).toThrowError();\n        expect(locker._driver).toEqual($window.localStorage);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(function () {\n        locker.driver('somethingNotExpected');\n    }).toThrowError();\n    expect(locker._driver).toEqual($window.localStorage);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    locker.driver('somethingNotExpected');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.namespace).toEqual('locker');\n        lockerProvider.defaults.namespace = 'myApp.foo';\n        expect(lockerProvider.defaults.namespace).toEqual('myApp');\n        lockerProvider.defaults.namespace = '';\n        expect(lockerProvider.defaults.namespace).toEqual('');\n        lockerProvider.defaults.namespace = false;\n        expect(lockerProvider.defaults.namespace).toEqual(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.namespace).toEqual('locker');\n    lockerProvider.defaults.namespace = 'myApp.foo';\n    expect(lockerProvider.defaults.namespace).toEqual('myApp');\n    lockerProvider.defaults.namespace = '';\n    expect(lockerProvider.defaults.namespace).toEqual('');\n    lockerProvider.defaults.namespace = false;\n    expect(lockerProvider.defaults.namespace).toEqual(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.namespace).toEqual('locker');\n        lockerProvider.defaults.namespace = function () {\n            var arr = [\n                    'myApp',\n                    'coolApp',\n                    'somethingElse'\n                ];\n            return arr[1];\n        };\n        expect(lockerProvider.defaults.namespace).toEqual('coolApp');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.namespace).toEqual('locker');\n    lockerProvider.defaults.namespace = function () {\n        var arr = [\n                'myApp',\n                'coolApp',\n                'somethingElse'\n            ];\n        return arr[1];\n    };\n    expect(lockerProvider.defaults.namespace).toEqual('coolApp');\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.separator).toEqual('.');\n        lockerProvider.defaults.separator = '-';\n        expect(lockerProvider.defaults.separator).toEqual('-');\n        lockerProvider.defaults.separator = '';\n        expect(lockerProvider.defaults.separator).toEqual('');\n        lockerProvider.defaults.separator = false;\n        expect(lockerProvider.defaults.separator).toEqual(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.separator).toEqual('.');\n    lockerProvider.defaults.separator = '-';\n    expect(lockerProvider.defaults.separator).toEqual('-');\n    lockerProvider.defaults.separator = '';\n    expect(lockerProvider.defaults.separator).toEqual('');\n    lockerProvider.defaults.separator = false;\n    expect(lockerProvider.defaults.separator).toEqual(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        expect(lockerProvider.defaults.separator).toEqual('.');\n        lockerProvider.defaults.separator = function () {\n            var arr = [\n                    '.',\n                    '-',\n                    '!'\n                ];\n            return arr[1];\n        };\n        expect(lockerProvider.defaults.separator).toEqual('-');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    expect(lockerProvider.defaults.separator).toEqual('.');\n    lockerProvider.defaults.separator = function () {\n        var arr = [\n                '.',\n                '-',\n                '!'\n            ];\n        return arr[1];\n    };\n    expect(lockerProvider.defaults.separator).toEqual('-');\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (locker) {\n    expect(function () {\n        locker.driver('foo');\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.driver('foo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (locker) {\n    var str = 'someVal';\n    locker.put('someKey', str);\n    expect(locker.get('someKey')).toEqual(str);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('someKey', false);\n    locker.put('someKey1', true);\n    expect(locker.get('someKey')).toEqual(false);\n    expect(locker.get('someKey1')).toEqual(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    var obj = {\n            foo: 'bar',\n            bar: 'baz',\n            baz: {\n                foo: true,\n                bar: false,\n                baz: 12.34\n            }\n        };\n    locker.put('objectKey', obj);\n    var result = locker.get('objectKey');\n    expect(result).toEqual(obj);\n    expect(result.baz.bar).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    var obj = {\n            foo: 'bar',\n            bar: 'baz',\n            baz: { foo: 'baz' },\n            bob: { lorem: true }\n        };\n    locker.put(obj);\n    expect(locker.get('foo')).toEqual('bar');\n    expect(locker.get('baz')).toEqual({ foo: 'baz' });\n    expect(locker.get('bob').lorem).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('fnKey', function () {\n        return 12 * 12;\n    });\n    expect(locker.get('fnKey')).toEqual(144);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    return 12 * 12;\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('fnKey', [\n        'foo',\n        'bar'\n    ]);\n    locker.put('fnKey', function (param) {\n        param.push('baz');\n        return param;\n    });\n    expect(locker.get('fnKey')).toEqual([\n        'foo',\n        'bar',\n        'baz'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (param) {\n    param.push('baz');\n    return param;\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (locker) {\n    var value = null;\n    expect(locker.get('fnKey')).not.toBeDefined();\n    locker.put('fnKey', function (param) {\n        value = param;\n        return 2;\n    });\n    expect(locker.get('fnKey')).toEqual(2);\n    expect(value).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (param) {\n    value = param;\n    return 2;\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (locker) {\n    var value = null;\n    expect(locker.get('fnKey')).not.toBeDefined();\n    locker.put('fnKey', function (param) {\n        value = param;\n        return 2;\n    }, 1);\n    expect(locker.get('fnKey')).toEqual(2);\n    expect(value).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (param) {\n    value = param;\n    return 2;\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    return {\n        someKey: [\n            'some',\n            'array'\n        ],\n        anotherKey: {\n            foo: 'bar',\n            baz: true\n        }\n    };\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('foo', 'loremipsumdolorsitamet');\n    var added = locker.add('foo', [\n            'foo',\n            'bar',\n            'baz'\n        ]);\n    locker.put('bar', 'foobarbazbob');\n    var added2 = locker.add('bar1', 'foobazbob');\n    expect(added).toBeFalsy();\n    expect(added2).toBeTruthy();\n    expect(locker.get('foo')).toEqual('loremipsumdolorsitamet');\n    expect(locker.get('bar1')).toEqual('foobazbob');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('foo', 'defaultNamespace');\n    locker.namespace('someOtherNamespace').put('foo', 'newNamespace');\n    locker.namespace(false).put('noNamespace', [true]);\n    expect(locker.get('foo')).toEqual('defaultNamespace');\n    expect(locker.namespace('someOtherNamespace').get('foo')).toEqual('newNamespace');\n    expect(locker.namespace(false).get('noNamespace')).toEqual([true]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    var result1 = locker.put('aKey');\n    var result2 = locker.put(null, 'aVal');\n    expect(result1 && result2).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    spyOn(angular, 'toJson').and.throwError(new Error());\n    spyOn(angular, 'fromJson').and.throwError(new Error());\n    var result = locker.put('foo', [\n            'bar',\n            'baz'\n        ]).get('foo');\n    expect(result).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(true);\n    var error = new Error();\n    error.name = 'QUOTA_EXCEEDED_ERR';\n    spyOn($window.localStorage, 'setItem').and.throwError(error);\n    expect(function () {\n        locker.put('someKey', ['foo']);\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.put('someKey', ['foo']);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(true);\n    spyOn($window.localStorage, 'setItem').and.throwError(new Error());\n    expect(function () {\n        locker.put('someKey', ['foo']);\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.put('someKey', ['foo']);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(false);\n    expect(function () {\n        locker.put('someKey', ['foo']);\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.put('someKey', ['foo']);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        lockerProvider.defaults({ driver: 'session' });\n    });\n    inject(function (locker, $rootScope) {\n        spyOn($rootScope, '$emit');\n        spyOn(locker, '_exists').and.returnValue(false);\n        locker.put('foo', 'bar');\n        expect($rootScope.$emit).toHaveBeenCalledWith('locker.item.added', {\n            key: 'foo',\n            value: 'bar',\n            driver: 'session',\n            namespace: 'locker'\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    lockerProvider.defaults({ driver: 'session' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    spyOn($rootScope, '$emit');\n    spyOn(locker, '_exists').and.returnValue(false);\n    locker.put('foo', 'bar');\n    expect($rootScope.$emit).toHaveBeenCalledWith('locker.item.added', {\n        key: 'foo',\n        value: 'bar',\n        driver: 'session',\n        namespace: 'locker'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        lockerProvider.defaults({ eventsEnabled: false });\n    });\n    inject(function (locker, $rootScope) {\n        spyOn($rootScope, '$emit');\n        locker.put('foo', 'bar');\n        expect($rootScope.$emit).not.toHaveBeenCalled();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    lockerProvider.defaults({ eventsEnabled: false });\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    spyOn($rootScope, '$emit');\n    locker.put('foo', 'bar');\n    expect($rootScope.$emit).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    spyOn($rootScope, '$emit');\n    locker.put('foo', 'bar');\n    locker.put('foo', 'baz');\n    expect($rootScope.$emit).toHaveBeenCalledWith('locker.item.updated', {\n        key: 'foo',\n        oldValue: 'bar',\n        newValue: 'baz',\n        driver: 'local',\n        namespace: 'locker'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    module(function (lockerProvider) {\n        lockerProvider.defaults.driver = 'local';\n    });\n    inject(function (locker) {\n        locker.driver('session').put('foo', 'bar');\n        expect(locker.get('foo')).not.toBeDefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lockerProvider) {\n    lockerProvider.defaults.driver = 'local';\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (locker) {\n    locker.driver('session').put('foo', 'bar');\n    expect(locker.get('foo')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.namespace('fooBar').put('foo', 'bar');\n    expect(locker.get('foo')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    return {\n        something: 'some value',\n        anotherThing: [\n            'foo',\n            'bar'\n        ],\n        lorem: true,\n        foo: null\n    };\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (locker) {\n    var str = 'someVal456';\n    locker.put('someKey123', str);\n    var value = locker.pull('someKey123');\n    expect(value).toEqual(str);\n    expect(locker.get('someKey123')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    for (var i = 0; i < 20; i++) {\n        locker.put('aKey' + i, 'aVal' + i);\n    }\n    locker.put('something.foo.bar', ['someValue']);\n    expect(locker.count()).toEqual(21);\n    expect(locker.namespace('something').count()).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(false);\n    spyOn(locker, 'has').and.returnValue(true);\n    expect(function () {\n        locker.get('someKey');\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.get('someKey');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('someKey', 'someVal');\n    locker.forget('someKey');\n    expect(locker.get('someKey')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('someKey', 'someVal');\n    locker.forget(function () {\n        return 'someKey';\n    });\n    expect(locker.get('someKey')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    return 'someKey';\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "forget"
+  },
+  {
+    "callback": "function () {\n    return {\n        'something': 'some value',\n        'anotherThing': [\n            'foo',\n            'bar'\n        ],\n        'lorem': true\n    };\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    return [\n        'something',\n        'anotherThing'\n    ];\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "forget"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('objectKey', { foo: 'bar' });\n    locker.put('arrayKey', [\n        'foo',\n        'bar'\n    ]);\n    locker.put('foo', 'bar');\n    locker.forget([\n        'objectKey',\n        'arrayKey1',\n        'foo'\n    ]);\n    expect(locker.get('objectKey')).not.toBeDefined();\n    expect(locker.get('arrayKey1')).not.toBeDefined();\n    expect(locker.get('foo')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('foo', 'bar');\n    locker.namespace('otherNamespace').put('fooOther', 'barOther');\n    locker.clean();\n    expect(locker.namespace('otherNamespace').get('fooOther')).toEqual('barOther');\n    expect(locker.get('foo')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('anotherKey', {\n        someObj: true,\n        foo: 'barbaz'\n    });\n    locker.empty();\n    expect(locker.get('anotherKey')).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(false);\n    expect(function () {\n        locker.forget('someKey');\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.forget('someKey');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    spyOn($rootScope, '$emit');\n    locker.put('foo', 'bar');\n    locker.forget('foo');\n    expect($rootScope.$emit).toHaveBeenCalledWith('locker.item.forgotten', {\n        key: 'foo',\n        driver: 'local',\n        namespace: 'locker'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('randKey', Math.random());\n    expect(locker.has('randKey')).toBeTruthy();\n    expect(locker.has('loremipsumdolorsitamet')).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker) {\n    locker.put('randKey', Math.random());\n    var result = locker.has(function () {\n            return 'randKey';\n        });\n    expect(result).toBeTruthy();\n    expect(locker.has('loremipsumdolorsitamet')).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    return 'randKey';\n}",
+    "receiverBase": "locker",
+    "receiverCallee": "has"
+  },
+  {
+    "callback": "function (locker) {\n    locker.namespace('differentNs').put('randKeyNs', Math.random());\n    expect(locker.namespace('differentNs').has('randKeyNs')).toBeTruthy();\n    expect(locker.namespace('loremipsumdolorsitamet').has('randKeyNs')).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn(locker, '_checkSupport').and.returnValue(false);\n    expect(function () {\n        locker.has('someKey');\n    }).toThrowError();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    locker.has('someKey');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    locker.bind($rootScope, 'foo');\n    $rootScope.foo = [\n        'bar',\n        'baz'\n    ];\n    $rootScope.$apply();\n    expect(locker.get('foo')).toEqual([\n        'bar',\n        'baz'\n    ]);\n    $rootScope.foo = 123;\n    $rootScope.$apply();\n    expect(locker.get('foo')).toEqual(123);\n    expect(Object.keys(locker._watchers).length).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    locker.bind($rootScope, 'foo', 'defaultVal');\n    expect($rootScope.foo).toEqual('defaultVal');\n    expect(locker.get('foo')).toEqual('defaultVal');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (locker, $rootScope) {\n    locker.bind($rootScope, 'foo');\n    locker.bind($rootScope, 'bar');\n    $rootScope.foo = [\n        'bar',\n        'baz'\n    ];\n    $rootScope.$apply();\n    expect(locker.get('foo')).toEqual([\n        'bar',\n        'baz'\n    ]);\n    locker.unbind($rootScope, 'foo');\n    expect($rootScope.foo).toBeUndefined();\n    expect(Object.keys(locker._watchers).length).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    it('should return true if storage is supported', inject(function ($window, locker) {\n        expect(locker.supported()).toBeTruthy();\n    }));\n    it('should return false if storage is not supported', inject(function ($window, locker) {\n        spyOn($window.localStorage, 'setItem').and.throwError(new Error());\n        expect(locker.supported()).toBeFalsy();\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($window, locker) {\n    expect(locker.supported()).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    spyOn($window.localStorage, 'setItem').and.throwError(new Error());\n    expect(locker.supported()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    it('should get the currently set namespace', inject(function (locker) {\n        expect(locker.getNamespace()).toEqual('locker');\n        expect(locker.namespace('foo').getNamespace()).toEqual('foo');\n    }));\n    it('should get the currently set driver', inject(function ($window, locker) {\n        expect(locker.getDriver()).toEqual($window.localStorage);\n        expect(locker.driver('session').getDriver()).toEqual($window.sessionStorage);\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (locker) {\n    expect(locker.getNamespace()).toEqual('locker');\n    expect(locker.namespace('foo').getNamespace()).toEqual('foo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($window, locker) {\n    expect(locker.getDriver()).toEqual($window.localStorage);\n    expect(locker.driver('session').getDriver()).toEqual($window.sessionStorage);\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    return arguments[1] + ';\\n';\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        console.log('Something went bad');\n    } else {\n        console.log('Success writing new parser files ' + fileName + '.js' + ' & ' + option.fileName);\n        console.log('Please Note: The php version of the jison parser is only an ATTEMPTED conversion');\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function () {\n    try {\n        return !!sessionStorage.getItem;\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var next = b.nextSibling, display = next.style.display;\n    next.style.display = display === 'none' ? 'block' : 'none';\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (e) {\n    var target = e && e.target ? e.target : window.event.srcElement;\n    if (target.nodeName.toLowerCase() == 'span' || target.nodeName.toLowerCase() == 'b') {\n        target = target.parentNode;\n    }\n    if (window.location && target.nodeName.toLowerCase() === 'strong') {\n        window.location.search = '?' + encodeURIComponent(getText([target]).replace(/\\(.+\\)$/, '').replace(/(^\\s*|\\s*$)/g, ''));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    test.init();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.setup();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.run();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.teardown();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.finish();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    if (config.timeout) {\n        clearTimeout(config.timeout);\n    }\n    config.blocking = false;\n    process();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    QUnit.ok(false, 'Test timed out');\n    QUnit.start();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var li = document.getElementsByTagName('li');\n    for (var i = 0; i < li.length; i++) {\n        if (li[i].className.indexOf('pass') > -1) {\n            li[i].style.display = filter.checked ? 'none' : '';\n        }\n    }\n    if (defined.sessionStorage) {\n        sessionStorage.setItem('qunit-filter-passed-tests', filter.checked ? 'true' : '');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (s) {\n    switch (s) {\n    case '&':\n        return '&amp;';\n    case '\\\\':\n        return '\\\\\\\\';\n    case '\"':\n        return '\"';\n    case '<':\n        return '&lt;';\n    case '>':\n        return '&gt;';\n    default:\n        return s;\n    }\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a === b) {\n        return true;\n    } else if (a === null || b === null || typeof a === 'undefined' || typeof b === 'undefined' || QUnit.objectType(a) !== QUnit.objectType(b)) {\n        return false;\n    } else {\n        return bindCallbacks(a, callbacks, [\n            b,\n            a\n        ]);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    spyOn(Less, 'render');\n    var spyCallback = jasmine.createSpy();\n    LessCompiler.compile('test', 'sample/css/main.less', spyCallback);\n    expect(Less.render).toHaveBeenCalledWith('test', {\n        'filename': 'sample/css/main.less',\n        'paths': ['sample/css']\n    }, jasmine.any(Function));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spyOn(Less, 'render').andCallFake(function (input, options, callback) {\n        return callback(null, 'rendered file');\n    });\n    var spyCallback = jasmine.createSpy();\n    LessCompiler.compile('test', 'sample.less', spyCallback);\n    expect(spyCallback).toHaveBeenCalledWith(null, 'rendered file');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (input, options, callback) {\n    return callback(null, 'rendered file');\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    spyOn(Less, 'render').andCallFake(function (input, options, callback) {\n        return callback(null, { css: 'rendered file' });\n    });\n    var spyCallback = jasmine.createSpy();\n    LessCompiler.compile('test', 'sample.less', spyCallback);\n    expect(spyCallback).toHaveBeenCalledWith(null, 'rendered file');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (input, options, callback) {\n    return callback(null, { css: 'rendered file' });\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    spyOn(Less, 'render').andCallFake(function (input, options, callback) {\n        return callback({ message: 'Some error occurred.' }, null);\n    });\n    var spyCallback = jasmine.createSpy();\n    LessCompiler.compile('test', 'sample.less', spyCallback);\n    expect(spyCallback).toHaveBeenCalledWith('Less parsing error: Some error occurred.', null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (input, options, callback) {\n    return callback({ message: 'Some error occurred.' }, null);\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    lscache.flush();\n    iframe.appendTo('body').load(function () {\n        var wind = iframe.contents()[0].defaultView;\n        wind.require(['main'], function (main) {\n            main.ready.done(function () {\n                cb(wind, function () {\n                    setTimeout(function () {\n                        iframe.remove();\n                    }, 100);\n                    start();\n                });\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    var wind = iframe.contents()[0].defaultView;\n    wind.require(['main'], function (main) {\n        main.ready.done(function () {\n            cb(wind, function () {\n                setTimeout(function () {\n                    iframe.remove();\n                }, 100);\n                start();\n            });\n        });\n    });\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (main) {\n    main.ready.done(function () {\n        cb(wind, function () {\n            setTimeout(function () {\n                iframe.remove();\n            }, 100);\n            start();\n        });\n    });\n}",
+    "receiverBase": "wind",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    cb(wind, function () {\n        setTimeout(function () {\n            iframe.remove();\n        }, 100);\n        start();\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        iframe.remove();\n    }, 100);\n    start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "cb"
+  },
+  {
+    "callback": "function () {\n    iframe.remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err) {\n    next(err, user);\n}",
+    "receiverBase": "user",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (prop) {\n    return makeSeries(prop);\n}",
+    "receiverBase": "props",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, users) {\n    var ids = users.map(function (user) {\n            return user.id;\n        });\n    callback(users, ids);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "series"
+  },
+  {
+    "callback": "function (user) {\n    return user.id;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (users, ids) {\n    t.users = users;\n    t.userIds = ids;\n    next();\n}",
+    "receiverBase": "",
+    "receiverCallee": "createUsers"
+  },
+  {
+    "callback": "function () {\n    user.load(1, function (err) {\n        t.equals(err, 'not found', 'Load() did not return \"not found\" for id 1 even though there should not be a user yet.');\n        t.done();\n    });\n}",
+    "receiverBase": "h",
+    "receiverCallee": "cleanUp"
+  },
+  {
+    "callback": "function (err) {\n    t.equals(err, 'not found', 'Load() did not return \"not found\" for id 1 even though there should not be a user yet.');\n    t.done();\n}",
+    "receiverBase": "user",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (err, ids) {\n    ids.sort();\n    t.same(self.userIds, ids, 'find() did not return all users when not given any search parameters.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (exists) {\n    t.equals(exists, true, 'Exists() did not return true for id 1.');\n    existsUser.exists(9999999, function (exists) {\n        t.equals(exists, false, 'Exists() did not return false for id 9999999.');\n        t.done();\n    });\n}",
+    "receiverBase": "existsUser",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (exists) {\n    t.equals(exists, false, 'Exists() did not return false for id 9999999.');\n    t.done();\n}",
+    "receiverBase": "existsUser",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(0, ids.length, 'Searching for a nonexistant index did not return an empty array.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (user) {\n    return user.p('name') === 'uniquefind';\n}",
+    "receiverBase": "users",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    t.same(ids, [userUnique.id], 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (user) {\n    return user.p('name') === 'uniquefind';\n}",
+    "receiverBase": "users",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    t.same(ids, [userUnique.id], 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    t.same(0, err.indexOf('Invalid search parameters'), 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    t.ok(!err, 'Unexpected saving error');\n    findObj.find({ unique: saveObj.p('unique') }, function (err, ids) {\n        t.ok(!err, 'Unexpected finding error');\n        t.same(ids, [saveObj.id], 'The found id did not match the id of the saved object.');\n        t.done();\n    });\n}",
+    "receiverBase": "saveObj",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected finding error');\n    t.same(ids, [saveObj.id], 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findObj",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (user) {\n    return user.p('name') === 'indextest';\n}",
+    "receiverBase": "users",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    t.same(ids, [\n        users[0].id,\n        users[1].id\n    ], 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (user) {\n    return user.p('number') > 2 && user.p('number2') < 100;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, ids) {\n    errLogger(err);\n    t.same(ids.sort(), [\n        users[0].id,\n        users[1].id\n    ].sort(), 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (users) {\n    findUser.find({\n        number: { min: 2 },\n        number2: { max: 100 },\n        name: 'mixedindextest'\n    }, function (err, ids) {\n        if (err) {\n            console.dir(err);\n        }\n        t.same(ids.sort(), [\n            users[0].id,\n            users[1].id\n        ].sort(), 'The found id did not match the id of the saved object.');\n        t.done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createUsers"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    t.same(ids.sort(), [\n        users[0].id,\n        users[1].id\n    ].sort(), 'The found id did not match the id of the saved object.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (users, userIds) {\n    findUser.find({ number: { min: 3000 } }, function (err, ids) {\n        if (err) {\n            console.dir(err);\n        }\n        userIds.push(self.userIds[self.userIds.length - 1]);\n        t.same(userIds.length, 3, 'Didn\\'t create 2 users, instead: ' + userIds.length);\n        t.same(ids.sort(), userIds.sort(), 'The found id did not match the id of the saved objects.');\n        t.done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createUsers"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    userIds.push(self.userIds[self.userIds.length - 1]);\n    t.same(userIds.length, 3, 'Didn\\'t create 2 users, instead: ' + userIds.length);\n    t.same(ids.sort(), userIds.sort(), 'The found id did not match the id of the saved objects.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    findUser.find({\n        number: { min: 2 },\n        name: 'mixedindextASDASDestMISSING'\n    }, function (err, ids) {\n        if (err) {\n            console.dir(err);\n        }\n        t.same(ids, [], 'Ids were found even though the name should not be findable.');\n        t.done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createUsers"
+  },
+  {
+    "callback": "function (err, ids) {\n    if (err) {\n        console.dir(err);\n    }\n    t.same(ids, [], 'Ids were found even though the name should not be findable.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    errLogger(err);\n    t.ok(ids.length > 54, 'The limit: 0 option did not return more than 50 ids.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        console.dir(err);\n    }\n    findUser.find({ number: num }, function (err, ids) {\n        t.same(ids, [user.id], 'Did not find an exact number match');\n        findUser.find({ number: num - 1 }, function (err, ids) {\n            t.same(ids, [], 'Searching for a nonexistant number did not return an empty array.');\n            t.done();\n        });\n    });\n}",
+    "receiverBase": "user",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(ids, [user.id], 'Did not find an exact number match');\n    findUser.find({ number: num - 1 }, function (err, ids) {\n        t.same(ids, [], 'Searching for a nonexistant number did not return an empty array.');\n        t.done();\n    });\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(ids, [], 'Searching for a nonexistant number did not return an empty array.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        console.dir(err);\n        t.done();\n    }\n    findUser.load(user.id, function (err, props) {\n        if (err) {\n            console.dir(err);\n            t.done();\n        }\n        var testProps = user.allProperties();\n        delete testProps.id;\n        t.same(props, testProps, 'The loaded properties are not the same as allProperties() (without id).');\n        t.done();\n    });\n}",
+    "receiverBase": "user",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err, props) {\n    if (err) {\n        console.dir(err);\n        t.done();\n    }\n    var testProps = user.allProperties();\n    delete testProps.id;\n    t.same(props, testProps, 'The loaded properties are not the same as allProperties() (without id).');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (err) {\n    t.ok(!err, 'There was an error while removing');\n    shortFormMockup.find({ name: 'shortForm' }, function (err, ids) {\n        t.ok(!err, 'There was en error while finding the second time');\n        t.same(ids, [], 'Remove did not remove the correct instance. Uh-Oh.... :D ');\n        t.done();\n    });\n}",
+    "receiverBase": "shortFormMockup",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'There was en error while finding the second time');\n    t.same(ids, [], 'Remove did not remove the correct instance. Uh-Oh.... :D ');\n    t.done();\n}",
+    "receiverBase": "shortFormMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, props) {\n    t.ok(!err, 'There was an error while loading');\n    t.same(props.name, test.p('name'), 'The loaded properties were not correct.');\n    uuidMockup.find({ name: test.p('name') }, function (err, ids) {\n        t.ok(!err, 'There was an error while finding.');\n        t.same([test.id], ids, 'Did not find the correct ids');\n        t.done();\n    });\n}",
+    "receiverBase": "loader",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'There was an error while finding.');\n    t.same([test.id], ids, 'Did not find the correct ids');\n    t.done();\n}",
+    "receiverBase": "uuidMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (users, ids) {\n    self.users = users;\n    self.userIds = ids;\n    next();\n}",
+    "receiverBase": "",
+    "receiverCallee": "createUsers"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(ids.length, 1, 'Did not find the correct number of ids for non-incremental id model.');\n    t.same(ids[0], self.userIds[1], 'Did not find the correct id for non-incremental id model.');\n    t.done();\n}",
+    "receiverBase": "UserFindNoIncrementMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'There was an error while searching an inexistant unique value.');\n    t.same([], ids, 'The return of a search that didn\\'t find anything was wrong.');\n    t.done();\n}",
+    "receiverBase": "test",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    t.ok(!err, 'There was an error while saving.');\n    var test2 = new UserFindMockup(test.id, function (err) {\n            t.ok(!err, 'There was an error while loading a model via constructor.');\n            t.same(test2.allProperties(), test.allProperties(), 'The return of a search that didn\\'t find anything was wrong.');\n            t.done();\n        });\n}",
+    "receiverBase": "test",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a < b ? 1 : a > b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('number');\n    b = b.p('number');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    var id_sort = a.id < b.id ? 1 : -1;\n    a = a.p('number');\n    b = b.p('number');\n    return a < b ? 1 : a > b ? -1 : id_sort;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('number');\n    b = b.p('number');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a < b ? 1 : a > b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('name');\n    b = b.p('name');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('number');\n    b = b.p('number');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    var id_sort = a.id < b.id ? 1 : -1;\n    a = a.p('number');\n    b = b.p('number');\n    return a < b ? 1 : a > b ? -1 : id_sort;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    a = a.p('number');\n    b = b.p('number');\n    return a > b ? 1 : a < b ? -1 : 0;\n}",
+    "receiverBase": "users",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (user) {\n    return '' + user.id;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(sorted_ids, ids, 'Sorting went wrong.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.same(null, err, 'Sorting caused an error: ' + err);\n    t.same(0, ids.length, 'Sorting went wrong when ids.length is 0.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([\n        1,\n        7,\n        6,\n        5,\n        4\n    ], ids, 'Searching when min>max condition(ZREVRANGEBYSCORE) is invalid.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([\n        1,\n        7\n    ], ids, 'Searching when min>max condition(ZREVRANGEBYSCORE) with limit is invalid.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([\n        7,\n        6,\n        5,\n        4\n    ], ids, 'Defining an endpoint failed.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([1], ids, 'Defining an endpoint failed.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([], ids, 'Defining an endpoint failed.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([\n        7,\n        6,\n        5,\n        4\n    ], ids, 'Defining an endpoint failed.');\n    UserFindMockup.find({\n        number: {\n            min: 3,\n            max: 1,\n            endpoints: ')'\n        }\n    }, function (err, ids) {\n        t.ok(!err, 'Unexpected redis error in custom query');\n        t.same([1], ids, 'Defining an endpoint failed.');\n        t.done();\n    });\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same([1], ids, 'Defining an endpoint failed.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same(ids, [\n        2,\n        3,\n        8\n    ], 'Invalid or parseAble find options caused wrong search results.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same(ids, [\n        6,\n        7,\n        1\n    ], 'The found ids were incorrect.');\n    t.done();\n}",
+    "receiverBase": "UserFindMockup",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same(ids, [\n        3,\n        8\n    ], 'The found ids were incorrect.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, ids) {\n    t.ok(!err, 'Unexpected redis error in custom query');\n    t.same(ids, [\n        2,\n        3,\n        8\n    ], 'The found ids were incorrect.');\n    t.done();\n}",
+    "receiverBase": "findUser",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    if (!phantom.casperTest) {\n        throw new CasperError('casper.test property is only available using the `casperjs test` command');\n    }\n    if (!utils.isObject(this._test)) {\n        this._test = tester.create(this);\n    }\n    return this._test;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "__defineGetter__"
+  },
+  {
+    "callback": "function (notice) {\n    console.error(c.colorize(notice, 'COMMENT'));\n}",
+    "receiverBase": "notices",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    var message = fs.absolute(item.file) + ':' + c.colorize(item.line, 'COMMENT');\n    if (item['function']) {\n        message += ' in ' + c.colorize(item['function'], 'PARAMETER');\n    }\n    console.error('  ' + message);\n}",
+    "receiverBase": "backtrace",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function onDeprecated(message) {\n    this.warn('[deprecated] ' + message);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function _step() {\n    this.emit('back');\n    this.evaluate(function _evaluate() {\n        history.back();\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _evaluate() {\n    history.back();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(url, method, data) {\n    return __utils__.getBase64(url, method, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (selector) {\n    var element = __utils__.findOne(selector);\n    if (element) {\n        element.focus();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate() {\n    return document.body.textContent || document.body.innerText;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _each(self) {\n    array.forEach(function _forEach(item, i) {\n        fn.call(self, self, item, i);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function _forEach(item, i) {\n    fn.call(self, self, item, i);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function _each(self) {\n    array.forEach(function _forEach(item, i) {\n        self.then(function () {\n            this.then(this.createStep(then, { data: item }));\n        });\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function _forEach(item, i) {\n    self.then(function () {\n        this.then(this.createStep(then, { data: item }));\n    });\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.then(this.createStep(then, { data: item }));\n}",
+    "receiverBase": "self",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _evaluate(selector) {\n    return __utils__.exists(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(selector) {\n    return __utils__.fetchText(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(selector, vals, selectorType) {\n    try {\n        return __utils__.fill(selector, vals, selectorType);\n    } catch (exception) {\n        return { exception: exception.toString() };\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _step() {\n    this.emit('forward');\n    this.evaluate(function _evaluate() {\n        history.forward();\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _evaluate() {\n    history.forward();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function checkHtml() {\n    if (__utils__.findOne('head').childNodes.length === 0 && __utils__.findOne('body').childNodes.length === 1 && __utils__.findOne('body pre[style]')) {\n        return __utils__.findOne('body pre').textContent.trim();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate() {\n    return document.location.href;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(selector, attribute) {\n    return __utils__.findOne(selector).getAttribute(attribute);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(selector, attribute) {\n    return [].map.call(__utils__.findAll(selector), function (element) {\n        return element.getAttribute(attribute);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (element) {\n    return element.getAttribute(attribute);\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function _evaluate(selector) {\n    return __utils__.getElementBounds(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (selector) {\n    return __utils__.getElementInfo(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (selector) {\n    return __utils__.getElementsInfo(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(selector) {\n    return __utils__.getElementsBounds(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (selector) {\n    return __utils__.getFormValues(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate(name) {\n    var result = {};\n    try {\n        result.value = JSON.stringify(window[name]);\n    } catch (e) {\n        var message = 'Unable to JSON encode window.' + name + ': ' + e;\n        __utils__.log(message, 'error');\n        result.error = message;\n    }\n    return result;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function getSelectorHTML(selector, outer) {\n    var element = __utils__.findOne(selector);\n    return outer ? element.outerHTML : element.innerHTML;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _evaluate() {\n    return document.title;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function () {\n    return typeof __utils__ === 'object';\n}",
+    "receiverBase": "page",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function (type, selector) {\n    return window.__utils__.mouseEvent(type, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function () {\n    this.open(this.getCurrentUrl());\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _check(self, start, stepNum) {\n    if (new Date().getTime() - start > self.options.stepTimeout) {\n        if (getCurrentSuiteId(self) === stepNum) {\n            self.emit('step.timeout');\n            if (utils.isFunction(self.options.onStepTimeout)) {\n                self.options.onStepTimeout.call(self, self.options.stepTimeout, stepNum);\n            }\n        }\n        clearInterval(stepTimeoutCheckInterval);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (selector) {\n    __utils__.findOne(selector).blur();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _check(self) {\n    self.emit('timeout');\n    if (utils.isFunction(self.options.onTimeout)) {\n        self.options.onTimeout.call(self, self.options.timeout);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function _step() {\n    this.log('start page is loaded', 'debug');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "createStep"
+  },
+  {
+    "callback": "function _step() {\n    this.click(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _step() {\n    this.evaluate.apply(this, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _step() {\n    this.open(location, settings);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "createStep"
+  },
+  {
+    "callback": "function _thenBypass() {\n    this.bypass(nb);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _thenBypassIf() {\n    if (utils.isFunction(condition)) {\n        condition = condition.call(this);\n    }\n    if (utils.isTruthy(condition)) {\n        this.bypass(nb);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _thenBypassUnless() {\n    if (utils.isFunction(condition)) {\n        condition = condition.call(this);\n    }\n    if (utils.isFalsy(condition)) {\n        this.bypass(nb);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (interval) {\n    if (interval) {\n        clearInterval(interval);\n    }\n}",
+    "receiverBase": "waiters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function _step() {\n    this.waitStart();\n    setTimeout(function _check(self) {\n        self.waitDone();\n        self.emit('viewport.changed', [\n            width,\n            height\n        ]);\n        if (utils.isFunction(then)) {\n            self.then(then);\n        }\n    }, time, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _check(self) {\n    self.waitDone();\n    self.emit('viewport.changed', [\n        width,\n        height\n    ]);\n    if (utils.isFunction(then)) {\n        self.then(then);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function _evaluate(selector) {\n    return __utils__.visible(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function _step() {\n    this.waitStart();\n    setTimeout(function _check(self) {\n        self.log(f('wait() finished waiting for %dms.', timeout), 'info');\n        if (then) {\n            try {\n                then.call(self, self);\n            } catch (error) {\n                self.emit('wait.error', error);\n            }\n        }\n        self.waitDone();\n    }, timeout, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _check(self) {\n    self.log(f('wait() finished waiting for %dms.', timeout), 'info');\n    if (then) {\n        try {\n            then.call(self, self);\n        } catch (error) {\n            self.emit('wait.error', error);\n        }\n    }\n    self.waitDone();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    try {\n        this.popups.find(urlPattern);\n        return true;\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return this.resourceExists(test);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    if (utils.isString(url)) {\n        return this.getCurrentUrl().indexOf(url) !== -1;\n    } else if (utils.isRegExp(url)) {\n        return url.test(this.getCurrentUrl());\n    }\n    throw new CasperError('invalid url argument');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return this.exists(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    var content = this.getPageContent();\n    if (utils.isRegExp(pattern)) {\n        return pattern.test(content);\n    }\n    return content.indexOf(pattern) !== -1;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return currentSelectorText !== this.fetchText(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return !this.exists(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return this.visible(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _check() {\n    return !this.visible(selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function _step() {\n    if (utils.isNumber(frameInfo)) {\n        if (frameInfo > this.page.childFramesCount() - 1) {\n            throw new CasperError(f('Frame number \"%d\" is out of bounds.', frameInfo));\n        }\n    } else if (this.page.childFramesName().indexOf(frameInfo) === -1) {\n        throw new CasperError(f('No frame named \"%s\" was found.', frameInfo));\n    }\n    this.page.switchToChildFrame(frameInfo);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _step() {\n    this.page.switchToMainFrame();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _step() {\n    var popupPage = this.popups.find(popupInfo);\n    if (!utils.isFunction(then)) {\n        throw new CasperError('withPopup() requires a step function.');\n    }\n    this.page = popupPage;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function _step() {\n    this.page = this.mainPage;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    writeLine('received: ' + data);\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "received"
+  },
+  {
+    "callback": "function () {\n    writeLine('connection started. Id=' + connection.id + '. Transport=' + connection.transport.name);\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (error) {\n    writeError(error);\n}",
+    "receiverBase": "done",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    writeLine('hubConnection started. Id=' + hubConnection.id + '. Transport=' + hubConnection.transport.name);\n    hub.server.startBackgroundThread();\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (error) {\n    writeError(error);\n}",
+    "receiverBase": "done",
+    "receiverCallee": "fail"
+  }
+]

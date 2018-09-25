@@ -1,0 +1,612 @@
+[
+  {
+    "callback": "function () {\n    var histogram;\n    beforeEach(module('kibana'));\n    beforeEach(inject(function (Private) {\n        histogram = Private(require('components/agg_types/index')).byName.histogram;\n    }));\n    it('is ordered', function () {\n        expect(histogram.ordered).to.be.ok();\n    });\n    it('is not ordered by date', function () {\n        expect(histogram.ordered).to.not.have.property('date');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (Private) {\n    histogram = Private(require('components/agg_types/index')).byName.histogram;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(histogram.ordered).to.be.ok();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(histogram.ordered).to.not.have.property('date');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (Private) {\n    var AggParamWriter = Private(require('test_utils/agg_param_writer'));\n    paramWriter = new AggParamWriter({ aggType: 'histogram' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ interval: 100 });\n    expect(output.params).to.have.property('interval', 100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ interval: '10' });\n    expect(output.params).to.have.property('interval', 10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ interval: [] });\n    expect(isNaN(output.params.interval)).to.be.ok();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ min_doc_count: true });\n    expect(output.params).to.have.property('min_doc_count', 0);\n    output = paramWriter.write({ min_doc_count: 'yes' });\n    expect(output.params).to.have.property('min_doc_count', 0);\n    output = paramWriter.write({ min_doc_count: 1 });\n    expect(output.params).to.have.property('min_doc_count', 0);\n    output = paramWriter.write({ min_doc_count: {} });\n    expect(output.params).to.have.property('min_doc_count', 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ min_doc_count: '' });\n    expect(output.params).to.not.have.property('min_doc_count');\n    output = paramWriter.write({ min_doc_count: null });\n    expect(output.params).to.not.have.property('min_doc_count');\n    output = paramWriter.write({ min_doc_count: undefined });\n    expect(output.params).to.not.have.property('min_doc_count');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ extended_bounds: { min: 0 } });\n    expect(output.params.extended_bounds).to.have.property('min', 0);\n    expect(output.params.extended_bounds).to.have.property('max', undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ extended_bounds: { max: 0 } });\n    expect(output.params.extended_bounds).to.have.property('min', undefined);\n    expect(output.params.extended_bounds).to.have.property('max', 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({\n            extended_bounds: {\n                min: 99,\n                max: 100\n            }\n        });\n    expect(output.params.extended_bounds).to.have.property('min', 99);\n    expect(output.params.extended_bounds).to.have.property('max', 100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var output = paramWriter.write({ extended_bounds: {} });\n    expect(output.params).to.not.have.property('extended_bounds');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value) {\n    return !!value;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (memo, value) {\n    if (_.isArray(value))\n        return memo.concat(_.flatten(value));\n    memo.push(value);\n    return memo;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (memo, el, i) {\n    if (0 == i || (isSorted === true ? _.last(memo) != el : !_.include(memo, el)))\n        memo.push(el);\n    return memo;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (item) {\n    return _.every(rest, function (other) {\n        return _.indexOf(other, item) >= 0;\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (other) {\n    return _.indexOf(other, item) >= 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (e) {\n    return !self.keyDown(e.keyCode);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (e) {\n    return !self.keyUp(e.keyCode);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keyup"
+  },
+  {
+    "callback": "function (e) {\n    if (e.originalEvent.target != element) {\n        self.blur();\n    } else {\n        self.focus();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    self.blur();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "blur"
+  },
+  {
+    "callback": "function () {\n    return self.mouseDown();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    return self.mouseUp();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    return self.mouseDown();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "mousedown"
+  },
+  {
+    "callback": "function (e) {\n    self.mouseUp();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "mouseup"
+  },
+  {
+    "callback": "function (p_db) {\n    JSpec.exec('spec/unit/hummingbird_spec.js').exec('spec/unit/view_spec.js').exec('spec/unit/metric_spec.js').run({\n        reporter: JSpec.reporters.Terminal,\n        fixturePath: 'spec/fixtures',\n        failuresOnly: true\n    }).report();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function (newIdx, newRecord) {\n    me.afterKeyNavigate(e, newRecord);\n}",
+    "receiverBase": "bufferedRenderer",
+    "receiverCallee": "scrollTo"
+  },
+  {
+    "callback": "function (newIdx, newRecord) {\n    me.afterKeyNavigate(e, newRecord);\n}",
+    "receiverBase": "bufferedRenderer",
+    "receiverCallee": "scrollTo"
+  },
+  {
+    "callback": "function (utilMethod) {\n    util[utilMethod] = function () {\n        return (utilOverrides[utilMethod] || util_Cached[utilMethod]).apply(this, arguments);\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    mockery.deregisterAll();\n    mockery.disable();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    googleAuthLibrary_Override = null;\n    request_Override = null;\n    utilOverrides = {};\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(util.arrayize('text'), ['text']);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ];\n    assert.deepEqual(util.arrayize(arr), arr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(util.arrayize(undefined), []);\n    assert.deepEqual(util.arrayize(null), []);\n    assert.deepEqual(util.arrayize(false), [false]);\n    assert.deepEqual(util.arrayize(0), [0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var globalConfig = { credentials: {} };\n    var options = util.extendGlobalConfig(globalConfig, { keyFilename: 'key.json' });\n    assert.deepEqual(options, { keyFilename: 'key.json' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var globalConfig = { keyFilename: 'key.json' };\n    var options = util.extendGlobalConfig(globalConfig, { credentials: {} });\n    assert.deepEqual(options, { credentials: {} });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var globalConfig = { keyFilename: 'key.json' };\n    util.extendGlobalConfig(globalConfig, { credentials: {} });\n    assert.deepEqual(globalConfig, { keyFilename: 'key.json' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var defaultErr = new Error('new error');\n    util.handleResp(defaultErr, null, null, function (err) {\n        assert.equal(err, defaultErr);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err, defaultErr);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "handleResp"
+  },
+  {
+    "callback": "function (done) {\n    var apiErr = {\n            errors: [{ foo: 'bar' }],\n            code: 400,\n            message: 'an error occurred'\n        };\n    util.handleResp(null, {}, { error: apiErr }, function (err) {\n        assert.deepEqual(err.errors, apiErr.errors);\n        assert.strictEqual(err.code, apiErr.code);\n        assert.deepEqual(err.message, apiErr.message);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err.errors, apiErr.errors);\n    assert.strictEqual(err.code, apiErr.code);\n    assert.deepEqual(err.message, apiErr.message);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "handleResp"
+  },
+  {
+    "callback": "function (done) {\n    var body = '{ \"foo\": \"bar\" }';\n    util.handleResp(null, {}, body, function (err, body) {\n        assert.strictEqual(body.foo, 'bar');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, body) {\n    assert.strictEqual(body.foo, 'bar');\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "handleResp"
+  },
+  {
+    "callback": "function (done) {\n    util.handleResp(null, { statusCode: 400 }, null, function (err) {\n        assert.strictEqual(err.code, 400);\n        assert.strictEqual(err.message, 'Error during request.');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.strictEqual(err.code, 400);\n    assert.strictEqual(err.message, 'Error during request.');\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "handleResp"
+  },
+  {
+    "callback": "function (done) {\n    var dup = duplexify();\n    util.makeWritableStream(dup, {\n        makeAuthorizedRequest: function (request) {\n            assert.equal(request.method, 'POST');\n            assert.equal(request.qs.uploadType, 'multipart');\n            var contentType = request.headers['Content-Type'];\n            assert.equal(contentType.indexOf('multipart/related'), 0);\n            done();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var dup = duplexify();\n    var req = {\n            method: 'PUT',\n            qs: { uploadType: 'media' },\n            something: 'else'\n        };\n    util.makeWritableStream(dup, {\n        makeAuthorizedRequest: function (request) {\n            assert.equal(request.method, req.method);\n            assert.deepEqual(request.qs, req.qs);\n            assert.equal(request.something, req.something);\n            done();\n        },\n        request: req\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    var ws = new stream.Writable();\n    ws.on('error', function (err) {\n        assert.equal(err, error);\n        done();\n    });\n    util.makeWritableStream(ws, {\n        makeAuthorizedRequest: function (request, opts) {\n            opts.onAuthorized(error);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err, error);\n    done();\n}",
+    "receiverBase": "ws",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    req.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setImmediate"
+  },
+  {
+    "callback": "function (done) {\n    var dup = duplexify();\n    var ws = new stream.Writable();\n    ws.write = function () {\n    };\n    request_Override = function () {\n        return ws;\n    };\n    dup.setWritable = function (writable) {\n        assert.equal(writable, ws);\n        done();\n    };\n    util.makeWritableStream(dup, {\n        makeAuthorizedRequest: function (request, opts) {\n            opts.onAuthorized();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var dup = duplexify();\n    var ws = new stream.Writable();\n    ws.write = function () {\n    };\n    request_Override = function () {\n        return ws;\n    };\n    dup.pipe = function (writable) {\n        assert.equal(writable, ws);\n        done();\n    };\n    util.makeWritableStream(dup, {\n        makeAuthorizedRequest: function (request, opts) {\n            opts.onAuthorized();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var googleAuthLibraryCalled = false;\n    googleAuthLibrary_Override = function () {\n        googleAuthLibraryCalled = true;\n        return { getApplicationDefault: util.noop };\n    };\n    util.getAuthClient({});\n    assert.strictEqual(googleAuthLibraryCalled, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, authClient) {\n    assert.ifError(err);\n    assert.equal(jwt.keyFile, config.keyFile);\n    assert.equal(jwt.email, config.email);\n    assert.deepEqual(jwt.scopes, config.scopes);\n    assert.deepEqual(authClient, jwt);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "getAuthClient"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(credentialsSet, config.credentials);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "getAuthClient"
+  },
+  {
+    "callback": "function (done) {\n    googleAuthLibrary_Override = function () {\n        return {\n            getApplicationDefault: function (callback) {\n                callback(null, {});\n            }\n        };\n    };\n    util.getAuthClient({}, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var config = {\n            a: 'b',\n            c: 'd'\n        };\n    utilOverrides.getAuthClient = function (cfg) {\n        assert.deepEqual(cfg, config);\n        done();\n    };\n    util.authorizeRequest(config);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var reqOpts = {\n            a: 'b',\n            c: 'd'\n        };\n    var couldNotLoadError = new Error('Could not load');\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(couldNotLoadError);\n    };\n    util.authorizeRequest({}, reqOpts, function (err, authorizedReqOpts) {\n        assert.ifError(err);\n        assert.deepEqual(reqOpts, authorizedReqOpts);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, authorizedReqOpts) {\n    assert.ifError(err);\n    assert.deepEqual(reqOpts, authorizedReqOpts);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "authorizeRequest"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(error);\n    };\n    util.authorizeRequest({}, {}, function (err) {\n        assert.deepEqual(err, error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, error);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "authorizeRequest"
+  },
+  {
+    "callback": "function (done) {\n    var fakeAuthClient = {\n            getAccessToken: function () {\n                done();\n            }\n        };\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(null, fakeAuthClient);\n    };\n    util.authorizeRequest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    var fakeAuthClient = {\n            getAccessToken: function (callback) {\n                callback(error);\n            }\n        };\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(null, fakeAuthClient);\n    };\n    util.authorizeRequest({}, {}, function (err) {\n        assert.deepEqual(err, error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, error);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "authorizeRequest"
+  },
+  {
+    "callback": "function (err, authorizedReqOpts) {\n    assert.ifError(err);\n    assert.deepEqual(authorizedReqOpts, expectedAuthorizedReqOpts);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "authorizeRequest"
+  },
+  {
+    "callback": "function () {\n    assert.equal(typeof util.makeAuthorizedRequestFactory(), 'function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    makeAuthorizedRequest = util.makeAuthorizedRequestFactory({ customEndpoint: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    var reqOpts = {\n            a: 'b',\n            c: 'd'\n        };\n    makeAuthorizedRequest(reqOpts, {\n        onAuthorized: function (err, authorizedReqOpts) {\n            assert.ifError(err);\n            assert.deepEqual(reqOpts, authorizedReqOpts);\n            done();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var reqOpts = {\n            a: 'b',\n            c: 'd'\n        };\n    utilOverrides.makeRequest = function (rOpts) {\n        assert.deepEqual(rOpts, reqOpts);\n        done();\n    };\n    makeAuthorizedRequest(reqOpts, assert.ifError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var config = {\n            a: 'b',\n            c: 'd'\n        };\n    var reqOpts = {\n            e: 'f',\n            g: 'h'\n        };\n    utilOverrides.authorizeRequest = function (cfg, rOpts) {\n        assert.deepEqual(cfg, config);\n        assert.deepEqual(rOpts, reqOpts);\n        done();\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config);\n    makeAuthorizedRequest(reqOpts);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utilOverrides.authorizeRequest = function (cfg, rOpts, callback) {\n        callback(error);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory();\n    makeAuthorizedRequest({}, function (err) {\n        assert.deepEqual(err, error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, error);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "makeAuthorizedRequest"
+  },
+  {
+    "callback": "function (done) {\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory();\n    makeAuthorizedRequest({}, {\n        onAuthorized: function (err) {\n            assert.deepEqual(err, error);\n            done();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    utilOverrides.authorizeRequest = function (cfg, rOpts, callback) {\n        callback(null, rOpts);\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory();\n    makeAuthorizedRequest(reqOpts, {\n        onAuthorized: function (err, authorizedReqOpts) {\n            assert.deepEqual(authorizedReqOpts, reqOpts);\n            done();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var config = {\n            a: 'b',\n            c: 'd'\n        };\n    utilOverrides.authorizeRequest = function (cfg, rOpts, callback) {\n        callback(null, rOpts);\n    };\n    utilOverrides.makeRequest = function (authorizedReqOpts, cfg, cb) {\n        assert.deepEqual(authorizedReqOpts, reqOpts);\n        assert.deepEqual(cfg, config);\n        cb();\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config);\n    makeAuthorizedRequest(reqOpts, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(null, fakeAuthClient);\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config, assert.ifError);\n    assert.equal(typeof makeAuthorizedRequest.getCredentials, 'function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    utilOverrides.getAuthClient = function (cfg) {\n        assert.deepEqual(cfg, config);\n        done();\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config, assert.ifError);\n    makeAuthorizedRequest.getCredentials();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(error);\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config, assert.ifError);\n    makeAuthorizedRequest.getCredentials(function (err) {\n        assert.deepEqual(err, error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, error);\n    done();\n}",
+    "receiverBase": "makeAuthorizedRequest",
+    "receiverCallee": "getCredentials"
+  },
+  {
+    "callback": "function (done) {\n    fakeAuthClient.authorize = function (callback) {\n        callback();\n    };\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(null, fakeAuthClient);\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config, assert.ifError);\n    makeAuthorizedRequest.getCredentials(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    fakeAuthClient.authorize = function (cb) {\n        cb(error);\n    };\n    utilOverrides.getAuthClient = function (config, callback) {\n        callback(null, fakeAuthClient);\n    };\n    var makeAuthorizedRequest = util.makeAuthorizedRequestFactory(config, assert.ifError);\n    makeAuthorizedRequest.getCredentials(function (err) {\n        assert.deepEqual(err, error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, error);\n    done();\n}",
+    "receiverBase": "makeAuthorizedRequest",
+    "receiverCallee": "getCredentials"
+  },
+  {
+    "callback": "function (err, credentials) {\n    assert.deepEqual(credentials, {\n        client_email: fakeAuthClient.email,\n        private_key: fakeAuthClient.key\n    });\n    done();\n}",
+    "receiverBase": "makeAuthorizedRequest",
+    "receiverCallee": "getCredentials"
+  },
+  {
+    "callback": "function () {\n    var people = [\n            {\n                name: 'Stephen',\n                origin: 'USA',\n                beenToNYC: false\n            },\n            {\n                name: 'Ryan',\n                origin: 'Canada',\n                beenToNYC: true\n            }\n        ];\n    assert.deepEqual(people.map(util.prop('name')), [\n        'Stephen',\n        'Ryan'\n    ]);\n    assert.deepEqual(people.filter(util.prop('beenToNYC')), [people[1]]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should assign a property and value to an object', function () {\n        var obj = {};\n        util.propAssign('prop', 'value')(obj);\n        assert.equal(obj.prop, 'value');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var obj = {};\n    util.propAssign('prop', 'value')(obj);\n    assert.equal(obj.prop, 'value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.strictEqual(util.shouldRetryRequest(), false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var error = new Error('Generic error with no code');\n    assert.strictEqual(util.shouldRetryRequest(error), false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var error = new Error('429');\n    error.code = 429;\n    assert.strictEqual(util.shouldRetryRequest(error), true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var error = new Error('500');\n    error.code = 500;\n    assert.strictEqual(util.shouldRetryRequest(error), true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var error = new Error('503');\n    error.code = 503;\n    assert.strictEqual(util.shouldRetryRequest(error), true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rateLimitError = new Error('Rate limit error without code.');\n    rateLimitError.errors = [{ reason: 'rateLimitExceeded' }];\n    assert.strictEqual(util.shouldRetryRequest(rateLimitError), true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rateLimitError = new Error('Rate limit error without code.');\n    rateLimitError.errors = [{ reason: 'userRateLimitExceeded' }];\n    assert.strictEqual(util.shouldRetryRequest(rateLimitError), true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    [\n        1,\n        2,\n        3,\n        4,\n        5\n    ].forEach(assertTime);\n    function assertTime(retryNumber) {\n        var min = Math.pow(2, retryNumber) * secs(1);\n        var max = Math.pow(2, retryNumber) * secs(1) + secs(1);\n        var time = util.getNextRetryWait(retryNumber);\n        assert(time >= min && time <= max);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    request_Override = function () {\n        done();\n    };\n    util.makeRequest({}, assert.ifError, {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    request_Override = function (rOpts) {\n        assert.deepEqual(rOpts, expectedReqOpts);\n        done();\n    };\n    util.makeRequest(reqOpts, assert.ifError, {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var error = new Error('Error.');\n    var response = {\n            a: 'b',\n            c: 'd'\n        };\n    var body = response.a;\n    request_Override = function (rOpts, callback) {\n        callback(error, response, body);\n    };\n    utilOverrides.handleResp = function (err, resp, bdy) {\n        assert.deepEqual(err, error);\n        assert.deepEqual(resp, response);\n        assert.deepEqual(bdy, body);\n        done();\n    };\n    util.makeRequest({}, {}, assert.ifError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return error to callback', function (done) {\n        var nonRateLimitError = new Error('Error.');\n        request_Override = function (reqOpts, callback) {\n            callback(nonRateLimitError);\n        };\n        util.makeRequest({}, {}, function (err) {\n            assert.deepEqual(err, nonRateLimitError);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var nonRateLimitError = new Error('Error.');\n    request_Override = function (reqOpts, callback) {\n        callback(nonRateLimitError);\n    };\n    util.makeRequest({}, {}, function (err) {\n        assert.deepEqual(err, nonRateLimitError);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.deepEqual(err, nonRateLimitError);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "makeRequest"
+  },
+  {
+    "callback": "function () {\n    request_Override = function (reqOpts, callback) {\n        callback(rateLimitError);\n    };\n    utilOverrides.shouldRetryRequest = function () {\n        return true;\n    };\n    utilOverrides.getNextRetryWait = function () {\n        return 0;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    utilOverrides.shouldRetryRequest = function () {\n        done();\n    };\n    util.makeRequest({}, {}, util.noop);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var attempts = 0;\n    var expectedAttempts = 4;\n    utilOverrides.handleResp = function (err, resp, body, callback) {\n        attempts++;\n        callback(err);\n    };\n    util.makeRequest({}, {}, function (err) {\n        assert.equal(err, rateLimitError);\n        assert.equal(attempts, expectedAttempts);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err, rateLimitError);\n    assert.equal(attempts, expectedAttempts);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "makeRequest"
+  },
+  {
+    "callback": "function (done) {\n    var attempts = 0;\n    var maxRetries = 5;\n    var expectedAttempts = maxRetries + 1;\n    utilOverrides.handleResp = function (err, resp, body, callback) {\n        attempts++;\n        callback(err);\n    };\n    util.makeRequest({}, { maxRetries: maxRetries }, function (err) {\n        assert.equal(err, rateLimitError);\n        assert.equal(attempts, expectedAttempts);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err, rateLimitError);\n    assert.equal(attempts, expectedAttempts);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "makeRequest"
+  },
+  {
+    "callback": "function (done) {\n    var attempts = 0;\n    var expectedAttempts = 1;\n    utilOverrides.handleResp = function (err, resp, body, callback) {\n        attempts++;\n        callback(err);\n    };\n    util.makeRequest({}, { autoRetry: false }, function (err) {\n        assert.equal(err, rateLimitError);\n        assert.equal(attempts, expectedAttempts);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.equal(err, rateLimitError);\n    assert.equal(attempts, expectedAttempts);\n    done();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "makeRequest"
+  },
+  {
+    "callback": "function () {\n    it('should let handleResp handle response', function (done) {\n        utilOverrides.handleResp = function () {\n            done();\n        };\n        request_Override = function (reqOpts, callback) {\n            callback();\n        };\n        util.makeRequest({}, {}, assert.ifError);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    utilOverrides.handleResp = function () {\n        done();\n    };\n    request_Override = function (reqOpts, callback) {\n        callback();\n    };\n    util.makeRequest({}, {}, assert.ifError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    rows++;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (numLeft > 1)\n        benchmarkSelect(numLeft - 1, callback);\n    else\n        callback(rows);\n}",
+    "receiverBase": "q",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (rowsPerQuery) {\n    var end = process.hrtime();\n    var diff = common.hrdiff(start, end);\n    console.log(' rows: ' + numSelects * 1000000000 / diff + ' results/sec, ' + rowsPerQuery * numSelects * 1000000000 / diff + ' rows/sec');\n    if (n > 1)\n        benchmarkSelects(n - 1, cb);\n    else\n        cb();\n}",
+    "receiverBase": "",
+    "receiverCallee": "benchmarkSelect"
+  },
+  {
+    "callback": "function () {\n    var testEnd = process.hrtime();\n    console.log('total time: ', common.hrdiff(testStart, testEnd) / 1000000000);\n    connection.end();\n    if (done)\n        done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "benchmarkSelects"
+  },
+  {
+    "callback": "function (state) {\n    this._identity = ChainTest;\n    this._name = 'ChainTest';\n}",
+    "receiverBase": "compose",
+    "receiverCallee": "Classes"
+  },
+  {
+    "callback": "function () {\n    var val = 'seen:' + self._name;\n    res.push(val);\n    return val;\n}",
+    "receiverBase": "delay",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (state) {\n    this._identity = ChainTest2;\n    this._name = 'ChainTest2';\n}",
+    "receiverBase": "deep",
+    "receiverCallee": "Classes"
+  },
+  {
+    "callback": "function () {\n    var val = 'seen2:' + self._name;\n    res.push(val);\n    return val;\n}",
+    "receiverBase": "delay",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    return res;\n}",
+    "receiverBase": "testez",
+    "receiverCallee": "done"
+  }
+]

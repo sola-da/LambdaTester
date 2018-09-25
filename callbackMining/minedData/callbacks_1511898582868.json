@@ -1,0 +1,132 @@
+[
+  {
+    "callback": "function () {\n    var value = $(this).val();\n    if (value == 'user') {\n        $('#userSeletBox').css('display', 'block');\n    } else {\n        $('#userSeletBox').css('display', 'none');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function (d) {\n    var p2 = d.packageConstraint.package;\n    if (_.has(depsByPackage, p2)) {\n        throw new Error('Can\\'t have two dependencies on ' + p2 + ' in ' + key);\n    }\n    depsByPackage[p2] = d;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (depsByPackage, key) {\n    data[key] = _.map(depsByPackage, function (dep) {\n        return dep.toString();\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dep) {\n    return dep.toString();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (depsArray, pv) {\n    check(depsArray, [String]);\n    pv = CS.PackageAndVersion.fromString(pv);\n    cache.addPackageVersion(pv.package, pv.version, _.map(depsArray, function (str) {\n        return CS.Dependency.fromString(str);\n    }));\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (str) {\n    return CS.Dependency.fromString(str);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, key) {\n    var stop = iter(CS.PackageAndVersion.fromString(key), value);\n    return stop;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (key) {\n    var stop = iter(key, self.getPackageVersions(key));\n    return stop;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    if (connection && connection.readyState === 4) {\n        ariaCoreIO.clearTimeout(reqId);\n        clearInterval(ariaIO._poll[reqId]);\n        delete ariaIO._poll[reqId];\n        scope._handleTransactionResponse(reqId, connection, callback);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    to = false;\n    return fn.apply(self, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var $li = $(this);\n    if ($li.find('ul').length) {\n        $li.prepend('<a href=\"#\" class=\"ctrl-expand\">+</a>');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    $this.toggleClass('on').text($this.hasClass('on') ? '-' : '+').siblings('ul').slideToggle();\n    return false;\n}",
+    "receiverBase": "$nav",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), pos = $($this.attr('href')).offset();\n    $this.siblings('.ctrl-expand').addClass('on').text('-').siblings('ul').slideDown();\n}",
+    "receiverBase": "$nav",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var pos = $('body').scrollTop() + 100, l = titles.length, idx = l - 1, i;\n    for (i = 0; i < l; ++i) {\n        if (pos < $(titles[i]).offset().top) {\n            idx = i && i - 1;\n            break;\n        }\n    }\n    $nav.find('.inside').removeClass('inside');\n    $nav.find('[href=\"#' + titles[idx].id + '\"]').addClass('inside').parents('ul').each(function () {\n        $(this).slideDown().siblings('.ctrl-expand').addClass('on').text('-');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "throttle"
+  },
+  {
+    "callback": "function () {\n    $(this).slideDown().siblings('.ctrl-expand').addClass('on').text('-');\n}",
+    "receiverBase": "parents",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        winston.info('error authorising redis:%s', err);\n    } else {\n        winston.info('redis auth ok');\n    }\n}",
+    "receiverBase": "client",
+    "receiverCallee": "auth"
+  },
+  {
+    "callback": "function () {\n    winston.info('redis client ready: Files Manager');\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(err, res);\n}",
+    "receiverBase": "sadd",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(err, res === 1);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "sismember"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(err, res);\n}",
+    "receiverBase": "srem",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(null, res);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "smembers"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(err, res);\n}",
+    "receiverBase": "del",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, res) {\n    if (callback)\n        callback(err, res);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (err, res) {\n    if (res == 0 || res == null || res == '')\n        res = 'no file';\n    if (callback)\n        callback(err, res);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (project) {\n    $scope.folderPaths = ProjectFactory.getFolderPaths(project.files);\n}",
+    "receiverBase": "getProject",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    SocketFactory.send({ type: 'project structure changed' });\n}",
+    "receiverBase": "moveFile",
+    "receiverCallee": "then"
+  }
+]

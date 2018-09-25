@@ -1,0 +1,257 @@
+[
+  {
+    "callback": "function () {\n    if (typeof window !== 'object' || typeof window.document !== 'object' || typeof window.document.getElementsByTagName !== 'function') {\n        return '';\n    }\n    var allScriptsCurrentlyInDOM = window.document.getElementsByTagName('script');\n    var thisScript = allScriptsCurrentlyInDOM[allScriptsCurrentlyInDOM.length - 1];\n    return thisScript.src;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function serverResponded(responseCtx) {\n    if (cb) {\n        cb(responseCtx.body, new JWR(responseCtx));\n    }\n}",
+    "receiverBase": "_raw",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function (err) {\n    consolog('Sails encountered an error parsing a socket message sent from this client, and did not have access to a callback function to respond with.');\n    consolog('Error details:', err);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    try {\n        targetProtocol = self.url.match(/^([a-z]+:\\/\\/)/i)[1].toLowerCase();\n    } catch (e) {\n    }\n    targetProtocol = targetProtocol || 'http://';\n    return targetProtocol;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    try {\n        return self.url.match(/^[a-z]+:\\/\\/[^:]*:([0-9]*)/i)[1];\n    } catch (e) {\n    }\n    return isTargetSSL ? '443' : '80';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, httpResponse, body) {\n    if (err) {\n        consolog('Failed to connect socket (failed to get cookie)', 'Error:', err);\n        return;\n    }\n    cb();\n}",
+    "receiverBase": "mikealsReq",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function socketConnected() {\n    consolog.noPrefix('\\n' + '\\n' + '  |>    Now connected to Sails.' + '\\n' + '\\\\___/   For help, see: http://bit.ly/1DmTvgK' + '\\n' + '        (using ' + io.sails.sdk.platform + ' SDK @v' + io.sails.sdk.version + ')' + '\\n' + '\\n' + '\\n' + '');\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.connectionLostTimestamp = new Date().getTime();\n    consolog('====================================');\n    consolog('Socket was disconnected from Sails.');\n    consolog('Usually, this is due to one of the following reasons:' + '\\n' + ' -> the server ' + (self.url ? self.url + ' ' : '') + 'was taken down' + '\\n' + ' -> your browser lost internet connectivity');\n    consolog('====================================');\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (numAttempts) {\n    consolog('\\n' + '        Socket is trying to reconnect to Sails...\\n' + '_-|>_-  (attempt #' + numAttempts + ')' + '\\n' + '\\n');\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (transport, numAttempts) {\n    var msSinceConnectionLost = new Date().getTime() - self.connectionLostTimestamp;\n    var numSecsOffline = msSinceConnectionLost / 1000;\n    consolog('\\n' + '  |>    Socket reconnected successfully after' + '\\n' + '\\\\___/   being offline for ~' + numSecsOffline + ' seconds.' + '\\n' + '\\n');\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function failedToConnect(err) {\n    consolog('Failed to connect socket (probably due to failed authorization on server)', 'Error:', err);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function whenRawSocketConnects() {\n    if (alreadyRanRequestQueue)\n        return;\n    runRequestQueue(self);\n    alreadyRanRequestQueue = true;\n}",
+    "receiverBase": "_raw",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!io.sails.autoConnect) {\n        delete io.socket;\n        return;\n    }\n    io.socket._connect();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {\n        window.setTimeout(callback, 1000 / 60);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var element = $('#example0')[0];\n    var editor = EtherMirror(element, {\n            lineNumbers: true,\n            value: 'If you type here, the corresponding\\nchangeset appears on the right.'\n        });\n    var show_changes = function () {\n        $('#example0_out').text(editor.getChanges());\n        requestAnimationFrame(show_changes);\n    };\n    requestAnimationFrame(show_changes);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (req, res) {\n    var m = RegExp('^/article/(.+)').exec(req.url);\n    if (!m)\n        return res.end('beep boop\\n');\n    res.setHeader('content-type', 'text/html');\n    fs.createReadStream(__dirname + '/article.html').pipe(hyperstream({\n        'title': m[1],\n        '#article': article(m[1])\n    })).pipe(res);\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (j) {\n    domConstruct.create('a', {\n        classname: _css + ' ' + _css + j + ' ' + (j == r.idx ? _selected : ''),\n        href: s,\n        onclick: function (e) {\n            event.stop(e);\n            if (r) {\n                r.control.apply(r, [\n                    'go',\n                    j\n                ]);\n            }\n        },\n        title: t,\n        innerHTML: '<img src=\"' + s + '\" alt=\"' + t + '\"/>'\n    }, node);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (k) {\n    to[k] = from[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    override(x, current, conf);\n}",
+    "receiverBase": "structs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    return !~structs.indexOf(k);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (k) {\n    current[k] = conf[k];\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (path) {\n    return '.tmp/public/' + path;\n}",
+    "receiverBase": "cssFilesToInject",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (path) {\n    return '.tmp/public/' + path;\n}",
+    "receiverBase": "jsFilesToInject",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (path) {\n    return 'assets/' + path;\n}",
+    "receiverBase": "templateFilesToInject",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (a) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var isVisible = false;\n    return {\n        hideAccessoryBar: function (bool) {\n        },\n        close: function () {\n            isVisible = false;\n        },\n        show: function () {\n            isVisible = true;\n        },\n        disableScroll: function (bool) {\n        },\n        isVisible: function () {\n            return isVisible;\n        }\n    };\n}",
+    "receiverBase": "ngCordovaMocks",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (err, results) {\n    if (err) {\n        console.log(err);\n    } else {\n        console.log(results);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "compute_intersection"
+  },
+  {
+    "callback": "function (ed) {\n    if (ed.getParam('fullscreen_is_enabled'))\n        return;\n    if (ed.isDirty()) {\n        msg = ed.getLang('autosave.unload_msg');\n        return false;\n    }\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (socket) {\n    var r = repl.start({\n            prompt: rendy('[{{ pid }} {{ addr }}:{{ port}}>', {\n                pid: process.pid,\n                addr: socket.remoteAddress,\n                port: socket.remotePort\n            }),\n            input: socket,\n            output: socket,\n            terminal: true,\n            useGlobal: false\n        });\n    r.on('exit', function () {\n        socket.end();\n    });\n    r.context.socket = socket;\n}",
+    "receiverBase": "net",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n    socket.end();\n}",
+    "receiverBase": "r",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    equal(clientX, 199);\n    equal(clientY, 50);\n    $(document.documentElement).unbind('mousemove', move);\n    for (var i = 0; i < els.length; i++) {\n        ok(els[i] == targets[i], 'target is right');\n    }\n    $('#qunit-test-area').html('');\n    start();\n}",
+    "receiverBase": "Syn",
+    "receiverCallee": "move"
+  },
+  {
+    "callback": "function (t) {\n    var nodeId = common.randomId();\n    var dht = new DHT({\n            nodeId: nodeId,\n            bootstrap: false\n        });\n    common.failOnWarningOrError(t, dht);\n    t.equal(dht.nodeId, nodeId);\n    t.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    var dht1 = new DHT({ bootstrap: false });\n    var dht2 = new DHT({ bootstrap: false });\n    common.failOnWarningOrError(t, dht1);\n    common.failOnWarningOrError(t, dht2);\n    dht1.listen(function () {\n        dht2._sendPing('127.0.0.1:' + dht1.address().port, function (err, res) {\n            t.error(err);\n            t.deepEqual(res.id, dht1.nodeId);\n            dht1.destroy();\n            dht2.destroy();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    dht2._sendPing('127.0.0.1:' + dht1.address().port, function (err, res) {\n        t.error(err);\n        t.deepEqual(res.id, dht1.nodeId);\n        dht1.destroy();\n        dht2.destroy();\n    });\n}",
+    "receiverBase": "dht1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    t.error(err);\n    t.deepEqual(res.id, dht1.nodeId);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendPing"
+  },
+  {
+    "callback": "function () {\n    dht2._sendFindNode('127.0.0.1:' + dht1.address().port, targetNodeId, function (err, res) {\n        t.error(err);\n        t.deepEqual(res.id, dht1.nodeId);\n        t.deepEqual(res.nodes.map(function (node) {\n            return node.addr;\n        }), [\n            '255.255.255.255:6969',\n            '127.0.0.1:' + dht2.address().port\n        ]);\n        dht1.destroy();\n        dht2.destroy();\n    });\n}",
+    "receiverBase": "dht1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    t.error(err);\n    t.deepEqual(res.id, dht1.nodeId);\n    t.deepEqual(res.nodes.map(function (node) {\n        return node.addr;\n    }), [\n        '255.255.255.255:6969',\n        '127.0.0.1:' + dht2.address().port\n    ]);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendFindNode"
+  },
+  {
+    "callback": "function (node) {\n    return node.addr;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, res) {\n    t.error(err);\n    t.deepEqual(res.id, dht1.nodeId);\n    t.deepEqual(res.nodes.map(function (node) {\n        return node.addr;\n    }).sort(), [\n        '1.1.1.1:6969',\n        '10.10.10.10:6969',\n        '127.0.0.1:' + dht2.address().port,\n        '255.255.255.255:6969'\n    ]);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendFindNode"
+  },
+  {
+    "callback": "function (node) {\n    return node.addr;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, res) {\n    t.error(err);\n    t.deepEqual(res.id, dht1.nodeId);\n    t.ok(Buffer.isBuffer(res.token));\n    t.deepEqual(res.nodes.map(function (node) {\n        return node.addr;\n    }).sort(), [\n        '1.1.1.1:6969',\n        '127.0.0.1:' + dht2.address().port,\n        '2.2.2.2:6969'\n    ]);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendGetPeers"
+  },
+  {
+    "callback": "function (node) {\n    return node.addr;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    dht2._sendGetPeers('127.0.0.1:' + dht1.address().port, targetInfoHash, function (err, res) {\n        t.error(err);\n        t.deepEqual(res.id, dht1.nodeId);\n        t.ok(Buffer.isBuffer(res.token));\n        t.deepEqual(res.values.sort(), [\n            '1.1.1.1:6969',\n            '10.10.10.10:6969',\n            '255.255.255.255:6969'\n        ]);\n        dht1.destroy();\n        dht2.destroy();\n    });\n}",
+    "receiverBase": "dht1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    t.error(err);\n    t.deepEqual(res.id, dht1.nodeId);\n    t.ok(Buffer.isBuffer(res.token));\n    t.deepEqual(res.values.sort(), [\n        '1.1.1.1:6969',\n        '10.10.10.10:6969',\n        '255.255.255.255:6969'\n    ]);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendGetPeers"
+  },
+  {
+    "callback": "function () {\n    var token = new Buffer('bad token');\n    dht2._sendAnnouncePeer('127.0.0.1:' + dht1.address().port, infoHash, 9999, token, function (err, res) {\n        t.ok(err, 'got error');\n        t.ok(err.message.indexOf('bad token') !== -1);\n        dht1.destroy();\n        dht2.destroy();\n    });\n}",
+    "receiverBase": "dht1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    t.ok(err, 'got error');\n    t.ok(err.message.indexOf('bad token') !== -1);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendAnnouncePeer"
+  },
+  {
+    "callback": "function () {\n    var port = dht1.address().port;\n    dht2._sendGetPeers('127.0.0.1:' + port, infoHash, function (err, res1) {\n        t.error(err);\n        t.deepEqual(res1.id, dht1.nodeId);\n        t.ok(Buffer.isBuffer(res1.token));\n        dht2._sendAnnouncePeer('127.0.0.1:' + port, infoHash, 9999, res1.token, function (err, res2) {\n            t.error(err);\n            t.deepEqual(res2.id, dht1.nodeId);\n            dht1.destroy();\n            dht2.destroy();\n        });\n    });\n}",
+    "receiverBase": "dht1",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res1) {\n    t.error(err);\n    t.deepEqual(res1.id, dht1.nodeId);\n    t.ok(Buffer.isBuffer(res1.token));\n    dht2._sendAnnouncePeer('127.0.0.1:' + port, infoHash, 9999, res1.token, function (err, res2) {\n        t.error(err);\n        t.deepEqual(res2.id, dht1.nodeId);\n        dht1.destroy();\n        dht2.destroy();\n    });\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendGetPeers"
+  },
+  {
+    "callback": "function (err, res2) {\n    t.error(err);\n    t.deepEqual(res2.id, dht1.nodeId);\n    dht1.destroy();\n    dht2.destroy();\n}",
+    "receiverBase": "dht2",
+    "receiverCallee": "_sendAnnouncePeer"
+  },
+  {
+    "callback": "function (node) {\n    self.$$addEntityHandler(node);\n}",
+    "receiverBase": "$nodes",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (node) {\n    self.$$removeEntityHandler(node);\n}",
+    "receiverBase": "$nodes",
+    "receiverCallee": "on"
+  }
+]

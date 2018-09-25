@@ -1,0 +1,341 @@
+[
+  {
+    "callback": "function (f, methodName) {\n    if (methodName !== 'stream' && methodName !== 'auth') {\n        result[methodName] = {\n            description: '',\n            parameters: {}\n        };\n        allowMethods.push(methodName);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data) {\n    bufferData.push(data);\n    dataLen += data.length;\n    if (dataLen > HTTP.methodsMaxDataLength) {\n        dataLen = 0;\n        bufferData = [];\n        sendError(res, 413, 'Flood attack or faulty client');\n        req.connection.destroy();\n    }\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self._streamsWaiting--;\n    sendResponseIfDone();\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (value, key) {\n    if (typeof value !== 'undefined')\n        res.setHeader(key, value);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    self.receiveEvent('load', null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.receiveEvent('load', null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function handle(req, res) {\n    if (~req.url.indexOf('primus'))\n        throw new Error('No Primus requests should be served');\n    res.setHeader('Content-Type', 'text/html');\n    fs.createReadStream(__dirname + '/index.html').pipe(res);\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function handle(req, res) {\n    res.setHeader('Content-Type', 'text/html');\n    fs.createReadStream(__dirname + '/index.html').pipe(res);\n}",
+    "receiverBase": "spdy",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function connection(spark) {\n    console.log(spark.id, ' has connected');\n    spark.on('data', function data(msg) {\n        console.log(spark.id, ' send: ', msg);\n    });\n    spark.on('end', function end() {\n        console.log(spark.id, ' has disconnected');\n    });\n}",
+    "receiverBase": "primus",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function data(msg) {\n    console.log(spark.id, ' send: ', msg);\n}",
+    "receiverBase": "spark",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function end() {\n    console.log(spark.id, ' has disconnected');\n}",
+    "receiverBase": "spark",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function connected() {\n    console.log('original server listening on https://localhost:443');\n    console.log('proxy server listening on http://localhost:5000');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (s) {\n    return s.src && s.src.match(/scriptaculous\\.js(\\?.*)?$/);\n}",
+    "receiverBase": "$A",
+    "receiverCallee": "findAll"
+  },
+  {
+    "callback": "function (s) {\n    var path = s.src.replace(/scriptaculous\\.js(\\?.*)?$/, '');\n    var includes = s.src.match(/\\?.*load=([a-z,]*)/);\n    (includes ? includes[1] : 'builder,effects,dragdrop,controls,slider').split(',').each(function (include) {\n        Scriptaculous.require(path + include + '.js');\n    });\n}",
+    "receiverBase": "findAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (include) {\n    Scriptaculous.require(path + include + '.js');\n}",
+    "receiverBase": "split",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.startTag = chunkObj.startTag + match;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.startTag = chunkObj.startTag + match;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.endTag = match + chunkObj.endTag;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.endTag = match + chunkObj.endTag;\n    return '';\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, flagsPart) {\n    flags = flagsPart;\n    return '';\n}",
+    "receiverBase": "pattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (event) {\n    if ((event.ctrlKey || event.metaKey) && (event.keyCode == 89 || event.keyCode == 90)) {\n        event.preventDefault();\n    }\n}",
+    "receiverBase": "util",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    setMode('moving');\n}",
+    "receiverBase": "util",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    window.scrollBy(0, fullTop - emptyTop);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    createDialog();\n    var defTextLen = defaultInputText.length;\n    if (input.selectionStart !== undefined) {\n        input.selectionStart = 0;\n        input.selectionEnd = defTextLen;\n    } else if (input.createTextRange) {\n        var range = input.createTextRange();\n        range.collapse(false);\n        range.moveStart('character', -defTextLen);\n        range.moveEnd('character', defTextLen);\n        range.select();\n    }\n    input.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (key) {\n    if (key.shiftKey && !key.ctrlKey && !key.metaKey) {\n        var keyCode = key.charCode || key.keyCode;\n        if (keyCode === 13) {\n            var fakeButton = {};\n            fakeButton.textOp = bindCommand('doAutoindent');\n            doClick(fakeButton);\n        }\n    }\n}",
+    "receiverBase": "util",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (key) {\n    var code = key.keyCode;\n    if (code === 27) {\n        return false;\n    }\n}",
+    "receiverBase": "util",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (chunk, postProcessing) {\n    return this.doLinkOrImage(chunk, postProcessing, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "bindCommand"
+  },
+  {
+    "callback": "function (chunk, postProcessing) {\n    return this.doLinkOrImage(chunk, postProcessing, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "bindCommand"
+  },
+  {
+    "callback": "function (chunk, postProcessing) {\n    this.doList(chunk, postProcessing, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "bindCommand"
+  },
+  {
+    "callback": "function (chunk, postProcessing) {\n    this.doList(chunk, postProcessing, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "bindCommand"
+  },
+  {
+    "callback": "function (line, marked) {\n    if (new re('^' + that.prefixes, '').test(line)) {\n        return line;\n    }\n    return marked + '\\n';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, id, link, newlines, title) {\n    defsToAdd[id] = totalMatch.replace(/\\s*$/, '');\n    if (newlines) {\n        defsToAdd[id] = totalMatch.replace(/[\"(](.+?)[\")]$/, '');\n        return newlines + title;\n    }\n    return '';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (querypart) {\n    return querypart.replace(/\\+/g, ' ');\n}",
+    "receiverBase": "link",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (querypart) {\n    return querypart.replace(/\\+/g, '%2b');\n}",
+    "receiverBase": "link",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch) {\n    chunk.selection = wholeMatch;\n    return '';\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, newlinesBefore, text, newlinesAfter) {\n    chunk.before += newlinesBefore;\n    chunk.after = newlinesAfter + chunk.after;\n    return text;\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, blankLine) {\n    chunk.selection = blankLine + chunk.selection;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch) {\n    chunk.endTag = totalMatch;\n    return '';\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, markdown) {\n    return '\\n' + markdown.replace(/^[ ]{0,3}>?[ \\t]*$/gm, replacement) + '\\n';\n}",
+    "receiverBase": "startTag",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, markdown) {\n    return '\\n' + markdown.replace(/^[ ]{0,3}>?[ \\t]*$/gm, replacement) + '\\n';\n}",
+    "receiverBase": "endTag",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, blanks) {\n    chunk.startTag += blanks;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch) {\n    chunk.selection = totalMatch + chunk.selection;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (_) {\n    return getItemPrefix();\n}",
+    "receiverBase": "itemText",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (itemText) {\n    if (/^\\s*([*+-])/.test(itemText)) {\n        bullet = re.$1;\n    }\n    nLinesUp = /[^\\n]\\n\\n[^\\n]/.test(itemText) ? 1 : 0;\n    return getPrefixedItem(itemText);\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (itemText) {\n    nLinesDown = /[^\\n]\\n\\n[^\\n]/.test(itemText) ? 1 : 0;\n    return getPrefixedItem(itemText);\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (child) {\n    value[key] = child;\n    if (!--pending)\n        callback(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "next"
+  },
+  {
+    "callback": "function (value, i) {\n    pending++;\n    put(store, path.concat([i]), value, cb);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    pending++;\n    put(store, path.concat([key]), value[key], cb);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    db.createObjectStore(name, data);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (result) {\n    deleteChildren(store, currentPath, function () {\n        put(store, parentPath.concat([index + 1]), result, cb);\n        cursor.continue();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    put(store, parentPath.concat([index + 1]), result, cb);\n    cursor.continue();\n}",
+    "receiverBase": "",
+    "receiverCallee": "deleteChildren"
+  },
+  {
+    "callback": "function () {\n    put(store, path, value, callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "deleteChildren"
+  },
+  {
+    "callback": "function (path, empty) {\n    method(store, path, function (value) {\n        values[i] = value;\n        if (!--pending) {\n            var v = values;\n            values = [];\n            callback.apply(null, v);\n        }\n    }, value, insert, empty);\n}",
+    "receiverBase": "",
+    "receiverCallee": "resolvePath"
+  },
+  {
+    "callback": "function (value) {\n    values[i] = value;\n    if (!--pending) {\n        var v = values;\n        values = [];\n        callback.apply(null, v);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "method"
+  },
+  {
+    "callback": "function () {\n    if (!trans)\n        trans = db.transaction(stores, type);\n    wrapped(store, path, value, insert);\n}",
+    "receiverBase": "",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    if (cb)\n        cb.apply(self, arguments);\n}",
+    "receiverBase": "",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (e) {\n    _toggleOutline(e.target.checked);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $pieInnerRadius.val('0');\n    _setInnerRadiusDisplayValue('0');\n    mediator.publish(_MODULE_ID, C.EVENT.DEMO_PIE.RENDER.NO_ANIMATION);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $pieInnerRadius.val('100');\n    _setInnerRadiusDisplayValue('100');\n    mediator.publish(_MODULE_ID, C.EVENT.DEMO_PIE.RENDER.NO_ANIMATION);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key) {\n    if (headers.hasOwnProperty(key)) {\n        delete headers[key];\n    }\n}",
+    "receiverBase": "ignoredHeaders",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "R",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function add3(a, b, c) {\n    return a + b + c;\n}",
+    "receiverBase": "R",
+    "receiverCallee": "curry"
+  },
+  {
+    "callback": "function () {\n    assert.strictEqual(typeof R.liftN(3, add3), 'function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(addN3([\n        1,\n        10\n    ], [2], [3]), [\n        6,\n        15\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(addN3([\n        1,\n        10\n    ], [2], [3]), [\n        6,\n        15\n    ]);\n    assert.deepEqual(addN4([\n        1,\n        10\n    ], [2], [3], [40]), [\n        46,\n        55\n    ]);\n    assert.deepEqual(addN5([\n        1,\n        10\n    ], [2], [3], [40], [\n        500,\n        1000\n    ]), [\n        546,\n        1046,\n        555,\n        1055\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var f4 = R.liftN(4);\n    assert.strictEqual(typeof f4, 'function');\n    assert.deepEqual(f4(addN)([1], [2], [3], [\n        4,\n        5\n    ]), [\n        10,\n        11\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var addM = R.liftN(2, R.add);\n    assert.deepEqual(addM(Maybe(3), Maybe(5)), Maybe(8));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

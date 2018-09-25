@@ -1,0 +1,1887 @@
+[
+  {
+    "callback": "function (port) {\n    port.request('ping').then(function (data) {\n        if (data === 'pong') {\n            port.send('testResolvedToSatisfaction');\n        }\n    }, function (error) {\n        if (error.message === 'badpong') {\n            port.send('testResolvedToSatisfaction');\n        }\n    });\n}",
+    "receiverBase": "oasis",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (data) {\n    if (data === 'pong') {\n        port.send('testResolvedToSatisfaction');\n    }\n}",
+    "receiverBase": "request",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    if (error.message === 'badpong') {\n        port.send('testResolvedToSatisfaction');\n    }\n}",
+    "receiverBase": "request",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (str, p) {\n    return props[p];\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (el) {\n    return b.indexOf(el) < 0;\n}",
+    "receiverBase": "a",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (el) {\n    return b.indexOf(el) >= 0;\n}",
+    "receiverBase": "a",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.length - a.length;\n}",
+    "receiverBase": "cats",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (stat) {\n    stat._walk(visitor);\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    walk_body(this, visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.label._walk(visitor);\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.condition._walk(visitor);\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    if (this.init)\n        this.init._walk(visitor);\n    if (this.condition)\n        this.condition._walk(visitor);\n    if (this.step)\n        this.step._walk(visitor);\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.init._walk(visitor);\n    this.object._walk(visitor);\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n    this.body._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (pair) {\n    var splitAt = pair.lastIndexOf(':');\n    args.push(pair.substr(0, splitAt));\n    parameters.push(pair.substr(splitAt + 1));\n}",
+    "receiverBase": "arg_parameter_pairs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    return n.name == node.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (sym) {\n    body.push(new AST_SimpleStatement({\n        body: new AST_Assign({\n            left: new AST_Sub({\n                expression: new AST_SymbolRef({ name: 'exports' }),\n                property: new AST_String({ value: sym.name })\n            }),\n            operator: '=',\n            right: new AST_SymbolRef(sym)\n        })\n    }));\n}",
+    "receiverBase": "to_export",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (this.name)\n        this.name._walk(visitor);\n    this.argnames.forEach(function (arg) {\n        arg._walk(visitor);\n    });\n    walk_body(this, visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (arg) {\n    arg._walk(visitor);\n}",
+    "receiverBase": "argnames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.condition._walk(visitor);\n    this.body._walk(visitor);\n    if (this.alternative)\n        this.alternative._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n    walk_body(this, visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n    walk_body(this, visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    walk_body(this, visitor);\n    if (this.bcatch)\n        this.bcatch._walk(visitor);\n    if (this.bfinally)\n        this.bfinally._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.argname._walk(visitor);\n    walk_body(this, visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.definitions.forEach(function (def) {\n        def._walk(visitor);\n    });\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (def) {\n    def._walk(visitor);\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.name._walk(visitor);\n    if (this.value)\n        this.value._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n    this.args.forEach(function (arg) {\n        arg._walk(visitor);\n    });\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (arg) {\n    arg._walk(visitor);\n}",
+    "receiverBase": "args",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.car._walk(visitor);\n    if (this.cdr)\n        this.cdr._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n    this.property._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.expression._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.left._walk(visitor);\n    this.right._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.condition._walk(visitor);\n    this.consequent._walk(visitor);\n    this.alternative._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n    this.elements.forEach(function (el) {\n        el._walk(visitor);\n    });\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (el) {\n    el._walk(visitor);\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.properties.forEach(function (prop) {\n        prop._walk(visitor);\n    });\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function (prop) {\n    prop._walk(visitor);\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.value._walk(visitor);\n}",
+    "receiverBase": "visitor",
+    "receiverCallee": "_visit"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (ch, i) {\n    var code = ch.charCodeAt(0);\n    switch (code) {\n    case 120:\n    case 88:\n        return has_x ? false : has_x = true;\n    case 101:\n    case 69:\n        return has_x ? true : has_e ? false : has_e = after_e = true;\n    case 45:\n        return after_e || i == 0 && !prefix;\n    case 43:\n        return after_e;\n    case after_e = false, 46:\n        return !has_dot && !has_x && !has_e ? has_dot = true : false;\n    }\n    return is_alphanumeric_char(code);\n}",
+    "receiverBase": "",
+    "receiverCallee": "read_while"
+  },
+  {
+    "callback": "function (ch) {\n    if (ch >= '0' && ch <= '7') {\n        if (!first) {\n            first = ch;\n            return ++octal_len;\n        } else if (first <= '3' && octal_len <= 2)\n            return ++octal_len;\n        else if (first >= '4' && octal_len <= 1)\n            return ++octal_len;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "read_while"
+  },
+  {
+    "callback": "function (a, ret) {\n    for (var i = 0; i < a.length; ++i) {\n        var b = a[i];\n        for (var j = 0; j < b.length; ++j) {\n            ret[b[j]] = i + 1;\n        }\n    }\n    return ret;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (l) {\n    return l.name == label.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (ref) {\n    if (ref instanceof AST_Continue) {\n        ref = ref.label.start;\n        croak('Continue label `' + label.name + '` refers to non-IterationStatement.', ref.line, ref.col, ref.pos);\n    }\n}",
+    "receiverBase": "references",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (l) {\n    return l.name == label.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (first, a) {\n    while (!is('punc', ')')) {\n        if (first)\n            first = false;\n        else\n            expect(',');\n        a.push(as_symbol(AST_SymbolFunarg));\n    }\n    next();\n    return a;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (loop, labels) {\n    ++S.in_function;\n    S.in_directives = true;\n    S.in_loop = 0;\n    S.labels = [];\n    var a = block_();\n    --S.in_function;\n    S.in_loop = loop;\n    S.labels = labels;\n    return a;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    expect('[');\n    return new AST_Array({ elements: expr_list(']', !options.strict, true) });\n}",
+    "receiverBase": "",
+    "receiverCallee": "embed_tokens"
+  },
+  {
+    "callback": "function () {\n    var start = S.token;\n    var body = [];\n    while (!is('eof'))\n        body.push(statement());\n    var end = prev();\n    var toplevel = options.toplevel;\n    if (toplevel) {\n        toplevel.body = toplevel.body.concat(body);\n        toplevel.end = end;\n    } else {\n        toplevel = new AST_Toplevel({\n            start: start,\n            body: body,\n            end: end\n        });\n    }\n    return toplevel;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (tw, in_list) {\n    var x, y;\n    tw.push(this);\n    if (tw.before)\n        x = tw.before(this, descend, in_list);\n    if (x === undefined) {\n        if (!tw.after) {\n            x = this;\n            descend(x, tw);\n        } else {\n            tw.stack[tw.stack.length - 1] = x = this.clone();\n            descend(x, tw);\n            y = tw.after(x, in_list);\n            if (y !== undefined)\n                x = y;\n        }\n    }\n    tw.pop();\n    return x;\n}",
+    "receiverBase": "node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (node) {\n    return node.transform(tw, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "MAP"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.label = self.label.transform(tw);\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.body = do_list(self.body, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.condition = self.condition.transform(tw);\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    if (self.init)\n        self.init = self.init.transform(tw);\n    if (self.condition)\n        self.condition = self.condition.transform(tw);\n    if (self.step)\n        self.step = self.step.transform(tw);\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.init = self.init.transform(tw);\n    self.object = self.object.transform(tw);\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n    self.body = self.body.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    if (self.value)\n        self.value = self.value.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    if (self.label)\n        self.label = self.label.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.condition = self.condition.transform(tw);\n    self.body = self.body.transform(tw);\n    if (self.alternative)\n        self.alternative = self.alternative.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n    self.body = do_list(self.body, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n    self.body = do_list(self.body, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.body = do_list(self.body, tw);\n    if (self.bcatch)\n        self.bcatch = self.bcatch.transform(tw);\n    if (self.bfinally)\n        self.bfinally = self.bfinally.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.argname = self.argname.transform(tw);\n    self.body = do_list(self.body, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.definitions = do_list(self.definitions, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.name = self.name.transform(tw);\n    if (self.value)\n        self.value = self.value.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    if (self.name)\n        self.name = self.name.transform(tw);\n    self.argnames = do_list(self.argnames, tw);\n    self.body = do_list(self.body, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n    self.args = do_list(self.args, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.car = self.car.transform(tw);\n    self.cdr = self.cdr.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n    self.property = self.property.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.expression = self.expression.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.left = self.left.transform(tw);\n    self.right = self.right.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.condition = self.condition.transform(tw);\n    self.consequent = self.consequent.transform(tw);\n    self.alternative = self.alternative.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.elements = do_list(self.elements, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.properties = do_list(self.properties, tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (self, tw) {\n    self.value = self.value.transform(tw);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_"
+  },
+  {
+    "callback": "function (nesting) {\n    this.directives = [];\n    this.variables = new Dictionary();\n    this.functions = new Dictionary();\n    this.uses_with = false;\n    this.uses_eval = false;\n    this.parent_scope = null;\n    this.enclosed = [];\n    this.cname = -1;\n    this.nesting = nesting;\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return this.has_directive('use strict');\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    AST_Scope.prototype.init_scope_vars.apply(this, arguments);\n    this.uses_arguments = false;\n}",
+    "receiverBase": "AST_Lambda",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    var def = this.definition();\n    def.references.push(this);\n    var s = this.scope;\n    while (s) {\n        push_uniq(s.enclosed, def);\n        if (s === def.scope)\n            break;\n        s = s.parent_scope;\n    }\n    this.frame = this.scope.nesting - def.scope.nesting;\n}",
+    "receiverBase": "AST_SymbolRef",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (name) {\n    if (name instanceof AST_Symbol)\n        name = name.name;\n    return this.variables.get(name) || this.parent_scope && this.parent_scope.find_variable(name);\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (value) {\n    return this.parent_scope && this.parent_scope.has_directive(value) || (this.directives.indexOf(value) >= 0 ? this : null);\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (symbol) {\n    this.functions.set(symbol.name, this.def_variable(symbol));\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (symbol) {\n    var def;\n    if (!this.variables.has(symbol.name)) {\n        def = new SymbolDef(this, this.variables.size(), symbol);\n        this.variables.set(symbol.name, def);\n        def.global = !this.parent_scope;\n    } else {\n        def = this.variables.get(symbol.name);\n        def.orig.push(symbol);\n    }\n    return symbol.thedef = def;\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (options, def) {\n    var tricky_def = def.orig[0] instanceof AST_SymbolFunarg && this.name && this.name.definition();\n    while (true) {\n        var name = AST_Lambda.prototype.next_mangled.call(this, options, def);\n        if (!(tricky_def && tricky_def.mangled_name == name))\n            return name;\n    }\n}",
+    "receiverBase": "AST_Function",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (sym) {\n    if (sym instanceof AST_Symbol)\n        sym = sym.definition();\n    return this.enclosed.indexOf(sym) < 0 ? null : sym;\n}",
+    "receiverBase": "AST_Scope",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (options) {\n    return this.definition().unmangleable(options);\n}",
+    "receiverBase": "AST_Symbol",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "AST_SymbolAccessor",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "AST_Label",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return this.definition().references.length == 0 && !(this.scope.uses_eval || this.scope.uses_with);\n}",
+    "receiverBase": "AST_Symbol",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return this.definition().undeclared;\n}",
+    "receiverBase": "AST_Symbol",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "AST_LabelRef",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "AST_Label",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return this.thedef;\n}",
+    "receiverBase": "AST_Symbol",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return this.definition().global;\n}",
+    "receiverBase": "AST_Symbol",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (options) {\n    return defaults(options, {\n        except: [],\n        eval: false,\n        sort: false,\n        toplevel: false,\n        screw_ie8: false\n    });\n}",
+    "receiverBase": "AST_Toplevel",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (symbol) {\n    if (options.except.indexOf(symbol.name) < 0) {\n        a.push(symbol);\n    }\n}",
+    "receiverBase": "variables",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.references.length - a.references.length;\n}",
+    "receiverBase": "a",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (def) {\n    def.mangle(options);\n}",
+    "receiverBase": "to_mangle",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ch) {\n    return ch.charCodeAt(0);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (ch) {\n    frequency[ch] = 0;\n}",
+    "receiverBase": "chars",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    if (is_digit(a) && !is_digit(b))\n        return 1;\n    if (is_digit(b) && !is_digit(a))\n        return -1;\n    return frequency[b] - frequency[a];\n}",
+    "receiverBase": "",
+    "receiverCallee": "mergeSort"
+  },
+  {
+    "callback": "function (ch) {\n    var code = ch.charCodeAt(0).toString(16);\n    if (code.length <= 2 && !identifier) {\n        while (code.length < 2)\n            code = '0' + code;\n        return '\\\\x' + code;\n    } else {\n        while (code.length < 4)\n            code = '0' + code;\n        return '\\\\u' + code;\n    }\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (s) {\n    switch (s) {\n    case '\\\\':\n        return '\\\\\\\\';\n    case '\\b':\n        return '\\\\b';\n    case '\\f':\n        return '\\\\f';\n    case '\\n':\n        return '\\\\n';\n    case '\\r':\n        return '\\\\r';\n    case '\\u2028':\n        return '\\\\u2028';\n    case '\\u2029':\n        return '\\\\u2029';\n    case '\"':\n        ++dq;\n        return '\"';\n    case '\\'':\n        ++sq;\n        return '\\'';\n    case '\\0':\n        return '\\\\x00';\n    }\n    return s;\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    ret = cont();\n}",
+    "receiverBase": "",
+    "receiverCallee": "with_indent"
+  },
+  {
+    "callback": "function (stream, force_parens) {\n    var self = this, generator = self._codegen;\n    function doit() {\n        self.add_comments(stream);\n        self.add_source_map(stream);\n        generator(self, stream);\n    }\n    stream.push_node(self);\n    if (force_parens || self.needs_parens(stream)) {\n        stream.with_parens(doit);\n    } else {\n        doit();\n    }\n    stream.pop_node();\n}",
+    "receiverBase": "AST_Node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (options) {\n    var s = OutputStream(options);\n    this.print(s);\n    return s.get();\n}",
+    "receiverBase": "AST_Node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (comment) {\n    return c.test(comment.value);\n}",
+    "receiverBase": "comments",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (comment) {\n    return c(self, comment);\n}",
+    "receiverBase": "comments",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (c) {\n    if (/comment[134]/.test(c.type)) {\n        output.print('//' + c.value + '\\n');\n        output.indent();\n    } else if (c.type == 'comment2') {\n        output.print('/*' + c.value + '*/');\n        if (start.nlb) {\n            output.print('\\n');\n            output.indent();\n        } else {\n            output.space();\n        }\n    }\n}",
+    "receiverBase": "comments",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (nodetype) {\n    PARENS(nodetype, func);\n}",
+    "receiverBase": "nodetype",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    return first_in_statement(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    return first_in_statement(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    return p instanceof AST_PropAccess && p.expression === this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    return p instanceof AST_Call || p instanceof AST_Unary || p instanceof AST_Binary || p instanceof AST_VarDef || p instanceof AST_PropAccess || p instanceof AST_Array || p instanceof AST_ObjectProperty || p instanceof AST_Conditional;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (p instanceof AST_Call && p.expression === this)\n        return true;\n    if (p instanceof AST_Unary)\n        return true;\n    if (p instanceof AST_PropAccess && p.expression === this)\n        return true;\n    if (p instanceof AST_Binary) {\n        var po = p.operator, pp = PRECEDENCE[po];\n        var so = this.operator, sp = PRECEDENCE[so];\n        if (pp > sp || pp == sp && this === p.right) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (p instanceof AST_New && p.expression === this) {\n        try {\n            this.walk(new TreeWalker(function (node) {\n                if (node instanceof AST_Call)\n                    throw p;\n            }));\n        } catch (ex) {\n            if (ex !== p)\n                throw ex;\n            return true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent(), p1;\n    if (p instanceof AST_New && p.expression === this)\n        return true;\n    return this.expression instanceof AST_Function && p instanceof AST_PropAccess && p.expression === this && (p1 = output.parent(1)) instanceof AST_Assign && p1.left === p;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (no_constructor_parens(this, output) && (p instanceof AST_PropAccess || p instanceof AST_Call && p.expression === this))\n        return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (this.getValue() < 0 && p instanceof AST_PropAccess && p.expression === this)\n        return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (p instanceof AST_PropAccess && p.expression === this)\n        return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (output) {\n    var p = output.parent();\n    if (p instanceof AST_Unary)\n        return true;\n    if (p instanceof AST_Binary && !(p instanceof AST_Assign))\n        return true;\n    if (p instanceof AST_Call && p.expression === this)\n        return true;\n    if (p instanceof AST_Conditional && p.condition === this)\n        return true;\n    if (p instanceof AST_PropAccess && p.expression === this)\n        return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "PARENS"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print_string(self.value);\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('debugger');\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (stmt, i) {\n    if (!(stmt instanceof AST_EmptyStatement)) {\n        output.indent();\n        stmt.print(output);\n        if (!(i == last && is_toplevel)) {\n            output.newline();\n            if (is_toplevel)\n                output.newline();\n        }\n    }\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (output) {\n    force_statement(this.body, output);\n}",
+    "receiverBase": "AST_StatementWithBody",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, output) {\n    self.body.print(output);\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    display_body(self.body, true, output);\n    output.print('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.label.print(output);\n    output.colon();\n    self.body.print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.body.print(output);\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    display_body(body, false, output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function (self, output) {\n    print_bracketed(self.body, output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('do');\n    output.space();\n    self._do_print_body(output);\n    output.space();\n    output.print('while');\n    output.space();\n    output.with_parens(function () {\n        self.condition.print(output);\n    });\n    output.semicolon();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.condition.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('while');\n    output.space();\n    output.with_parens(function () {\n        self.condition.print(output);\n    });\n    output.space();\n    self._do_print_body(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.condition.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('for');\n    output.space();\n    output.with_parens(function () {\n        self.init.print(output);\n        output.space();\n        output.print('in');\n        output.space();\n        self.object.print(output);\n    });\n    output.space();\n    self._do_print_body(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.init.print(output);\n    output.space();\n    output.print('in');\n    output.space();\n    self.object.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('with');\n    output.space();\n    output.with_parens(function () {\n        self.expression.print(output);\n    });\n    output.space();\n    self._do_print_body(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.expression.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (output, nokeyword) {\n    var self = this;\n    if (!nokeyword) {\n        output.print('function');\n    }\n    if (self.name) {\n        output.space();\n        self.name.print(output);\n    }\n    output.with_parens(function () {\n        self.argnames.forEach(function (arg, i) {\n            if (i)\n                output.comma();\n            arg.print(output);\n        });\n    });\n    output.space();\n    print_bracketed(self.body, output);\n}",
+    "receiverBase": "AST_Lambda",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    self.argnames.forEach(function (arg, i) {\n        if (i)\n            output.comma();\n        arg.print(output);\n    });\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (arg, i) {\n    if (i)\n        output.comma();\n    arg.print(output);\n}",
+    "receiverBase": "argnames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (output, kind) {\n    output.print(kind);\n    if (this.value) {\n        output.space();\n        this.value.print(output);\n    }\n    output.semicolon();\n}",
+    "receiverBase": "AST_Exit",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'return');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'throw');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (output, kind) {\n    output.print(kind);\n    if (this.label) {\n        output.space();\n        this.label.print(output);\n    }\n    output.semicolon();\n}",
+    "receiverBase": "AST_LoopControl",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'break');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'continue');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('if');\n    output.space();\n    output.with_parens(function () {\n        self.condition.print(output);\n    });\n    output.space();\n    if (self.alternative) {\n        make_then(self, output);\n        output.space();\n        output.print('else');\n        output.space();\n        force_statement(self.alternative, output);\n    } else {\n        self._do_print_body(output);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.condition.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('switch');\n    output.space();\n    output.with_parens(function () {\n        self.expression.print(output);\n    });\n    output.space();\n    if (self.body.length > 0)\n        output.with_block(function () {\n            self.body.forEach(function (stmt, i) {\n                if (i)\n                    output.newline();\n                output.indent(true);\n                stmt.print(output);\n            });\n        });\n    else\n        output.print('{}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.expression.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function () {\n    self.body.forEach(function (stmt, i) {\n        if (i)\n            output.newline();\n        output.indent(true);\n        stmt.print(output);\n    });\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function (stmt, i) {\n    if (i)\n        output.newline();\n    output.indent(true);\n    stmt.print(output);\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (output) {\n    if (this.body.length > 0) {\n        output.newline();\n        this.body.forEach(function (stmt) {\n            output.indent();\n            stmt.print(output);\n            output.newline();\n        });\n    }\n}",
+    "receiverBase": "AST_SwitchBranch",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (stmt) {\n    output.indent();\n    stmt.print(output);\n    output.newline();\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('default:');\n    self._do_print_body(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('case');\n    output.space();\n    self.expression.print(output);\n    output.print(':');\n    self._do_print_body(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('try');\n    output.space();\n    print_bracketed(self.body, output);\n    if (self.bcatch) {\n        output.space();\n        self.bcatch.print(output);\n    }\n    if (self.bfinally) {\n        output.space();\n        self.bfinally.print(output);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('catch');\n    output.space();\n    output.with_parens(function () {\n        self.argname.print(output);\n    });\n    output.space();\n    print_bracketed(self.body, output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.argname.print(output);\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('finally');\n    output.space();\n    print_bracketed(self.body, output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (output, kind) {\n    output.print(kind);\n    output.space();\n    this.definitions.forEach(function (def, i) {\n        if (i)\n            output.comma();\n        def.print(output);\n    });\n    var p = output.parent();\n    var in_for = p instanceof AST_For || p instanceof AST_ForIn;\n    var avoid_semicolon = in_for && p.init === this;\n    if (!avoid_semicolon)\n        output.semicolon();\n}",
+    "receiverBase": "AST_Definitions",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (def, i) {\n    if (i)\n        output.comma();\n    def.print(output);\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'var');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output, 'const');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.name.print(output);\n    if (self.value) {\n        output.space();\n        output.print('=');\n        output.space();\n        var p = output.parent(1);\n        var noin = p instanceof AST_For || p instanceof AST_ForIn;\n        parenthesize_for_noin(self.value, output, noin);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.expression.print(output);\n    if (self instanceof AST_New && no_constructor_parens(self, output))\n        return;\n    output.with_parens(function () {\n        self.args.forEach(function (expr, i) {\n            if (i)\n                output.comma();\n            expr.print(output);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.args.forEach(function (expr, i) {\n        if (i)\n            output.comma();\n        expr.print(output);\n    });\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (expr, i) {\n    if (i)\n        output.comma();\n    expr.print(output);\n}",
+    "receiverBase": "args",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('new');\n    output.space();\n    AST_Call.prototype._codegen(self, output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (output) {\n    this.car.print(output);\n    if (this.cdr) {\n        output.comma();\n        if (output.should_break()) {\n            output.newline();\n            output.indent();\n        }\n        this.cdr.print(output);\n    }\n}",
+    "receiverBase": "AST_Seq",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, output) {\n    self._do_print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    var expr = self.expression;\n    expr.print(output);\n    if (expr instanceof AST_Number && expr.getValue() >= 0) {\n        if (!/[xa-f.]/i.test(output.last())) {\n            output.print('.');\n        }\n    }\n    output.print('.');\n    output.add_mapping(self.end);\n    output.print_name(self.property);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.expression.print(output);\n    output.print('[');\n    self.property.print(output);\n    output.print(']');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    var op = self.operator;\n    output.print(op);\n    if (/^[a-z]/i.test(op) || /[+-]$/.test(op) && self.expression instanceof AST_UnaryPrefix && /^[+-]/.test(self.expression.operator)) {\n        output.space();\n    }\n    self.expression.print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.expression.print(output);\n    output.print(self.operator);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.left.print(output);\n    output.space();\n    output.print(self.operator);\n    if (self.operator == '<' && self.right instanceof AST_UnaryPrefix && self.right.operator == '!' && self.right.expression instanceof AST_UnaryPrefix && self.right.expression.operator == '--') {\n        output.print(' ');\n    } else {\n        output.space();\n    }\n    self.right.print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    self.condition.print(output);\n    output.space();\n    output.print('?');\n    output.space();\n    self.consequent.print(output);\n    output.space();\n    output.colon();\n    self.alternative.print(output);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.with_square(function () {\n        var a = self.elements, len = a.length;\n        if (len > 0)\n            output.space();\n        a.forEach(function (exp, i) {\n            if (i)\n                output.comma();\n            exp.print(output);\n            if (i === len - 1 && exp instanceof AST_Hole)\n                output.comma();\n        });\n        if (len > 0)\n            output.space();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    var a = self.elements, len = a.length;\n    if (len > 0)\n        output.space();\n    a.forEach(function (exp, i) {\n        if (i)\n            output.comma();\n        exp.print(output);\n        if (i === len - 1 && exp instanceof AST_Hole)\n            output.comma();\n    });\n    if (len > 0)\n        output.space();\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_square"
+  },
+  {
+    "callback": "function (exp, i) {\n    if (i)\n        output.comma();\n    exp.print(output);\n    if (i === len - 1 && exp instanceof AST_Hole)\n        output.comma();\n}",
+    "receiverBase": "a",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    if (self.properties.length > 0)\n        output.with_block(function () {\n            self.properties.forEach(function (prop, i) {\n                if (i) {\n                    output.print(',');\n                    output.newline();\n                }\n                output.indent();\n                prop.print(output);\n            });\n            output.newline();\n        });\n    else\n        output.print('{}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function () {\n    self.properties.forEach(function (prop, i) {\n        if (i) {\n            output.print(',');\n            output.newline();\n        }\n        output.indent();\n        prop.print(output);\n    });\n    output.newline();\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function (prop, i) {\n    if (i) {\n        output.print(',');\n        output.newline();\n    }\n    output.indent();\n    prop.print(output);\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('set');\n    output.space();\n    self.key.print(output);\n    self.value._do_print(output, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('get');\n    output.space();\n    self.key.print(output);\n    self.value._do_print(output, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    var def = self.definition();\n    output.print_name(def ? def.mangled_name || def.name : self.name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('void 0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('1/0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('0/0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print('this');\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print(self.getValue());\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print_string(self.getValue());\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (self, output) {\n    output.print(make_num(self.getValue()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFPRINT"
+  },
+  {
+    "callback": "function (str) {\n    return str.replace(/\\\\u[0-9a-fA-F]{4}|\\\\x[0-9a-fA-F]{2}/g, function (s) {\n        var code = parseInt(s.substr(2), 16);\n        return regexp_safe_literal(code) ? String.fromCharCode(code) : s;\n    });\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    var code = parseInt(s.substr(2), 16);\n    return regexp_safe_literal(code) ? String.fromCharCode(code) : s;\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    output.indent();\n    stat.print(output);\n    output.newline();\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function () {\n    output.indent();\n    stmt.print(output);\n    output.newline();\n}",
+    "receiverBase": "output",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function (stream) {\n    generator(this, stream);\n}",
+    "receiverBase": "nodetype",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, output) {\n    output.add_mapping(self.start, self.key);\n}",
+    "receiverBase": "",
+    "receiverCallee": "DEFMAP"
+  },
+  {
+    "callback": "function (compressor) {\n    var self = this;\n    if (self._optimized)\n        return self;\n    var opt = optimizer(self, compressor);\n    opt._optimized = true;\n    if (opt === self)\n        return opt;\n    return opt.transform(compressor);\n}",
+    "receiverBase": "node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, compressor) {\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (node) {\n    return this.print_to_string() == node.print_to_string();\n}",
+    "receiverBase": "AST_Node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (sym) {\n    return make_node(AST_String, sym, { value: sym.name });\n}",
+    "receiverBase": "argnames",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (def) {\n    if (def.value && def.value instanceof AST_Lambda) {\n        a.push(make_injector(def.value, def.name));\n    }\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (stat) {\n    if (stat instanceof AST_SimpleStatement)\n        seq.push(stat.body);\n    else\n        push_seq(), ret.push(stat);\n}",
+    "receiverBase": "statements",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return member(this.operator, unary_bool);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return member(this.operator, binary_bool) || (this.operator == '&&' || this.operator == '||') && this.left.is_boolean() && this.right.is_boolean();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.consequent.is_boolean() && this.alternative.is_boolean();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.operator == '=' && this.right.is_boolean();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.cdr.is_boolean();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('is_boolean', func);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.operator == 'typeof';\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.operator == '+' && (this.left.is_string(compressor) || this.right.is_string(compressor));\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return (this.operator == '=' || this.operator == '+=') && this.right.is_string(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.cdr.is_string(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.consequent.is_string(compressor) && this.alternative.is_string(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return compressor.option('unsafe') && this.expression instanceof AST_SymbolRef && this.expression.name == 'String' && this.expression.undeclared();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('is_string', func);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (compressor) {\n    if (!compressor.option('evaluate'))\n        return [this];\n    try {\n        var val = this._eval(compressor);\n        return [\n            best_of(make_node_from_constant(compressor, val, this), this),\n            val\n        ];\n    } catch (ex) {\n        if (ex !== def)\n            throw ex;\n        return [this];\n    }\n}",
+    "receiverBase": "AST_Node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    throw new Error(string_template('Cannot evaluate a statement [{file}:{line},{col}]', this.start));\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    throw def;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    throw def;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.getValue();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return ev(this.condition, compressor) ? ev(this.consequent, compressor) : ev(this.alternative, compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    var d = this.definition();\n    if (d && d.constant && d.init)\n        return ev(d.init, compressor);\n    throw def;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    if (compressor.option('unsafe') && this.property == 'length') {\n        var str = ev(this.expression, compressor);\n        if (typeof str == 'string')\n            return str.length;\n    }\n    throw def;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('_eval', func);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return basic_negation(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    throw new Error('Cannot negate a statement');\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return basic_negation(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    if (this.operator == '!')\n        return this.expression;\n    return basic_negation(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    var self = this.clone();\n    self.cdr = self.cdr.negate(compressor);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    var self = this.clone();\n    self.consequent = self.consequent.negate(compressor);\n    self.alternative = self.alternative.negate(compressor);\n    return best_of(basic_negation(this), self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('negate', function (compressor) {\n        return func.call(this, compressor);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (compressor) {\n    return func.call(this, compressor);\n}",
+    "receiverBase": "node",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (compressor) {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    var pure = compressor.option('pure_funcs');\n    if (!pure)\n        return true;\n    return pure.indexOf(this.expression.print_to_string()) < 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    for (var i = this.body.length; --i >= 0;) {\n        if (this.body[i].has_side_effects(compressor))\n            return true;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.body.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.left.has_side_effects(compressor) || this.right.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.condition.has_side_effects(compressor) || this.consequent.has_side_effects(compressor) || this.alternative.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.operator == 'delete' || this.operator == '++' || this.operator == '--' || this.expression.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.global() && this.undeclared();\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    for (var i = this.properties.length; --i >= 0;)\n        if (this.properties[i].has_side_effects(compressor))\n            return true;\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.value.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    for (var i = this.elements.length; --i >= 0;)\n        if (this.elements[i].has_side_effects(compressor))\n            return true;\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    if (!compressor.option('pure_getters'))\n        return true;\n    return this.expression.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    if (!compressor.option('pure_getters'))\n        return true;\n    return this.expression.has_side_effects(compressor) || this.property.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return !compressor.option('pure_getters');\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (compressor) {\n    return this.car.has_side_effects(compressor) || this.cdr.has_side_effects(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('has_side_effects', func);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (def) {\n    def(AST_Statement, function () {\n        return null;\n    });\n    def(AST_Jump, function () {\n        return this;\n    });\n    function block_aborts() {\n        var n = this.body.length;\n        return n > 0 && aborts(this.body[n - 1]);\n    }\n    ;\n    def(AST_BlockStatement, block_aborts);\n    def(AST_SwitchBranch, block_aborts);\n    def(AST_If, function () {\n        return this.alternative && aborts(this.body) && aborts(this.alternative);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function () {\n    return this.alternative && aborts(this.body) && aborts(this.alternative);\n}",
+    "receiverBase": "",
+    "receiverCallee": "def"
+  },
+  {
+    "callback": "function (node, func) {\n    node.DEFMETHOD('aborts', func);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (self.scope.has_directive(self.value) !== self.scope) {\n        return make_node(AST_EmptyStatement, self);\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (compressor.option('drop_debugger'))\n        return make_node(AST_EmptyStatement, self);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (self.body instanceof AST_Break && compressor.loopcontrol_target(self.body.label) === self.body) {\n        return make_node(AST_EmptyStatement, self);\n    }\n    return self.label.references.length == 0 ? self.body : self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self.body = tighten_body(self.body, compressor);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self.body = tighten_body(self.body, compressor);\n    switch (self.body.length) {\n    case 1:\n        return self.body[0];\n    case 0:\n        return make_node(AST_EmptyStatement, self);\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (def) {\n    if (def.value) {\n        initializations.add(def.name.name, def.value);\n        if (def.value.has_side_effects(compressor)) {\n            def.value.walk(tw);\n        }\n    }\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (decl) {\n    var init = initializations.get(decl.name);\n    if (init)\n        init.forEach(function (init) {\n            var tw = new TreeWalker(function (node) {\n                    if (node instanceof AST_SymbolRef) {\n                        push_uniq(in_use, node.definition());\n                    }\n                });\n            init.walk(tw);\n        });\n}",
+    "receiverBase": "orig",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (init) {\n    var tw = new TreeWalker(function (node) {\n            if (node instanceof AST_SymbolRef) {\n                push_uniq(in_use, node.definition());\n            }\n        });\n    init.walk(tw);\n}",
+    "receiverBase": "init",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    if (!a.value && b.value)\n        return -1;\n    if (!b.value && a.value)\n        return 1;\n    return 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "mergeSort"
+  },
+  {
+    "callback": "function (def) {\n    vars.set(def.name.name, def);\n    ++vars_found;\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (def, name) {\n    if (self instanceof AST_Lambda && find_if(function (x) {\n            return x.name == def.name.name;\n        }, self.argnames)) {\n        vars.del(name);\n    } else {\n        def = def.clone();\n        def.value = null;\n        defs.push(def);\n        vars.set(name, def);\n    }\n}",
+    "receiverBase": "vars",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (x) {\n    return x.name == def.name.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (compressor.option('side_effects')) {\n        if (!self.body.has_side_effects(compressor)) {\n            compressor.warn('Dropping side-effect-free statement [{file}:{line},{col}]', self.start);\n            return make_node(AST_EmptyStatement, self);\n        }\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (!compressor.option('loops'))\n        return self;\n    self = AST_DWLoop.prototype.optimize.call(self, compressor);\n    if (self instanceof AST_While) {\n        if_break_in_loop(self, compressor);\n        self = make_node(AST_For, self, self).transform(compressor);\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (a, branch) {\n    return a.concat(branch.body);\n}",
+    "receiverBase": "body",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self.body = tighten_body(self.body, compressor);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self.body = tighten_body(self.body, compressor);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function () {\n    this.definitions.forEach(function (def) {\n        def.value = null;\n    });\n}",
+    "receiverBase": "AST_Definitions",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (def) {\n    def.value = null;\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, def) {\n    if (def.value) {\n        var name = make_node(AST_SymbolRef, def.name, def.name);\n        a.push(make_node(AST_Assign, def, {\n            operator: '=',\n            left: name,\n            right: def.value\n        }));\n    }\n    return a;\n}",
+    "receiverBase": "definitions",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (self.definitions.length == 0)\n        return make_node(AST_EmptyStatement, self);\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self = AST_Lambda.prototype.optimize.call(self, compressor);\n    if (compressor.option('unused')) {\n        if (self.name && self.name.unreferenced()) {\n            self.name = null;\n        }\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (x) {\n    return x instanceof AST_String;\n}",
+    "receiverBase": "",
+    "receiverCallee": "all"
+  },
+  {
+    "callback": "function (arg) {\n    return arg.value;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (arg, i) {\n    return make_node(AST_String, self.args[i], { value: arg.print_to_string() });\n}",
+    "receiverBase": "argnames",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a, el) {\n    el = el.evaluate(compressor);\n    if (a.length == 0 || el.length == 1) {\n        a.push(el);\n    } else {\n        var last = a[a.length - 1];\n        if (last.length == 2) {\n            var val = '' + last[1] + separator + el[1];\n            a[a.length - 1] = [\n                make_node_from_constant(compressor, val, last[0]),\n                val\n            ];\n        } else {\n            a.push(el);\n        }\n    }\n    return a;\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (prev, el) {\n    return make_node(AST_Binary, el[0], {\n        operator: '+',\n        left: prev,\n        right: el[0]\n    });\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (el) {\n    return el[0];\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (compressor.option('unsafe')) {\n        var exp = self.expression;\n        if (exp instanceof AST_SymbolRef && exp.undeclared()) {\n            switch (exp.name) {\n            case 'Object':\n            case 'RegExp':\n            case 'Function':\n            case 'Error':\n            case 'Array':\n                return make_node(AST_Call, self, self).transform(compressor);\n            }\n        }\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (compressor) {\n    if (compressor.option('sequences')) {\n        if (this.expression instanceof AST_Seq) {\n            var seq = this.expression;\n            var x = seq.to_array();\n            this.expression = x.pop();\n            x.push(this);\n            seq = AST_Seq.from_array(x).transform(compressor);\n            return seq;\n        }\n    }\n    return this;\n}",
+    "receiverBase": "AST_Unary",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (self, compressor) {\n    return self.lift_sequences(compressor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    if (compressor.option('unsafe')) {\n        var scope = compressor.find_parent(AST_Scope);\n        var undef = scope.find_variable('undefined');\n        if (undef) {\n            var ref = make_node(AST_SymbolRef, self, {\n                    name: 'undefined',\n                    scope: scope,\n                    thedef: undef\n                });\n            ref.reference();\n            return ref;\n        }\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    self = self.lift_sequences(compressor);\n    if (self.operator == '=' && self.left instanceof AST_SymbolRef && self.right instanceof AST_Binary && self.right.left instanceof AST_SymbolRef && self.right.left.name == self.left.name && member(self.right.operator, ASSIGN_OPS)) {\n        self.operator = self.right.operator + '=';\n        self.right = self.right.right;\n    }\n    return self;\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (self, compressor) {\n    var prop = self.property;\n    if (RESERVED_WORDS(prop) && !compressor.option('screw_ie8')) {\n        return make_node(AST_Sub, self, {\n            expression: self.expression,\n            property: make_node(AST_String, self, { value: prop })\n        }).optimize(compressor);\n    }\n    return self.evaluate(compressor)[0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "OPT"
+  },
+  {
+    "callback": "function (prop) {\n    prop.type = 'Property';\n    return from_moz(prop);\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function To_Moz_Directive(M) {\n    return {\n        type: 'ExpressionStatement',\n        expression: {\n            type: 'Literal',\n            value: M.value\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_ExpressionStatement(M) {\n    return {\n        type: 'ExpressionStatement',\n        expression: to_moz(M.body)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_SwitchCase(M) {\n    return {\n        type: 'SwitchCase',\n        test: to_moz(M.expression),\n        consequent: M.body.map(to_moz)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_TryStatement(M) {\n    return {\n        type: 'TryStatement',\n        block: to_moz_block(M),\n        handler: to_moz(M.bcatch),\n        guardedHandlers: [],\n        finalizer: to_moz(M.bfinally)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_CatchClause(M) {\n    return {\n        type: 'CatchClause',\n        param: to_moz(M.argname),\n        guard: null,\n        body: to_moz_block(M)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_VariableDeclaration(M) {\n    return {\n        type: 'VariableDeclaration',\n        kind: M instanceof AST_Const ? 'const' : 'var',\n        declarations: M.definitions.map(to_moz)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_SequenceExpression(M) {\n    return {\n        type: 'SequenceExpression',\n        expressions: M.to_array().map(to_moz)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_MemberExpression(M) {\n    var isComputed = M instanceof AST_Sub;\n    return {\n        type: 'MemberExpression',\n        object: to_moz(M.expression),\n        computed: isComputed,\n        property: isComputed ? to_moz(M.property) : {\n            type: 'Identifier',\n            name: M.property\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_Unary(M) {\n    return {\n        type: M.operator == '++' || M.operator == '--' ? 'UpdateExpression' : 'UnaryExpression',\n        operator: M.operator,\n        prefix: M instanceof AST_UnaryPrefix,\n        argument: to_moz(M.expression)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_BinaryExpression(M) {\n    return {\n        type: M.operator == '&&' || M.operator == '||' ? 'LogicalExpression' : 'BinaryExpression',\n        left: to_moz(M.left),\n        operator: M.operator,\n        right: to_moz(M.right)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_ObjectExpression(M) {\n    return {\n        type: 'ObjectExpression',\n        properties: M.properties.map(to_moz)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_Identifier(M) {\n    var def = M.definition();\n    return {\n        type: 'Identifier',\n        name: def ? def.mangled_name || def.name : M.name\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_Literal(M) {\n    var value = M.value;\n    if (typeof value === 'number' && (value < 0 || value === 0 && 1 / value < 0)) {\n        return {\n            type: 'UnaryExpression',\n            operator: '-',\n            prefix: true,\n            argument: {\n                type: 'Literal',\n                value: -value\n            }\n        };\n    }\n    return {\n        type: 'Literal',\n        value: value\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_Atom(M) {\n    return {\n        type: 'Identifier',\n        name: String(M.value)\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "def_to_moz"
+  },
+  {
+    "callback": "function To_Moz_ArrayHole() {\n    return null;\n}",
+    "receiverBase": "AST_Hole",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function () {\n    return set_moz_loc(this, handler(this));\n}",
+    "receiverBase": "mytype",
+    "receiverCallee": "DEFMETHOD"
+  },
+  {
+    "callback": "function (file) {\n    var code = options.fromString ? file : rjsFile.readFile(file, 'utf8');\n    sourcesContent[file] = code;\n    toplevel = parse(code, {\n        filename: options.fromString ? name : file,\n        toplevel: toplevel\n    });\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    return !/^\\$/.test(prop);\n}",
+    "receiverBase": "SELF_PROPS",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    props.forEach(function (prop, i) {\n        if (i)\n            out.space();\n        out.print(prop);\n    });\n}",
+    "receiverBase": "out",
+    "receiverCallee": "with_parens"
+  },
+  {
+    "callback": "function (prop, i) {\n    if (i)\n        out.space();\n    out.print(prop);\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    ctor.SUBCLASSES.forEach(function (ctor, i) {\n        out.indent();\n        doitem(ctor);\n        out.newline();\n    });\n}",
+    "receiverBase": "out",
+    "receiverCallee": "with_block"
+  },
+  {
+    "callback": "function (ctor, i) {\n    out.indent();\n    doitem(ctor);\n    out.newline();\n}",
+    "receiverBase": "SUBCLASSES",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, c) {\n    client = c;\n    callback();\n}",
+    "receiverBase": "discover",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    var oauth2Client = new googleapis.auth.OAuth2Client(config.client_id, config.client_secret, config.redirect_uri);\n    oauth2Client.credentials = tokens;\n    client.drive.files.list({ q: 'mimeType = \"text/x-markdown\" and trashed = false' }).withAuthClient(oauth2Client).execute(function (err, results) {\n        callback && callback(err, results);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_loadDriveIfRequired"
+  },
+  {
+    "callback": "function (err, results) {\n    callback && callback(err, results);\n}",
+    "receiverBase": "withAuthClient",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (err, result) {\n    if (err) {\n        callback(err, null);\n    } else {\n        that._getContents(tokens, result.downloadUrl, function (err, data) {\n            callback(err, {\n                title: result.title,\n                content: data\n            });\n        });\n    }\n}",
+    "receiverBase": "withAuthClient",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (err, data) {\n    callback(err, {\n        title: result.title,\n        content: data\n    });\n}",
+    "receiverBase": "that",
+    "receiverCallee": "_getContents"
+  },
+  {
+    "callback": "function (err, res, body) {\n    callback(err, body);\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    callback(err, body);\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (value, index, object) {\n    return iteratee(accumulator, value, index, object);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (it) {\n    return it.hasTag('cubimal');\n}",
+    "receiverBase": "location",
+    "receiverCallee": "find_items"
+  },
+  {
+    "callback": "function (it) {\n    return it.hasTag('cubimal');\n}",
+    "receiverBase": "location",
+    "receiverCallee": "find_items"
+  },
+  {
+    "callback": "function () {\n    strictEqual(typeof $.fn.placeholder.input, 'boolean', '$.fn.placeholder.input');\n    strictEqual(typeof $.fn.placeholder.textarea, 'boolean', '$.fn.placeholder.textarea');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-text'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-search'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-email'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-url'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-tel'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#input-type-tel'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    testElement($('#textarea'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (match) {\n    return htmlEntities[match];\n}",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    return '\\\\' + escapes[match];\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return tmpl;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return filesize;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function ($, can) {\n    var oldClean = $.cleanData;\n    can.cleanData = function (elems) {\n        can.each(elems, function (elem) {\n            can.$(elem).triggerHandler('removed');\n        });\n        oldClean(elems);\n    };\n    return can;\n}",
+    "receiverBase": "",
+    "receiverCallee": "steal"
+  },
+  {
+    "callback": "function (elem) {\n    can.$(elem).triggerHandler('removed');\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return cbfssetname(err);\n    self.path = newPath;\n    cbfssetname();\n}",
+    "receiverBase": "Fs",
+    "receiverCallee": "rename"
+  },
+  {
+    "callback": "function (err, stat) {\n    if (err || typeof stat == 'undefined')\n        return cbfsgetlm(err);\n    cbfsgetlm(null, stat.mtime);\n}",
+    "receiverBase": "Fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function (pipe) {\n    if (_.has(ops, pipe.operator)) {\n        var out = new ops[pipe.operator](pipe.options.split(' '));\n        return out;\n    } else {\n        var errStr = 'No such operation: ' + pipe.operator;\n        throw errStr;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (next) {\n    if (next) {\n        next.on('error', function (err) {\n            var errStr = err.toString();\n            console.log(errStr);\n            response.write(errStr);\n            response.end();\n        });\n        stream = stream.pipe(next);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    var errStr = err.toString();\n    console.log(errStr);\n    response.write(errStr);\n    response.end();\n}",
+    "receiverBase": "next",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (item) {\n    if (that.matcher(item))\n        return item;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function ($1, match) {\n    return '<strong>' + match + '</strong>';\n}",
+    "receiverBase": "item",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (i, item) {\n    i = $(that.options.item).attr('data-value', item);\n    i.find('a').html(that.highlighter(item));\n    return i[0];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    that.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), data = $this.data('typeahead'), options = typeof option == 'object' && option;\n    if (!data)\n        $this.data('typeahead', data = new Typeahead(this, options));\n    if (typeof option == 'string')\n        data[option]();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('body').on('focus.typeahead.data-api', '[data-provide=\"typeahead\"]', function (e) {\n        var $this = $(this);\n        if ($this.data('typeahead'))\n            return;\n        e.preventDefault();\n        $this.typeahead($this.data());\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    var $this = $(this);\n    if ($this.data('typeahead'))\n        return;\n    e.preventDefault();\n    $this.typeahead($this.data());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (src) {\n    src.run();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function (src) {\n    src.run();\n}",
+    "receiverBase": "",
+    "receiverCallee": "store"
+  },
+  {
+    "callback": "function (res) {\n    var data = '';\n    res.on('data', function (buf) {\n        data += buf;\n    });\n    res.on('end', function () {\n        store(file, data, cb);\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (buf) {\n    data += buf;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    store(file, data, cb);\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (r) {\n    fetch(path.resolve(path.dirname(file), r), function (src) {\n        sources[file].requires[r] = src;\n        if (--pending === 0)\n            cb(sources[file]);\n    });\n}",
+    "receiverBase": "requires",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (src) {\n    sources[file].requires[r] = src;\n    if (--pending === 0)\n        cb(sources[file]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  }
+]

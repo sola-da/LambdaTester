@@ -1,0 +1,170 @@
+[
+  {
+    "callback": "function () {\n    return !!document.createElementNS && !!document.createElementNS(SVG.ns, 'svg').createSVGRect;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (from, to) {\n    return fx._at({\n        from: from,\n        to: to\n    }, pos);\n}",
+    "receiverBase": "_during",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var time = new Date().getTime(), pos = time > finish ? 1 : (time - start) / d;\n    fx.to(pos);\n    if (time > finish) {\n        if (fx._plot)\n            element.plot(new SVG.PointArray(fx._plot.destination).settle());\n        clearInterval(fx.interval);\n        fx._after ? fx._after.apply(element, [fx]) : fx.stop();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (event) {\n    SVG.Element.prototype[event] = function (f) {\n        var self = this;\n        this.node['on' + event] = typeof f == 'function' ? function () {\n            return f.apply(self, arguments);\n        } : null;\n        return this;\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    element.style('position:relative;overflow:hidden;');\n    element.parent.removeChild(element.node.parentNode);\n    element.node.parentNode.removeChild(element.node);\n    element.parent.appendChild(element.node);\n    element.fixSubPixelOffset();\n    SVG.on(window, 'resize', function () {\n        element.fixSubPixelOffset();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    element.fixSubPixelOffset();\n}",
+    "receiverBase": "SVG",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (this.newLined)\n        this.x(x);\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.newLined)\n        this.attr('dy', value);\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (method) {\n    SVG.Set.prototype[method] = function () {\n        for (var i = 0, il = this.members.length; i < il; i++)\n            if (this.members[i] && typeof this.members[i][method] == 'function')\n                this.members[i][method].apply(this.members[i], arguments);\n        return method == 'animate' ? this.fx || (this.fx = new SVG.SetFX(this)) : this;\n    };\n}",
+    "receiverBase": "methods",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (method) {\n    SVG.SetFX.prototype[method] = function () {\n        for (var i = 0, il = this.set.members.length; i < il; i++)\n            this.set.members[i].fx[method].apply(this.set.members[i].fx, arguments);\n        return this;\n    };\n}",
+    "receiverBase": "methods",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return SVG;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    video = testData.createMedia('#video');\n    video.src = '#t=,9';\n    pop = Popcorn(video);\n    pop.playbackRate(-1);\n    pop.play(5);\n    pop.cue(2, function () {\n        ok(pop.playbackRate() === -1, 'Correct playbackRate');\n        start();\n    });\n    pop.cue(6, function () {\n        ok(false, 'Incorrect playbackRate');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncTest"
+  },
+  {
+    "callback": "function () {\n    ok(pop.playbackRate() === -1, 'Correct playbackRate');\n    start();\n}",
+    "receiverBase": "pop",
+    "receiverCallee": "cue"
+  },
+  {
+    "callback": "function () {\n    ok(false, 'Incorrect playbackRate');\n}",
+    "receiverBase": "pop",
+    "receiverCallee": "cue"
+  },
+  {
+    "callback": "function (t) {\n    t.is(HostedGit.fromUrl('https://google.com'), undefined, 'null on failure');\n    t.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var chart = $('#container').highcharts(), series = chart.series[0];\n    if (series.data.length) {\n        chart.series[0].data[0].remove();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var theDB = lowla.db('dbName');\n    should.exist(theDB);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var theDB = lowla.db('dbName');\n    var theColl = theDB.collection('TestCollection');\n    should.exist(theColl);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    theDB = lowla.db('dbName');\n    coll = lowla.collection('dbName', 'collectionOne');\n    collTwo = lowla.collection('dbName', 'collectionTwo');\n    return Promise.all([\n        coll.insert({ a: 1 }),\n        collTwo.insert({ b: 2 })\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    return theDB.collectionNames().then(function (names) {\n        names.should.have.length(2);\n        names[0].name.should.equal('dbName.collectionOne');\n        names[1].name.should.equal('dbName.collectionTwo');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (names) {\n    names.should.have.length(2);\n    names[0].name.should.equal('dbName.collectionOne');\n    names[1].name.should.equal('dbName.collectionTwo');\n}",
+    "receiverBase": "collectionNames",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return theDB.collectionNames('collectionOne').then(function (names) {\n        names.should.have.length(1);\n        names[0].name.should.equal('dbName.collectionOne');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (names) {\n    names.should.have.length(1);\n    names[0].name.should.equal('dbName.collectionOne');\n}",
+    "receiverBase": "collectionNames",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return theDB.collectionNames({ namesOnly: true }).then(function (names) {\n        names.should.have.length(2);\n        names[0].should.equal('dbName.collectionOne');\n        names[1].should.equal('dbName.collectionTwo');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (names) {\n    names.should.have.length(2);\n    names[0].should.equal('dbName.collectionOne');\n    names[1].should.equal('dbName.collectionTwo');\n}",
+    "receiverBase": "collectionNames",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    return theDB.collectionNames(function (err, names) {\n        if (err) {\n            done(err);\n            return;\n        }\n        names.should.have.length(2);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, names) {\n    if (err) {\n        done(err);\n        return;\n    }\n    names.should.have.length(2);\n    done();\n}",
+    "receiverBase": "theDB",
+    "receiverCallee": "collectionNames"
+  },
+  {
+    "callback": "function (done) {\n    testUtils.sandbox.stub(lowla.datastore, 'scanDocuments').throws(Error('Datastore error'));\n    theDB.collectionNames().should.eventually.be.rejectedWith(Error, /Datastore error/).then(function () {\n        theDB.collectionNames(testUtils.cb(done, function (err, names) {\n            should.not.exist(names);\n            err.should.match(/Datastore error/);\n        }));\n    }).then(null, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    theDB.collectionNames(testUtils.cb(done, function (err, names) {\n        should.not.exist(names);\n        err.should.match(/Datastore error/);\n    }));\n}",
+    "receiverBase": "rejectedWith",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, names) {\n    should.not.exist(names);\n    err.should.match(/Datastore error/);\n}",
+    "receiverBase": "testUtils",
+    "receiverCallee": "cb"
+  },
+  {
+    "callback": "function (v, k) {\n    this.publish(v, {\n        type: v,\n        emitFacade: true,\n        bubbles: true,\n        queuable: false,\n        prefix: 'drag'\n    });\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, n) {\n    if (n == RIGHT || n == BOTTOM) {\n        region[n] -= i;\n    } else {\n        region[n] += i;\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (uri, name, value) {\n    if (uri === '' && name.startsWith('arg-')) {\n        var argName = name.substring('arg-'.length);\n        argProps.push(JSON.stringify(argName) + ': ' + value);\n        propsToRemove.push(name);\n    }\n}",
+    "receiverBase": "node",
+    "receiverCallee": "forEachProperty"
+  },
+  {
+    "callback": "function (propName) {\n    node.removeProperty(propName);\n}",
+    "receiverBase": "propsToRemove",
+    "receiverCallee": "forEach"
+  }
+]

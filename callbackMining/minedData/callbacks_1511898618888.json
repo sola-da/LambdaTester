@@ -1,0 +1,276 @@
+[
+  {
+    "callback": "function () {\n    output('worker will exit...');\n    output('child req total : ' + childReqCount);\n    log.info('child req total : ' + childReqCount);\n    log.destroy();\n    process.exit(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (req, res) {\n    dispatch(req, res);\n    childReqCount++;\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (m, handle) {\n    if (handle) {\n        server.listen(handle, function (err) {\n            if (err) {\n                output('worker listen error');\n            } else {\n                process.send({ 'listenOK': true });\n                output('worker listen ok');\n            }\n        });\n    }\n    if (m.status == 'update') {\n        util.inspect(process.memoryUsage());\n        process.send({ 'status': process.memoryUsage() });\n    }\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        output('worker listen error');\n    } else {\n        process.send({ 'listenOK': true });\n        output('worker listen ok');\n    }\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (arg, i) {\n    if (_.isFunction(arg))\n        args[i] = _.bind(arg, self);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    method.apply(self, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (balanceInfo) {\n    portfolio.push({\n        name: balanceInfo.name,\n        amount: balanceInfo.balance\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o) {\n    return o.ins === currentPair;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (o) {\n    return o.ServerOrderId === order;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (t) {\n    return {\n        tid: t.tid,\n        price: t.px,\n        date: t.unixtime,\n        amount: t.qty\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    self.trigger('on:colorSelect', self.$.color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function ($controller, $rootScope) {\n    return scope = $rootScope.$new();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($compile) {\n    var element;\n    element = angular.element('<cms-gravatar></cms-gravatar>');\n    element = $compile(element)(scope);\n    return expect(element.text()).toBe('this is the cmsGravatar directive');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var $Elem = this.$();\n    if ($Elem.length > 0) {\n        var oDomRef = $Elem[0].firstChild;\n        sap.ui.core.RenderManager.forceRepaint(oDomRef);\n    }\n}",
+    "receiverBase": "sap",
+    "receiverCallee": "delayedCall"
+  },
+  {
+    "callback": "function (response) {\n    return +response || 0;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (user) {\n    $scope.user = user;\n    console.log($scope.user);\n}",
+    "receiverBase": "getUserData",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    console.log(res);\n    upDateUser();\n    console.log($scope.user);\n}",
+    "receiverBase": "removeFromFave",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    this.BackboneCollection = Backbone.Collection.extend({ url: '/processes' });\n    _.extend(this.BackboneCollection.prototype, window.BackbonePolling);\n    this.collection = new this.BackboneCollection();\n    this.BackboneModel = Backbone.Model.extend({ url: '/process' });\n    _.extend(this.BackboneModel.prototype, window.BackbonePolling);\n    this.model = new this.BackboneModel();\n    this.collection.configure({ refresh: 10 });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    this.collection.stopFetching();\n    this.model.stopFetching();\n    this.collection.stopListening();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    this.collection.startFetching();\n    expect(this.collection.isFetching()).toBe(true);\n    this.collection.stopFetching();\n    expect(this.collection.isFetching()).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dfd = $.Deferred();\n    dfd.resolve();\n    return dfd.promise();\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    continueFlag = counter++ === numberOfTimesToCallBeforeContinuing;\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function () {\n    return continueFlag;\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitsFor"
+  },
+  {
+    "callback": "function () {\n    expect(this.collection.isFetching()).toBe(true);\n    expect(callbackAlways).toHaveBeenCalled();\n    expect(callbackAlways.callCount).toBe(numberOfTimesToCallBeforeContinuing);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runs"
+  },
+  {
+    "callback": "function () {\n    var dfd = $.Deferred();\n    if (counter < numberOfTimesToCallBeforeContinuing) {\n        dfd.resolve();\n    } else {\n        dfd.reject();\n    }\n    return dfd.promise();\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    continueFlag = counter++ === numberOfTimesToCallBeforeContinuing;\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function () {\n    return continueFlag;\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitsFor"
+  },
+  {
+    "callback": "function () {\n    expect(this.collection.isFetching()).toBe(true);\n    expect(callbackDone).toHaveBeenCalled();\n    expect(callbackFail).toHaveBeenCalled();\n    expect(callbackDone.callCount).toBe(2);\n    expect(callbackFail.callCount).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runs"
+  },
+  {
+    "callback": "function () {\n    var dfd = $.Deferred();\n    dfd.reject();\n    return dfd.promise();\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    continueFlag = counter++ === numberOfTimesToCallBeforeContinuing;\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function () {\n    return continueFlag;\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitsFor"
+  },
+  {
+    "callback": "function () {\n    expect(this.collection.isFetching()).toBe(true);\n    expect(callbackFail).toHaveBeenCalled();\n    expect(callbackFail.callCount).toBe(numberOfTimesToCallBeforeContinuing);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runs"
+  },
+  {
+    "callback": "function () {\n    var dfd = $.Deferred();\n    dfd.reject();\n    return dfd.promise();\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    continueFlag = counter++ === numberOfTimesToCallBeforeContinuing || this.collection.isFetching() === false;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    return continueFlag;\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitsFor"
+  },
+  {
+    "callback": "function () {\n    expect(this.collection.isFetching()).toBe(false);\n    expect(callbackFail).toHaveBeenCalled();\n    expect(callbackFail.callCount).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runs"
+  },
+  {
+    "callback": "function (callback) {\n    callback(schemaObject);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this._setMultipleFiles();\n    this._setFileFilters();\n    this._triggerEnabled();\n    this._attachTabElements();\n    this.after('multipleFilesChange', this._setMultipleFiles, this);\n    this.after('fileFiltersChange', this._setFileFilters, this);\n    this.after('enabledChange', this._triggerEnabled, this);\n    this.after('tabElementsChange', this._attachTabElements);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fire('mouseenter');\n    this._setButtonClass('hover', true);\n    if (this._buttonState === 'down') {\n        this._setButtonClass('active', true);\n    }\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fire('mouseleave');\n    this._setButtonClass('hover', false);\n    this._setButtonClass('active', false);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fire('mousedown');\n    this._buttonState = 'down';\n    this._setButtonClass('active', true);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fire('mouseup');\n    this._buttonState = 'up';\n    this._setButtonClass('active', false);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fire('click');\n    this._buttonFocus = true;\n    this._setButtonClass('focus', true);\n    Y.one('body').focus();\n    this._swfReference._swf.focus();\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.keyCode === 9 && !ev.shiftKey) {\n        ev.preventDefault();\n        this._swfReference._swf.setAttribute('tabindex', 0);\n        this._swfReference._swf.setAttribute('role', 'button');\n        this._swfReference._swf.setAttribute('aria-label', this.get('selectButtonLabel'));\n        this._swfReference._swf.focus();\n    }\n}",
+    "receiverBase": "fromElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.keyCode === 9 && ev.shiftKey) {\n        ev.preventDefault();\n        this._swfReference._swf.setAttribute('tabindex', 0);\n        this._swfReference._swf.setAttribute('role', 'button');\n        this._swfReference._swf.setAttribute('aria-label', this.get('selectButtonLabel'));\n        this._swfReference._swf.focus();\n    }\n}",
+    "receiverBase": "toElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._swfReference._swf.blur();\n    setTimeout(function () {\n        fromElement.focus();\n    }, 30);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    fromElement.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this._swfReference._swf.blur();\n    setTimeout(function () {\n        toElement.focus();\n    }, 30);\n}",
+    "receiverBase": "_swfReference",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    toElement.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this._buttonFocus = true;\n    this._setButtonClass('focus', true);\n}",
+    "receiverBase": "_swf",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._buttonFocus = false;\n    this._setButtonClass('focus', false);\n}",
+    "receiverBase": "_swf",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (value) {\n    var newFileConf = {};\n    newFileConf.id = value.fileId;\n    newFileConf.name = value.fileReference.name;\n    newFileConf.size = value.fileReference.size;\n    newFileConf.type = value.fileReference.type;\n    newFileConf.dateCreated = value.fileReference.creationDate;\n    newFileConf.dateModified = value.fileReference.modificationDate;\n    newFileConf.uploader = swfRef;\n    fileConfObjects.push(newFileConf);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    var newfile = new Y.FileFlash(value);\n    if (filterFunc(newfile)) {\n        parsedFiles.push(newfile);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    parsedFiles.push(new Y.FileFlash(value));\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.queue = null;\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "on"
+  }
+]

@@ -1,0 +1,397 @@
+[
+  {
+    "callback": "function (array) {\n    mixin(self, methods);\n    self._init(array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    return func.apply(self, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    var confirmMessage = me.t('You really want to remove this block?');\n    if (confirm(confirmMessage)) {\n        me.helperable.remove();\n        me.hideHelper();\n        me.clearStrings();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var plugin = me.getBlockPlugin(me.helperable);\n    plugin.showSettings();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var element = $(e.target).closest(me.blockClass(true));\n    if (element.length >= 0) {\n        me.showHelper(element);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if ($(e.relatedTarget).closest(me.helpersClass(true)).length <= 0) {\n        me.hideHelper();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if ($(e.relatedTarget).closest(me.helpersClass(true)).length <= 0) {\n        me.hideHelper();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if ($('body').hasClass('unselectable')) {\n        e.preventDefault();\n        e.stopPropagation();\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $me.movable = $me.helperable;\n    $me.startMove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $me.resizable = $me.findColumn($(this));\n    $me.resizable_prev = $($me.resizable).prev();\n    if ($me.resizable_prev.length) {\n        $me.startResize();\n    } else {\n        $me.resizable = undefined;\n        $me.resizable_prev = undefined;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $me.resizable = $(this).closest($me.blockClass(true));\n    $me.startHeightResize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $me.blockColumnChangeSize($(this));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).find($me.blockClass(true)).length > 0) {\n        counted += $me.getColumnValue($(this));\n    } else {\n        $(this).remove();\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    var column = $(this);\n    var current = $me.getColumnValue(column);\n    if (index == count_blocks - 1) {\n        $me.setColumnValue(column, current + append_last_block);\n    } else {\n        $me.setColumnValue(column, current + append_per_block);\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var offset = $me.calculateOffset(e.target, e);\n    $me.stopMove($(e.target), offset);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $me.clearHighlight();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var offset = $me.calculateOffset(e.target, e);\n    $me.highlightBlock($(e.target), offset);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var event = e.originalEvent;\n    var offset = {\n            'left': event.offsetX ? event.offsetX : event.layerX,\n            'top': event.offsetY ? event.offsetY : event.layerY\n        };\n    $me.stopResize(e.target, offset);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var resizable_offset = $($me.resizable).offset();\n    var offset = {\n            'left': e.pageX - resizable_offset.left,\n            'top': e.pageY - resizable_offset.top\n        };\n    $me.heightResize(offset);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    $me.stopHeightResize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    var $data = $(this).data();\n    $me.createBlock($data);\n    return false;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index) {\n    row = $me.createPureRow();\n    $(this).find($me.columnClass(true)).each(function (index) {\n        $(this).find($me.resizerClass(true)).remove();\n        var column = $(this).append($me.createResizeHandler());\n        $(this).find($me.blockClass(true)).each(function (index) {\n            column.append($me.makeBlock(this));\n        });\n        row.append(column);\n    });\n    $($me.area).append(row);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    $(this).find($me.resizerClass(true)).remove();\n    var column = $(this).append($me.createResizeHandler());\n    $(this).find($me.blockClass(true)).each(function (index) {\n        column.append($me.makeBlock(this));\n    });\n    row.append(column);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    column.append($me.makeBlock(this));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var cleared = $me.getRowContent($(this));\n    out.append(cleared);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var out_column = $(this).clone().html('');\n    $(this).find($me.blockClass(true)).each(function () {\n        var cleared = $me.cleanBlock($(this));\n        out_column.append(cleared);\n    });\n    out.append(out_column);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var cleared = $me.cleanBlock($(this));\n    out_column.append(cleared);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (img) {\n    return img.src;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (root, factory) {\n    'use strict';\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'exports',\n            'expander'\n        ], factory);\n    } else if (typeof exports !== 'undefined') {\n        factory(exports, require('./expander'));\n    } else {\n        factory(root.esprima = {});\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (whole, index$2) {\n    assert(index$2 < args.length, 'Message reference must be in range');\n    return args[index$2];\n}",
+    "receiverBase": "messageFormat",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (stx) {\n    return stx.token.value;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var name, types = {};\n    if (typeof Object.create === 'function') {\n        types = Object.create(null);\n    }\n    for (name in Syntax) {\n        if (Syntax.hasOwnProperty(name)) {\n            types[name] = Syntax[name];\n        }\n    }\n    if (typeof Object.freeze === 'function') {\n        Object.freeze(types);\n    }\n    return types;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    (function () {\n        for (var key in {}) {\n            throw new Error('\\'' + key + '\\' was found in {}, but iterizer.js should not add any enumerable properties');\n        }\n    }.should.not.throw());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    (function () {\n        for (var key in '') {\n            throw new Error('\\'' + key + '\\' was found in \\'\\', but iterizer.js should not add any enumerable properties');\n        }\n    }.should.not.throw());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    [\n        1,\n        2,\n        3\n    ].reduce(function (previousValue, currentValue, index, array) {\n        return array.join();\n    }).should.equal('1,2,3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (previousValue, currentValue, index, array) {\n    return array.join();\n}",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (obj) {\n    if (obj !== dst) {\n        forEach(obj, function (value, key) {\n            if (!dst.hasOwnProperty(key))\n                dst[key] = value;\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, key) {\n    if (!dst.hasOwnProperty(key))\n        dst[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (val, key) {\n    result.push(key);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var value = values[name];\n    normalized[name] = value != null ? String(value) : null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    filtered[name] = values[name];\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (param) {\n    if (param !== key && invocables.hasOwnProperty(param))\n        visit(invocables[param], param);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep) {\n    if (promises.hasOwnProperty(dep) && !locals.hasOwnProperty(dep)) {\n        waitParams++;\n        promises[dep].then(function (result) {\n            values[dep] = result;\n            if (!--waitParams)\n                proceed();\n        }, onfailure);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (result) {\n    values[dep] = result;\n    if (!--waitParams)\n        proceed();\n}",
+    "receiverBase": "promises",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    values[key] = result;\n    done();\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    return response.data;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (m, what) {\n    return match[what === '$' ? 0 : Number(what)];\n}",
+    "receiverBase": "pattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function ($injector, $location) {\n    return handleIfMatch($injector, handler, what.exec($location.path(), $location.search()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function ($injector, $location) {\n    return handleIfMatch($injector, handler, what.exec($location.path()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (view, name) {\n    if (name.indexOf('@') < 0)\n        name += '@' + state.parent.name;\n    views[name] = view;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    paramNames[p] = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    if (!paramNames[p]) {\n        throw new Error('Missing required parameter \\'' + p + '\\' in state \\'' + state.name + '\\'');\n    }\n    paramNames[p] = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (own, p) {\n    if (own)\n        ownParams.push(p);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (retryTransition !== $state.transition)\n        return TransitionSuperseded;\n    redirect.options.$retry = true;\n    return $state.transitionTo(redirect.to, redirect.toParams, redirect.options);\n}",
+    "receiverBase": "retryTransition",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return TransitionAborted;\n}",
+    "receiverBase": "retryTransition",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    if ($state.transition !== transition)\n        return TransitionSuperseded;\n    $state.transition = null;\n    $rootScope.$broadcast('$stateChangeError', to.self, toParams, from.self, fromParams, error);\n    syncUrl();\n    return $q.reject(error);\n}",
+    "receiverBase": "resolved",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value, key) {\n    if (!isDefined($stateParams[key]) || $stateParams[key] !== value) {\n        validParams = false;\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (state) {\n    list.push(state.self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (globals) {\n    dst.globals = globals;\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    if (isFunction(view.controllerProvider) || isArray(view.controllerProvider)) {\n        var injectLocals = angular.extend({}, injectables, locals);\n        result.$$controller = $injector.invoke(view.controllerProvider, null, injectLocals);\n    } else {\n        result.$$controller = view.controller;\n    }\n    result.$$state = state;\n    result.$$controllerAs = view.controllerAs;\n    dst[name] = result;\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (values) {\n    return dst;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $element[0].scrollIntoView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    updateView(false);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    updateView(false);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    previousEl = null;\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "leave"
+  },
+  {
+    "callback": "function (clone) {\n    renderer.enter(clone, $element, function onUiViewEnter() {\n        if (angular.isDefined(autoScrollExp) && !autoScrollExp || scope.$eval(autoScrollExp)) {\n            $uiViewScroll(clone);\n        }\n    });\n    cleanupLastView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$transclude"
+  },
+  {
+    "callback": "function onUiViewEnter() {\n    if (angular.isDefined(autoScrollExp) && !autoScrollExp || scope.$eval(autoScrollExp)) {\n        $uiViewScroll(clone);\n    }\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "enter"
+  },
+  {
+    "callback": "function (option) {\n    if (option in optionsOverride) {\n        options[option] = optionsOverride[option];\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== params)\n        update(newVal);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (e) {\n    var button = e.which || e.button;\n    if (!(button > 1 || e.ctrlKey || e.metaKey || e.shiftKey || element.attr('target'))) {\n        $timeout(function () {\n            $state.go(ref.state, params, options);\n        });\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $state.go(ref.state, params, options);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (ev, to, toParams, from, fromParams) {\n    $rootScope.$broadcast('$routeChangeStart', stateAsRoute(to), stateAsRoute(from));\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (ev, to, toParams, from, fromParams) {\n    $route.current = stateAsRoute(to);\n    $rootScope.$broadcast('$routeChangeSuccess', stateAsRoute(to), stateAsRoute(from));\n    copy(toParams, $route.params);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (ev, to, toParams, from, fromParams, error) {\n    $rootScope.$broadcast('$routeChangeError', stateAsRoute(to), stateAsRoute(from), error);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (window, $) {\n    var EdgeCommons = function () {\n    };\n    EdgeCommons.VERSION = '0.0.2';\n    EdgeCommons.$ = $;\n    EdgeCommons.Rf = {};\n    var LOG_GROUP = 'EdgeCommons';\n    window.EC = window.EdgeCommons = EdgeCommons;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (isAnchor) {\n        $('html, body').animate({ scrollTop: $(url).offset().top }, 1000);\n    } else {\n        window.open(url, '_self');\n    }\n}",
+    "receiverBase": "element$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var newHeight = $('img', this).height() + Math.round(Math.random() * 300 + 30);\n    $(this).css('height', newHeight + 'px');\n    teasers$.wookmark();\n    console.log('update');\n}",
+    "receiverBase": "teasers$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (f, define) {\n    define([], f);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (val) {\n    return '###!!!   ' + val;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "map"
+  }
+]

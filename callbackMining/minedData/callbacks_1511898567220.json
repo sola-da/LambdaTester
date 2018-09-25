@@ -1,0 +1,226 @@
+[
+  {
+    "callback": "function (d) {\n    if (d[primaryAxis.position + 'Bound'] < bounds.min) {\n        bounds.min = d[primaryAxis.position + 'Bound'];\n    }\n    if (d[primaryAxis.position + 'Bound'] > bounds.max) {\n        bounds.max = d[primaryAxis.position + 'Bound'];\n    }\n}",
+    "receiverBase": "aggData",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (catTot) {\n    if (catTot !== undefined) {\n        if (catTot.min < bounds.min) {\n            bounds.min = catTot.min;\n        }\n        if (catTot.max > bounds.max) {\n            bounds.max = catTot.max;\n        }\n    }\n}",
+    "receiverBase": "categoryTotals",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' shell rm -r ' + webapps_path\n    ]);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' shell rm //data/local/user.js'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' push \"' + utils.joinPath(profileFolder, 'webapps') + '\" ' + webapps_path\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' push \"' + utils.joinPath(profileFolder, 'user.js') + '\" //data/local/user.js'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    indexedDbFile = utils.getFile(profileFolder, 'indexedDB');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (indexedDbFile.exists() && indexedDbFile.isDirectory()) {\n        return sh.run([\n            '-c',\n            adb + ' push \"' + indexedDbFile.path + '\" //data/local/indexedDB'\n        ]);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' shell rm -r ' + svoperappsUrl\n    ]);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' push \"' + utils.joinPath(profileFolder, 'svoperapps') + '\" ' + svoperappsUrl\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' push \"' + utils.joinPath(targetFolder, 'manifest.webapp') + '\" /' + remotePath + '/webapps/' + buildAppName + '.' + gaiaDomain + '/manifest.webapp'\n    ]);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' push \"' + utils.joinPath(targetFolder, 'application.zip') + '\" /' + remotePath + '/webapps/' + buildAppName + '.' + gaiaDomain + '/application.zip'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var profile = utils.getFile(profileFolder);\n    if (!profile.isDirectory()) {\n        throw new Error(' -*- build/push-to-device.js: cannot locate' + 'profile folder in ' + options.PROFILE_DIR);\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' start-server'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    utils.log('push', 'Waiting for device ...');\n    return sh.run([\n        '-c',\n        adb + ' wait-for-device'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (restartB2g) {\n        return sh.run([\n            '-c',\n            adb + ' shell stop b2g'\n        ]);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return sh.run([\n        '-c',\n        adb + ' shell rm -r //cache/*'\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (!remotePath) {\n        utils.log('push', 'GAIA_INSTALL_PARENT unset; ' + 'probing previous installation location...');\n        remotePath = getRemoteInstallPath(adb);\n    }\n    utils.log('push', 'Install webapp(s) to ' + remotePath + '...');\n    if (/^\\/system\\//.test(remotePath)) {\n        return sh.run([\n            '-c',\n            adb + ' remount'\n        ]);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (buildAppName === '*') {\n        return pushToDevice(profileFolder, remotePath, adb);\n    } else {\n        return installOneApp(targetFolder, buildAppName, remotePath, gaiaDomain, adb);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (options.VARIANT_PATH) {\n        return installSvoperapps(profileFolder, adb);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (restartB2g) {\n        utils.log('push', 'Restarting B2G...');\n        sh.run([\n            '-c',\n            adb + ' shell start b2g'\n        ]);\n    } else {\n        var Q3 = Q.defer();\n        Q3.resolve();\n        return Q3.promise.then(function () {\n            utils.log('push', 'Restarting ' + manifest.name + '...');\n            utils.killAppByPid(pid);\n        });\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    utils.log('push', 'Restarting ' + manifest.name + '...');\n    utils.killAppByPid(pid);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback('ERR_TIMEOUT', null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (callback) {\n        callback('ERR_CREATE_SERVER', null);\n    }\n}",
+    "receiverBase": "httpServer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    window.app.directive('sidebarLoggers', [function () {\n            return {\n                scop: false,\n                restrict: 'E',\n                templateUrl: 'partials/elements/sidebarLoggers.html',\n                replace: true\n            };\n        }]);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (req, res) {\n    console.error('backend request');\n    res.writeHead(200, headers);\n    res.write('hello world\\n');\n    res.end();\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (chunk) {\n    res.write(chunk);\n}",
+    "receiverBase": "proxy_res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    res.end();\n    console.error('proxy res');\n}",
+    "receiverBase": "proxy_res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res) {\n    console.error('got res');\n    assert.equal(200, res.statusCode);\n    assert.equal('world', res.headers['hello']);\n    assert.equal('text/plain', res.headers['content-type']);\n    assert.deepEqual(cookies, res.headers['set-cookie']);\n    res.setEncoding('utf8');\n    res.on('data', function (chunk) {\n        body += chunk;\n    });\n    res.on('end', function () {\n        proxy.close();\n        backend.close();\n        console.error('closed both');\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (chunk) {\n    body += chunk;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    proxy.close();\n    backend.close();\n    console.error('closed both');\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert.equal(body, 'hello world\\n');\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, res) {\n    res.writeHead(200);\n    res.end('hello world\\n');\n    var buffer = '';\n    req.setEncoding('utf8');\n    req.on('data', function (s) {\n        buffer += s;\n    });\n    req.on('end', function () {\n        reqEndCount++;\n        assert.equal(body, buffer);\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "Server"
+  },
+  {
+    "callback": "function (s) {\n    buffer += s;\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    reqEndCount++;\n    assert.equal(body, buffer);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    for (var j = 0; j < M; j++) {\n        var req = http.request(options, function (res) {\n                console.log(res.statusCode);\n                if (++responses == N * M)\n                    server.close();\n            }).on('error', function (e) {\n                console.log(e.message);\n                process.exit(1);\n            });\n        req.end(body);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (res) {\n    console.log(res.statusCode);\n    if (++responses == N * M)\n        server.close();\n}",
+    "receiverBase": "http",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (e) {\n    console.log(e.message);\n    process.exit(1);\n}",
+    "receiverBase": "request",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert.equal(N * M, responses);\n    assert.equal(N * M, reqEndCount);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.addSprite();\n}",
+    "receiverBase": "addSpriteButton",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (file, bytes) {\n    palettes = brewtool.loadPalettes(bytes);\n    self.setupPalette();\n}",
+    "receiverBase": "",
+    "receiverCallee": "createFileLoader"
+  },
+  {
+    "callback": "function (file, bytes) {\n    brewtool.loadTileset(bytes, inputCanvas, 'GB', brewtool.getGreyscalePalette());\n    inputCanvas.style.display = 'block';\n    document.querySelector('.tileset').style.display = 'block';\n    self.recalculate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "createFileLoader"
+  },
+  {
+    "callback": "function (file, bytes) {\n    var sprites = brewtool.loadSprites(bytes);\n    var spriteRows = spriteTable.querySelectorAll('tr');\n    for (var i = 0; i < spriteRows.length; i++) {\n        spriteTable.removeChild(spriteRows[i]);\n    }\n    for (var i = 0; i < sprites.length; i++) {\n        self.addSprite(sprites[i]);\n    }\n    currentFile = file;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createFileLoader"
+  },
+  {
+    "callback": "function (blob) {\n    saveAs(blob, parts.join('.') + '.spr');\n}",
+    "receiverBase": "brewtool",
+    "receiverCallee": "saveSprites"
+  },
+  {
+    "callback": "function () {\n    spriteTable.removeChild(tr);\n    self.recalculate();\n}",
+    "receiverBase": "input",
+    "receiverCallee": "addEventListener"
+  }
+]

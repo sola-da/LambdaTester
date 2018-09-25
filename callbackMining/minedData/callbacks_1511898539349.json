@@ -1,0 +1,409 @@
+[
+  {
+    "callback": "function (err, mappings) {\n    if (err) {\n        if (callback)\n            callback(err);\n        return;\n    }\n    return mappings.map(function (m) {\n        return m.principalId;\n    });\n}",
+    "receiverBase": "roleMappingModel",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (m) {\n    return m.principalId;\n}",
+    "receiverBase": "mappings",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, mappings) {\n    if (err) {\n        if (callback)\n            callback(err);\n        return;\n    }\n    return mappings.map(function (m) {\n        return m.principalId;\n    });\n}",
+    "receiverBase": "roleMappingModel",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (m) {\n    return m.principalId;\n}",
+    "receiverBase": "mappings",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, mappings) {\n    if (err) {\n        if (callback)\n            callback(err);\n        return;\n    }\n    return mappings.map(function (m) {\n        return m.principalId;\n    });\n}",
+    "receiverBase": "roleMappingModel",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (m) {\n    return m.principalId;\n}",
+    "receiverBase": "mappings",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (role, context, callback) {\n    if (!context || !context.model || !context.modelId) {\n        process.nextTick(function () {\n            if (callback)\n                callback(null, false);\n        });\n        return;\n    }\n    var modelClass = context.model;\n    var modelId = context.modelId;\n    var userId = context.getUserId();\n    Role.isOwner(modelClass, modelId, userId, callback);\n}",
+    "receiverBase": "Role",
+    "receiverCallee": "registerResolver"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, false);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(null, false);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    callback(null, matches(modelId, userId));\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (role, context, callback) {\n    if (!context) {\n        process.nextTick(function () {\n            if (callback)\n                callback(null, false);\n        });\n        return;\n    }\n    Role.isAuthenticated(context, callback);\n}",
+    "receiverBase": "Role",
+    "receiverCallee": "registerResolver"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, false);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, context.isAuthenticated());\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (role, context, callback) {\n    process.nextTick(function () {\n        if (callback)\n            callback(null, !context || !context.isAuthenticated());\n    });\n}",
+    "receiverBase": "Role",
+    "receiverCallee": "registerResolver"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, !context || !context.isAuthenticated());\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (role, context, callback) {\n    process.nextTick(function () {\n        if (callback)\n            callback(null, true);\n    });\n}",
+    "receiverBase": "Role",
+    "receiverCallee": "registerResolver"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, true);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, false);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (p) {\n    var principalType = p.type || undefined;\n    var principalId = p.id || undefined;\n    return principalType === RoleMapping.ROLE && principalId === role;\n}",
+    "receiverBase": "principals",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    if (callback)\n        callback(null, true);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, result) {\n    debug('Role mapping found: %j', result);\n    done(!err && result);\n}",
+    "receiverBase": "roleMappingModel",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function () {\n    done(false);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (inRole) {\n    debug('isInRole() returns: %j', inRole);\n    if (callback)\n        callback(null, inRole);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (role) {\n    inRoleTasks.push(function (done) {\n        self.isInRole(role, context, function (err, inRole) {\n            if (debug.enabled) {\n                debug('In role %j: %j', role, inRole);\n            }\n            if (!err && inRole) {\n                addRole(role);\n                done();\n            } else {\n                done(err, null);\n            }\n        });\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (done) {\n    self.isInRole(role, context, function (err, inRole) {\n        if (debug.enabled) {\n            debug('In role %j: %j', role, inRole);\n        }\n        if (!err && inRole) {\n            addRole(role);\n            done();\n        } else {\n            done(err, null);\n        }\n    });\n}",
+    "receiverBase": "inRoleTasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (err, inRole) {\n    if (debug.enabled) {\n        debug('In role %j: %j', role, inRole);\n    }\n    if (!err && inRole) {\n        addRole(role);\n        done();\n    } else {\n        done(err, null);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "isInRole"
+  },
+  {
+    "callback": "function (done) {\n    roleMappingModel.find({\n        where: {\n            principalType: principalType,\n            principalId: principalId\n        }\n    }, function (err, mappings) {\n        debug('Role mappings found: %s %j', err, mappings);\n        if (err) {\n            if (done)\n                done(err);\n            return;\n        }\n        mappings.forEach(function (m) {\n            addRole(m.roleId);\n        });\n        if (done)\n            done();\n    });\n}",
+    "receiverBase": "inRoleTasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (err, mappings) {\n    debug('Role mappings found: %s %j', err, mappings);\n    if (err) {\n        if (done)\n            done(err);\n        return;\n    }\n    mappings.forEach(function (m) {\n        addRole(m.roleId);\n    });\n    if (done)\n        done();\n}",
+    "receiverBase": "roleMappingModel",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (m) {\n    addRole(m.roleId);\n}",
+    "receiverBase": "mappings",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, results) {\n    debug('getRoles() returns: %j %j', err, roles);\n    if (callback)\n        callback(err, roles);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "parallel"
+  },
+  {
+    "callback": "function (v, k) {\n    el.style[k] = v;\n}",
+    "receiverBase": "",
+    "receiverCallee": "loupe_each"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    var oop = require('../lib/oop');\n    var TextMode = require('./text').Mode;\n    var LispHighlightRules = require('./lisp_highlight_rules').LispHighlightRules;\n    var Mode = function () {\n        this.HighlightRules = LispHighlightRules;\n    };\n    oop.inherits(Mode, TextMode);\n    (function () {\n        this.lineCommentStart = ';';\n        this.$id = 'ace/mode/lisp';\n    }.call(Mode.prototype));\n    exports.Mode = Mode;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['moment'], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('../moment'));\n    } else {\n        factory((typeof global !== 'undefined' ? global : this).moment);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _cleanData = $.cleanData;\n    $.cleanData = function (elems) {\n        if (!$.widget) {\n            for (var i = 0, elem; (elem = elems[i]) != null; i++) {\n                try {\n                    $(elem).triggerHandler('remove');\n                } catch (e) {\n                }\n            }\n        }\n        _cleanData(elems);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    elem = this;\n    if (elem.nodeType === 1) {\n        if (isFunction) {\n            var genVal = val.call(elem, i, $.prop(elem, 'value', undefined, 'val', true));\n            if (genVal == null) {\n                genVal = '';\n            }\n            $.prop(elem, 'value', genVal, 'val');\n        } else {\n            $.prop(elem, 'value', val, 'val');\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(evtDel).off(evt, fn);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $.fn[data.name] = function () {\n        var elems = [];\n        this.each(function () {\n            var shadowData = elementData(this, 'shadowData');\n            var elem = shadowData && shadowData[data.prop] || this;\n            if ($.inArray(elem, elems) == -1) {\n                elems.push(elem);\n            }\n        });\n        return this.pushStack(elems);\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var shadowData = elementData(this, 'shadowData');\n    var elem = shadowData && shadowData[data.prop] || this;\n    if ($.inArray(elem, elems) == -1) {\n        elems.push(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    if (!fn.only || (fn.only = 'prop' && type == 'prop') || fn.only == 'attr' && type != 'prop') {\n        fn.call(elem, value, boolValue, isVal ? 'val' : curType, type);\n    }\n}",
+    "receiverBase": "modifyProps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (descProp) {\n    if (desc[descProp]) {\n        desc['_sup' + descProp] = getSup(descProp, oldDesc);\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, fns) {\n    getElementsByName(name);\n    if (!fns || !fns.forEach) {\n        webshims.warn('Error: with ' + name + '-property. methods: ' + fns);\n        return;\n    }\n    fns.forEach(function (fn) {\n        nodeNameCache[name].each(fn);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    nodeNameCache[name].each(fn);\n}",
+    "receiverBase": "fns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var val = $.attr(this, prop);\n    if (val != null) {\n        $.attr(this, prop, val);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    $(this).each(function () {\n        var data = elementData(this, 'propValue', {});\n        data[prop] = this[prop];\n        this[prop] = value;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    var data = elementData(this, 'propValue', {});\n    data[prop] = this[prop];\n    this[prop] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ID = new Date().getTime();\n    return function (elem) {\n        elem = $(elem);\n        var id = elem.prop('id');\n        if (!id) {\n            ID++;\n            id = 'ID-' + ID;\n            elem.eq(0).prop('id', id);\n        }\n        return id;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (name, prop) {\n    if (!(name in obj)) {\n        obj[name] = prop;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, type) {\n    var body = document.body;\n    var doc = document.documentElement;\n    docObserve[type] = function () {\n        return Math.max(body['scroll' + name], doc['scroll' + name], body['offset' + name], doc['offset' + name], doc['client' + name]);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var oldAnimate = $.fn.animate;\n    var animationTimer;\n    $.fn.animate = function () {\n        clearTimeout(animationTimer);\n        animationTimer = setTimeout(function () {\n            docObserve.test();\n        }, 99);\n        return oldAnimate.apply(this, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    docObserve.test();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    docObserve.start();\n    if ($.support.boxSizing == null) {\n        $(function () {\n            if ($.support.boxSizing) {\n                docObserve.handler({ type: 'boxsizing' });\n            }\n        });\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    if ($.support.boxSizing) {\n        docObserve.handler({ type: 'boxsizing' });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            $(shadowElem).remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(shadowElem).remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    elementData(this, 'shadowData', shadowData.shadowData);\n}",
+    "receiverBase": "shadowChilds",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    webshims.defineNodeNamesProperty(nodeNames, prop, {\n        prop: {\n            set: function (val) {\n                $.attr(this, prop, val);\n            },\n            get: function () {\n                return $.attr(this, prop) || '';\n            }\n        }\n    });\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var desc = descs[type];\n    if (desc) {\n        if (type === 'prop') {\n            desc = $.extend({ writeable: true }, desc);\n        } else {\n            desc = $.extend({}, desc, { writeable: true });\n        }\n        extendQ[type](nodeName, prop, desc);\n        if (nodeName != '*' && webshims.cfg.extendNative && type == 'prop' && desc.value && $.isFunction(desc.value)) {\n            extendNativeValue(nodeName, prop, desc);\n        }\n        descs[type] = desc;\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (copyProp) {\n    if (copyProp in descs[prop]) {\n        descs[prop][propType][copyProp] = descs[prop][copyProp];\n        delete descs[prop][copyProp];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (!modifyProps[name][prop]) {\n        modifyProps[name][prop] = [];\n        havePolyfill[prop] = true;\n    }\n    if (desc.set) {\n        if (only) {\n            desc.set.only = only;\n        }\n        modifyProps[name][prop].push(desc.set);\n    }\n    if (desc.initAttr) {\n        initProp.content(name, prop);\n    }\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (loadingLang == curLang.join()) {\n        $.each(loading[src], function (i, obj) {\n            select(obj);\n        });\n    }\n    delete loading[src];\n}",
+    "receiverBase": "loader",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (i, obj) {\n    select(obj);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, baseMethod) {\n    webshims[name] = function (names, a, b, c) {\n        if (typeof names == 'string') {\n            names = names.split(listReg);\n        }\n        var retDesc = {};\n        names.forEach(function (nodeName) {\n            retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n        });\n        return retDesc;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeName) {\n    retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var main = $('main').attr({ role: 'main' });\n    if (main.length > 1) {\n        webshims.error('only one main element allowed in document');\n    } else if (main.is('article *, section *')) {\n        webshims.error('main not allowed inside of article/section elements');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (name, role) {\n    var elems = $(name, context).add(contextElem.filter(name));\n    for (var i = 0, len = elems.length; i < len; i++) {\n        addRole(elems[i], role);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return main(self, options);\n}",
+    "receiverBase": "readyCallbacks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    return $(this).text();\n}",
+    "receiverBase": "jProp",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    if (id !== currentTarget) {\n        e = e || window.event;\n        currentTarget = id;\n        FileAPIProxy.swfObject.mouseover(id);\n        FileAPIProxy.container.height(input.outerHeight()).width(input.outerWidth()).css(input.offset());\n    }\n}",
+    "receiverBase": "css",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    e.stopPropagation();\n    e.stopImmediatePropagation();\n    return false;\n}",
+    "receiverBase": "mouseover",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (evt) {\n    if (currentTarget) {\n        $('#' + currentTarget).trigger(evt.type);\n    }\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    self.swfObject = e.ref;\n    $(self.swfObject).css({\n        display: 'block',\n        outline: 0\n    }).attr('tabindex', 0);\n    self.ready = e.success && typeof e.ref.add === 'function';\n    if (self.ready) {\n        readyCallbacks.fire();\n    }\n}",
+    "receiverBase": "swfobject",
+    "receiverCallee": "embedSWF"
+  },
+  {
+    "callback": "function () {\n    webshims.addReady(function (context, contextElem) {\n        $('input[type=\"file\"].ws-filereader', context).fileReader();\n    });\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    $('input[type=\"file\"].ws-filereader', context).fileReader();\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(playerTimeout);\n    player.onReady();\n    player.onError('');\n}",
+    "receiverBase": "player",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    player.onReady();\n    player.onError('Unable to play video.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (player) {\n    return function (progress) {\n        player.duration.set(parseFloat(progress.duration));\n        player.bytesLoaded.set(progress.bytesLoaded);\n        player.bytesTotal.set(progress.bytesTotal);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (player) {\n    return function (progress) {\n        player.duration.set(parseFloat(progress.duration));\n        player.currentTime.set(parseFloat(progress.seconds));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (player) {\n    return function () {\n        player.onPlaying();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (player) {\n    return function () {\n        player.onPaused();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (player) {\n    return function () {\n        player.onComplete();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (vol) {\n    callback(vol);\n}",
+    "receiverBase": "player",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function (duration) {\n    callback(duration);\n}",
+    "receiverBase": "player",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function () {\n    commentRx.lastIndex = 0;\n    return commentRx;\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "__defineGetter__"
+  },
+  {
+    "callback": "function () {\n    mapFileCommentRx.lastIndex = 0;\n    return mapFileCommentRx;\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "__defineGetter__"
+  }
+]

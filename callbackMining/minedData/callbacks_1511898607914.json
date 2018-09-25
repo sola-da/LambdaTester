@@ -1,0 +1,222 @@
+[
+  {
+    "callback": "function (packageName) {\n    queue.push(node.dependencies[packageName]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (packageJson) {\n    return !filterRegEx || filterRegEx.test(packageJson.name);\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (packageJson) {\n    return packageJson.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "uniq"
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    return function (data, options) {\n        return new vis.DataSet(data, options);\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (callback, event) {\n    if (timelineEvents.indexOf(String(event)) >= 0) {\n        timeline.on(event, callback);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (options) {\n    if (timeline == null) {\n        return;\n    }\n    timeline.setOptions(options);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function () {\n    if (scope.data == null) {\n        return;\n    }\n    network = new vis.Network(element[0]);\n    angular.forEach(scope.events, function (callback, event) {\n        if (networkEvents.indexOf(String(event)) >= 0) {\n            network.on(event, callback);\n        }\n    });\n    network.setOptions(scope.options);\n    network.setData(scope.data);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (callback, event) {\n    if (networkEvents.indexOf(String(event)) >= 0) {\n        network.on(event, callback);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (options) {\n    if (network == null) {\n        return;\n    }\n    network.setOptions(options);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (events) {\n    angular.forEach(events, function (callback, event) {\n        if ([\n                'select',\n                'click',\n                'hoverNode'\n            ].indexOf(String(event)) >= 0) {\n            network.on(event, callback);\n        }\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (callback, event) {\n    if ([\n            'select',\n            'click',\n            'hoverNode'\n        ].indexOf(String(event)) >= 0) {\n        network.on(event, callback);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (callback, event) {\n    if (graphEvents.indexOf(String(event)) >= 0) {\n        graph.on(event, callback);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (options) {\n    if (graph == null) {\n        return;\n    }\n    graph.setOptions(options);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (depName) {\n    if (data[depName] < 2)\n        delete data[depName];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (max, depName) {\n    return data[depName] > max ? data[depName] : max;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (depName) {\n    return {\n        depName: depName,\n        value: data[depName]\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return !d.children;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d.depName;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function () {\n    return 'translate(' + diameter / 2 + ',' + diameter / 2 + ')';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    window.location = npmsite + '/package/' + d.depName;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    return d.depName + ': ' + format(d.value);\n}",
+    "receiverBase": "append",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return 'translate(' + d.x + ',' + d.y + ')';\n}",
+    "receiverBase": "transition",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.r;\n}",
+    "receiverBase": "select",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return color(d.value);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "style"
+  },
+  {
+    "callback": "function (d) {\n    return d.depName.substring(0, d.r / 3);\n}",
+    "receiverBase": "select",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (err, obj) {\n    if (err) {\n        console.log(err);\n    } else {\n        console.log(obj);\n    }\n}",
+    "receiverBase": "client",
+    "receiverCallee": "searchAll"
+  },
+  {
+    "callback": "function (c) {\n    return parseInt(c, 16);\n}",
+    "receiverBase": "match",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return parseInt(c + c, 16);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return Math.round(c);\n}",
+    "receiverBase": "rgb",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    i = Math.round(i);\n    i = (i > 255 ? 255 : i < 0 ? 0 : i).toString(16);\n    return i.length === 1 ? '0' + i : i;\n}",
+    "receiverBase": "rgb",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (index, option) {\n    option = $(option);\n    ul += '<li data-value=\"' + option.val() + '\">' + '<a href=\"#\">' + option.html() + '</a>' + '</li>';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (li) {\n    return $(li).find('a').html() == selectedOption.html();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    var selectEl = select;\n    var listItems = lis;\n    var li = $(this);\n    var displayEl = wrapper;\n    listItems.removeClass('active');\n    li.addClass('active');\n    selectEl.val(li.data('value'));\n    displayEl.html(li.find('a').text());\n    displayEl.click();\n    settings.onClicked();\n}",
+    "receiverBase": "lis",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    var selectEl = select;\n    var listItems = lis;\n    var displayEl = wrapper;\n    var value = $(this).val();\n    var activeLi = $(lis.filter('[data-value=\"' + value + '\"]'));\n    listItems.removeClass('active');\n    activeLi.addClass('active');\n    displayEl.html(activeLi.find('a').text());\n}",
+    "receiverBase": "select",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    var parent = $(this).parent();\n    parent.find('.' + settings.wrapperCssClass).toggleClass('active');\n    parent.find('.' + settings.listCssClass).animate({ height: 'toggle' }, settings.panelToggleDuration, settings.panelToggleEasing);\n}",
+    "receiverBase": "wrapper",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (item) {\n    item.options = item.options || {};\n    item.options.styles = {\n        'float': 'left',\n        color: this.props.fontColor\n    };\n}",
+    "receiverBase": "menu",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.startSpin(true);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    this.startSpin(false);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    this.step(true);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    this.step(false);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    this.iterator(type);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    var data = $this.data('spinner');\n    var options = typeof option === 'object' && option;\n    if (!data)\n        $this.data('spinner', data = new Spinner(this, options));\n    if (typeof option === 'string')\n        methodReturn = data[option](value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('body').on('mousedown.spinner.data-api', '.spinner', function (e) {\n        var $this = $(this);\n        if ($this.data('spinner'))\n            return;\n        $this.spinner($this.data());\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    var $this = $(this);\n    if ($this.data('spinner'))\n        return;\n    $this.spinner($this.data());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  }
+]

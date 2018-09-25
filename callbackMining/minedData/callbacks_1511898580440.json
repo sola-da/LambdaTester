@@ -1,0 +1,263 @@
+[
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (err, result) {\n    if (err)\n        return callback(err);\n    if (++completed >= items.length)\n        return callback(null, result);\n    iterate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (macro) {\n    return {\n        macro: macro,\n        score: new LevenshteinDistanceScore(step, macro.levenshtein_signature())\n    };\n}",
+    "receiverBase": "macros",
+    "receiverCallee": "collect"
+  },
+  {
+    "callback": "function (sub_term) {\n    if (already_expanding.in_array(sub_term))\n        throw new Error('Circular Definition: [' + already_expanding.join(', ') + ']');\n    var sub_term_definition = expand_sub_term(sub_term, already_expanding);\n    return term = term.replace(prefix + sub_term, sub_term_definition);\n}",
+    "receiverBase": "get_sub_terms",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (callback) {\n    callback({\n        name: event_name,\n        data: event_data\n    });\n}",
+    "receiverBase": "find_handlers",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (handler) {\n    return new RegExp(handler.pattern).test(event_name);\n}",
+    "receiverBase": "event_handlers",
+    "receiverCallee": "find_all"
+  },
+  {
+    "callback": "function (handler) {\n    return handler.callback;\n}",
+    "receiverBase": "find_all",
+    "receiverCallee": "collect"
+  },
+  {
+    "callback": "function (macros, library) {\n    return macros.concat(library.find_compatible_macros(step));\n}",
+    "receiverBase": "libraries",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (signature) {\n    define_macro(signature, fn, macro_context);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (other_macro) {\n    return other_macro.is_identified_by(signature);\n}",
+    "receiverBase": "macros",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (macro) {\n    return macro.can_interpret(step);\n}",
+    "receiverBase": "macros",
+    "receiverCallee": "find_all"
+  },
+  {
+    "callback": "function () {\n    var vocabulary = {\n            feature: '(?:[Ff]eature)',\n            scenario: '(?:[Ss]cenario)',\n            pending: 'Pending',\n            given: '(?:[Gg]iven|[Ww]ith|[Aa]nd|[Bb]ut|[Ee]xcept)',\n            when: '(?:[Ww]hen|[Ii]f|[Aa]nd|[Bb]ut)',\n            then: '(?:[Tt]hen|[Ee]xpect|[Aa]nd|[Bb]ut)'\n        };\n    return new Language('English', vocabulary);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (keyword) {\n    library[keyword] = function (signatures, fn, ctx) {\n        return $(signatures).each(function (signature) {\n            var signature = prefix_signature(_this.localise(keyword), signature);\n            return library.define(signature, fn, ctx);\n        });\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (signature) {\n    var signature = prefix_signature(_this.localise(keyword), signature);\n    return library.define(signature, fn, ctx);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var vocabulary = {\n            feature: '(?:[Tt]ale)',\n            scenario: '(?:[Aa]dventure)',\n            pending: 'Brig',\n            given: '(?:[Gg]iveth|[Ww]ith|[Aa]nd|[Bb]ut|[Ee]xcept)\\\\s+',\n            when: '(?:[Ww]hilst|[Ii]f|[Aa]nd|[Bb]ut)\\\\s+',\n            then: '(?:[Tt]hence|[Ee]xpect|[Aa]nd|[Bb]ut)\\\\s+'\n        };\n    return new Language('Pirate', vocabulary);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    casper.test.info(step);\n    EventBus.instance().send(EventBus.ON_STEP, {\n        step: step,\n        ctx: ctx\n    });\n    _this.rank_macros(step).clear_winner().interpret(step, ctx, next);\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (feature) {\n    var _describe = feature.annotations[language.localise('pending')] ? xdescribe : describe;\n    _describe(feature.title || filename, function () {\n        next(feature);\n    });\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "parse"
+  },
+  {
+    "callback": "function () {\n    next(feature);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_describe"
+  },
+  {
+    "callback": "function (scenario) {\n    var _it = scenario.annotations.Pending ? xit : it;\n    _it(scenario.title, function (done) {\n        next(scenario, done);\n    });\n}",
+    "receiverBase": "scenarios",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (done) {\n    next(scenario, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_it"
+  },
+  {
+    "callback": "function (scenario) {\n    var _it = scenario.annotations.Pending ? xit : it;\n    _it(scenario.title, function () {\n        next(scenario);\n    });\n}",
+    "receiverBase": "scenarios",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    next(scenario);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_it"
+  },
+  {
+    "callback": "function (key) {\n    if (obj[key])\n        throw new Error('Can\\'t set \\'' + key + '\\' in log message');\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    delete obj[key];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, data) {\n    fmt.msg('listing all REGISTERED domains - expecting success');\n    fmt.dump(err, 'Error');\n    fmt.dump(data, 'Data');\n}",
+    "receiverBase": "swf",
+    "receiverCallee": "ListDomains"
+  },
+  {
+    "callback": "function (err, data) {\n    fmt.msg('listing activity types - expecting success');\n    fmt.dump(err, 'Error');\n    fmt.dump(data, 'Data');\n}",
+    "receiverBase": "swf",
+    "receiverCallee": "ListActivityTypes"
+  },
+  {
+    "callback": "function (err, data) {\n    fmt.msg('listing open workflow executions - expecting success');\n    fmt.dump(err, 'Error');\n    fmt.dump(data, 'Data');\n}",
+    "receiverBase": "swf",
+    "receiverCallee": "ListOpenWorkflowExecutions"
+  },
+  {
+    "callback": "function (err, data) {\n    fmt.msg('listing closed workflow executions - expecting success');\n    fmt.dump(err, 'Error');\n    fmt.dump(data, 'Data');\n}",
+    "receiverBase": "swf",
+    "receiverCallee": "ListClosedWorkflowExecutions"
+  },
+  {
+    "callback": "function _checkColumnSpecification(type) {\n    if (defaultConfig[type] === config[type])\n        return true;\n    config[type] = parseInt(config[type], 10);\n    if (isNaN(config[type]) || config[type] < 0) {\n        throw new FTColumnflowException('ColumnDimensionException', type + ' must be an positive integer or \"' + defaultConfig[type] + '\".');\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function _lowercase(item) {\n    return item.toLowerCase();\n}",
+    "receiverBase": "noWrapOnTags",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function _addRuleToTag(string, tag, attributes) {\n    if (!string.match(/class\\s*=/)) {\n        string = '<' + tag + ' class=\"\" ' + attributes + '>';\n    }\n    string = string.replace(/class=([\"'])/, 'class=$1 ' + className + ' ');\n    return string;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function _addRuleToTag(string, tag, attributes) {\n    if (!string.match(/style\\s*=/)) {\n        string = '<' + tag + ' style=\"\" ' + attributes + '>';\n    }\n    string = string.replace(/style=([\"'])/, 'style=$1 ' + rule);\n    return string;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function _replace(a, b) {\n    var r = tokens[b];\n    return typeof r === 'string' || typeof r === 'number' ? r : a;\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (n, w) {\n    'use strict';\n    return typeof module == 'object' ? function (c) {\n        c(require, exports, module);\n    } : function (c) {\n        var m = { exports: {} };\n        c(function (n) {\n            return w[n];\n        }, m.exports, m);\n        w[n] = m.exports;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (n) {\n    return w[n];\n}",
+    "receiverBase": "",
+    "receiverCallee": "c"
+  },
+  {
+    "callback": "function () {\n    var firebrick = document.getElementById('firebrick');\n    firebrick.dispatchEvent(createClickEvent());\n    expect(firebrick).to.have.property('textContent', '2');\n    firebrick.dispatchEvent(createClickEvent());\n    expect(firebrick).to.have.property('textContent', '3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var chocolate = document.getElementById('chocolate');\n    chocolate.dispatchEvent(createClickEvent());\n    expect(chocolate).to.have.property('textContent', '1');\n    chocolate.dispatchEvent(createClickEvent());\n    expect(chocolate).to.have.property('textContent', '0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var mediumseagreen = document.querySelector('.mediumseagreen');\n    mediumseagreen.dispatchEvent(createClickEvent());\n    expect(mediumseagreen).to.have.deep.property(secret('fglyr.genafsbez'), secret('ebgngr(10qrt)'));\n    mediumseagreen.dispatchEvent(createClickEvent());\n    expect(mediumseagreen).to.have.deep.property(secret('fglyr.genafsbez'), secret('ebgngr(20qrt)'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var turquoise = document.querySelector('.turquoise');\n    var turquoiseInput = turquoise.querySelector('input');\n    simulateChangeEvent(turquoiseInput, 10);\n    expect(turquoise).to.have.deep.property(secret('fglyr.genafsbez'), secret('ebgngr(10qrt)'));\n    simulateChangeEvent(turquoiseInput, 20);\n    expect(turquoise).to.have.deep.property(secret('fglyr.genafsbez'), secret('ebgngr(20qrt)'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var steelblue = document.querySelector('.steelblue');\n    expect(steelblue).to.have.property('textContent', '5 \\uD83D\\uDC33');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (char) {\n    if (!char.match(/[A-Za-z]/)) {\n        return char;\n    }\n    var charCode = char.charCodeAt(0);\n    if (charCode < 97) {\n        charCode = (charCode - 52) % 26 + 65;\n    } else {\n        charCode = (charCode - 84) % 26 + 97;\n    }\n    return String.fromCharCode(charCode);\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    cb(null, ['--lazy']);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (proc) {\n    console.log('saw respawn');\n}",
+    "receiverBase": "Test",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (env) {\n    console.error(process.execArgv.join(''));\n}",
+    "receiverBase": "Test",
+    "receiverCallee": "launch"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var oop = require('../lib/oop');\n    var TextMode = require('./text').Mode;\n    var LuceneHighlightRules = require('./lucene_highlight_rules').LuceneHighlightRules;\n    var Mode = function () {\n        this.HighlightRules = LuceneHighlightRules;\n    };\n    oop.inherits(Mode, TextMode);\n    (function () {\n        this.$id = 'ace/mode/lucene';\n    }.call(Mode.prototype));\n    exports.Mode = Mode;\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (n, i, f, t, v, w, within) {\n    return 'other';\n}",
+    "receiverBase": "Util",
+    "receiverCallee": "getPluralCategory"
+  },
+  {
+    "callback": "function (p) {\n    p = p.trim();\n    if (p.match(/^org.couchdb.user/)) {\n        return p.replace(/\\//g, encodeURIComponent('/'));\n    }\n    return encodeURIComponent(p);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    s.on('error', cb);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (er, buf) {\n    if (er)\n        return cb(er, response, data);\n    cb(null, response, buf);\n}",
+    "receiverBase": "zlib",
+    "receiverCallee": "gunzip"
+  },
+  {
+    "callback": "function (part) {\n    part = part.replace(/:/g, '_');\n    return _ = path.join(_, part);\n}",
+    "receiverBase": "p",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (cache) {\n    return path.join(this.conf.get('cache'), cache, '.cache.json');\n}",
+    "receiverBase": "map",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncMap"
+  },
+  {
+    "callback": "function (benchmark) {\n    function logMean(test) {\n        console.log(test.name + ' mean run time: ' + test.stats.mean);\n    }\n    for (var i = 0; i < benchmark.length; i++) {\n        logMean(benchmark[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "bencher"
+  }
+]

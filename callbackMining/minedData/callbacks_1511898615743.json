@@ -1,0 +1,1088 @@
+[
+  {
+    "callback": "function () {\n    this.resize();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function ($scope, app) {\n    _injected = {\n        $scope: $scope,\n        app: app\n    };\n    _.assign($scope, {\n        setLimit: setLimit,\n        tasks: app.task.getActiveTasks()\n    });\n    $scope.$on('$destroy', _onDestroy);\n    _onCreate();\n}",
+    "receiverBase": "ngModule",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (m, i) {\n    return args[i];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var ms1d = 86400000, ms7d = 7 * ms1d;\n    return function () {\n        var DC3 = Date.UTC(this.getFullYear(), this.getMonth(), this.getDate() + 3) / ms1d, AWN = Math.floor(DC3 / 7), Wyr = new Date(AWN * ms7d).getUTCFullYear();\n        return AWN - Math.floor(Date.UTC(Wyr, 0, 7) / ms7d) + 1;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var daysInMonth = [\n            31,\n            28,\n            31,\n            30,\n            31,\n            30,\n            31,\n            31,\n            30,\n            31,\n            30,\n            31\n        ];\n    return function () {\n        var m = this.getMonth();\n        return m == 1 && this.isLeapYear() ? 29 : daysInMonth[m];\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, value) {\n    return !value;\n}",
+    "receiverBase": "$element",
+    "receiverCallee": "prop"
+  },
+  {
+    "callback": "function () {\n    $this.addClass('nohover');\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    $this.removeClass('nohover');\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function (i, oChild) {\n    sChildLocalName = oChild.localName || oChild.baseName;\n    if (oChild.nodeType == 1 && sChildLocalName == sLocalName && oChild.namespaceURI == sNameSpace) {\n        aResult.push(oChild);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, oChild) {\n    if (oChild.nodeType == 1 && oChild.nodeName == sName) {\n        aResult.push(oChild);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, oAttribute) {\n    var name = oAttribute.name, value = oAttribute.value;\n    if (name == 'xmlns') {\n        oPrefixes[value] = '';\n    } else if (name.indexOf('xmlns') == 0) {\n        oPrefixes[value] = name.substr(6);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    'object' == typeof exports ? module.exports = e() : 'function' == typeof define && define.amd ? define(e) : 'undefined' != typeof window ? window.PouchDB = e() : 'undefined' != typeof global ? global.PouchDB = e() : 'undefined' != typeof self && (self.PouchDB = e());\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, prnt) {\n    var rev = pos + '-' + id;\n    if (isLeaf) {\n        height[rev] = 0;\n    }\n    if (prnt !== undefined) {\n        edges.push({\n            from: prnt,\n            to: rev\n        });\n    }\n    return rev;\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (edge) {\n    if (height[edge.from] === undefined) {\n        height[edge.from] = 1 + height[edge.to];\n    } else {\n        height[edge.from] = Math.min(height[edge.from], 1 + height[edge.to]);\n    }\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, db) {\n    if (err) {\n        if (callback) {\n            callback(err);\n        }\n        return;\n    }\n    for (var j in api) {\n        if (!db.hasOwnProperty(j)) {\n            db[j] = api[j];\n        }\n    }\n    if (opts.name === Pouch.prefix + Pouch.ALL_DBS) {\n        callback(err, db);\n    } else {\n        Pouch.open(opts, function (err) {\n            callback(err, db);\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "adapters"
+  },
+  {
+    "callback": "function (err) {\n    callback(err, db);\n}",
+    "receiverBase": "Pouch",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function (doc) {\n    if (doc.ok) {\n        compactDocument(doc.id, 1, decCount);\n    } else {\n        decCount();\n    }\n}",
+    "receiverBase": "res",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err && err.error === errors.MISSING_DOC.error) {\n        createAttachment({ _id: docId });\n        return;\n    }\n    if (err) {\n        call(callback, err);\n        return;\n    }\n    if (doc._rev !== rev) {\n        call(callback, errors.REV_CONFLICT);\n        return;\n    }\n    createAttachment(doc);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, obj) {\n    if (err) {\n        call(callback, err);\n        return;\n    }\n    if (obj._rev !== rev) {\n        call(callback, errors.REV_CONFLICT);\n        return;\n    }\n    if (!obj._attachments) {\n        return call(callback, null);\n    }\n    delete obj._attachments[attachmentId];\n    if (Object.keys(obj._attachments).length === 0) {\n        delete obj._attachments;\n    }\n    api.put(obj, callback);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    var idx = missingForId.indexOf(rev);\n    if (idx === -1) {\n        return;\n    }\n    missingForId.splice(idx, 1);\n    if (opts.status !== 'available') {\n        addToMissing(id, rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (rev) {\n    addToMissing(id, rev);\n}",
+    "receiverBase": "missingForId",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (id) {\n    customApi._getRevisionTree(id, function (err, rev_tree) {\n        if (err && err.name === 'not_found' && err.message === 'missing') {\n            missing[id] = { missing: req[id] };\n        } else if (err) {\n            return call(callback, err);\n        } else {\n            processDoc(id, rev_tree);\n        }\n        if (++count === ids.length) {\n            return call(callback, null, missing);\n        }\n    });\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err && err.name === 'not_found' && err.message === 'missing') {\n        missing[id] = { missing: req[id] };\n    } else if (err) {\n        return call(callback, err);\n    } else {\n        processDoc(id, rev_tree);\n    }\n    if (++count === ids.length) {\n        return call(callback, null, missing);\n    }\n}",
+    "receiverBase": "customApi",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (rev) {\n    if (height[rev] > max_height) {\n        candidates.push(rev);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    if (opts.status === 'available' && candidates.indexOf(rev) !== -1) {\n        opts.status = 'missing';\n        revs.push(rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (row) {\n    compactDocument(row.id, 0, function () {\n        count--;\n        if (!count) {\n            call(callback);\n        }\n    });\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    count--;\n    if (!count) {\n        call(callback);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "compactDocument"
+  },
+  {
+    "callback": "function (leaf) {\n    api.get(id, {\n        rev: leaf,\n        revs: opts.revs\n    }, function (err, doc) {\n        if (!err) {\n            result.push({ ok: doc });\n        } else {\n            result.push({ missing: leaf });\n        }\n        count--;\n        if (!count) {\n            call(callback, null, result);\n        }\n    });\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (!err) {\n        result.push({ ok: doc });\n    } else {\n        result.push({ missing: leaf });\n    }\n    count--;\n    if (!count) {\n        call(callback, null, result);\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err) {\n        rev_tree = [];\n    }\n    leaves = merge.collectLeaves(rev_tree).map(function (leaf) {\n        return leaf.rev;\n    });\n    finishOpenRevs();\n}",
+    "receiverBase": "customApi",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (leaf) {\n    return leaf.rev;\n}",
+    "receiverBase": "collectLeaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (arr) {\n    return arr.ids.map(function (x) {\n        return x.id;\n    }).indexOf(doc._rev.split('-')[1]) !== -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayFirst"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    return rev.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    pos--;\n    return {\n        rev: pos + '-' + rev.id,\n        status: rev.opts.status\n    };\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    customApi._getAttachment(attachments[key], {\n        encode: true,\n        ctx: ctx\n    }, function (err, data) {\n        doc._attachments[key].data = data;\n        if (!--count) {\n            call(callback, null, doc);\n        }\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, data) {\n    doc._attachments[key].data = data;\n    if (!--count) {\n        call(callback, null, doc);\n    }\n}",
+    "receiverBase": "customApi",
+    "receiverCallee": "_getAttachment"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return call(callback, err);\n    }\n    if (res.doc._attachments && res.doc._attachments[attachmentId]) {\n        opts.ctx = res.ctx;\n        customApi._getAttachment(res.doc._attachments[attachmentId], opts, callback);\n    } else {\n        return call(callback, errors.MISSING_DOC);\n    }\n}",
+    "receiverBase": "customApi",
+    "receiverCallee": "_get"
+  },
+  {
+    "callback": "function (x) {\n    return { rev: x.rev };\n}",
+    "receiverBase": "collectLeaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, info) {\n    if (!opts.aborted) {\n        opts.since = info.update_seq - 1;\n        api.changes(opts);\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (d) {\n    d.task = db[d.name].apply(null, d.parameters);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function ($0, $1, $2) {\n    if ($1) {\n        uri[o.q.name][$1] = $2;\n    }\n}",
+    "receiverBase": "uri",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (err, ret) {\n    if (err) {\n        utils.call(callback, err);\n    } else {\n        utils.call(callback, null, api);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, ret) {\n    if (err) {\n        if (err.status === 404) {\n            createDB();\n        } else {\n            utils.call(callback, err);\n        }\n    } else {\n        utils.call(callback, null, api);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function () {\n    function ping() {\n        api.info(function (err, res) {\n            if (!res.compact_running) {\n                utils.call(callback, null);\n            } else {\n                setTimeout(ping, opts.interval || 200);\n            }\n        });\n    }\n    if (typeof callback === 'function') {\n        ping();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, res) {\n    if (!res.compact_running) {\n        utils.call(callback, null);\n    } else {\n        setTimeout(ping, opts.interval || 200);\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (err, doc, xhr) {\n    if (err) {\n        return utils.call(callback, err);\n    }\n    utils.call(callback, null, doc, xhr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        return utils.call(callback, errors.UNKNOWN_ERROR);\n    }\n    doc._id = uuids.list.pop();\n    api.put(doc, opts, callback);\n}",
+    "receiverBase": "uuids",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, info) {\n    if (!opts.aborted) {\n        opts.since = info.update_seq;\n        changes = api.changes(opts);\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (k) {\n    return k + '=' + params[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    leftToFetch--;\n    var ret = utils.filterChange(opts)(c);\n    if (ret) {\n        results.results.push(c);\n        utils.call(opts.onChange, c);\n    }\n    return ret;\n}",
+    "receiverBase": "results",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    fetch(lastFetchedSeq, fetched);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return utils.call(opts.complete, err);\n    }\n    remoteLastSeq = res.update_seq;\n    fetch(opts.since || 0, fetched);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (err, res) {\n    utils.call(callback, err, res);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, resp, xhr) {\n    if (err) {\n        return utils.call(callback, err);\n    }\n    utils.call(opts.complete, null, result, xhr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, resp, xhr) {\n    if (err) {\n        return utils.call(callback, err);\n    }\n    result.ok = true;\n    if (resp._local_id) {\n        result._local_id = resp._local_id;\n    }\n    utils.call(opts.complete, null, resp, xhr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (doc, i) {\n    var newDoc = utils.parseDoc(doc, newEdits);\n    newDoc._bulk_seq = i;\n    return newDoc;\n}",
+    "receiverBase": "userDocs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (docInfo) {\n    return docInfo.error;\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (result) {\n    delete result._bulk_seq;\n    if (result.error) {\n        aresults.push(result);\n        return;\n    }\n    var metadata = result.metadata;\n    var rev = merge.winningRev(metadata);\n    aresults.push({\n        ok: true,\n        id: metadata.id,\n        rev: rev\n    });\n    if (utils.isLocalId(metadata.id)) {\n        return;\n    }\n    IdbPouch.Changes.notify(name);\n    IdbPouch.Changes.notifyLocalWindows(name);\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (docInfo) {\n    var attachments = docInfo.data && docInfo.data._attachments ? Object.keys(docInfo.data._attachments) : [];\n    if (!attachments.length) {\n        return done();\n    }\n    var recv = 0;\n    function attachmentProcessed() {\n        recv++;\n        if (recv === attachments.length) {\n            done();\n        }\n    }\n    for (var key in docInfo.data._attachments) {\n        preprocessAttachment(docInfo.data._attachments[key], attachmentProcessed);\n    }\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    txn = idb.transaction([\n        DOC_STORE,\n        BY_SEQ_STORE,\n        ATTACH_STORE,\n        META_STORE\n    ], 'readwrite');\n    txn.onerror = idbError(callback);\n    txn.ontimeout = idbError(callback);\n    txn.oncomplete = complete;\n    processDocs();\n}",
+    "receiverBase": "",
+    "receiverCallee": "preprocessAttachments"
+  },
+  {
+    "callback": "function (key) {\n    if (key in resultsMap) {\n        results.push(resultsMap[key]);\n    } else {\n        results.push({\n            'key': key,\n            'error': 'not_found'\n        });\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (rev) {\n    var index = txn.objectStore(BY_SEQ_STORE).index('_doc_id_rev');\n    var key = docId + '::' + rev;\n    index.getKey(key).onsuccess = function (e) {\n        var seq = e.target.result;\n        if (!seq) {\n            return;\n        }\n        var req = txn.objectStore(BY_SEQ_STORE)['delete'](seq);\n        count--;\n        if (!count) {\n            txn.objectStore(DOC_STORE).put(metadata);\n        }\n    };\n}",
+    "receiverBase": "revs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx, result) {\n    if (!result.rows.length) {\n        var initSeq = 'INSERT INTO ' + META_STORE + ' (update_seq) VALUES (?)';\n        tx.executeSql(initSeq, [0]);\n        return;\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    if (!result.rows.length) {\n        var initDb = 'UPDATE ' + META_STORE + ' SET dbid=?';\n        instanceId = utils.uuid();\n        tx.executeSql(initDb, [instanceId]);\n        return;\n    }\n    instanceId = result.rows.item(0).dbid;\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function cordova_init() {\n    window.removeEventListener(name + '_pouch', cordova_init, false);\n    setup();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (tx, result) {\n    var doc_count = result.rows.item(0).count;\n    var updateseq = 'SELECT update_seq FROM ' + META_STORE;\n    tx.executeSql(updateseq, [], function (tx, result) {\n        var update_seq = result.rows.item(0).update_seq;\n        callback(null, {\n            db_name: name,\n            doc_count: doc_count,\n            update_seq: update_seq\n        });\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    var update_seq = result.rows.item(0).update_seq;\n    callback(null, {\n        db_name: name,\n        doc_count: doc_count,\n        update_seq: update_seq\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (doc, i) {\n    var newDoc = utils.parseDoc(doc, newEdits);\n    newDoc._bulk_seq = i;\n    return newDoc;\n}",
+    "receiverBase": "userDocs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (docInfo) {\n    return docInfo.error;\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (result) {\n    delete result._bulk_seq;\n    if (result.error) {\n        aresults.push(result);\n        return;\n    }\n    var metadata = result.metadata;\n    var rev = merge.winningRev(metadata);\n    aresults.push({\n        ok: true,\n        id: metadata.id,\n        rev: rev\n    });\n    if (utils.isLocalId(metadata.id)) {\n        return;\n    }\n    docsWritten++;\n    webSqlPouch.Changes.notify(name);\n    webSqlPouch.Changes.notifyLocalWindows(name);\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx, result) {\n    var update_seq = result.rows.item(0).update_seq + docsWritten;\n    var sql = 'UPDATE ' + META_STORE + ' SET update_seq=?';\n    tx.executeSql(sql, [update_seq], function () {\n        utils.call(callback, null, aresults);\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    utils.call(callback, null, aresults);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (docInfo) {\n    var attachments = docInfo.data && docInfo.data._attachments ? Object.keys(docInfo.data._attachments) : [];\n    if (!attachments.length) {\n        return done();\n    }\n    function processedAttachment() {\n        recv++;\n        if (recv === attachments.length) {\n            done();\n        }\n    }\n    for (var key in docInfo.data._attachments) {\n        preprocessAttachment(docInfo.data._attachments[key], processedAttachment);\n    }\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx, result) {\n    results.push(docInfo);\n    utils.call(callback, null);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    utils.call(callback, null);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    utils.call(callback, null);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    db.transaction(function (txn) {\n        tx = txn;\n        var ids = '(' + docInfos.map(function (d) {\n                return quote(d.metadata.id);\n            }).join(',') + ')';\n        var sql = 'SELECT * FROM ' + DOC_STORE + ' WHERE id IN ' + ids;\n        tx.executeSql(sql, [], metadataFetched);\n    }, unknownError(callback));\n}",
+    "receiverBase": "",
+    "receiverCallee": "preprocessAttachments"
+  },
+  {
+    "callback": "function (txn) {\n    tx = txn;\n    var ids = '(' + docInfos.map(function (d) {\n            return quote(d.metadata.id);\n        }).join(',') + ')';\n    var sql = 'SELECT * FROM ' + DOC_STORE + ' WHERE id IN ' + ids;\n    tx.executeSql(sql, [], metadataFetched);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (d) {\n    return quote(d.metadata.id);\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (txn) {\n    opts.ctx = txn;\n    api._get(id, opts, callback);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx, results) {\n    if (!results.rows.length) {\n        err = errors.MISSING_DOC;\n        return finish();\n    }\n    doc = JSON.parse(results.rows.item(0).json);\n    finish();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (x) {\n    return { rev: x.rev };\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return '?';\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    if (key in resultsMap) {\n        results.push(resultsMap[key]);\n    } else {\n        results.push({\n            'key': key,\n            'error': 'not_found'\n        });\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx, result) {\n    var data = result.rows.item(0).body;\n    if (opts.encode) {\n        res = btoa(data);\n    } else {\n        res = utils.createBlob([data], { type: type });\n    }\n    utils.call(callback, null, res);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'SELECT json AS metadata FROM ' + DOC_STORE + ' WHERE id = ?';\n    tx.executeSql(sql, [docId], function (tx, result) {\n        if (!result.rows.length) {\n            utils.call(callback, errors.MISSING_DOC);\n        } else {\n            var data = JSON.parse(result.rows.item(0).metadata);\n            utils.call(callback, null, data.rev_tree);\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx, result) {\n    if (!result.rows.length) {\n        utils.call(callback, errors.MISSING_DOC);\n    } else {\n        var data = JSON.parse(result.rows.item(0).metadata);\n        utils.call(callback, null, data.rev_tree);\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (rev) {\n    return quote(docId + '::' + rev);\n}",
+    "receiverBase": "revs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tx, result) {\n    var sql = 'UPDATE ' + DOC_STORE + ' SET json = ? WHERE id = ?';\n    tx.executeSql(sql, [\n        JSON.stringify(metadata),\n        docId\n    ], function (tx, result) {\n        callback();\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    callback();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    tx.executeSql('DROP TABLE IF EXISTS ' + DOC_STORE, []);\n    tx.executeSql('DROP TABLE IF EXISTS ' + BY_SEQ_STORE, []);\n    tx.executeSql('DROP TABLE IF EXISTS ' + ATTACH_STORE, []);\n    tx.executeSql('DROP TABLE IF EXISTS ' + META_STORE, []);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    utils.call(callback, null);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (v) {\n    var obj;\n    if (v.ok) {\n        return v;\n    } else if (v.error && v.error === 'conflict') {\n        obj = errors.REV_CONFLICT;\n        obj.id = v.id;\n        return obj;\n    } else if (v.missing) {\n        obj = errors.MISSING_DOC;\n        obj.missing = v.missing;\n        return obj;\n    }\n}",
+    "receiverBase": "obj",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (el, idx) {\n    trees.push({\n        ids: el,\n        diff: item.diff - 1,\n        parent: item.ids,\n        parentIdx: idx\n    });\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.pos - b.pos;\n}",
+    "receiverBase": "restree",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (path) {\n    var stemmed = path.ids.slice(-depth);\n    return {\n        pos: path.pos + (path.ids.length - stemmed.length),\n        ids: pathToTree(stemmed)\n    };\n}",
+    "receiverBase": "rootToLeaf",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (prev, current, i, arr) {\n    return doMerge(prev, current, true).tree;\n}",
+    "receiverBase": "stemmedPaths",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, something, opts) {\n    if (isLeaf) {\n        leafs.push({\n            pos: pos,\n            id: id,\n            deleted: !!opts.deleted\n        });\n    }\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.deleted !== b.deleted) {\n        return a.deleted > b.deleted ? 1 : -1;\n    }\n    if (a.pos !== b.pos) {\n        return b.pos - a.pos;\n    }\n    return a.id < b.id ? 1 : -1;\n}",
+    "receiverBase": "leafs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (tree) {\n    toVisit.push({\n        pos: tree.pos,\n        ids: tree.ids\n    });\n}",
+    "receiverBase": "revs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (branch) {\n    toVisit.push({\n        pos: pos + 1,\n        ids: branch,\n        ctx: newCtx\n    });\n}",
+    "receiverBase": "tree",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, acc, opts) {\n    if (isLeaf) {\n        leaves.unshift({\n            rev: pos + '-' + id,\n            pos: pos,\n            opts: opts\n        });\n    }\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.pos - a.pos;\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (leaf) {\n    delete leaf.pos;\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (leaf) {\n    if (leaf.rev !== win && !leaf.opts.deleted) {\n        conflicts.push(leaf.rev);\n    }\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, history, opts) {\n    history = history ? history.slice(0) : [];\n    history.push({\n        id: id,\n        opts: opts\n    });\n    if (isLeaf) {\n        var rootPos = pos + 1 - history.length;\n        paths.unshift({\n            pos: rootPos,\n            ids: history\n        });\n    }\n    return history;\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function () {\n    task.fun.apply(null, task.args);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, targetDoc) {\n    if (err && err.status === 404) {\n        callback(null, 0);\n    } else if (err) {\n        callback(err);\n    } else {\n        src.get(id, function (err, sourceDoc) {\n            if (err && err.status === 404 || !err && targetDoc.last_seq !== sourceDoc.last_seq) {\n                callback(null, 0);\n            } else if (err) {\n                callback(err);\n            } else {\n                callback(null, sourceDoc.last_seq);\n            }\n        });\n    }\n}",
+    "receiverBase": "target",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, sourceDoc) {\n    if (err && err.status === 404 || !err && targetDoc.last_seq !== sourceDoc.last_seq) {\n        callback(null, 0);\n    } else if (err) {\n        callback(err);\n    } else {\n        callback(null, sourceDoc.last_seq);\n    }\n}",
+    "receiverBase": "src",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err && err.status === 404) {\n        doc = { _id: id };\n    }\n    doc.last_seq = checkpoint;\n    db.put(doc, callback);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, doc) {\n    updateCheckpoint(src, function (err, doc) {\n        callback();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "updateCheckpoint"
+  },
+  {
+    "callback": "function (err, doc) {\n    callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "updateCheckpoint"
+  },
+  {
+    "callback": "function (err, res) {\n    requests.notifyRequestComplete();\n    isCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "writeCheckpoint"
+  },
+  {
+    "callback": "function (err, res) {\n    docsWritten(err, res, len);\n}",
+    "receiverBase": "target",
+    "receiverCallee": "bulkDocs"
+  },
+  {
+    "callback": "function (err, doc) {\n    result.docs_read++;\n    requests.notifyRequestComplete();\n    writeQueue.push(doc);\n    requests.enqueue(writeDocs);\n}",
+    "receiverBase": "src",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (x) {\n    return x.rev;\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err) {\n        callback();\n    } else {\n        db.remove(doc, function (err, response) {\n            if (err) {\n            }\n            callback();\n        });\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, response) {\n    if (err) {\n    }\n    callback();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, response) {\n    if (err && err.status === 404) {\n        db.put({\n            _id: dbname,\n            dbname: opts.originalName\n        }, function (err) {\n            if (err) {\n            }\n            callback();\n        });\n    } else {\n        callback();\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n    }\n    callback();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (doc) {\n    var exists = result.some(function (db) {\n            return db.id === doc.id;\n        });\n    if (!exists) {\n        result.push(doc);\n    }\n}",
+    "receiverBase": "all_dbs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (db) {\n    return db.id === doc.id;\n}",
+    "receiverBase": "result",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (row) {\n    return row.doc.dbname;\n}",
+    "receiverBase": "result",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, response) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    all_dbs.unshift.apply(all_dbs, response.rows);\n    accumulate(adapters, all_dbs);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "allDocs"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, acc, opts) {\n    if (id === rev) {\n        deleted = !!opts.deleted;\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (change) {\n    exports.call(opts.onChange, change);\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (acc, x) {\n    if (acc === null) {\n        return [\n            x,\n            opts,\n            []\n        ];\n    } else {\n        return [\n            x,\n            { status: 'missing' },\n            [acc]\n        ];\n    }\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (acc, key) {\n    if (/^_/.test(key) && key !== '_attachments') {\n        acc.metadata[key.slice(1)] = doc[key];\n    } else {\n        acc.data[key] = doc[key];\n    }\n    return acc;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (e) {\n    if (e.db_name != null) {\n        api.notify(e.db_name.newValue);\n    }\n}",
+    "receiverBase": "onChanged",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    api.notify(e.key);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (ev) {\n    var source = ev.source;\n    if ((source === window || source === null) && ev.data === 'process-tick') {\n        ev.stopPropagation();\n        if (queue.length > 0) {\n            var fn = queue.shift();\n            fn();\n        }\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var _sumsqr = 0;\n    for (var idx in values) {\n        if (typeof values[idx] === 'number') {\n            _sumsqr += values[idx] * values[idx];\n        }\n    }\n    return _sumsqr;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_, joined_doc) {\n    if (joined_doc) {\n        viewRow.doc = joined_doc;\n    }\n    results.push(viewRow);\n    checkComplete();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (a, b) {\n    return pouchCollate(a.key, b.key);\n}",
+    "receiverBase": "results",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (e) {\n    var last = groups[groups.length - 1] || null;\n    if (last && pouchCollate(last.key[0][0], e.key) === 0) {\n        last.key.push([\n            e.key,\n            e.id\n        ]);\n        last.value.push(e.value);\n        return;\n    }\n    groups.push({\n        key: [[\n                e.key,\n                e.id\n            ]],\n        value: [e.value]\n    });\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    e.value = fun.reduce(e.key, e.value);\n    e.value = typeof e.value === 'undefined' ? null : e.value;\n    e.key = e.key[0][0];\n}",
+    "receiverBase": "groups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, val) {\n    if (typeof val === 'function') {\n        return val + '';\n    }\n    return val;\n}",
+    "receiverBase": "JSON",
+    "receiverCallee": "stringify"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err) {\n        if (callback)\n            callback(err);\n        return;\n    }\n    if (!doc.views[parts[1]]) {\n        if (callback)\n            callback({\n                error: 'not_found',\n                reason: 'missing_named_view'\n            });\n        return;\n    }\n    viewQuery({\n        map: doc.views[parts[1]].map,\n        reduce: doc.views[parts[1]].reduce\n    }, opts);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (method) {\n    if (!Buffer.prototype[method])\n        return;\n    MongooseBuffer.prototype[method] = new Function('var ret = Buffer.prototype.' + method + '.apply(this, arguments);' + 'this._markModified();' + 'return ret;');\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item, i) {\n    Ext.apply(item, {\n        group: item.group || this.id,\n        itemIndex: i,\n        checkHandler: this.checkHandler,\n        scope: this,\n        checked: item.checked || false\n    });\n    this.menu.items.push(item);\n    if (item.checked) {\n        checked = item;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (type) {\n    gesture[type] = this.handle(evt + '.' + type);\n    this.events[evt + '.' + type] = gesture;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (element) {\n    _remove(element.target, gesture.defaultEvent);\n    array.forEach(gesture.subEvents, function (type) {\n        _remove(element.target, gesture.defaultEvent + '.' + type);\n    }, this);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    _remove(element.target, gesture.defaultEvent + '.' + type);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (element) {\n    return !isEmpty(element.gestures);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (type) {\n    if (element[type] && element[type].remove) {\n        element[type].remove();\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (func) {\n    func(e);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var ctrl, scope = {};\n    beforeEach(module('myApp'));\n    beforeEach(inject(function ($rootScope, $controller) {\n        scope = $rootScope.$new();\n        ctrl = $controller('AngScopeInheritanceCtrl', { $scope: scope });\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($rootScope, $controller) {\n    scope = $rootScope.$new();\n    ctrl = $controller('AngScopeInheritanceCtrl', { $scope: scope });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    unloading = true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "unload"
+  },
+  {
+    "callback": "function () {\n    unloading = true;\n}",
+    "receiverBase": "unload",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.message && !event.isDefaultPrevented()) {\n        if (flash(event.message, event.stack)) {\n            event.stopPropagation();\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    pre.toggle();\n}",
+    "receiverBase": "more",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (!unloading) {\n        msg.append(widget);\n        scroll(0, 0);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    throw new Error('Canvas#arc is not implemented yet.');\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (cx, cy, r) {\n    cx = cx | 0;\n    cy = cy | 0;\n    r = r | 0;\n    _.fill(this, function (color) {\n        fill(this, cx, cy, r, color);\n    });\n    _.stroke(this, function (color) {\n        stroke(this, cx, cy, r, color);\n    });\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    fill(this, cx, cy, r, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "fill"
+  },
+  {
+    "callback": "function (color) {\n    stroke(this, cx, cy, r, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (x, y) {\n    _.putLine(that, cx - x, cx + x, cy - y, color);\n    _.putLine(that, cx - x, cx + x, cy + y, color);\n    _.putLine(that, cx - y, cx + y, cy - x, color);\n    _.putLine(that, cx - y, cx + y, cy + x, color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (x, y) {\n    _.putPixel(that, cx + x, cy + y, color);\n    _.putPixel(that, cx - x, cy + y, color);\n    _.putPixel(that, cx + x, cy - y, color);\n    _.putPixel(that, cx - x, cy - y, color);\n    _.putPixel(that, cx + y, cy + x, color);\n    _.putPixel(that, cx - y, cy + x, color);\n    _.putPixel(that, cx + y, cy - x, color);\n    _.putPixel(that, cx - y, cy - x, color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function () {\n    _.fill(this, function (color) {\n        var width = this.$.width;\n        var height = this.$.height;\n        for (var y = 0; y < height; y++) {\n            for (var x = 0; x < width; x++) {\n                this.$.putPixel(x, y, color);\n            }\n        }\n    });\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    var width = this.$.width;\n    var height = this.$.height;\n    for (var y = 0; y < height; y++) {\n        for (var x = 0; x < width; x++) {\n            this.$.putPixel(x, y, color);\n        }\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "fill"
+  },
+  {
+    "callback": "function (x1, y1, x2, y2) {\n    x1 = x1 | 0;\n    y1 = y1 | 0;\n    x2 = x2 | 0;\n    y2 = y2 | 0;\n    this.$.minX = Math.max(0, Math.min(x1, x2));\n    this.$.minY = Math.max(0, Math.min(y1, y2));\n    this.$.maxX = Math.min(Math.max(x1, x2) - 1, this.$.width - 1);\n    this.$.maxY = Math.min(Math.max(y1, y2) - 1, this.$.height - 1);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    var newInstance = new gr.Canvas(this.$.width, this.$.height, new Uint8Array(this.$.data));\n    newInstance.$.strokeColor = this.$.strokeColor;\n    newInstance.$.fillColor = this.$.fillColor;\n    newInstance.$.colorPalette.set(this.$.colorPalette);\n    newInstance.$.tilePalette.set(this.$.tilePalette);\n    return newInstance;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x1, y1, x2, y2) {\n    x1 = x1 | 0;\n    y1 = y1 | 0;\n    x2 = x2 | 0;\n    y2 = y2 | 0;\n    var params = copy(this.$, x1, y1, x2, y2);\n    var newInstance = new gr.Canvas(params[0], params[1], params[2]);\n    newInstance.$.colorPalette.set(this.$.colorPalette);\n    newInstance.$.tilePalette.set(this.$.tilePalette);\n    return newInstance;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (fn) {\n    if (typeof fn === 'function') {\n        var saved = {};\n        assignWithKeys(saved, this.$, this.$.storableKeys);\n        var result = fn.apply(this, _.slice(arguments, 1));\n        assignWithKeys(this.$, saved, this.$.storableKeys);\n        return result === undefined ? this : result;\n    }\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (key) {\n    dst[key] = src[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (cx, cy, rx, ry) {\n    cx = cx | 0;\n    cy = cy | 0;\n    rx = rx | 0;\n    ry = ry | 0;\n    _.fill(this, function (color) {\n        fill(this, cx, cy, rx, ry, color);\n    });\n    _.stroke(this, function (color) {\n        stroke(this, cx, cy, rx, ry, color);\n    });\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    fill(this, cx, cy, rx, ry, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "fill"
+  },
+  {
+    "callback": "function (color) {\n    stroke(this, cx, cy, rx, ry, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (x, y) {\n    _.putLine(that, cx - x, cx + x, cy + y, color);\n    _.putLine(that, cx - x, cx + x, cy - y, color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (x, y) {\n    _.putPixel(that, cx + x, cy + y, color);\n    _.putPixel(that, cx - x, cy + y, color);\n    _.putPixel(that, cx + x, cy - y, color);\n    _.putPixel(that, cx - x, cy - y, color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function (color) {\n    this.$.fillColor = _.colorize(color, this.$.tilePalette);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (index) {\n    index = (index & 15) * 3;\n    return _.rgb2num(this.$.colorPalette[index], this.$.colorPalette[index + 1], this.$.colorPalette[index + 2]);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y) {\n    x = x | 0;\n    y = y | 0;\n    if (_.inCanvas(this, x, y)) {\n        return this.$.data[y * this.$.width + x];\n    }\n    return -1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    throw new Error('CanvasRGB is not supported #getColorIndex');\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return this.$.height;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y) {\n    x = x | 0;\n    y = y | 0;\n    if (_.inCanvas(this, x, y)) {\n        var index = y * this.$.width + x;\n        var paletteIndex = this.$.data[index] * 3;\n        var colorPalette = this.$.colorPalette;\n        return _.rgb2num(colorPalette[paletteIndex], colorPalette[paletteIndex + 1], colorPalette[paletteIndex + 2]);\n    }\n    return -1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y) {\n    x = x | 0;\n    y = y | 0;\n    if (_.inCanvas(this, x, y)) {\n        var index = (y * this.$.width + x) * this.$.pixelSize;\n        return _.rgb2num(this.$.data[index], this.$.data[index + 1], this.$.data[index + 2]);\n    }\n    return -1;\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y, alpha) {\n    x = x | 0;\n    y = y | 0;\n    alpha = _.defaults(alpha, 255) | 0;\n    if (_.inCanvas(this, x, y)) {\n        var index = y * this.$.width + x;\n        var paletteIndex = this.$.data[index] * 3;\n        var colorPalette = this.$.colorPalette;\n        return rgba(_.rgb2num(colorPalette[paletteIndex], colorPalette[paletteIndex + 1], colorPalette[paletteIndex + 2]), alpha);\n    }\n    return -1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y, alpha) {\n    x = x | 0;\n    y = y | 0;\n    alpha = _.defaults(alpha, 255) | 0;\n    if (_.inCanvas(this, x, y)) {\n        var index = (y * this.$.width + x) * this.$.pixelSize;\n        return rgba(_.rgb2num(this.$.data[index], this.$.data[index + 1], this.$.data[index + 2]), alpha);\n    }\n    return -1;\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y) {\n    x = x | 0;\n    y = y | 0;\n    if (_.inCanvas(this, x, y)) {\n        var index = (y * this.$.width + x) * this.$.pixelSize;\n        return rgba(_.rgb2num(this.$.data[index], this.$.data[index + 1], this.$.data[index + 2]), this.$.data[index + 3]);\n    }\n    return -1;\n}",
+    "receiverBase": "CanvasRGBA",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return this.$.data;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (index) {\n    return this.$.tilePalette[index & 31];\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return this.$.width;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    if (y1 === y2) {\n        lineH(this.$, Math.min(x1, x2), Math.max(x1, x2), y1, color);\n    } else if (x1 === x2) {\n        lineV(this.$, Math.min(y1, y2), Math.max(y1, y2), x1, color);\n    } else {\n        var pt1 = [\n                x1,\n                y1\n            ];\n        var pt2 = [\n                x2,\n                y2\n            ];\n        if (clip(this.$, pt1, pt2)) {\n            lineD(this.$, pt1[X], pt1[Y], pt2[X], pt2[Y], color);\n        }\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (mask) {\n    if (mask instanceof gr.Canvas) {\n        mask = mask.$.data;\n    }\n    this.$.mask = mask;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    this.$.minX = 0;\n    this.$.minY = 0;\n    this.$.maxX = this.$.width - 1;\n    this.$.maxY = this.$.height - 1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    this.$.fillColor = -1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    this.$.mask = null;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    this.$.strokeColor = -1;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x, y) {\n    x = x | 0;\n    y = y | 0;\n    _.stroke(this, function (color) {\n        if (_.inClip(this, x, y)) {\n            _.putPixel(this, x, y, color);\n        }\n    });\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    if (_.inClip(this, x, y)) {\n        _.putPixel(this, x, y, color);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (vtx) {\n    vtx = Array.isArray(vtx) ? vtx.map(function (edge) {\n        return [\n            edge[0] | 0,\n            edge[1] | 0\n        ];\n    }) : [];\n    _.fill(this, function (color) {\n        fill(this, toEdge(clipVtx(vtx, this.$.minY, this.$.maxY)), color);\n    });\n    _.stroke(this, function (color) {\n        stroke(this, vtx, color);\n    });\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (edge) {\n    return [\n        edge[0] | 0,\n        edge[1] | 0\n    ];\n}",
+    "receiverBase": "vtx",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (color) {\n    fill(this, toEdge(clipVtx(vtx, this.$.minY, this.$.maxY)), color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "fill"
+  },
+  {
+    "callback": "function (color) {\n    stroke(this, vtx, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (edge) {\n    minY = Math.min(minY, edge[Y0]);\n    maxY = Math.max(maxY, edge[Y1]);\n}",
+    "receiverBase": "edgeList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x1, y1, x2, y2, x3, y3, x4, y4) {\n    x1 = x1 | 0;\n    y1 = y1 | 0;\n    x2 = x2 | 0;\n    y2 = y2 | 0;\n    x3 = x3 | 0;\n    y3 = y3 | 0;\n    x4 = x4 | 0;\n    y4 = y4 | 0;\n    this.polygon([\n        [\n            x1,\n            y1\n        ],\n        [\n            x2,\n            y2\n        ],\n        [\n            x3,\n            y3\n        ],\n        [\n            x4,\n            y4\n        ]\n    ]);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    fill(this, x1, y1, x2, y2, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "fill"
+  },
+  {
+    "callback": "function (color) {\n    stroke(this, x1, y1, x2, y2, color);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "stroke"
+  },
+  {
+    "callback": "function (index, rgb) {\n    index = (index & 15) * 3;\n    this.$.colorPalette[index] = (rgb >> 20 & 15) * 17;\n    this.$.colorPalette[index + 1] = (rgb >> 12 & 15) * 17;\n    this.$.colorPalette[index + 2] = (rgb >> 4 & 15) * 17;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (index, pattern) {\n    index = index & 31;\n    pattern = pattern & 65535;\n    if (!_.inRange(index, 0, 15)) {\n        this.$.tilePalette[index] = pattern;\n    }\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (color) {\n    this.$.strokeColor = _.colorize(color, this.$.tilePalette);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return new Uint8Array(this.$.data);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    throw new Error('CanvasRGB is not supported #toIndexedColor');\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    var data = this.$.data;\n    var mask = new Uint8Array(data.length);\n    for (var i = 0, imax = mask.length; i < imax; i++) {\n        mask[i] = data[i] ? 15 : 0;\n    }\n    return mask;\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    throw new Error('CanvasRGB is not supported #toMask');\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return new Uint8Array(this.$.data);\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    var length = this.$.width * this.$.height;\n    var result = new Uint8Array(length * 3);\n    var data = this.$.data;\n    for (var i = 0, j = 0, k = 0; i < length; i++, k++) {\n        result[j++] = data[k++];\n        result[j++] = data[k++];\n        result[j++] = data[k++];\n    }\n    return result;\n}",
+    "receiverBase": "CanvasRGBA",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (alpha) {\n    alpha = _.defaults(alpha, 255) | 0;\n    var length = this.$.width * this.$.height;\n    var result = new Uint8Array(length * 4);\n    var data = this.$.data;\n    for (var i = 0, j = 0, k = 0; i < length; i++) {\n        result[j++] = data[k++];\n        result[j++] = data[k++];\n        result[j++] = data[k++];\n        result[j++] = alpha;\n    }\n    return result;\n}",
+    "receiverBase": "CanvasRGB",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    return new Uint8Array(this.$.data);\n}",
+    "receiverBase": "CanvasRGBA",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (x1, y1, x2, y2, x3, y3) {\n    x1 = x1 | 0;\n    y1 = y1 | 0;\n    x2 = x2 | 0;\n    y2 = y2 | 0;\n    x3 = x3 | 0;\n    y3 = y3 | 0;\n    this.polygon([\n        [\n            x1,\n            y1\n        ],\n        [\n            x2,\n            y2\n        ],\n        [\n            x3,\n            y3\n        ]\n    ]);\n}",
+    "receiverBase": "Canvas",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (key) {\n    child[key] = parent[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  }
+]

@@ -1,0 +1,606 @@
+[
+  {
+    "callback": "function () {\n    owner.switchIndex($(this).attr('selectedIndex'));\n}",
+    "receiverBase": "$dom",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao = new LawnchairDAO();\n    lawnchairDao.init(dbName).then(function () {\n        expect(lawnchairDao._db).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(lawnchairDao._db).to.exist;\n    done();\n}",
+    "receiverBase": "init",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.clear().then(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    it('should fail', function (done) {\n        lawnchairDao.read(undefined).catch(function (err) {\n            expect(err).to.exist;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.read(undefined).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "read",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    it('should fail', function (done) {\n        lawnchairDao.list(undefined).catch(function (err) {\n            expect(err).to.exist;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.list(undefined).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "list",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    it('should fail', function (done) {\n        lawnchairDao.removeList(undefined).catch(function (err) {\n            expect(err).to.exist;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.removeList(undefined).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "removeList",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.persist(undefined, data).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "persist",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.persist('1234', undefined).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "persist",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.persist(key, data).then(function () {\n        return lawnchairDao.read(key);\n    }).then(function (fetched) {\n        expect(fetched).to.deep.equal(data);\n        return lawnchairDao.remove(key);\n    }).then(function () {\n        return lawnchairDao.read(key);\n    }).then(function (fetched) {\n        expect(fetched).to.not.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return lawnchairDao.read(key);\n}",
+    "receiverBase": "persist",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (fetched) {\n    expect(fetched).to.deep.equal(data);\n    return lawnchairDao.remove(key);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return lawnchairDao.read(key);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (fetched) {\n    expect(fetched).to.not.exist;\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    lawnchairDao.batch({}).catch(function (err) {\n        expect(err).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.exist;\n    done();\n}",
+    "receiverBase": "batch",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    return lawnchairDao.list('type');\n}",
+    "receiverBase": "batch",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (fetched) {\n    expect(fetched.length).to.equal(2);\n    expect(fetched[0]).to.deep.equal(list[0].object);\n    return lawnchairDao.removeList('type');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return lawnchairDao.list('type');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (fetched) {\n    expect(fetched).to.exist;\n    expect(fetched.length).to.equal(0);\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (Y, NAME) {\n    Y.StackedAreaSplineSeries = Y.Base.create('stackedAreaSplineSeries', Y.AreaSeries, [\n        Y.CurveUtil,\n        Y.StackingUtil\n    ], {\n        drawSeries: function () {\n            this._stackCoordinates();\n            this.drawStackedAreaSpline();\n        }\n    }, { ATTRS: { type: { value: 'stackedAreaSpline' } } });\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    process.exit(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "shutdown"
+  },
+  {
+    "callback": "function () {\n    try {\n        BaseApplication.executePath(that.options['path'])(function (response) {\n            if (response !== null) {\n                sys.puts(response);\n            }\n            finish_handler();\n        });\n    } catch (e) {\n        response = 'Error\\n' + (e.stack || e.message) + '\\n\\n';\n        response = response + 'Arguments: ' + sys.inspect(e['arguments']);\n        sys.puts(response);\n        finish_handler();\n    }\n}",
+    "receiverBase": "event_emitter",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (response) {\n    if (response !== null) {\n        sys.puts(response);\n    }\n    finish_handler();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executePath"
+  },
+  {
+    "callback": "function (f) {\n    var g = f.select('g');\n    self.svg.append(g);\n    self.options.onLoad();\n    self._initEvents();\n    if (self.reverse) {\n        self.toggle();\n    }\n}",
+    "receiverBase": "Snap",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (el, val, animProp) {\n    return function () {\n        el.animate(JSON.parse(val), self.options.speed, self.options.easing, function () {\n            if (animProp.after) {\n                this.attr(JSON.parse(animProp.after));\n            }\n            if (animProp.animAfter) {\n                this.animate(JSON.parse(animProp.animAfter), self.options.speed, self.options.easing);\n            }\n        });\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (animProp.after) {\n        this.attr(JSON.parse(animProp.after));\n    }\n    if (animProp.animAfter) {\n        this.animate(JSON.parse(animProp.animAfter), self.options.speed, self.options.easing);\n    }\n}",
+    "receiverBase": "el",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    describe('{{formatPhoneNumber value}}', function () {\n        it('Format a phone number.', function () {\n            source = '{{formatPhoneNumber value}}';\n            template = Handlebars.compile(source);\n            context = { value: '8005551212' };\n            template(context).should.equal('(800) 555-1212');\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('Format a phone number.', function () {\n        source = '{{formatPhoneNumber value}}';\n        template = Handlebars.compile(source);\n        context = { value: '8005551212' };\n        template(context).should.equal('(800) 555-1212');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{formatPhoneNumber value}}';\n    template = Handlebars.compile(source);\n    context = { value: '8005551212' };\n    template(context).should.equal('(800) 555-1212');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return the value rounded to the nearest integer.', function () {\n        source = '{{toFixed value}}';\n        template = Handlebars.compile(source);\n        context = { value: 5.53231 };\n        template(context).should.equal('6');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toFixed value}}';\n    template = Handlebars.compile(source);\n    context = { value: 5.53231 };\n    template(context).should.equal('6');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return the value rounded exactly n digits after the decimal place.', function () {\n        source = '{{toFixed value 3}}';\n        template = Handlebars.compile(source);\n        context = { value: 5.53231 };\n        template(context).should.equal('5.532');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toFixed value 3}}';\n    template = Handlebars.compile(source);\n    context = { value: 5.53231 };\n    template(context).should.equal('5.532');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('Returns the number in fixed-point or exponential notation rounded to n significant digits.', function () {\n        source = '{{toPrecision value}}';\n        template = Handlebars.compile(source);\n        context = { value: 555.322 };\n        template(context).should.equal('6e+2');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toPrecision value}}';\n    template = Handlebars.compile(source);\n    context = { value: 555.322 };\n    template(context).should.equal('6e+2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return the value rounded exactly n digits after the decimal place.', function () {\n        source = '{{toPrecision value 4}}';\n        template = Handlebars.compile(source);\n        context = { value: 555.322 };\n        template(context).should.equal('555.3');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toPrecision value 4}}';\n    template = Handlebars.compile(source);\n    context = { value: 555.322 };\n    template(context).should.equal('555.3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return the number in fixed-point or exponential notation rounded to n significant digits.', function () {\n        source = '{{toExponential value}}';\n        template = Handlebars.compile(source);\n        context = { value: 5 };\n        template(context).should.equal('5e+0');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toExponential value}}';\n    template = Handlebars.compile(source);\n    context = { value: 5 };\n    template(context).should.equal('5e+0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should return the number in fixed-point or exponential notation rounded to exactly n significant digits.', function () {\n        source = '{{toExponential value 5}}';\n        template = Handlebars.compile(source);\n        context = { value: 5 };\n        template(context).should.equal('5.00000e+0');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toExponential value 5}}';\n    template = Handlebars.compile(source);\n    context = { value: 5 };\n    template(context).should.equal('5.00000e+0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    describe('{{toInt value}}', function () {\n        it('should return an integer.', function () {\n            source = '{{toInt value}}';\n            template = Handlebars.compile(source);\n            context = { value: '3cc' };\n            template(context).should.equal('3');\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should return an integer.', function () {\n        source = '{{toInt value}}';\n        template = Handlebars.compile(source);\n        context = { value: '3cc' };\n        template(context).should.equal('3');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toInt value}}';\n    template = Handlebars.compile(source);\n    context = { value: '3cc' };\n    template(context).should.equal('3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    describe('{{toFloat value}}', function () {\n        it('should return a floating point number.', function () {\n            source = '{{toFloat value}}';\n            template = Handlebars.compile(source);\n            context = { value: '3.1cc' };\n            template(context).should.equal('3.1');\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should return a floating point number.', function () {\n        source = '{{toFloat value}}';\n        template = Handlebars.compile(source);\n        context = { value: '3.1cc' };\n        template(context).should.equal('3.1');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toFloat value}}';\n    template = Handlebars.compile(source);\n    context = { value: '3.1cc' };\n    template(context).should.equal('3.1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    describe('{{addCommas value}}', function () {\n        it('should add commas to a number.', function () {\n            source = '{{addCommas value}}';\n            template = Handlebars.compile(source);\n            context = { value: 2222222 };\n            template(context).should.equal('2,222,222');\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should add commas to a number.', function () {\n        source = '{{addCommas value}}';\n        template = Handlebars.compile(source);\n        context = { value: 2222222 };\n        template(context).should.equal('2,222,222');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{addCommas value}}';\n    template = Handlebars.compile(source);\n    context = { value: 2222222 };\n    template(context).should.equal('2,222,222');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should formats (and approximates) a number into abbreviation based on a value.', function () {\n        source = '{{toAbbr value}}';\n        template = Handlebars.compile(source);\n        context = { value: 123456789 };\n        template(context).should.equal('123.46m');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toAbbr value}}';\n    template = Handlebars.compile(source);\n    context = { value: 123456789 };\n    template(context).should.equal('123.46m');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should formats (and approximates) a number into abbreviation based on a value and include decimal.', function () {\n        source = '{{toAbbr value 3}}';\n        template = Handlebars.compile(source);\n        context = { value: 123456789 };\n        template(context).should.equal('123.457m');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{toAbbr value 3}}';\n    template = Handlebars.compile(source);\n    context = { value: 123456789 };\n    template(context).should.equal('123.457m');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    describe('{{random min max}}', function () {\n        it('should return a random number between two values.', function () {\n            source = '{{random 5 10}}';\n            template = Handlebars.compile(source);\n            template().should.be.within(5, 10);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should return a random number between two values.', function () {\n        source = '{{random 5 10}}';\n        template = Handlebars.compile(source);\n        template().should.be.within(5, 10);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    source = '{{random 5 10}}';\n    template = Handlebars.compile(source);\n    template().should.be.within(5, 10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    dxt = e.pageX / window.innerWidth * 2 - 1;\n    dyt = e.pageY / window.innerHeight;\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    returned = fn.apply(this, arguments);\n    if (returned && jQuery.isFunction(returned.promise)) {\n        returned.promise().then(newDefer.resolve, newDefer.reject, newDefer.notify);\n    } else {\n        newDefer[action + 'With'](this === deferred ? newDefer : this, [returned]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "deferred"
+  },
+  {
+    "callback": "function () {\n    state = 'resolved';\n}",
+    "receiverBase": "deferred",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    state = 'rejected';\n}",
+    "receiverBase": "done",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    jqXHR.abort('timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    jQuery.dequeue(elem, type);\n}",
+    "receiverBase": "fn",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    add(this.name, this.value);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).addClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem) {\n    this.parentNode.insertBefore(elem, this.nextSibling);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1) {\n        this.appendChild(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    this.parentNode.insertBefore(elem, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function () {\n    return jQuery.clone(this, dataAndEvents, deepDataAndEvents);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem, name, value) {\n    return value !== undefined ? jQuery.style(elem, name, value) : jQuery.css(elem, name);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var self = jQuery(this), args = [\n            parts[0],\n            value\n        ];\n    self.triggerHandler('setData' + parts[1] + '!', args);\n    jQuery.data(this, key, value);\n    self.triggerHandler('changeData' + parts[1] + '!', args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (next, hooks) {\n    var timeout = setTimeout(next, time);\n    hooks.stop = function () {\n        clearTimeout(timeout);\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    jQuery.dequeue(this, type);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery(this).domManip(args, table, callback, true);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this);\n    args[0] = value.call(this, i, table ? self.html() : undefined);\n    self.domManip(args, table, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    for (i = 0, l = self.length; i < l; i++) {\n        if (jQuery.contains(self[i], this)) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0, l = targets.length; i < l; i++) {\n        if (jQuery.contains(this, targets[i])) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this);\n    self[type](size.call(this, i, self[type]()));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this);\n    self.html(value.call(this, i, self.html()));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (r) {\n    responseText = r;\n}",
+    "receiverBase": "jqXHR",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (elem, i) {\n    return callback.call(elem, i, elem);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.remove(this, types, fn, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery.offset.setOffset(this, options, i);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var offsetParent = this.offsetParent || document.body;\n    while (offsetParent && (!rroot.test(offsetParent.nodeName) && jQuery.css(offsetParent, 'position') === 'static')) {\n        offsetParent = offsetParent.offsetParent;\n    }\n    return offsetParent;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.add(this, types, fn, data, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1) {\n        this.insertBefore(elem, this.firstChild);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function () {\n    var queue = jQuery.queue(this, type, data);\n    if (type === 'fx' && queue[0] !== 'inprogress') {\n        jQuery.dequeue(this, type);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeAttr(this, name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).removeClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeData(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    try {\n        this[name] = undefined;\n        delete this[name];\n    } catch (e) {\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this), old = self.html();\n    self.replaceWith(value.call(this, i, old));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var next = this.nextSibling, parent = this.parentNode;\n    jQuery(this).remove();\n    if (next) {\n        jQuery(next).before(value);\n    } else {\n        jQuery(parent).append(value);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    win = getWindow(this);\n    if (win) {\n        win.scrollTo(!i ? val : jQuery(win).scrollLeft(), i ? val : jQuery(win).scrollTop());\n    } else {\n        this[method] = val;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    win = getWindow(this);\n    if (win) {\n        win.scrollTo(!i ? val : jQuery(win).scrollLeft(), i ? val : jQuery(win).scrollTop());\n    } else {\n        this[method] = val;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.elements ? jQuery.makeArray(this.elements) : this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return this.name && !this.disabled && (this.checked || rselectTextarea.test(this.nodeName) || rinput.test(this.type));\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, elem) {\n    var val = jQuery(this).val();\n    return val == null ? null : jQuery.isArray(val) ? jQuery.map(val, function (val, i) {\n        return {\n            name: elem.name,\n            value: val.replace(rCRLF, '\\r\\n')\n        };\n    }) : {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val, i) {\n    return {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this);\n    self.text(text.call(this, i, self.text()));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var state = bool ? fn : jQuery(this).is(':hidden');\n    jQuery(this)[state ? 'show' : 'hide']();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.trigger(type, data, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!jQuery.nodeName(this, 'body')) {\n        jQuery(this).replaceWith(this.childNodes);\n    }\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value == null ? '' : value + '';\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    var self = jQuery(this);\n    self[type](size.call(this, i, self[type]()));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(isFunction ? html.call(this, i) : html);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elem = this;\n    while (elem.firstChild && elem.firstChild.nodeType === 1) {\n        elem = elem.firstChild;\n    }\n    return elem;\n}",
+    "receiverBase": "wrap",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapInner(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var self = jQuery(this), contents = self.contents();\n    if (contents.length) {\n        contents.wrapAll(html);\n    } else {\n        self.append(html);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  }
+]

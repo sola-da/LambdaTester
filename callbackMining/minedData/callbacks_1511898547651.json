@@ -1,0 +1,901 @@
+[
+  {
+    "callback": "function (view, key) {\n    if (_.isFunction(view[method])) {\n        view[method].apply(view, args);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (method) {\n    Container.prototype[method] = function () {\n        var views = _.values(this._views);\n        var args = [views].concat(_.toArray(arguments));\n        return _[method].apply(_, args);\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (handler, name) {\n    var context = null;\n    if (_.isObject(handler) && !_.isFunction(handler)) {\n        context = handler.context;\n        handler = handler.callback;\n    }\n    this.setHandler(name, handler, context);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (args) {\n    handler.apply(context, args);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (Wreqr) {\n    'use strict';\n    return Wreqr.Handlers.extend({\n        request: function () {\n            var name = arguments[0];\n            var args = Array.prototype.slice.call(arguments, 1);\n            return this.getHandler(name).apply(this, args);\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (Backbone, _) {\n    'use strict';\n    var EA = function () {\n    };\n    EA.extend = Backbone.Model.extend;\n    _.extend(EA.prototype, Backbone.Events);\n    return EA;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var splitter = /(^|:)(\\w)/gi;\n    function getEventName(match, prefix, eventName) {\n        return eventName.toUpperCase();\n    }\n    var triggerMethod = function (event) {\n        var methodName = 'on' + event.replace(splitter, getEventName);\n        var method = this[methodName];\n        this.trigger.apply(this, arguments);\n        if (_.isFunction(method)) {\n            return method.apply(this, _.tail(arguments));\n        }\n    };\n    return triggerMethod;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    handleShow(view);\n}",
+    "receiverBase": "view",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function () {\n    handleRender(view);\n}",
+    "receiverBase": "view",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (methodName) {\n    var method = target[methodName];\n    if (!method) {\n        throwError('Method \\'' + methodName + '\\' was configured as an event handler, but does not exist.');\n    }\n    target.listenTo(entity, evt, method, target);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (methodName) {\n    var method = target[method];\n    target.stopListening(entity, evt, method, target);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (methods, evt) {\n    if (_.isFunction(methods)) {\n        functionCallback(target, entity, evt, methods);\n    } else {\n        stringCallback(target, entity, evt, methods);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (context, options) {\n    if (contextOverride) {\n        context = contextOverride;\n    }\n    callback.call(context, options);\n}",
+    "receiverBase": "_deferred",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (cb) {\n    this.add(cb.cb, cb.ctx);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (definition, name) {\n    if (typeof definition === 'string') {\n        definition = { selector: definition };\n    }\n    if (definition.selector) {\n        definition = _.defaults({}, definition, defaults);\n    }\n    var region = this.addRegion(name, definition);\n    regions[name] = region;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (region, name) {\n    this._remove(name, region);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (region, name) {\n    region.close();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (method) {\n    RegionManager.prototype[method] = function () {\n        var regions = _.values(this._regions);\n        var args = [regions].concat(_.toArray(arguments));\n        return _[method].apply(_, args);\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, key) {\n    triggerEvents[key] = function (e) {\n        if (e && e.preventDefault) {\n            e.preventDefault();\n        }\n        if (e && e.stopPropagation) {\n            e.stopPropagation();\n        }\n        var args = {\n                view: this,\n                model: this.model,\n                collection: this.collection\n            };\n        this.triggerMethod(value, args);\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    var selector = bindings[key];\n    this.ui[key] = this.$(selector);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function ($el, name) {\n    delete this.ui[name];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    Marionette.triggerMethod.call(child, 'show');\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item, index) {\n    ItemView = this.getItemView(item);\n    this.addItemView(item, ItemView, index);\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var args = slice(arguments);\n    args[0] = prefix + ':' + args[0];\n    args.splice(1, 0, view);\n    Marionette.triggerMethod.apply(this, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (child) {\n    this.removeChildView(child);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (region) {\n    region.reset();\n}",
+    "receiverBase": "regionManager",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, region) {\n    this[name] = region;\n    this.trigger('region:add', name, region);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (name, region) {\n    delete this[name];\n    this.trigger('region:remove', name, region);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (methodName, route) {\n    var method = controller[methodName];\n    if (!method) {\n        throw new Error('Method \\'' + methodName + '\\' was not found on the controller');\n    }\n    this.route(route, methodName, _.bind(method, controller));\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, region) {\n    this[name] = region;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (name, region) {\n    delete this[name];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "listenTo"
+  },
+  {
+    "callback": "function (mod) {\n    if (mod.startWithParent) {\n        mod.start(options);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (mod) {\n    mod.stop();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (moduleName, i) {\n    var parentModule = module;\n    module = this._getModule(parentModule, moduleName, app);\n    this._addModuleDefinition(parentModule, module, moduleDefinitions[i], customArgs);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (options) {\n    if (module.startWithParent) {\n        module.start(options);\n    }\n}",
+    "receiverBase": "parentModule",
+    "receiverCallee": "addInitializer"
+  },
+  {
+    "callback": "function () {\n    return new ActiveXObject('Msxml2.XMLHTTP.6.0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "tryIt"
+  },
+  {
+    "callback": "function () {\n    return new ActiveXObject('Msxml2.XMLHTTP.3.0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "tryIt"
+  },
+  {
+    "callback": "function () {\n    return new ActiveXObject('Msxml2.XMLHTTP');\n}",
+    "receiverBase": "",
+    "receiverCallee": "tryIt"
+  },
+  {
+    "callback": "function () {\n    return new ActiveXObject('Microsoft.XMLHTTP');\n}",
+    "receiverBase": "",
+    "receiverCallee": "tryIt"
+  },
+  {
+    "callback": "function () {\n    throw declarationError;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (s) {\n    return ' ' + s.toLowerCase();\n}",
+    "receiverBase": "matcherName",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.runAtMillis - b.runAtMillis;\n}",
+    "receiverBase": "funcsToRun",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (functionName) {\n    return function () {\n        for (var j = 0; j < this.subReporters_.length; j++) {\n            var subReporter = this.subReporters_[j];\n            if (subReporter[functionName]) {\n                subReporter[functionName].apply(subReporter, arguments);\n            }\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (property, isGetter) {\n    if (first) {\n        first = false;\n    } else {\n        self.append(', ');\n    }\n    self.append(property);\n    self.append(' : ');\n    if (isGetter) {\n        self.append('<getter>');\n    } else {\n        self.format(obj[property]);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterateObject"
+  },
+  {
+    "callback": "function () {\n    self.next_();\n}",
+    "receiverBase": "env",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.finishCallback();\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    spec.finish(onComplete);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    self.finish(onComplete);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    onComplete();\n}",
+    "receiverBase": "env",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.execute(onComplete);\n}",
+    "receiverBase": "env",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var o1 = {\n            a: 1,\n            b: {\n                a: 1,\n                b: 2\n            },\n            c: 'test'\n        };\n    var o2 = {\n            a: 1,\n            b: {\n                a: 2,\n                b: 1\n            },\n            c: 'testlol'\n        };\n    jsondiffpatch.diff(o1, o2);\n}",
+    "receiverBase": "benchmarks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var o1 = {\n            a: 1,\n            b: {\n                a: 1,\n                b: 2\n            },\n            c: 'test'\n        };\n    var o2 = {\n            a: 1,\n            b: {\n                a: 2,\n                b: 1\n            },\n            c: 'testlol'\n        };\n    var diff = jsondiffpatch.diff(o1, o2);\n    jsondiffpatch.patch(o1, diff);\n}",
+    "receiverBase": "benchmarks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (key) {\n    return replace(lookup[key]);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (str, name, attributes, children) {\n    attributes = split(attributes, '|');\n    elements[name] = {\n        attributes: makeMap(attributes),\n        attributesOrder: attributes,\n        children: makeMap(children, '|', { '#comment': {} })\n    };\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (attribute, key) {\n    if (!html5settings.attributes[key])\n        html5settings.attributes[key] = attribute;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (-1 === tinymce.inArray(html5settings.attributesOrder, key))\n        difference.push(key);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child, key) {\n    if (!html5settings.children[key])\n        html5settings.children[key] = child;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, key) {\n    validStyles[key] = tinymce.explode(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (element, name) {\n    children[name] = element.children;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (element, child) {\n    if (element[cloneName])\n        element[name] = element[cloneName];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    if (prefix === '-')\n        delete parent[child];\n    else\n        parent[child] = {};\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (element, name) {\n    elements[name] = {\n        attributes: element.attributes,\n        attributesOrder: element.attributesOrder\n    };\n    children[name] = element.children;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    item = split(item, '/');\n    elements[item[1]].outputName = item[0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    if (elements[name]) {\n        elements[name].removeEmpty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    elements[name].paddEmpty = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    if (elements[item])\n        delete elements[item];\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, results) {\n    if (err !== null)\n        throw err;\n    expect(results.length).toBe(2);\n    for (var i = 0; i < results.length; i++) {\n        var result = results[i];\n        if (result.p.value === 'http://example.org/ns#p') {\n            expect(result.v.value).toBe('d:x ns:p');\n        } else if (result.p.value === 'http://example.org/x/p') {\n            expect(result.v.value).toBe('x:x x:p');\n        } else {\n            result.ok(false);\n        }\n    }\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (result) {\n    expect(result === true);\n    engine.execute('SELECT * { ?s ?p ?o }', function (success, result) {\n        expect(success === true);\n        expect(result.length === 1);\n        expect(result[0]['s'].value === 'http://example/book3');\n        expect(result[0]['p'].value === 'http://example.com/vocab#title');\n        expect(result[0]['o'].value === 'http://test.com/example');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    expect(success === true);\n    expect(result.length === 1);\n    expect(result[0]['s'].value === 'http://example/book3');\n    expect(result[0]['p'].value === 'http://example.com/vocab#title');\n    expect(result[0]['o'].value === 'http://test.com/example');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    expect(success === true);\n    engine.execute('SELECT * { ?s <http://example.com/vocab#title> ?o . ?s <http://example.com/vocab#pages> 95 }', function (success, result) {\n        expect(success === true);\n        expect(result.length === 1);\n        result[0]['s'].value === 'http://example/book3';\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    expect(success === true);\n    expect(result.length === 1);\n    result[0]['s'].value === 'http://example/book3';\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 4);\n    var titles = [];\n    for (var i = 0; i < results.length; i++) {\n        titles.push(results[i].title.value);\n    }\n    titles.sort();\n    expect(titles[0], 'SPARQL');\n    expect(titles[1], 'SPARQL (updated)');\n    expect(titles[2], 'SPARQL Protocol Tutorial');\n    expect(titles[3], 'SPARQL Query Language Tutorial');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('SELECT ?book WHERE { ?book ?p ?o }', function (success, results) {\n        expect(results.length === 6);\n        for (var i = 0; i < 6; i++) {\n            expect(results[i].book.token == 'blank');\n            expect(results[i].book.value != null);\n        }\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 6);\n    for (var i = 0; i < 6; i++) {\n        expect(results[i].book.token == 'blank');\n        expect(results[i].book.value != null);\n    }\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:    <http://xmlns.com/foaf/0.1/>                                                   SELECT DISTINCT ?name WHERE { ?x foaf:name ?name }', function (success, results) {\n        expect(results.length === 1);\n        expect(results[0].name.value === 'Alice');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 1);\n    expect(results[0].name.value === 'Alice');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:    <http://xmlns.com/foaf/0.1/>                                    SELECT ?name WHERE { ?x foaf:name ?name } LIMIT 2', function (success, results) {\n        expect(results.length === 2);\n        expect(results[0].name.value === 'Alice');\n        expect(results[1].name.value === 'Alice');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 2);\n    expect(results[0].name.value === 'Alice');\n    expect(results[1].name.value === 'Alice');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:    <http://xmlns.com/foaf/0.1/>                                                   SELECT ?name WHERE { ?x foaf:name ?name } ORDER BY ?name', function (success, results) {\n        expect(results.length === 3);\n        expect(results[0].name.value === 'Alice');\n        expect(results[1].name.value === 'Bob');\n        expect(results[2].name.value === 'Marie');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 3);\n    expect(results[0].name.value === 'Alice');\n    expect(results[1].name.value === 'Bob');\n    expect(results[2].name.value === 'Marie');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:    <http://xmlns.com/foaf/0.1/>                                                   SELECT ?name WHERE { ?x foaf:name ?name } ORDER BY DESC(?name)', function (success, results) {\n        expect(results.length === 3);\n        expect(results[0].name.value === 'Marie');\n        expect(results[1].name.value === 'Bob');\n        expect(results[2].name.value === 'Alice');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 3);\n    expect(results[0].name.value === 'Marie');\n    expect(results[1].name.value === 'Bob');\n    expect(results[2].name.value === 'Alice');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 3);\n    expect(results[0].mbox.value === 'mailto:alice@example.com');\n    expect(results[1].mbox.value === 'mailto:bob@example.com');\n    expect(results[2].mbox.value === 'mailto:marie@example.com');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:    <http://xmlns.com/foaf/0.1/>                                                   SELECT ?name WHERE { ?x foaf:test1 ?test . ?x foaf:name ?name } ORDER BY ASC(?test) ASC(?name)', function (success, results) {\n        expect(results.length === 3);\n        expect(results[0].name.value === 'Alice');\n        expect(results[1].name.value === 'Marie');\n        expect(results[2].name.value === 'Bob');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 3);\n    expect(results[0].name.value === 'Alice');\n    expect(results[1].name.value === 'Marie');\n    expect(results[2].name.value === 'Bob');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    expect(success === true);\n    expect(result.length === 0);\n    var acum = 0;\n    for (var p in engine.lexicon.uriToOID) {\n        acum++;\n    }\n    for (var p in engine.lexicon.OIDToUri) {\n        acum++;\n    }\n    for (var p in engine.lexicon.literalToOID) {\n        acum++;\n    }\n    for (var p in engine.lexicon.OIDToLiteral) {\n        acum++;\n    }\n    expect(acum === 0);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success === true);\n    expect(results[0].s.value === 'http://example/president25');\n    expect(results[0].o.value === 'William');\n    expect(results[1].s.value === 'http://example/president27');\n    expect(results[1].o.value === 'William');\n    expect(results[2].s.value === 'http://example/president42');\n    expect(results[2].o.value === 'William');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:<http://xmlns.com/foaf/0.1/>                              SELECT * FROM <http://example/addresses>                               { ?s ?p ?o }                              ORDER BY ?s ?p', function (success, results) {\n        expect(success === true);\n        expect(results.length === 3);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success === true);\n    expect(results.length === 3);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (?s AS ?t) {  ?s :p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].t.value === 'http://example/s1');\n        expect(results[1].t.value === 'http://example/s2');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].t.value === 'http://example/s1');\n    expect(results[1].t.value === 'http://example/s2');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 0);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 2);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 2);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 2);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 2);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 2);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 2);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results);\n    expect(results.length === 2);\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 0);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 0);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 0);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 0);\n        engine.lexicon.registeredGraphs(true, function (graphs) {\n            expect(success);\n            expect(graphs.length === 0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 0);\n    engine.lexicon.registeredGraphs(true, function (graphs) {\n        expect(success);\n        expect(graphs.length === 0);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (graphs) {\n    expect(success);\n    expect(graphs.length === 0);\n    done();\n}",
+    "receiverBase": "lexicon",
+    "receiverCallee": "registeredGraphs"
+  },
+  {
+    "callback": "function (done) {\n    new Lexicon(function (lexicon) {\n        new QuadBackend({ treeOrder: 2 }, function (backend) {\n            var engine = new QueryEngine({\n                    backend: backend,\n                    lexicon: lexicon\n                });\n            engine.execute('CREATE GRAPH <a>', function (result) {\n                expect(result === true);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (result) {\n    expect(result === true);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 0);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 2);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 2);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 2);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 2);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 2);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 2);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results);\n    expect(results.length === 2);\n    engine.execute('SELECT * { GRAPH <http://example/president27> { ?s ?p ?o } }', function (success, results) {\n        expect(success);\n        expect(results.length === 0);\n        engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n            expect(results.length === 0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 0);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 0);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 0);\n    engine.execute('SELECT * { GRAPH <http://example/president25> { ?s ?p ?o } }', function (success, results) {\n        expect(results.length === 0);\n        engine.lexicon.registeredGraphs(true, function (graphs) {\n            expect(success);\n            expect(graphs.length === 0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(results.length === 0);\n    engine.lexicon.registeredGraphs(true, function (graphs) {\n        expect(success);\n        expect(graphs.length === 0);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (graphs) {\n    expect(success);\n    expect(graphs.length === 0);\n    done();\n}",
+    "receiverBase": "lexicon",
+    "receiverCallee": "registeredGraphs"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX foaf:<http://xmlns.com/foaf/0.1/>                              SELECT *                                { ?s ?p ?o }                              ORDER BY ?s ?p', function (success, results) {\n        expect(success === true);\n        expect(results.length === 3);\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success === true);\n    expect(results.length === 3);\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (MAX(?v) AS ?maxv) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].maxv.value === '9');\n        expect(results[1].maxv.value === '2');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].maxv.value === '9');\n    expect(results[1].maxv.value === '2');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (MIN(?v) AS ?maxv) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].maxv.value === '1');\n        expect(results[1].maxv.value === '0');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].maxv.value === '1');\n    expect(results[1].maxv.value === '0');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (COUNT(?v) AS ?count) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].count.value === '3');\n        expect(results[1].count.value === '2');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].count.value === '3');\n    expect(results[1].count.value === '2');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (COUNT( distinct ?v) AS ?count) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].count.value === '2');\n        expect(results[1].count.value === '2');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].count.value === '2');\n    expect(results[1].count.value === '2');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (AVG( distinct ?v) AS ?avg) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].avg.value === '2');\n        expect(results[1].avg.value === '6');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].avg.value === '2');\n    expect(results[1].avg.value === '6');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (AVG(?v) AS ?avg) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].avg.value === '2.5');\n        expect(results[1].avg.value === '6');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].avg.value === '2.5');\n    expect(results[1].avg.value === '6');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (SUM( distinct ?v) AS ?avg) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].avg.value === '4');\n        expect(results[1].avg.value === '12');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].avg.value === '4');\n    expect(results[1].avg.value === '12');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, result) {\n    engine.execute('PREFIX : <http://example/> SELECT (SUM(?v) AS ?avg) {  ?s ?p ?v . } GROUP BY ?s', function (success, results) {\n        expect(success);\n        expect(results.length === 2);\n        expect(results[0].avg.value === '5.5');\n        expect(results[1].avg.value === '12');\n        done();\n    });\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (success, results) {\n    expect(success);\n    expect(results.length === 2);\n    expect(results[0].avg.value === '5.5');\n    expect(results[1].avg.value === '12');\n    done();\n}",
+    "receiverBase": "engine",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.require('hello');\n    assert.equal(ar.paths['hello'], 'require');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    assert.equal(ar.paths['hello'], 'init');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.modify('hello');\n    assert.equal(ar.paths['hello'], 'modify');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.modify('hello');\n    assert.ok(!ar.states.init.hasOwnProperty('hello'));\n    assert.ok(ar.states.modify.hasOwnProperty('hello'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.init('goodbye');\n    ar.modify('world');\n    ar.require('foo');\n    ar.forEach('init', function (path) {\n        assert.ok(~[\n            'hello',\n            'goodbye'\n        ].indexOf(path));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (path) {\n    assert.ok(~[\n        'hello',\n        'goodbye'\n    ].indexOf(path));\n}",
+    "receiverBase": "ar",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.init('goodbye');\n    ar.modify('world');\n    ar.require('foo');\n    ar.forEach('modify', 'require', function (path) {\n        assert.ok(~[\n            'world',\n            'foo'\n        ].indexOf(path));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (path) {\n    assert.ok(~[\n        'world',\n        'foo'\n    ].indexOf(path));\n}",
+    "receiverBase": "ar",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.init('goodbye');\n    ar.modify('world');\n    ar.require('foo');\n    ar.forEach(function (path) {\n        assert.ok(~[\n            'hello',\n            'goodbye',\n            'world',\n            'foo'\n        ].indexOf(path));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (path) {\n    assert.ok(~[\n        'hello',\n        'goodbye',\n        'world',\n        'foo'\n    ].indexOf(path));\n}",
+    "receiverBase": "ar",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.modify('world');\n    assert.ok(ar.some('init'));\n    assert.ok(ar.some('modify'));\n    assert.ok(!ar.some('require'));\n    assert.ok(ar.some('init', 'modify'));\n    assert.ok(ar.some('init', 'require'));\n    assert.ok(ar.some('modify', 'require'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.modify('world');\n    ar.require('iAmTheWalrus');\n    var suffixedPaths = ar.map('init', 'modify', function (path) {\n            return path + '-suffix';\n        });\n    assert.deepEqual(suffixedPaths, [\n        'hello-suffix',\n        'world-suffix'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (path) {\n    return path + '-suffix';\n}",
+    "receiverBase": "ar",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var ar = new ActiveRoster();\n    ar.init('hello');\n    ar.modify('world');\n    ar.require('iAmTheWalrus');\n    var suffixedPaths = ar.map(function (path) {\n            return path + '-suffix';\n        });\n    assert.deepEqual(suffixedPaths, [\n        'iAmTheWalrus-suffix',\n        'hello-suffix',\n        'world-suffix'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (path) {\n    return path + '-suffix';\n}",
+    "receiverBase": "ar",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var s = new ObjectId().toString();\n    var a = new ObjectId(s), b = new ObjectId(s);\n    assert.ok(utils.deepEqual(a, b));\n    assert.ok(utils.deepEqual(a, a));\n    assert.ok(!utils.deepEqual(a, new ObjectId()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var str = 'this is the day';\n    var a = new MongooseBuffer(str);\n    var b = new MongooseBuffer(str);\n    var c = new Buffer(str);\n    var d = new Buffer('this is the way');\n    var e = new Buffer('other length');\n    assert.ok(utils.deepEqual(a, b));\n    assert.ok(utils.deepEqual(a, c));\n    assert.ok(!utils.deepEqual(a, d));\n    assert.ok(!utils.deepEqual(a, e));\n    assert.ok(!utils.deepEqual(a, []));\n    assert.ok(!utils.deepEqual([], a));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (stream) {\n    streamready();\n    var input = audio_context.createMediaStreamSource(stream);\n    localStream = window.URL.createObjectURL(stream);\n    videoElement.src = localStream;\n    var zeroGain = audio_context.createGain();\n    zeroGain.gain.value = 0;\n    input.connect(zeroGain);\n    zeroGain.connect(audio_context.destination);\n    recorder = new Recorder(input);\n}",
+    "receiverBase": "navigator",
+    "receiverCallee": "getUserMedia"
+  },
+  {
+    "callback": "function (e) {\n    streamerror({\n        code: 100,\n        error: e\n    });\n}",
+    "receiverBase": "navigator",
+    "receiverCallee": "getUserMedia"
+  },
+  {
+    "callback": "function () {\n    ctx.drawImage(videoElement, 0, 0, newWidth, newHeight);\n    frames.push(canvas.toDataURL('image/webp', webp_quality));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (blob) {\n    audioBlob = blob;\n    if (audioBlob != null && videoBlob != null) {\n        capturefinish(blob, videoBlob, oncapturefinish);\n    }\n    recorder.clear();\n}",
+    "receiverBase": "recorder",
+    "receiverCallee": "exportWAV"
+  },
+  {
+    "callback": "function () {\n    audioElement.currentTime = videoElement.currentTime;\n    audioElement.play();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var ua = navigator.userAgent, tem, M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\\/))\\/?\\s*(\\d+)/i) || [];\n    return M[1];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (ev) {\n    $input.val(ev.color.toHex());\n}",
+    "receiverBase": "colorpicker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $input.select();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, option) {\n    var value = element.attr(option);\n    if (value !== undefined && value.length) {\n        options[option] = value;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.spinning) {\n        this._stop(event);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_delay"
+  },
+  {
+    "callback": "function () {\n    this.previous = previous;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_delay"
+  },
+  {
+    "callback": "function () {\n    delete this.cancelBlur;\n    checkFocus.call(this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_delay"
+  },
+  {
+    "callback": "function () {\n    this._repeat(40, steps, event);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_delay"
+  },
+  {
+    "callback": "function (options) {\n    this._super(options);\n    this._value(this.element.val());\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifier"
+  },
+  {
+    "callback": "function (steps) {\n    this._stepUp(steps);\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifier"
+  },
+  {
+    "callback": "function (steps) {\n    this._stepDown(steps);\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifier"
+  },
+  {
+    "callback": "function (pages) {\n    this._stepUp((pages || 1) * this.options.page);\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifier"
+  },
+  {
+    "callback": "function (pages) {\n    this._stepDown((pages || 1) * this.options.page);\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifier"
+  },
+  {
+    "callback": "function (e) {\n    yels.push(e);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    el.dom = e;\n    Ext.Element.prototype[fn].apply(el, args);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    Ext.EventManager.on(e, eventName, handler, scope || e, opt);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, i) {\n    el.dom = e;\n    return fn.call(scope || el, el, me, i);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el, self, i) {\n    if (fn(el, i) !== false) {\n        els[els.length] = el.dom;\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var fnName, ElProto = Ext.Element.prototype, CelProto = Ext.CompositeElementLite.prototype;\n    for (fnName in ElProto) {\n        if (Ext.isFunction(ElProto[fnName])) {\n            (function (fnName) {\n                CelProto[fnName] = CelProto[fnName] || function () {\n                    return this.invoke(fnName, arguments);\n                };\n            }.call(CelProto, fnName));\n        }\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    console.log('Loading foo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (c) {\n    if (ct != c && c.id === id) {\n        m = c;\n        return false;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "cascade"
+  },
+  {
+    "callback": "function (c) {\n    return c.isXType(xtype, shallow);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (c) {\n    return c[prop] === value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "findBy"
+  },
+  {
+    "callback": "function (c) {\n    if (ct != c && fn.call(scope || c, c, ct) === true) {\n        m.push(c);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "cascade"
+  }
+]

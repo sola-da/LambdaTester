@@ -1,0 +1,250 @@
+[
+  {
+    "callback": "function (value, key) {\n    options.data.changes[key] = this.get(key);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.destroyed = true;\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    this.destroyed = false;\n}",
+    "receiverBase": "done",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (resp, status, xhr) {\n    model.set(model.parse(resp, xhr), options);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (id, attachment) {\n    return Attachments.all.push(attachment || { id: id });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "memoize"
+  },
+  {
+    "callback": "function (t, prop) {\n    var filter = Attachments.filters[prop], term = model.get(prop);\n    if (!filter)\n        return;\n    if (term && !this.filters[prop])\n        this.filters[prop] = filter;\n    else if (!term && this.filters[prop] === filter)\n        delete this.filters[prop];\n    else\n        return;\n    return true;\n}",
+    "receiverBase": "chain",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (filter) {\n    return !!filter.call(this, attachment);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "all"
+  },
+  {
+    "callback": "function (attachment) {\n    this.validate(attachment, { silent: true });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (attachments) {\n    attachments.off(null, null, this);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this === attachments.mirroring)\n        deferred.resolveWith(this);\n}",
+    "receiverBase": "more",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (attrs) {\n    var id, attachment, newAttributes;\n    if (attrs instanceof Backbone.Model) {\n        id = attrs.get('id');\n        attrs = attrs.attributes;\n    } else {\n        id = attrs.id;\n    }\n    attachment = Attachment.get(id);\n    newAttributes = attachment.parse(attrs, xhr);\n    if (!_.isEqual(attachment.attributes, newAttributes))\n        attachment.set(newAttributes);\n    return attachment;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (attachment) {\n    return !_.isUndefined(attachment.id);\n}",
+    "receiverBase": "chain",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (attachment, index) {\n    index = index + 1;\n    attachment.set('menuOrder', index);\n    return [\n        attachment.id,\n        index\n    ];\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    var value = attachment.get(key);\n    return value && -1 !== value.search(this.props.get('search'));\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (resp) {\n    if (_.isEmpty(resp) || -1 === this.args.posts_per_page || resp.length < this.args.posts_per_page)\n        query._hasMore = false;\n}",
+    "receiverBase": "fetch",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (value, prop) {\n    if (_.isNull(value))\n        return;\n    args[Query.propmap[prop] || prop] = value;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (query) {\n    return _.isEqual(query.args, args);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    window.wp = null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).parents('.jqgrow').attr('id');\n    dataGrid.expandNodeIds.push(id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    refresh();\n    return false;\n}",
+    "receiverBase": "searchForm",
+    "receiverCallee": "submit"
+  },
+  {
+    "callback": "function () {\n    searchForm.toggleClass('hide');\n    resizeDataGrid();\n    return false;\n}",
+    "receiverBase": "btnSearch",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $('input[type=reset]', searchForm).click();\n    refreshTree();\n    return false;\n}",
+    "receiverBase": "btnRefreshTree",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    expandTreeNode(1);\n    return false;\n}",
+    "receiverBase": "btnExpandTreeNode",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    collapseTreeNode();\n    return false;\n}",
+    "receiverBase": "btnCollapseTreeNode",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    resizeDataGrid();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    setGridHeight();\n    setGridWidth();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).parents('.jqgrow')[0].id;\n    dataGrid.expandNodeIds.push(id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.tree-minus', dataGrid).click();\n    closeTip();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var $parent = $(this).parent();\n    if ($parent.is(':visible')) {\n        this.style.cssText = 'height: ' + $parent.height() + 'px !important; cursor: col-resize;';\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $ts = $(this), $parent = $ts.parent();\n    if ($parent.is(':visible') && $parent.is(':has(span.ui-jqgrid-resize)')) {\n        $ts.css('top', ($parent.height() - $ts.outerHeight()) / 2 + 'px');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, nw, idx) {\n    $firstRow.find('th').eq(idx).width(nw);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var rowspan = $(this).attr('rowspan');\n    if (rowspan) {\n        $(this).attr('rowspan', String(parseInt(rowspan, 10) - 1));\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (systems, name) {\n    systems[name] = list[name].system;\n    return systems;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (line) {\n    quill.log.data(line);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, latest) {\n    if (err) {\n        return callback(err);\n    }\n    quill.inspect.putObject(latest);\n    callback(null, latest);\n}",
+    "receiverBase": "dependencies",
+    "receiverCallee": "maxSatisfying"
+  },
+  {
+    "callback": "function () {\n    console.log('APP bundle built in ' + (Date.now() - start) + 'ms');\n}",
+    "receiverBase": "",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function () {\n    gulp.run('lint', 'build', 'watch');\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    browserifyTask({\n        development: true,\n        src: './src/flux-angular.js',\n        dest: './build'\n    });\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    gulp.src(scripts).pipe(jshint()).pipe(jshint.reporter(stylish));\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    gulp.watch(scripts, ['lint']);\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    gulp.run('lint');\n    browserifyTask({\n        development: false,\n        src: './src/flux-angular.js',\n        dest: './release'\n    });\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function (error, errorMessages) {\n    if (error) {\n        this.error = true;\n        this.successful = false;\n        for (var i = 0; i < errorMessages.length; i++) {\n            this.details.push(errorMessages[i]);\n        }\n    }\n    this.upload();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "actions",
+    "receiverCallee": "_save"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "actions",
+    "receiverCallee": "_load"
+  },
+  {
+    "callback": "function () {\n    self.isReplaying = false;\n    self.onReplayFinished();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_save"
+  },
+  {
+    "callback": "function () {\n    self.isReplaying = false;\n    self.onReplayFinished();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_save"
+  },
+  {
+    "callback": "function () {\n    var event = doc.createEvent('Event');\n    event.initEvent(TRIGGER_EVENT, true, true);\n    return event;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var event = doc.createEventObject();\n    event.type = 'onhelp';\n    event.bubbles = true;\n    event.cancelable = true;\n    return event;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, m) {\n    me.list.push(m);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (require) {\n    'use strict';\n    var settings = { pushState: window.history && window.history.pushState };\n    return function () {\n        return settings;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  }
+]

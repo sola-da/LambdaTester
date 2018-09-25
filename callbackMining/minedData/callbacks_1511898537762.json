@@ -1,0 +1,1006 @@
+[
+  {
+    "callback": "function (self, locals) {\n    return getter(self, locals);\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (self, locals) {\n    return fn(self, locals, right);\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (self, locals) {\n    return fn(self, locals, left, right);\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (self, locals) {\n    return left(self, locals) ? middle(self, locals) : right(self, locals);\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function () {\n    self._jump($(this).index());\n}",
+    "receiverBase": "$navDots",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.isAnimating = false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    var instance = $.data(this, 'cbpFWSlider');\n    if (!instance) {\n        logError('cannot call methods on cbpFWSlider prior to initialization; ' + 'attempted to call method \\'' + options + '\\'');\n        return;\n    }\n    if (!$.isFunction(instance[options]) || options.charAt(0) === '_') {\n        logError('no such method \\'' + options + '\\' for cbpFWSlider instance');\n        return;\n    }\n    instance[options].apply(instance, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var instance = $.data(this, 'cbpFWSlider');\n    if (instance) {\n        instance._init();\n    } else {\n        instance = $.data(this, 'cbpFWSlider', new $.CBPFWSlider(options, this));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (wrapper) {\n    response.result = wrapper.replace('$template', encodeURIComponent(JSON.stringify(request.template))).replace('$data', request.data ? JSON.stringify(request.data, null, 2) : 'null').replace(/\\$serverUrl/g, request.protocol + '://' + request.headers.host);\n}",
+    "receiverBase": "read",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    self._cache = new ContactCache(self._context);\n    return self._cache._ready;\n}",
+    "receiverBase": "_ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    self._ready = null;\n    self._core = null;\n    self._sessionInfo = {};\n}",
+    "receiverBase": "_core",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (result) {\n    Assert.isObject(result.rolodex);\n    Assert.isNumber(result.rolodex.updateNext);\n    Assert.isString(result.rolodex.version);\n    Assert.isObject(result.identities);\n    Assert.notEqual(typeof result.identities.identity, 'undefined');\n    var clearContacts = !!result.rolodex.version;\n    return self._cache.sync(Util.arrayForPayloadObject(result.identities.identity), clearContacts).then(function () {\n        self.emit('contacts.loaded', identity);\n    });\n}",
+    "receiverBase": "makeRequestTo",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    self.emit('contacts.loaded', identity);\n}",
+    "receiverBase": "sync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self._cache.getContacts();\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, event) {\n    return deferred.reject(err);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (db, event) {\n    return deferred.resolve();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (event) {\n    self.error(event);\n    return deferred.reject(new Error('Transaction failed due to: ' + event.type));\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (event) {\n    return deferred.resolve();\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (contact) {\n    if (contact.$disposition === 'update') {\n        delete contact.$disposition;\n        contactsStore.put(contact);\n    } else if (contact.$disposition === 'remove') {\n        contactsStore.delete(contact.uri);\n    } else {\n        self.error(new Error('unrecognized disposition: \\'' + contact.$disposition + '\\'').stack);\n    }\n}",
+    "receiverBase": "contacts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    insertOrRemove().then(deferred.resolve).fail(deferred.reject);\n}",
+    "receiverBase": "clear",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (event) {\n    self.error(event);\n    return deferred.reject(new Error('Transaction failed due to: ' + event.type));\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (event) {\n    return deferred.resolve(contacts);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (transaction) {\n    var contactsStore = transaction.objectStore(self._tableName);\n    contactsStore.each(function (item) {\n        contacts[item.value.uri] = item.value;\n    });\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "progress"
+  },
+  {
+    "callback": "function (item) {\n    contacts[item.value.uri] = item.value;\n}",
+    "receiverBase": "contactsStore",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    server.start();\n    requester.connect('tcp://localhost:5555');\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    fs.readFile(__dirname + '/sample.jade', function (error, file) {\n        requester.send({\n            language: 'jade',\n            source: file.toString()\n        }, function (res) {\n            (res.error === null).should.be.true;\n            (res.output.errors === null).should.be.true;\n            res.output.result.should.exist;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (error, file) {\n    requester.send({\n        language: 'jade',\n        source: file.toString()\n    }, function (res) {\n        (res.error === null).should.be.true;\n        (res.output.errors === null).should.be.true;\n        res.output.result.should.exist;\n        done();\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (res) {\n    (res.error === null).should.be.true;\n    (res.output.errors === null).should.be.true;\n    res.output.result.should.exist;\n    done();\n}",
+    "receiverBase": "requester",
+    "receiverCallee": "send"
+  },
+  {
+    "callback": "function (done) {\n    fs.readFile(__dirname + '/broken.jade', function (error, file) {\n        requester.send({\n            language: 'jade',\n            source: file.toString()\n        }, function (res) {\n            (res.error === null).should.be.true;\n            (res.output.result === null).should.be.true;\n            res.output.errors.should.exist;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (error, file) {\n    requester.send({\n        language: 'jade',\n        source: file.toString()\n    }, function (res) {\n        (res.error === null).should.be.true;\n        (res.output.result === null).should.be.true;\n        res.output.errors.should.exist;\n        done();\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (res) {\n    (res.error === null).should.be.true;\n    (res.output.result === null).should.be.true;\n    res.output.errors.should.exist;\n    done();\n}",
+    "receiverBase": "requester",
+    "receiverCallee": "send"
+  },
+  {
+    "callback": "function () {\n    requester.close();\n    server.stop();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    http.get(page, function (res) {\n        response = res;\n        response.body = '';\n        res.on('data', function (chunk) {\n            response.body += chunk;\n        });\n        res.on('end', function () {\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (res) {\n    response = res;\n    response.body = '';\n    res.on('data', function (chunk) {\n        response.body += chunk;\n    });\n    res.on('end', function () {\n        done();\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (chunk) {\n    response.body += chunk;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    it('/data/bootstrapcdn.json :: 200\\'s', function (done) {\n        assert(response);\n        assert(response.statusCode === 200);\n        done();\n    });\n    it('is json', function (done) {\n        assert(JSON.parse(response.body));\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    assert(response);\n    assert(response.statusCode === 200);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert(JSON.parse(response.body));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, body) {\n    if (err) {\n        return callback(err);\n    }\n    if (!body || !body.images) {\n        return callback(new Error('Unexpected empty response'));\n    } else {\n        return callback(null, body.images.map(function (result) {\n            return new compute.Image(self, result);\n        }));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (result) {\n    return new compute.Image(self, result);\n}",
+    "receiverBase": "images",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, body) {\n    if (err) {\n        return callback(err);\n    }\n    if (!body || !body.image) {\n        return callback(new Error('Unexpected empty response'));\n    } else {\n        return callback(null, new compute.Image(self, body.image));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, body, res) {\n    if (err) {\n        return callback(err);\n    }\n    return self._request({ uri: res.headers.location }, function (err, body) {\n        if (err) {\n            return callback(err);\n        }\n        if (!body || !body.image) {\n            return callback(new Error('Unexpected empty response'));\n        } else {\n            return callback(null, new compute.Image(self, body.image));\n        }\n    });\n}",
+    "receiverBase": "_doServerAction",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (err, body) {\n    if (err) {\n        return callback(err);\n    }\n    if (!body || !body.image) {\n        return callback(new Error('Unexpected empty response'));\n    } else {\n        return callback(null, new compute.Image(self, body.image));\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err) {\n    return err ? callback(err) : callback(null, { ok: imageId });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, body) {\n    return err ? callback(err) : callback(null, body);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^\\\\p{L}+$').test('Caf\\xE9')).toBe(true);\n    expect(XRegExp('^\\\\pL+$').test('Caf\\xE9')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\P{^L}');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('[\\\\P{^L}]');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('[^\\\\P{^L}]');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\P{^L}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\P{^L}]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[^\\\\P{^L}]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p^L');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p^L');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^\\\\pLetter+$').test('Caf\\xE9')).toBe(false);\n    expect(XRegExp('^\\\\pLetter+$').test('Aetterrrrr')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^[\\\\p{L}]+$').test('Caf\\xE9')).toBe(true);\n    expect(XRegExp('^[\\\\pL]+$').test('Caf\\xE9')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^[\\\\P{L}]+$').test('Caf\\xE9')).toBe(false);\n    expect(XRegExp('^[\\\\PL]+$').test('Caf\\xE9')).toBe(false);\n    expect(XRegExp('^[\\\\p{^L}]+$').test('Caf\\xE9')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^[^\\\\p{L}]+$').test('Caf\\xE9')).toBe(false);\n    expect(XRegExp('^[^\\\\pL]+$').test('Caf\\xE9')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^[^\\\\P{L}]+$').test('Caf\\xE9')).toBe(true);\n    expect(XRegExp('^[^\\\\PL]+$').test('Caf\\xE9')).toBe(true);\n    expect(XRegExp('^[^\\\\p{^L}]+$').test('Caf\\xE9')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    expect(function () {\n        XRegExp('[\\\\p{L}]');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('[\\\\P{L}]');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('[\\\\pL]');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('[\\\\PL]');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\p{L}]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\P{L}]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\pL]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\PL]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{' + name + '}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\P{' + name + '}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{^' + name + '}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p' + name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\P' + name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{}');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('\\\\P{}');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('\\\\p{^}');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('\\\\p');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('\\\\P');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\P{}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{^}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\P');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^\\\\p{ _-l --}+$').test('Caf\\xE9')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{L+}');\n    }).toThrow(SyntaxError);\n    expect(function () {\n        XRegExp('\\\\p{.L}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{L+}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{.L}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{ ^L}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{ ^L}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    letters.forEach(function (letter) {\n        expect(XRegExp('\\\\p{L}').test(letter)).toBe(true);\n        expect(XRegExp('\\\\p{Letter}').test(letter)).toBe(true);\n        expect(XRegExp('\\\\pL').test(letter)).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (letter) {\n    expect(XRegExp('\\\\p{L}').test(letter)).toBe(true);\n    expect(XRegExp('\\\\p{Letter}').test(letter)).toBe(true);\n    expect(XRegExp('\\\\pL').test(letter)).toBe(true);\n}",
+    "receiverBase": "letters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    astralLetters.forEach(function (astralLetter) {\n        expect(XRegExp('^\\\\p{L}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\p{Letter}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\pL$').test(astralLetter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (astralLetter) {\n    expect(XRegExp('^\\\\p{L}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\p{Letter}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\pL$').test(astralLetter)).toBe(false);\n}",
+    "receiverBase": "astralLetters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    nonletters.forEach(function (nonletter) {\n        expect(XRegExp('\\\\p{L}').test(nonletter)).toBe(false);\n        expect(XRegExp('\\\\p{Letter}').test(nonletter)).toBe(false);\n        expect(XRegExp('\\\\pL').test(nonletter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (nonletter) {\n    expect(XRegExp('\\\\p{L}').test(nonletter)).toBe(false);\n    expect(XRegExp('\\\\p{Letter}').test(nonletter)).toBe(false);\n    expect(XRegExp('\\\\pL').test(nonletter)).toBe(false);\n}",
+    "receiverBase": "nonletters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    letters.forEach(function (letter) {\n        expect(XRegExp('\\\\p{L}').test(letter)).toBe(true);\n        expect(XRegExp('\\\\p{Letter}').test(letter)).toBe(true);\n        expect(XRegExp('\\\\pL').test(letter)).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (letter) {\n    expect(XRegExp('\\\\p{L}').test(letter)).toBe(true);\n    expect(XRegExp('\\\\p{Letter}').test(letter)).toBe(true);\n    expect(XRegExp('\\\\pL').test(letter)).toBe(true);\n}",
+    "receiverBase": "letters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    astralLetters.forEach(function (astralLetter) {\n        expect(XRegExp('^\\\\p{L}$').test(astralLetter)).toBe(true);\n        expect(XRegExp('^\\\\p{Letter}$').test(astralLetter)).toBe(true);\n        expect(XRegExp('^\\\\pL$').test(astralLetter)).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (astralLetter) {\n    expect(XRegExp('^\\\\p{L}$').test(astralLetter)).toBe(true);\n    expect(XRegExp('^\\\\p{Letter}$').test(astralLetter)).toBe(true);\n    expect(XRegExp('^\\\\pL$').test(astralLetter)).toBe(true);\n}",
+    "receiverBase": "astralLetters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    nonletters.forEach(function (nonletter) {\n        expect(XRegExp('\\\\p{L}').test(nonletter)).toBe(false);\n        expect(XRegExp('\\\\p{Letter}').test(nonletter)).toBe(false);\n        expect(XRegExp('\\\\pL').test(nonletter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (nonletter) {\n    expect(XRegExp('\\\\p{L}').test(nonletter)).toBe(false);\n    expect(XRegExp('\\\\p{Letter}').test(nonletter)).toBe(false);\n    expect(XRegExp('\\\\pL').test(nonletter)).toBe(false);\n}",
+    "receiverBase": "nonletters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    letters.forEach(function (letter) {\n        expect(XRegExp('\\\\P{L}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\P{Letter}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\PL').test(letter)).toBe(false);\n        expect(XRegExp('\\\\p{^L}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\p{^Letter}').test(letter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (letter) {\n    expect(XRegExp('\\\\P{L}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\P{Letter}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\PL').test(letter)).toBe(false);\n    expect(XRegExp('\\\\p{^L}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\p{^Letter}').test(letter)).toBe(false);\n}",
+    "receiverBase": "letters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    astralLetters.forEach(function (astralLetter) {\n        expect(XRegExp('^\\\\P{L}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\P{Letter}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\PL$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\p{^L}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\p{^Letter}$').test(astralLetter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (astralLetter) {\n    expect(XRegExp('^\\\\P{L}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\P{Letter}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\PL$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\p{^L}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\p{^Letter}$').test(astralLetter)).toBe(false);\n}",
+    "receiverBase": "astralLetters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    nonletters.forEach(function (nonletter) {\n        expect(XRegExp('\\\\P{L}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\P{Letter}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\PL').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\p{^L}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\p{^Letter}').test(nonletter)).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (nonletter) {\n    expect(XRegExp('\\\\P{L}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\P{Letter}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\PL').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\p{^L}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\p{^Letter}').test(nonletter)).toBe(true);\n}",
+    "receiverBase": "nonletters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    letters.forEach(function (letter) {\n        expect(XRegExp('\\\\P{L}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\P{Letter}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\PL').test(letter)).toBe(false);\n        expect(XRegExp('\\\\p{^L}').test(letter)).toBe(false);\n        expect(XRegExp('\\\\p{^Letter}').test(letter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (letter) {\n    expect(XRegExp('\\\\P{L}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\P{Letter}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\PL').test(letter)).toBe(false);\n    expect(XRegExp('\\\\p{^L}').test(letter)).toBe(false);\n    expect(XRegExp('\\\\p{^Letter}').test(letter)).toBe(false);\n}",
+    "receiverBase": "letters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    astralLetters.forEach(function (astralLetter) {\n        expect(XRegExp('^\\\\P{L}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\P{Letter}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\PL$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\p{^L}$').test(astralLetter)).toBe(false);\n        expect(XRegExp('^\\\\p{^Letter}$').test(astralLetter)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (astralLetter) {\n    expect(XRegExp('^\\\\P{L}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\P{Letter}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\PL$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\p{^L}$').test(astralLetter)).toBe(false);\n    expect(XRegExp('^\\\\p{^Letter}$').test(astralLetter)).toBe(false);\n}",
+    "receiverBase": "astralLetters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    nonletters.forEach(function (nonletter) {\n        expect(XRegExp('\\\\P{L}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\P{Letter}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\PL').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\p{^L}').test(nonletter)).toBe(true);\n        expect(XRegExp('\\\\p{^Letter}').test(nonletter)).toBe(true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (nonletter) {\n    expect(XRegExp('\\\\P{L}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\P{Letter}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\PL').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\p{^L}').test(nonletter)).toBe(true);\n    expect(XRegExp('\\\\p{^Letter}').test(nonletter)).toBe(true);\n}",
+    "receiverBase": "nonletters",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('(?A)^\\\\p{L}$').test(U_1D7CB)).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^\\\\p{L}$', 'A').test(U_1D7CB)).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('(?A)^\\\\P{L}$').test(U_1D7CB)).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('^\\\\P{L}$', 'A').test(U_1D7CB)).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('(?A)[\\\\p{L}]');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('(?A)[\\\\p{L}]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('[\\\\p{L}]', 'A');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('[\\\\p{L}]', 'A');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp.install('astral');\n    var implicit = XRegExp('\\\\p{L}');\n    XRegExp.uninstall('astral');\n    var explicit = XRegExp('\\\\p{L}', 'A');\n    expect(explicit).toBeEquiv(implicit);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp.addUnicodeData([{ bmp: '0' }]);\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{ bmp: '0' }]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp.addUnicodeData([{ name: 'NoData' }]);\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{ name: 'NoData' }]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{\n            name: 'XDigit',\n            alias: 'Hexadecimal',\n            bmp: '0-9A-Fa-f'\n        }]);\n    expect(XRegExp('\\\\p{XDigit}\\\\p{Hexadecimal}').test('0F')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{\n            name: 'NotXDigit',\n            inverseOf: 'XDigit'\n        }]);\n    expect(XRegExp('\\\\p{NotXDigit}\\\\P{NotXDigit}').test('Z0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{\n            name: 'MissingRef',\n            inverseOf: 'MissingToken'\n        }]);\n    expect(function () {\n        XRegExp('\\\\p{MissingRef}');\n    }).toThrow(ReferenceError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{MissingRef}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{AstralOnly}', 'A').test('0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{AstralOnly}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{AstralOnly}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp.addUnicodeData([{\n            name: 'BmpOnly',\n            bmp: '0'\n        }]);\n    it('should allow BMP-only tokens to match, when not in astral mode', function () {\n        expect(XRegExp('\\\\p{BmpOnly}').test('0')).toBe(true);\n    });\n    it('should allow BMP-only tokens to match, when in astral mode', function () {\n        expect(XRegExp('\\\\p{BmpOnly}', 'A').test('0')).toBe(true);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpOnly}').test('0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpOnly}', 'A').test('0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpPlusAstral}').test('0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpPlusAstral}').test('1')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpPlusAstral}', 'A').test('0')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(XRegExp('\\\\p{BmpPlusAstral}', 'A').test('1')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{InBasic_Latin}');\n    }).not.toThrow();\n    expect(function () {\n        XRegExp('\\\\p{Basic_Latin}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{InBasic_Latin}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{Basic_Latin}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{IsBasic_Latin}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{IsBasic_Latin}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('InBasic_Latin', { valid: ['A'] });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('InAegean_Numbers', {\n        isAstralOnly: true,\n        valid: [String.fromCodePoint(65792)]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{InP}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{InP}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{IsP}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{IsP}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Cn', { invalid: ['\\u20BA'] });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('P', {\n        valid: [\n            '-',\n            '\\xBF',\n            '\\u301C'\n        ],\n        invalid: ['0']\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Pe', {\n        valid: [\n            ')',\n            '\\u300B'\n        ],\n        invalid: ['0']\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('S', {\n        valid: [\n            '$',\n            '\\u20B9',\n            '\\u20BA',\n            String.fromCodePoint(128169)\n        ],\n        invalid: ['0']\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Sc', {\n        valid: [\n            '$',\n            '\\u20B9',\n            '\\u20BA'\n        ],\n        invalid: ['0']\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{InASCII}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{InASCII}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{IsASCII}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{IsASCII}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Alphabetic', {\n        valid: [\n            'A',\n            'a',\n            '\\xC5',\n            '\\xE5',\n            '\\u65E5',\n            '\\u064A'\n        ],\n        invalid: [\n            '0',\n            '$'\n        ]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Any', {\n        valid: [\n            String.fromCodePoint(65536),\n            '\\uD800',\n            '\\uDC00',\n            'A'\n        ]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('ASCII', {\n        valid: [\n            '\\0',\n            '\\x7F'\n        ],\n        invalid: ['\\x80']\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Assigned', {\n        valid: [\n            String.fromCodePoint(65536),\n            '\\uD800',\n            '\\uDC00',\n            'A',\n            '\\u20BA'\n        ]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{InLatin}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{InLatin}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        XRegExp('\\\\p{IsLatin}');\n    }).toThrow(SyntaxError);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    XRegExp('\\\\p{IsLatin}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Katakana', {\n        valid: [\n            '\\u30AB',\n            '\\u30BF',\n            '\\u30CA'\n        ],\n        invalid: [\n            'A',\n            'B',\n            'C'\n        ]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Arabic', { valid: ['\\u065F'] });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Inherited', { invalid: ['\\u065F'] });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testUnicodeToken('Common', { valid: ['\\u20BA'] });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    callback(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    setTimeout(onReset);\n}",
+    "receiverBase": "jProp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var lastWidth;\n    $input.onWSOff('updateshadowdom', function () {\n        var curWitdth = input.offsetWidth;\n        if (curWitdth && lastWidth != curWitdth) {\n            lastWidth = curWitdth;\n            picker.refresh();\n        }\n    });\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    var curWitdth = input.offsetWidth;\n    if (curWitdth && lastWidth != curWitdth) {\n        lastWidth = curWitdth;\n        picker.refresh();\n    }\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "onWSOff"
+  },
+  {
+    "callback": "function () {\n    createFilePicker.call(elem);\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (e) {\n    if (!called) {\n        options[name]({\n            type: 'progress',\n            lengthComputable: true,\n            total: 1,\n            loaded: 1\n        });\n    } else if (called.lengthComputable && called.total > called.loaded) {\n        options[name]({\n            type: 'progress',\n            lengthComputable: true,\n            total: called.total,\n            loaded: called.total\n        });\n    }\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    called = e;\n    options[name](e);\n}",
+    "receiverBase": "obj",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    var responses = {\n            text: ajax.responseText,\n            xml: ajax.responseXML\n        };\n    completeCallback(ajax.status, ajax.statusText, responses, ajax.getAllResponseHeaders());\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (name, value) {\n    ajax.setRequestHeader(name, value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (ajax) {\n        ajax = createMoxieTransport(options, originalOptions, jqXHR);\n        tmpTransport.send = ajax.send;\n        tmpTransport.abort = ajax.abort;\n        ajax.send(headers, completeCallback);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (options, originalOptions, jqXHR) {\n    var ajax, type;\n    if (options.wsType || transports[transports]) {\n        ajax = transports[transports](options, originalOptions, jqXHR);\n    }\n    if (!ajax) {\n        for (type in transports) {\n            ajax = transports[type](options, originalOptions, jqXHR);\n            if (ajax) {\n                break;\n            }\n        }\n    }\n    return ajax;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ajaxTransport"
+  },
+  {
+    "callback": "function (value, boolVal, type) {\n    var picker = webshim.data(this, 'filePicker');\n    if (picker) {\n        picker.disable(boolVal);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function (value, boolVal, type) {\n    if (value === '' && this.type == 'file' && $(this).is('.ws-filereader, .ws-capture')) {\n        webshim.data(this, 'fileList', []);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function () {\n    var img = new mOxie.Image();\n    img.onload = function () {\n        var blob = img.getAsBlob();\n        webshim.defineProperty(blob, '_wsDataURL', {\n            value: dataURL,\n            enumerable: false\n        });\n        cb(blob);\n    };\n    img.load(dataURL);\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (val) {\n    moxieData.append(appendData[i].name, val);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    $(context.querySelectorAll(sel)).add(contextElem.filter(sel)).each(createFilePicker);\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    function myClass() {\n    }\n    myClass.prototype.myMethod = function () {\n    };\n    return new myClass();\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        err.code = 'ENOGIT';\n        return cb(err);\n    }\n    execGit(args, options, cb);\n}",
+    "receiverBase": "",
+    "receiverCallee": "whichGit"
+  },
+  {
+    "callback": "function (err, response, body) {\n    if (err) {\n        console.log('SERVER ERROR'.red + ' - Please try again');\n        process.exit(1);\n    }\n    setTimeout(callback, 0, response.statusCode, body);\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, response, body) {\n    if (err) {\n        console.log('SERVER ERROR'.red + ' - Please try again');\n        process.exit(1);\n    }\n    setTimeout(callback, 0, response.statusCode, body && JSON.parse(body));\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    var expected = 'test';\n    var result = 'test';\n    equals(result, expected, 'test should equal test');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (event) {\n    reporter.error(event.message, event.line, event.col, rule);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.isDisplayed()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    triggerModal();\n    expect(changePasswordModal.isDisplayed()).to.eventually.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    changePasswordModal.close();\n    expect(changePasswordModal.isDisplayed()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    triggerModal();\n    changePasswordModal.cancel();\n    expect(changePasswordModal.isDisplayed()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    triggerModal();\n    expect(changePasswordModal.title).to.eventually.equal('Change hey_dude Admin Password');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.subtitle).to.eventually.equal('Please read instructions below');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.btnSubmit.getText()).to.eventually.equal('Submit Password');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.btnCancel.getText()).to.eventually.equal('Cancel Request');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.canSubmit()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.txtErrorMessage.isDisplayed()).to.eventually.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    changePasswordModal.newPassword = 'hunter2';\n    expect(changePasswordModal.canSubmit()).to.eventually.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(changePasswordModal.txtErrorMessage.isDisplayed()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    changePasswordModal.submit();\n    expect(changePasswordModal.isDisplayed()).to.eventually.be.false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var defaultModal;\n    before(function () {\n        defaultModal = modal.initialize();\n    });\n    it('should support basic functionality without supplying any arguments', function () {\n        triggerModal();\n        expect(defaultModal.title).to.eventually.equal('Change hey_dude Admin Password');\n        defaultModal.cancel();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    defaultModal = modal.initialize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    triggerModal();\n    expect(defaultModal.title).to.eventually.equal('Change hey_dude Admin Password');\n    defaultModal.cancel();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

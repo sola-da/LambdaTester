@@ -1,0 +1,1084 @@
+[
+  {
+    "callback": "function (evt) {\n    var element = evt.data.element;\n    if (element.is('table'))\n        evt.data.dialog = 'tableProperties';\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return {\n        tabledelete: CKEDITOR.TRISTATE_OFF,\n        table: CKEDITOR.TRISTATE_OFF\n    };\n}",
+    "receiverBase": "contextMenu",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    if (module.is.hidden()) {\n        module.show();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    module.bind.close();\n    $.proxy(callback, element)();\n}",
+    "receiverBase": "$popup",
+    "receiverCallee": "transition"
+  },
+  {
+    "callback": "function () {\n    module.bind.close();\n    $.proxy(callback, element)();\n}",
+    "receiverBase": "stop",
+    "receiverCallee": "fadeIn"
+  },
+  {
+    "callback": "function () {\n    module.reset();\n    callback();\n}",
+    "receiverBase": "$popup",
+    "receiverCallee": "transition"
+  },
+  {
+    "callback": "function () {\n    module.reset();\n    callback();\n}",
+    "receiverBase": "stop",
+    "receiverCallee": "fadeOut"
+  },
+  {
+    "callback": "function (direction, isOffstage) {\n    if (isOffstage) {\n        offstagePositions.push(direction);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (event) {\n    module.verbose('Pop-up clickaway intent detected');\n    $.proxy(module.hideGracefully, this)(event);\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, data) {\n    totalTime += data['Execution Time'];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, data) {\n    console.log(data['Name'] + ': ' + data['Execution Time'] + 'ms');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function ($element) {\n    var _ = this._;\n    if (_.state == CKEDITOR.TRISTATE_DISABLED)\n        return;\n    this.createPanel(editor);\n    if (_.on) {\n        _.panel.hide();\n        return;\n    }\n    this.commit();\n    var value = this.getValue();\n    if (value)\n        _.list.mark(value);\n    else\n        _.list.unmarkAll();\n    _.panel.showBlock(this.id, new CKEDITOR.dom.element($element), 4);\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (ev, element) {\n    ev = new CKEDITOR.dom.event(ev);\n    var keystroke = ev.getKeystroke();\n    switch (keystroke) {\n    case 13:\n    case 32:\n    case 40:\n        CKEDITOR.tools.callFunction(clickFn, element);\n        break;\n    default:\n        instance.onkey(instance, keystroke);\n    }\n    ev.preventDefault();\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function () {\n    instance.onfocus && instance.onfocus();\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (err) {\n    self.callback(null, err);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function (err, files) {\n    files.forEach(function (file) {\n        (function (file) {\n            fs.readFile(path.join(buildBase, 'yql', file), stack.add(function (err, data) {\n                var shasum = crypto.createHash('sha1');\n                shasum.update(data);\n                var d = shasum.digest('hex');\n                results.post[file] = d;\n            }));\n        }(file));\n    });\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (file) {\n    (function (file) {\n        fs.readFile(path.join(buildBase, 'yql', file), stack.add(function (err, data) {\n            var shasum = crypto.createHash('sha1');\n            shasum.update(data);\n            var d = shasum.digest('hex');\n            results.post[file] = d;\n        }));\n    }(file));\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    fs.readFile(path.join(buildBase, 'yql', file), stack.add(function (err, data) {\n        var shasum = crypto.createHash('sha1');\n        shasum.update(data);\n        var d = shasum.digest('hex');\n        results.post[file] = d;\n    }));\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, data) {\n    var shasum = crypto.createHash('sha1');\n    shasum.update(data);\n    var d = shasum.digest('hex');\n    results.post[file] = d;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (err, files) {\n    files.forEach(function (file) {\n        (function (file) {\n            fs.readFile(path.join(buildXBase, 'yql', file), stack.add(function (err, data) {\n                var shasum = crypto.createHash('sha1');\n                shasum.update(data);\n                var d = shasum.digest('hex');\n                results.pre[file] = d;\n            }));\n        }(file));\n    });\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (file) {\n    (function (file) {\n        fs.readFile(path.join(buildXBase, 'yql', file), stack.add(function (err, data) {\n            var shasum = crypto.createHash('sha1');\n            shasum.update(data);\n            var d = shasum.digest('hex');\n            results.pre[file] = d;\n        }));\n    }(file));\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    fs.readFile(path.join(buildXBase, 'yql', file), stack.add(function (err, data) {\n        var shasum = crypto.createHash('sha1');\n        shasum.update(data);\n        var d = shasum.digest('hex');\n        results.pre[file] = d;\n    }));\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, data) {\n    var shasum = crypto.createHash('sha1');\n    shasum.update(data);\n    var d = shasum.digest('hex');\n    results.pre[file] = d;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    self.callback(null, results);\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (err) {\n    self.callback(null, err);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function () {\n    evalScroll();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (newVal, oldVal) {\n    if (newVal !== oldVal) {\n        evalScroll();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    $help.addClass('notify-help-highlight');\n}",
+    "receiverBase": "$help",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    $help.removeClass('notify-help-highlight');\n}",
+    "receiverBase": "$help",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function (data) {\n    that.stdout = data.toString();\n}",
+    "receiverBase": "child",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    that.stdout = data.toString();\n}",
+    "receiverBase": "child",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    that.env = Object.keys(JSON.parse(data.toString()));\n}",
+    "receiverBase": "child",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key) {\n    assert.isTrue(that.env.indexOf(key) === -1);\n}",
+    "receiverBase": "hideEnv",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (data) {\n    var qid;\n    for (qid in data) {\n        if (data.hasOwnProperty(qid)) {\n            Editor.graph.moveNode(qid, data[qid].x, data[qid].y);\n        }\n    }\n    for (qid in data) {\n        if (data.hasOwnProperty(qid)) {\n            Editor.graph.movePaths(qid);\n        }\n    }\n    $('#container').scrollLeft(0).scrollTop(0);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $('.nf-pnd').remove();\n    if (!data) {\n        alert('Saving is currently disabled. All changes have been discarded.');\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    previewClose();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "live"
+  },
+  {
+    "callback": "function () {\n    bot.execCommand('undo');\n    var undo = bot.editor.getCommand('undo');\n    assert.isFalse(isActive(undo));\n    var redo = bot.editor.getCommand('redo');\n    assert.isTrue(isActive(redo));\n    var output = bender.tools.getHtmlWithSelection(bot.editor);\n    output = bender.tools.compatHtml(bot.editor.dataProcessor.toDataFormat(output));\n    assert.areSame(input, output);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "wait"
+  },
+  {
+    "callback": "function (dialog) {\n    fn.call(this, dialog);\n    this.wait(function () {\n        bot.execCommand('undo');\n        var undo = bot.editor.getCommand('undo');\n        assert.isFalse(isActive(undo));\n        var redo = bot.editor.getCommand('redo');\n        assert.isTrue(isActive(redo));\n        var output = bender.tools.getHtmlWithSelection(bot.editor);\n        output = bender.tools.compatHtml(bot.editor.dataProcessor.toDataFormat(output));\n        assert.areSame(input, output);\n    }, 0);\n}",
+    "receiverBase": "bot",
+    "receiverCallee": "dialog"
+  },
+  {
+    "callback": "function () {\n    bot.execCommand('undo');\n    var undo = bot.editor.getCommand('undo');\n    assert.isFalse(isActive(undo));\n    var redo = bot.editor.getCommand('redo');\n    assert.isTrue(isActive(redo));\n    var output = bender.tools.getHtmlWithSelection(bot.editor);\n    output = bender.tools.compatHtml(bot.editor.dataProcessor.toDataFormat(output));\n    assert.areSame(input, output);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "wait"
+  },
+  {
+    "callback": "function () {\n    assert.isFalse(isActive(undo), 'Undo command disabled when switching to source.');\n    assert.isFalse(isActive(redo), 'Redo command disabled when switching to source.');\n    bot.editor.setMode('wysiwyg', function () {\n        resume(function () {\n            assert.isFalse(isActive(undo), 'Undo command disabled when switching to wysiwyg.');\n            assert.isFalse(isActive(redo), 'Redo command disabled when switching to wysiwyg.');\n        });\n    });\n    wait();\n}",
+    "receiverBase": "",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function () {\n    resume(function () {\n        assert.isFalse(isActive(undo), 'Undo command disabled when switching to wysiwyg.');\n        assert.isFalse(isActive(redo), 'Redo command disabled when switching to wysiwyg.');\n    });\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "setMode"
+  },
+  {
+    "callback": "function () {\n    assert.isFalse(isActive(undo), 'Undo command disabled when switching to wysiwyg.');\n    assert.isFalse(isActive(redo), 'Redo command disabled when switching to wysiwyg.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function () {\n    resume(function () {\n        assert.isFalse(isActive(undo), 'Undo command disabled when leaving read-only mode.');\n        assert.isFalse(isActive(redo), 'Undo command disabled when leaving read-only mode.');\n    });\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    assert.isFalse(isActive(undo), 'Undo command disabled when leaving read-only mode.');\n    assert.isFalse(isActive(redo), 'Undo command disabled when leaving read-only mode.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function () {\n    resume(function () {\n        editor.fire('unlockSnapshot');\n        editor.fire('saveSnapshot');\n        assert.areSame(1, editor.undoManager.snapshots.length, 'only one snapshot after unlock and save');\n        editor.editable().setHtml(editor.undoManager.snapshots[0].contents);\n        assert.areSame('<p>foo3</p>', editor.getData(), 'snapshot contains latest content');\n    });\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "setMode"
+  },
+  {
+    "callback": "function () {\n    editor.fire('unlockSnapshot');\n    editor.fire('saveSnapshot');\n    assert.areSame(1, editor.undoManager.snapshots.length, 'only one snapshot after unlock and save');\n    editor.editable().setHtml(editor.undoManager.snapshots[0].contents);\n    assert.areSame('<p>foo3</p>', editor.getData(), 'snapshot contains latest content');\n}",
+    "receiverBase": "",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function (evt) {\n    evt.cancel();\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (dialog) {\n    dialog.setValueOf('info', 'txtUrl', '../../_assets/logo.png');\n    dialog.getButton('ok').click();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "doUndoDialog"
+  },
+  {
+    "callback": "function (dialog) {\n    dialog.setValueOf('info', 'src', 'about:blank');\n    dialog.getButton('ok').click();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "doUndoDialog"
+  },
+  {
+    "callback": "function (dialog) {\n    dialog.setValueOf('info', 'src', '../../_assets/sample.swf');\n    dialog.getButton('ok').click();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "doUndoDialog"
+  },
+  {
+    "callback": "function () {\n    calls++;\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    resume(function () {\n        assert.areSame(0, prevented, 'None of the keystrokes was prevented');\n    });\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "setMode"
+  },
+  {
+    "callback": "function () {\n    assert.areSame(0, prevented, 'None of the keystrokes was prevented');\n}",
+    "receiverBase": "",
+    "receiverCallee": "resume"
+  },
+  {
+    "callback": "function (err, stderr, stdout) {\n    debug('done (%s)', err || 'ok');\n    npmDebug(stderr);\n    npmDebug(stdout);\n    callback(err, stderr, stdout);\n}",
+    "receiverBase": "child_process",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    stopReggieServer();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    serverDebug(data.toString());\n    var match = data.toString().match(/Reggie listening at http:\\/\\/0.0.0.0:(\\d+)/);\n    if (!match)\n        return;\n    exports.reggieUrl = 'http://localhost:' + match[1] + '/';\n    debug('Test registry listening at %s', exports.reggieUrl);\n    done();\n}",
+    "receiverBase": "stdout",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    serverDebug(data.toString());\n}",
+    "receiverBase": "stderr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "reggieProcess",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    snowMobile.classList.switch('gogo-snowmobile', 'interactive');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + ';' + cross('transform', 'translate3d(0, 0, 0)', 'translate(0, 0)');\n    div_old.style.cssText += cross('transition', time + 's') + ';' + cross('transform', 'translate3d(-' + width + 'px, 0, 0)', 'translate(-' + width + 'px, 0)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(0px, 0, 0)', 'translate(0px, 0)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(' + width + 'px, 0, 0)', 'translate(' + width + 'px, 0)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(0, 0, 0)', 'translate(0, 0)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(0, ' + height + 'px, 0)', 'translate(0, ' + height + 'px)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(0, 0, 0)', 'translate(0, 0)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'translate3d(0, 0, 0)', 'translate(0, 0)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateY(0deg)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateY(180deg)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateY(0deg)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateY(-180deg)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateX(0deg)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateX(-180deg)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateX(0deg)');\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'rotateX(180deg)');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'scale(1)') + '; opacity: 1;';\n    div_old.style.cssText += cross('transition', time + 's') + ';';\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; opacity: 1;';\n    div_old.style.cssText += cross('transition', time + 's') + '; ' + cross('transform', 'scale(1.7)') + '; opacity: 0;';\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div_new.style.cssText += cross('transition', time + 's') + '; opacity: 1;';\n    div_old.style.cssText += cross('transition', time + 's');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (index, el) {\n    el.innerHTML = el.innerHTML.replace(/\\<span class=\\\"w2ui\\-marker\\\"\\>(.*)\\<\\/span\\>/gi, '$1');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (matched) {\n    return '<span class=\"w2ui-marker\">' + matched + '</span>';\n}",
+    "receiverBase": "innerHTML",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (index, elem) {\n    var opt = $(elem).data('options');\n    if (typeof opt == 'undefined')\n        opt = {};\n    $($(elem).data('taged-el')).removeClass(opt['class']);\n    clearInterval($(elem).data('timer'));\n    $(elem).remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    clearInterval($('#w2ui-tag-' + tagID).data('timer'));\n    $('#w2ui-tag-' + tagID).remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.stopPropagation)\n        event.stopPropagation();\n    else\n        event.cancelBubble = true;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    obj.status('Sorting took ' + time / 1000 + ' sec');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.status('Search took ' + time / 1000 + ' sec');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "selectedColumns",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    obj.status(w2utils.lang('Server Response') + ' ' + (new Date().getTime() - obj.last.xhr_start) / 1000 + ' ' + w2utils.lang('sec'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    w2alert(msg, 'Error');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "w2field",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (obj.selectType != 'row') {\n        obj.selectNone();\n        obj.select({\n            recid: recid,\n            column: next\n        });\n    } else {\n        obj.editField(recid, next, null, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (obj.selectType != 'row') {\n        obj.selectNone();\n        obj.select({\n            recid: obj.records[next].recid,\n            column: column\n        });\n    } else {\n        obj.editField(obj.records[next].recid, column, null, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (obj.selectType != 'row') {\n        obj.selectNone();\n        obj.select({\n            recid: obj.records[next].recid,\n            column: column\n        });\n    } else {\n        obj.editField(obj.records[next].recid, column, null, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (obj.selectType != 'row') {\n        obj.selectNone();\n        obj.select({\n            recid: obj.records[next].recid,\n            column: column\n        });\n    } else {\n        obj.editField(obj.records[next].recid, column, null, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.select({\n        recid: recid,\n        column: column\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (result) {\n    if (result == 'Yes')\n        w2ui[obj.name].delete(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "w2confirm"
+  },
+  {
+    "callback": "function (index, el) {\n    var grid = $(el).attr('name');\n    if (w2ui[grid])\n        w2ui[grid].selectNone();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    var grid = $(el).attr('name');\n    if (w2ui[grid])\n        w2ui[grid].selectNone();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (window.getSelection)\n        window.getSelection().removeAllRanges();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.paste($('#_tmp_copy_data').val());\n    $('#_tmp_copy_data').remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.delete(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#_tmp_copy_data').remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#grid_' + obj.name + '_rec_' + id + '_expanded').height('0px');\n    setTimeout(function () {\n        $('#grid_' + obj.name + '_rec_' + id + '_expanded_row').remove();\n        delete rec.expanded;\n        obj.trigger($.extend(eventData, { phase: 'after' }));\n        obj.resizeRecords();\n    }, 300);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#grid_' + obj.name + '_rec_' + id + '_expanded_row').remove();\n    delete rec.expanded;\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n    obj.resizeRecords();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (searchEl.length > 0) {\n        searchEl[0].focus();\n    }\n    delete obj._focus_when_refreshed;\n    delete obj._focus_timer;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var str = $.trim($('#grid_' + obj.name + '_search_all').val());\n    if (str != '')\n        $(obj.box).find('.w2ui-grid-data > div').w2marker(str);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n    obj.scroll();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $().w2overlay();\n    obj.toolbar.uncheck('column-on-off');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tb.uncheck(id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (evnt) {\n    if (evnt.keyCode == 13) {\n        obj.search();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.stopPropagation)\n        event.stopPropagation();\n    else\n        event.cancelBubble = true;\n    if (event.preventDefault)\n        event.preventDefault();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "document",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (index, el) {\n    var td = $(el).parent();\n    $(el).css({\n        'height': '25px',\n        'margin-left': td.width() - 3 + 'px'\n    });\n}",
+    "receiverBase": "on",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    var ind = $(el).attr('col');\n    if (typeof ind != 'undefined' && obj.columns[ind])\n        $(el).css('width', obj.columns[ind].sizeCalculated);\n    if ($(el).hasClass('w2ui-head-last')) {\n        $(el).css('width', w2utils.scrollBarSize() + (width_diff > 0 && percent == 0 ? width_diff : 0) + 'px');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    var ind = $(el).attr('col');\n    if (typeof ind != 'undefined' && obj.columns[ind])\n        $(el).css('width', obj.columns[ind].sizeCalculated);\n    if ($(el).hasClass('w2ui-grid-data-last')) {\n        $(el).css('width', (width_diff > 0 && percent == 0 ? width_diff : 0) + 'px');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    var ind = $(el).attr('col');\n    if (typeof ind != 'undefined' && obj.columns[ind])\n        $(el).css('width', obj.columns[ind].sizeCalculated);\n    if ($(el).hasClass('w2ui-grid-data-last')) {\n        $(el).css('width', w2utils.scrollBarSize() + (width_diff > 0 && percent == 0 ? width_diff : 0) + 'px');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    obj.refreshRanges();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.refreshRanges();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).find('td').html('<div><div style=\"width: 20px; height: 20px;\" class=\"w2ui-spinner\"></div></div>');\n    obj.last.pull_more = true;\n    obj.last.xhr_offset += obj.limit;\n    obj.request('get-records');\n}",
+    "receiverBase": "show",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var str = [];\n    for (var s in obj.searchData) {\n        var tmp = obj.searchData[s];\n        if ($.inArray(tmp.value, str) == -1)\n            str.push(tmp.value);\n    }\n    if (str.length > 0)\n        $(obj.box).find('.w2ui-grid-data > div').w2marker(str);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    w2utils.lock(box, msg, showSpinner);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    w2utils.unlock(box);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div1.remove();\n    div2.removeClass('new-panel');\n    div2.css('overflow', p.overflow);\n    obj.resize();\n    if (window.navigator.userAgent.indexOf('MSIE') != -1)\n        setTimeout(function () {\n            obj.resize();\n        }, 100);\n}",
+    "receiverBase": "w2utils",
+    "receiverCallee": "transition"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (data, status, xhr) {\n    obj.content(panel, xhr.responseText);\n    if (onLoad)\n        onLoad();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (data, status, xhr) {\n    obj.content(panel, xhr.responseText, transition);\n    if (onLoad)\n        onLoad();\n    if (window.navigator.userAgent.indexOf('MSIE'))\n        setTimeout(function () {\n            obj.resize();\n        }, 100);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.set(panel, { size: size });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(obj.box).find(' > div > .w2ui-panel').css({\n        '-webkit-transition': '0s',\n        '-moz-transition': '0s',\n        '-ms-transition': '0s',\n        '-o-transition': '0s'\n    });\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#layout_' + obj.name + '_panel_' + panel).css({ 'opacity': '1' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(obj.box).find(' > div > .w2ui-panel').css({\n        '-webkit-transition': '0s',\n        '-moz-transition': '0s',\n        '-ms-transition': '0s',\n        '-o-transition': '0s'\n    });\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(obj.box).find(' > div > .w2ui-panel').css({\n        '-webkit-transition': '0s',\n        '-moz-transition': '0s',\n        '-ms-transition': '0s',\n        '-o-transition': '0s'\n    });\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n    obj.resize();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n    initEvents();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "document",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "document",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (event) {\n    w2ui[obj.name].tmp.events.resizeStart('top', event);\n    return false;\n}",
+    "receiverBase": "css",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    w2ui[obj.name].tmp.events.resizeStart('left', event);\n    return false;\n}",
+    "receiverBase": "css",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    w2ui[obj.name].tmp.events.resizeStart('right', event);\n    return false;\n}",
+    "receiverBase": "css",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    w2ui[obj.name].tmp.events.resizeStart('bottom', event);\n    return false;\n}",
+    "receiverBase": "css",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    w2ui[obj.name].tmp.events.resizeStart('preview', event);\n    return false;\n}",
+    "receiverBase": "css",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    for (var e in w2ui) {\n        if (typeof w2ui[e].resize == 'function') {\n            if (w2ui[e].panels == 'undefined')\n                w2ui[e].resize();\n            var parent = $(w2ui[e].box).parents('.w2ui-layout');\n            if (parent.length > 0 && parent.attr('name') == obj.name)\n                w2ui[e].resize();\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-popup').css({\n        '-webkit-transform': '',\n        '-moz-transform': '',\n        '-ms-transform': '',\n        '-o-transform': ''\n    });\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    mvStart(event);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvMove(event);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvStop(event);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvMove(event);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvStop(event);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvMove(event);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    mvStop(event);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "document",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-popup').remove();\n    $('#w2ui-panel').remove();\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "w2popup",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "w2popup",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function (data, status, obj) {\n    popup(obj.responseText, selector);\n    $('#w2ui-popup').data(url, obj.responseText);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-popup .w2ui-popup-message').css({\n        '-webkit-transition': '0s',\n        '-moz-transition': '0s',\n        '-ms-transition': '0s',\n        '-o-transition': '0s',\n        'z-Index': 1500\n    });\n    w2popup.lock();\n    if (typeof options.onOpen == 'function')\n        options.onOpen();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-popup .w2ui-popup-message').css({\n        '-webkit-transform': display == 'none' ? 'translateY(0px)' : 'translateY(-' + options.height + 'px)',\n        '-moz-transform': display == 'none' ? 'translateY(0px)' : 'translateY(-' + options.height + 'px)',\n        '-ms-transform': display == 'none' ? 'translateY(0px)' : 'translateY(-' + options.height + 'px)',\n        '-o-transform': display == 'none' ? 'translateY(0px)' : 'translateY(-' + options.height + 'px)'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-lock').css({\n        '-webkit-transition': options.speed + 's opacity',\n        '-moz-transition': options.speed + 's opacity',\n        '-ms-transition': options.speed + 's opacity',\n        '-o-transition': options.speed + 's opacity',\n        'opacity': options.opacity\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-lock').css({\n        '-webkit-transition': '.1s',\n        '-moz-transition': '.1s',\n        '-ms-transition': '.1s',\n        '-o-transition': '.1s',\n        'opacity': '0.6'\n    });\n    if (window.getSelection)\n        window.getSelection().removeAllRanges();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        $('#w2ui-lock').css({\n            '-webkit-transition': '.1s',\n            '-moz-transition': '.1s',\n            '-ms-transition': '.1s',\n            '-o-transition': '.1s',\n            'opacity': options.opacity\n        });\n    }, 100);\n    if (window.getSelection)\n        window.getSelection().removeAllRanges();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-lock').css({\n        '-webkit-transition': '.1s',\n        '-moz-transition': '.1s',\n        '-ms-transition': '.1s',\n        '-o-transition': '.1s',\n        'opacity': options.opacity\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    w2popup.close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#w2ui-lock').remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    callBack();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    w2popup.message();\n    if (typeof callBack == 'function')\n        callBack(event.target.id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    w2popup.close();\n    if (typeof callBack == 'function')\n        callBack(event.target.id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(obj.box).find('#tabs_' + obj.name + '_tab_' + w2utils.escapeId(tab.id)).find(':first-child').css({ 'width': '0px' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.remove(id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var width = $('#_tmp_simple_tab').width();\n    $('#_tmp_tabs').remove();\n    $('#tabs_' + obj.name + '_tab_' + w2utils.escapeId(tab.id) + ' > div').css('width', width + 'px');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.insert(id, tab);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.scrollIntoView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.scrollIntoView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    obj.scrollIntoView();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.metaKey || event.ctrlKey || event.altKey || event.charCode != event.keyCode && event.keyCode > 0)\n        return;\n    if (event.keyCode == 13)\n        $(this).change();\n    var ch = String.fromCharCode(event.charCode);\n    if (!checkType(ch, true)) {\n        if (event.stopPropagation)\n            event.stopPropagation();\n        else\n            event.cancelBubble = true;\n        return false;\n    }\n}",
+    "receiverBase": "data",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    el.setSelectionRange(el.value.length, el.value.length);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).next().focus();\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).prev().focus();\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(obj).val($.trim($(obj).val()));\n    if ($.trim($(obj).val()) != '' && !w2utils.isDate($(obj).val(), options.format)) {\n        $(this).w2tag(w2utils.lang('Not a valid date') + ': ' + options.format);\n    }\n    clearInterval($(obj).data('mtimer'));\n    $('#global_calendar_div').remove();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var obj = this;\n    setTimeout(function () {\n        $('#global_calendar_div').html($().w2field('calendar_get', obj.value, options));\n    }, 10);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#global_calendar_div').html($().w2field('calendar_get', obj.value, options));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (w2utils.isInt(obj.value))\n        obj.value = w2utils.formatDate(obj.value, options.format);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).trigger('focus');\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(obj).val($.trim($(obj).val()));\n    clearInterval($(obj).data('mtimer'));\n    $('#global_color_div').remove();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.keyCode == 86 && (event.ctrlKey || event.metaKey)) {\n        var obj = this;\n        $(this).prop('maxlength', 7);\n        setTimeout(function () {\n            var val = $(obj).val();\n            if (val.substr(0, 1) == '#')\n                val = val.substr(1);\n            if (!w2utils.isHex(val))\n                val = '';\n            $(obj).val(val).prop('maxlength', 6).change();\n        }, 20);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var val = $(obj).val();\n    if (val.substr(0, 1) == '#')\n        val = val.substr(1);\n    if (!w2utils.isHex(val))\n        val = '';\n    $(obj).val(val).prop('maxlength', 6).change();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.keyCode == 86 && (event.ctrlKey || event.metaKey))\n        $(this).prop('maxlength', 6);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.keyCode == 13)\n        $(this).change();\n    var ch = String.fromCharCode(event.charCode);\n    if (!w2utils.isHex(ch, true)) {\n        if (event.stopPropagation)\n            event.stopPropagation();\n        else\n            event.cancelBubble = true;\n        return false;\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var color = '#' + $(this).val();\n    if ($(this).val().length != 6 && $(this).val().length != 3)\n        color = '';\n    $(this).next().find('div').css('background-color', color);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).next().focus();\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).prev().focus();\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    w2field.list_render.call(obj, $(obj).data('last_search'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if ($(event.target).hasClass('nomouse'))\n        return;\n    if (event.target.title == w2utils.lang('Remove')) {\n        obj.remove($(event.target).attr('index'));\n        return;\n    }\n    event.stopPropagation();\n    if (typeof settings.onItemClick == 'function')\n        settings.onItemClick.call(this, settings);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var tmp = event.target;\n    if (tmp.tagName != 'LI')\n        tmp = tmp.parentNode;\n    if ($(tmp).hasClass('nomouse'))\n        return;\n    if ($(tmp).data('mouse') == 'out') {\n        if (typeof settings.onItemOver == 'function')\n            settings.onItemOver.call(this, settings);\n    }\n    $(tmp).data('mouse', 'over');\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var tmp = event.target;\n    if (tmp.tagName != 'LI')\n        tmp = tmp.parentNode;\n    if ($(tmp).hasClass('nomouse'))\n        return;\n    $(tmp).data('mouse', 'leaving');\n    setTimeout(function () {\n        if ($(tmp).data('mouse') == 'leaving') {\n            $(tmp).data('mouse', 'out');\n            if (typeof settings.onItemOut == 'function')\n                settings.onItemOut.call(this, settings);\n        }\n    }, 0);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($(tmp).data('mouse') == 'leaving') {\n        $(tmp).data('mouse', 'out');\n        if (typeof settings.onItemOut == 'function')\n            settings.onItemOut.call(this, settings);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    $(this).find('input').focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(div).css({\n        'outline': 'auto 5px -webkit-focus-ring-color',\n        'outline-offset': '-2px'\n    });\n    obj.show();\n    if (event.stopPropagation)\n        event.stopPropagation();\n    else\n        event.cancelBubble = true;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(div).css('outline', 'none');\n    obj.hide();\n    if (event.stopPropagation)\n        event.stopPropagation();\n    else\n        event.cancelBubble = true;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (typeof settings.onItemClick == 'function') {\n        var ret = settings.onItemClick.call(obj, $(this).data('file'));\n        if (ret === false)\n            return;\n    }\n    if (!$(event.target).hasClass('file-delete'))\n        event.stopPropagation();\n}",
+    "receiverBase": "data",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (typeof settings.onItemDblClick == 'function') {\n        var ret = settings.onItemDblClick.call(obj, $(this).data('file'));\n        if (ret === false)\n            return;\n    }\n    event.stopPropagation();\n    if (document.selection)\n        document.selection.empty();\n    else\n        document.defaultView.getSelection().removeAllRanges();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (typeof settings.onItemOver == 'function') {\n        var ret = settings.onItemOver.call(obj, $(this).data('file'));\n        if (ret === false)\n            return;\n    }\n    var file = $(this).data('file');\n    $(this).w2overlay(previewHTML.replace('##FILE##', file.content ? 'data:' + file.type + ';base64,' + file.content : ''), { top: -4 });\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (typeof settings.onItemOut == 'function') {\n        var ret = settings.onItemOut.call(obj, $(this).data('file'));\n        if (ret === false)\n            return;\n    }\n    $(this).w2overlay();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (typeof this.files !== 'undefined') {\n        for (var i = 0, l = this.files.length; i < l; i++) {\n            w2field.upload_add.call(obj, this.files[i]);\n        }\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(div).addClass('dragover');\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(div).removeClass('dragover');\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(div).removeClass('dragover');\n    var files = event.originalEvent.dataTransfer.files;\n    for (var i = 0, l = files.length; i < l; i++)\n        w2field.upload_add.call(obj, files[i]);\n    event.preventDefault();\n    event.stopPropagation();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    event.preventDefault();\n    event.stopPropagation();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return function (event) {\n        var fl = event.target.result;\n        var ind = fl.indexOf(',');\n        newItem.content = fl.substr(ind + 1);\n        obj.refresh();\n        $(obj).trigger('change');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    $(li).remove();\n    if (selected.length == 0) {\n        $(div).prepend('<span>' + settings.hint + '</span>');\n    }\n    obj.refresh();\n    $(obj).trigger('change');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    var target = event.target;\n    if (target.tagName != 'LI')\n        target = $(target).parents('li');\n    var id = $(target).attr('index');\n    if (!id)\n        return;\n    var item = settings.items[id];\n    if (typeof id == 'undefined') {\n        if (event.preventDefault)\n            event.preventDefault();\n        else\n            return false;\n    }\n    obj.add(item);\n    $(obj).data('last_index', 0);\n    obj.refresh();\n    w2field.list_render.call(obj, '');\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.stopPropagation)\n        event.stopPropagation();\n    else\n        event.cancelBubble = true;\n}",
+    "receiverBase": "focus",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    object.formHTML = data;\n    object.isGenerated = true;\n    if ($(object.box).length != 0 || data.length != 0) {\n        $(object.box).html(data);\n        object.render(object.box);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    w2alert(msg, 'Error');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (evt) {\n    if (evt.lengthComputable) {\n        var percent = Math.round(evt.loaded / evt.total * 100);\n        $('#' + obj.name + '_progress').text('' + percent + '%');\n    }\n}",
+    "receiverBase": "upload",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    w2utils.unlock(obj.box);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (index, el) {\n    var name = typeof $(el).attr('name') != 'undefined' ? $(el).attr('name') : $(el).attr('id');\n    var field = obj.get(name);\n    if (field) {\n        var div = $(el).parents('.w2ui-page');\n        if (div.length > 0) {\n            for (var i = 0; i < 100; i++) {\n                if (div.hasClass('page-' + i)) {\n                    field.page = i;\n                    break;\n                }\n            }\n        }\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, el) {\n    $(el).off('click').on('click', function (event) {\n        var action = this.value;\n        if (this.name)\n            action = this.name;\n        if (this.id)\n            action = this.id;\n        obj.action(action, event);\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (event) {\n    var action = this.value;\n    if (this.name)\n        action = this.name;\n    if (this.id)\n        action = this.id;\n    obj.action(action, event);\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var eventData = obj.trigger({\n            phase: 'before',\n            type: 'toolbar',\n            target: event.target,\n            originalEvent: event\n        });\n    if (eventData.isCancelled === true)\n        return false;\n    obj.trigger($.extend(eventData, { phase: 'after' }));\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    obj.goto(this.get(event.target, true));\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    obj.resize();\n    obj.refresh();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

@@ -1,0 +1,948 @@
+[
+  {
+    "callback": "function (lowerCaseKeys, currentKey) {\n    [].concat(wellKnownHosts[currentKey].domains || []).forEach(function (domain) {\n        wellKnownDomains[domain] = currentKey.toLowerCase().trim();\n    });\n    lowerCaseKeys[currentKey.toLowerCase().trim()] = wellKnownHosts[currentKey];\n    return lowerCaseKeys;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (domain) {\n    wellKnownDomains[domain] = currentKey.toLowerCase().trim();\n}",
+    "receiverBase": "concat",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    process.exit(code);\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "waitForKey"
+  },
+  {
+    "callback": "function (error, stdout, stderr) {\n    if (error) {\n        d.reject(error);\n    } else {\n        d.resolve({\n            stdout: stdout.trim(),\n            stderr: stderr.trim()\n        });\n    }\n}",
+    "receiverBase": "childProcess",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function cont(key) {\n    if (key == '\\x03') {\n        process.exit(2);\n    }\n    process.stdin.removeListener('data', cont);\n    process.stdin.pause();\n    process.stdout.write('\\n');\n    d.resolve(key);\n}",
+    "receiverBase": "stdin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    closeModal();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    state.markers['marker' + offset] = editor.getValue();\n    updateFromState();\n    closeModal();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    delete state.markers['marker' + offset];\n    updateFromState();\n    closeModal();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    presenter.saveMetadata(state);\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    presenter.resetMetadata();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    return '<a class=\\'btn\\' style=\\'float: left; width: 20px; height: 20px; padding: 0px\\' offset=\\'' + $(this).attr('offset') + '\\'></a>';\n}",
+    "receiverBase": "items",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    $(this).css('background-color', 'whiteSmoke');\n}",
+    "receiverBase": "items",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    $(this).css('background-color', 'transparent');\n}",
+    "receiverBase": "items",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function (event) {\n    var offset = $(this).attr('offset');\n    showEditor(offset, event);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (Globalize, util) {\n    QUnit.module('Globalize.load( cldrJSONData )');\n    QUnit.test('should validate parameters', function (assert) {\n        util.assertParameterPresence(assert, 'json', function () {\n            Globalize.load();\n        });\n        util.assertCldrJsonDataParameter(assert, 'json', function (invalidValue) {\n            return function () {\n                Globalize.load(invalidValue);\n            };\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (assert) {\n    util.assertParameterPresence(assert, 'json', function () {\n        Globalize.load();\n    });\n    util.assertCldrJsonDataParameter(assert, 'json', function (invalidValue) {\n        return function () {\n            Globalize.load(invalidValue);\n        };\n    });\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    Globalize.load();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "assertParameterPresence"
+  },
+  {
+    "callback": "function (invalidValue) {\n    return function () {\n        Globalize.load(invalidValue);\n    };\n}",
+    "receiverBase": "util",
+    "receiverCallee": "assertCldrJsonDataParameter"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var x = /^/g;\n    real.test.call(x, '');\n    return !x.lastIndex;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    for (var i = 1; i < arguments.length - 2; i++) {\n        if (arguments[i] === undefined)\n            match[i] = undefined;\n    }\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    function makeArray(l) {\n        var a = new Array(l + 2);\n        a[0] = a[1] = 0;\n        return a;\n    }\n    var array = [], lengthBefore;\n    array.splice.apply(array, makeArray(20));\n    array.splice.apply(array, makeArray(26));\n    lengthBefore = array.length;\n    array.splice(5, 0, 'XXX');\n    lengthBefore + 1 == array.length;\n    if (lengthBefore + 1 == array.length) {\n        return true;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "freeze"
+  },
+  {
+    "callback": "function freeze(freezeObject) {\n    return function freeze(object) {\n        if (typeof object == 'function') {\n            return object;\n        } else {\n            return freezeObject(object);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    require('./regexp');\n    require('./es5-shim');\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var mods = [\n            'cmd',\n            'ctrl',\n            'alt',\n            'shift'\n        ];\n    for (var i = Math.pow(2, mods.length); i--;) {\n        ret.KEY_MODS[i] = mods.filter(function (x) {\n            return i & ret.KEY_MODS[x];\n        }).join('-') + '-';\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x) {\n    return i & ret.KEY_MODS[x];\n}",
+    "receiverBase": "mods",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (e) {\n    var factor = 8;\n    if (e.wheelDeltaX !== undefined) {\n        e.wheelX = -e.wheelDeltaX / factor;\n        e.wheelY = -e.wheelDeltaY / factor;\n    } else {\n        e.wheelX = 0;\n        e.wheelY = -e.wheelDelta / factor;\n    }\n    callback(e);\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    var factor = 0.35;\n    switch (e.deltaMode) {\n    case e.DOM_DELTA_PIXEL:\n        e.wheelX = e.deltaX * factor || 0;\n        e.wheelY = e.deltaY * factor || 0;\n        break;\n    case e.DOM_DELTA_LINE:\n    case e.DOM_DELTA_PAGE:\n        e.wheelX = (e.deltaX || 0) * 5;\n        e.wheelY = (e.deltaY || 0) * 5;\n        break;\n    }\n    callback(e);\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.axis && e.axis == e.HORIZONTAL_AXIS) {\n        e.wheelX = (e.detail || 0) * 5;\n        e.wheelY = 0;\n    } else {\n        e.wheelX = 0;\n        e.wheelY = (e.detail || 0) * 5;\n    }\n    callback(e);\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    timer = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    clicks = 2;\n    if (timer)\n        clearTimeout(timer);\n    timer = setTimeout(function () {\n        timer = null;\n    }, timeouts[clicks - 1] || 600);\n    eventHandler[callbackName]('mousedown', e);\n    eventHandler[callbackName](eventNames[clicks], e);\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    timer = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    lastKeyDownKeyCode = e.keyCode;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    return normalizeCommandKeys(callback, e, lastKeyDownKeyCode);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    pressedKeys[e.keyCode] = true;\n    var result = normalizeCommandKeys(callback, e, e.keyCode);\n    lastDefaultPrevented = e.defaultPrevented;\n    return result;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    if (lastDefaultPrevented && (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey)) {\n        exports.stopEvent(e);\n        lastDefaultPrevented = null;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    pressedKeys[e.keyCode] = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    pressedKeys = Object.create(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function listener(e) {\n    if (e.data == messageName) {\n        exports.stopPropagation(e);\n        exports.removeListener(win, 'message', listener);\n        callback();\n    }\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (str) {\n    matches.push({\n        offset: arguments[arguments.length - 2],\n        length: str.length\n    });\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (e) {\n    host.onBlur(e);\n    isFocused = false;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    isFocused = true;\n    host.onFocus(e);\n    resetSelection();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    isFocused && resetSelection(isSelectionEmpty);\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "delayedCall"
+  },
+  {
+    "callback": "function () {\n    if (!inComposition) {\n        text.value = PLACEHOLDER;\n        isFocused && resetSelection();\n    }\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "delayedCall"
+  },
+  {
+    "callback": "function () {\n    if (host.selection.isEmpty() != isSelectionEmpty) {\n        isSelectionEmpty = !isSelectionEmpty;\n        syncSelection.schedule();\n    }\n}",
+    "receiverBase": "host",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (inComposition && (!text.value || keytable[e.keyCode]))\n        setTimeout(onCompositionEnd, 0);\n    if ((text.value.charCodeAt(0) || 0) < 129) {\n        return syncProperty.call();\n    }\n    inComposition ? onCompositionUpdate() : onCompositionStart();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    syncProperty.schedule(50);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    copied = false;\n    resetValue();\n    resetSelection();\n    isCut ? host.onCut() : host.onCopy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (useragent.isMac && !e.metaKey || !e.ctrlKey)\n        return;\n    switch (e.keyCode) {\n    case 67:\n        onCopy(e);\n        break;\n    case 86:\n        onPaste(e);\n        break;\n    case 88:\n        onCut(e);\n        break;\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    timer = null;\n    var str = text.value.replace(/\\x01/g, '');\n    if (inComposition)\n        return;\n    else if (str == c.lastValue)\n        resetValue();\n    else if (!c.lastValue && str) {\n        resetValue();\n        sendText(str);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    syncComposition.schedule();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    syncComposition.schedule();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    syncComposition.schedule();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    if (tempStyle) {\n        text.style.cssText = tempStyle;\n        tempStyle = '';\n    }\n    if (host.renderer.$keepTextAreaAtCursor == null) {\n        host.renderer.$keepTextAreaAtCursor = true;\n        host.renderer.$moveTextAreaToCursor();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (x) {\n    mouseHandler[x] = this[x];\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    tooltipTimeout = null;\n    if (mouseEvent && !mouseHandler.isMousePressed)\n        showTooltip();\n    else\n        hideTooltip();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    mouseEvent = null;\n    if (!tooltipAnnotation || tooltipTimeout)\n        return;\n    tooltipTimeout = setTimeout(function () {\n        tooltipTimeout = null;\n        hideTooltip();\n    }, 50);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    tooltipTimeout = null;\n    hideTooltip();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (x) {\n    mouseHandler[x] = this[x];\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    self.startSelect();\n    self.captureMouse(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (onMouseMoveTimer != null && dragSelectionMarker)\n        clearDragMarker();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (type) {\n    return type == 'text/plain' || type == 'Text';\n}",
+    "receiverBase": "some",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function newCallback() {\n    _self.removeEventListener(eventName, newCallback);\n    callback.apply(null, arguments);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (module) {\n    exports._emit('load.module', {\n        name: moduleName,\n        module: module\n    });\n    var listeners = exports.$loading[moduleName];\n    exports.$loading[moduleName] = null;\n    listeners.forEach(function (onLoad) {\n        onLoad && onLoad(module);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (onLoad) {\n    onLoad && onLoad(module);\n}",
+    "receiverBase": "listeners",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m, m1) {\n    return m1.toUpperCase();\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (key) {\n    this.setOption(key, optList[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    result[key] = this.getOption(key);\n}",
+    "receiverBase": "optionNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    var opt = options[key];\n    if (typeof opt == 'string')\n        opt = { forwardTo: opt };\n    opt.name || (opt.name = key);\n    obj.$options[opt.name] = opt;\n    if ('initialValue' in opt)\n        obj['$' + opt.name] = opt.initialValue;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    var opt = obj.$options[key];\n    if ('value' in opt)\n        obj.setOption(key, opt.value);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    exports.setDefaultValue(path, key, optionHash[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    editor.focus();\n    return event.preventDefault(e);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    if (_self.state || _self.$dragDelay || !_self.$dragEnabled)\n        return;\n    var char = editor.renderer.screenToTextCoordinates(e.x, e.y);\n    var range = editor.session.selection.getRange();\n    var renderer = editor.renderer;\n    if (!range.isEmpty() && range.insideStart(char.row, char.column)) {\n        renderer.setCursorStyle('default');\n    } else {\n        renderer.setCursorStyle('');\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    onCaptureEnd(ev);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    var position = e.getDocumentPosition();\n    var session = editor.session;\n    var fold = session.getFoldAt(position.row, position.column, 1);\n    if (fold) {\n        if (e.getAccelKey())\n            session.removeFold(fold);\n        else\n            session.expandFold(fold);\n        e.stop();\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var gutterRegion = editor.renderer.$gutterLayer.getRegion(e);\n    if (gutterRegion == 'foldWidgets') {\n        var row = e.getDocumentPosition().row;\n        var session = editor.session;\n        if (session.foldWidgets && session.foldWidgets[row])\n            editor.session.onFoldWidgetClick(row, e);\n        if (!editor.isFocused())\n            editor.focus();\n        e.stop();\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    self._emit('changeCursor');\n    if (!self.$isEmpty)\n        self._emit('changeSelection');\n    if (!self.$keepDesiredColumnOnChange && e.old.column != e.value.column)\n        self.$desiredColumn = null;\n}",
+    "receiverBase": "lead",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!self.$isEmpty)\n        self._emit('changeSelection');\n}",
+    "receiverBase": "selectionAnchor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.moveCursorTo(lead.row, lead.column + columns);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveSelection"
+  },
+  {
+    "callback": "function () {\n    this.moveCursorTo(row, column);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveSelection"
+  },
+  {
+    "callback": "function () {\n    this.moveCursorToPosition(pos);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveSelection"
+  },
+  {
+    "callback": "function (r) {\n    var r1 = r.clone();\n    r1.isBackwards = r.cursor == r.start;\n    return r1;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (match, digit) {\n    return '\\\\' + (parseInt(digit, 10) + matchTotal + 1);\n}",
+    "receiverBase": "regex",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (rule) {\n    rule.splitRegex = this.createSplitterRegexp(rule.regex, flag);\n}",
+    "receiverBase": "splitterRurles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x, y) {\n    return y ? '(?:' : x;\n}",
+    "receiverBase": "src",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    return !x.next;\n}",
+    "receiverBase": "args",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (className) {\n    var a = map[className];\n    if (ignoreCase)\n        a = a.toLowerCase();\n    var list = a.split(splitChar || '|');\n    for (var i = list.length; i--;)\n        keywords[list[i]] = className;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (line, i) {\n    var indent = line.search(/\\S/);\n    if (indent !== -1) {\n        if (indent < minIndent)\n            minIndent = indent;\n        if (shouldRemove && !testRemove(line, i))\n            shouldRemove = false;\n    } else if (minEmptyLength > line.length) {\n        minEmptyLength = line.length;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (scope) {\n    var functionName = delegations[i];\n    var defaultHandler = scope[functionName];\n    scope[delegations[i]] = function () {\n        return this.$delegator(functionName, arguments, defaultHandler);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (word) {\n    return {\n        name: word,\n        value: word,\n        score: 0,\n        meta: 'keyword'\n    };\n}",
+    "receiverBase": "keywords",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (match) {\n    return new Range(i, match.offset, i, match.offset + match.length);\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (fold) {\n    fold.setFoldLine(this);\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fold) {\n    fold.start.row += shift;\n    fold.end.row += shift;\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return -a.range.compareEnd(b.start.row, b.start.column);\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (fold) {\n    ret.push('  ' + fold.toString());\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return comparePoints(a.start, b.start);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (fold) {\n    fold.setFoldLine(foldLine);\n}",
+    "receiverBase": "subFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (subFold) {\n    fold.subFolds.push(subFold.clone());\n}",
+    "receiverBase": "subFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (range) {\n    folds = folds.concat(this.getFoldsInRange(range));\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.start.row - b.start.row;\n}",
+    "receiverBase": "$foldData",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (subFold) {\n    fold.addSubFold(subFold);\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fold) {\n    this.addFold(fold);\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fold) {\n    this.removeFold(fold);\n}",
+    "receiverBase": "cloneFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (subFold) {\n    fold.restoreRange(subFold);\n    this.addFold(subFold);\n}",
+    "receiverBase": "subFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fold) {\n    this.expandFold(fold);\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (placeholder, row, column, lastColumn) {\n    if (row < startRow)\n        return;\n    if (row == startRow) {\n        if (column < startColumn)\n            return;\n        lastColumn = Math.max(startColumn, lastColumn);\n    }\n    if (placeholder != null) {\n        textLine += placeholder;\n    } else {\n        textLine += doc.getLine(row).substring(lastColumn, column);\n    }\n}",
+    "receiverBase": "foldLine",
+    "receiverCallee": "walk"
+  },
+  {
+    "callback": "function (foldLine) {\n    var folds = foldLine.folds.map(function (fold) {\n            return fold.clone();\n        });\n    return new FoldLine(fd, folds);\n}",
+    "receiverBase": "$foldData",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (fold) {\n    return fold.clone();\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    _self._signal('tokenizerUpdate', e);\n}",
+    "receiverBase": "bgTokenizer",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (w) {\n    if (w && w.screenWidth > width)\n        width = w.screenWidth;\n}",
+    "receiverBase": "lineWidgets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (foldDelta) {\n    this.addFolds(foldDelta.folds);\n}",
+    "receiverBase": "deltas",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    x = x.clone();\n    if (x.start.row == oldStart.row)\n        x.start.column += collDiff;\n    if (x.end.row == oldStart.row)\n        x.end.column += collDiff;\n    x.start.row += rowDiff;\n    x.end.row += rowDiff;\n    return x;\n}",
+    "receiverBase": "folds",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    x = x.clone();\n    x.start.row += diff;\n    x.end.row += diff;\n    return x;\n}",
+    "receiverBase": "getFoldsInRange",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    len -= 1;\n}",
+    "receiverBase": "join",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    len -= 1;\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (range, row, offset) {\n    if (!range.start) {\n        var column = range.offset + (offset || 0);\n        firstRange = new Range(row, column, row, column + range.length);\n    } else\n        firstRange = range;\n    return true;\n}",
+    "receiverBase": "iterator",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    warn();\n    return this.commandKeyBinding;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "__defineGetter__"
+  },
+  {
+    "callback": "function (val) {\n    warn();\n    return this.commandKeyBinding = val;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "__defineSetter__"
+  },
+  {
+    "callback": "function (keyPart) {\n    var binding = this.parseKeys(keyPart, command);\n    var hashId = binding.hashId;\n    (ckb[hashId] || (ckb[hashId] = {}))[binding.key] = command;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var command = commands[name];\n    if (!command)\n        return;\n    if (typeof command === 'string')\n        return this.bindKey(command, name);\n    if (typeof command === 'function')\n        command = { exec: command };\n    if (typeof command !== 'object')\n        return;\n    if (!command.name)\n        command.name = name;\n    this.addCommand(command);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    this.removeCommand(commands[name]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    this.bindKey(key, keyList[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    return x;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (e) {\n    return e.command.exec(e.editor, e.args || {});\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setDefaultHandler"
+  },
+  {
+    "callback": "function (x) {\n    if (typeof x == 'string')\n        this.exec(x, editor);\n    else\n        this.exec(x[0], editor, x[1]);\n}",
+    "receiverBase": "macro",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    if (typeof x[0] != 'string')\n        x[0] = x[0].name;\n    if (!x[1])\n        x = x[0];\n    return x;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (module) {\n    module.init(editor);\n    editor.showSettingsMenu();\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (module) {\n    module.showErrorMarker(editor, 1);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (module) {\n    module.showErrorMarker(editor, -1);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (e) {\n    e.Search(editor);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (e) {\n    e.Search(editor, true);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (_, _self) {\n    _self._$emitInputEvent.schedule(31);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (module) {\n    if (_self.$keybindingId == keyboardHandler)\n        _self.keyBinding.setKeyboardHandler(module && module.handler);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function () {\n    _self.textInput.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.toLowerCase() < b.toLowerCase())\n        return -1;\n    if (a.toLowerCase() > b.toLowerCase())\n        return 1;\n    return 0;\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (firstRow, lastRow) {\n    return this.session.moveLinesDown(firstRow, lastRow);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveLines"
+  },
+  {
+    "callback": "function (firstRow, lastRow) {\n    return this.session.moveLinesUp(firstRow, lastRow);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveLines"
+  },
+  {
+    "callback": "function (firstRow, lastRow) {\n    this.session.duplicateLines(firstRow, lastRow);\n    return 0;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveLines"
+  },
+  {
+    "callback": "function (firstRow, lastRow) {\n    return this.session.duplicateLines(firstRow, lastRow);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "$moveLines"
+  },
+  {
+    "callback": "function () {\n    this.moveCursorBy(rows, 0);\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "$moveSelection"
+  },
+  {
+    "callback": "function () {\n    shouldScroll = true;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (shouldScroll)\n        rect = self.renderer.container.getBoundingClientRect();\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (placeholder, row, column, lastColumn, isNewRow) {\n    if (placeholder != null) {\n        renderTokens.push({\n            type: 'fold',\n            value: placeholder\n        });\n    } else {\n        if (isNewRow)\n            tokens = session.getTokens(row);\n        if (tokens.length)\n            addTokens(tokens, lastColumn, column);\n    }\n}",
+    "receiverBase": "foldLine",
+    "receiverCallee": "walk"
+  },
+  {
+    "callback": "function () {\n    update(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    update(true);\n    blink();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    _self.pending = false;\n    var changes;\n    while (changes = _self.changes) {\n        _self.changes = 0;\n        _self.onRender(changes);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "nextFrame"
+  },
+  {
+    "callback": "function () {\n    self.checkForSizeChanges();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (e) {\n    if (!_self.$scrollAnimation)\n        _self.session.setScrollTop(e.data - _self.scrollMargin.top);\n}",
+    "receiverBase": "scrollBarV",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (!_self.$scrollAnimation)\n        _self.session.setScrollLeft(e.data - _self.scrollMargin.left);\n}",
+    "receiverBase": "scrollBarH",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    _self.updateCharacterSize();\n    _self.onResize(true, _self.gutterWidth, _self.$size.width, _self.$size.height);\n    _self._signal('changeCharacterSize', e);\n}",
+    "receiverBase": "$textLayer",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    if (steps.length) {\n        _self.session.setScrollTop(steps.shift());\n        _self.session.$scrollTop = toValue;\n    } else if (toValue != null) {\n        _self.session.$scrollTop = -1;\n        _self.session.setScrollTop(toValue);\n        toValue = null;\n    } else {\n        _self.$timer = clearInterval(_self.$timer);\n        _self.$scrollAnimation = null;\n        callback && callback();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (ns) {\n    tlns[ns] = normalizePath(require.toUrl(ns, null, '_').replace(/(\\.js)?(\\?.*)?$/, ''));\n}",
+    "receiverBase": "topLevelNamespaces",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (Main) {\n    main = new Main[classname](sender);\n    while (_self.messageBuffer.length)\n        processNext();\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function () {\n    _self.onCursorChange();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    session.removeMarker(_self.markerId);\n    _self.markerId = session.addMarker(new Range(event.value.row, event.value.column, event.value.row, event.value.column + _self.length), _self.mainClass, null, false);\n}",
+    "receiverBase": "pos",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (other) {\n    var anchor = doc.createAnchor(other.row, other.column);\n    _self.others.push(anchor);\n}",
+    "receiverBase": "$others",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (anchor) {\n    anchor.markerId = session.addMarker(new Range(anchor.row, anchor.column, anchor.row, anchor.column + _self.length), _self.othersClass, null, false);\n    anchor.on('change', function (event) {\n        session.removeMarker(anchor.markerId);\n        anchor.markerId = session.addMarker(new Range(event.value.row, event.value.column, event.value.row, event.value.column + _self.length), _self.othersClass, null, false);\n    });\n}",
+    "receiverBase": "others",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    session.removeMarker(anchor.markerId);\n    anchor.markerId = session.addMarker(new Range(event.value.row, event.value.column, event.value.row, event.value.column + _self.length), _self.othersClass, null, false);\n}",
+    "receiverBase": "anchor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    onSelectionInterval();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (r) {\n    if (r.cursor.row == row)\n        return true;\n    row = r.cursor.row;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r) {\n    sel.substractPoint(r.cursor);\n}",
+    "receiverBase": "sameRowRanges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (r) {\n    var p = r.cursor;\n    var line = session.getLine(p.row);\n    var spaceOffset = line.substr(p.column).search(/\\S/g);\n    if (spaceOffset == -1)\n        spaceOffset = 0;\n    if (p.column > maxCol)\n        maxCol = p.column;\n    if (spaceOffset < minSpace)\n        minSpace = spaceOffset;\n    return spaceOffset;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (r, i) {\n    var p = r.cursor;\n    var l = maxCol - p.column;\n    var d = spaceOffsets[i] - minSpace;\n    if (l > d)\n        session.insert(p, lang.stringRepeat(' ', l - d));\n    else\n        session.remove(new Range(p.row, p.column, p.row, p.column - l + d));\n    r.start.column = r.end.column = maxCol;\n    r.start.row = r.end.row = p.row;\n    r.cursor = r.end;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode == 18 && !(e.ctrlKey || e.shiftKey || e.metaKey)) {\n        if (!altCursor) {\n            editor.renderer.setMouseCursor('crosshair');\n            altCursor = true;\n        }\n    } else if (altCursor) {\n        reset();\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (w) {\n    if (w && w.rowCount)\n        screenRows += w.rowCount;\n}",
+    "receiverBase": "lineWidgets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (w) {\n    if (w && w.el && w.el.parentNode) {\n        w._inDocument = false;\n        w.el.parentNode.removeChild(w.el);\n    }\n}",
+    "receiverBase": "lineWidgets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (w) {\n    w && this.removeLineWidget(w);\n}",
+    "receiverBase": "removed",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (w, i) {\n    if (w) {\n        noWidgets = false;\n        w.row = i;\n    }\n}",
+    "receiverBase": "lineWidgets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    event.removeListener(window, 'resize', env.onResize);\n    env.editor.container.env = null;\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    ace.require(['ace/ace'], function (a) {\n        a && a.config.init(true);\n        if (!window.ace)\n            window.ace = a;\n        for (var key in a)\n            if (a.hasOwnProperty(key))\n                window.ace[key] = a[key];\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    a && a.config.init(true);\n    if (!window.ace)\n        window.ace = a;\n    for (var key in a)\n        if (a.hasOwnProperty(key))\n            window.ace[key] = a[key];\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (e) {\n    setTimeout(function () {\n        _this.activeInput.focus();\n    }, 0);\n    event.stopPropagation(e);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    _this.activeInput.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    var t = e.target || e.srcElement;\n    var action = t.getAttribute('action');\n    if (action && _this[action])\n        _this[action]();\n    else if (_this.$searchBarKb.commands[action])\n        _this.$searchBarKb.commands[action].exec(_this);\n    event.stopPropagation(e);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e, hashId, keyCode) {\n    var keyString = keyUtil.keyCodeToString(keyCode);\n    var command = _this.$searchBarKb.findKeyCommand(hashId, keyString);\n    if (command && command.exec) {\n        command.exec(_this);\n        event.stopEvent(e);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addCommandKeyListener"
+  },
+  {
+    "callback": "function () {\n    _this.find(false, false);\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "delayedCall"
+  },
+  {
+    "callback": "function () {\n    _this.$onChange.schedule(20);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    _this.activeInput = _this.searchInput;\n    _this.searchInput.value && _this.highlight();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    _this.activeInput = _this.replaceInput;\n    _this.searchInput.value && _this.highlight();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    sb.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ace.require(['ace/ext/searchbox'], function () {\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function ($scope) {\n    var vm = $scope.vm = {};\n}",
+    "receiverBase": "module",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function () {\n    frame++;\n    return [\n        {\n            tag: 'h1',\n            children: 'Media detection sample'\n        },\n        p(JSON.stringify(b.getMedia())),\n        p('Frame: ', '' + frame),\n        { tag: 'input' }\n    ];\n}",
+    "receiverBase": "b",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    var currentCookies = $browser.cookies();\n    if (lastBrowserCookies != currentCookies) {\n        lastBrowserCookies = currentCookies;\n        copy(currentCookies, lastCookies);\n        copy(currentCookies, cookies);\n        if (runEval)\n            $rootScope.$apply();\n    }\n}",
+    "receiverBase": "$browser",
+    "receiverCallee": "addPollFn"
+  },
+  {
+    "callback": "function () {\n    use_queue = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_processQueue"
+  },
+  {
+    "callback": "function (response) {\n    local_storage = response;\n    color1 = 'color1' in local_storage ? local_storage['color1'] : color1;\n    color2 = 'color2' in local_storage ? local_storage['color2'] : color2;\n    _run();\n}",
+    "receiverBase": "extension",
+    "receiverCallee": "sendMessage"
+  },
+  {
+    "callback": "function (response) {\n    if (response === false) {\n        return _stopListening();\n    }\n    return _initStorage();\n}",
+    "receiverBase": "extension",
+    "receiverCallee": "sendMessage"
+  },
+  {
+    "callback": "function (queuedRequests) {\n    if (queuedRequests) {\n        for (var i = 0; i < queuedRequests.length; i++) {\n            if (use_queue) {\n                queue.push(queuedRequests[i]);\n                continue;\n            } else {\n                _process(queuedRequests[i]);\n            }\n        }\n    }\n}",
+    "receiverBase": "extension",
+    "receiverCallee": "sendMessage"
+  }
+]

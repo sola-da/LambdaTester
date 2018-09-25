@@ -1,0 +1,228 @@
+[
+  {
+    "callback": "function (done) {\n    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {\n        if (err) {\n            return done(err);\n        }\n        this.app = helpers.createGenerator('java-webapp:app', ['../../app']);\n        done();\n    }.bind(this));\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    var expected = [\n            'fed/.jshintrc',\n            'fed/.editorconfig'\n        ];\n    helpers.mockPrompt(this.app, { 'someOption': true });\n    this.app.options['skip-install'] = true;\n    this.app.run({}, function () {\n        helpers.assertFiles(expected);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    helpers.assertFiles(expected);\n    done();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (err, blog) {\n    if (err)\n        return next(err);\n    if (!blog)\n        return next(new Error('Failed to load blog ' + id));\n    req.blog = blog;\n    next();\n}",
+    "receiverBase": "Blog",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        res.json(500, err);\n    } else {\n        res.json(blog);\n    }\n}",
+    "receiverBase": "blog",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        res.json(500, err);\n    } else {\n        res.json(blog);\n    }\n}",
+    "receiverBase": "blog",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        res.json(500, err);\n    } else {\n        res.json(blog);\n    }\n}",
+    "receiverBase": "blog",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, blogs) {\n    if (err) {\n        res.json(500, err);\n    } else {\n        res.json(blogs);\n    }\n}",
+    "receiverBase": "populate",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    return $(this).attr('contentEditable', isEditing || false);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return callback($(this).attr('id'), $(this).html());\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    document.execCommand('fontname', false, $(this).text());\n    $(this).closest('.btn-group').removeClass('open');\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    document.execCommand('FontSize', false, $(this).attr('fontsize'));\n    $(this).closest('.btn-group').removeClass('open');\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (color) {\n    $('#forecolor-input').val(color);\n    document.execCommand('forecolor', false, color);\n    $(this).closest('.btn-group').removeClass('open');\n    $('.toolbar_forecolor div').css({ 'color': color });\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "farbtastic"
+  },
+  {
+    "callback": "function (color) {\n    $('#bgcolor-input').val(color);\n    document.execCommand('backcolor', false, color);\n    $(this).closest('.btn-group').removeClass('open');\n    $('.toolbar_bgcolor div').css({ 'background-color': color });\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "farbtastic"
+  },
+  {
+    "callback": "function () {\n    var $this;\n    $this = $(this);\n    $this.data('before', $this.html());\n    return $this;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var $this;\n    $this = $(this);\n    if ($this.data('before') !== $this.html()) {\n        $this.data('before', $this.html());\n        $this.trigger('change');\n    }\n    return $this;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, elem) {\n    return shortcut.add(elem.keys, function () {\n        elem.method();\n        return false;\n    }, {\n        'type': 'keydown',\n        'propagate': false\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    elem.method();\n    return false;\n}",
+    "receiverBase": "shortcut",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var $this, data, tooltip;\n    $this = $(this);\n    data = $this.data('fresheditor');\n    tooltip = $('<div/>', { text: $this.attr('title') });\n    if (!data) {\n        return $(this).data('fresheditor', {\n            target: $this,\n            tooltip: tooltip\n        });\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (editor, id) {\n    self.buttonPress(editor, id);\n}",
+    "receiverBase": "cfg",
+    "receiverCallee": "registerButton"
+  },
+  {
+    "callback": "function (editor, id) {\n    self.buttonPress(editor, id);\n}",
+    "receiverBase": "cfg",
+    "receiverCallee": "registerButton"
+  },
+  {
+    "callback": "function () {\n    try {\n        return !!sessionStorage.getItem;\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var next = b.nextSibling.nextSibling, display = next.style.display;\n    next.style.display = display === 'none' ? 'block' : 'none';\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (e) {\n    var target = e && e.target ? e.target : window.event.srcElement;\n    if (target.nodeName.toLowerCase() == 'span' || target.nodeName.toLowerCase() == 'b') {\n        target = target.parentNode;\n    }\n    if (window.location && target.nodeName.toLowerCase() === 'strong') {\n        window.location = QUnit.url({ filter: getText([target]).replace(/\\([^)]+\\)$/, '').replace(/(^\\s*|\\s*$)/g, '') });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    test.init();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.setup();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.run();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.teardown();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    test.finish();\n}",
+    "receiverBase": "",
+    "receiverCallee": "synchronize"
+  },
+  {
+    "callback": "function () {\n    if (config.timeout) {\n        clearTimeout(config.timeout);\n    }\n    config.blocking = false;\n    process();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    QUnit.ok(false, 'Test timed out');\n    QUnit.start();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    var params = {};\n    params[event.target.name] = event.target.checked ? true : undefined;\n    window.location = QUnit.url(params);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (s) {\n    switch (s) {\n    case '&':\n        return '&amp;';\n    case '\\\\':\n        return '\\\\\\\\';\n    case '\"':\n        return '\"';\n    case '<':\n        return '&lt;';\n    case '>':\n        return '&gt;';\n    default:\n        return s;\n    }\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a === b) {\n        return true;\n    } else if (a === null || b === null || typeof a === 'undefined' || typeof b === 'undefined' || QUnit.objectType(a) !== QUnit.objectType(b)) {\n        return false;\n    } else {\n        return bindCallbacks(a, callbacks, [\n            b,\n            a\n        ]);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (value) {\n    var re = /^\\[(\\d+)\\]$/, mArr = re.exec(value);\n    if (mArr)\n        return { i: parseFloat(mArr[1]) };\n    else\n        return { p: value.replace(/\\\\([.\\[\\]])/g, '$1') };\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which === 1) {\n        $(document).one('mouseup.zoom', function () {\n            stop();\n            $(document).off(mousemove, zoom.move);\n        });\n        start(e);\n        $(document).on(mousemove, zoom.move);\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stop();\n    $(document).off(mousemove, zoom.move);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function (e) {\n    if (clicked) {\n        return;\n    } else {\n        clicked = true;\n        start(e);\n        $(document).on(mousemove, zoom.move);\n        $(document).one('click.zoom', function () {\n            stop();\n            clicked = false;\n            $(document).off(mousemove, zoom.move);\n        });\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stop();\n    clicked = false;\n    $(document).off(mousemove, zoom.move);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function (e) {\n    if (clicked) {\n        stop();\n    } else {\n        start(e);\n    }\n    clicked = !clicked;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(source).off('.zoom');\n    $img.remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function (exports) {\n    var MockLockScreenSlide = function LockScreenSlide(ir) {\n        this.ir = ir;\n    };\n    exports.MockLockScreenSlide = MockLockScreenSlide;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['uijet_dir/uijet'], function (uijet) {\n            return factory(uijet);\n        });\n    } else {\n        factory(uijet);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (uijet) {\n    return factory(uijet);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (aErr, aStrat) {\n    if (aErr)\n        console.error(aErr);\n    if (aStrat) {\n        github.authenticate({\n            type: 'oauth',\n            key: aStrat.id,\n            secret: aStrat.key\n        });\n        console.log('GitHub client authenticated');\n    } else {\n        console.warn('GitHub client NOT authenticated. Will have a lower Rate Limit.');\n    }\n}",
+    "receiverBase": "Strategy",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (features, cb) {\n    this.features.negotiated.clientStateIndication = true;\n    cb();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "registerFeature"
+  }
+]

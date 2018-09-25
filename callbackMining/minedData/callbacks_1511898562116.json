@@ -1,0 +1,264 @@
+[
+  {
+    "callback": "function () {\n    if (hasProtocolSupport) {\n        return fn.call(this);\n    } else {\n        console.log('        skipping, \"' + text + '\": operation not supported by OrientDB version');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    server = new LIB.Server({\n        host: TEST_SERVER_CONFIG.host,\n        port: TEST_SERVER_CONFIG.port,\n        username: TEST_SERVER_CONFIG.username,\n        password: TEST_SERVER_CONFIG.password,\n        transport: 'binary',\n        useToken: true\n    });\n    return CREATE_TEST_DB(this, 'testdb_jwt').bind(this).then(function () {\n        hasProtocolSupport = this.db.server.transport.connection.protocolVersion >= 28;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    hasProtocolSupport = this.db.server.transport.connection.protocolVersion >= 28;\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return DELETE_TEST_DB('testdb_jwt');\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    var dbs;\n    before(function () {\n        return server.list().then(function (items) {\n            dbs = items;\n        });\n    });\n    ifSupportedIt('should connect to the server and get a token', function () {\n        server.token.should.be.an.instanceOf(Buffer);\n        server.token.length.should.be.above(0);\n    });\n    ifSupportedIt('should retrieve a list of databases', function () {\n        dbs.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    return server.list().then(function (items) {\n        dbs = items;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (items) {\n    dbs = items;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    server.token.should.be.an.instanceOf(Buffer);\n    server.token.length.should.be.above(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    dbs.length.should.be.above(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    db = server.use({\n        name: 'testdb_jwt',\n        username: 'admin',\n        password: 'admin'\n    });\n    return db.open();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    db.token.should.be.an.instanceOf(Buffer);\n    db.token.length.should.be.above(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    db.token.toString().should.not.equal(server.token.toString());\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    return db.select().from('OUser').all().then(function (users) {\n        users.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(0);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (items) {\n    admin = items[0].token;\n    reader = items[1].token;\n    writer = items[2].token;\n    admin.toString().should.not.equal(reader.toString());\n    admin.toString().should.not.equal(writer.toString());\n    writer.toString().should.not.equal(reader.toString());\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.create('VERTEX', 'V').set({ foo: 'bar' }).token(reader).one().then(function () {\n        throw new Error('No, this should not happen');\n    }).catch(LIB.errors.RequestError, function (err) {\n        /permission/i.test(err.message).should.be.true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    throw new Error('No, this should not happen');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    /permission/i.test(err.message).should.be.true;\n}",
+    "receiverBase": "then",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    return db.select().from('OUser').token(reader).all().then(function (users) {\n        users.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(0);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.create('VERTEX', 'V').set({ foo: 'bar' }).token(writer).one().then(function (item) {\n        item.foo.should.equal('bar');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (item) {\n    item.foo.should.equal('bar');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.select().from('OUser').token(writer).all().then(function (users) {\n        users.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(0);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.create('VERTEX', 'V').set({ foo: 'bar' }).token(admin).one().then(function (item) {\n        item.foo.should.equal('bar');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (item) {\n    item.foo.should.equal('bar');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.select().from('OUser').token(admin).all().then(function (users) {\n        users.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(0);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.create('VERTEX', 'V').set({ foo: 'bar' }).one().then(function (item) {\n        item.foo.should.equal('bar');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (item) {\n    item.foo.should.equal('bar');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.select().from('OUser').all().then(function (users) {\n        users.length.should.be.above(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(0);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (hasProtocolSupport) {\n        readerContext = db.createUserContext(reader);\n        adminContext = db.createUserContext(admin);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    return readerContext.select().from('OUser').all().then(function (users) {\n        users.length.should.be.above(1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (users) {\n    users.length.should.be.above(1);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return readerContext.create('VERTEX', 'V').set({ greeting: 'hello world' }).one().then(function () {\n        throw new Error('No, this should not happen');\n    }).catch(LIB.errors.RequestError, function (err) {\n        /permission/i.test(err.message).should.be.true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function () {\n    throw new Error('No, this should not happen');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    /permission/i.test(err.message).should.be.true;\n}",
+    "receiverBase": "then",
+    "receiverCallee": "catch"
+  },
+  {
+    "callback": "function () {\n    return adminContext.insert().into('OUser').set({\n        name: 'foo',\n        password: 'bar',\n        status: 'active'\n    }).one().then(function (data) {\n        data['@class'].should.equal('OUser');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "ifSupportedIt"
+  },
+  {
+    "callback": "function (data) {\n    data['@class'].should.equal('OUser');\n}",
+    "receiverBase": "one",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ax) {\n    var version = [], d = ax.GetVariable('$version');\n    if (d) {\n        d = d.split(' ')[1].split(',');\n        version = [\n            parseInt(d[0], 10),\n            parseInt(d[1], 10),\n            parseInt(d[2], 10)\n        ];\n    }\n    return version;\n}",
+    "receiverBase": "PluginDetector",
+    "receiverCallee": "addPlugin"
+  },
+  {
+    "callback": "function () {\n    htmlMediaElement.play();\n}",
+    "receiverBase": "htmlMediaElement",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (res, attr) {\n    res[tokenName(attr)] = attr.value;\n    return res;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (line) {\n    return line.search('Active') >= 0;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (line) {\n    var elts = line.split('|');\n    return [\n        elts[1],\n        elts[2]\n    ];\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (err) {\n        if (verbose) {\n            print.error('command: %s', cmd);\n        }\n        defer.reject('ios stderr ' + err);\n        return;\n    }\n    defer.resolve(parse(stdout));\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (api) {\n    return function (data, textStatus) {\n        api.loading(false);\n        if (textStatus == 'success') {\n            if (callback) {\n                callback(data);\n            }\n        } else {\n            console.log('Error: ' + textStatus);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (api) {\n    return function (xhr, ajaxOptions, thrownError) {\n        api.loading(false);\n        console.log(xhr.statusText);\n        if (callback) {\n            callback(null);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (token) {\n    drupal.current_user.token = token;\n    sendRequest(request);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (api) {\n    return function (data) {\n        if (cache) {\n            drupal.store(api.cacheId, {\n                url: url,\n                data: data\n            });\n        }\n        callback(data);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    $scope.deleteMessage(message);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (event, message) {\n    var found;\n    if (onlyUnique) {\n        angular.forEach($scope.messages, function (msg) {\n            if (message.text === msg.text && message.severity === msg.severity) {\n                found = true;\n            }\n        });\n        if (!found) {\n            addMessage(message);\n        }\n    } else {\n        addMessage(message);\n    }\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (msg) {\n    if (message.text === msg.text && message.severity === msg.severity) {\n        found = true;\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  }
+]

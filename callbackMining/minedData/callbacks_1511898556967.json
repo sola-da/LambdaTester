@@ -1,0 +1,3727 @@
+[
+  {
+    "callback": "function (value, key) {\n    if (isNumber(value)) {\n        info[key] = Math.round(value);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dep) {\n    pjson.dependencies[dep] = '*';\n}",
+    "receiverBase": "deps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (answers) {\n    existServer && (writeServer = answers.writeServer);\n    writeServerFile();\n}",
+    "receiverBase": "inquirer",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function () {\n    LocalStorage.setItem('a', '1');\n    equal(LocalStorage.getItem('a'), '1');\n    LocalStorage.setItem('a', '0');\n    equal(LocalStorage.getItem('a'), '0');\n    equal(LocalStorage.getItem('b'), null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    LocalStorage.setItem('a', '1');\n    equal(LocalStorage.getItem('a'), '1');\n    LocalStorage.removeItem('a');\n    equal(LocalStorage.getItem('a'), null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    LocalStorage.setItem('a', '1');\n    equal(LocalStorage.key(0), 'a');\n    equal(LocalStorage.length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(LocalStorage.length, 0);\n    LocalStorage.setItem('a', '1');\n    equal(LocalStorage.length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(LocalStorage.length, 0);\n    LocalStorage.setItem('a', '1');\n    equal(LocalStorage.length, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    LocalStorage.setItem('a,1', '1,2');\n    LocalStorage.setItem('b,2', '2,3');\n    equal(LocalStorage.getItem('a,1'), '1,2');\n    equal(LocalStorage.getItem('b,2'), '2,3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var data = '';\n    for (var i = 0; i < 1024; i++) {\n        data += 'x';\n    }\n    LocalStorage.clear();\n    LocalStorage.setItem('a', data + '1');\n    LocalStorage.setItem('b', data);\n    equal(LocalStorage.getItem('a').length, 1024 + 1);\n    equal(LocalStorage.getItem('b').length, 1024);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var key = '';\n    for (var i = 0; i < 1024; i++) {\n        key += 'x';\n    }\n    LocalStorage.clear();\n    LocalStorage.setItem(key + '1', 'a');\n    LocalStorage.setItem(key + '2', 'b');\n    equal(LocalStorage.key(0), key + '1');\n    equal(LocalStorage.key(1), key + '2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "$el",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key) {\n    var $data = $('<div />').html(data[key].value);\n    $data.find('.medium-insert-buttons').remove();\n    data[key].value = $data.html();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, el) {\n    $(el).data('plugin_' + pluginName).disable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, el) {\n    $(el).data('plugin_' + pluginName).enable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, el) {\n    $(el).data('plugin_' + pluginName).disable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, el) {\n    $(el).data('plugin_' + pluginName).enable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (addon, options) {\n    var addonName = pluginName + ucfirst(addon);\n    if (options === false) {\n        delete that.options.addons[addon];\n        return;\n    }\n    that.$el[addonName](options);\n    that.options.addons[addon] = that.$el.data('plugin_' + addonName).options;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.nodeName === '#text' && $.trim($(this).text()) !== '';\n}",
+    "receiverBase": "contents",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    $(this).wrap('<p />');\n    that.moveCaret($(this).parent(), $(this).text().length);\n}",
+    "receiverBase": "$text",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (addon) {\n    if ($el.closest('.medium-insert-' + addon).length) {\n        $current = $el;\n    }\n    if ($current.closest('.medium-insert-' + addon).length) {\n        $p = $current.closest('.medium-insert-' + addon);\n        activeAddon = addon;\n        return;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    that.positionButtons(activeAddon);\n    that.showButtons(activeAddon);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if ($(this).find('.medium-insert-caption-placeholder').length || $(this).text().trim() === '') {\n        $(this).remove();\n    }\n}",
+    "receiverBase": "$captions",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!$.data(this, 'plugin_' + pluginName)) {\n        $.data(this, 'plugin_' + pluginName, new Core(this, options));\n        $.data(this, 'plugin_' + pluginName).init();\n    } else if (typeof options === 'string' && $.data(this, 'plugin_' + pluginName)[options]) {\n        $.data(this, 'plugin_' + pluginName)[options]();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, result) {\n    if (util.isError(err) || util.isArray(result)) {\n        cb({\n            code: 500,\n            content: pb.BaseController.apiResponse(pb.BaseController.API_ERROR, self.ls.get('ERROR_SAVING'))\n        });\n        return;\n    }\n    result.icon = pb.MediaService.getMediaIcon(media.media_type);\n    cb({ content: pb.BaseController.apiResponse(pb.BaseController.API_SUCCESS, media.name + ' ' + self.ls.get('EDITED'), result) });\n}",
+    "receiverBase": "mediaService",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function () {\n    var _cleanData = $.cleanData;\n    $.cleanData = function (elems) {\n        if (!$.widget) {\n            for (var i = 0, elem; (elem = elems[i]) != null; i++) {\n                try {\n                    $(elem).triggerHandler('remove');\n                } catch (e) {\n                }\n            }\n        }\n        _cleanData(elems);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    elem = this;\n    if (elem.nodeType === 1) {\n        if (isFunction) {\n            var genVal = val.call(elem, i, $.prop(elem, 'value', undefined, 'val', true));\n            if (genVal == null) {\n                genVal = '';\n            }\n            $.prop(elem, 'value', genVal, 'val');\n        } else {\n            $.prop(elem, 'value', val, 'val');\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(evtDel).off(evt, fn);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $.fn[data.name] = function () {\n        var elems = [];\n        this.each(function () {\n            var shadowData = elementData(this, 'shadowData');\n            var elem = shadowData && shadowData[data.prop] || this;\n            if ($.inArray(elem, elems) == -1) {\n                elems.push(elem);\n            }\n        });\n        return this.pushStack(elems);\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var shadowData = elementData(this, 'shadowData');\n    var elem = shadowData && shadowData[data.prop] || this;\n    if ($.inArray(elem, elems) == -1) {\n        elems.push(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, id) {\n    return id + idCount;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "prop"
+  },
+  {
+    "callback": "function () {\n    var cloned = clone(this, dataAndEvents, uniqueIds);\n    setTimeout(function () {\n        if ($.contains(document.body, cloned)) {\n            $(cloned).updatePolyfill();\n        }\n    });\n    return cloned;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if ($.contains(document.body, cloned)) {\n        $(cloned).updatePolyfill();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (fn) {\n    if (!fn.only || (fn.only = 'prop' && type == 'prop') || fn.only == 'attr' && type != 'prop') {\n        fn.call(elem, value, boolValue, isVal ? 'val' : curType, type);\n    }\n}",
+    "receiverBase": "modifyProps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (descProp) {\n    if (desc[descProp]) {\n        desc['_sup' + descProp] = getSup(descProp, oldDesc);\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, fns) {\n    getElementsByName(name);\n    if (!fns || !fns.forEach) {\n        webshims.warn('Error: with ' + name + '-property. methods: ' + fns);\n        return;\n    }\n    fns.forEach(function (fn) {\n        nodeNameCache[name].each(fn);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    nodeNameCache[name].each(fn);\n}",
+    "receiverBase": "fns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var val = $.attr(this, prop);\n    if (val != null) {\n        $.attr(this, prop, val);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    $(this).each(function () {\n        var data = elementData(this, 'propValue', {});\n        data[prop] = this[prop];\n        this[prop] = value;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    var data = elementData(this, 'propValue', {});\n    data[prop] = this[prop];\n    this[prop] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ID = new Date().getTime();\n    return function (elem) {\n        elem = $(elem);\n        var id = elem.prop('id');\n        if (!id) {\n            ID++;\n            id = 'ID-' + ID;\n            elem.eq(0).prop('id', id);\n        }\n        return id;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (name, prop) {\n    if (!(name in obj)) {\n        obj[name] = prop;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, type) {\n    var body = document.body;\n    var doc = document.documentElement;\n    docObserve[type] = function () {\n        return Math.max(body['scroll' + name], doc['scroll' + name], body['offset' + name], doc['offset' + name], doc['client' + name]);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($.support.boxSizing) {\n        docObserve.handler({ type: 'boxsizing' });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    docObserve.start();\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            $(shadowElem).remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(shadowElem).remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    elementData(this, 'shadowData', shadowData.shadowData);\n}",
+    "receiverBase": "shadowChilds",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    webshims.defineNodeNamesProperty(nodeNames, prop, {\n        prop: {\n            set: function (val) {\n                $.attr(this, prop, val);\n            },\n            get: function () {\n                return $.attr(this, prop) || '';\n            }\n        }\n    });\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var desc = descs[type];\n    if (desc) {\n        if (type === 'prop') {\n            desc = $.extend({ writeable: true }, desc);\n        } else {\n            desc = $.extend({}, desc, { writeable: true });\n        }\n        extendQ[type](nodeName, prop, desc);\n        if (nodeName != '*' && webshims.cfg.extendNative && type == 'prop' && desc.value && $.isFunction(desc.value)) {\n            extendNativeValue(nodeName, prop, desc);\n        }\n        descs[type] = desc;\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (copyProp) {\n    if (copyProp in descs[prop]) {\n        descs[prop][propType][copyProp] = descs[prop][copyProp];\n        delete descs[prop][copyProp];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (!modifyProps[name][prop]) {\n        modifyProps[name][prop] = [];\n        havePolyfill[prop] = true;\n    }\n    if (desc.set) {\n        if (only) {\n            desc.set.only = only;\n        }\n        modifyProps[name][prop].push(desc.set);\n    }\n    if (desc.initAttr) {\n        initProp.content(name, prop);\n    }\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (loadingLang == curLang.join()) {\n        $.each(loading[src], function (i, obj) {\n            select(obj);\n        });\n    }\n    delete loading[src];\n}",
+    "receiverBase": "loader",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (i, obj) {\n    select(obj);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, baseMethod) {\n    webshims[name] = function (names, a, b, c) {\n        if (typeof names == 'string') {\n            names = names.split(listReg);\n        }\n        var retDesc = {};\n        names.forEach(function (nodeName) {\n            retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n        });\n        return retDesc;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeName) {\n    retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var main = $('main').attr({ role: 'main' });\n    if (main.length > 1) {\n        webshims.error('only one main element allowed in document');\n    } else if (main.is('article *, section *')) {\n        webshims.error('main not allowed inside of article/section elements');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (name, role) {\n    var elems = $(name, context).add(contextElem.filter(name));\n    for (var i = 0, len = elems.length; i < len; i++) {\n        addRole(elems[i], role);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (that.list) {\n        that.list();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    o.options[$.prop(this, 'value')] = $.prop(this, 'label') || '';\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    events[name].val = $.prop(that.orig, 'value');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    events[name].fn(val, that);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var val = $.prop(that.orig, 'value');\n    that.value(val);\n    setTimeout(function () {\n        var val2 = $.prop(that.orig, 'value');\n        if (val != val2) {\n            that.value(val2);\n        }\n    }, 4);\n}",
+    "receiverBase": "jProp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var val2 = $.prop(that.orig, 'value');\n    if (val != val2) {\n        that.value(val2);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    webshims.ready('dom-support', function () {\n        if ($.fn.onWSOff) {\n            var timer;\n            var update = function () {\n                that.updateMetrics();\n            };\n            that.element.onWSOff('updateshadowdom', function () {\n                clearTimeout(timer);\n                timer = setTimeout(update, 100);\n            });\n        }\n    });\n    if (!$.fn.onWSOff && webshims._polyfill) {\n        webshims._polyfill(['dom-support']);\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    if ($.fn.onWSOff) {\n        var timer;\n        var update = function () {\n            that.updateMetrics();\n        };\n        that.element.onWSOff('updateshadowdom', function () {\n            clearTimeout(timer);\n            timer = setTimeout(update, 100);\n        });\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timer);\n    timer = setTimeout(update, 100);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "onWSOff"
+  },
+  {
+    "callback": "function () {\n    var obj = $.extend(oCreate(rangeProto), { element: $(this) });\n    obj.options = opts;\n    obj._create.call(obj);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, i) {\n    return '<option value=\"' + val + '\">' + labels[i] + '</option>';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var i = 1;\n    var opts = [];\n    while (i < 32) {\n        opts.push('<option>' + (i < 10 ? '0' + i : i) + '</option>');\n        i++;\n    }\n    return opts.join('');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, name) {\n    obj[name] = i;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!nowY) {\n        $('option[selected]', this).removeAttr('selected');\n        $(this).val();\n    }\n}",
+    "receiverBase": "html",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, value) {\n    var input = inputs.filter('.' + name);\n    if (input[0]) {\n        input.appendTo(element);\n        if (i < seperators.length) {\n            seperators.eq(i).insertAfter(input);\n        }\n        i++;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var getId = function () {\n        return webshims.getID(this);\n    };\n    return function (element, labels, noFocus) {\n        $(element).attr({ 'aria-labelledby': labels.map(getId).get().join(' ') });\n        if (!noFocus) {\n            labels.on('click', function (e) {\n                element.getShadowFocusElement().focus();\n                e.preventDefault();\n                return false;\n            });\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    element.getShadowFocusElement().focus();\n    e.preventDefault();\n    return false;\n}",
+    "receiverBase": "labels",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    webshims.loader.loadList([type]);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    curCfg = formcfg.__active;\n    triggerLocaleChange();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.type == 'input') {\n        timedMirror();\n    } else {\n        timedMirror._wsexec();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i, val) {\n    if (val._supvalue) {\n        val._supvalue.call(this, message);\n    }\n}",
+    "receiverBase": "inputElements",
+    "receiverCallee": "prop"
+  },
+  {
+    "callback": "function (e) {\n    loadPicker(that.type, 'DOM');\n}",
+    "receiverBase": "add",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    return $.prop(this, 'value');\n}",
+    "receiverBase": "inputElements",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, elem) {\n    if ($.nodeName(elem, 'select')) {\n        $(elem).children('option:first-child').text(placeholder[i]);\n    } else {\n        $.prop(elem, 'placeholder', placeholder[i]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    wsWidgetProto[name] = function (val, force) {\n        if (!this._init || force || val !== this.options[name]) {\n            this.element.prop(name, this.formatValue(val));\n            this.options[name] = val;\n            this._propertyChange(name);\n            this.mirrorValidity();\n        }\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var data = webshims.data(element);\n    if (data && data.shadowData) {\n        data.shadowData.shadowFocusElement = element.find('input, select')[0] || element[0];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, elem) {\n    var setOption;\n    if (!(name in elem) && !isValue && $.nodeName(elem, 'select')) {\n        $('option[value=\"' + val[i] + '\"]', elem).prop('defaultSelected', true);\n    } else {\n        $.prop(elem, name, val[i]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    webshims.objectCreate(wsWidgetProto, { element: { value: $(this) } }, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    webshims.objectCreate(spinBtnProto, { element: { value: $(this) } }, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.addEventListener('touchstart', touchStart, true);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (element[0]) {\n        element.trigger('focus');\n        if (noTrigger !== true && !element.is(':focus')) {\n            setFocus(true);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    popover.stopOpen = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tabbable = false;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var timer;\n    var update = function () {\n        if (popover.isVisible) {\n            popover.element.triggerHandler('updatepickercontent');\n        }\n    };\n    return function (prop) {\n        if (prop == 'value' && !data.options.inlinePicker) {\n            return;\n        }\n        popover.isDirty = true;\n        if (popover.isVisible) {\n            clearTimeout(timer);\n            timer = setTimeout(update, 9);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(document).off('wslocalechange', data._propertyChange);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    popover.openedByFocus = false;\n    popover.activeElement.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            opener.remove();\n            popover.element.remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    opener.remove();\n    popover.element.remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var timer;\n    var show = function () {\n        try {\n            var value = data.alpha.prop('valueAsNumber') / (data.alpha.prop('max') || 1);\n            if (!isNaN(value)) {\n                colorIndicator.css({ opacity: value });\n            }\n        } catch (er) {\n        }\n    };\n    return function (e) {\n        clearTimeout(timer);\n        timer = setTimeout(show, !e || e.type == 'change' ? 4 : 40);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (val, boolVal) {\n    if (!stopCircular) {\n        var shadowData = webshims.data(this, 'shadowData');\n        if (shadowData && shadowData.data && shadowData.nativeElement === this && shadowData.data[fnName]) {\n            if (boolAttrs[fnName]) {\n                shadowData.data[fnName](val, boolVal);\n            } else {\n                shadowData.data[fnName](val);\n            }\n        }\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function () {\n    return function (name, data) {\n        inputTypes[name] = data;\n        data.attrs = $.merge([], copyAttrs, data.attrs);\n        data.props = $.merge([], copyProps, data.props);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    parent = data.orig.parentNode;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    if (!stopCircular) {\n        data.shim.value($.prop(this, 'value'));\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (hasFocus != hasFocusTriggered) {\n        hasFocusTriggered = hasFocus;\n        $(opts.orig).triggerHandler(hasFocus ? 'focus' : 'blur');\n        $(opts.orig).trigger(hasFocus ? 'focusin' : 'focusout');\n    }\n    hasFocusTriggered = hasFocus;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (!webshims.fromSubmit && isCheckValidity) {\n        return;\n    }\n    $(opts.orig).off('invalid.replacedwidgetbubble').on('invalid.replacedwidgetbubble', function (evt) {\n        if (!evt.isDefaultPrevented()) {\n            webshims.validityAlert.showFor(e.target);\n            e.preventDefault();\n            evt.preventDefault();\n        }\n        $(opts.orig).off('invalid.replacedwidgetbubble');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt) {\n    if (!evt.isDefaultPrevented()) {\n        webshims.validityAlert.showFor(e.target);\n        e.preventDefault();\n        evt.preventDefault();\n    }\n    $(opts.orig).off('invalid.replacedwidgetbubble');\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (name) {\n    var desc = webshims.defineNodeNameProperty(name, 'checkValidity', {\n            prop: {\n                value: function () {\n                    isCheckValidity = true;\n                    var ret = desc.prop._supvalue.apply(this, arguments);\n                    isCheckValidity = false;\n                    return ret;\n                }\n            }\n        });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    $('input', context).add(contextElem.filter('input')).each(implementType);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    var hFor = this.attributes['for'] || {};\n    return !hFor.specified || hFor.value == id;\n}",
+    "receiverBase": "closest",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    webshims.loader.loadList(['form-datalist-lazy']);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    contextElem.filter('datalist > select, datalist, datalist > option, datalist > select > option').closest('datalist').each(updateDatlistAndOptions);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    that._lazyCreate(opts);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!that._destroyed) {\n        that._lazyCreate(opts);\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    $.attr(input, 'list', $.attr(input, 'list'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (row) {\n    tbody.appendChild(row);\n}",
+    "receiverBase": "InkArray",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item, index) {\n    if (index >= firstIndex && index < lastIndex) {\n        Css.removeClassName(item, 'hide-all');\n    } else {\n        Css.addClassName(item, 'hide-all');\n    }\n}",
+    "receiverBase": "InkArray",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (field) {\n    if (!this._fieldIsVisible(field)) {\n        return;\n    }\n    this._originalFields.push(field);\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (trA, trB) {\n    var elementA = Ink.ss('td', trA)[index];\n    var elementB = Ink.ss('td', trB)[index];\n    if (keyFunction) {\n        return cmp(userKey(elementA), userKey(elementB));\n    } else {\n        return numberishEnabledCmp(elementA, elementB, index);\n    }\n}",
+    "receiverBase": "_data",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (_, pageNo) {\n    this._paginate(pageNo + 1);\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (JSONData) {\n    this._onAjaxSuccess(JSONData);\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (response) {\n    if (response.status === 200) {\n        success(Json.parse(response.responseText));\n    }\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (ps) {\n    ps = ps instanceof Array ? ps : [\n        ps,\n        ps\n    ];\n    pvc_installLog(pvc, ps[0], ps[1], '[pvChart]');\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    pvc[p] = def.noop;\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (spec, name) {\n    var info = new pvc_OptionInfo(name, option, context, spec);\n    _infos[info.name] = info;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    seriesReader(item, atoms);\n    var value = atoms.series;\n    null != value && null != value.v && (value = value.v);\n    return value || null;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (datum) {\n    var atom = datum.atoms[this.name], key = atom.key;\n    map[key] = (map[key] || 0) + 1;\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (atom, index) {\n    this.isVisible(atom) === visible && indexes.push(index);\n}",
+    "receiverBase": "_atoms",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (atom) {\n    return this.isVisible(atom) === visible;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dimSpecText) {\n    var match = groupSpec_matchDimSpec.exec(dimSpecText) || def.fail.argumentInvalid('groupLevelText', 'Invalid grouping level syntax \\'{0}\\'.', [dimSpecText]), name = match[1], order = (match[2] || '').toLowerCase(), reverse = 'desc' === order;\n    return new pvc.data.GroupingDimensionSpec(name, reverse, type);\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (oldDatum) {\n    data_processDatumAtoms.call(this, oldDatum, !1, !0);\n}",
+    "receiverBase": "oldDatums",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (datumFilter, index) {\n    orderBys && (datumKeyArgs.orderBy = orderBys[index]);\n    return data_whereDatumFilter.call(this, datumFilter, datumKeyArgs);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "selectMany"
+  },
+  {
+    "callback": "function (v, k) {\n    any = !0;\n    colorMap[k] = pv.color(v);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (d) {\n    return d.slice();\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item, index) {\n    index && out.push(', ');\n    pvc.stringifyRecursive(out, item, remLevels, keyArgs) || out.pop();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (n) {\n    addExtension(exts[n], n);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    k && (keySet[k.toLowerCase()] = k);\n}",
+    "receiverBase": "hasKey",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (index) {\n    return +index;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (index) {\n    return !isNaN(index) && index >= min && max >= index;\n}",
+    "receiverBase": "select",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (comp) {\n    return pvc_PercentValue.parse(comp);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    this[p] = value;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    var value = 0, sideValue = this[side];\n    null != sideValue && (value = 'number' == typeof sideValue ? sideValue : sideValue.resolve('left' === side || 'right' === side ? width : height));\n    sides[side] = value;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    sides[side] = Math.max(a[side] || 0, b[side] || 0);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    sidesOut[side] = (sides[side] || 0) + by;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return margin + fMeasure.apply(this, pvc_arraySlice.call(arguments));\n}",
+    "receiverBase": "",
+    "receiverCallee": "LIT:this"
+  },
+  {
+    "callback": "function (scenes, index, t) {\n    scenes.mark.sign && scenes[index].data && fun.call(ctx, scenes, index, t);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachInstance"
+  },
+  {
+    "callback": "function (scenes, index, toScreen) {\n    var shape = me.getShape(scenes, index, 0.15);\n    shape = (useCenter ? shape.center() : shape).apply(toScreen);\n    processShape(shape, scenes[index], index);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "eachInstanceWithData"
+  },
+  {
+    "callback": "function (datum) {\n    datum.isNull || fun.call(ctx, datum);\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (scenes, index, toScreen) {\n    var shape = me.getShape(scenes, index, 0.15);\n    shape = (useCenter ? shape.center() : shape).apply(toScreen);\n    processShape(shape, scenes[index], index);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "eachInstanceWithData"
+  },
+  {
+    "callback": "function (width, height) {\n    if (1 === arguments.length)\n        null != width && this.setSize(width);\n    else {\n        null != width && (this.width = width);\n        null != height && (this.height = height);\n    }\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (comp) {\n    return pvc_PercentValue.parse(comp);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    this[p] = value;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (length) {\n    var lengthValue = this[length];\n    if (null != lengthValue)\n        if ('number' == typeof lengthValue)\n            size[length] = lengthValue;\n        else if (refSize) {\n            var refLength = refSize[length];\n            null != refLength && (size[length] = lengthValue.resolve(refLength));\n        }\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x, y) {\n    if (1 === arguments.length)\n        null != x && this.setOffset(x);\n    else {\n        null != x && (this.x = x);\n        null != y && (this.y = y);\n    }\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (comp) {\n    return pvc_PercentValue.parse(comp);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    this[p] = value;\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (length) {\n    var offsetProp = pvc_Offset.namesSizeToOffset[length], offsetValue = this[offsetProp];\n    if (null != offsetValue)\n        if ('number' == typeof offsetValue)\n            offset[offsetProp] = offsetValue;\n        else if (refSize) {\n            var refLength = refSize[length];\n            null != refLength && (offset[offsetProp] = offsetValue.resolve(refLength));\n        }\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    return pv.color(c);\n}",
+    "receiverBase": "range",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (keyArgs) {\n    this.base(keyArgs);\n    this.domainRangeCountDif = 1;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (type) {\n    type || def.fail.argumentRequired('type');\n    return def.getOwn(_trends, type) || def.fail.operationInvalid('Undefined trend type \\'{0}\\'.', [type]);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (type) {\n    return def.hasOwn(_trends, type);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function () {\n    return def.ownKeys(_trends);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (name, option, context, spec) {\n    this.name = name;\n    this.option = option;\n    this._dv = this.value = def.get(spec, 'value');\n    this._resolve = def.get(spec, 'resolve');\n    var resolved = !this._resolve;\n    this.isResolved = resolved;\n    this.isSpecified = !1;\n    this._setCalled = !1;\n    this._context = context;\n    this._cast = def.get(spec, 'cast');\n    this._getDefault = resolved ? null : def.get(spec, 'getDefault');\n    this.data = def.get(spec, 'data');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (visualRole) {\n    return visualRole.isPercent;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (dimTypeSpecs) {\n    this._dims = {};\n    this._dimsList = [];\n    this._dimsNames = [];\n    this._calculations = [];\n    this._calculatedDimNames = {};\n    this._dimsIndexByName = null;\n    this._dimsByGroup = {};\n    this._dimsNamesByGroup = {};\n    if (dimTypeSpecs)\n        for (var name in dimTypeSpecs)\n            this.addDimension(name, dimTypeSpecs[name]);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (type) {\n    var features = [];\n    features.push(type.valueTypeName);\n    type.isComparable && features.push('comparable');\n    type.isDiscrete || features.push('continuous');\n    type.isHidden && features.push('hidden');\n    out.push('  ' + type.name + ' (' + features.join(', ') + ')');\n}",
+    "receiverBase": "_dimsList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimType) {\n    return dimType._calculationOrder;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "binarySearch"
+  },
+  {
+    "callback": "function (dimType) {\n    return dimType.playingPercentVisualRole();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (da, db) {\n    return def.compare(dimsIndexByName[nameKey ? nameKey(da) : da], dimsIndexByName[nameKey ? nameKey(db) : db]);\n}",
+    "receiverBase": "dims",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (dimGroupSpecs) {\n    this._dims = {};\n    this._dimList = [];\n    this._dimGroupsDims = {};\n    this._dimGroupSpecs = dimGroupSpecs || {};\n    this._calcList = [];\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (dimInfo) {\n    var dimName = dimInfo.name, spec = dimInfo.spec;\n    spec = pvc.data.DimensionType.extendSpec(dimName, spec, translOptions);\n    complexType.addDimension(dimName, spec);\n}",
+    "receiverBase": "_dimList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (calcSpec) {\n    complexType.addCalculation(calcSpec);\n}",
+    "receiverBase": "_calcList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (chart, complexTypeProj, source, metadata, options) {\n    this.chart = chart;\n    this.complexTypeProj = complexTypeProj;\n    this.source = source || def.fail.argumentRequired('source');\n    this.metadata = metadata || def.fail.argumentRequired('metadata');\n    this.options = options || {};\n    this._initType();\n    if (pvc.debug >= 4) {\n        this._logItems = !0;\n        this._logItemCount = 0;\n    }\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (index) {\n    this._userIndexesToSingleDim[index] = null;\n}",
+    "receiverBase": "indexes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (index, j) {\n    indexes[j] = +index;\n}",
+    "receiverBase": "indexes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    this._readDim(name, reader);\n}",
+    "receiverBase": "dimNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    return this._readItem(item, dimsReaders);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (info, index) {\n    if (!this._userUsedIndexes[index]) {\n        var indexes = 1 === info.type ? freeMeaIndexes : freeDisIndexes;\n        indexes && indexes.push(index);\n    }\n}",
+    "receiverBase": "_itemInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colDef, colIndex) {\n    colDef.colIndex = colIndex;\n    return colDef;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (colDef) {\n    var colType = colDef.colType;\n    return !colType || 1 !== knownContinColTypes[colType.toLowerCase()];\n}",
+    "receiverBase": "select",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (colDef) {\n    return colDef.colIndex;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (row, index) {\n    out.push('  [' + index + '] ' + pvc.stringify(row));\n}",
+    "receiverBase": "take",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (col, j) {\n    out.push('  [' + j + '] \\'' + col.colName + '\\' (type: ' + col.colType + ', inspected: ' + (colTypes[j] ? 'number' : 'string') + (col.colLabel ? ', label: \\'' + col.colLabel + '\\'' : '') + ')');\n}",
+    "receiverBase": "metadata",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (info, index) {\n    maxName = Math.max(maxName, (info.name || '').length);\n    maxLabel = Math.max(maxLabel, (info.label || '').length);\n    var dimName = this._userIndexesToSingleDim[index];\n    dimName && (maxDim = Math.max(maxDim, dimName.length));\n}",
+    "receiverBase": "_itemInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (kind) {\n    for (var i = 0, L = kindScope[kind]; L > i; i++) {\n        var info = this._itemInfos[index], dimName = this._userIndexesToSingleDim[index];\n        void 0 === dimName && (dimName = '');\n        out.push(' ' + index + '    | ' + kind + '    | ' + (info.type ? 'number' : 'string') + ' | ' + def.string.padRight(info.name || '', maxName) + ' | ' + def.string.padRight(info.label || '', maxLabel) + ' | ' + dimName);\n        index++;\n    }\n}",
+    "receiverBase": "kindList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colGroup, cg) {\n    updateVItemCrossGroup('C', colGroup);\n    updateVItemMeasure(line, cg);\n    return this._readItem(item, dimsReaders);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (line) {\n    updateVItemCrossGroup('R', line);\n    return this._readItem(item, dimsReaders);\n}",
+    "receiverBase": "q",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (colGroup, cg) {\n    this._colGroups[cg] = this._splitEncodedColGroupCell(colGroup);\n    this._colGroupsIndexes[cg] = [this.R + cg];\n}",
+    "receiverBase": "_colGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return { type: 0 };\n}",
+    "receiverBase": "range",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (colGroup, cg) {\n    this._colGroups[cg] = [colGroup];\n}",
+    "receiverBase": "_colGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colGroup, cg) {\n    this._colGroups[cg] = [colGroup];\n    this._colGroupsIndexes[cg] = [R + cg];\n}",
+    "receiverBase": "_colGroups",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (groupStartIndex, crossGroup) {\n    itemCrossGroupInfos[crossGroup].forEach(function (info, groupIndex) {\n        itemInfos[groupStartIndex + groupIndex] = info;\n    });\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (info, groupIndex) {\n    itemInfos[groupStartIndex + groupIndex] = info;\n}",
+    "receiverBase": "itemCrossGroupInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    return 0 === type;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "whayl"
+  },
+  {
+    "callback": "function (value, index) {\n    return {\n        v: value,\n        f: labels && labels[index]\n    };\n}",
+    "receiverBase": "values",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, index) {\n    var label = colGroupLabels && colGroupLabels[index];\n    colGroupValues[index] = {\n        v: value,\n        f: label\n    };\n}",
+    "receiverBase": "colGroupValues",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (meaInfoA, meaInfoB) {\n    return def.compare(meaInfoA.groupIndex, meaInfoB.groupIndex) || def.compare(meaInfoA.index, meaInfoB.index);\n}",
+    "receiverBase": "measuresInfoList",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (meaInfoA, index) {\n    meaInfoA.groupIndex = index;\n}",
+    "receiverBase": "measuresInfoList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colGroup, cg) {\n    colGroupsValues[cg] = colGroup.values;\n    var colGroupStartIndex = colGroup.startIndex, meaIndexes = colGroupsIndexes[cg] = new Array(M);\n    colGroup.measureNames.forEach(function (meaName2, localMeaIndex) {\n        var meaIndex = measuresInfo[meaName2].groupIndex;\n        meaIndexes[meaIndex] = R + colGroupStartIndex + localMeaIndex;\n    });\n}",
+    "receiverBase": "colGroups",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (meaName2, localMeaIndex) {\n    var meaIndex = measuresInfo[meaName2].groupIndex;\n    meaIndexes[meaIndex] = R + colGroupStartIndex + localMeaIndex;\n}",
+    "receiverBase": "measureNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colGroup) {\n    return '' + colGroup[0].v;\n}",
+    "receiverBase": "_colGroups",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (dimGroupName) {\n    var L = itemLogicalGroup[dimGroupName];\n    L > 0 && add(dimGroupName, 0, L);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (colDef, index) {\n    return 0 !== this._columnTypes[index];\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (colDef) {\n    return colDef.colIndex;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (inputIndex) {\n    availableInputIndexes.splice(inputIndex, 1);\n}",
+    "receiverBase": "valuesColIndexes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (groupSpec) {\n    var count = groupSpec.count, name = groupSpec.name;\n    specsByName[name] = groupSpec;\n    groupSpec.indexes = valuesColIndexes && 'M' === name ? valuesColIndexes : availableInputIndexes.splice(0, count);\n}",
+    "receiverBase": "colGroupSpecs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var groupSpec = specsByName[name];\n    groupSpec && def.array.append(itemPerm, groupSpec.indexes);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    item = pv.permute(item, permIndexes);\n    return this._readItem(item, dimsReaders);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (dimension, value, label, rawValue, key) {\n    this.dimension = dimension;\n    this.id = null == value ? -def.nextId() : def.nextId();\n    this.value = value;\n    this.label = label;\n    void 0 !== rawValue && (this.rawValue = rawValue);\n    this.key = key;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (atom) {\n    var alabel = atom.label;\n    alabel && (label ? label += labelSep + alabel : label = alabel);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (name) {\n    s.push(name + ': ' + pvc.stringify(this.atoms[name].value));\n}",
+    "receiverBase": "dimensionsNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimName) {\n    return atoms[dimName].value;\n}",
+    "receiverBase": "dimNames",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (dimName) {\n    return atoms[dimName].key;\n}",
+    "receiverBase": "dimNames",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (dimName) {\n    return atoms[dimName].label;\n}",
+    "receiverBase": "dimNames",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (source, viewDimNames) {\n    this.source = source;\n    this.viewDimNames = viewDimNames;\n    this.base(source, source.atoms, viewDimNames, source.owner.atoms, !0);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (data, atomsByName) {\n    this.base(data, atomsByName, null, null, !1, !0);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (data, atomsByName, trend) {\n    this.base(data, atomsByName);\n    this.trend = trend;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (data, atomsByName, interpolation) {\n    this.base(data, atomsByName);\n    this.interpolation = interpolation;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (atom) {\n    return def.hasOwnProp.call(atomsByKey, atom.key);\n}",
+    "receiverBase": "atoms",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (a) {\n    return a.value;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "binarySearch"
+  },
+  {
+    "callback": "function (sum2, datum) {\n    var value = datum.atoms[dimName].value;\n    isAbs && 0 > value && (value = -value);\n    return null != sum2 ? sum2 + value : value;\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (dimName) {\n    var atom = this.atoms[dimName];\n    return !(atom instanceof pvc.data.Atom) || null == atom.value;\n}",
+    "receiverBase": "dimensionsNames",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (datum) {\n    return !def.hasOwn(alreadySelectedById, datum.id);\n}",
+    "receiverBase": "owner",
+    "receiverCallee": "clearSelected"
+  },
+  {
+    "callback": "function (datum) {\n    changed = !0;\n    datum_deselect.call(datum);\n    this._selectedNotNullDatums.rem(datum.id);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (datum) {\n    datum_deselect.call(datum);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (datum) {\n    anyChanged |= datum.setSelected(selected);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (datum) {\n    anyChanged |= datum.setVisible(visible);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (levelSpec) {\n    return levelSpec.dimensions.length > 0;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (levelSpec) {\n    ids.push(levelSpec.id);\n    def.array.append(dimNames, levelSpec.dimensionNames());\n    !this.hasCompositeLevels && levelSpec.dimensions.length > 1 && (this.hasCompositeLevels = !0);\n    levelSpec._setAccDimNames(dimNames.slice(0));\n    return levelSpec;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (levelSpec) {\n    levelSpec.bind(type);\n}",
+    "receiverBase": "levels",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimSpec) {\n    return reverse ? new pvc.data.GroupingDimensionSpec(dimSpec.name, !dimSpec.reverse, dimSpec.type.complexType) : dimSpec;\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (levelSpec) {\n    var dimSpecs = def.query(levelSpec.dimensions).select(function (dimSpec) {\n            return new pvc.data.GroupingDimensionSpec(dimSpec.name, !dimSpec.reverse, dimSpec.type.complexType);\n        });\n    return new pvc.data.GroupingLevelSpec(dimSpecs, this.type);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (dimSpec) {\n    return new pvc.data.GroupingDimensionSpec(dimSpec.name, !dimSpec.reverse, dimSpec.type.complexType);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (level) {\n    return '' + level;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (dimSpec) {\n    ids.push(dimSpec.id);\n    dimNames.push(dimSpec.name);\n    return dimSpec;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (d) {\n    return d.name;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "sortDimensionNames"
+  },
+  {
+    "callback": "function (dimSpec) {\n    dimSpec.bind(type);\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimSpec) {\n    return '' + dimSpec;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (name, reverse, type) {\n    this.name = name;\n    this.reverse = !!reverse;\n    this.id = name + ':' + (reverse ? '0' : '1');\n    type && this.bind(type);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (levelText) {\n    var dimSpecs = groupSpec_parseGroupingLevel(levelText, type);\n    return new pvc.data.GroupingLevelSpec(dimSpecs, type);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (linkParent) {\n    linkParent || def.fail.argumentRequired('linkParent');\n    this._linkParent = linkParent;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (groupSpec) {\n    if (groupSpec instanceof pvc.data.GroupingSpec) {\n        if (groupSpec.type !== linkParent.type)\n            throw def.error.argumentInvalid('groupingSpecText', 'Invalid associated complex type.');\n    } else\n        groupSpec = pvc.data.GroupingSpec.parse(groupSpec, linkParent.type);\n    ids.push(groupSpec.id);\n    return groupSpec;\n}",
+    "receiverBase": "as",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (spec) {\n    var levelCount = spec.levels.length;\n    return levelCount ? spec.flatteningMode ? 1 : levelCount : 0;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (serData1) {\n    var group = catData;\n    group && serData1 && (group = group.child(serData1.key));\n    var value = group ? group.dimensions(valDim.name).value(visibleKeyArgs) : null;\n    return {\n        data: serData1,\n        group: group,\n        value: value,\n        isNull: null == value,\n        catInfo: catInfo\n    };\n}",
+    "receiverBase": "serDatas1",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (serIndex) {\n    return new pvc.data.LinearInterpolationOperSeriesState(this, serIndex);\n}",
+    "receiverBase": "range",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (interpolation, serIndex) {\n    this.interpolation = interpolation;\n    this.index = serIndex;\n    this._lastNonNull(null);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (serData1) {\n    var group = catData;\n    group && serData1 && (group = group.child(serData1.key));\n    var value = group ? group.dimensions(valDim.name).value(visibleKeyArgs) : null;\n    return {\n        data: serData1,\n        group: group,\n        value: value,\n        isNull: null == value,\n        catInfo: catInfo\n    };\n}",
+    "receiverBase": "serDatas1",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (serIndex) {\n    return new pvc.data.ZeroInterpolationOperSeriesState(this, serIndex);\n}",
+    "receiverBase": "range",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (interpolation, serIndex) {\n    this.interpolation = interpolation;\n    this.index = serIndex;\n    this._lastNonNull(null);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (atoms) {\n    var datum = new pvc.data.Datum(this, atoms);\n    isNullFun && isNullFun(datum) && (datum.isNull = !0);\n    return whereFun && !whereFun(datum) ? null : datum;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (linkChildData) {\n    linkChildData.clearVirtuals();\n}",
+    "receiverBase": "_linkChildren",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dim) {\n    dim_uninternVirtualAtoms.call(dim);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (childData) {\n    return !childData._isFlattenGroup || childData._isDegenerateFlattenGroup;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (childData) {\n    return childData.dimensions(dimName).valueAbs(keyArgs) || 0;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (atom) {\n    return atom.label;\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (categIndex) {\n    return this._getValuesForCategoryIndex(categIndex);\n}",
+    "receiverBase": "range",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (atom) {\n    return atom.value;\n}",
+    "receiverBase": "atoms",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (atom) {\n    return atom.value;\n}",
+    "receiverBase": "atoms",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (datum) {\n    return datum.atoms.series.key;\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "uniqueIndex"
+  },
+  {
+    "callback": "function (atom) {\n    var datum = def.getOwn(datumsBySeriesKey, atom.key);\n    return datum ? datum.atoms.value.value : null;\n}",
+    "receiverBase": "atoms",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (g) {\n    return g.firstDatum();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (g) {\n    return g.datums();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "selectMany"
+  },
+  {
+    "callback": "function () {\n    datums = chart._onUserSelection(datums);\n    datums && datums.length && (chart.options.ctrlSelectMode && def.get(ka, 'replace', !0) ? chart.data.replaceSelected(datums) : pvc.data.Data.toggleSelected(datums));\n}",
+    "receiverBase": "chart",
+    "receiverCallee": "_updatingSelections"
+  },
+  {
+    "callback": "function (v) {\n    this.value = v;\n    return this;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (v) {\n    this.label = v;\n    return this;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function () {\n    return new pvc_ValueLabelVar(this.value, this.label, this.rawValue);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function () {\n    var label = this.label || this.value;\n    return null == label ? '' : 'string' != typeof label ? '' + label : label;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (panel, mark, scene) {\n    this.chart = panel.chart;\n    this.panel = panel;\n    visualContext_update.call(this, mark, scene);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (dimSpec) {\n    dimSpec.type && dimType_removeVisualRole.call(dimSpec.type, this);\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dimSpec) {\n    dimType_addVisualRole.call(dimSpec.type, this);\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (panel, pvMark) {\n    this.chart = panel.chart;\n    this.panel = panel;\n    !pvMark.sign || def.assert('Mark already has an attached Sign.');\n    this.pvMark = pvMark;\n    pvMark.sign = this;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    return value.call(me, scene);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "_createPropInterceptor"
+  },
+  {
+    "callback": "function (scene) {\n    return me[method].call(me, scene);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "_createPropInterceptor"
+  },
+  {
+    "callback": "function (panel, pvMark, keyArgs) {\n    this._addInteractive(keyArgs);\n    panel._addSign(this);\n}",
+    "receiverBase": "init",
+    "receiverCallee": "postInit"
+  },
+  {
+    "callback": "function (extensionAbsId) {\n    this.panel.extendAbs(this.pvMark, extensionAbsId);\n}",
+    "receiverBase": "extensionAbsIds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (scene) {\n    return me[prop](scene);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_createPropInterceptor"
+  },
+  {
+    "callback": "function (extensionAbsId) {\n    return this.panel._getExtensionAbs(extensionAbsId, name);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (extValue) {\n    extValue = mark.wrap(extValue, name);\n    mark.intercept(name, extValue, this._extensionKeyArgs);\n}",
+    "receiverBase": "where",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (scene) {\n    if (scene.hoverable() && !panel.selectingByRubberband() && !panel.animating()) {\n        scene.setActive(!0);\n        panel.renderInteractive();\n    }\n}",
+    "receiverBase": "ensureEvents",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (scene) {\n    !scene.hoverable() || panel.selectingByRubberband() || panel.animating() || scene.clearActive() && panel.renderInteractive();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function () {\n    if (me._ignoreClicks)\n        me._ignoreClicks--;\n    else\n        try {\n            pv.event = pvEvent;\n            pvMark.context(pvScene, pvIndex, function () {\n                me._handleClickCore();\n            });\n        } catch (ex) {\n            pv.error(ex);\n        } finally {\n            delete pv.event;\n        }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me._handleClickCore();\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function (panel, protoMark, keyArgs) {\n    var pvPanel = def.get(keyArgs, 'panel');\n    if (!pvPanel) {\n        var pvPanelType = def.get(keyArgs, 'panelType') || pv.Panel;\n        pvPanel = protoMark.add(pvPanelType);\n    }\n    this.base(panel, pvPanel, keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (panel, protoMark, keyArgs) {\n    var pvMark = protoMark.add(pv.Label);\n    this.base(panel, pvMark, keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    if (!this.canShow(scene))\n        return !1;\n    var visible = this.delegateExtension();\n    null == visible && (visible = isV1Compat || this.defaultVisible(scene));\n    return visible;\n}",
+    "receiverBase": "_bindProperty",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.size.value < 0 ? 'dash' : null;\n}",
+    "receiverBase": "lineCap",
+    "receiverCallee": "strokeDasharray"
+  },
+  {
+    "callback": "function (panel, protoMark, keyArgs) {\n    var pvMark = protoMark.add(pv.Bar);\n    keyArgs = def.setDefaults(keyArgs, 'freeColor', !1);\n    this.base(panel, pvMark, keyArgs);\n    this.normalStroke = def.get(keyArgs, 'normalStroke', !1);\n    this._bindProperty('lineWidth', 'strokeWidth');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (panel, parentMark, keyArgs) {\n    var pvMark = parentMark.add(pv.Rule), protoMark = def.get(keyArgs, 'proto');\n    protoMark && pvMark.extend(protoMark);\n    this.base(panel, pvMark, keyArgs);\n    def.get(keyArgs, 'freeStyle') || this._bindProperty('strokeStyle', 'strokeColor', 'color')._bindProperty('lineWidth', 'strokeWidth');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    this.chart = chart;\n    this.type = type;\n    this.index = null == index ? 0 : index;\n    this.name = def.get(keyArgs, 'name');\n    this.id = this._buildId();\n    this.optionId = this._buildOptionId();\n    var rs = this._resolvers = [];\n    this._registerResolversFull(rs, keyArgs);\n    this.option = pvc.options(this._getOptionsDefinition(), this);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return fixed[optionInfo.name];\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._chartOption(this.name + def.firstUpperCase(optionInfo.name));\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._fixed ? this._fixed[optionInfo.name] : void 0;\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this.name ? this._chartOption(this.name + def.firstUpperCase(optionInfo.name)) : void 0;\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._chartOption(this.optionId + def.firstUpperCase(optionInfo.name));\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this.index ? void 0 : this._chartOption(def.firstLowerCase(optionInfo.name));\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (chart) {\n    this.base(chart, 'multiChart', 0, {\n        byV1: !1,\n        byNaked: !1\n    });\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart) {\n    this.base(chart, 'small', 0, {\n        byV1: !1,\n        byNaked: !1\n    });\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    this.base(chart, type, index, keyArgs);\n    chart._addAxis(this);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars[varName].value;\n}",
+    "receiverBase": "scale",
+    "receiverCallee": "by1"
+  },
+  {
+    "callback": "function (itemData) {\n    var itemValue = this.domainItemValue(itemData);\n    if (!hasOwn.call(domainValuesSet, itemValue)) {\n        domainValuesSet[itemValue] = 1;\n        domainValues.push(itemValue);\n        domainItems.push(itemData);\n    }\n}",
+    "receiverBase": "_selectDomainItems",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._chartOption(this.orientedId + 'Axis' + optionInfo.name);\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._chartOption('secondAxis' + optionInfo.name);\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    var st = this.scaleType;\n    if (st) {\n        var name = optionInfo.name, value = this._chartOption(st + 'Axis' + name);\n        void 0 === value && 'discrete' !== st && (value = this._chartOption('continuousAxis' + name));\n        return value;\n    }\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this._chartOption('axis' + optionInfo.name);\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function () {\n    if (!this.typeIndex)\n        return 'x' === this.orientation ? 'bottom' : 'left';\n    var firstAxis = this.chart.axesByType[this.type].first, position = firstAxis.option('Position');\n    return pvc.BasePanel.oppositeAnchor[position];\n}",
+    "receiverBase": "options",
+    "receiverCallee": "defaultValue"
+  },
+  {
+    "callback": "function (parent, keyArgs) {\n    this.base(parent, keyArgs);\n    this.vars.tick = new pvc_ValueLabelVar(def.get(keyArgs, 'tick'), def.get(keyArgs, 'tickLabel'), def.get(keyArgs, 'tickRaw'));\n    def.get(keyArgs, 'isHidden') && (this.isHidden = !0);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart) {\n    this.base(chart, 'focusWindow', 0, { byNaked: !1 });\n    var baseAxis = chart.axes.base;\n    this.base = new pvc.visual.CartesianFocusWindowAxis(this, baseAxis);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (fw, axis) {\n    this.window = fw;\n    this.axis = axis;\n    this.isDiscrete = axis.isDiscrete();\n    this.base(axis.chart, 'focusWindow' + def.firstUpperCase(axis.type), 0, { byNaked: !1 });\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (index) {\n    return domainData.childNodes[index];\n}",
+    "receiverBase": "range",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (datum) {\n    var v = datum.atoms[dimName].value;\n    return null != v && v >= me.begin && v <= me.end;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.plot;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (plot) {\n    return plot && plot.id;\n}",
+    "receiverBase": "select",
+    "receiverCallee": "distinct"
+  },
+  {
+    "callback": "function (c) {\n    return c.key;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "uniqueIndex"
+  },
+  {
+    "callback": "function (scene) {\n    return scene && scene.vars[varName].value;\n}",
+    "receiverBase": "scale",
+    "receiverCallee": "by1"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this.index ? void 0 : this._chartOption(this.id + def.firstUpperCase(optionInfo.name));\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (plot) {\n    var name = plot.name;\n    return 'plot2' === name || 'trend' === name;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "all"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    keyArgs = def.set(keyArgs, 'byNaked', !1);\n    this.base(chart, type, index, keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    keyArgs = def.set(keyArgs, 'byNaked', !1);\n    this.base(chart, type, index, keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    keyArgs = def.set(keyArgs, 'byNaked', !1);\n    this.base(chart, type, index, keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (parent, keyArgs) {\n    this.base(parent, keyArgs);\n    this._unresolvedMarkerDiam = def.get(keyArgs, 'markerSize');\n    this._unresolvedItemPadding = new pvc_Sides(def.get(keyArgs, 'itemPadding', 5));\n    this._unresolvedItemSize = pvc_Size.to(def.get(keyArgs, 'itemSize')) || new pvc_Size();\n    def.set(this.vars, 'horizontal', def.get(keyArgs, 'horizontal', !1), 'font', def.get(keyArgs, 'font'), 'textMargin', def.get(keyArgs, 'textMargin', 6) - 3);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (groupScene) {\n    groupScene.childNodes.forEach(layoutItem, this);\n}",
+    "receiverBase": "childNodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (index) {\n    this.index = index;\n    this.items = [];\n    this.size = {\n        width: 0,\n        height: 0\n    };\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (rootScene, keyArgs) {\n    this.base(rootScene, keyArgs);\n    this.extensionPrefix = def.get(keyArgs, 'extensionPrefix') || '';\n    this._renderer = def.get(keyArgs, 'renderer');\n    this.colorAxis = def.get(keyArgs, 'colorAxis');\n    this.clickMode = def.get(keyArgs, 'clickMode');\n    !this.clickMode && this.colorAxis && (this.clickMode = this.colorAxis.option('LegendClickMode'));\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    this.base.apply(this, arguments);\n    if (!this.executable()) {\n        var I = pvc.visual.Interactive;\n        this._ibits = I.Interactive | I.ShowsInteraction | I.Hoverable | I.SelectableAny;\n    }\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    datums = chart._onUserSelection(datums);\n    datums && datums.length && pvc.data.Data.toggleSelected(datums, !0);\n}",
+    "receiverBase": "chart",
+    "receiverCallee": "_updatingSelections"
+  },
+  {
+    "callback": "function (datum) {\n    return !datum.isNull && datum.isVisible;\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (keyArgs) {\n    this.drawRule = def.get(keyArgs, 'drawRule', !1);\n    this.drawRule && (this.rulePvProto = def.get(keyArgs, 'rulePvProto'));\n    this.drawMarker = !this.drawRule || def.get(keyArgs, 'drawMarker', !0);\n    if (this.drawMarker) {\n        this.markerShape = def.get(keyArgs, 'markerShape', 'square');\n        this.markerPvProto = def.get(keyArgs, 'markerPvProto');\n    }\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    return this.parent.height() / 2;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function () {\n    return this.parent.width();\n}",
+    "receiverBase": "top",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function () {\n    return this.parent.width() / 2;\n}",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function () {\n    return this.parent.height() / 2;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function () {\n    return this.parent.width();\n}",
+    "receiverBase": "top",
+    "receiverCallee": "shapeSize"
+  },
+  {
+    "callback": "function () {\n    var cos = Math.abs(Math.cos(this.angle()));\n    if (0 !== cos && 1 !== cos)\n        switch (this.shape()) {\n        case 'square':\n        case 'bar':\n            return !1;\n        }\n    return !0;\n}",
+    "receiverBase": "angle",
+    "receiverCallee": "antialias"
+  },
+  {
+    "callback": "function (plot, axisType, axisIndex, roleName, dataPartValue) {\n    this.plot = plot;\n    this.axisType = axisType;\n    this.axisIndex = axisIndex;\n    this.role = plot.chart.visualRoles[roleName] || def.fail.argumentInvalid('roleName', 'Role is not defined.');\n    this.dataPartValue = dataPartValue;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (plot, axisType, axisIndex, roleName, dataPartValue) {\n    this.base(plot, axisType, axisIndex, roleName, dataPartValue);\n    this._legendGroupScene = null;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, keyArgs) {\n    var typePlots = def.getPath(chart, [\n            'plotsByType',\n            this.type\n        ]), index = typePlots ? typePlots.length : 0, globalIndex = chart.plotList.length;\n    keyArgs = def.set(keyArgs, 'byNaked', !globalIndex);\n    this.base(chart, this.type, index, keyArgs);\n    chart._addPlot(this);\n    var prefixes = this.extensionPrefixes = [this.id];\n    this.globalIndex || prefixes.push('');\n    this.name && prefixes.push(this.name);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (optionInfo) {\n    return this.globalIndex ? void 0 : this._chartOption(def.firstLowerCase(optionInfo.name));\n}",
+    "receiverBase": "options",
+    "receiverCallee": "specify"
+  },
+  {
+    "callback": "function (plot, axisType, axisIndex, roleName, dataPartValue, isStacked, nullInterpolationMode, trend) {\n    this.base(plot, axisType, axisIndex, roleName, dataPartValue);\n    this.isStacked = isStacked;\n    this.nullInterpolationMode = nullInterpolationMode;\n    this.trend = trend;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (orthoRoleName) {\n    dataCells.push(new pvc.visual.CartesianOrthoDataCell(this, 'ortho', orthoAxisIndex, orthoRoleName, dataPartValue, isStacked, nullInterpolationMode, trend));\n}",
+    "receiverBase": "orthoRoleNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this._syncLog();\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (ps) {\n    ps = ps instanceof Array ? ps : [\n        ps,\n        ps\n    ];\n    pvc_installLog(this, '_' + ps[0], ps[1], logId);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var o = pvc.Abstract.prototype, syncLogHook = function () {\n            this._syncLog();\n        };\n    [\n        'log',\n        'info',\n        'trace',\n        'error',\n        'warn',\n        'group',\n        'groupEnd'\n    ].forEach(function (p) {\n        o['_' + p] = syncLogHook;\n    });\n}",
+    "receiverBase": "def",
+    "receiverCallee": "scope"
+  },
+  {
+    "callback": "function (p) {\n    o['_' + p] = syncLogHook;\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dv, p) {\n    var value = options['tooltip' + def.firstUpperCase(p)];\n    void 0 !== value ? tipOptions[p] = value : void 0 === tipOptions[p] && (tipOptions[p] = dv);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function () {\n    var pvFormat = pv.Format.number().fractionDigits(0, 2);\n    return function (d) {\n        return pvFormat.format(d);\n    };\n}",
+    "receiverBase": "def",
+    "receiverCallee": "scope"
+  },
+  {
+    "callback": "function () {\n    var pvFormat = pv.Format.number().fractionDigits(0, 1);\n    return function (d) {\n        return pvFormat.format(100 * d) + '%';\n    };\n}",
+    "receiverBase": "def",
+    "receiverCallee": "scope"
+  },
+  {
+    "callback": "function (role) {\n    return role.firstDimensionName();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (p) {\n    var parentRole = parent[p];\n    parentRole && (this[p] = parentRole);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (role) {\n    role.setIsReversed(!1);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (role) {\n    var name = role.name, roleSpec = options[name + 'Role'];\n    if (void 0 !== roleSpec) {\n        roleOptions || (roleOptions = options.visualRoles = {});\n        void 0 === roleOptions[name] && (roleOptions[name] = roleSpec);\n    }\n}",
+    "receiverBase": "visualRoleList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.index - b.index;\n}",
+    "receiverBase": "rolesWithOptions",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (groupDimSpec) {\n    def.hasOwn(dimsBoundToSingleRole, groupDimSpec.name) ? delete dimsBoundToSingleRole[groupDimSpec.name] : dimsBoundToSingleRole[groupDimSpec.name] = role;\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (role) {\n    return role.defaultSourceRoleName && !role.sourceRole && !role.isPreBound();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (role) {\n    var sourceRole = this.visualRoles[role.defaultSourceRoleName];\n    if (sourceRole) {\n        role.setSourceRole(sourceRole, !0);\n        sourcedRoles.push(role);\n    }\n}",
+    "receiverBase": "where",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (role) {\n    var sourceRole = role.sourceRole;\n    sourceRole.isReversed && role.setIsReversed(!role.isReversed);\n    !role.defaultDimensionName && sourceRole.isPreBound() && role.preBind(sourceRole.preBoundGrouping());\n}",
+    "receiverBase": "sourcedRoles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimName) {\n    markDimBoundTo(dimName, role);\n}",
+    "receiverBase": "dimNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (role) {\n    return role.isPreBound();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (role) {\n    return !role.isPreBound();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dimName) {\n    return 1 === boundDimTypes[dimName].length;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dimName) {\n    var singleRole = boundDimTypes[dimName][0];\n    me._setRoleBoundDimensionDefaults(singleRole, dimName);\n}",
+    "receiverBase": "where",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (role) {\n    return role.isPreBound();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (role) {\n    role.postBind(complexType);\n}",
+    "receiverBase": "where",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    return s.length;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (role, name) {\n    out.push(def.string.padRight(name, maxLen) + ' | ' + (role.grouping || '-'));\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (calcSpec) {\n    complexTypeProj.setCalc(calcSpec);\n}",
+    "receiverBase": "calcSpecs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dataCell) {\n    var nim = dataCell.nullInterpolationMode;\n    return !!nim && 'none' !== nim;\n}",
+    "receiverBase": "selectMany",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.role.name + '|' + (dataCell.dataPartValue || '');\n}",
+    "receiverBase": "where",
+    "receiverCallee": "distinct"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.role.name + '|' + (dataCell.dataPartValue || '');\n}",
+    "receiverBase": "where",
+    "receiverCallee": "distinct"
+  },
+  {
+    "callback": "function (dataCell, data) {\n    this._generateTrendsDataCell(newDatums, dataCell, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_eachLeafDatasAndDataCells"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.role.isBound();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dataCell) {\n    var dataCellsByAxisIndex = def.array.lazy(dataCellsByAxisTypeThenIndex, dataCell.axisType);\n    def.array.lazy(dataCellsByAxisIndex, dataCell.axisIndex).push(dataCell);\n}",
+    "receiverBase": "where",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (plot) {\n    this._collectPlotAxesDataCells(plot, dataCellsByAxisTypeThenIndex);\n}",
+    "receiverBase": "plotList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dataCells, axisIndex) {\n    new AxisClass(this, type, axisIndex);\n}",
+    "receiverBase": "dataCellsByAxisIndex",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    def.hasOwn(this.axes, axis.id) || this._addAxis(axis);\n}",
+    "receiverBase": "axesList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dataCellsByAxisIndex, type) {\n    this._axisCreateChartLevel[type] & chartLevel && dataCellsByAxisIndex.forEach(function (dataCells, index) {\n        var axis = this.axes[pvc.buildIndexedId(type, index)];\n        axis.isBound() || axis.bind(dataCells);\n    }, this);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (dataCells, index) {\n    var axis = this.axes[pvc.buildIndexedId(type, index)];\n    axis.isBound() || axis.bind(dataCells);\n}",
+    "receiverBase": "dataCellsByAxisIndex",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    this._axisSetScaleChartLevel[axis.type] & chartLevel && axis.isBound() && this._setAxisScale(axis, chartLevel);\n}",
+    "receiverBase": "axesList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dataCell) {\n    return this._getContinuousVisibleCellExtent(valueAxis, dataCell);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (axis) {\n    var axisRole = axis.role, isRoleCompatible = axisRole.name === roleName || axisRole.sourceRole && axisRole.sourceRole.name === roleName;\n    if (isRoleCompatible && axis.scale && (0 === axis.index || axis.option.isSpecified('Colors') || axis.option.isSpecified('Map'))) {\n        scale = axis.scale;\n        firstScale || (firstScale = scale);\n        axis.domainValues().forEach(addDomainValue);\n    }\n}",
+    "receiverBase": "color",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    return axis.option('LegendVisible') && axis.isBound() && axis.isDiscrete();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (itemData) {\n    var itemScene = groupScene.createItem({ source: itemData }), itemValue = axis.domainItemValue(itemData);\n    itemScene.color = colorScale(itemValue);\n}",
+    "receiverBase": "domainCellItems",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.basePanel.renderInteractive();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "useTextMeasureCache"
+  },
+  {
+    "callback": "function (id) {\n    this._extendCore(mark, id, keyArgs);\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (vi) {\n    return processValue(vi, m);\n}",
+    "receiverBase": "v",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (vi) {\n    callMethod(mm, vi);\n}",
+    "receiverBase": "v",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    var curPad = paddings && paddings[side] || 0, newPad = newPaddings && newPaddings[side] || 0;\n    return Math.abs(newPad - curPad) >= 0.1 ? !1 : void 0;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    var a = child.anchor;\n    if (a)\n        if ('fill' === a)\n            fillChildren.push(child);\n        else {\n            def.hasOwn(aoMap, a) || def.fail.operationInvalid('Unknown anchor value \\'{0}\\'', [a]);\n            sideChildren.push(child);\n        }\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child.invalidateLayout();\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (v, side) {\n    pvBorderPanel[side](v + margins[side]);\n    hasPositions[this.anchorLength(side)] = !0;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (axis) {\n    var scale = axis.scale;\n    if (scale) {\n        var d = scale.domain && scale.domain(), r = scale.range && scale.range();\n        out.push(axis.id);\n        out.push('    domain: ' + (d ? pvc.stringify(d) : '?'));\n        out.push('    range : ' + (r ? pvc.stringify(r) : '?'));\n    }\n}",
+    "receiverBase": "axesList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child._creating();\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child._create();\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (prevAnimating)\n        prevAnimating = 0;\n    else {\n        me._animating = 0;\n        me._onRenderEnd(!0);\n    }\n}",
+    "receiverBase": "ease",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (child) {\n    child._onRenderEnd(animated);\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (pvMark) {\n    pvMark.render();\n}",
+    "receiverBase": "pvMarks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    child.renderInteractive();\n}",
+    "receiverBase": "_children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sign) {\n    sign.applyExtensions();\n}",
+    "receiverBase": "_signs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dimName) {\n    var atom = commonAtoms[dimName], dimType = atom.dimension.type;\n    if (!(dimType.isHidden || isMultiDatumGroup && null == atom.value)) {\n        anyCommonAtom = !0;\n        var valueLabel = atom.label;\n        playingPercentMap && playingPercentMap.has(dimName) && (valueLabel += ' (' + calcPercent(atom, dimName) + ')');\n        addDim(def.html.escape(atom.dimension.type.label), valueLabel);\n    }\n}",
+    "receiverBase": "commonAtomsKeys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (atom) {\n    return atom.label || '- ';\n}",
+    "receiverBase": "atoms",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return getRadius(this) + m;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function () {\n    return getRadius(this) + m;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "right"
+  },
+  {
+    "callback": "function (scene, type) {\n    return 'stroke' === type ? '#86fe00' : 'rgba(203, 239, 163, 0.6)';\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, color) {\n    return color;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return !!rb;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return rb.x;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return rb.y;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return rb.dx;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return rb.dy;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    var scenes = this.delegate();\n    scenes && scenes.forEach(function (scene) {\n        null == scene.x && (scene.x = scene.y = scene.dx = scene.dy = 0);\n    });\n    return scenes;\n}",
+    "receiverBase": "pvParentPanel",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    null == scene.x && (scene.x = scene.y = scene.dx = scene.dy = 0);\n}",
+    "receiverBase": "scenes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (scene) {\n    if (rb)\n        rb = new pv.Shape.Rect(scene.x, scene.y, scene.dx, scene.dy);\n    else {\n        if (me.animating())\n            return;\n        if (scene.dx * scene.dx + scene.dy * scene.dy <= dMin2)\n            return;\n        rb = new pv.Shape.Rect(scene.x, scene.y, scene.dx, scene.dy);\n        me._selectingByRubberband = !0;\n        toScreen || (toScreen = pvParentPanel.toScreenTransform());\n        me.rubberBand = rb.apply(toScreen);\n    }\n    selectBar.render();\n}",
+    "receiverBase": "event",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function () {\n    if (rb) {\n        var ev = arguments[arguments.length - 1];\n        toScreen || (toScreen = pvParentPanel.toScreenTransform());\n        var rbs = rb.apply(toScreen);\n        rb = null;\n        me._selectingByRubberband = !1;\n        selectBar.render();\n        try {\n            me._processRubberBand(rbs, ev);\n        } finally {\n            selectionEndedDate = new Date();\n        }\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function () {\n    if (selectionEndedDate) {\n        var timeSpan = new Date() - selectionEndedDate;\n        if (300 > timeSpan) {\n            selectionEndedDate = null;\n            return;\n        }\n    }\n    data.clearSelected() && chart.updateSelections();\n}",
+    "receiverBase": "pvParentPanel",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function () {\n    data.clearSelected() && chart.updateSelections();\n}",
+    "receiverBase": "pvParentPanel",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function () {\n    var clearBefore = !ev.ctrlKey && chart.options.ctrlSelectMode;\n    if (clearBefore) {\n        chart.data.owner.clearSelected();\n        pvc.data.Data.setSelected(datums, !0);\n    } else\n        ka.toggle ? pvc.data.Data.toggleSelected(datums) : pvc.data.Data.setSelected(datums, !0);\n}",
+    "receiverBase": "chart",
+    "receiverCallee": "_updatingSelections"
+  },
+  {
+    "callback": "function (c) {\n    c._getDatumsOnRect(datumMap, rect, ka);\n}",
+    "receiverBase": "cs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d, am) {\n    var dict = BasePanel[d];\n    methods[am] = function (a) {\n        return dict[a || this.anchor];\n    };\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.plot === this.plot;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (dataCell) {\n    return dataCell.legendGroupScene();\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (axes, scopeType) {\n    axes.forEach(function (axis) {\n        coordScopesByType[scopeType].forEach(function (scopeCharts) {\n            me._coordinateScopeAxes(axis.id, scopeCharts);\n        });\n    });\n}",
+    "receiverBase": "def",
+    "receiverCallee": "eachOwn"
+  },
+  {
+    "callback": "function (axis) {\n    coordScopesByType[scopeType].forEach(function (scopeCharts) {\n        me._coordinateScopeAxes(axis.id, scopeCharts);\n    });\n}",
+    "receiverBase": "axes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (scopeCharts) {\n    me._coordinateScopeAxes(axis.id, scopeCharts);\n}",
+    "receiverBase": "coordScopesByType",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (childChart) {\n    childChart._createPhase2();\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    if ('discrete' !== axis.scaleType && axis.option.isDefined('DomainScope')) {\n        var scopeType = axis.option('DomainScope');\n        if ('cell' !== scopeType) {\n            hasCoordination = !0;\n            return scopeType;\n        }\n    }\n}",
+    "receiverBase": "query",
+    "receiverCallee": "multipleIndex"
+  },
+  {
+    "callback": "function (childChart) {\n    var scale = childChart.axes[axisId].scale;\n    if (!scale.isNull) {\n        var domain = scale.domain();\n        return {\n            min: domain[0],\n            max: domain[1]\n        };\n    }\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (childChart) {\n    var axis = childChart.axes[axisId], scale = axis.scale;\n    if (!scale.isNull) {\n        scale.domain(unionExtent.min, unionExtent.max);\n        axis.setScale(scale);\n    }\n}",
+    "receiverBase": "scopeCharts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (childChart) {\n    childChart._setSmallLayout({\n        left: childChart.smallColIndex * li.width,\n        top: childChart.smallRowIndex * li.height,\n        width: li.width,\n        height: li.height,\n        margins: this._buildSmallMargins(childChart, smallMargins, mi),\n        paddings: smallPaddings\n    });\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (lineScene) {\n    return layoutInfo.topOffset + lineScene.vars.size.height / 2 + this.index * lineScene.vars.size.height;\n}",
+    "receiverBase": "",
+    "receiverCallee": "pvMark"
+  },
+  {
+    "callback": "function (lineScene) {\n    switch (this.textAlign()) {\n    case 'center':\n        return lineScene.vars.size.width / 2;\n    case 'left':\n        return 0;\n    case 'right':\n        return lineScene.vars.size.width;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "textAlign"
+  },
+  {
+    "callback": "function (lineScene) {\n    return lineScene.vars.textLines[this.index];\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (chart, parent, options) {\n    options || (options = {});\n    var isV1Compat = chart.compatVersion() <= 1;\n    if (isV1Compat) {\n        var size = options.titleSize;\n        null == size && (options.titleSize = 25);\n    }\n    this._extensionPrefix = chart.parent ? 'smallTitle' : 'title';\n    this.base(chart, parent, options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, parent, options) {\n    this.base(chart, parent, options);\n    if (void 0 === options.font) {\n        var extFont = this._getConstantExtension('label', 'font');\n        extFont && (this.font = extFont);\n    }\n    var I = pvc.visual.Interactive;\n    this._ibits & I.Interactive && (this._ibits |= I.Clickable);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    var prevSection = this.sibling();\n    return prevSection ? prevSection[a_top] + prevSection[a_height] + itemPadding[a_height] : 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (section) {\n    return section.size[a_width];\n}",
+    "receiverBase": "",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (section) {\n    return section.size[a_height];\n}",
+    "receiverBase": "",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (section) {\n    return section.items;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (clientScene) {\n    var itemPadding = clientScene.vars.itemPadding, prevItem = this.sibling();\n    return prevItem ? prevItem[a_left] + prevItem[a_width] + itemPadding[a_width] : 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.vars.itemClientSize.height;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function () {\n    return 'true' == this.hidden() ? 'rgba(200,200,200,1)' : 'rgba(200,200,200,0.0001)';\n}",
+    "receiverBase": "def",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.vars.markerSize;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.vars.itemClientSize.height;\n}",
+    "receiverBase": "width",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (groupScene) {\n    var pvGroupPanel = new pvc.visual.Panel(this, pvLegendMarkerPanel).pvMark.visible(function (itemScene) {\n            return itemScene.parent === groupScene;\n        });\n    groupScene.renderer().create(this, pvGroupPanel, groupScene.extensionPrefix, wrapper);\n}",
+    "receiverBase": "childNodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.parent === groupScene;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "visible"
+  },
+  {
+    "callback": "function (itemScene) {\n    var baseTextStyle = this.delegateExtension() || 'black';\n    return itemScene.isOn() ? baseTextStyle : pvc.toGrayScale(baseTextStyle, null, void 0, 150);\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (itemScene) {\n    var text = itemScene.labelText(), vars = itemScene.vars;\n    vars.textSize.width > vars.labelWidthMax && (text = pvc.text.trimToWidthB(vars.labelWidthMax, text, vars.font, '..', !1));\n    return text;\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.vars.textMargin;\n}",
+    "receiverBase": "text",
+    "receiverCallee": "textMargin"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.vars.font;\n}",
+    "receiverBase": "textMargin",
+    "receiverCallee": "font"
+  },
+  {
+    "callback": "function (itemScene) {\n    return itemScene.isOn() ? '' : 'line-through';\n}",
+    "receiverBase": "font",
+    "receiverCallee": "textDecoration"
+  },
+  {
+    "callback": "function (scene) {\n    var vars = scene.vars, labelBBox = pvc.text.getLabelBBox(Math.min(vars.labelWidthMax, vars.textSize.width), 2 * vars.textSize.height / 3, 'left', 'middle', 0, vars.textMargin), corners = labelBBox.source.points();\n    corners.length > 1 && (corners = corners.concat(corners[0]));\n    return corners;\n}",
+    "receiverBase": "add",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (p) {\n    return p.x;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (p) {\n    return p.y;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function (options) {\n    this.axesPanels = {};\n    this.base(options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (type) {\n    var typeAxes = this.axesByType[type];\n    typeAxes && def.query(typeAxes).reverse().each(function (axis) {\n        this._createAxisPanel(axis);\n    }, this);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    this._createAxisPanel(axis);\n}",
+    "receiverBase": "reverse",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (type) {\n    var axes = this.axesByType[type];\n    axes && axes.forEach(this._setCartAxisScaleRange, this);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var typeAxes = axesByType[type];\n    typeAxes && typeAxes.forEach(processAxis);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return !this.index;\n}",
+    "receiverBase": "anchor",
+    "receiverCallee": "visible"
+  },
+  {
+    "callback": "function (side) {\n    filtered.set(side, paddings[side]);\n}",
+    "receiverBase": "getAnchorPaddingsNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    return (paddings[side] || 0).toFixed(0);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (chart, parent, options) {\n    this.base(chart, parent, options);\n    this._plotBgPanel = new pvc.PlotBgPanel(chart, this);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (prefix) {\n    return prefix + 'Grid';\n}",
+    "receiverBase": "extensionPrefixes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tickScene) {\n    var tickPosition = tick_offset + scale(tickScene.vars.tick.value), isLastLine = this.index === tickCount;\n    return tickPosition + (isLastLine ? halfStep : -halfStep);\n}",
+    "receiverBase": "",
+    "receiverCallee": "pvGridRule"
+  },
+  {
+    "callback": "function (tickScene) {\n    return tick_offset + scale(tickScene.vars.tick.value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "pvGridRule"
+  },
+  {
+    "callback": "function (tickData) {\n    new pvc.visual.CartesianAxisTickScene(rootScene, {\n        source: tickData,\n        tick: tickData.value,\n        tickRaw: tickData.rawValue,\n        tickLabel: tickData.label\n    });\n}",
+    "receiverBase": "childNodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (majorTick) {\n    new pvc.visual.CartesianAxisTickScene(rootScene, {\n        tick: majorTick,\n        tickRaw: majorTick,\n        tickLabel: axis.scale.tickFormat(majorTick)\n    });\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prefix) {\n    return prefix + 'ZeroLine';\n}",
+    "receiverBase": "extensionPrefixes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (drag) {\n    var op = 'start' === drag.phase ? 'new' : 'resize-end';\n    return positionConstraint(drag, op);\n}",
+    "receiverBase": "collapse",
+    "receiverCallee": "positionConstraint"
+  },
+  {
+    "callback": "function (ev) {\n    resetSceneY();\n    onDrag(ev);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (drag) {\n    positionConstraint(drag, 'move');\n}",
+    "receiverBase": "collapse",
+    "receiverCallee": "positionConstraint"
+  },
+  {
+    "callback": "function () {\n    var drag = scene.drag;\n    return drag && 'end' !== drag.phase ? 'all' : 'none';\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    var drag = scene.drag;\n    return drag && 'end' !== drag.phase ? 'drag' === drag.type || 'select' === drag.type && !resizable ? 'move' : isV ? 'ew-resize' : 'ns-resize' : null;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene, type) {\n    return 'stroke' === type ? null : curtainFillColor;\n}",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return this.index ? boundLeft() + boundWidth() : -padLeft;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return this.index ? -padRight : null;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function () {\n    return this.index ? null : padLeft + boundLeft();\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene, type) {\n    return 'stroke' === type ? null : fillColor;\n}",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (drag) {\n    positionConstraint(drag, opId);\n}",
+    "receiverBase": "autoRender",
+    "receiverCallee": "positionConstraint"
+  },
+  {
+    "callback": "function (plotPanel) {\n    plotPanel._getDatumsOnRect(datumMap, rect, keyArgs);\n}",
+    "receiverBase": "plotPanelList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var typeAxes = chartAxes[type];\n    typeAxes && typeAxes.forEach(processAxis);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    var len_a = pvc.BasePanel.orthogonalLength[side], clientLen = clientSize[len_a], paddingLen = pads[len_a], len = clientLen + paddingLen;\n    if (!tickRoundPads[side + 'Locked']) {\n        var offLen = len * (offPads[side] || 0), roundLen = clientLen * (tickRoundPads[side] || 0);\n        (reqPads || (reqPads = {}))[side] = Math.max(offLen - roundLen, 0);\n    }\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axisType) {\n    return this.axes[axisType];\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (axis) {\n    return null != axis.option('FixedMin') || null != axis.option('FixedMax');\n}",
+    "receiverBase": "select",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (chart, parent, options) {\n    this.base(chart, parent, options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (options) {\n    this.base(options);\n    var parent = this.parent;\n    parent && (this._catRole = parent._catRole);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (catGroup) {\n    var range = this._getStackedCategoryValueExtent(catGroup, valueDimName, useAbs);\n    return range ? {\n        range: range,\n        group: catGroup\n    } : void 0;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (serGroup) {\n    var value = serGroup.dimensions(valueDimName).value();\n    return useAbs && 0 > value ? -value : value;\n}",
+    "receiverBase": "leafs",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (serGroup) {\n    var value = serGroup.dimensions(valueDimName).value();\n    return useAbs && 0 > value ? -value : value;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (value) {\n    null != value && (value >= 0 ? posSum += value : negSum += value);\n}",
+    "receiverBase": "select",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (alias) {\n    return alias === axesPanels[alias].axis.id;\n}",
+    "receiverBase": "query",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (id) {\n    sizesMaxByAxisId[id] = {\n        axis: 0,\n        title: 0\n    };\n    return id;\n}",
+    "receiverBase": "where",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (id) {\n    var axisPanel = axesPanels[id], sizes = sizesMaxByAxisId[id], ol = 'x' === axisPanel.axis.orientation ? 'height' : 'width';\n    size = axisPanel[ol];\n    size > sizes.axis && (sizes.axis = size);\n    var titlePanel = axisPanel.titlePanel;\n    if (titlePanel) {\n        size = titlePanel[ol];\n        size > sizes.title && (sizes.title = size);\n    }\n}",
+    "receiverBase": "axisIds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (id) {\n    var axisPanel = axesPanels[id], sizes = sizesMaxByAxisId[id], ol = 'x' === axisPanel.axis.orientation ? 'height' : 'width';\n    axisPanel.size = axisPanel.size.clone().set(ol, sizes.axis);\n    var titlePanel = axisPanel.titlePanel;\n    titlePanel && (titlePanel.size = titlePanel.size.clone().set(ol, sizes.title));\n}",
+    "receiverBase": "axisIds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.stacked = plot.option('Stacked');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (labelBBox, index) {\n    evalLabelSideOverflow(labelBBox, begSide, !0, index);\n    evalLabelSideOverflow(labelBBox, endSide, !1, index);\n}",
+    "receiverBase": "ticksBBoxes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tick) {\n    return this.scale.tickFormat(tick);\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (text) {\n    var len = pv.Text.measureWidth(text, font);\n    len > max && (max = len);\n    return len;\n}",
+    "receiverBase": "ticksText",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (len) {\n    var labelBBox = me._calcLabelBBox(len);\n    maxBBox || len !== maxLen || (maxBBox = labelBBox);\n    return labelBBox;\n}",
+    "receiverBase": "ticksTextLength",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tick) {\n    tick = +tick.toFixed(2);\n    var text = this.scale.tickFormat(tick);\n    return pv.Text.measureWidth(text, this.font);\n}",
+    "receiverBase": "domain",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (text) {\n    return pv.Text.measureWidth(text, this.font);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (d) {\n    return d.key;\n}",
+    "receiverBase": "hiddenDatas",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (majorTick, index) {\n    var scene = new pvc.visual.CartesianAxisTickScene(rootScene, {\n            tick: majorTick,\n            tickRaw: majorTick,\n            tickLabel: ticksText[index]\n        });\n    scene.dataIndex = index;\n}",
+    "receiverBase": "ticks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (childData) {\n    var childScene = new pvc.visual.CartesianAxisTickScene(scene, {\n            source: childData,\n            tick: childData.value,\n            tickRaw: childData.rawValue,\n            tickLabel: childData.label\n        });\n    childScene.dataIndex = childData.childIndex();\n    recursive(childScene);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tickScene) {\n    return tickScene.isHidden ? scale(tickScene.previousSibling.vars.tick.value) + hiddenStep2 : scale(tickScene.vars.tick.value);\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return !scene.isHidden && this.delegateExtension(!0);\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function () {\n    return isV1Compat ? pv.Color.names.transparent : pvRule.scene ? pvRule.scene[0].strokeStyle : '#666666';\n}",
+    "receiverBase": "optional",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (tickScene) {\n    return tickScene.isHidden ? !!tickScene.vars.hiddenLabelText : this.delegateExtension(!0);\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (tickScene) {\n    var text;\n    if (tickScene.isHidden)\n        text = hiddenLabelText;\n    else {\n        text = this.delegateExtension();\n        void 0 === text && (text = tickScene.vars.tick.label);\n        !maxTextWidth || this.showsInteraction() && tickScene.isActive || (text = pvc.text.trimToWidthB(maxTextWidth, text, font, '..', !1));\n    }\n    return text;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (tickScene) {\n    return !tickScene.isHidden;\n}",
+    "receiverBase": "lineWidth",
+    "receiverCallee": "visible"
+  },
+  {
+    "callback": "function (scene) {\n    var labelBBox = ticksBBoxes[scene.dataIndex], corners = labelBBox.source.points();\n    corners.length > 1 && (corners = corners.concat(corners[0]));\n    return corners;\n}",
+    "receiverBase": "add",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (p) {\n    return p.x;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (p) {\n    return p.y;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function (tickScene) {\n    return scale(tickScene.vars.tick.value);\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function () {\n    return pvRule.scene ? pvRule.scene[0].strokeStyle : '#666666';\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    var visible = scene.childIndex() < tickCount - 1 && (!pvTicks.scene || pvTicks.scene[0].visible);\n    return visible && this.delegateExtension(!0);\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function () {\n    return pvTicks.scene ? pvTicks.scene[0].strokeStyle : pv.Color.names.d;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (tickScene) {\n    var text = tickScene.vars.tick.label;\n    !maxTextWidth || this.showsInteraction() && tickScene.isActive || (text = pvc.text.trimToWidthB(maxTextWidth, text, font, '..', !1));\n    return text;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (tickScene) {\n    var absLeft;\n    if (0 === this.index) {\n        absLeft = pvLabel.toScreenTransform().transformHPosition(pvLabel.left());\n        if (0 >= absLeft)\n            return 'left';\n    } else if (this.index === tickScene.parent.childNodes.length - 1) {\n        absLeft = pvLabel.toScreenTransform().transformHPosition(pvLabel.left());\n        if (absLeft >= rootPanel.width())\n            return 'right';\n    }\n    return 'center';\n}",
+    "receiverBase": "textBaseline",
+    "receiverCallee": "textAlign"
+  },
+  {
+    "callback": "function (tickScene) {\n    var absTop;\n    if (0 === this.index) {\n        absTop = pvLabel.toScreenTransform().transformVPosition(pvLabel.top());\n        if (absTop >= rootPanel.height())\n            return 'bottom';\n    } else if (this.index === tickScene.parent.childNodes.length - 1) {\n        absTop = pvLabel.toScreenTransform().transformVPosition(pvLabel.top());\n        if (0 >= absTop)\n            return 'top';\n    }\n    return 'middle';\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "textBaseline"
+  },
+  {
+    "callback": "function (tickScene) {\n    var fitInfo = pvc.text.getFitInfo(tickScene.dx, tickScene.dy, tickScene.vars.tick.label, font, diagMargin);\n    fitInfo.h || ('v' === axisDirection && fitInfo.v ? vertDepthCutoff = Math.min(diagDepthCutoff, tickScene.depth) : diagDepthCutoff = Math.min(diagDepthCutoff, tickScene.depth));\n    this.fitInfo(fitInfo);\n    return tickScene.dy;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (tickScene) {\n    return 1 !== tickScene.maxDepth && tickScene.maxDepth ? 'rgba(127,127,127,0.3)' : null;\n}",
+    "receiverBase": "fillStyle",
+    "receiverCallee": "strokeStyle"
+  },
+  {
+    "callback": "function (tickScene) {\n    return 1 !== tickScene.maxDepth && tickScene.maxDepth ? 0.5 : 0;\n}",
+    "receiverBase": "strokeStyle",
+    "receiverCallee": "lineWidth"
+  },
+  {
+    "callback": "function (tickScene) {\n    return tickScene.vars.tick.label;\n}",
+    "receiverBase": "lineWidth",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (tickScene) {\n    return 'v' != axisDirection || tickScene.depth >= vertDepthCutoff || tickScene.depth >= diagDepthCutoff ? 'center' : align;\n}",
+    "receiverBase": "textMargin",
+    "receiverCallee": "textAlign"
+  },
+  {
+    "callback": "function (tickScene) {\n    return 'v' != axisDirection || tickScene.depth >= vertDepthCutoff || tickScene.depth >= diagDepthCutoff ? tickScene.x + tickScene.dx / 2 : 'right' == align ? tickScene.x + tickScene.dx : tickScene.x;\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (chart, parent, axis, options) {\n    this.axis = axis;\n    this.base(chart, parent, options);\n    this._extensionPrefix = axis.extensionPrefixes.map(function (prefix) {\n        return prefix + 'Title';\n    });\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (prefix) {\n    return prefix + 'Title';\n}",
+    "receiverBase": "extensionPrefixes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.value.angle;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    var explodeIndex = me.explodedSliceIndex;\n    return null == explodeIndex || explodeIndex == this.pvMark.index ? layoutInfo.explodedOffsetRadius : 0;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return chart.animate(0, normalRadius);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function () {\n    var innerRadius = this.delegateExtension();\n    if (null == innerRadius) {\n        var innerRadiusPct = this.pvMark.innerRadiusEx();\n        innerRadius = null != innerRadiusPct ? pvc_PercentValue.resolve(innerRadiusPct, this.pvMark.outerRadius()) || 0 : 0;\n    }\n    return innerRadius > 0 ? chart.animate(0, innerRadius) : 0;\n}",
+    "receiverBase": "localProperty",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.value.sliceLabel;\n}",
+    "receiverBase": "maybeCreate",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return me.pvPie.scene[this.index];\n}",
+    "receiverBase": "localProperty",
+    "receiverCallee": "pieSlice"
+  },
+  {
+    "callback": "function (scene, type) {\n    return 'stroke' === type ? 'black' : this.base(scene, type);\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (dot) {\n    return dot.y;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (dot) {\n    return dot.x;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.lineScenes;\n}",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    this._finished = f;\n    var style = this.delegate();\n    style && !this._finished && !this.mayShowActive(scene) && this.mayShowNotAmongSelected(scene) && (style = this.dimColor(style, 'text'));\n    return style;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.link.labelX;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.link.labelY + (this.index + 1) * linkLayout.lineHeight;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.link.labelAnchor;\n}",
+    "receiverBase": "top",
+    "receiverCallee": "textAlign"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.link.labelLines[this.index];\n}",
+    "receiverBase": "textBaseline",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function () {\n    return linkColors(this.index);\n}",
+    "receiverBase": "segmented",
+    "receiverCallee": "strokeStyle"
+  },
+  {
+    "callback": "function (categData) {\n    var value = categData.dimensions(valueDimName).value();\n    0 !== value && new CategSceneClass(categData, value);\n}",
+    "receiverBase": "categDatas",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (categScene) {\n    startAngle = categScene.layoutI(layoutInfo, startAngle);\n    (categScene.vars.link.dir > 0 ? rightScenes : leftScenes).push(categScene);\n}",
+    "receiverBase": "childNodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sceneA, sceneB) {\n    return def.compare(sceneA.vars.link.targetY, sceneB.vars.link.targetY);\n}",
+    "receiverBase": "scenes",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (categScene) {\n    categScene.layoutII(layoutInfo);\n}",
+    "receiverBase": "scenes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (categScene) {\n    totalHeight += categScene.vars.link.labelHeight;\n}",
+    "receiverBase": "scenes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (scene) {\n    var linkVar = scene.vars.link, halfLabelHeight = linkVar.labelHeight / 2;\n    y += halfLabelHeight;\n    linkVar.targetY = y;\n    y += halfLabelHeight + labelSpacing;\n}",
+    "receiverBase": "scenes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (catScene, x, y, index) {\n    this.base(catScene, {\n        source: catScene.group,\n        index: index\n    });\n    this.x = x;\n    this.y = y;\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    var a = pvc.BaseChart.prototype._axisCreationOrder.slice();\n    a.push('category', 'angle');\n    return a;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (seriesScene) {\n    return seriesScene.childNodes;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    var y = sceneOrthoScale(scene);\n    return null != y ? chart.animate(0, y - orthoZero) : null;\n}",
+    "receiverBase": "order",
+    "receiverCallee": "h"
+  },
+  {
+    "callback": "function (scene) {\n    if (widthNeedsAntialias)\n        return !0;\n    var y = sceneOrthoScale(scene), h = null == y ? 0 : Math.abs(y - orthoZero);\n    return 1e-8 > h;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "antialias"
+  },
+  {
+    "callback": "function (scene) {\n    var visible = this.delegateExtension();\n    if (void 0 !== visible && !visible)\n        return !1;\n    var value = scene.vars.value.value;\n    if (null == value)\n        return !1;\n    var targetInstance = this.pvMark.scene.target[this.pvMark.index], orthoMaxPos = targetInstance[a_bottom] + (value > 0 ? targetInstance[a_height] : 0);\n    return isMin ? rOrthoBound > orthoMaxPos : orthoMaxPos > rOrthoBound;\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function () {\n    return Math.min(Math.sqrt(10), this.scene.target[this.index][a_width] / 2);\n}",
+    "receiverBase": "shape",
+    "receiverCallee": "shapeRadius"
+  },
+  {
+    "callback": "function () {\n    return rOrthoBound + (isMin ? 1 : -1) * (this.shapeRadius() + 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (axisCategData) {\n    var categData = data.child(axisCategData.key), group = categData && categData.child(seriesKey), scene = new pvc.visual.Scene(seriesScene, { source: group }), categVar = scene.vars.category = pvc_ValueLabelVar.fromComplex(categData);\n    categVar.group = categData;\n    valueVarHelper.onNewScene(scene, !0);\n    colorVarHelper.onNewScene(scene, !0);\n}",
+    "receiverBase": "axisCategDatas",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (options) {\n    this.base(options);\n    var parent = this.parent;\n    parent && (this._valueRole = parent._valueRole);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (rootScene, keyArgs) {\n    keyArgs = def.set(keyArgs, 'clickMode', 'none');\n    this.base(rootScene, keyArgs);\n    this.createItem(keyArgs);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (bulletGroup, keyArgs) {\n    this.base.apply(this, arguments);\n    var I = pvc.visual.Interactive;\n    this._ibits = I.Interactive | I.ShowsInteraction;\n    this.color = def.get(keyArgs, 'color');\n    this.vars.value = new pvc_ValueLabelVar(null, def.get(keyArgs, 'label'));\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    return panelColors(0).alpha(0.15);\n}",
+    "receiverBase": "zOrder",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (scene) {\n    var c = scene.vars.category;\n    return baseScale(c.valueLeft) - barStepWidth / 2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (scene) {\n    var c = scene.vars.category, len = Math.abs(baseScale(c.valueRight) - baseScale(c.valueLeft));\n    return len + barStepWidth;\n}",
+    "receiverBase": "",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (scene) {\n    var v = scene.vars.value, b = orthoScale(v.valueBottom) - orthoPanelMargin / 2;\n    return chart.animate(orthoZero, b);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (scene) {\n    var v = scene.vars.value, h = orthoScale(v.valueTop) - orthoScale(v.valueBottom) + orthoPanelMargin;\n    return chart.animate(0, h);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (scene, type) {\n    var color = this.base(scene, type);\n    return 'fill' !== type || scene.vars.category.group._isFlattenGroup ? color : pv.color(color).alpha(0.5);\n}",
+    "receiverBase": "sign",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return isFalling && !!scene.previousSibling || !isFalling && !!scene.nextSibling;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "optional"
+  },
+  {
+    "callback": "function (scene) {\n    return orthoZero + chart.animate(0, sceneOrthoScale(scene) - orthoZero);\n}",
+    "receiverBase": "optional",
+    "receiverCallee": "optional"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.group._isFlattenGroup ? !1 : isFalling || !!scene.nextSibling;\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return orthoZero + chart.animate(0, sceneOrthoScale(scene) - orthoZero);\n}",
+    "receiverBase": "",
+    "receiverCallee": "pvMark"
+  },
+  {
+    "callback": "function (categScene) {\n    if (!isVertical)\n        return 'middle';\n    var direction = categScene.vars.direction;\n    if (null == direction)\n        return 'bottom';\n    var isRising = !isFalling;\n    return isRising === ('up' === direction) ? 'bottom' : 'top';\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "textBaseline"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.value.label;\n}",
+    "receiverBase": "textMargin",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (c) {\n    return '' !== c.key;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (options) {\n    this.base(options);\n    var parent = this.parent;\n    parent && (this._isFalling = parent._isFalling);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.linesVisible = plot.option('LinesVisible');\n    this.dotsVisible = plot.option('DotsVisible');\n    this.areasVisible = plot.option('AreasVisible');\n    if (!this.linesVisible && !this.dotsVisible && !this.areasVisible) {\n        this.linesVisible = !0;\n        plot.option.specify({ LinesVisible: !0 });\n    }\n    this.visualRoles.value = chart.visualRole(plot.option('OrthoRole'));\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (seriesScene) {\n    return seriesScene.childNodes;\n}",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.basePosition;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.orthoPosition;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return chart.animate(0, scene.orthoLength);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, type) {\n    return areasVisible ? this.base(scene, type) : null;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, type) {\n    var color = this.base(scene, type);\n    !this._finished && color && null != areaFillColorAlpha && (color = color.alpha(areaFillColorAlpha));\n    return color;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (color, type) {\n    return isStacked ? pvc.toGrayScale(color, 1, null, null).brighter() : this.base(color, type);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, type) {\n    var color = this.base(scene, type);\n    !this._finished && darkerLineAndDotColor && color && (color = color.darker(0.6));\n    return color;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, color) {\n    return linesVisible ? color : null;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, color, type) {\n    return linesVisible || this.mayShowAnySelected(scene) || this.mayShowActive(scene) ? this.base(scene, color, type) : null;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    var strokeWidth;\n    linesVisible && (strokeWidth = this.base(scene));\n    return null == strokeWidth ? 1.5 : strokeWidth;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return !scene.isNull && !scene.isIntermediate && this.delegateExtension(!0);\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene, type) {\n    if (!dotsVisible) {\n        var visible = scene.isActive || !showAloneDots && scene.isSingle || showAloneDots && scene.isAlone;\n        if (!visible)\n            return pvc.invisibleFill;\n    }\n    var color = this.base(scene, type);\n    return scene.isInterpolated && 'fill' === type ? color && pv.color(color).brighter(0.5) : color;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, type) {\n    var color = this.base(scene, type);\n    !this._finished && darkerLineAndDotColor && color && (color = color.darker(0.6));\n    return color;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    if (!dotsVisible) {\n        var visible = scene.isActive || !showAloneDots && scene.isSingle || showAloneDots && scene.isAlone;\n        if (visible && !scene.isActive) {\n            var lineWidth = Math.max(myself.pvLine.lineWidth(), 0.2) / 2;\n            return def.sqr(lineWidth);\n        }\n    }\n    return scene.isInterpolated ? 0.8 * this.base(scene) : this.base(scene);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    var domain = orthoScale.domain(), dmin = domain[0], dmax = domain[1];\n    return dmin * dmax >= 0 ? dmin >= 0 ? dmin : dmax : 0;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "scope"
+  },
+  {
+    "callback": "function (axis) {\n    var isDiscrete = 'discrete' === axis.scaleType;\n    isDiscrete || axis.option.defaults({ Offset: 0.01 });\n}",
+    "receiverBase": "typeAxes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    axis.option.defaults({ Offset: 0.04 });\n}",
+    "receiverBase": "typeAxes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.axes.size = chart._getAxis('size', plot.option('SizeAxis') - 1);\n    var roles = this.visualRoles, sizeRoleName = plot.option('SizeRole');\n    roles.size = chart.visualRole(sizeRoleName);\n    this.useShapes = plot.option('UseShapes');\n    this.shape = plot.option('Shape');\n    this.nullShape = plot.option('NullShape');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    return colScale(scene.vars.series.value) - colStep2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function (serScene) {\n    return serScene.childNodes;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return rowScale(scene.vars.category.value) - rowStep2;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene, type) {\n    return 'stroke' === type ? null : getBaseColor.call(this.pvMark, scene);\n}",
+    "receiverBase": "sign",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, color, type) {\n    return scene.isActive ? color.alpha(0.6) : scene.anySelected() && !scene.isSelected() ? this.dimColor(color, type) : this.base(scene, color, type);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (color) {\n    return pvc.toGrayScale(color, 0.6);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (color) {\n    return pvc.toGrayScale(color, 0.6);\n}",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (catData1) {\n    createSeriesCategoryScene.call(me, serScene, catData1, serData1);\n}",
+    "receiverBase": "categDatas",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (datum, index) {\n    var trendX = funX(datum);\n    if (trendX) {\n        var trendY = trendModel.sample(trendX, funY(datum), index);\n        if (null != trendY) {\n            var atoms = def.set(Object.create(serData.atoms), xDimName, trendX, yDimName, trendY, dataPartDimName, dataPartAtom);\n            newDatums.push(new pvc.data.TrendDatum(data.owner, atoms, trendOptions));\n        }\n    }\n}",
+    "receiverBase": "datums",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (side) {\n    var len_a = pvc.BasePanel.orthogonalLength[side];\n    op[side] = (this.offsetPaddings[side] || 0) * (clientSize[len_a] + paddings[len_a]);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (seriesScene) {\n    return seriesScene.childNodes;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "selectMany"
+  },
+  {
+    "callback": "function (seriesScene) {\n    return seriesScene.childNodes;\n}",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    if (!me.linesVisible)\n        return !1;\n    var visible = this.delegateExtension();\n    null == visible && (visible = !scene.isNull && (!rootScene.isSizeBound && !rootScene.isColorBound || rootScene.isSizeBound && null != scene.vars.size.value || rootScene.isColorBound && (isColorDiscrete || null != scene.vars.color.value)));\n    return visible;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.basePosition;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.orthoPosition;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.basePosition;\n}",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.orthoPosition;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, type) {\n    return me.dotsVisible || scene.isActive || scene.isSingle ? this.base(scene, type) : pvc.invisibleFill;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    if (!me.dotsVisible && scene.isSingle) {\n        var lineWidth = Math.max(me.pvLine.scene[this.pvMark.index].lineWidth, 0.2) / 2;\n        return def.sqr(lineWidth);\n    }\n    return this.base(scene);\n}",
+    "receiverBase": "dot",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (seriesScene) {\n    return seriesScene.childNodes;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "selectMany"
+  },
+  {
+    "callback": "function (leafScene) {\n    leafScene.basePosition = sceneBaseScale(leafScene);\n    leafScene.orthoPosition = sceneOrthoScale(leafScene);\n}",
+    "receiverBase": "selectMany",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (options) {\n    options = options || {};\n    var dimGroups = options.dimensionGroups || (options.dimensionGroups = {}), rangeDimGroup = dimGroups.range || (dimGroups.range = {});\n    void 0 === rangeDimGroup.valueType && (rangeDimGroup.valueType = Number);\n    var markerDimGroup = dimGroups.marker || (dimGroups.marker = {});\n    void 0 === markerDimGroup.valueType && (markerDimGroup.valueType = Number);\n    this.base(options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (d) {\n    return d.ranges;\n}",
+    "receiverBase": "orient",
+    "receiverCallee": "ranges"
+  },
+  {
+    "callback": "function (d) {\n    return d.measures;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "measures"
+  },
+  {
+    "callback": "function (d) {\n    return d.markers;\n}",
+    "receiverBase": "measures",
+    "receiverCallee": "markers"
+  },
+  {
+    "callback": "function (d) {\n    var s = d.title, c = d.subtitle, ev = pv.event;\n    return me.clickAction(s, c, d.measures, ev);\n}",
+    "receiverBase": "cursor",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (v, d) {\n    return d.formattedMeasures[this.index];\n}",
+    "receiverBase": "add",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (v, d) {\n    return d.formattedMarkers[this.index];\n}",
+    "receiverBase": "fillStyle",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (v, d) {\n    var s = d.title, c = d.subtitle;\n    return chart.options.tooltipFormat.call(myself, s, c, v);\n}",
+    "receiverBase": "localProperty",
+    "receiverCallee": "tooltip"
+  },
+  {
+    "callback": "function (v, d) {\n    var s = d.title, c = d.subtitle;\n    return chart.options.tooltipFormat.call(myself, s, c, v);\n}",
+    "receiverBase": "localProperty",
+    "receiverCallee": "tooltip"
+  },
+  {
+    "callback": "function (d) {\n    return d.formattedTitle;\n}",
+    "receiverBase": "top",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return d.formattedSubtitle;\n}",
+    "receiverBase": "top",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    doubleClickAction(d, arguments[arguments.length - 1]);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (d) {\n    doubleClickAction(d, arguments[arguments.length - 1]);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (options) {\n    options = options || {};\n    options.dimensions = options.dimensions || {};\n    options.dimensions.value || (options.dimensions.value = { valueType: null });\n    this.base(options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (col) {\n    return generateHashMap(col);\n}",
+    "receiverBase": "dataRowIndex",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (cat) {\n    var item2 = {}, elements = cat.split('__');\n    item2.id = cat;\n    item2.name = elements[0];\n    item2.unit = elements.length > 1 ? elements[1] : '';\n    return item2;\n}",
+    "receiverBase": "dimensions",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return {\n        min: y[t].domain()[0],\n        max: y[t].domain()[1]\n    };\n}",
+    "receiverBase": "pv",
+    "receiverCallee": "dict"
+  },
+  {
+    "callback": "function (t) {\n    var dd = dimDescr[t], val = dd.orgValue && !dd.categorical ? dd.orgValue[d[t]] : d[t];\n    return val >= filter[t].min && val <= filter[t].max;\n}",
+    "receiverBase": "dims",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (t) {\n    return d[t] >= filter[t].min && d[t] <= filter[t].max;\n}",
+    "receiverBase": "dims",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (t) {\n    return x(t);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (t, d) {\n    var res = y[t](d[t]);\n    return res;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return dimDescr[d].name;\n}",
+    "receiverBase": "font",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return d.x;\n}",
+    "receiverBase": "add",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.y;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.label;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (t) {\n    return x(t);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (t, d) {\n    return y[t](d[t]);\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (t, d) {\n    var dd = dimDescr[active], val = dd.orgValue && !dd.categorical ? dd.orgValue[d[active]] : d[active];\n    return colors[active](val);\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "strokeStyle"
+  },
+  {
+    "callback": "function (dim) {\n    return {\n        y: botRuleOffs,\n        dy: ruleHeight,\n        dim: dim\n    };\n}",
+    "receiverBase": "dims",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return x(t.dim) - 30;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.y;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function (d) {\n    return d.dy;\n}",
+    "receiverBase": "width",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (t) {\n    return t.dim == active ? colors[t.dim]((filter[t.dim].max + filter[t.dim].min) / 2) : 'hsla(0,0,50%,.5)';\n}",
+    "receiverBase": "height",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (d) {\n    return dimDescr[d.dim].categorical ? '' : filter[d.dim].min.toFixed(numDigits) + dimDescr[d.dim].unit;\n}",
+    "receiverBase": "textBaseline",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return dimDescr[d.dim].categorical ? '' : filter[d.dim].max.toFixed(numDigits) + dimDescr[d.dim].unit;\n}",
+    "receiverBase": "textBaseline",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (options) {\n    options = options || {};\n    options.dimensionGroups = options.dimensionGroups || {};\n    options.dimensionGroups.value || (options.dimensionGroups.value = { valueType: null });\n    this.base(options);\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (d) {\n    return d.x;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.y;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.height;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "height",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (d) {\n    return d.left + options.border;\n}",
+    "receiverBase": "add",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom + options.border;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.height - options.border - topMargin;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (d) {\n    return d.width - 2 * options.border;\n}",
+    "receiverBase": "height",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (d) {\n    return d.label;\n}",
+    "receiverBase": "add",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return d.left + d.width / 2;\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom + d.height - options.headerFontsize - 5 + options.headerFontsize / 5;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "width",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.lWidth;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "lineWidth"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.height;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "height",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.lWidth;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "lineWidth"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.color;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "fillStyle"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.size;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "font"
+  },
+  {
+    "callback": "function (d) {\n    return d.text;\n}",
+    "receiverBase": "font",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d) {\n    return d.color;\n}",
+    "receiverBase": "textAlign",
+    "receiverCallee": "textStyle"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.height;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (d) {\n    return d.left;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (d) {\n    return d.bottom;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "bottom"
+  },
+  {
+    "callback": "function (d) {\n    return d.width;\n}",
+    "receiverBase": "bottom",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (roleName) {\n    this._getUnboundRoleDefaultDimNames(roleName, 1, autoDimNames);\n}",
+    "receiverBase": "take",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.boxSizeRatio = plot.option('BoxSizeRatio');\n    this.maxBoxSize = plot.option('BoxSizeMax');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    return this.pvMark.parent[a_width]() / 2;\n}",
+    "receiverBase": "rule",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.boxLeft;\n}",
+    "receiverBase": "sign",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.boxWidth;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    var catVar = scene.vars.category;\n    return catVar.x - catVar.width / 2;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.width;\n}",
+    "receiverBase": "",
+    "receiverCallee": "pvMark"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.showRuleWhiskerUpper && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupRuleWhisker",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.ruleWhiskerUpperBottom;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.ruleWhiskerUpperHeight;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.showRuleWhiskerBelow && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupRuleWhisker",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.ruleWhiskerLowerBottom;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.ruleWhiskerLowerHeight;\n}",
+    "receiverBase": "lock",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.showBox && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupHCateg",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.boxBottom;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.category.boxHeight;\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (scene) {\n    return null != scene.vars.minimum.value && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupHRule",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.minimum.position;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return null != scene.vars.maximum.value && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupHRule",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.maximum.position;\n}",
+    "receiverBase": "pvMark",
+    "receiverCallee": "lock"
+  },
+  {
+    "callback": "function (scene) {\n    return null != scene.vars.median.value && this.delegateExtension(!0);\n}",
+    "receiverBase": "setupHRule",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.median.position;\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "lockMark"
+  },
+  {
+    "callback": "function (role) {\n    var svar, dimName = measureRolesDimNames[role.name];\n    if (dimName) {\n        var dim = categData.dimensions(dimName), value = dim.value(visibleKeyArgs);\n        svar = new pvc_ValueLabelVar(value, dim.format(value));\n        svar.position = orthoScale(value);\n    } else {\n        svar = new pvc_ValueLabelVar(null, '');\n        svar.position = null;\n    }\n    vars[role.name] = svar;\n}",
+    "receiverBase": "measureVisualRoles",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (info) {\n    this._addVisualRole(info.name, def.create(roleSpecBase, info));\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (axis) {\n    axis.option.defaults({ Offset: 0.02 });\n}",
+    "receiverBase": "typeAxes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (chart, type, index, keyArgs) {\n    this.base(chart, type, index, keyArgs);\n    this.isByParent = 'byparent' === chart.plots.treemap.option('ColorMode');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (c) {\n    var rgb = c.rgb();\n    r += rgb.r;\n    g += rgb.g;\n    b += rgb.b;\n    a += rgb.a;\n}",
+    "receiverBase": "colors",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    return def.hasOwnProp.call(derivedDatasByKey, k);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "removeIf"
+  },
+  {
+    "callback": "function (roleName) {\n    this._getUnboundRoleDefaultDimNames(roleName, 1, autoDimNames);\n}",
+    "receiverBase": "take",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.axes.size = chart._getAxis('size', (plot.option('SizeAxis') || 0) - 1);\n    this.visualRoles.size = chart.visualRole(plot.option('SizeRole'));\n    this.layoutMode = plot.option('LayoutMode');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.size.value;\n}",
+    "receiverBase": "scale",
+    "receiverCallee": "by1"
+  },
+  {
+    "callback": "function (n) {\n    return n.x + lw2;\n}",
+    "receiverBase": "node",
+    "receiverCallee": "left"
+  },
+  {
+    "callback": "function (n) {\n    return n.y + lw2;\n}",
+    "receiverBase": "left",
+    "receiverCallee": "top"
+  },
+  {
+    "callback": "function (n) {\n    return n.dx - lw;\n}",
+    "receiverBase": "top",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function (n) {\n    return n.dy - lw;\n}",
+    "receiverBase": "width",
+    "receiverCallee": "height"
+  },
+  {
+    "callback": "function (scene) {\n    return colorScale(scene);\n}",
+    "receiverBase": "lockMark",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return lw0;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.size.value < 0 ? 'dash' : null;\n}",
+    "receiverBase": "lineCap",
+    "receiverCallee": "strokeDasharray"
+  },
+  {
+    "callback": "function (scene) {\n    return !!scene.parent && !!scene.firstChild && this.delegateExtension(!0);\n}",
+    "receiverCallee": "intercept"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.anyInteraction() || scene.isActiveDescendantOrSelf();\n}",
+    "receiverBase": "intercept",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return 1.5 * lw;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, w) {\n    this.showsActivity() && scene.isActiveDescendantOrSelf() && (w = 1.5 * Math.max(1, w));\n    return w;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    return colorScale(scene);\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene, color, type) {\n    if ('stroke' === type) {\n        if (this.showsActivity()) {\n            if (scene.isActiveDescendantOrSelf())\n                return pv.color(color).brighter(0.5);\n            if (scene.anyActive())\n                return null;\n        }\n        if (this.showsSelection() && scene.isSelectedDescendantOrSelf())\n            return pv.color(color).brighter(0.5);\n    }\n    return null;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (scene) {\n    var text = this.defaultText(scene), pvLabel = this.pvMark;\n    return scene.dx - 2 * pvLabel.textMargin() > pv.Text.measureWidth(text, pvLabel.font()) ? 0 : scene.dx >= scene.dy ? 0 : -Math.PI / 2;\n}",
+    "receiverBase": "sign",
+    "receiverCallee": "optional"
+  },
+  {
+    "callback": "function () {\n    return pvLeafMark;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (childData) {\n    return null != childData.value;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (childData) {\n    recursive(new pvc.visual.Scene(scene, { source: childData }));\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (itemData) {\n    return itemData.parent ? isNotDegenerate(itemData) && !itemData.parent.parent : !1;\n}",
+    "receiverBase": "candidates",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (panel, protoMark, keyArgs) {\n    var pvMark = protoMark.add(pv.Wedge);\n    keyArgs = def.setDefaults(keyArgs, 'freeColor', !1);\n    this.base(panel, pvMark, keyArgs);\n    this._bindProperty('lineWidth', 'strokeWidth');\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (chart, parent, plot, options) {\n    this.base(chart, parent, plot, options);\n    this.axes.size = chart._getAxis('size', (plot.option('SizeAxis') || 0) - 1);\n    this.visualRoles.size = chart.visualRole(plot.option('SizeRole'));\n    this.sliceOrder = plot.option('SliceOrder');\n    this.emptySlicesVisible = plot.option('EmptySlicesVisible');\n    this.emptySlicesLabel = this.emptySlicesVisible ? plot.option('EmptySlicesLabel') : '';\n}",
+    "receiverBase": "type",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.vars.size.value;\n}",
+    "receiverBase": "scale",
+    "receiverCallee": "by1"
+  },
+  {
+    "callback": "function (scene) {\n    return scene.isRoot() ? '' : this.base(scene);\n}",
+    "receiverBase": "label",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function () {\n    return slice.pvMark;\n}",
+    "receiverBase": "override",
+    "receiverCallee": "override"
+  },
+  {
+    "callback": "function (childData) {\n    return null != childData.value;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "where"
+  },
+  {
+    "callback": "function (childData) {\n    recursive(new pvc.visual.SunburstScene(scene, { source: childData }));\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (childScene, index) {\n    calculateColor(childScene, index, childrenSize);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sceneA, sceneB) {\n    return compare(sceneA.vars.size.value, sceneB.vars.size.value) || def.ascending(sceneA.childIndex(), sceneB.childIndex());\n}",
+    "receiverBase": "rootScene",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (field) {\n    if (file.indexOf(field.jsFunctionName) < 0 && fieldIgnores.indexOf(field.jsFunctionName < 0)) {\n        fieldsResult.push(field.jsFunctionName);\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fn) {\n    if (file.indexOf(fn.jsFunctionName) < 0 && functionIgnores.indexOf(fn.jsFunctionName) < 0) {\n        functionsResult.push(fn.jsFunctionName);\n    }\n}",
+    "receiverBase": "functions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (idef) {\n    return findMissingTest(idef);\n}",
+    "receiverBase": "idefs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    utils.writeFile('output/missing-tests.json', output);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (fail) {\n    console.error(fail);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item) {\n    item.cleanGroup(s);\n}",
+    "receiverBase": "df",
+    "receiverCallee": "forEachReversed"
+  },
+  {
+    "callback": "function (e) {\n}",
+    "receiverBase": "",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (e) {\n}",
+    "receiverBase": "",
+    "receiverCallee": "event"
+  },
+  {
+    "callback": "function (mutation) {\n    if (mutation.addedNodes.length > 0) {\n        base.execute(mutation.addedNodes);\n    } else if (mutation.attributeName === 'data-src') {\n        base.execute(mutation.target);\n    }\n}",
+    "receiverBase": "mutations",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res, json) {\n    t.ifError(err, 'no error');\n    t.equals(res.statusCode, 401, '401');\n    t.equals(json.status, 'error', 'throws error message return');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, api, jar, res, json, done) {\n    t.ifError(err);\n    t.equals(json.status, 'error', 'returns error in status message');\n    request({\n        method: 'GET',\n        uri: 'http://localhost:' + api.options.PORT + '/api/users/'\n    }, function (err, res, json) {\n        t.ifError(err);\n        t.equals(res.statusCode, 200, '200');\n        t.equals(json.data.length, 1, 'user not created');\n        done();\n    });\n}",
+    "receiverBase": "common",
+    "receiverCallee": "testPOST"
+  },
+  {
+    "callback": "function (err, res, json) {\n    t.ifError(err);\n    t.equals(res.statusCode, 200, '200');\n    t.equals(json.data.length, 1, 'user not created');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  }
+]

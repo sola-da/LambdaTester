@@ -1,0 +1,300 @@
+[
+  {
+    "callback": "function ($, matrix) {\n    matrix.loader.set('tmpl', {\n        load: {\n            compile: function (moduleId, sourceCode) {\n                $(sourceCode).filter('script').each(function () {\n                    $.template(this.id, $(this).html());\n                });\n            },\n            buildDependencies: 'parseRequireTag'\n        },\n        url: 'folder',\n        fileExt: 'html'\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    $.template(this.id, $(this).html());\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var recorderEvents = recorder.getRecordedEvents();\n    recorder.stop();\n    t.is(recorderEvents.length, 1);\n    t.is(recorderEvents[0].type, 'click');\n    t.is(recorderEvents[0].actionTarget, '#win header[title=foo] => .x-header-text-container');\n    t.is(recorderEvents[0].targetType, 'csq');\n    if (t.getFailCount() === 0) {\n        recorderManager.destroy();\n        win.destroy();\n    }\n}",
+    "receiverBase": "t",
+    "receiverCallee": "chain"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        log.errorf('Failed to start the admin api server: ${err}', { 'err': err });\n    } else {\n        log.infof('Admin API listening on ${host}:${port}', {\n            'host': host,\n            'port': port\n        });\n    }\n    callback(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "waterfall"
+  },
+  {
+    "callback": "function (x) {\n    return x.value || x;\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    if (x == '\\n')\n        return x + indentString;\n    if (typeof x == 'string')\n        return x.replace(/\\t/g, tabString);\n    return x;\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return typeof t === 'object';\n}",
+    "receiverBase": "value",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (ts) {\n    ts.length = 0;\n}",
+    "receiverBase": "tabstops",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    if (typeof t === 'string') {\n        if (t[0] === '\\n') {\n            column = t.length - 1;\n            row++;\n        } else\n            column += t.length;\n        text += t;\n    } else {\n        if (!t.start)\n            t.start = {\n                row: row,\n                column: column\n            };\n        else\n            t.end = {\n                row: row,\n                column: column\n            };\n    }\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    self.insertSnippetForSelection(editor, snippetText);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "forEachSelection"
+  },
+  {
+    "callback": "function () {\n    return self.expandSnippetForSelection(editor, options);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "forEachSelection"
+  },
+  {
+    "callback": "function (scope) {\n    var snippets = snippetMap[scope];\n    if (snippets)\n        snippet = this.findMatchingSnippet(snippets, before, after);\n    return !!snippet;\n}",
+    "receiverBase": "getActiveScopes",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (scope) {\n    var snippets = snippetMap[scope];\n    if (snippets)\n        snippet = snippets[name];\n    return !!snippet;\n}",
+    "receiverBase": "getActiveScopes",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (r) {\n    return comparePoints(r.start, start) <= 0 && comparePoints(r.end, end) >= 0;\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (range) {\n    if (!range.markerId)\n        range.markerId = session.addMarker(range, 'ace_snippet-marker', 'text');\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (range) {\n    session.removeMarker(range.markerId);\n    range.markerId = null;\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    var pos = e.getDocumentPosition();\n    popup.selection.moveToPosition(pos);\n    selectionMarker.start.row = selectionMarker.end.row = pos.row;\n    e.stop();\n}",
+    "receiverBase": "popup",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (!lastMouseEvent) {\n        lastMouseEvent = e;\n        return;\n    }\n    if (lastMouseEvent.x == e.x && lastMouseEvent.y == e.y) {\n        return;\n    }\n    lastMouseEvent = e;\n    lastMouseEvent.scrollTop = popup.renderer.scrollTop;\n    var row = lastMouseEvent.getDocumentPosition().row;\n    if (hoverMarker.start.row != row) {\n        if (!hoverMarker.id)\n            popup.setRow(row);\n        setHoverMarker(row);\n    }\n}",
+    "receiverBase": "popup",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (lastMouseEvent && hoverMarker.start.row != -1) {\n        lastMouseEvent.$pos = null;\n        var row = lastMouseEvent.getDocumentPosition().row;\n        if (!hoverMarker.id)\n            popup.setRow(row);\n        setHoverMarker(row, true);\n    }\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var row = popup.getRow();\n    var t = popup.renderer.$textLayer;\n    var selected = t.element.childNodes[row - t.config.firstRow];\n    if (selected == t.selectedNode)\n        return;\n    if (t.selectedNode)\n        dom.removeCssClass(t.selectedNode, 'ace_selected');\n    t.selectedNode = selected;\n    if (selected)\n        dom.addCssClass(selected, 'ace_selected');\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (popup.isOpen)\n        popup.setRow(popup.selection.lead.row);\n}",
+    "receiverBase": "popup",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (result, err) {\n    completed++;\n    if (completed === arLength)\n        callback(result, err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fn"
+  },
+  {
+    "callback": "function (completer, i) {\n    completer.getCompletions(editor, session, pos, prefix, function (err, results) {\n        if (!err)\n            matches = matches.concat(results);\n        var pos = editor.getCursorPosition();\n        var line = session.getLine(pos.row);\n        callback(null, {\n            prefix: util.retrievePrecedingIdentifier(line, pos.column, results[0] && results[0].identifierRegex),\n            matches: matches,\n            finished: --total === 0\n        });\n    });\n}",
+    "receiverBase": "completers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, results) {\n    if (!err)\n        matches = matches.concat(results);\n    var pos = editor.getCursorPosition();\n    var line = session.getLine(pos.row);\n    callback(null, {\n        prefix: util.retrievePrecedingIdentifier(line, pos.column, results[0] && results[0].identifierRegex),\n        matches: matches,\n        finished: --total === 0\n    });\n}",
+    "receiverBase": "completer",
+    "receiverCallee": "getCompletions"
+  },
+  {
+    "callback": "function (completer) {\n    if (completer.getDocTooltip)\n        doc = completer.getDocTooltip(selected);\n    return doc;\n}",
+    "receiverBase": "completers",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.exactMatch - a.exactMatch || b.score - a.score;\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (item) {\n    var caption = item.snippet || item.caption || item.value;\n    if (caption === prev)\n        return false;\n    prev = caption;\n    return true;\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (word, idx) {\n    if (!word || word === currentWord)\n        return;\n    var distance = Math.abs(prefixPos - idx);\n    var score = words.length - distance;\n    if (wordScores[word]) {\n        wordScores[word] = Math.max(score, wordScores[word]);\n    } else {\n        wordScores[word] = score;\n    }\n}",
+    "receiverBase": "words",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (word) {\n    return {\n        caption: word,\n        value: word,\n        score: wordScore[word],\n        meta: 'local'\n    };\n}",
+    "receiverBase": "wordList",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (scope) {\n    var snippets = snippetMap[scope] || [];\n    for (var i = snippets.length; i--;) {\n        var s = snippets[i];\n        var caption = s.name || s.tabTrigger;\n        if (!caption)\n            continue;\n        completions.push({\n            caption: caption,\n            snippet: s.content,\n            meta: s.tabTrigger && !s.name ? s.tabTrigger + '\\u21E5 ' : 'snippet',\n            type: 'snippet'\n        });\n    }\n}",
+    "receiverBase": "getActiveScopes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    if (m) {\n        snippetManager.files[id] = m;\n        if (!m.snippets && m.snippetText)\n            m.snippets = snippetManager.parseSnippetFile(m.snippetText);\n        snippetManager.register(m.snippets || [], m.scope);\n        if (m.includeScopes) {\n            snippetManager.snippetMap[m.scope].includeScopes = m.includeScopes;\n            m.includeScopes.forEach(function (x) {\n                loadSnippetFile('ace/mode/' + x);\n            });\n        }\n    }\n}",
+    "receiverBase": "config",
+    "receiverCallee": "loadModule"
+  },
+  {
+    "callback": "function (x) {\n    loadSnippetFile('ace/mode/' + x);\n}",
+    "receiverBase": "includeScopes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (completer) {\n    if (completer.identifierRegexps) {\n        completer.identifierRegexps.forEach(function (identifierRegex) {\n            if (!prefix && identifierRegex)\n                prefix = util.retrievePrecedingIdentifier(line, pos.column, identifierRegex);\n        });\n    }\n}",
+    "receiverBase": "completers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (identifierRegex) {\n    if (!prefix && identifierRegex)\n        prefix = util.retrievePrecedingIdentifier(line, pos.column, identifierRegex);\n}",
+    "receiverBase": "identifierRegexps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    window.require(['ace/ext/language_tools'], function () {\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "window",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (app, controllerName) {\n    return app.__container__.lookup('controller:' + controllerName);\n}",
+    "receiverBase": "Test",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function () {\n    visit(visitRoute);\n    andThen(function () {\n        equal(currentURL(), '/signin', 'signin page  is rendered');\n        equal(currentRouteName(), 'signin', 'signin  Route is working Fine');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(currentURL(), '/signin', 'signin page  is rendered');\n    equal(currentRouteName(), 'signin', 'signin  Route is working Fine');\n}",
+    "receiverBase": "",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function () {\n    visit(visitRoute).fillIn('input#signinemail', '').fillIn('input#signinpassword', '').click('button#signin-btn').then(function (result) {\n        var msg = find('#validatemessage').text();\n        equal(msg, 'Enter the required fields', 'Sigin process failed due to ' + msg);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (result) {\n    var msg = find('#validatemessage').text();\n    equal(msg, 'Enter the required fields', 'Sigin process failed due to ' + msg);\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    var msg = find('#validatemessage').text();\n    if (msg == '') {\n        equal(currentURL(), '/home', 'Dashboard page is rendered');\n        equal(currentRouteName(), 'home', currentRouteName() + ' is found in Dashboard');\n    } else {\n        equal(msg, 'Invalid email or password', 'Registration failed - Error text captured as ' + msg);\n    }\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    visit(visitRoute);\n    andThen(function () {\n        equal(currentURL(), '/signup', 'signup page  is rendered');\n        equal(currentRouteName(), 'signup', 'signup  Route is working Fine');\n        equal(currentPath(), 'signup', 'Current path is  signup path');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(currentURL(), '/signup', 'signup page  is rendered');\n    equal(currentRouteName(), 'signup', 'signup  Route is working Fine');\n    equal(currentPath(), 'signup', 'Current path is  signup path');\n}",
+    "receiverBase": "",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function () {\n    visit(visitRoute).fillIn('input#name', '').fillIn('input#username', '').fillIn('input#email', '').fillIn('input#password', '').click('button#signup-btn').then(function (result) {\n        var msg = find('#validatemessage').text();\n        if (msg == 'Enter the required fields') {\n            equal(msg, 'Enter the required fields', 'Sigup process failed - captured the Error msg- ' + msg);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (result) {\n    var msg = find('#validatemessage').text();\n    if (msg == 'Enter the required fields') {\n        equal(msg, 'Enter the required fields', 'Sigup process failed - captured the Error msg- ' + msg);\n    }\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    var msg = find('#validatemessage').text();\n    if (msg == '') {\n        equal(currentRouteName(), 'signin', 'Successfully signed up and redirected to  sigin page,captured ' + currentRouteName() + 'Route');\n    } else if (msg == 'Enter valid email') {\n        equal(msg, 'Enter valid email', 'Registration failed - Error text captured as ' + msg);\n    } else {\n        equal(msg, 'User already exist', 'Sigup process failed - captured the Error msg- ' + msg);\n    }\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    visit(visitRoute);\n    andThen(function () {\n        equal(currentURL(), '/home', 'Dashboard page  is rendered');\n        equal(currentRouteName(), 'home', 'home  Route is working Fine');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(currentURL(), '/home', 'Dashboard page  is rendered');\n    equal(currentRouteName(), 'home', 'home  Route is working Fine');\n}",
+    "receiverBase": "",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function (callback2) {\n    setTimeout(function () {\n        callback2(null, value * 2);\n    }, 1000);\n}",
+    "receiverBase": "",
+    "receiverCallee": "Thunk"
+  },
+  {
+    "callback": "function () {\n    callback2(null, value * 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (error) {\n    console.log(error, result);\n    console.timeEnd('Thunk_series');\n}",
+    "receiverBase": "",
+    "receiverCallee": "thunk"
+  },
+  {
+    "callback": "function (req, res) {\n    var body = '';\n    req.setEncoding('utf8');\n    req.on('data', function (chunk) {\n        body += chunk;\n    });\n    req.on('end', function () {\n        assert.equal('PING', body);\n        res.writeHead(200);\n        res.end('PONG');\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (chunk) {\n    body += chunk;\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert.equal('PING', body);\n    res.writeHead(200);\n    res.end('PONG');\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res) {\n    var body = '';\n    res.setEncoding('utf8');\n    res.on('data', function (chunk) {\n        body += chunk;\n    });\n    res.on('end', function () {\n        assert.equal('PONG', body);\n        assert.ok(!hadError);\n        gotEnd = true;\n        afterPing('success');\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (chunk) {\n    body += chunk;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert.equal('PONG', body);\n    assert.ok(!hadError);\n    gotEnd = true;\n    afterPing('success');\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (error) {\n    console.log('Error making ping req: ' + error);\n    hadError = true;\n    assert.ok(!gotEnd);\n    afterPing(error.message);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.error('process.on(\\'exit\\')');\n    console.error(responses);\n    assert.equal(8, responses.length);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "callback": "function (data) {\n    self[data.failed ? 'settingsFail' : 'settingsSuccess'](data);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    self.settingsFail(false);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (data) {\n    self[data.failed ? 'passwordFail' : 'passwordSuccess'](data);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    self.passwordFail(false);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    button.hide();\n    status.text = 'Removing, please wait...';\n    Cloud.Messages.removeThread({ thread_id: evt.id }, function (e) {\n        if (e.success) {\n            status.text = 'Removed!';\n        } else {\n            status.text = '' + (e.error && e.message) || e;\n        }\n    });\n}",
+    "receiverBase": "button",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.success) {\n        status.text = 'Removed!';\n    } else {\n        status.text = '' + (e.error && e.message) || e;\n    }\n}",
+    "receiverBase": "Messages",
+    "receiverCallee": "removeThread"
+  },
+  {
+    "callback": "function (_) {\n    return function (obj, path, defaultValue) {\n        if (typeof path == 'string')\n            path = path.split('.');\n        if (obj === undefined)\n            return defaultValue;\n        if (path.length === 0)\n            return obj;\n        if (obj === null)\n            return defaultValue;\n        return objectPath(obj[_.first(path)], _.rest(path), defaultValue);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    $([\n        build,\n        dist\n    ], { dirs: true }).delete();\n}",
+    "receiverBase": "target",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function (module, i18n) {\n    if (self[module]) {\n        RightJS.$ext(self[module].i18n, i18n);\n    }\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_super) {\n    AutoRunner.RUNNERS.zepto = this;\n    return {\n        _makeResult: function () {\n            return new TestResult(this.logger);\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "inherit"
+  },
+  {
+    "callback": "function () {\n    var _super = AutoRunner.prototype.retrieveOptions;\n    AutoRunner.prototype.retrieveOptions = function () {\n        var options = _super.call(this);\n        if (!options.runner)\n            options.runner = 'zepto';\n        return options;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (db) {\n    db.addListener('connection', function () {\n        good_connected = true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    good_connected = true;\n}",
+    "receiverBase": "db",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (reason) {\n    bad_failed = true;\n}",
+    "receiverBase": "db2",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    assert.ok(good_connected, 'good server failed to connect');\n    assert.ok(bad_failed, 'bad server failed to fail');\n}",
+    "receiverBase": "process",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    var data = $this.data('zui.autoTrigger');\n    var options = typeof option == 'object' && option;\n    if (!data)\n        $this.data('zui.autoTrigger', data = new AutoTrigger(this, options));\n    if (typeof option == 'string')\n        data[option]();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('[data-toggle=\"autoTrigger\"]').autoTrigger();\n    $('[data-toggle=\"toggle\"]').autoTrigger();\n    $('[data-toggle=\"show\"]').autoTrigger({ trigger: 'show' });\n    $('[data-toggle=\"hide\"]').autoTrigger({ trigger: 'hide' });\n    $('[data-toggle=\"addClass\"]').autoTrigger({ trigger: 'addClass' });\n    $('[data-toggle=\"removeClass\"]').autoTrigger({ trigger: 'removeClass' });\n    $('[data-toggle=\"toggleClass\"]').autoTrigger({ trigger: 'toggleClass' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (m) {\n    var hex = m.substring(1);\n    return String.fromCharCode(parseInt(hex, 16));\n}",
+    "receiverBase": "input",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m, what) {\n    return match[what === '$' ? 0 : Number(what)];\n}",
+    "receiverBase": "pattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function ($injector, $location) {\n    return handleIfMatch($injector, handler, what.exec($location.path(), $location.search()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function ($injector, $location) {\n    return handleIfMatch($injector, handler, what.exec($location.path()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function () {\n    editor.fire('paste', { 'html': html });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    iframe.$.contentWindow.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

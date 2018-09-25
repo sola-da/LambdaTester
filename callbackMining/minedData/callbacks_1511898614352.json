@@ -1,0 +1,2999 @@
+[
+  {
+    "callback": "function () {\n    fs.exists(testDb, function (exists) {\n        if (exists) {\n            fs.unlink(testDb, cb);\n        } else {\n            return cb();\n        }\n    });\n}",
+    "receiverBase": "Persistence",
+    "receiverCallee": "ensureDirectoryExists"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        fs.unlink(testDb, cb);\n    } else {\n        return cb();\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.getAllData().length.should.equal(0);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function () {\n    var dbef = new Datastore('somefile');\n    dbef.filename.should.equal('somefile');\n    dbef.inMemoryOnly.should.equal(false);\n    var dbef = new Datastore('');\n    assert.isNull(dbef.filename);\n    dbef.inMemoryOnly.should.equal(true);\n    var dbef = new Datastore();\n    assert.isNull(dbef.filename);\n    dbef.inMemoryOnly.should.equal(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(2);\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    done('Find should not be executed since autoload failed');\n}",
+    "receiverBase": "db",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.find({}, function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(1);\n        Object.keys(docs[0]).length.should.equal(2);\n        docs[0].somedata.should.equal('ok');\n        assert.isDefined(docs[0]._id);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(1);\n    Object.keys(docs[0]).length.should.equal(2);\n    docs[0].somedata.should.equal('ok');\n    assert.isDefined(docs[0]._id);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'another' }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            d.find({}, function (err, docs) {\n                docs.length.should.equal(3);\n                _.pluck(docs, 'somedata').should.contain('ok');\n                _.pluck(docs, 'somedata').should.contain('another');\n                _.pluck(docs, 'somedata').should.contain('again');\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        d.find({}, function (err, docs) {\n            docs.length.should.equal(3);\n            _.pluck(docs, 'somedata').should.contain('ok');\n            _.pluck(docs, 'somedata').should.contain('another');\n            _.pluck(docs, 'somedata').should.contain('again');\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(3);\n        _.pluck(docs, 'somedata').should.contain('ok');\n        _.pluck(docs, 'somedata').should.contain('another');\n        _.pluck(docs, 'somedata').should.contain('again');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(3);\n    _.pluck(docs, 'somedata').should.contain('ok');\n    _.pluck(docs, 'somedata').should.contain('another');\n    _.pluck(docs, 'somedata').should.contain('again');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.findOne({}, function (err, res) {\n        assert.isNull(err);\n        res.a.length.should.equal(3);\n        res.a[0].should.equal('ee');\n        res.a[1].should.equal('ff');\n        res.a[2].should.equal(42);\n        res.date.getTime().should.equal(da.getTime());\n        res.subobj.a.should.equal('b');\n        res.subobj.b.should.equal('c');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, res) {\n    assert.isNull(err);\n    res.a.length.should.equal(3);\n    res.a[0].should.equal('ee');\n    res.a[1].should.equal('ff');\n    res.a[2].should.equal(42);\n    res.date.getTime().should.equal(da.getTime());\n    res.subobj.a.should.equal('b');\n    res.subobj.b.should.equal('c');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.a.should.equal('something');\n    doc.a = 'another thing';\n    doc.a.should.equal('another thing');\n    d.findOne({}, function (err, doc) {\n        doc.a.should.equal('something');\n        doc.a = 'another thing';\n        doc.a.should.equal('another thing');\n        d.find({}, function (err, docs) {\n            docs[0].a.should.equal('something');\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.a.should.equal('something');\n    doc.a = 'another thing';\n    doc.a.should.equal('another thing');\n    d.find({}, function (err, docs) {\n        docs[0].a.should.equal('something');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs[0].a.should.equal('something');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ $something: 'atest' }, function (err) {\n        assert.isDefined(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({\n        _id: 'test',\n        stuff: true\n    }, function (err, newDoc) {\n        if (err) {\n            return done(err);\n        }\n        newDoc.stuff.should.equal(true);\n        newDoc._id.should.equal('test');\n        d.insert({\n            _id: 'test',\n            otherstuff: 42\n        }, function (err) {\n            err.errorType.should.equal('uniqueViolated');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    if (err) {\n        return done(err);\n    }\n    newDoc.stuff.should.equal(true);\n    newDoc._id.should.equal('test');\n    d.insert({\n        _id: 'test',\n        otherstuff: 42\n    }, function (err) {\n        err.errorType.should.equal('uniqueViolated');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({\n        a: 2,\n        hello: 'world'\n    }, function (err, newDoc) {\n        newDoc.hello = 'changed';\n        d.findOne({ a: 2 }, function (err, doc) {\n            doc.hello.should.equal('world');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    newDoc.hello = 'changed';\n    d.findOne({ a: 2 }, function (err, doc) {\n        doc.hello.should.equal('world');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.hello.should.equal('world');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.a === 5;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.a === 42;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (line) {\n    return line.length > 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    d.find({}, function (err, docs) {\n        var datafileContents = model.deserialize(fs.readFileSync(testDb, 'utf8'));\n        assert.deepEqual(datafileContents, {\n            $$indexCreated: {\n                fieldName: 'a',\n                unique: true\n            }\n        });\n        docs.length.should.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    var datafileContents = model.deserialize(fs.readFileSync(testDb, 'utf8'));\n    assert.deepEqual(datafileContents, {\n        $$indexCreated: {\n            fieldName: 'a',\n            unique: true\n        }\n    });\n    docs.length.should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({\n        _id: 0,\n        hello: 'world'\n    }, function (err, doc) {\n        doc._id.should.equal(0);\n        doc.hello.should.equal('world');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc._id.should.equal(0);\n    doc.hello.should.equal('world');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function MINE(ex) {\n    for (i = 0; i < currentUncaughtExceptionHandlers.length; i += 1) {\n        process.on('uncaughtException', currentUncaughtExceptionHandlers[i]);\n    }\n    ex.should.equal('SOME EXCEPTION');\n    done();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d.findOne({ a: 5 }, function (err, doc) {\n        if (tryCount === 0) {\n            tryCount += 1;\n            throw 'SOME EXCEPTION';\n        } else {\n            done('Callback was called twice');\n        }\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (tryCount === 0) {\n        tryCount += 1;\n        throw 'SOME EXCEPTION';\n    } else {\n        done('Callback was called twice');\n    }\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function () {\n    var data = d.getCandidates({\n            r: 6,\n            tf: 4\n        }), doc1 = _.find(data, function (d) {\n            return d._id === _doc1._id;\n        }), doc2 = _.find(data, function (d) {\n            return d._id === _doc2._id;\n        });\n    data.length.should.equal(2);\n    assert.deepEqual(doc1, {\n        _id: doc1._id,\n        tf: 4\n    });\n    assert.deepEqual(doc2, {\n        _id: doc2._id,\n        tf: 4,\n        an: 'other'\n    });\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc4._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === _doc4._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'another',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(3);\n    _.pluck(docs, 'somedata').should.contain('ok');\n    _.pluck(docs, 'somedata').should.contain('another');\n    _.find(docs, function (d) {\n        return d.somedata === 'another';\n    }).plus.should.equal('additional data');\n    _.pluck(docs, 'somedata').should.contain('again');\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d.somedata === 'another';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(2);\n    _.pluck(docs, 'somedata').should.not.contain('ok');\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(0);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    Object.keys(doc).length.should.equal(2);\n    doc.somedata.should.equal('ok');\n    assert.isDefined(doc._id);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    d.findOne({ sth: { name: 'nedb' } }, function (err, doc) {\n        assert.isNull(err);\n        doc.sth.name.should.equal('nedb');\n        d.findOne({ sth: { name: 'other' } }, function (err, doc) {\n            assert.isNull(err);\n            assert.isNull(doc);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    doc.sth.name.should.equal('nedb');\n    d.findOne({ sth: { name: 'other' } }, function (err, doc) {\n        assert.isNull(err);\n        assert.isNull(doc);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    doc.greeting.english.should.equal('hello');\n    d.findOne({ 'greeting.english': 'hellooo' }, function (err, doc) {\n        assert.isNull(err);\n        assert.isNull(doc);\n        d.findOne({ 'greeting.englis': 'hello' }, function (err, doc) {\n            assert.isNull(err);\n            assert.isNull(doc);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    d.findOne({ 'greeting.englis': 'hello' }, function (err, doc) {\n        assert.isNull(err);\n        assert.isNull(doc);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(2);\n    _.pluck(docs, '_id').should.contain(doc1._id);\n    _.pluck(docs, '_id').should.contain(doc3._id);\n    d.find({ fruits: 'doesntexist' }, function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ hello: 'world' }, function () {\n        d.find({ $or: { hello: 'world' } }, function (err, docs) {\n            assert.isDefined(err);\n            assert.isUndefined(docs);\n            d.findOne({ $or: { hello: 'world' } }, function (err, doc) {\n                assert.isDefined(err);\n                assert.isUndefined(doc);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    d.find({ $or: { hello: 'world' } }, function (err, docs) {\n        assert.isDefined(err);\n        assert.isUndefined(docs);\n        d.findOne({ $or: { hello: 'world' } }, function (err, doc) {\n            assert.isDefined(err);\n            assert.isUndefined(doc);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isDefined(err);\n    assert.isUndefined(docs);\n    d.findOne({ $or: { hello: 'world' } }, function (err, doc) {\n        assert.isDefined(err);\n        assert.isUndefined(doc);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isDefined(err);\n    assert.isUndefined(doc);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function () {\n    d.findOne({ a: 2 }, function (err, doc) {\n        doc.hello = 'changed';\n        d.findOne({ a: 2 }, function (err, doc) {\n            doc.hello.should.equal('world');\n            d.find({ a: 2 }, function (err, docs) {\n                docs[0].hello = 'changed';\n                d.findOne({ a: 2 }, function (err, doc) {\n                    doc.hello.should.equal('world');\n                    done();\n                });\n            });\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.hello = 'changed';\n    d.findOne({ a: 2 }, function (err, doc) {\n        doc.hello.should.equal('world');\n        d.find({ a: 2 }, function (err, docs) {\n            docs[0].hello = 'changed';\n            d.findOne({ a: 2 }, function (err, doc) {\n                doc.hello.should.equal('world');\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.hello.should.equal('world');\n    d.find({ a: 2 }, function (err, docs) {\n        docs[0].hello = 'changed';\n        d.findOne({ a: 2 }, function (err, doc) {\n            doc.hello.should.equal('world');\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs[0].hello = 'changed';\n    d.findOne({ a: 2 }, function (err, doc) {\n        doc.hello.should.equal('world');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.hello.should.equal('world');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function () {\n    d.insert({\n        a: 15,\n        hello: 'home'\n    }, function () {\n        d.find({}).sort({ a: 1 }).limit(2).exec(function (err, docs) {\n            assert.isNull(err);\n            docs.length.should.equal(2);\n            docs[0].hello.should.equal('world');\n            docs[1].hello.should.equal('blueplanet');\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function () {\n    d.find({}).sort({ a: 1 }).limit(2).exec(function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(2);\n        docs[0].hello.should.equal('world');\n        docs[1].hello.should.equal('blueplanet');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(2);\n    docs[0].hello.should.equal('world');\n    docs[1].hello.should.equal('blueplanet');\n    done();\n}",
+    "receiverBase": "limit",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    doc.hello.should.equal('home');\n    d.findOne({ a: { $gt: 14 } }).sort({ a: 1 }).skip(1).exec(function (err, doc) {\n        assert.isNull(err);\n        doc.hello.should.equal('earth');\n        d.findOne({ a: { $gt: 14 } }).sort({ a: 1 }).skip(2).exec(function (err, doc) {\n            assert.isNull(err);\n            assert.isNull(doc);\n            done();\n        });\n    });\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    doc.hello.should.equal('earth');\n    d.findOne({ a: { $gt: 14 } }).sort({ a: 1 }).skip(2).exec(function (err, doc) {\n        assert.isNull(err);\n        assert.isNull(doc);\n        done();\n    });\n}",
+    "receiverBase": "skip",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.isNull(doc);\n    done();\n}",
+    "receiverBase": "skip",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(1);\n    assert.deepEqual(docs[0], { hello: 'world' });\n    d.find({ a: 2 }, {\n        a: 0,\n        hello: 1\n    }, function (err, docs) {\n        assert.isNotNull(err);\n        assert.isUndefined(docs);\n        d.find({ a: 2 }, {\n            a: 0,\n            hello: 1\n        }).exec(function (err, docs) {\n            assert.isNotNull(err);\n            assert.isUndefined(docs);\n            done();\n        });\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNotNull(err);\n    assert.isUndefined(docs);\n    d.find({ a: 2 }, {\n        a: 0,\n        hello: 1\n    }).exec(function (err, docs) {\n        assert.isNotNull(err);\n        assert.isUndefined(docs);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNotNull(err);\n    assert.isUndefined(docs);\n    done();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNull(err);\n    assert.deepEqual(doc, { hello: 'world' });\n    d.findOne({ a: 2 }, {\n        a: 0,\n        hello: 1\n    }, function (err, doc) {\n        assert.isNotNull(err);\n        assert.isUndefined(doc);\n        d.findOne({ a: 2 }, {\n            a: 0,\n            hello: 1\n        }).exec(function (err, doc) {\n            assert.isNotNull(err);\n            assert.isUndefined(doc);\n            done();\n        });\n    });\n}",
+    "receiverBase": "findOne",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNotNull(err);\n    assert.isUndefined(doc);\n    d.findOne({ a: 2 }, {\n        a: 0,\n        hello: 1\n    }).exec(function (err, doc) {\n        assert.isNotNull(err);\n        assert.isUndefined(doc);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isNotNull(err);\n    assert.isUndefined(doc);\n    done();\n}",
+    "receiverBase": "findOne",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'another',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(3);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'again' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'again' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(2);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(0);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, doc3) {\n    d.count({ fruits: 'pear' }, function (err, docs) {\n        assert.isNull(err);\n        docs.should.equal(2);\n        d.count({ fruits: 'banana' }, function (err, docs) {\n            assert.isNull(err);\n            docs.should.equal(2);\n            d.count({ fruits: 'doesntexist' }, function (err, docs) {\n                assert.isNull(err);\n                docs.should.equal(0);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(2);\n    d.count({ fruits: 'banana' }, function (err, docs) {\n        assert.isNull(err);\n        docs.should.equal(2);\n        d.count({ fruits: 'doesntexist' }, function (err, docs) {\n            assert.isNull(err);\n            docs.should.equal(0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(2);\n    d.count({ fruits: 'doesntexist' }, function (err, docs) {\n        assert.isNull(err);\n        docs.should.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ hello: 'world' }, function () {\n        d.count({ $or: { hello: 'world' } }, function (err, docs) {\n            assert.isDefined(err);\n            assert.isUndefined(docs);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    d.count({ $or: { hello: 'world' } }, function (err, docs) {\n        assert.isDefined(err);\n        assert.isUndefined(docs);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isDefined(err);\n    assert.isUndefined(docs);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err) {\n        d.insert({ somedata: 'another' }, function (err) {\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    d.insert({ somedata: 'another' }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (d) {\n    return d.somedata === 'ok';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d.somedata === 'again';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d.somedata === 'another';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d.newDoc === 'yes';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id1;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id2;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id3;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, doc1) {\n    id1 = doc1._id;\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err, doc2) {\n        id2 = doc2._id;\n        d.insert({ somedata: 'again' }, function (err, doc3) {\n            id3 = doc3._id;\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc2) {\n    id2 = doc2._id;\n    d.insert({ somedata: 'again' }, function (err, doc3) {\n        id3 = doc3._id;\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc3) {\n    id3 = doc3._id;\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, n) {\n    assert.isNull(err);\n    n.should.equal(2);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err) {\n    cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id1;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id2;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === id3;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, doc1) {\n    id1 = doc1._id;\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err, doc2) {\n        id2 = doc2._id;\n        d.insert({ somedata: 'again' }, function (err, doc3) {\n            id3 = doc3._id;\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc2) {\n    id2 = doc2._id;\n    d.insert({ somedata: 'again' }, function (err, doc3) {\n        id3 = doc3._id;\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc3) {\n    id3 = doc3._id;\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, n) {\n    assert.isNull(err);\n    n.should.equal(1);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    docs[0].something.should.equal('created ok');\n    newDoc.newField = true;\n    d.find({}, function (err, docs) {\n        docs[0].something.should.equal('created ok');\n        assert.isUndefined(docs[0].newField);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs[0].something.should.equal('created ok');\n    assert.isUndefined(docs[0].newField);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.find({}, function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(1);\n        var doc = docs[0];\n        Object.keys(doc).length.should.equal(3);\n        doc.hello.should.equal('world');\n        doc.bloup.should.equal('blap');\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(1);\n    var doc = docs[0];\n    Object.keys(doc).length.should.equal(3);\n    doc.hello.should.equal('world');\n    doc.bloup.should.equal('blap');\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.find({ hello: 'world' }, function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(1);\n        var doc = docs[0];\n        Object.keys(doc).length.should.equal(3);\n        doc.hello.should.equal('world');\n        doc.bloup.should.equal(3);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(1);\n    var doc = docs[0];\n    Object.keys(doc).length.should.equal(3);\n    doc.hello.should.equal('world');\n    doc.bloup.should.equal(3);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    d.find({ hello: 'world' }, function (err, docs) {\n        assert.isNull(err);\n        docs.length.should.equal(1);\n        var doc = docs[0];\n        Object.keys(doc).length.should.equal(4);\n        doc.cac.should.equal('rrr');\n        doc.hello.should.equal('world');\n        doc.bloup.should.equal(3);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.isNull(err);\n    docs.length.should.equal(1);\n    var doc = docs[0];\n    Object.keys(doc).length.should.equal(4);\n    doc.cac.should.equal('rrr');\n    doc.hello.should.equal('world');\n    doc.bloup.should.equal(3);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (done) {\n    d.update({ _id: '1234' }, { $set: { $$badfield: 5 } }, { upsert: true }, function (err, doc) {\n        assert.isDefined(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, doc) {\n    assert.isDefined(err);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    d.update({}, {\n        $inc: { test: 5 },\n        mixed: 'rrr'\n    }, { multi: false }, function (err) {\n        assert.isDefined(err);\n        d.update({}, { $inexistent: { test: 5 } }, { multi: false }, function (err) {\n            assert.isDefined(err);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    d.update({}, { $inexistent: { test: 5 } }, { multi: false }, function (err) {\n        assert.isDefined(err);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, nr) {\n    assert.isNull(err);\n    nr.should.equal(1);\n    d.findOne({ _id: id }, function (err, doc) {\n        Object.keys(doc).length.should.equal(3);\n        doc._id.should.equal(id);\n        doc.something.should.equal('changed');\n        doc.other.should.equal(50);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, doc) {\n    Object.keys(doc).length.should.equal(3);\n    doc._id.should.equal(id);\n    doc.something.should.equal('changed');\n    doc.other.should.equal(50);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, nr, newDoc) {\n    assert.isNull(err);\n    nr.should.equal(1);\n    newDoc.bloup.should.equal('blap');\n    newDoc.hello.should.equal('world');\n    assert.isDefined(newDoc._id);\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(1);\n        Object.keys(docs[0]).length.should.equal(3);\n        docs[0].hello.should.equal('world');\n        docs[0].bloup.should.equal('blap');\n        assert.isDefined(docs[0]._id);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    Object.keys(docs[0]).length.should.equal(3);\n    docs[0].hello.should.equal('world');\n    docs[0].bloup.should.equal('blap');\n    assert.isDefined(docs[0]._id);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    d.findOne({}, function (err, doc) {\n        doc.bloup.blip.should.equal('hello');\n        doc.bloup.other.should.equal(true);\n        d.update({}, { $set: { bloup: { blip: 'ola' } } }, {}, function () {\n            d.findOne({}, function (err, doc) {\n                doc.bloup.blip.should.equal('ola');\n                assert.isUndefined(doc.bloup.other);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.bloup.blip.should.equal('hello');\n    doc.bloup.other.should.equal(true);\n    d.update({}, { $set: { bloup: { blip: 'ola' } } }, {}, function () {\n        d.findOne({}, function (err, doc) {\n            doc.bloup.blip.should.equal('ola');\n            assert.isUndefined(doc.bloup.other);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function () {\n    d.findOne({}, function (err, doc) {\n        doc.bloup.blip.should.equal('ola');\n        assert.isUndefined(doc.bloup.other);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, doc) {\n    doc.bloup.blip.should.equal('ola');\n    assert.isUndefined(doc.bloup.other);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ hello: 'world' }, function () {\n        d.update({ $or: { hello: 'world' } }, { a: 1 }, {}, function (err, nr, upsert) {\n            assert.isDefined(err);\n            assert.isUndefined(nr);\n            assert.isUndefined(upsert);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    d.update({ $or: { hello: 'world' } }, { a: 1 }, {}, function (err, nr, upsert) {\n        assert.isDefined(err);\n        assert.isUndefined(nr);\n        assert.isUndefined(upsert);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, nr, upsert) {\n    assert.isDefined(err);\n    assert.isUndefined(nr);\n    assert.isUndefined(upsert);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ hello: 'world' }, function (err, newDoc) {\n        d.update({}, { $inc: { hello: 4 } }, {}, function (err, nr) {\n            assert.isDefined(err);\n            assert.isUndefined(nr);\n            d.find({}, function (err, docs) {\n                assert.deepEqual(docs, [{\n                        _id: newDoc._id,\n                        hello: 'world'\n                    }]);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    d.update({}, { $inc: { hello: 4 } }, {}, function (err, nr) {\n        assert.isDefined(err);\n        assert.isUndefined(nr);\n        d.find({}, function (err, docs) {\n            assert.deepEqual(docs, [{\n                    _id: newDoc._id,\n                    hello: 'world'\n                }]);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, nr) {\n    assert.isDefined(err);\n    assert.isUndefined(nr);\n    d.find({}, function (err, docs) {\n        assert.deepEqual(docs, [{\n                _id: newDoc._id,\n                hello: 'world'\n            }]);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.deepEqual(docs, [{\n            _id: newDoc._id,\n            hello: 'world'\n        }]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(1);\n        Object.keys(docs[0]).length.should.equal(2);\n        docs[0].a.should.equal(2);\n        docs[0]._id.should.equal(newDoc._id);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    Object.keys(docs[0]).length.should.equal(2);\n    docs[0].a.should.equal(2);\n    docs[0]._id.should.equal(newDoc._id);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.find({}, function (err, docs) {\n        docs.sort(function (a, b) {\n            return a.a - b.a;\n        });\n        docs.length.should.equal(2);\n        _.isEqual(docs[0], {\n            _id: doc1._id,\n            a: 1,\n            hello: 'world'\n        }).should.equal(true);\n        _.isEqual(docs[1], {\n            _id: doc2._id,\n            a: 2,\n            hello: 'changed'\n        }).should.equal(true);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.sort(function (a, b) {\n        return a.a - b.a;\n    });\n    docs.length.should.equal(2);\n    _.isEqual(docs[0], {\n        _id: doc1._id,\n        a: 1,\n        hello: 'world'\n    }).should.equal(true);\n    _.isEqual(docs[1], {\n        _id: doc2._id,\n        a: 2,\n        hello: 'changed'\n    }).should.equal(true);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.sort(function (a, b) {\n        return a.a - b.a;\n    });\n    docs.length.should.equal(3);\n    _.isEqual(docs[0], {\n        _id: doc1._id,\n        a: 1,\n        hello: 'changed'\n    }).should.equal(true);\n    _.isEqual(docs[1], {\n        _id: doc2._id,\n        a: 2,\n        hello: 'changed'\n    }).should.equal(true);\n    _.isEqual(docs[2], {\n        _id: doc3._id,\n        a: 5,\n        hello: 'pluton'\n    }).should.equal(true);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err, docs) {\n    var d1 = _.find(docs, function (doc) {\n            return doc._id === doc1._id;\n        }), d2 = _.find(docs, function (doc) {\n            return doc._id === doc2._id;\n        }), d3 = _.find(docs, function (doc) {\n            return doc._id === doc3._id;\n        });\n    d1.a.should.equal(1);\n    d2.a.should.equal(12);\n    d3.a.should.equal(5);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (index) {\n    var docs = index.getAll(), d1 = _.find(docs, function (doc) {\n            return doc._id === doc1._id;\n        }), d2 = _.find(docs, function (doc) {\n            return doc._id === doc2._id;\n        }), d3 = _.find(docs, function (doc) {\n            return doc._id === doc3._id;\n        });\n    d1.a.should.equal(4);\n    d2.a.should.equal(5);\n    d3.a.should.equal('abc');\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    _.each(d.indexes, function (index) {\n        var docs = index.getAll(), d1 = _.find(docs, function (doc) {\n                return doc._id === doc1._id;\n            }), d2 = _.find(docs, function (doc) {\n                return doc._id === doc2._id;\n            });\n        d1.a.should.equal(4);\n        d2.a.should.equal(5);\n    });\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function (index) {\n    var docs = index.getAll(), d1 = _.find(docs, function (doc) {\n            return doc._id === doc1._id;\n        }), d2 = _.find(docs, function (doc) {\n            return doc._id === doc2._id;\n        });\n    d1.a.should.equal(4);\n    d2.a.should.equal(5);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    Object.keys(docs[0]).length.should.equal(2);\n    docs[0]._id.should.equal(id1);\n    docs[0].somedata.should.equal('ok');\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, doc1) {\n    id1 = doc1._id;\n    d.insert({\n        somedata: 'again',\n        plus: 'additional data'\n    }, function (err, doc2) {\n        id2 = doc2._id;\n        d.insert({ somedata: 'again' }, function (err, doc3) {\n            id3 = doc3._id;\n            return cb(err);\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc2) {\n    id2 = doc2._id;\n    d.insert({ somedata: 'again' }, function (err, doc3) {\n        id3 = doc3._id;\n        return cb(err);\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc3) {\n    id3 = doc3._id;\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, n) {\n    assert.isNull(err);\n    n.should.equal(2);\n    return cb();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(3);\n    var toRemove = [\n            'Mars',\n            'Saturn'\n        ];\n    async.each(toRemove, function (planet, cb) {\n        d.remove({ planet: planet }, function (err) {\n            return cb(err);\n        });\n    }, function (err) {\n        d.find({}, function (err, docs) {\n            docs.length.should.equal(1);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (planet, cb) {\n    d.remove({ planet: planet }, function (err) {\n        return cb(err);\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    return cb(err);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err) {\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(1);\n        done();\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (done) {\n    d.insert({ hello: 'world' }, function () {\n        d.remove({ $or: { hello: 'world' } }, {}, function (err, nr, upsert) {\n            assert.isDefined(err);\n            assert.isUndefined(nr);\n            assert.isUndefined(upsert);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    d.remove({ $or: { hello: 'world' } }, {}, function (err, nr, upsert) {\n        assert.isDefined(err);\n        assert.isUndefined(nr);\n        assert.isUndefined(upsert);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, nr, upsert) {\n    assert.isDefined(err);\n    assert.isUndefined(nr);\n    assert.isUndefined(upsert);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.find({}, function (err, docs) {\n        docs.sort(function (a, b) {\n            return a.a - b.a;\n        });\n        docs.length.should.equal(2);\n        _.isEqual(docs[0], {\n            _id: doc1._id,\n            a: 1,\n            hello: 'world'\n        }).should.equal(true);\n        _.isEqual(docs[1], {\n            _id: doc3._id,\n            a: 3,\n            hello: 'moto'\n        }).should.equal(true);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.sort(function (a, b) {\n        return a.a - b.a;\n    });\n    docs.length.should.equal(2);\n    _.isEqual(docs[0], {\n        _id: doc1._id,\n        a: 1,\n        hello: 'world'\n    }).should.equal(true);\n    _.isEqual(docs[1], {\n        _id: doc3._id,\n        a: 3,\n        hello: 'moto'\n    }).should.equal(true);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.a - b.a;\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(1);\n        _.isEqual(docs[0], {\n            _id: doc2._id,\n            a: 2,\n            hello: 'earth'\n        }).should.equal(true);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    _.isEqual(docs[0], {\n        _id: doc2._id,\n        a: 2,\n        hello: 'earth'\n    }).should.equal(true);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, docs) {\n    var d1 = _.find(docs, function (doc) {\n            return doc._id === doc1._id;\n        }), d2 = _.find(docs, function (doc) {\n            return doc._id === doc2._id;\n        }), d3 = _.find(docs, function (doc) {\n            return doc._id === doc3._id;\n        });\n    d1.a.should.equal(1);\n    assert.isUndefined(d2);\n    d3.a.should.equal(5);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    Object.keys(d.indexes).length.should.equal(2);\n    Object.keys(d.indexes)[0].should.equal('_id');\n    Object.keys(d.indexes)[1].should.equal('planet');\n    d.indexes.planet.getAll().length.should.equal(2);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "ensureIndex"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === 'aaa';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === newDoc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === newDoc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '1';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '2';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '3';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '1';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '2';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc.z === '3';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    d.loadDatabase(function (err) {\n        err.errorType.should.equal('uniqueViolated');\n        err.key.should.equal('1');\n        d.getAllData().length.should.equal(0);\n        d.indexes.z.tree.getNumberOfKeys().should.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    err.key.should.equal('1');\n    d.getAllData().length.should.equal(0);\n    d.indexes.z.tree.getNumberOfKeys().should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function () {\n    d.ensureIndex({ fieldName: 'b' }, function (err) {\n        assert.isNull(err);\n        d.ensureIndex({\n            fieldName: 'a',\n            unique: true\n        }, function (err) {\n            err.errorType.should.equal('uniqueViolated');\n            assert.deepEqual(Object.keys(d.indexes), [\n                '_id',\n                'b'\n            ]);\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.ensureIndex({\n        fieldName: 'a',\n        unique: true\n    }, function (err) {\n        err.errorType.should.equal('uniqueViolated');\n        assert.deepEqual(Object.keys(d.indexes), [\n            '_id',\n            'b'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "ensureIndex"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    assert.deepEqual(Object.keys(d.indexes), [\n        '_id',\n        'b'\n    ]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "ensureIndex"
+  },
+  {
+    "callback": "function (done) {\n    d.ensureIndex({ fieldName: 'e' }, function (err) {\n        assert.isNull(err);\n        Object.keys(d.indexes).length.should.equal(2);\n        assert.isNotNull(d.indexes.e);\n        d.removeIndex('e', function (err) {\n            assert.isNull(err);\n            Object.keys(d.indexes).length.should.equal(1);\n            assert.isUndefined(d.indexes.e);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    Object.keys(d.indexes).length.should.equal(2);\n    assert.isNotNull(d.indexes.e);\n    d.removeIndex('e', function (err) {\n        assert.isNull(err);\n        Object.keys(d.indexes).length.should.equal(1);\n        assert.isUndefined(d.indexes.e);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "ensureIndex"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    Object.keys(d.indexes).length.should.equal(1);\n    assert.isUndefined(d.indexes.e);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "removeIndex"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    d.indexes.z.tree.getNumberOfKeys().should.equal(1);\n    assert.deepEqual(d.indexes.z.getMatching('yes'), [newDoc]);\n    d.insert({\n        a: 5,\n        z: 'nope'\n    }, function (err, newDoc) {\n        d.indexes.z.tree.getNumberOfKeys().should.equal(2);\n        assert.deepEqual(d.indexes.z.getMatching('nope'), [newDoc]);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    d.indexes.z.tree.getNumberOfKeys().should.equal(2);\n    assert.deepEqual(d.indexes.z.getMatching('nope'), [newDoc]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, newDoc2) {\n    d.indexes.z.tree.getNumberOfKeys().should.equal(2);\n    d.indexes.ya.tree.getNumberOfKeys().should.equal(2);\n    assert.deepEqual(d.indexes.z.getMatching('nope'), [newDoc2]);\n    assert.deepEqual(d.indexes.ya.getMatching('sure'), [newDoc2]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, newDoc) {\n    d.indexes.z.tree.getNumberOfKeys().should.equal(1);\n    assert.deepEqual(d.indexes.z.getMatching('yes'), [newDoc]);\n    d.insert({\n        a: 5,\n        z: 'yes'\n    }, function (err, newDoc2) {\n        d.indexes.z.tree.getNumberOfKeys().should.equal(1);\n        assert.deepEqual(d.indexes.z.getMatching('yes'), [\n            newDoc,\n            newDoc2\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, newDoc2) {\n    d.indexes.z.tree.getNumberOfKeys().should.equal(1);\n    assert.deepEqual(d.indexes.z.getMatching('yes'), [\n        newDoc,\n        newDoc2\n    ]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    err.key.should.equal('yes');\n    d.indexes.z.tree.getNumberOfKeys().should.equal(1);\n    assert.deepEqual(d.indexes.z.getMatching('yes'), [newDoc]);\n    assert.deepEqual(d.getAllData(), [newDoc]);\n    d.loadDatabase(function () {\n        d.getAllData().length.should.equal(1);\n        assert.deepEqual(d.getAllData()[0], newDoc);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function () {\n    d.getAllData().length.should.equal(1);\n    assert.deepEqual(d.getAllData()[0], newDoc);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    d.indexes.nonu1.tree.getNumberOfKeys().should.equal(1);\n    d.indexes.uni.tree.getNumberOfKeys().should.equal(1);\n    d.indexes.nonu2.tree.getNumberOfKeys().should.equal(1);\n    assert.deepEqual(d.indexes.nonu1.getMatching('yes'), [newDoc]);\n    assert.deepEqual(d.indexes.uni.getMatching('willfail'), [newDoc]);\n    assert.deepEqual(d.indexes.nonu2.getMatching('yes2'), [newDoc]);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    err.errorType.should.equal('uniqueViolated');\n    assert.isUndefined(err.key);\n    d.ensureIndex({\n        fieldName: 'yyy',\n        unique: true,\n        sparse: true\n    });\n    d.insert({\n        a: 5,\n        z: 'other',\n        zzz: 'set'\n    }, function (err) {\n        assert.isNull(err);\n        d.indexes.yyy.getAll().length.should.equal(0);\n        d.indexes.zzz.getAll().length.should.equal(2);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    d.indexes.yyy.getAll().length.should.equal(0);\n    d.indexes.zzz.getAll().length.should.equal(2);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc1) {\n    d.insert({\n        a: 2,\n        b: 'si'\n    }, function (err, doc2) {\n        d.find({}, function (err, docs) {\n            assert.deepEqual(doc1, _.find(docs, function (d) {\n                return d._id === doc1._id;\n            }));\n            assert.deepEqual(doc2, _.find(docs, function (d) {\n                return d._id === doc2._id;\n            }));\n            done();\n        });\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, doc2) {\n    d.find({}, function (err, docs) {\n        assert.deepEqual(doc1, _.find(docs, function (d) {\n            return d._id === doc1._id;\n        }));\n        assert.deepEqual(doc2, _.find(docs, function (d) {\n            return d._id === doc2._id;\n        }));\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    assert.deepEqual(doc1, _.find(docs, function (d) {\n        return d._id === doc1._id;\n    }));\n    assert.deepEqual(doc2, _.find(docs, function (d) {\n        return d._id === doc2._id;\n    }));\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (d) {\n    return d._id === doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    assert.isDefined(err);\n    d.find({}, function (err, docs) {\n        docs.length.should.equal(1);\n        d.getAllData().length.should.equal(1);\n        d.indexes._id.getMatching(doc1._id).length.should.equal(1);\n        d.indexes.a.getMatching(1).length.should.equal(1);\n        d.indexes._id.getMatching(doc1._id)[0].should.equal(d.indexes.a.getMatching(1)[0]);\n        d.indexes.a.getMatching(2).length.should.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "d",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, docs) {\n    docs.length.should.equal(1);\n    d.getAllData().length.should.equal(1);\n    d.indexes._id.getMatching(doc1._id).length.should.equal(1);\n    d.indexes.a.getMatching(1).length.should.equal(1);\n    d.indexes._id.getMatching(doc1._id)[0].should.equal(d.indexes.a.getMatching(1)[0]);\n    d.indexes.a.getMatching(2).length.should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc1._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc2._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === _doc3._id;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, nr) {\n    var data = d.getAllData();\n    assert.isNull(err);\n    nr.should.equal(2);\n    data.length.should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, nr) {\n    assert.isNull(err);\n    nr.should.equal(2);\n    d.indexes.a.tree.getNumberOfKeys().should.equal(0);\n    d.indexes.b.tree.getNumberOfKeys().should.equal(0);\n    d.indexes._id.tree.getNumberOfKeys().should.equal(0);\n    done();\n}",
+    "receiverBase": "d",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    Object.keys(db.indexes).length.should.equal(2);\n    Object.keys(db.indexes)[0].should.equal('_id');\n    Object.keys(db.indexes)[1].should.equal('planet');\n    db.indexes._id.getAll().length.should.equal(2);\n    db.indexes.planet.getAll().length.should.equal(2);\n    db.indexes.planet.fieldName.should.equal('planet');\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (err) {\n    assert.isNull(err);\n    Object.keys(db.indexes).length.should.equal(2);\n    Object.keys(db.indexes)[0].should.equal('_id');\n    Object.keys(db.indexes)[1].should.equal('another');\n    db.indexes._id.getAll().length.should.equal(2);\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "loadDatabase"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hello');\n    });\n    var s = app.listen(function () {\n            var url = 'http://localhost:' + s.address().port;\n            request(url).get('/').expect('hello', done);\n        });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hello');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    var url = 'http://localhost:' + s.address().port;\n    request(url).get('/').expect('hello', done);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hello');\n    });\n    var s = app.listen(function () {\n            var url = 'http://localhost:' + s.address().port;\n            var test = request(url).get('/');\n            test.end(function (err, res) {\n                this.should.eql(test);\n                done();\n            });\n        });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hello');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    var url = 'http://localhost:' + s.address().port;\n    var test = request(url).get('/');\n    test.end(function (err, res) {\n        this.should.eql(test);\n        done();\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    this.should.eql(test);\n    done();\n}",
+    "receiverBase": "test",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').end(function (err, res) {\n        res.should.have.status(200);\n        res.text.should.equal('hey');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    res.should.have.status(200);\n    res.text.should.equal('hey');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    var server = app.listen(4000, function () {\n            request(server).get('/').end(function (err, res) {\n                res.should.have.status(200);\n                res.text.should.equal('hey');\n                done();\n            });\n        });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    request(server).get('/').end(function (err, res) {\n        res.should.have.status(200);\n        res.text.should.equal('hey');\n        done();\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    res.should.have.status(200);\n    res.text.should.equal('hey');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    var server = app.listen(4001, function () {\n            request('http://localhost:4001').get('/').end(function (err, res) {\n                res.should.have.status(200);\n                res.text.should.equal('hey');\n                done();\n            });\n        });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    request('http://localhost:4001').get('/').end(function (err, res) {\n        res.should.have.status(200);\n        res.text.should.equal('hey');\n        done();\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err, res) {\n    res.should.have.status(200);\n    res.text.should.equal('hey');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    res.should.have.status(200);\n    res.text.should.equal('hey');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.use(express.bodyParser());\n    app.post('/', function (req, res) {\n        res.send(req.body.name);\n    });\n    request(app).post('/').send({ name: 'tobi' }).expect('tobi', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(req.body.name);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.end('Hello');\n    });\n    request(app).get('/').expect('Hello', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.end('Hello');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.redirect('/login');\n    });\n    request(app).get('/').expect(302, function () {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.redirect('/login');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.destroy();\n    });\n    request(app).get('/').end(function (err) {\n        should.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.destroy();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    should.exist(err);\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('supertest FTW!');\n    });\n    var test = request(app).get('/').end(function () {\n        });\n    test._server.on('close', function () {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('supertest FTW!');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "_server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    var closed = false;\n    app.get('/', function (req, res) {\n        res.send('supertest FTW!');\n    });\n    var test = request(app).get('/').end(function () {\n            closed.should.be.true;\n            done();\n        });\n    test._server.on('close', function () {\n        closed = true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('supertest FTW!');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    closed.should.be.true;\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    closed = true;\n}",
+    "receiverBase": "_server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    var test = request(app);\n    app.get('/', function (req, res) {\n        res.send('supertest FTW!');\n    });\n    test.get('/').end(function () {\n        test.get('/').end(function (err, res) {\n            (err === null).should.be.true;\n            res.should.have.status(200);\n            res.text.should.equal('supertest FTW!');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('supertest FTW!');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    test.get('/').end(function (err, res) {\n        (err === null).should.be.true;\n        res.should.have.status(200);\n        res.text.should.equal('supertest FTW!');\n        done();\n    });\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    (err === null).should.be.true;\n    res.should.have.status(200);\n    res.text.should.equal('supertest FTW!');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    it('should assert the response status', function (done) {\n        var app = express();\n        app.get('/', function (req, res) {\n            res.send('hey');\n        });\n        request(app).get('/').expect(404).end(function (err, res) {\n            err.message.should.equal('expected 404 \"Not Found\", got 200 \"OK\"');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect(404).end(function (err, res) {\n        err.message.should.equal('expected 404 \"Not Found\", got 200 \"OK\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected 404 \"Not Found\", got 200 \"OK\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    it('should assert only status', function (done) {\n        var app = express();\n        app.get('/', function (req, res) {\n            res.send('hey');\n        });\n        request(app).get('/').expect(200).end(done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect(200).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('foo');\n    });\n    request(app).get('/').expect(200, 'foo', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('foo');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    it('should not quietly pass on failure', function (done) {\n        var app = express();\n        app.get('/', function (req, res) {\n            res.send('foo');\n        });\n        request(app).get('/').expect(200, '').end(function (err, res) {\n            err.message.should.equal('expected \\'\\' response body, got \\'foo\\'');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('foo');\n    });\n    request(app).get('/').expect(200, '').end(function (err, res) {\n        err.message.should.equal('expected \\'\\' response body, got \\'foo\\'');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('foo');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \\'\\' response body, got \\'foo\\'');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.set('json spaces', 0);\n    app.get('/', function (req, res) {\n        res.send({ foo: 'bar' });\n    });\n    request(app).get('/').expect('hey').end(function (err, res) {\n        err.message.should.equal('expected \\'hey\\' response body, got \\'{\"foo\":\"bar\"}\\'');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ foo: 'bar' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \\'hey\\' response body, got \\'{\"foo\":\"bar\"}\\'');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.set('json spaces', 0);\n    app.get('/', function (req, res) {\n        res.send(500, { message: 'something went wrong' });\n    });\n    request(app).get('/').expect(200).expect('hey').end(function (err, res) {\n        err.message.should.equal('expected \\'hey\\' response body, got \\'{\"message\":\"something went wrong\"}\\'');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(500, { message: 'something went wrong' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \\'hey\\' response body, got \\'{\"message\":\"something went wrong\"}\\'');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.set('json spaces', 0);\n    app.get('/', function (req, res) {\n        res.send({ foo: 'bar' });\n    });\n    request(app).get('/').expect('{\"foo\":\"bar\"}', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ foo: 'bar' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.set('json spaces', 0);\n    app.get('/', function (req, res) {\n        res.send({ foo: 'bar' });\n    });\n    request(app).get('/').expect({ foo: 'baz' }).end(function (err, res) {\n        err.message.should.equal('expected { foo: \\'baz\\' } response body, got { foo: \\'bar\\' }');\n        request(app).get('/').expect({ foo: 'bar' }).end(done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ foo: 'bar' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected { foo: \\'baz\\' } response body, got { foo: \\'bar\\' }');\n    request(app).get('/').expect({ foo: 'bar' }).end(done);\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('foobar');\n    });\n    request(app).get('/').expect(/^bar/).end(function (err, res) {\n        err.message.should.equal('expected body \\'foobar\\' to match /^bar/');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('foobar');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected body \\'foobar\\' to match /^bar/');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey tj');\n    });\n    request(app).get('/').expect(/tj/).expect('hey').expect('hey tj').end(function (err, res) {\n        err.message.should.equal('expected \\'hey\\' response body, got \\'hey tj\\'');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey tj');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \\'hey\\' response body, got \\'hey tj\\'');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey tj');\n    });\n    request(app).get('/').expect(/tj/).expect(/^hey/).expect('hey tj', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey tj');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send({ foo: 'bar' });\n    });\n    request(app).get('/').expect('Content-Foo', 'bar').end(function (err, res) {\n        err.message.should.equal('expected \"Content-Foo\" header field');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ foo: 'bar' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \"Content-Foo\" header field');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send({ foo: 'bar' });\n    });\n    request(app).get('/').expect('Content-Type', 'text/html').end(function (err, res) {\n        err.message.should.equal('expected \"Content-Type\" of \"text/html\", got \"application/json; charset=utf-8\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ foo: 'bar' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    err.message.should.equal('expected \"Content-Type\" of \"text/html\", got \"application/json; charset=utf-8\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', 'text/html; charset=utf-8').expect('Content-Length', '3').end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', /^application/).end(function (err) {\n        err.message.should.equal('expected \"Content-Type\" matching /^application/, got \"text/html; charset=utf-8\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('expected \"Content-Type\" matching /^application/, got \"text/html; charset=utf-8\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Length', 4).end(function (err) {\n        err.message.should.equal('expected \"Content-Length\" of \"4\", got \"3\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('expected \"Content-Length\" of \"4\", got \"3\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    get = request(app).get('/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n        throw new Error('failed');\n    }).end(function (err) {\n        err.message.should.equal('failed');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    throw new Error('failed');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('failed');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n        return 'some descriptive error';\n    }).end(function (err) {\n        should.not.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    return 'some descriptive error';\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n        return new Error('some descriptive error');\n    }).end(function (err) {\n        err.message.should.equal('some descriptive error');\n        (err instanceof Error).should.be.true;\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    return new Error('some descriptive error');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('some descriptive error');\n    (err instanceof Error).should.be.true;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n    }).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (res) {\n    calls[0] = 1;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (res) {\n    calls[1] = 1;\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (res) {\n    calls[2] = 1;\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var callCount = [\n            0,\n            1,\n            2\n        ].reduce(function (count, i) {\n            return count + calls[i];\n        }, 0);\n    callCount.should.equal(3, 'didn\\'t see all assertions run');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (count, i) {\n    return count + calls[i];\n}",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n    }).expect('Content-Type', /json/).end(function (err) {\n        err.message.should.match(/Content-Type/);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.match(/Content-Type/);\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    get.expect(function (res) {\n    }).expect('Content-Type', /html/).expect(function (res) {\n    }).expect('Content-Type', /text/).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (res) {\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', /text/).expect('Content-Type', /html/).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', /bloop/).expect('Content-Type', /html/).end(function (err) {\n        err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', /text/).expect('Content-Type', /bloop/).expect('Content-Type', /html/).end(function (err) {\n        err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send('hey');\n    });\n    request(app).get('/').expect('Content-Type', /text/).expect('Content-Type', /html/).expect('Content-Type', /bloop/).end(function (err) {\n        err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('hey');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('expected \"Content-Type\" matching /bloop/, got \"text/html; charset=utf-8\"');\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (req, res) {\n    res.cookie('cookie', 'hey');\n    res.send();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (req, res) {\n    if (req.cookies.cookie)\n        res.send(req.cookies.cookie);\n    else\n        res.send(':(');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    agent.get('/').expect('set-cookie', 'cookie=hey; Path=/', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    agent.get('/return').expect('hey', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.delete('/', function (req, res) {\n        res.send(200);\n    });\n    request(app).delete('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(200);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "delete"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.del('/', function (req, res) {\n        res.send(200);\n    });\n    request(app).del('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(200);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "del"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.get('/', function (req, res) {\n        res.send(200);\n    });\n    request(app).get('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(200);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.post('/', function (req, res) {\n        res.send(200);\n    });\n    request(app).post('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(200);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    var app = express();\n    app.put('/', function (req, res) {\n        res.send(200);\n    });\n    request(app).put('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send(200);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (error, result) {\n    if (error) {\n        console.log('Error: ' + (error.code ? error.code + ' ' + error.message : error.message));\n    }\n    if (result) {\n        console.log(result);\n    }\n}",
+    "receiverBase": "twitterRestClient",
+    "receiverCallee": "statusesHomeTimeline"
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return 'string' === typeof c ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "a",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    return '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "a",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (index, th) {\n    s = ts.getData(th, c.headers[index], 'sorter') === 'false';\n    th.sortDisabled = s;\n    $(th)[s ? 'addClass' : 'removeClass']('sorter-false');\n}",
+    "receiverBase": "$headers",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    colgroup.append($('<col>').css('width', parseInt($(this).width() / overallWidth * 1000, 10) / 10 + '%'));\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, v) {\n    s = [\n        parseInt(v[0], 10),\n        parseInt(v[1], 10)\n    ];\n    o = c.$headers[s[0]];\n    if (o) {\n        c.sortList.push(s);\n        t = $.inArray(s[1], o.order);\n        o.count = t >= 0 ? t : s[1] % (c.sortReset ? 3 : 2);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this !== i && (k || !$(this).is('.' + ts.css.sortDesc + ',.' + ts.css.sortAsc))) {\n        this.count = -1;\n    }\n}",
+    "receiverBase": "$headers",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    setHeadersCss(table);\n    multisort(table);\n    appendToTable(table);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n    c.sortList = [];\n    setHeadersCss(table);\n    multisort(table);\n    appendToTable(table);\n}",
+    "receiverBase": "unbind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, resort, callback) {\n    e.stopPropagation();\n    ts.refreshWidgets(table, true, true);\n    ts.restoreHeaders(table);\n    buildHeaders(table);\n    bindEvents(table);\n    commonUpdate(table, resort, callback);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, resort, callback) {\n    e.stopPropagation();\n    updateHeader(table);\n    commonUpdate(table, resort, callback);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, list, callback, init) {\n    var c = table.config;\n    e.stopPropagation();\n    $this.trigger('sortStart', this);\n    updateHeaderSortCount(table, list);\n    setHeadersCss(table);\n    if (c.delayInit && isEmptyObject(c.cache)) {\n        buildCache(table);\n    }\n    $this.trigger('sortBegin', this);\n    multisort(table);\n    appendToTable(table, init);\n    if (typeof callback === 'function') {\n        callback(table);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, callback, init) {\n    e.stopPropagation();\n    appendToTable(table, init);\n    if (typeof callback === 'function') {\n        callback(table);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, id) {\n    e.stopPropagation();\n    ts.getWidgetById(id).format(table, c, c.widgetOptions);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, init) {\n    e.stopPropagation();\n    ts.applyWidget(table, init);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, all, dontapply) {\n    e.stopPropagation();\n    ts.refreshWidgets(table, all, dontapply);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, c, cb) {\n    e.stopPropagation();\n    ts.destroy(table, c, cb);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var table = this, c = $.extend(true, {}, ts.defaults, settings);\n    if (!table.hasInitialized && ts.buildTable && this.tagName !== 'TABLE') {\n        ts.buildTable(table, c);\n    }\n    ts.setup(table, c);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (version) {\n    version[0] = parseInt(version[0], 10);\n    return version[0] > 1 || version[0] === 1 && parseInt(version[1], 10) >= 4;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    ts.isProcessing(table, e.type === 'sortBegin');\n}",
+    "receiverBase": "unbind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    return this.sortDisabled ? false : ts.isValueInArray(parseFloat($(this).attr('data-column')), c.sortList);\n}",
+    "receiverBase": "$h",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i) {\n    if ($(this).find('.tablesorter-header-inner').length) {\n        $(this).html(c.headerContent[i]);\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, k) {\n    return $.inArray(v, c.widgets) === k;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (i, n) {\n    wd = ts.getWidgetById(n);\n    if (wd && wd.id) {\n        if (!wd.priority) {\n            wd.priority = 10;\n        }\n        widgets[i] = wd;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.priority < b.priority ? -1 : a.priority === b.priority ? 0 : 1;\n}",
+    "receiverBase": "widgets",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (i, w) {\n    if (w) {\n        if (init || !c.widgetInit[w.id]) {\n            if (w.hasOwnProperty('options')) {\n                wo = table.config.widgetOptions = $.extend(true, {}, w.options, wo);\n                c.widgetInit[w.id] = true;\n            }\n            if (w.hasOwnProperty('init')) {\n                w.init(table, w, c, wo);\n            }\n        }\n        if (!init && w.hasOwnProperty('format')) {\n            w.format(table, c, wo, false);\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $tr = $(this);\n    if (!child.test(this.className)) {\n        row++;\n    }\n    even = row % 2 === 0;\n    $tr.removeClass(wo.zebra[even ? 1 : 0]).addClass(wo.zebra[even ? 0 : 1]);\n}",
+    "receiverBase": "$tv",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    sortValue = sortFunction(a, b);\n    return sortValue === 0 ? a.ss_i - b.ss_i : sortValue;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (proceed, elem, computed) {\n    return elem.attr ? elem.opacity || 0 : proceed.call(this, elem, computed);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (fx) {\n    var elem = fx.elem, ends;\n    if (!fx.started) {\n        ends = pathAnim.init(elem, elem.d, elem.toD);\n        fx.start = ends[0];\n        fx.end = ends[1];\n        fx.started = true;\n    }\n    elem.attr('d', pathAnim.step(fx.start, fx.end, fx.pos, elem.toD));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addAnimSetter"
+  },
+  {
+    "callback": "function (i, fn) {\n    var base = event[fn];\n    event[fn] = function () {\n        try {\n            base.call(event);\n        } catch (e) {\n            if (fn === 'preventDefault') {\n                defaultPrevented = true;\n            }\n        }\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    return Color(stop[1]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (stop, i) {\n    ret.stops[i] = [\n        ret.stops[i][0],\n        stop.get(format)\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    stop.brighten(alpha);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop) {\n    var stopObject;\n    if (stop[1].indexOf('rgba') === 0) {\n        colorObject = Color(stop[1]);\n        stopColor = colorObject.get('rgb');\n        stopOpacity = colorObject.get('a');\n    } else {\n        stopColor = stop[1];\n        stopOpacity = 1;\n    }\n    stopObject = renderer.createElement('stop').attr({\n        offset: stop[0],\n        'stop-color': stopColor,\n        'stop-opacity': stopOpacity\n    }).add(gradientObject);\n    gradientObject.stops.push(stopObject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    wrapper[key] = pick(hash[key], wrapper[key]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tspan) {\n    tspan.style.display = display;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    wrapper.safeRemoveChild(shadow);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        label.attr(hoverState).css(hoverStyle);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        stateOptions = [\n            normalState,\n            hoverState,\n            pressedState\n        ][curState];\n        stateStyle = [\n            normalStyle,\n            hoverStyle,\n            pressedStyle\n        ][curState];\n        label.attr(stateOptions).css(stateStyle);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    if (curState !== 3) {\n        callback.call(label);\n    }\n}",
+    "receiverBase": "label",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (prop) {\n    if (styles[prop] !== UNDEFINED) {\n        textStyles[prop] = styles[prop];\n        delete styles[prop];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    css(shadow, {\n        marginLeft: translateX + 1,\n        marginTop: translateY + 1\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    renderer.invertChild(child, elem);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (shadow) {\n    shadow.style[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (member) {\n    if (member.element) {\n        member.css(clipRect.getCSS(member));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (stop, i) {\n    if (regexRgba.test(stop[1])) {\n        colorObject = Color(stop[1]);\n        stopColor = colorObject.get('rgb');\n        stopOpacity = colorObject.get('a');\n    } else {\n        stopColor = stop[1];\n        stopOpacity = 1;\n    }\n    colors.push(stop[0] * 100 + '% ' + stopColor);\n    if (!i) {\n        opacity1 = stopOpacity;\n        color2 = stopColor;\n    } else {\n        opacity2 = stopOpacity;\n        color1 = stopColor;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    ren.invertChild(child, element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    events[eventType].apply(plotLine, [e]);\n}",
+    "receiverBase": "svgElem",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (arr) {\n    i = arr.length;\n    while (i--) {\n        if (arr[i].id === id) {\n            erase(arr, arr[i]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    xData = series.xData;\n    loopLength = series.xIncrement ? 1 : xData.length - 1;\n    for (i = loopLength; i > 0; i--) {\n        distance = xData[i] - xData[i - 1];\n        if (closestDataRange === UNDEFINED || distance < closestDataRange) {\n            closestDataRange = distance;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.processData(axis.min !== axis.oldMin || axis.max !== axis.oldMax);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    var options = axis.options, horiz = axis.horiz, key = [\n            horiz ? options.left : options.top,\n            horiz ? options.width : options.height,\n            options.pane\n        ].join(',');\n    if (others[key]) {\n        hasOther = true;\n    } else {\n        others[key] = 1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    if (series.isDirtyData || series.isDirty || series.xAxis.isDirty) {\n        isDirtyData = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    delete serie.kdTree;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    axis.userMin = newMin;\n    axis.userMax = newMax;\n    axis.eventArgs = eventArguments;\n    axis.isDirtyExtremes = true;\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (rot) {\n    var score;\n    if (rot === rotationOption || rot && rot >= -90 && rot <= 90) {\n        step = getStep(mathAbs(labelMetrics.h / mathSin(deg2rad * rot)));\n        score = step + mathAbs(rot / 360);\n        if (score < bestScore) {\n            bestScore = score;\n            rotation = rot;\n            newTickInterval = step;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tick) {\n    tick = ticks[tick];\n    if (tick && tick.labelLength > labelLength) {\n        labelLength = tick.labelLength;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    var tick = ticks[pos], label = tick && tick.label;\n    if (label) {\n        if (css) {\n            label.css(merge(css, label.specCss));\n        }\n        delete label.specCss;\n        label.attr(attr);\n        tick.rotation = attr.rotation;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (!ticks[pos]) {\n        ticks[pos] = new Tick(axis, pos);\n    } else {\n        ticks[pos].addLabel();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (side === 0 || side === 2 || {\n            1: 'left',\n            3: 'right'\n        }[side] === axis.labelAlign) {\n        labelOffset = mathMax(ticks[pos].getLabelSize(), labelOffset);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (coll) {\n    var pos;\n    for (pos in coll) {\n        coll[pos].isActive = false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos) {\n    if (!minorTicks[pos]) {\n        minorTicks[pos] = new Tick(axis, pos, 'minor');\n    }\n    if (slideInTicks && minorTicks[pos].isNew) {\n        minorTicks[pos].render(null, true);\n    }\n    minorTicks[pos].render(null, false, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pos, i) {\n    if (!isLinked || pos >= axis.min && pos <= axis.max) {\n        if (!ticks[pos]) {\n            ticks[pos] = new Tick(axis, pos);\n        }\n        if (slideInTicks && ticks[pos].isNew) {\n            ticks[pos].render(i, true, 0.1);\n        }\n        ticks[pos].render(i);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (plotLineOptions) {\n    axis.addPlotBandOrLine(plotLineOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (plotLine) {\n    plotLine.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.isDirty = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (coll) {\n    destroyObjectProperties(coll);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    if (axis[prop]) {\n        axis[prop] = axis[prop].destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (time) {\n    return interval <= timeUnits.hour && time % timeUnits.day === localTimezoneOffset;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (time) {\n    higherRanks[time] = 'day';\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (tooltip) {\n        tooltip.move(x, y, anchorX, anchorY);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tooltip.label.fadeOut();\n    tooltip.isHidden = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    yAxis = point.series.yAxis;\n    xAxis = point.series.xAxis;\n    plotX += point.plotX + (!inverted && xAxis ? xAxis.left - plotLeft : 0);\n    plotY += (point.plotLow ? (point.plotLow + point.plotHigh) / 2 : point.plotY) + (!inverted && yAxis ? yAxis.top - plotTop : 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    item.setState(HOVER_STATE);\n    pointConfig.push(item.getLabelConfig());\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    var tooltipOptions = item.series.tooltipOptions;\n    return (tooltipOptions.pointFormatter || item.point.tooltipFormatter).call(item.point, tooltipOptions.pointFormat);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (axis) {\n    coordinates[axis.isXAxis ? 'xAxis' : 'yAxis'].push({\n        axis: axis,\n        value: axis.toValue(e[axis.horiz ? 'chartX' : 'chartY'])\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    noSharedTooltip = s.noSharedTooltip && shared;\n    if (s.visible && !noSharedTooltip && pick(s.options.enableMouseTracking, true)) {\n        kdpointT = s.searchPoint(e);\n        if (kdpointT) {\n            kdpoints.push(kdpointT);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (p) {\n    if (p && defined(p.plotX) && defined(p.plotY)) {\n        if (p.dist.distX < distance || (p.dist.distX === distance || p.series.kdDimensions > 1) && p.dist.distR < rdistance) {\n            distance = p.dist.distX;\n            rdistance = p.dist.distR;\n            kdpoint = p;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point !== kdpoint) {\n        point.onMouseOver(e);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.drawCrosshair(e, pick(kdpoint, hoverPoint));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (pick(axis.options.crosshair && axis.options.crosshair.snap, true)) {\n        axis.drawCrosshair(null, allowMove);\n    } else {\n        axis.hideCrosshair();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.hideCrosshair();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    seriesAttribs = attribs || series.getPlotBox();\n    if (series.xAxis && series.xAxis.zoomEnabled) {\n        series.group.attr(seriesAttribs);\n        if (series.markerGroup) {\n            series.markerGroup.attr(seriesAttribs);\n            series.markerGroup.clip(clip ? chart.clipRect : null);\n        }\n        if (series.dataLabelsGroup) {\n            series.dataLabelsGroup.attr(seriesAttribs);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (args) {\n    chart.zoom(extend(args, hasPinched ? { animation: false } : null));\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (e) {\n    return self.normalize(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e, i) {\n    pinchDown[i] = {\n        chartX: e.chartX,\n        chartY: e.chartY\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.zoomEnabled) {\n        var bounds = chart.bounds[axis.horiz ? 'h' : 'v'], minPixelPadding = axis.minPixelPadding, min = axis.toPixels(pick(axis.options.min, axis.dataMin)), max = axis.toPixels(pick(axis.options.max, axis.dataMax)), absMin = mathMin(min, max), absMax = mathMax(min, max);\n        bounds.min = mathMin(axis.pos, absMin - minPixelPadding);\n        bounds.max = mathMax(axis.pos + axis.len, absMax + minPixelPadding);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    touches[e.pointerId] = {\n        pageX: e.pageX,\n        pageY: e.pageY,\n        target: e.currentTarget\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (e) {\n    touches[e.pointerId] = {\n        pageX: e.pageX,\n        pageY: e.pageY\n    };\n    if (!touches[e.pointerId].target) {\n        touches[e.pointerId].target = e.currentTarget;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (e) {\n    delete touches[e.pointerId];\n}",
+    "receiverBase": "",
+    "receiverCallee": "translateMSPointer"
+  },
+  {
+    "callback": "function (proceed, chart, options) {\n    proceed.call(this, chart, options);\n    if (this.hasZoom || this.followTouchMove) {\n        css(chart.container, {\n            '-ms-touch-action': NONE,\n            'touch-action': NONE\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (proceed) {\n    proceed.apply(this);\n    if (this.hasZoom || this.followTouchMove) {\n        this.batchMSEvents(addEvent);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (proceed) {\n    this.batchMSEvents(removeEvent);\n    proceed.call(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    legend.positionCheckboxes();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (key) {\n    if (item[key]) {\n        item[key] = item[key].destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    legend.destroyItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    var checkbox = item.checkbox, top;\n    if (checkbox) {\n        top = translateY + checkbox.y + (scrollOffset || 0) + 3;\n        css(checkbox, {\n            left: alignAttr.translateX + item.checkboxOffset + checkbox.x - 20 + PX,\n            top: top + PX,\n            display: top > translateY - 6 && top < translateY + clipHeight - 6 ? '' : NONE\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var seriesOptions = series.options;\n    if (!pick(seriesOptions.showInLegend, !defined(seriesOptions.linkedTo) ? UNDEFINED : false, true)) {\n        return;\n    }\n    allItems = allItems.concat(series.legendItems || (seriesOptions.legendType === 'point' ? series.data : series));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (alignments, side) {\n    if (alignments.test(alignment) && !defined(margin[side])) {\n        chart[marginNames[side]] = mathMax(chart[marginNames[side]], chart.legend[(side + 1) % 2 ? 'legendHeight' : 'legendWidth'] + [\n            1,\n            -1,\n            -1,\n            1\n        ][side] * options[side % 2 ? 'x' : 'y'] + pick(options.margin, 12) + spacing[side]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a.options && a.options.legendIndex || 0) - (b.options && b.options.legendIndex || 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "stableSort"
+  },
+  {
+    "callback": "function (item) {\n    legend.renderItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    legend.positionItem(item);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item, i) {\n    var y = item._legendItemPos[1], h = mathRound(item.legendItem.getBBox().height), len = pages.length;\n    if (!len || y - pages[len - 1] > clipHeight && (lastY || y) !== pages[len - 1]) {\n        pages.push(lastY || y);\n        len++;\n    }\n    if (i === allItems.length - 1 && y + h - pages[len - 1] > clipHeight) {\n        pages.push(y);\n    }\n    if (y !== lastY) {\n        lastY = y;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    legend.scroll(-1, animation);\n}",
+    "receiverBase": "symbol",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    legend.scroll(1, animation);\n}",
+    "receiverBase": "symbol",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (proceed, item) {\n    var legend = this, runPositionItem = function () {\n            if (item._legendItemPos) {\n                proceed.call(legend, item);\n            }\n        };\n    runPositionItem();\n    setTimeout(runPositionItem);\n}",
+    "receiverBase": "",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    chart.initReflow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (serie) {\n    if (serie.isDirty) {\n        if (serie.options.legendType === 'point') {\n            redrawLegend = true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.isDirty) {\n        isDirtyBox = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.isDirtyExtremes) {\n        axis.isDirtyExtremes = false;\n        afterRedraw.push(function () {\n            fireEvent(axis, 'afterSetExtremes', extend(axis.eventArgs, axis.getExtremes()));\n            delete axis.eventArgs;\n        });\n    }\n    if (isDirtyBox || hasStackedSeries) {\n        axis.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    fireEvent(axis, 'afterSetExtremes', extend(axis.eventArgs, axis.getExtremes()));\n    delete axis.eventArgs;\n}",
+    "receiverBase": "afterRedraw",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (serie) {\n    if (serie.isDirty && serie.visible && (!serie.isCartesian || serie.xAxis)) {\n        serie.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (callback) {\n    callback.call();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.index = i;\n    axis.isX = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.index = i;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axisOptions) {\n    axis = new Axis(chart, axisOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    points = points.concat(grep(serie.points || [], function (point) {\n        return point.selected;\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    return point.selected;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (serie) {\n    return serie.selected;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.stacks && axis.hasVisibleSeries) {\n        axis.oldStacks = axis.stacks;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    if (series.options.stacking && (series.visible === true || chart.options.chart.ignoreHiddenSeries === false)) {\n        series.stackKey = series.type + pick(series.options.stack, '');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.getOffset();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, side) {\n    if (!defined(margin[side])) {\n        chart[m] += axisOffset[side];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    removeEvent(win, 'resize', reflow);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    chart.isResizing -= 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (axis) {\n    axis.isDirty = true;\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    serie.isDirty = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setAxisSize();\n    axis.setAxisTranslation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, side) {\n    chart[m] = pick(chart.margin[side], chart.spacing[side]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    klass = seriesTypes[optionsChart.type || optionsChart.defaultSeriesType];\n    value = chart[key] || optionsChart[key] || klass && klass.prototype[key];\n    i = seriesOptions && seriesOptions.length;\n    while (!value && i--) {\n        klass = seriesTypes[seriesOptions[i].type];\n        if (klass && klass.prototype[key]) {\n            value = true;\n        }\n    }\n    chart[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    series.linkedSeries.length = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var linkedTo = series.options.linkedTo;\n    if (isString(linkedTo)) {\n        if (linkedTo === ':previous') {\n            linkedTo = chart.series[series.index - 1];\n        } else {\n            linkedTo = chart.get(linkedTo);\n        }\n        if (linkedTo) {\n            linkedTo.linkedSeries.push(series);\n            series.linkedParent = linkedTo;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (serie) {\n    serie.translate();\n    serie.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (label) {\n    var style = extend(labels.style, label.style), x = pInt(style.left) + chart.plotLeft, y = pInt(style.top) + chart.plotTop + 12;\n    delete style.left;\n    delete style.top;\n    chart.renderer.text(label.html, x, y).attr({ zIndex: 2 }).css(style).add();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.setScale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    if (axis.horiz && redoHorizontal || !axis.horiz && redoVertical) {\n        axis.setTickInterval(true);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axis.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (credits.href) {\n        location.href = credits.href;\n    }\n}",
+    "receiverBase": "text",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (name) {\n    var prop = chart[name];\n    if (prop && prop.destroy) {\n        chart[name] = prop.destroy();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    chart.firstRender();\n}",
+    "receiverBase": "CanVGController",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    doc.detachEvent('onreadystatechange', chart.firstRender);\n    if (doc.readyState === 'complete') {\n        chart.firstRender();\n    }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (serieOptions) {\n    chart.initSeries(serieOptions);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    if (chart.index !== UNDEFINED) {\n        fn.apply(chart, [chart]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    key = '{point.' + key;\n    if (valuePrefix || valueSuffix) {\n        pointFormat = pointFormat.replace(key + '}', valuePrefix + key + '}' + valueSuffix);\n    }\n    pointFormat = pointFormat.replace(key + '}', key + ':,.' + valueDecimals + 'f}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    series[key + 'Data'] = [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series, i) {\n    series.index = i;\n    series.name = series.name || 'Series ' + (i + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis) {\n    axisOptions = axis.options;\n    if (seriesOptions[AXIS] === axisOptions.index || seriesOptions[AXIS] !== UNDEFINED && seriesOptions[AXIS] === axisOptions.id || seriesOptions[AXIS] === UNDEFINED && axisOptions.index === 0) {\n        axis.series.push(series);\n        series[AXIS] = axis;\n        axis.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point, i) {\n    if (point.y === null) {\n        if (i > lastNull + 1) {\n            segments.push(points.slice(lastNull + 1, i));\n        }\n        lastNull = i;\n    } else if (i === pointsLength - 1) {\n        segments.push(points.slice(lastNull + 1, i + 1));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point, i) {\n    oldData[i].update(point, false, null, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    series[key + 'Data'].length = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (state) {\n    seriesPointAttr[state] = series.convertAttribs(stateOptions[state], seriesPointAttr[NORMAL_STATE]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (AXIS) {\n    axis = series[AXIS];\n    if (axis) {\n        erase(axis.series, series);\n        axis.isDirty = axis.forceRedraw = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    if (series[prop]) {\n        destroy = issue134 && prop === 'group' ? 'hide' : 'destroy';\n        series[prop][destroy]();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (segment) {\n    segmentPath = series.getSegmentPath(segment);\n    if (segment.length > 1) {\n        graphPath = graphPath.concat(segmentPath);\n    } else {\n        singlePoints.push(segment[0]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (threshold, i) {\n    props.push([\n        'colorGraph' + i,\n        threshold.color || series.color,\n        threshold.dashStyle || options.dashStyle\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (groupName) {\n    if (series[groupName]) {\n        series[groupName].attr(size).invert();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    removeEvent(chart, 'resize', setInvert);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (point) {\n    if (point.redraw) {\n        point.redraw();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    series.afterAnimate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a, b) {\n    return a[axis] - b[axis];\n}",
+    "receiverBase": "points",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (point) {\n    return point.y !== null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function () {\n    series = chart.initSeries(options);\n    chart.isDirtyLegend = true;\n    chart.linkSeries();\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (shape) {\n    if (shape) {\n        shape.shift = currentShift + 1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    series.destroy();\n    chart.isDirtyLegend = chart.isDirtyBox = true;\n    chart.linkSeries();\n    if (redraw) {\n        chart.redraw(animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (prop) {\n    preserve[prop] = series[prop];\n    delete series[prop];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    series[prop] = preserve[prop];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    axis.options.index = i;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (threshold, i) {\n    props.push([\n        'colorArea' + i,\n        threshold.color || series.color,\n        threshold.fillColor || options.fillColor\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    var areaKey = prop[0], area = series[areaKey];\n    if (area) {\n        area.animate({ d: areaPath });\n    } else {\n        series[areaKey] = series.chart.renderer.path(areaPath).attr({\n            fill: pick(prop[2], Color(prop[1]).setOpacity(pick(options.fillOpacity, 0.75)).get()),\n            zIndex: 0\n        }).add(series.group);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.type === series.type) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.type === series.type) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (point[key]) {\n        point[key][vis ? 'show' : 'hide'](true);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    var graphic = point.graphic, args = point.shapeArgs;\n    if (graphic) {\n        graphic.attr({\n            r: series.center[3] / 2,\n            start: startAngleRad,\n            end: startAngleRad\n        });\n        graphic.animate({\n            r: args.r,\n            start: args.start,\n            end: args.end\n        }, series.options.animation);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.angle !== undefined && (b.angle - a.angle) * sign;\n}",
+    "receiverBase": "points",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    if (series.visible) {\n        dataLabelsGroup.show();\n    }\n    dataLabelsGroup[seriesOptions.animation ? 'animate' : 'attr']({ opacity: 1 }, { duration: 200 });\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel && point.visible) {\n        halves[point.half].push(point);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    var dataLabel = point.dataLabel, _pos;\n    if (dataLabel) {\n        _pos = dataLabel._pos;\n        if (_pos) {\n            dataLabel.attr(dataLabel._attr);\n            dataLabel[dataLabel.moved ? 'animate' : 'attr'](_pos);\n            dataLabel.moved = true;\n        } else if (dataLabel) {\n            dataLabel.attr({ y: -999 });\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel) {\n        point.dataLabel._pos = null;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (series) {\n    var dlOptions = series.options.dataLabels;\n    if ((dlOptions.enabled || series._hasPointLabels) && !dlOptions.allowOverlap && series.visible) {\n        each(series.points, function (point) {\n            if (point.dataLabel) {\n                point.dataLabel.labelrank = point.labelrank;\n                labels.push(point.dataLabel);\n            }\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.dataLabel) {\n        point.dataLabel.labelrank = point.labelrank;\n        labels.push(point.dataLabel);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    if (point.graphic) {\n        point.graphic.element.point = point;\n    }\n    if (point.dataLabel) {\n        point.dataLabel.element.point = point;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (series[key]) {\n        series[key].addClass(PREFIX + 'tracker').on('mouseover', onMouseOver).on('mouseout', function (e) {\n            pointer.onTrackerMouseOut(e);\n        }).css(css);\n        if (hasTouch) {\n            series[key].on('touchstart', onMouseOver);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    pointer.onTrackerMouseOut(e);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (tracker) {\n    tracker.addClass(PREFIX + 'tracker').on('mouseover', onMouseOver).on('mouseout', function (e) {\n        pointer.onTrackerMouseOut(e);\n    }).css(css);\n    if (hasTouch) {\n        tracker.on('touchstart', onMouseOver);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    pointer.onTrackerMouseOut(e);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    item.setState(HOVER_STATE);\n    legendItem.css(legend.options.itemHoverStyle);\n}",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    legendItem.css(item.visible ? itemStyle : itemHiddenStyle);\n    item.setState();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var strLegendItemClick = 'legendItemClick', fnLegendItemClick = function () {\n            item.setVisible();\n        };\n    event = { browserEvent: event };\n    if (item.firePointEvent) {\n        item.firePointEvent(strLegendItemClick, event, fnLegendItemClick);\n    } else {\n        fireEvent(item, strLegendItemClick, event, fnLegendItemClick);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var target = event.target;\n    fireEvent(item.series || item, 'checkboxClick', {\n        checked: target.checked,\n        item: item\n    }, function () {\n        item.select();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    item.select();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function () {\n    chart.zoomOut();\n}",
+    "receiverBase": "renderer",
+    "receiverCallee": "button"
+  },
+  {
+    "callback": "function () {\n    chart.zoom();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fireEvent"
+  },
+  {
+    "callback": "function (axis) {\n    hasZoomed = axis.zoom();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axisData) {\n    var axis = axisData.axis, isXAxis = axis.isXAxis;\n    if (pointer[isXAxis ? 'zoomX' : 'zoomY'] || pointer[isXAxis ? 'pinchX' : 'pinchY']) {\n        hasZoomed = axis.zoom(axisData.min, axisData.max);\n        if (axis.displayBtn) {\n            displayButton = true;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (point) {\n    point.setState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (loopPoint) {\n    if (loopPoint.selected && loopPoint !== point) {\n        loopPoint.selected = loopPoint.options.selected = false;\n        series.options.data[inArray(loopPoint, series.data)] = loopPoint.options;\n        loopPoint.setState(NORMAL_STATE);\n        loopPoint.firePointEvent('unselect');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (series[key]) {\n        series[key][showOrHide]();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    if (otherSeries.options.stacking && otherSeries.visible) {\n        otherSeries.isDirty = true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (otherSeries) {\n    otherSeries.setVisible(vis, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, buff) {\n    if (err)\n        return cbfsfileget(err);\n    if (buff.length === 0)\n        buff = '';\n    cbfsfileget(null, buff);\n}",
+    "receiverBase": "sftp",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err, stat) {\n    if (err || !stat) {\n        return cbfsgetsize(new Exc.FileNotFound('File at location ' + self.path + ' not found'));\n    }\n    cbfsgetsize(null, stat.size);\n}",
+    "receiverBase": "sftp",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function (v, k) {\n    result.push(k + ':' + (Y.Features.test(cat, k, args) ? 1 : 0));\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child, index) {\n    indicators.push(this.renderIndicator(child, index), ' ');\n}",
+    "receiverBase": "ValidComponentChildren",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.waitForNext();\n    if (this.props.onSlideEnd) {\n        this.props.onSlideEnd();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setState"
+  }
+]

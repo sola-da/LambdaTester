@@ -1,0 +1,1350 @@
+[
+  {
+    "callback": "function (elem, i) {\n    return callback.call(elem, i, elem);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function doScrollCheck() {\n    if (!jQuery.isReady) {\n        try {\n            top.doScroll('left');\n        } catch (e) {\n            return setTimeout(doScrollCheck, 50);\n        }\n        jQuery.ready();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, name) {\n    class2type['[object ' + name + ']'] = name.toLowerCase();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, flag) {\n    object[flag] = true;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function add(args) {\n    jQuery.each(args, function (_, arg) {\n        var type = jQuery.type(arg);\n        if (type === 'function') {\n            if (!options.unique || !self.has(arg)) {\n                list.push(arg);\n            }\n        } else if (arg && arg.length && type !== 'string') {\n            add(arg);\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_, arg) {\n    var type = jQuery.type(arg);\n    if (type === 'function') {\n        if (!options.unique || !self.has(arg)) {\n            list.push(arg);\n        }\n    } else if (arg && arg.length && type !== 'string') {\n        add(arg);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, arg) {\n    var index;\n    while ((index = jQuery.inArray(arg, list, index)) > -1) {\n        list.splice(index, 1);\n        if (firing) {\n            if (index <= firingLength) {\n                firingLength--;\n            }\n            if (index <= firingIndex) {\n                firingIndex--;\n            }\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var action = tuple[0], fn = jQuery.isFunction(fns[i]) && fns[i];\n    deferred[tuple[1]](function () {\n        var returned = fn && fn.apply(this, arguments);\n        if (returned && jQuery.isFunction(returned.promise)) {\n            returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n        } else {\n            newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var returned = fn && fn.apply(this, arguments);\n    if (returned && jQuery.isFunction(returned.promise)) {\n        returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n    } else {\n        newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "deferred"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var list = tuple[2], stateString = tuple[3];\n    promise[tuple[1]] = list.add;\n    if (stateString) {\n        list.add(function () {\n            state = stateString;\n        }, tuples[i ^ 1][2].disable, tuples[2][2].lock);\n    }\n    deferred[tuple[0]] = function () {\n        deferred[tuple[0] + 'With'](this === deferred ? promise : this, arguments);\n        return this;\n    };\n    deferred[tuple[0] + 'With'] = list.fireWith;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    state = stateString;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    support.noCloneEvent = false;\n}",
+    "receiverBase": "div",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    if (value === undefined) {\n        return elem ? dataAttr(elem, key, jQuery.data(elem, key)) : null;\n    }\n    this.each(function () {\n        jQuery.data(this, key, value);\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeData(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery._removeData(elem, type + 'queue');\n    jQuery._removeData(elem, key);\n}",
+    "receiverBase": "Callbacks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var queue = jQuery.queue(this, type, data);\n    jQuery._queueHooks(this, type);\n    if (type === 'fx' && queue[0] !== 'inprogress') {\n        jQuery.dequeue(this, type);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.dequeue(this, type);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (next, hooks) {\n    var timeout = setTimeout(next, time);\n    hooks.stop = function () {\n        clearTimeout(timeout);\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeAttr(this, name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    try {\n        this[name] = undefined;\n        delete this[name];\n    } catch (e) {\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).addClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).removeClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value == null ? '' : value + '';\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    this.selected = jQuery.inArray(jQuery(this).val(), values) >= 0;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = jQuery.extend(jQuery.attrHooks[name], {\n        set: function (elem, value) {\n            if (value === '') {\n                elem.setAttribute(name, 'auto');\n                return value;\n            }\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = jQuery.extend(jQuery.attrHooks[name], {\n        get: function (elem) {\n            var ret = elem.getAttribute(name, 2);\n            return ret == null ? undefined : ret;\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.propHooks[name] = {\n        get: function (elem) {\n            return elem.getAttribute(name, 4);\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = {\n        get: function (elem) {\n            return elem.getAttribute('value') === null ? 'on' : elem.value;\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = jQuery.extend(jQuery.valHooks[this], {\n        set: function (elem, value) {\n            if (jQuery.isArray(value)) {\n                return elem.checked = jQuery.inArray(jQuery(elem).val(), value) >= 0;\n            }\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target, form = jQuery.nodeName(elem, 'input') || jQuery.nodeName(elem, 'button') ? elem.form : undefined;\n    if (form && !jQuery._data(form, 'submitBubbles')) {\n        jQuery.event.add(form, 'submit._submit', function (event) {\n            event._submit_bubble = true;\n        });\n        jQuery._data(form, 'submitBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    event._submit_bubble = true;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (event.originalEvent.propertyName === 'checked') {\n        this._just_changed = true;\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this._just_changed && !event.isTrigger) {\n        this._just_changed = false;\n    }\n    jQuery.event.simulate('change', this, event, true);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target;\n    if (rformElems.test(elem.nodeName) && !jQuery._data(elem, 'changeBubbles')) {\n        jQuery.event.add(elem, 'change._change', function (event) {\n            if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n                jQuery.event.simulate('change', this.parentNode, event, true);\n            }\n        });\n        jQuery._data(elem, 'changeBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n        jQuery.event.simulate('change', this.parentNode, event, true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.add(this, types, fn, data, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.remove(this, types, fn, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.trigger(type, data, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.fn[name] = function (data, fn) {\n        return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);\n    };\n    if (rkeyEvent.test(name)) {\n        jQuery.event.fixHooks[name] = jQuery.event.keyHooks;\n    }\n    if (rmouseEvent.test(name)) {\n        jQuery.event.fixHooks[name] = jQuery.event.mouseHooks;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (div) {\n    div.appendChild(doc.createComment(''));\n    return !div.getElementsByTagName('*').length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select></select>';\n    var type = typeof div.lastChild.getAttribute('multiple');\n    return type !== 'boolean' && type !== 'string';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<div class=\\'hidden e\\'></div><div class=\\'hidden\\'></div>';\n    if (!div.getElementsByClassName || !div.getElementsByClassName('e').length) {\n        return false;\n    }\n    div.lastChild.className = 'e';\n    return div.getElementsByClassName('e').length === 2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.id = expando + 0;\n    div.innerHTML = '<a name=\\'' + expando + '\\'></a><div name=\\'' + expando + '\\'></div>';\n    docElem.insertBefore(div, docElem.firstChild);\n    var pass = doc.getElementsByName && doc.getElementsByName(expando).length === 2 + doc.getElementsByName(expando + 0).length;\n    support.getIdNotName = !doc.getElementById(expando);\n    docElem.removeChild(div);\n    return pass;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<a href=\\'#\\'></a>';\n    return div.firstChild && typeof div.firstChild.getAttribute !== strundefined && div.firstChild.getAttribute('href') === '#';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select><option selected=\\'\\'></option></select>';\n    if (!div.querySelectorAll('[selected]').length) {\n        rbuggyQSA.push('\\\\[' + whitespace + '*(?:checked|disabled|ismap|multiple|readonly|selected|value)');\n    }\n    if (!div.querySelectorAll(':checked').length) {\n        rbuggyQSA.push(':checked');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<input type=\\'hidden\\' i=\\'\\'/>';\n    if (div.querySelectorAll('[i^=\\'\\']').length) {\n        rbuggyQSA.push('[*^$]=' + whitespace + '*(?:\"\"|\\'\\')');\n    }\n    if (!div.querySelectorAll(':enabled').length) {\n        rbuggyQSA.push(':enabled', ':disabled');\n    }\n    div.querySelectorAll('*,:x');\n    rbuggyQSA.push(',.*:');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    support.disconnectedMatch = matches.call(div, 'div');\n    matches.call(div, '[s!=\\'\\']:x');\n    rbuggyMatches.push('!=', pseudos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (argument) {\n    argument = +argument;\n    return markFunction(function (seed, matches) {\n        var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n        while (i--) {\n            if (seed[j = matchIndexes[i]]) {\n                seed[j] = !(matches[j] = seed[j]);\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n    while (i--) {\n        if (seed[j = matchIndexes[i]]) {\n            seed[j] = !(matches[j] = seed[j]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (elem) {\n    return pattern.test(elem.className || typeof elem.getAttribute !== strundefined && elem.getAttribute('class') || '');\n}",
+    "receiverBase": "",
+    "receiverCallee": "classCache"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var idx, matched = fn(seed, argument), i = matched.length;\n    while (i--) {\n        idx = indexOf.call(seed, matched[i]);\n        seed[idx] = !(matches[idx] = matched[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches, context, xml) {\n    var elem, unmatched = matcher(seed, null, xml, []), i = seed.length;\n    while (i--) {\n        if (elem = unmatched[i]) {\n            seed[i] = !(matches[i] = elem);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (selector) {\n    return function (elem) {\n        return Sizzle(selector, elem).length > 0;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (text) {\n    return function (elem) {\n        return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    return [0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    return [length - 1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    return [argument < 0 ? argument + length : argument];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 0;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 1;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; --i >= 0;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; ++i < length;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === checkContext;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (elem) {\n    return indexOf.call(checkContext, elem) > -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < self.length; i++) {\n        if (jQuery.contains(self[i], this)) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < len; i++) {\n        if (jQuery.contains(this, targets[i])) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (elem, i) {\n    var retVal = !!qualifier.call(elem, i, elem);\n    return retVal === keep;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === qualifier === keep;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return elem.nodeType === 1;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return jQuery.inArray(elem, qualifier) >= 0 === keep;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (value) {\n    return value === undefined ? jQuery.text(this) : this.empty().append((this[0] && this[0].ownerDocument || document).createTextNode(value));\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elem = this;\n    while (elem.firstChild && elem.firstChild.nodeType === 1) {\n        elem = elem.firstChild;\n    }\n    return elem;\n}",
+    "receiverBase": "wrap",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapInner(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var self = jQuery(this), contents = self.contents();\n    if (contents.length) {\n        contents.wrapAll(html);\n    } else {\n        self.append(html);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(isFunction ? html.call(this, i) : html);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!jQuery.nodeName(this, 'body')) {\n        jQuery(this).replaceWith(this.childNodes);\n    }\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        this.appendChild(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        this.insertBefore(elem, this.firstChild);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this.nextSibling);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function () {\n    return jQuery.clone(this, dataAndEvents, deepDataAndEvents);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem) {\n    var next = this.nextSibling, parent = this.parentNode;\n    if (parent && this.nodeType === 1 || this.nodeType === 11) {\n        jQuery(this).remove();\n        if (next) {\n            next.parentNode.insertBefore(elem, next);\n        } else {\n            parent.appendChild(elem);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (index) {\n    var self = set.eq(index);\n    if (isFunction) {\n        args[0] = value.call(this, index, table ? self.html() : undefined);\n    }\n    self.domManip(args, table, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, original) {\n    jQuery.fn[name] = function (selector) {\n        var elems, i = 0, ret = [], insert = jQuery(selector), last = insert.length - 1;\n        for (; i <= last; i++) {\n            elems = i === last ? this : this.clone(true);\n            jQuery(insert[i])[original](elems);\n            core_push.apply(ret, elems.get());\n        }\n        return this.pushStack(ret);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem, name, value) {\n    var styles, len, map = {}, i = 0;\n    if (jQuery.isArray(name)) {\n        styles = getStyles(elem);\n        len = name.length;\n        for (; i < len; i++) {\n            map[name[i]] = jQuery.css(elem, name[i], false, styles);\n        }\n        return map;\n    }\n    return value !== undefined ? jQuery.style(elem, name, value) : jQuery.css(elem, name);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    if (bool ? state : isHidden(this)) {\n        jQuery(this).show();\n    } else {\n        jQuery(this).hide();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return getWidthOrHeight(elem, name, extra);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "swap"
+  },
+  {
+    "callback": "function (i, prop) {\n    jQuery.cssHooks[prop] = {\n        get: function (elem, computed) {\n            if (computed) {\n                computed = curCSS(elem, prop);\n                return rnumnonpx.test(computed) ? jQuery(elem).position()[prop] + 'px' : computed;\n            }\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elements = jQuery.prop(this, 'elements');\n    return elements ? jQuery.makeArray(elements) : this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var type = this.type;\n    return this.name && !jQuery(this).is(':disabled') && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !manipulation_rcheckableType.test(type));\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, elem) {\n    var val = jQuery(this).val();\n    return val == null ? null : jQuery.isArray(val) ? jQuery.map(val, function (val) {\n        return {\n            name: elem.name,\n            value: val.replace(rCRLF, '\\r\\n')\n        };\n    }) : {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    add(this.name, this.value);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, v) {\n    if (traditional || rbracket.test(prefix)) {\n        add(prefix, v);\n    } else {\n        buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, prefilterOrFactory) {\n    var dataTypeOrTransport = prefilterOrFactory(options, originalOptions, jqXHR);\n    if (typeof dataTypeOrTransport === 'string' && !seekingTransport && !inspected[dataTypeOrTransport]) {\n        options.dataTypes.unshift(dataTypeOrTransport);\n        inspect(dataTypeOrTransport);\n        return false;\n    } else if (seekingTransport) {\n        return !(selected = dataTypeOrTransport);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (responseText) {\n    response = arguments;\n    self.html(selector ? jQuery('<div>').append(jQuery.parseHTML(responseText)).find(selector) : responseText);\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (i, type) {\n    jQuery.fn[type] = function (fn) {\n        return this.on(type, fn);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, method) {\n    jQuery[method] = function (url, data, callback, type) {\n        if (jQuery.isFunction(data)) {\n            type = type || callback;\n            callback = data;\n            data = undefined;\n        }\n        return jQuery.ajax({\n            url: url,\n            type: method,\n            dataType: type,\n            data: data,\n            success: callback\n        });\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jqXHR.abort('timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (s) {\n    if (s.cache === undefined) {\n        s.cache = false;\n    }\n    if (s.crossDomain) {\n        s.type = 'GET';\n        s.global = false;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "ajaxPrefilter"
+  },
+  {
+    "callback": "function () {\n    window[callbackName] = overwritten;\n    if (s[callbackName]) {\n        s.jsonpCallback = originalSettings.jsonpCallback;\n        oldCallbacks.push(callbackName);\n    }\n    if (responseContainer && jQuery.isFunction(overwritten)) {\n        overwritten(responseContainer[0]);\n    }\n    responseContainer = overwritten = undefined;\n}",
+    "receiverBase": "jqXHR",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    fxNow = undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (prop, value) {\n    var collection = (tweeners[prop] || []).concat(tweeners['*']), index = 0, length = collection.length;\n    for (; index < length; index++) {\n        if (collection[index].call(animation, prop, value)) {\n            return;\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    delete tick.elem;\n}",
+    "receiverBase": "Deferred",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    anim.always(function () {\n        hooks.unqueued--;\n        if (!jQuery.queue(elem, 'fx').length) {\n            hooks.empty.fire();\n        }\n    });\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    hooks.unqueued--;\n    if (!jQuery.queue(elem, 'fx').length) {\n        hooks.empty.fire();\n    }\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    style.overflow = opts.overflow[0];\n    style.overflowX = opts.overflow[1];\n    style.overflowY = opts.overflow[2];\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    jQuery(elem).hide();\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    var prop;\n    jQuery._removeData(elem, 'fxshow');\n    for (prop in orig) {\n        jQuery.style(elem, prop, orig[prop]);\n    }\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (i, name) {\n    var cssFn = jQuery.fn[name];\n    jQuery.fn[name] = function (speed, easing, callback) {\n        return speed == null || typeof speed === 'boolean' ? cssFn.apply(this, arguments) : this.animate(genFx(name, true), speed, easing, callback);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, props) {\n    jQuery.fn[name] = function (speed, easing, callback) {\n        return this.animate(props, speed, easing, callback);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    return elem === fn.elem;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (i) {\n    jQuery.offset.setOffset(this, options, i);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var offsetParent = this.offsetParent || document.documentElement;\n    while (offsetParent && (!jQuery.nodeName(offsetParent, 'html') && jQuery.css(offsetParent, 'position') === 'static')) {\n        offsetParent = offsetParent.offsetParent;\n    }\n    return offsetParent || document.documentElement;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem, method, val) {\n    var win = getWindow(elem);\n    if (val === undefined) {\n        return win ? prop in win ? win[prop] : win.document.documentElement[method] : elem[method];\n    }\n    if (win) {\n        win.scrollTo(!top ? val : jQuery(win).scrollLeft(), top ? val : jQuery(win).scrollTop());\n    } else {\n        elem[method] = val;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function (elem, type, value) {\n    var doc;\n    if (jQuery.isWindow(elem)) {\n        return elem.document.documentElement['client' + name];\n    }\n    if (elem.nodeType === 9) {\n        doc = elem.documentElement;\n        return Math.max(elem.body['scroll' + name], doc['scroll' + name], elem.body['offset' + name], doc['offset' + name], doc['client' + name]);\n    }\n    return value === undefined ? jQuery.css(elem, type, extra) : jQuery.style(elem, type, value, extra);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    return jQuery;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var res, scheduler, xs;\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable(onNext(210, 1), onNext(220, 2), onCompleted(230));\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(0, scheduler);\n    });\n    res.messages.assertEqual(onNext(210, 1), onNext(220, 2), onCompleted(230));\n    xs.subscriptions.assertEqual(subscribe(200, 230));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(0, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    var res, scheduler, xs;\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable(onNext(210, 1), onNext(220, 2), onNext(230, 3), onCompleted(230));\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(0, scheduler);\n    });\n    res.messages.assertEqual(onNext(210, 1), onNext(220, 2), onNext(230, 3), onCompleted(230));\n    xs.subscriptions.assertEqual(subscribe(200, 230));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(0, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    var res, scheduler, xs;\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable(onNext(210, 1), onNext(220, 2), onNext(230, 3), onCompleted(230));\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(15, scheduler);\n    });\n    res.messages.assertEqual(onNext(230, 1), onCompleted(230));\n    xs.subscriptions.assertEqual(subscribe(200, 230));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(15, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(45, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    var res, scheduler, xs;\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable(onNext(210, 1), onNext(220, 2), onCompleted(230));\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(45, scheduler);\n    });\n    res.messages.assertEqual(onCompleted(230));\n    xs.subscriptions.assertEqual(subscribe(200, 230));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(45, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    var ex, res, scheduler, xs;\n    ex = 'ex';\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable(onError(210, ex));\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(45, scheduler);\n    });\n    res.messages.assertEqual(onError(210, ex));\n    xs.subscriptions.assertEqual(subscribe(200, 210));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(45, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function () {\n    var res, scheduler, xs;\n    scheduler = new TestScheduler();\n    xs = scheduler.createHotObservable();\n    res = scheduler.startWithCreate(function () {\n        return xs.skipLastWithTime(50, scheduler);\n    });\n    res.messages.assertEqual();\n    xs.subscriptions.assertEqual(subscribe(200, 1000));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return xs.skipLastWithTime(50, scheduler);\n}",
+    "receiverBase": "scheduler",
+    "receiverCallee": "startWithCreate"
+  },
+  {
+    "callback": "function (data) {\n    self.trackLoaded(context.files[context.files.length - 1] || undefined, sourceUrl, data);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function (message) {\n    context.errors.push('Broken source map at \"' + sourceUrl + '\" - ' + message);\n    return done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function (res) {\n    if (res.statusCode < 200 || res.statusCode > 299)\n        return onFailure(res.statusCode);\n    var chunks = [];\n    res.on('data', function (chunk) {\n        chunks.push(chunk.toString());\n    });\n    res.on('end', function () {\n        onSuccess(chunks.join(''));\n    });\n}",
+    "receiverBase": "protocol",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (chunk) {\n    chunks.push(chunk.toString());\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    onSuccess(chunks.join(''));\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res) {\n    if (errorHandled)\n        return;\n    onFailure(res.message);\n    errorHandled = true;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (errorHandled)\n        return;\n    onFailure('timeout');\n    errorHandled = true;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file, index) {\n    var uniquePath = isRemote ? url.resolve(path.dirname(sourceFile), file) : path.relative(self.relativeTo, path.resolve(path.dirname(sourceFile), file));\n    sourcesMapping[uniquePath] = consumer.sourcesContent && consumer.sourcesContent[index];\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (data) {\n    self.sourcesContent[sourceFile][originalFile] = data;\n    processNext();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function (message) {\n    self.warnings.push('Broken original source file at \"' + originalFile + '\" - ' + message);\n    processNext();\n}",
+    "receiverBase": "",
+    "receiverCallee": "fetch"
+  },
+  {
+    "callback": "function () {\n    setModule(id, factory, arguments);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_require"
+  },
+  {
+    "callback": "function () {\n    var $ = window.__dollar || window.jQuery || window.Zepto;\n    if (!$) {\n        throw new Error('jQuery or Zepto not found!');\n    }\n    return $;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (_) {\n    return _;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function ($) {\n    return {\n        Deferred: $.Deferred,\n        when: $.when,\n        isPromise: function (anything) {\n            return anything && typeof anything.then === 'function';\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (_) {\n    return _;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (ua) {\n    var ret = {}, android = ua.match(/(?:Android);?[\\s\\/]+([\\d.]+)?/), ios = ua.match(/(?:iPad|iPod|iPhone).*OS\\s([\\d_]+)/);\n    android && (ret.android = parseFloat(android[1]));\n    ios && (ret.ios = parseFloat(ios[1].replace(/_/g, '.')));\n    return ret;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (window.console) {\n        return bindFn(console.log, console);\n    }\n    return noop;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return function (cb) {\n        setTimeout(cb, 1);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var counter = 0;\n    return function (prefix) {\n        var guid = (+new Date()).toString(32), i = 0;\n        for (; i < 5; i++) {\n            guid += Math.floor(Math.random() * 65535).toString(32);\n        }\n        return (prefix || 'wu_') + guid + (counter++).toString(32);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (handler) {\n    return handler && (!name || handler.e === name) && (!callback || handler.cb === callback || handler.cb._cb === callback) && (!context || handler.ctx === context);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (_, key) {\n    iterator(key, callback);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, callback) {\n    var handler = { e: name };\n    handler.cb = callback;\n    handler.ctx = context;\n    handler.ctx2 = context || me;\n    handler.id = set.length;\n    set.push(handler);\n}",
+    "receiverBase": "",
+    "receiverCallee": "eachEvent"
+  },
+  {
+    "callback": "function (name, callback) {\n    var once = function () {\n        me.off(name, once);\n        return callback.apply(context || me, arguments);\n    };\n    once._cb = callback;\n    me.on(name, once, context);\n}",
+    "receiverBase": "",
+    "receiverCallee": "eachEvent"
+  },
+  {
+    "callback": "function (name, cb) {\n    $.each(findHandlers(events, name, cb, ctx), function () {\n        delete events[this.id];\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "eachEvent"
+  },
+  {
+    "callback": "function () {\n    delete events[this.id];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn, command) {\n    Uploader.prototype[fn] = function () {\n        return this.request(command, arguments);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    me.state = 'ready';\n    me.trigger('ready');\n}",
+    "receiverBase": "me",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    if (factories[this]) {\n        type = this;\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (destroy) {\n    return function () {\n        destroy && destroy.apply(this, arguments);\n        this.trigger('destroy');\n        this.off();\n        this.exec('destroy');\n        this.disconnectRuntime();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (file) {\n    file = new File(me.getRuid(), file);\n    file._refer = opts.container;\n    return file;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n    me.exec('init', opts);\n    me.trigger('ready');\n}",
+    "receiverBase": "me",
+    "receiverCallee": "connectRuntime"
+  },
+  {
+    "callback": "function (_, klass) {\n    (!deactives || !~deactives.indexOf(klass._name)) && widgets.push(new klass(me));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var deferred = Base.Deferred(), args = arguments;\n    if (args.length === 1) {\n        args = args[0];\n    }\n    setTimeout(function () {\n        deferred.resolve(args);\n    }, 1);\n    return deferred.promise();\n}",
+    "receiverBase": "",
+    "receiverCallee": "promise"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (key) {\n    if (key[0] === '_' || key === 'name') {\n        key === 'name' && (map.name = widgetProto.name);\n        return;\n    }\n    map[key.replace(/[A-Z]/g, '-$&').toLowerCase()] = key;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.refresh();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (files) {\n    me.owner.request('add-file', [files]);\n}",
+    "receiverBase": "picker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.owner.trigger('dialogOpen', picker.button);\n}",
+    "receiverBase": "picker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.disable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.enable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.destroy();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this._info = this.exec('info');\n    this._meta = this.exec('meta');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.exec('init', me.options);\n    me.exec('loadFromBlob', blob);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "connectRuntime"
+  },
+  {
+    "callback": "function () {\n    occupied -= size;\n    setTimeout(tick, 1);\n}",
+    "receiverBase": "emiter",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    file._info = file._info || image.info();\n    file._meta = file._meta || image.meta();\n    if (width <= 1 && width > 0) {\n        width = file._info.width * width;\n    }\n    if (height <= 1 && height > 0) {\n        height = file._info.height * height;\n    }\n    image.resize(width, height);\n}",
+    "receiverBase": "image",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    cb(false, image.getAsDataUrl(opts.type));\n    image.destroy();\n}",
+    "receiverBase": "image",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (reason) {\n    cb(reason || true);\n    image.destroy();\n}",
+    "receiverBase": "image",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    file._info && image.info(file._info);\n    file._meta && image.meta(file._meta);\n    image.loadFromBlob(file.source);\n}",
+    "receiverBase": "",
+    "receiverCallee": "throttle"
+  },
+  {
+    "callback": "function () {\n    image.destroy();\n    image = null;\n}",
+    "receiverBase": "deferred",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    var width = opts.width, height = opts.height;\n    file._info = file._info || image.info();\n    file._meta = file._meta || image.meta();\n    if (width <= 1 && width > 0) {\n        width = file._info.width * width;\n    }\n    if (height <= 1 && height > 0) {\n        height = file._info.height * height;\n    }\n    image.resize(width, height);\n}",
+    "receiverBase": "image",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    var blob, size;\n    try {\n        blob = image.getAsBlob(opts.type);\n        size = file.size;\n        if (!noCompressIfLarger || blob.size < size) {\n            file.source = blob;\n            file.size = blob.size;\n            file.trigger('resize', blob.size, size);\n        }\n        file._compressed = true;\n        deferred.resolve();\n    } catch (e) {\n        deferred.resolve();\n    }\n}",
+    "receiverBase": "image",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (msg) {\n    this.setStatus(WUFile.Status.ERROR, msg);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (cur, pre) {\n    me._onFileStatusChange(cur, pre);\n}",
+    "receiverBase": "file",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me._ruid = runtime.getRuid();\n    deferred.resolve();\n}",
+    "receiverBase": "runtime",
+    "receiverCallee": "connectRuntime"
+  },
+  {
+    "callback": "function (file) {\n    return me._addFile(file);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    me.request('start-upload');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.trigger('progress', 1);\n    clearTimeout(me._timer);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.exec('init');\n}",
+    "receiverBase": "me",
+    "receiverCallee": "connectRuntime"
+  },
+  {
+    "callback": "function () {\n    me.abort();\n    me.trigger('error', 'timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.progress = true;\n}",
+    "receiverBase": "owner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.progress = false;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    file.blocks && $.each(file.blocks, function (_, v) {\n        v.transport && (v.transport.abort(), v.transport.destroy());\n        delete v.transport;\n    });\n    delete file.blocks;\n    delete file.remaning;\n}",
+    "receiverBase": "owner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (_, v) {\n    v.transport && (v.transport.abort(), v.transport.destroy());\n    delete v.transport;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    me.request('remove-file', this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    if (v.file !== file) {\n        return;\n    }\n    v.transport && v.transport.send();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.setStatus(Status.QUEUED);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    var file = v.file;\n    if (file.getStatus() === Status.INTERRUPT) {\n        files.push(file);\n        me._trigged = false;\n        v.transport && v.transport.send();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.setStatus(Status.PROGRESS);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    if (v.file !== file) {\n        return;\n    }\n    v.transport && v.transport.abort();\n    me._putback(v);\n    me._popBlock(v);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    v.transport && v.transport.abort();\n    v.file.setStatus(Status.INTERRUPT);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    var _tr = v.transport;\n    if (_tr) {\n        _tr.abort();\n        _tr.destroy();\n        delete v.transport;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, v) {\n    var _tr = v.transport;\n    if (_tr) {\n        _tr.abort();\n        _tr.destroy();\n        delete v.transport;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    me.owner.trigger('uploadFinished');\n}",
+    "receiverBase": "Base",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    if (file.getStatus() === Status.PROGRESS || file.getStatus() === Status.INTERRUPT) {\n        return file;\n    }\n    return me._finishFile(file);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    var idx = $.inArray(promise, pending);\n    ~idx && pending.splice(idx, 1, file);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (reason) {\n    file.setStatus(Status.ERROR, reason);\n    me.owner.trigger('uploadError', file, reason);\n    me.owner.trigger('uploadComplete', file);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    if (file.getStatus() === Status.PROGRESS) {\n        me._doSend(block);\n    } else {\n        me._popBlock(block);\n        Base.nextTick(me.__tick);\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    if (file.remaning === 1) {\n        me._finishFile(file).always(function () {\n            block.percentage = 1;\n            me._popBlock(block);\n            me.owner.trigger('uploadComplete', file);\n            Base.nextTick(me.__tick);\n        });\n    } else {\n        block.percentage = 1;\n        me.updateFileProgress(file);\n        me._popBlock(block);\n        Base.nextTick(me.__tick);\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    block.percentage = 1;\n    me._popBlock(block);\n    me.owner.trigger('uploadComplete', file);\n    Base.nextTick(me.__tick);\n}",
+    "receiverBase": "_finishFile",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    delete block.transport;\n    me._popBlock(block);\n    Base.nextTick(me.__tick);\n}",
+    "receiverBase": "tr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (percentage) {\n    block.percentage = percentage;\n    me.updateFileProgress(file);\n}",
+    "receiverBase": "tr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (type, flag) {\n    block.retried = block.retried || 0;\n    if (block.chunks > 1 && ~'http,abort'.indexOf(type) && block.retried < opts.chunkRetry) {\n        block.retried++;\n        tr.send();\n    } else {\n        if (!flag && type === 'server') {\n            type = requestAccept(type);\n        }\n        file.setStatus(Status.ERROR, type);\n        owner.trigger('uploadError', file, type);\n        owner.trigger('uploadComplete', file);\n    }\n}",
+    "receiverBase": "tr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var reason;\n    if (reason = requestAccept()) {\n        tr.trigger('error', reason, true);\n        return;\n    }\n    if (file.remaning === 1) {\n        me._finishFile(file, ret);\n    } else {\n        tr.destroy();\n    }\n}",
+    "receiverBase": "tr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    file.setStatus(Status.COMPLETE);\n    owner.trigger('uploadSuccess', file, ret, hds);\n}",
+    "receiverBase": "owner",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (reason) {\n    if (file.getStatus() === Status.PROGRESS) {\n        file.setStatus(Status.ERROR, reason);\n    }\n    owner.trigger('uploadError', file, reason);\n}",
+    "receiverBase": "request",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    owner.trigger('uploadComplete', file);\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function (_, v) {\n    uploaded += (v.percentage || 0) * (v.end - v.start);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $.each(validators, function () {\n        this.call(me.owner);\n    });\n}",
+    "receiverBase": "Base",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    this.call(me.owner);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (file) {\n    if (count >= max && flag) {\n        flag = false;\n        this.trigger('error', 'Q_EXCEED_NUM_LIMIT', max, file);\n        setTimeout(function () {\n            flag = true;\n        }, 1);\n    }\n    return count >= max ? false : true;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    flag = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    count++;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    count--;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    count = 0;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    var invalid = count + file.size > max;\n    if (invalid && flag) {\n        flag = false;\n        this.trigger('error', 'Q_EXCEED_SIZE_LIMIT', max, file);\n        setTimeout(function () {\n            flag = true;\n        }, 1);\n    }\n    return invalid ? false : true;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    flag = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (file) {\n    count += file.size;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    count -= file.size;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    count = 0;\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var uploader = this, opts = uploader.options, max = opts.fileSingleSizeLimit;\n    if (!max) {\n        return;\n    }\n    uploader.on('beforeFileQueued', function (file) {\n        if (file.size > max) {\n            file.setStatus(WUFile.Status.INVALID, 'exceed_size');\n            this.trigger('error', 'F_EXCEED_SIZE', max, file);\n            return false;\n        }\n    });\n}",
+    "receiverBase": "api",
+    "receiverCallee": "addValidator"
+  },
+  {
+    "callback": "function (file) {\n    if (file.size > max) {\n        file.setStatus(WUFile.Status.INVALID, 'exceed_size');\n        this.trigger('error', 'F_EXCEED_SIZE', max, file);\n        return false;\n    }\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    var hash = file.__hash || (file.__hash = hashString(file.name + file.size + file.lastModifiedDate));\n    if (mapping[hash]) {\n        this.trigger('error', 'F_DUPLICATE', file);\n        return false;\n    }\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    var hash = file.__hash;\n    hash && (mapping[hash] = true);\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    var hash = file.__hash;\n    hash && delete mapping[hash];\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    mapping = {};\n}",
+    "receiverBase": "uploader",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    function CompBase(owner, runtime) {\n        this.owner = owner;\n        this.options = owner.options;\n        this.getRuntime = function () {\n            return runtime;\n        };\n        this.getRuid = function () {\n            return runtime.uid;\n        };\n        this.trigger = function () {\n            return owner.trigger.apply(owner, arguments);\n        };\n    }\n    return CompBase;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    handler.apply(null, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (FlashRuntime) {\n    return FlashRuntime.register('Image', {\n        loadFromBlob: function (blob) {\n            var owner = this.owner;\n            owner.info() && this.flashExec('Image', 'info', owner.info());\n            owner.meta() && this.flashExec('Image', 'meta', owner.meta());\n            this.flashExec('Image', 'loadFromBlob', blob.uid);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (FlashRuntime, Blob) {\n    return FlashRuntime.register('Blob', {\n        slice: function (start, end) {\n            var blob = this.flashExec('Blob', 'slice', start, end);\n            return new Blob(blob.uid, blob);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (k, v) {\n    xhr.exec('append', k, v);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var percent = e.loaded / e.total;\n    percent = Math.min(1, Math.max(0, percent));\n    return me.trigger('progress', percent);\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    xhr.off();\n    me._xhr = null;\n    me.trigger('error', 'http');\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key, val) {\n    xhr.exec('setRequestHeader', key, val);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (Base) {\n    return Base;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (preset) {\n    return preset;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    expect(swig.render('{% macro tacos() %}tacos{% endmacro %}{{ tacos() }}')).to.equal('tacos');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(swig.render('{% macro tacos(a, b, c) %}{{ a }}, {{ c }}, {{ b }}{% endmacro %}{{ tacos(1, 3, 2) }}')).to.equal('1, 2, 3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(swig.render('{% macro foo %}<h1>{{ \"<p>\" }}</h1>{% endmacro %}{{ foo() }}')).to.equal('<h1>&lt;p&gt;</h1>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        swig.render('{% macro tacos(burrito.bean) %}{% endmacro %}');\n    }).to.throwError(/Unexpected dot in macro argument \"burrito\\.bean\" on line 1\\./);\n    expect(function () {\n        swig.render('{% macro tacos(burrito), asdf) %}{% endmacro %}');\n    }).to.throwError(/Unexpected parenthesis close on line 1\\./);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    swig.render('{% macro tacos(burrito.bean) %}{% endmacro %}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    swig.render('{% macro tacos(burrito), asdf) %}{% endmacro %}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(swig.render('{% set foo = 1 %}{% set baz = 3 %}{% macro bar(foo) %}{{ foo }}{{ baz }}{% endmacro %}{{ bar(2) }}{{ foo }}')).to.equal('231');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(swig.render('{% macro burrito() %}burrito{% endmacro %}{% set foo = burrito() %}{{foo}}')).to.equal('burrito');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (event, matchedEl, container) {\n    return fnMouseDelegate.call(matchedEl, event, container);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "_createDelegate"
+  },
+  {
+    "callback": "function (c) {\n    assert.ok(_.isArray(c));\n    assert.ok(c.length > 1);\n    c.forEach(function (d) {\n        assert.strictEqual(c, d.cluster);\n        c.forEach(function (e) {\n            assert.ok(spec.metric(d, e) < spec.clusterDistance * 2);\n        });\n    });\n}",
+    "receiverBase": "cluster",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    assert.strictEqual(c, d.cluster);\n    c.forEach(function (e) {\n        assert.ok(spec.metric(d, e) < spec.clusterDistance * 2);\n    });\n}",
+    "receiverBase": "c",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    assert.ok(spec.metric(d, e) < spec.clusterDistance * 2);\n}",
+    "receiverBase": "c",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    try {\n        d.center();\n        assert.ok(true);\n    } catch (e) {\n        assert.ok(false);\n    }\n    cluster.forEach(function (e) {\n        if (d !== e) {\n            assert.ok(spec.metric(d.center(), e.center()) > spec.clusterDistance);\n        }\n    });\n    singlet.forEach(function (e) {\n        assert.ok(spec.metric(d.center(), e) > spec.clusterDistance);\n    });\n}",
+    "receiverBase": "cluster",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (d !== e) {\n        assert.ok(spec.metric(d.center(), e.center()) > spec.clusterDistance);\n    }\n}",
+    "receiverBase": "cluster",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    assert.ok(spec.metric(d.center(), e) > spec.clusterDistance);\n}",
+    "receiverBase": "singlet",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    assert.notStrictEqual(d, undefined);\n    assert.notStrictEqual(d.cluster, undefined);\n    assert.strictEqual(d.cluster.length, 1);\n    singlet.forEach(function (e) {\n        if (d !== e) {\n            assert.ok(spec.metric(d, e) > spec.clusterDistance);\n        }\n    });\n}",
+    "receiverBase": "singlet",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (d !== e) {\n        assert.ok(spec.metric(d, e) > spec.clusterDistance);\n    }\n}",
+    "receiverBase": "singlet",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (assert) {\n    spec.clusterDistance = spec.clusterDistance || 10;\n    spec.data = makeRandomData(N);\n    var obj = tangelo.plugin.data.distanceCluster(spec);\n    spec.metric = spec.metric || metric;\n    checkCluster(assert, obj.clusters, obj.singlets, spec);\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (assert) {\n    spec.data = makeRandomData(100);\n    spec.metric = function () {\n        return 0;\n    };\n    var obj = tangelo.plugin.data.distanceCluster(spec);\n    assert.strictEqual(obj.clusters.length, 1);\n    assert.strictEqual(obj.singlets.length, 0);\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (assert) {\n    spec.data = makeRandomData(100);\n    spec.metric = function () {\n        return 100;\n    };\n    var obj = tangelo.plugin.data.distanceCluster(spec);\n    assert.strictEqual(obj.clusters.length, 0);\n    assert.strictEqual(obj.singlets.length, spec.data.length);\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (d) {\n    return [\n        d.x,\n        d.y\n    ];\n}",
+    "receiverBase": "makeRandomData",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return { loc: d };\n}",
+    "receiverBase": "makeRandomData",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    callback(null, {\n        'uri': sourceUri,\n        'data': translatedStatuses\n    });\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachSeries"
+  }
+]

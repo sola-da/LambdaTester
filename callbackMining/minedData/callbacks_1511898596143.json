@@ -1,0 +1,733 @@
+[
+  {
+    "callback": "function (err) {\n    console.log(err.line + ':' + err.character + ' ' + err.reason);\n}",
+    "receiverBase": "errors",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        return console.log(err);\n    } else {\n        lint(data) && build(data) && writeBower();\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (path) {\n    var module = require('./' + path);\n    for (var i in module) {\n        exports[i] = module[i];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (path) {\n    var module = require('./' + path);\n    for (var i in module) {\n        classes[i] = module[i];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (path) {\n    var module = require('./' + path);\n    for (var i in module) {\n        classes[i] = module[i];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    angmods[name] = file;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep) {\n    if (isDependecyUsedInAnyDeclaration(dep, deps)) {\n        return;\n    }\n    if (dep === ANGULAR_MODULE) {\n        return;\n    }\n    toSort.push([\n        file,\n        dep\n    ]);\n}",
+    "receiverBase": "dependencies",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function afterFileCollection() {\n    for (var i = 0; i < toSort.length; i++) {\n        var moduleName = toSort[i][1];\n        var declarationFile = angmods[moduleName];\n        if (declarationFile) {\n            toSort[i][1] = declarationFile;\n        } else {\n            toSort.splice(i--, 1);\n        }\n    }\n    toposort.array(files, toSort).reverse().forEach(function (file) {\n        this.emit('data', file);\n    }.bind(this));\n    this.emit('end');\n}",
+    "receiverBase": "es",
+    "receiverCallee": "through"
+  },
+  {
+    "callback": "function (module) {\n    return ngDeps.modules[module].indexOf(dependency) > -1;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    nl.work();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    nl.work();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (k) {\n    ret += k + '=' + stats[k] + '\\n';\n}",
+    "receiverBase": "sort",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    calendar.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "R"
+  },
+  {
+    "callback": "function () {\n    element.unbind(endEventName, transitionEndHandler);\n    deferred.resolve(element);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    if (angular.isString(trigger)) {\n        element.addClass(trigger);\n    } else if (angular.isFunction(trigger)) {\n        trigger(element);\n    } else if (angular.isObject(trigger)) {\n        element.css(trigger);\n    }\n    if (!endEventName) {\n        deferred.resolve(element);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (shouldCollapse) {\n    if (shouldCollapse) {\n        collapse();\n    } else {\n        expand();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (group) {\n    if (group !== openGroup) {\n        group.isOpen = false;\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    that.removeGroup(groupScope);\n}",
+    "receiverBase": "groupScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        controller: 'AccordionController',\n        transclude: true,\n        replace: false,\n        templateUrl: 'template/accordion/accordion.html'\n    };\n}",
+    "receiverBase": "controller",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value) {\n    scope.isOpen = !!value;\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    if (value) {\n        accordionCtrl.closeOthers(scope);\n    }\n    if (setIsOpen) {\n        setIsOpen(scope.$parent, value);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        transclude: true,\n        template: '',\n        replace: true,\n        require: '^accordionGroup',\n        compile: function (element, attr, transclude) {\n            return function link(scope, element, attr, accordionGroupCtrl) {\n                accordionGroupCtrl.setHeading(transclude(scope, function () {\n                }));\n            };\n        }\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "transclude"
+  },
+  {
+    "callback": "function () {\n    return {\n        require: '^accordionGroup',\n        link: function (scope, element, attr, controller) {\n            scope.$watch(function () {\n                return controller[attr.accordionTransclude];\n            }, function (heading) {\n                if (heading) {\n                    element.html('');\n                    element.append(heading);\n                }\n            });\n        }\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return controller[attr.accordionTransclude];\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (heading) {\n    if (heading) {\n        element.html('');\n        element.append(heading);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        controller: 'AlertController',\n        templateUrl: 'template/alert/alert.html',\n        transclude: true,\n        replace: true,\n        scope: {\n            type: '=',\n            close: '&'\n        }\n    };\n}",
+    "receiverBase": "controller",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return function (scope, element, attr) {\n        element.addClass('ng-binding').data('$binding', attr.bindHtmlUnsafe);\n        scope.$watch(attr.bindHtmlUnsafe, function bindHtmlUnsafeWatchAction(value) {\n            element.html(value || '');\n        });\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function bindHtmlUnsafeWatchAction(value) {\n    element.html(value || '');\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    if (!element.hasClass(buttonsCtrl.activeClass)) {\n        scope.$apply(function () {\n            ngModelCtrl.$setViewValue(scope.$eval(attrs.btnRadio));\n            ngModelCtrl.$render();\n        });\n    }\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    ngModelCtrl.$setViewValue(scope.$eval(attrs.btnRadio));\n    ngModelCtrl.$render();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    scope.$apply(function () {\n        ngModelCtrl.$setViewValue(element.hasClass(buttonsCtrl.activeClass) ? getFalseValue() : getTrueValue());\n        ngModelCtrl.$render();\n    });\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    ngModelCtrl.$setViewValue(element.hasClass(buttonsCtrl.activeClass) ? getFalseValue() : getTrueValue());\n    ngModelCtrl.$render();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (slide) {\n    angular.extend(slide, {\n        direction: '',\n        entering: false,\n        leaving: false,\n        active: false\n    });\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (next, current) {\n    $scope.$currentTransition.then(function () {\n        transitionDone(next, current);\n    }, function () {\n        transitionDone(next, current);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    transitionDone(next, current);\n}",
+    "receiverBase": "$currentTransition",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    transitionDone(next, current);\n}",
+    "receiverBase": "$currentTransition",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    destroyed = true;\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function parentActiveWatch() {\n    var parentActive = getActive(scope.$parent);\n    if (parentActive !== scope.active) {\n        if (parentActive !== lastValue) {\n            lastValue = scope.active = parentActive;\n        } else {\n            setActive(scope.$parent, parentActive = lastValue = scope.active);\n        }\n    }\n    return parentActive;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    carouselCtrl.removeSlide(scope);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (active) {\n    if (active) {\n        carouselCtrl.select(scope);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    showWeeks = !!value;\n    updateShowWeekNumbers();\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    datepickerCtrl.minDate = value ? new Date(value) : null;\n    refill();\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    datepickerCtrl.maxDate = value ? new Date(value) : null;\n    refill();\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (obj) {\n    obj.disabled = datepickerCtrl.isDisabled(obj.date, mode);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    dateFormat = value || datepickerPopupConfig.dateFormat;\n    ngModel.$render();\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function () {\n    $popup.remove();\n    scope.$destroy();\n}",
+    "receiverBase": "originalScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (text) {\n    scope.currentText = angular.isDefined(text) ? text : datepickerPopupConfig.currentText;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (text) {\n    scope.toggleWeeksText = angular.isDefined(text) ? text : datepickerPopupConfig.toggleWeeksText;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (text) {\n    scope.clearText = angular.isDefined(text) ? text : datepickerPopupConfig.clearText;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (text) {\n    scope.closeText = angular.isDefined(text) ? text : datepickerPopupConfig.closeText;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function updateOpen(value) {\n    scope.isOpen = !!value;\n}",
+    "receiverBase": "originalScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    setOpen(false);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    setOpen(true);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    scope.$apply(function () {\n        scope.date = ngModel.$modelValue;\n    });\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    scope.date = ngModel.$modelValue;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (value) {\n    scope[scopeProperty] = value;\n}",
+    "receiverBase": "originalScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        transclude: true,\n        templateUrl: 'template/datepicker/popup.html',\n        link: function (scope, element, attrs) {\n            element.bind('click', function (event) {\n                event.preventDefault();\n                event.stopPropagation();\n            });\n        }\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (event) {\n    event.preventDefault();\n    event.stopPropagation();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    closeMenu();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    closeMenu();\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    scope.animate = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    scope.animate = true;\n    element[0].focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (newBackdropIndex) {\n    if (backdropScope) {\n        backdropScope.index = newBackdropIndex;\n    }\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    backdropScopeRef.$destroy();\n    backdropScopeRef = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "removeAfterAnimate"
+  },
+  {
+    "callback": "function () {\n    $timeout.cancel(timeout);\n    afterAnimating();\n    scope.$apply();\n}",
+    "receiverBase": "domEl",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (evt) {\n    var modal;\n    if (evt.which === 27) {\n        modal = openedWindows.top();\n        if (modal && modal.value.keyboard) {\n            $rootScope.$apply(function () {\n                $modalStack.dismiss(modal.key);\n            });\n        }\n    }\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $modalStack.dismiss(modal.key);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (result) {\n    return result.data;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value, key) {\n    if (angular.isFunction(value) || angular.isArray(value)) {\n        promisesArr.push($q.when($injector.invoke(value)));\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, key) {\n    ctrlLocals[key] = tplAndVars[resolveIter++];\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function resolveError(reason) {\n    modalResultDeferred.reject(reason);\n}",
+    "receiverBase": "templateAndResolvePromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    modalOpenedDeferred.resolve(true);\n}",
+    "receiverBase": "templateAndResolvePromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    modalOpenedDeferred.reject(false);\n}",
+    "receiverBase": "templateAndResolvePromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    self.itemsPerPage = parseInt(value, 10);\n    $scope.totalPages = self.calculateTotalPages();\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    self.render();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    $scope.totalPages = self.calculateTotalPages();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    setNumPages($scope.$parent, value);\n    if (self.page > value) {\n        $scope.selectPage(value);\n    } else {\n        self.render();\n    }\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    maxSize = parseInt(value, 10);\n    paginationCtrl.render();\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (letter, pos) {\n    return (pos ? separator : '') + letter.toLowerCase();\n}",
+    "receiverBase": "name",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (reposition) {\n    reposition();\n}",
+    "receiverBase": "popupTimeout",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    hide();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "tooltipLinker"
+  },
+  {
+    "callback": "function (val) {\n    scope.tt_content = val;\n    if (!val && scope.tt_isOpen) {\n        hide();\n    }\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (val) {\n    scope.tt_title = val;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (val) {\n    scope.tt_placement = angular.isDefined(val) ? val : options.placement;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (val) {\n    var delay = parseInt(val, 10);\n    scope.tt_popupDelay = !isNaN(delay) ? delay : options.popupDelay;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (val) {\n    unregisterTriggers();\n    triggers = getTriggers(val);\n    if (triggers.show === triggers.hide) {\n        element.bind(triggers.show, toggleTooltipBind);\n    } else {\n        element.bind(triggers.show, showTooltipBind);\n        element.bind(triggers.hide, hideTooltipBind);\n    }\n    hasRegisteredTriggers = true;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (val) {\n    appendToBody = angular.isDefined(val) ? $parse(val)(scope) : appendToBody;\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function closeTooltipOnLocationChangeSuccess() {\n    if (scope.tt_isOpen) {\n        hide();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function onDestroyTooltip() {\n    $timeout.cancel(transitionTimeout);\n    $timeout.cancel(popupTimeout);\n    unregisterTriggers();\n    removeTooltip();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        scope: {\n            content: '@',\n            placement: '@',\n            animation: '&',\n            isOpen: '&'\n        },\n        templateUrl: 'template/tooltip/tooltip-popup.html'\n    };\n}",
+    "receiverBase": "provider",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        scope: {\n            content: '@',\n            placement: '@',\n            animation: '&',\n            isOpen: '&'\n        },\n        templateUrl: 'template/tooltip/tooltip-html-unsafe-popup.html'\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        scope: {\n            title: '@',\n            content: '@',\n            placement: '@',\n            animation: '&',\n            isOpen: '&'\n        },\n        templateUrl: 'template/popover/popover.html'\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value, oldValue) {\n    if (value !== oldValue) {\n        self.update(element, value, oldValue);\n    }\n}",
+    "receiverBase": "bar",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    self.removeBar(bar);\n}",
+    "receiverBase": "bar",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        transclude: true,\n        controller: 'ProgressController',\n        require: 'progress',\n        scope: {},\n        template: '<div class=\"progress\" ng-transclude></div>'\n    };\n}",
+    "receiverBase": "controller",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        transclude: true,\n        require: '^progress',\n        scope: {\n            value: '=',\n            type: '@'\n        },\n        templateUrl: 'template/progressbar/bar.html',\n        link: function (scope, element, attrs, progressCtrl) {\n            progressCtrl.addBar(scope, element);\n        }\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        replace: true,\n        transclude: true,\n        controller: 'ProgressController',\n        scope: {\n            value: '=',\n            type: '@'\n        },\n        templateUrl: 'template/progressbar/progressbar.html',\n        link: function (scope, element, attrs, progressCtrl) {\n            progressCtrl.addBar(scope, angular.element(element.children()[0]));\n        }\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value) {\n    $scope.val = value;\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    $scope.readonly = !!value;\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        scope: {\n            value: '=',\n            onHover: '&',\n            onLeave: '&'\n        },\n        controller: 'RatingController',\n        templateUrl: 'template/rating/rating.html',\n        replace: true\n    };\n}",
+    "receiverBase": "controller",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (tab) {\n    tab.active = false;\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function updateActive(value, oldVal) {\n    if (value !== oldVal) {\n        scope.active = !!value;\n    }\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (active) {\n    if (setActive) {\n        setActive(scope.$parent, active);\n    }\n    if (active) {\n        tabsetCtrl.select(scope);\n        scope.onSelect();\n    } else {\n        scope.onDeselect();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    scope.disabled = !!value;\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    tabsetCtrl.removeTab(scope);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function updateHeadingElement(heading) {\n    if (heading) {\n        elm.html('');\n        elm.append(heading);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (contents) {\n    angular.forEach(contents, function (node) {\n        if (isTabHeading(node)) {\n            tab.headingElement = node;\n        } else {\n            elm.append(node);\n        }\n    });\n}",
+    "receiverBase": "tab",
+    "receiverCallee": "$transcludeFn"
+  },
+  {
+    "callback": "function (node) {\n    if (isTabHeading(node)) {\n        tab.headingElement = node;\n    } else {\n        elm.append(node);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    hourStep = parseInt(value, 10);\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    minuteStep = parseInt(value, 10);\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    scope.showMeridian = !!value;\n    if (ngModel.$error.time) {\n        var hours = getHoursFromTemplate(), minutes = getMinutesFromTemplate();\n        if (angular.isDefined(hours) && angular.isDefined(minutes)) {\n            selected.setHours(hours);\n            refresh();\n        }\n    } else {\n        updateTemplate();\n    }\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (e) {\n    scope.$apply(isScrollingUp(e) ? scope.incrementHours() : scope.decrementHours());\n    e.preventDefault();\n}",
+    "receiverBase": "hoursInputEl",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    scope.$apply(isScrollingUp(e) ? scope.incrementMinutes() : scope.decrementMinutes());\n    e.preventDefault();\n}",
+    "receiverBase": "minutesInputEl",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    if (!scope.validHours && scope.hours < 10) {\n        scope.$apply(function () {\n            scope.hours = pad(scope.hours);\n        });\n    }\n}",
+    "receiverBase": "hoursInputEl",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    scope.hours = pad(scope.hours);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (e) {\n    if (!scope.invalidMinutes && scope.minutes < 10) {\n        scope.$apply(function () {\n            scope.minutes = pad(scope.minutes);\n        });\n    }\n}",
+    "receiverBase": "minutesInputEl",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    scope.minutes = pad(scope.minutes);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    scope.$destroy();\n}",
+    "receiverBase": "originalScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    resetMatches();\n    isLoadingSetter(originalScope, false);\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    getMatchesAsync(inputValue);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    scope.select(scope.activeIdx);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (evt) {\n    hasFocus = false;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $document.unbind('click', dismissClickHandler);\n}",
+    "receiverBase": "originalScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (tplContent) {\n    element.replaceWith($compile(tplContent.trim())(scope));\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function () {\n    function escapeRegexp(queryToEscape) {\n        return queryToEscape.replace(/([.?*+^$[\\]\\\\(){}|-])/g, '\\\\$1');\n    }\n    return function (matchItem, query) {\n        return query ? matchItem.replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem;\n    };\n}",
+    "receiverBase": "directive",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    self.signOut();\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    self.$title.blur();\n    self.$body.blur();\n}",
+    "receiverBase": "$sidebar",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function () {\n    fadeInNextQuote();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    switchTab(this.id);\n    return false;\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "stdout",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (done) {\n    app.kill();\n    app.on('close', function (code) {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function (code) {\n    done();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    request(serverEndpoint + 'users', function (err, res, body) {\n        if (err)\n            return done(err);\n        var results = JSON.parse(body);\n        expect(results.eugene.tags[1]).to.equal('tags');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    var results = JSON.parse(body);\n    expect(results.eugene.tags[1]).to.equal('tags');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (done) {\n    function doCallback(results) {\n        expect(results.eugene.tags[1]).to.equal('tags');\n        done();\n    }\n    request(serverEndpoint + 'users?callback=doCallback', function (err, res, body) {\n        if (err)\n            return done(err);\n        eval(body);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    eval(body);\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (done) {\n    request(serverEndpoint + 'users?print=pretty', function (err, res, body) {\n        if (err)\n            return done(err);\n        var results = JSON.parse(body);\n        expect(body).to.match(/      \"/);\n        expect(results.eugene.tags[1]).to.equal('tags');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    var results = JSON.parse(body);\n    expect(body).to.match(/      \"/);\n    expect(results.eugene.tags[1]).to.equal('tags');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(200);\n    var obj = JSON.parse(body);\n    expect(obj).to.equal('Eugene Ware');\n    check();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(200);\n    var results = JSON.parse(body);\n    expect(results.eugene.name).to.equal('Eugene Ware');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(204);\n    expect(body).to.equal('');\n    check();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(200);\n    var results = JSON.parse(body);\n    expect(results.eugene.name).to.not.exist;\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(200);\n    _name = JSON.parse(body).name;\n    check();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return done(err);\n    expect(res.statusCode).to.equal(200);\n    var results = JSON.parse(body);\n    expect(results.eugene.name).to.equal('Eugene');\n    expect(results[_name].name).to.equal('Susan Ware');\n    expect(results[_name].age).to.equal(23);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  }
+]

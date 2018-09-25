@@ -1,0 +1,696 @@
+[
+  {
+    "callback": "function (value, key) {\n    this.remove(name, typeof key === 'string' ? key : value);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        this.app = new App({ rootPath: '/' });\n    });\n    it('should have repos data in getTemplateData', function () {\n        var repos = [{ foo: 'bar' }];\n        var view = new UsersShowView({\n                repos: repos,\n                app: this.app\n            });\n        var data = view.getTemplateData();\n        data.should.have.property('repos', repos);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    this.app = new App({ rootPath: '/' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var repos = [{ foo: 'bar' }];\n    var view = new UsersShowView({\n            repos: repos,\n            app: this.app\n        });\n    var data = view.getTemplateData();\n    data.should.have.property('repos', repos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (b) {\n    var tr = resultsTable.insertRow(-1);\n    var assignedTo = b.assigned_to.name;\n    if (assignedTo === 'nobody') {\n        tr.classList.add('unassigned');\n    }\n    addColumn(tr, versionBadge(b.blocks));\n    addColumn(tr, linkBug(b.id));\n    addColumn(tr, linkBug(b.id, b.summary));\n    addColumn(tr, assignedTo);\n    addColumn(tr, b.last_change_time);\n}",
+    "receiverBase": "bugs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    commonTest.testCache(config, Spi);\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (row, index) {\n    return logicRows.indexOf(index) == -1;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, cellProperties) {\n    return function (result) {\n        if (typeof result !== 'boolean') {\n            throw new Error('Validation error: result is not boolean');\n        }\n        if (result === false && cellProperties.allowInvalid === false) {\n            changes.splice(i, 1);\n            --i;\n        }\n        waitingForValidator.removeValidatorFormQueue();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (validator) {\n    return function (value, callback) {\n        callback(validator.test(value));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    validator.call(cellProperties, value, function (valid) {\n        cellProperties.valid = valid;\n        valid = instance.PluginHooks.execute('afterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n        callback(valid);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (valid) {\n    cellProperties.valid = valid;\n    valid = instance.PluginHooks.execute('afterValidate', valid, value, cellProperties.row, cellProperties.prop, source);\n    callback(valid);\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    applyChanges(changes, source);\n}",
+    "receiverBase": "",
+    "receiverCallee": "validateChanges"
+  },
+  {
+    "callback": "function () {\n    applyChanges(changes, source);\n}",
+    "receiverBase": "",
+    "receiverCallee": "validateChanges"
+  },
+  {
+    "callback": "function () {\n    waitingForValidator.removeValidatorFormQueue();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "validateCell"
+  },
+  {
+    "callback": "function (event) {\n    if (!that.isTextSelectionAllowed(event.target)) {\n        clearTextSelection();\n    }\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (instance.selection.isInProgress() && !event.shiftKey) {\n        instance.selection.finish();\n    }\n}",
+    "receiverBase": "$documentElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    instance.destroyEditor();\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (that.settings.fragmentSelection) {\n        return;\n    }\n    event.preventDefault();\n}",
+    "receiverBase": "$table",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (dragInterval) {\n        clearInterval(dragInterval);\n        dragInterval = null;\n    }\n}",
+    "receiverBase": "$table",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    instance.registerTimeout('resizeTimeout', function () {\n        instance.parseSettingsFromDOM();\n        var newWidth = that.getWidth();\n        var newHeight = that.getHeight();\n        if (walkontableConfig.width !== newWidth || walkontableConfig.height !== newHeight) {\n            instance.forceFullRender = true;\n            that.render();\n            walkontableConfig.width = newWidth;\n            walkontableConfig.height = newHeight;\n        }\n    }, 60);\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    instance.parseSettingsFromDOM();\n    var newWidth = that.getWidth();\n    var newHeight = that.getHeight();\n    if (walkontableConfig.width !== newWidth || walkontableConfig.height !== newHeight) {\n        instance.forceFullRender = true;\n        that.render();\n        walkontableConfig.width = newWidth;\n        walkontableConfig.height = newHeight;\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.target === that.wt.wtTable.spreader && event.which === 3) {\n        event.stopPropagation();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (that.settings.observeDOMVisibility) {\n        if (that.wt.drawInterrupted) {\n            that.instance.forceFullRender = true;\n            that.render();\n        }\n    }\n}",
+    "receiverBase": "$documentElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (changes, source) {\n    if (changes && changes.length) {\n        instance.selectCell(areaStart.row, areaStart.col, areaEnd.row, areaEnd.col);\n    }\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    $document.off('keydown.handsontable.' + instance.guid);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    pendingPrepare = false;\n    that.prepareEditor();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "closeEditor"
+  },
+  {
+    "callback": "function (event) {\n    event.preventDefault();\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (this.checked) {\n        instance.setDataAtRowProp(row, prop, cellProperties.checkedTemplate);\n    } else {\n        instance.setDataAtRowProp(row, prop, cellProperties.uncheckedTemplate);\n    }\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    that._fireCallbacks(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (result) {\n    that.state = Handsontable.EditorState.FINISHED;\n    that.discardEditor(result);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function () {\n    that.instance.registerTimeout('refresh_editor_dimensions', function () {\n        that.refreshDimensions();\n    }, 0);\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    that.refreshDimensions();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerTimeout"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "$textarea",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "$textarea",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    that.destroyElements();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (event) {\n    event.stopPropagation();\n}",
+    "receiverBase": "$datePicker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (!Handsontable.helper.isMetaKey(event.keyCode) || [\n            Handsontable.helper.keyCode.BACKSPACE,\n            Handsontable.helper.keyCode.DELETE\n        ].indexOf(event.keyCode) != -1) {\n        setTimeout(function () {\n            that.queryChoices(that.$textarea.val());\n        });\n    }\n}",
+    "receiverBase": "$textarea",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    that.queryChoices(that.$textarea.val());\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.queryChoices(that.TEXTAREA.value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (choices) {\n    that.updateChoicesList(choices);\n}",
+    "receiverBase": "cellProperties",
+    "receiverCallee": "source"
+  },
+  {
+    "callback": "function (choice) {\n    return choice.indexOf(query) != -1;\n}",
+    "receiverBase": "source",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (e) {\n    if (instance.view.wt.wtDom.hasClass(e.target, 'columnSorting')) {\n        var col = getColumn(e.target);\n        plugin.sortByColumn.call(instance, col);\n    }\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    instance.updateSettings({ observeChanges: true });\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerTimeout"
+  },
+  {
+    "callback": "function () {\n    plugin.sort.call(instance);\n    instance.render();\n    instance.selectCell(plugin.untranslateRow.call(instance, selection.row), selection.col);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    htSortColumn.init.call(this, 'afterInit');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htSortColumn.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        ghostStyle.left = startOffset + e.pageX - startX + 6 + 'px';\n        if (ghostStyle.display === 'none') {\n            ghostStyle.display = 'block';\n        }\n    }\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (pressed) {\n        var active = instance.view.THEAD.querySelector('.manualColumnMover.active');\n        if (active) {\n            instance.view.wt.wtDom.removeClass(active, 'active');\n        }\n        endCol = instance.view.wt.wtDom.index(this) + instance.colOffset();\n        var THs = instance.view.THEAD.querySelectorAll('th');\n        var mover = THs[endCol].querySelector('.manualColumnMover');\n        instance.view.wt.wtDom.addClass(mover, 'active');\n    }\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    htManualColumnMove.init.call(this, 'afterInit');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualColumnMove.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    if (pressed) {\n        currentWidth = startWidth + (e.pageX - startX);\n        newSize = setManualSize(currentCol, currentWidth);\n        resizer.style.left = startOffset + currentWidth + 'px';\n    }\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "mousemove"
+  },
+  {
+    "callback": "function () {\n    if (pressed) {\n        instance.view.wt.wtDom.removeClass(resizer, 'active');\n        pressed = false;\n        if (newSize != startWidth) {\n            instance.forceFullRender = true;\n            instance.view.render();\n            saveManualColumnWidths.call(instance);\n            instance.PluginHooks.run('afterColumnResize', currentCol, newSize);\n        }\n        refreshResizerPosition.call(instance, currentTH);\n    }\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "mouseup"
+  },
+  {
+    "callback": "function (e) {\n    if (!pressed) {\n        refreshResizerPosition.call(instance, e.currentTarget);\n    }\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (dblclick >= 2) {\n        newSize = instance.determineColumnWidth.call(instance, currentCol);\n        setManualSize(currentCol, newSize);\n        instance.forceFullRender = true;\n        instance.view.render();\n        instance.PluginHooks.run('afterColumnResize', currentCol, newSize);\n    }\n    dblclick = 0;\n    autoresizeTimeout = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    startX = e.pageX;\n    refreshLinePosition.call(instance);\n    newSize = startWidth;\n}",
+    "receiverBase": "rootElement",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    htManualColumnResize.init.call(this, 'afterInit');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    htManualColumnResize.init.call(this, 'afterUpdateSettings');\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (patches) {\n    if (instance.observeChangesActive) {\n        runHookForOperation.call(instance, patches);\n        instance.render();\n    }\n    instance.runHooks('afterChangesObserved');\n}",
+    "receiverBase": "jsonpatch",
+    "receiverCallee": "observe"
+  },
+  {
+    "callback": "function (patch) {\n    var parsedPath = parsePath(patch.path);\n    if ([\n            'add',\n            'remove'\n        ].indexOf(patch.op) != -1 && !isNaN(parsedPath.col)) {\n        if (newOrRemovedColumns.indexOf(parsedPath.col) != -1) {\n            return false;\n        } else {\n            newOrRemovedColumns.push(parsedPath.col);\n        }\n    }\n    return true;\n}",
+    "receiverBase": "rawPatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (patch) {\n    return !/[\\/]length/gi.test(patch.path);\n}",
+    "receiverBase": "rawPatches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (changes, source) {\n    if (source != 'loadData') {\n        afterTableAlter.call(this);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    instance.resumeObservingChanges();\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHookOnce"
+  },
+  {
+    "callback": "function (changes, origin) {\n    if (changes) {\n        var action = new Handsontable.UndoRedo.ChangeAction(changes);\n        plugin.done(action);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount) {\n    var action = new Handsontable.UndoRedo.CreateRowAction(index, amount);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount) {\n    var originalData = plugin.instance.getData();\n    index = (originalData.length + index) % originalData.length;\n    var removedData = originalData.slice(index, index + amount);\n    var action = new Handsontable.UndoRedo.RemoveRowAction(index, removedData);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function (index, amount) {\n    var action = new Handsontable.UndoRedo.CreateColumnAction(index, amount);\n    plugin.done(action);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "addHook"
+  },
+  {
+    "callback": "function () {\n    new AutoResizer($(this), config);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.check();\n    return true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function (i, p) {\n    self.clones.css(p, el.css(p));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var instance;\n    return {\n        getInstance: function () {\n            if (!instance) {\n                instance = new CopyPasteClass();\n            }\n            return instance;\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    that.selectNodeText(that.elTextarea);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.triggerCut(event);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.triggerPaste(event);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0, ilen = that.cutCallbacks.length; i < ilen; i++) {\n        that.cutCallbacks[i](event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var val = (str || that.elTextarea.value).replace(/\\n$/, '');\n    for (var i = 0, ilen = that.pasteCallbacks.length; i < ilen; i++) {\n        that.pasteCallbacks[i](val, event);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (window.jQuery) {\n        return function (elem, type, cb) {\n            $(elem).on(type + '.copypaste', cb);\n        };\n    } else {\n        return function (elem, type, cb) {\n            elem.addEventListener(type, cb, false);\n        };\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    dirtyCheck();\n    currentInterval = 0;\n    observer.next = setTimeout(slowCheck, intervals[currentInterval++]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    down = true;\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    down = false;\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (isOutside(event)) {\n        $body.off('mousemove.border.' + instance.guid);\n        $this.show();\n    }\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (that.rowHeightCache) {\n        that.rowHeightCache.length = 0;\n    }\n}",
+    "receiverBase": "PluginHooks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    that.instance.dblClickTimeout = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback, element) {\n        return window.setTimeout(callback, 1000 / 60);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return window.cancelAnimationFrame || window.webkitCancelRequestAnimationFrame || window.mozCancelRequestAnimationFrame || window.oCancelRequestAnimationFrame || window.msCancelRequestAnimationFrame || clearTimeout;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var elem;\n    var styleObj = {\n            getPropertyValue: function getPropertyValue(prop) {\n                if (prop == 'float')\n                    prop = 'styleFloat';\n                return elem.currentStyle[prop.toUpperCase()] || null;\n            }\n        };\n    window.getComputedStyle = function (el) {\n        elem = el;\n        return styleObj;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (row) {\n    if (row - offset < fixedCount && row - offset >= 0) {\n        return instance.getSetting('rowHeight', row - offset);\n    } else {\n        return instance.getSetting('rowHeight', row);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "scrollLogicVertical"
+  },
+  {
+    "callback": "function (isReverse) {\n    instance.wtTable.verticalRenderReverse = isReverse;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "scrollLogicVertical"
+  },
+  {
+    "callback": "function (col) {\n    if (col - offset < fixedCount && col - offset >= 0) {\n        return instance.getSetting('columnWidth', col - offset);\n    } else {\n        return instance.getSetting('columnWidth', col);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "scrollLogicHorizontal"
+  },
+  {
+    "callback": "function () {\n    if (!that.instance.wtTable.holder.parentNode) {\n        that.destroy();\n        return;\n    }\n    that.onScroll();\n}",
+    "receiverBase": "$scrollHandler",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    that.clientHeight = document.documentElement.clientHeight;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (deltaY) {\n        if (instance.wtScrollbars.vertical.visible) {\n            instance.scrollVertical(-Math.ceil(deltaY)).draw();\n        }\n    } else if (deltaX) {\n        if (instance.wtScrollbars.horizontal.visible) {\n            instance.scrollHorizontal(Math.ceil(deltaX)).draw();\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.animate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['jquery'], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory;\n    } else {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return numeral;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    hoveract.timer = null;\n    $document.off('mousemove.contextMenuShow');\n    $currentTrigger = $this;\n    $this.trigger($.Event('contextmenu', {\n        data: hoveract.data,\n        pageX: hoveract.pageX,\n        pageY: hoveract.pageY\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(target).contextMenu({\n        x: x,\n        y: y\n    });\n}",
+    "receiverBase": "$trigger",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    $trigger.trigger('contextmenu:visible');\n}",
+    "receiverBase": "",
+    "receiverCallee": "css"
+  },
+  {
+    "callback": "function (e) {\n    var pos = $trigger.offset();\n    pos.right = pos.left + $trigger.outerWidth();\n    pos.bottom = pos.top + $trigger.outerHeight();\n    if (opt.$layer && !opt.hovering && (!(e.pageX >= pos.left && e.pageX <= pos.right) || !(e.pageY >= pos.top && e.pageY <= pos.bottom))) {\n        opt.$menu.trigger('contextmenu:hide');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function ($layer) {\n    return function () {\n        $layer.remove();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (key, value) {\n    switch (key) {\n    case 'ns':\n    case 'selector':\n    case 'build':\n    case 'trigger':\n        return true;\n    default:\n        opt[key] = undefined;\n        try {\n            delete opt[key];\n        } catch (e) {\n        }\n        return true;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $trigger.trigger('contextmenu:hidden');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, k) {\n    opt[k] = {};\n    if (!root[k]) {\n        root[k] = {};\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, k) {\n    k.commands[key] = item;\n    if ($.isFunction(item.callback)) {\n        k.callbacks[key] = item.callback;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, k) {\n    k.commands[key] = item;\n    k.inputs[key] = item;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, text) {\n    $('<option></option>').val(value).text(text).appendTo($input);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, k) {\n    k.commands[key] = item;\n    if ($.isFunction(item.callback)) {\n        k.callbacks[key] = item.callback;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    op.resize($(this), true);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return $(this).data('width');\n}",
+    "receiverBase": "css",
+    "receiverCallee": "width"
+  },
+  {
+    "callback": "function () {\n    $(this).contextMenu('destroy');\n}",
+    "receiverBase": "$context",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ns, o) {\n    $(o.context).off(o.ns);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.id) {\n        $.contextMenu({\n            selector: '[contextmenu=' + this.id + ']',\n            items: $.contextMenu.fromMenu(this)\n        });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, item) {\n    switch (item.type) {\n    case 'text':\n    case 'textarea':\n        item.value = data[key] || '';\n        break;\n    case 'checkbox':\n        item.selected = data[key] ? true : false;\n        break;\n    case 'radio':\n        item.selected = (data[item.radio] || '') == item.value ? true : false;\n        break;\n    case 'select':\n        item.selected = data[key] || '';\n        break;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, item) {\n    switch (item.type) {\n    case 'text':\n    case 'textarea':\n    case 'select':\n        data[key] = item.$input.val();\n        break;\n    case 'checkbox':\n        data[key] = item.$input.prop('checked');\n        break;\n    case 'radio':\n        if (item.$input.prop('checked')) {\n            data[item.radio] = item.value;\n        }\n        break;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return function () {\n        $node.click();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return function () {\n        $node.click();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    item.options[this.value] = $(this).text();\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    colors[key] = nop;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (callback) {\n    callback(-1);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (callback) {\n    process.nextTick(function () {\n        callback(-1);\n    });\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(-1);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (callback) {\n    setTimeout(function () {\n        callback(-2);\n    }, 100);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(-2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (callback) {\n    process.nextTick(function () {\n        callback(-1);\n    });\n}",
+    "receiverBase": "defer",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(-1);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (callback) {\n    setTimeout(function () {\n        callback(-3);\n    }, 200);\n}",
+    "receiverBase": "defer",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(-3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (callback) {\n    process.nextTick(function () {\n        callback(-1);\n    });\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(-1);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (callback) {\n    process.nextTick(function () {\n        callback(null, 'ok');\n    });\n}",
+    "receiverBase": "defer",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    callback(null, 'ok');\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (callback) {\n    callback(-1);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (callback) {\n    callback(-2);\n}",
+    "receiverBase": "defer",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (callback) {\n    throw new Error();\n}",
+    "receiverBase": "defer",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function (t) {\n    q.defer(t);\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    try {\n        callback(null, {\n            active: active,\n            index: index\n        });\n    } finally {\n        --active;\n    }\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (deferral) {\n    try {\n        deferral.callback(null, {\n            active: ++active,\n            index: deferral.index\n        });\n    } finally {\n        --active;\n    }\n}",
+    "receiverBase": "deferrals_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (result) {\n    response.result = result;\n    _publish(response);\n}",
+    "receiverBase": "promiseOrResult",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    response.error = error;\n    _publish(response);\n}",
+    "receiverBase": "promiseOrResult",
+    "receiverCallee": "then"
+  }
+]

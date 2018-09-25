@@ -1,0 +1,146 @@
+[
+  {
+    "callback": "function (type) {\n    if (domain.hidden)\n        type.hidden = true;\n    api[domain.domain + '.' + (type.name || type.id)] = type;\n}",
+    "receiverBase": "types",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (command) {\n    if (domain.hidden)\n        command.hidden = true;\n    api[domain.domain + '.' + (command.name || command.id)] = command;\n}",
+    "receiverBase": "commands",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    if (domain.hidden)\n        event.hidden = true;\n    api[domain.domain + '.' + (event.name || event.id)] = event;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    console.log(exports.apiFromSpec(require('./Inspector'))['LayerTree.nodeIdForLayerId']);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (module) {\n    if (typeof window !== 'undefined' && window.QUnit) {\n        QUnit.ok(module, 'got basics/module');\n        QUnit.equal(module.name, 'module', 'module name is right');\n        QUnit.equal(module.es6module.name, 'es6Module', 'steal loads ES6');\n        QUnit.equal(module.es6module.amdModule.name, 'amdmodule', 'ES6 loads amd');\n        QUnit.start();\n        removeMyself();\n    } else {\n        console.log('basics loaded', module);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "steal"
+  },
+  {
+    "callback": "function (node) {\n    node.innerHTML = content;\n}",
+    "receiverBase": "self",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (templateString) {\n    template = new d.Template(templateString);\n    d.text._resolveContextArg(context).addCallback(function (context) {\n        render(template, context);\n    });\n}",
+    "receiverBase": "_resolveTemplateArg",
+    "receiverCallee": "addCallback"
+  },
+  {
+    "callback": "function (context) {\n    render(template, context);\n}",
+    "receiverBase": "_resolveContextArg",
+    "receiverCallee": "addCallback"
+  },
+  {
+    "callback": "function () {\n    if (xhr && !requestDone) {\n        onreadystatechange('timeout');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    fontModuleLoader = new FontModuleLoader();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var modules = fontModuleLoader.getModules();\n    expect(modules).not.toBeNull();\n    expect(modules.length).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return { scary: true };\n}",
+    "receiverBase": "fontModuleLoader",
+    "receiverCallee": "addModuleFactory"
+  },
+  {
+    "callback": "function () {\n    return { funny: true };\n}",
+    "receiverBase": "fontModuleLoader",
+    "receiverCallee": "addModuleFactory"
+  },
+  {
+    "callback": "function () {\n    return { cowy: true };\n}",
+    "receiverBase": "fontModuleLoader",
+    "receiverCallee": "addModuleFactory"
+  },
+  {
+    "callback": "function ($stateProvider, stateFactory) {\n    $stateProvider.state('error', stateFactory('Error', { url: '/error?code' }));\n}",
+    "receiverBase": "module",
+    "receiverCallee": "config"
+  },
+  {
+    "callback": "function ($scope, $stateParams) {\n    $scope.errorCode = $stateParams.code;\n}",
+    "receiverBase": "config",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (Y, NAME) {\n    __cov_ZdY6Pu0_MB6gZTkNaF0I0w.f['1']++;\n    __cov_ZdY6Pu0_MB6gZTkNaF0I0w.s['2']++;\n    Y.Paginator = Y.mix(Y.Base.create('paginator', Y.Base, [Y.Paginator.Core]), Y.Paginator);\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    it('show up on the dashboard', function () {\n        e.browsers.dashboard.assert.element('.test-bundle.html');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    e.browsers.dashboard.assert.element('.test-bundle.html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    e.browsers.dashboard.assert.element('.test-bundle.jade');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    e.browsers.dashboard.assert.text('.test-bundle.jade .js-bundleConfig', 'the_test_string');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    e.browsers.dashboard.assert.text('.test-bundle.jade .js-bundleName', 'test-bundle');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    e.browsers.dashboard.assert.text('.test-bundle.jade .js-ncgConfig', config.host);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file, enc, next) {\n    try {\n        file.path = path.join(file.base, opts.newPath, path.basename(file.path));\n        this.push(file);\n    } catch (e) {\n        this.emit('error', new PluginError('gulp-flatten', e));\n    }\n    next();\n}",
+    "receiverBase": "through2",
+    "receiverCallee": "obj"
+  },
+  {
+    "callback": "function () {\n    it('should return true if an object has the key', function () {\n        utils.hasKey({ foo: true }, 'foo').should.eql(true);\n    });\n    it('should return false if an object does not have the key', function () {\n        utils.hasKey({ foo: true }, 'bar').should.eql(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    utils.hasKey({ foo: true }, 'foo').should.eql(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.hasKey({ foo: true }, 'bar').should.eql(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.arrayify({ foo: 'bar' }).should.eql([{ foo: 'bar' }]);\n    utils.arrayify(123).should.eql([123]);\n    utils.arrayify('foo').should.eql(['foo']);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    utils.arrayify([\n        1,\n        2,\n        3\n    ]).should.eql([\n        1,\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

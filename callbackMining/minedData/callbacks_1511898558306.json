@@ -1,0 +1,675 @@
+[
+  {
+    "callback": "function () {\n    _self.m_oViewFixture.doWhen('view.(div#hidden-div).isVisible', true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assertException"
+  },
+  {
+    "callback": "function () {\n    GLOBAL.window = { webworks: mockedWebworks };\n    client = require(apiDir + '/client');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    delete GLOBAL.window;\n    client = null;\n    delete require.cache[require.resolve(apiDir + '/client')];\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    it('registers an application', function () {\n        var options = { uuid: 'blah' };\n        client.register(options);\n        expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'register', { 'options': options });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var options = { uuid: 'blah' };\n    client.register(options);\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'register', { 'options': options });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    client.self.getDisplayPicture(function (img) {\n    });\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'self/getDisplayPicture', { 'eventId': 'bbm.self.displayPicture' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (img) {\n}",
+    "receiverBase": "self",
+    "receiverCallee": "getDisplayPicture"
+  },
+  {
+    "callback": "function () {\n    client.self.setStatus('available', 'Hello');\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'self/setStatus', {\n        'status': 'available',\n        'statusMessage': 'Hello'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    client.self.setPersonalMessage('Hello World');\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'self/setPersonalMessage', { 'personalMessage': 'Hello World' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    client.self.setDisplayPicture('/tmp/avatar.gif');\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'self/setDisplayPicture', { 'displayPicture': '/tmp/avatar.gif' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('inviteToDownload calls execAsync', function () {\n        client.users.inviteToDownload();\n        expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'users/inviteToDownload');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    client.users.inviteToDownload();\n    expect(mockedWebworks.execAsync).toHaveBeenCalledWith(_ID, 'users/inviteToDownload');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    try {\n        builder(promise);\n    } catch (e) {\n        promise.reject(e);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var cl = consumers.length;\n    if (cl === 0 && !success) {\n        console.error('Possibly uncaught error: ', result, result[0] && result[0].stack);\n    }\n    for (var i = 0; i < cl; i++) {\n        notifyConsumer(consumers[i]);\n    }\n    consumers = undefined;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    notifyConsumer(consumer);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var promise = promising();\n    self._emit('wire-done', { success: true });\n    return promise.fulfill.apply(promise, arguments);\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    self._emit('wire-done', { success: false });\n    throw err;\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    fireReady();\n    self._emit('connected');\n}",
+    "receiverBase": "remote",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    fireReady();\n    self._emit('not-connected');\n}",
+    "receiverBase": "remote",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    features.caching = !!RemoteStorage.Caching;\n    features.sync = !!RemoteStorage.Sync;\n    [\n        'IndexedDB',\n        'LocalStorage',\n        'InMemoryStorage'\n    ].some(function (cachingLayer) {\n        if (features.some(function (feature) {\n                return feature.name === cachingLayer;\n            })) {\n            features.local = RemoteStorage[cachingLayer];\n            return true;\n        }\n    });\n    self.features = features;\n    callback(features);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (cachingLayer) {\n    if (features.some(function (feature) {\n            return feature.name === cachingLayer;\n        })) {\n        features.local = RemoteStorage[cachingLayer];\n        return true;\n    }\n}",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (feature) {\n    return feature.name === cachingLayer;\n}",
+    "receiverBase": "features",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    featureInitialized(name);\n}",
+    "receiverBase": "initResult",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    featureFailed(name, err);\n}",
+    "receiverBase": "initResult",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    featureSupported(featureName, true);\n    initFeature(featureName);\n}",
+    "receiverBase": "supported",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    featureSupported(featureName, false);\n}",
+    "receiverBase": "supported",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (handler) {\n    if (event.path.substr(0, pl) === path) {\n        var ev = {};\n        for (var key in event) {\n            ev[key] = event[key];\n        }\n        ev.relativePath = event.path.replace(new RegExp('^' + path), '');\n        try {\n            handler(ev);\n        } catch (e) {\n            console.error('\\'change\\' handler failed: ', e, e.stack);\n            self._emit('error', e);\n        }\n    }\n}",
+    "receiverBase": "_pathHandlers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    handler.apply(this, args);\n}",
+    "receiverBase": "_handlers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (eventName) {\n    object._addEvent(eventName);\n}",
+    "receiverBase": "eventNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    callback(reader.result);\n}",
+    "receiverBase": "reader",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (result) {\n    RemoteStorage.log('[WireClient] Successful request with unknown or binary mime-type', revision);\n    promise.fulfill(response.status, result, mimeType, revision);\n}",
+    "receiverBase": "WireClient",
+    "receiverCallee": "readBinaryData"
+  },
+  {
+    "callback": "function () {\n    timedOut = true;\n    callback('timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (l) {\n    if (l.rel === 'remotestorage') {\n        link = l;\n    } else if (l.rel === 'remoteStorage' && !link) {\n        link = l;\n    }\n}",
+    "receiverBase": "links",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m, kvs) {\n    var kv = kvs.split('=');\n    m[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1]);\n    return m;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    if (document[env.hiddenProperty]) {\n        RemoteStorage.Env.goBackground();\n    } else {\n        RemoteStorage.Env.goForeground();\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    return params.shift();\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (evt) {\n    if (flashFor(evt)) {\n        requestsToFlashFor++;\n        stateSetter(self, 'busy')();\n    }\n}",
+    "receiverBase": "remote",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt) {\n    if (flashFor(evt)) {\n        requestsToFlashFor--;\n        if (requestsToFlashFor <= 0) {\n            stateSetter(self, 'connected')();\n        }\n    }\n}",
+    "receiverBase": "remote",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (event.target.value) {\n        cb.removeAttribute('disabled');\n    } else {\n        cb.setAttribute('disabled', 'disabled');\n    }\n}",
+    "receiverBase": "el",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    cube.src = RemoteStorage.Assets.remoteStorageIcon;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (p) {\n    if (p === '/..') {\n        output.pop();\n    } else {\n        output.push(p);\n    }\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (status, body) {\n    return status === 404 ? undefined : body;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (status, body, mimeType, revision) {\n    return {\n        data: body,\n        mimeType: mimeType,\n        revision: revision\n    };\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (status, _body, _mimeType, revision) {\n    if (status === 200 || status === 201) {\n        return revision;\n    } else {\n        throw 'Request (PUT ' + self.makePath(path) + ') failed with status: ' + status;\n    }\n}",
+    "receiverBase": "put",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (status, body, mimeType, revision) {\n    if (typeof body === 'object') {\n        return body;\n    } else if (typeof body !== 'undefined' && status === 200) {\n        throw 'Not an object: ' + this.makePath(path);\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (p) {\n    p.reject(validationResult);\n}",
+    "receiverBase": "",
+    "receiverCallee": "promising"
+  },
+  {
+    "callback": "function (status, bodyOrItemsMap, contentType) {\n    promise.fulfill(status, bodyOrItemsMap, contentType);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return num;\n}",
+    "receiverBase": "forAllNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    throw err;\n}",
+    "receiverBase": "forAllNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    throw err;\n}",
+    "receiverBase": "forAllNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "markChildren",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "setNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "completePush",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "dealWithFailure",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    throw err;\n}",
+    "receiverBase": "collectDiffTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    RemoteStorage.log('[Sync] Sync error', e);\n    throw new Error('Local cache unavailable');\n}",
+    "receiverBase": "collectTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    self._emitChangeEvents(changeEvents);\n    return 200;\n}",
+    "receiverBase": "setNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    throw err;\n}",
+    "receiverBase": "getNodes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (paths) {\n    pending--;\n    for (var i = 0; i < paths.length; i++) {\n        allPaths.push(paths[i]);\n    }\n    if (pending === 0) {\n        promise.fulfill(allPaths);\n    }\n}",
+    "receiverBase": "_getAllDescendentPaths",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (index) {\n    var path = paths[index];\n    nodes.get(path).onsuccess = function (evt) {\n        retrievedNodes[path] = evt.target.result;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    RS.IndexedDB.open(dbName, function (other) {\n        self.db = other.db;\n        callback(self);\n    });\n}",
+    "receiverBase": "IndexedDB",
+    "receiverCallee": "clean"
+  },
+  {
+    "callback": "function (other) {\n    self.db = other.db;\n    callback(self);\n}",
+    "receiverBase": "IndexedDB",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    callback('timeout trying to open db');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, db) {\n    if (err) {\n        promise.reject(err);\n    } else {\n        DEFAULT_DB = db;\n        db.onerror = function () {\n            remoteStorage._emit('error', err);\n        };\n        promise.fulfill();\n    }\n}",
+    "receiverBase": "IndexedDB",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    promise.fulfill();\n}",
+    "receiverBase": "IndexedDB",
+    "receiverCallee": "clean"
+  },
+  {
+    "callback": "function (key) {\n    RemoteStorage.log('[LocalStorage] Removing', key);\n    delete localStorage[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    return s[1].toUpperCase();\n}",
+    "receiverBase": "moduleName",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (label) {\n    var th = document.createElement('th');\n    th.textContent = label;\n    thead.appendChild(th);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    var td = document.createElement('td');\n    td.textContent = value || '';\n    tr.appendChild(td);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (newStorage) {\n    storage = newStorage;\n    loadTable(table, storage, paths);\n}",
+    "receiverBase": "storage",
+    "receiverCallee": "reset"
+  },
+  {
+    "callback": "function (changes) {\n    list.innerHTML = '';\n    changes.forEach(function (change) {\n        var el = document.createElement('li');\n        el.textContent = JSON.stringify(change);\n        list.appendChild(el);\n    });\n}",
+    "receiverBase": "changesBelow",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (change) {\n    var el = document.createElement('li');\n    el.textContent = JSON.stringify(change);\n    list.appendChild(el);\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    console.error('SYNC FAILED', err, err.stack);\n}",
+    "receiverBase": "sync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (source) {\n    for (var key in source) {\n        target[key] = source[key];\n    }\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return array;\n}",
+    "receiverBase": "asyncMap",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item, index) {\n    var result;\n    try {\n        result = callback(item);\n    } catch (exc) {\n        oneDone();\n        errors[index] = exc;\n    }\n    if (typeof result === 'object' && typeof result.then === 'function') {\n        result.then(function (res) {\n            results[index] = res;\n            oneDone();\n        }, function (error) {\n            errors[index] = res;\n            oneDone();\n        });\n    } else {\n        oneDone();\n        results[index] = result;\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (res) {\n    results[index] = res;\n    oneDone();\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    errors[index] = res;\n    oneDone();\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (key) {\n    return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (idError, id) {\n    if (idError) {\n        promise.reject(idError);\n        return;\n    } else if (id) {\n        this._updateFile(id, path, body, contentType, options, putDone);\n    } else {\n        this._createFile(path, body, contentType, options, putDone);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getFileId"
+  },
+  {
+    "callback": "function (deleteError, response) {\n    if (deleteError) {\n        promise.reject(deleteError);\n    } else if (response.status === 200 || response.status === 204) {\n        promise.fulfill(200);\n    } else {\n        promise.reject('Delete failed: ' + response.status + ' (' + response.responseText + ')');\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (metadataError, response) {\n    if (metadataError) {\n        callback(metadataError);\n    } else {\n        this._request('PUT', response.getResponseHeader('Location'), { body: contentType.match(/^application\\/json/) ? JSON.stringify(body) : body }, callback);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (metadataError, response) {\n    if (metadataError) {\n        callback(metadataError);\n    } else {\n        this._request('POST', response.getResponseHeader('Location'), { body: contentType.match(/^application\\/json/) ? JSON.stringify(body) : body }, callback);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (downloadError, response) {\n    if (downloadError) {\n        promise.reject(downloadError);\n    } else {\n        var body = response.response;\n        if (meta.mimeType.match(/^application\\/json/)) {\n            try {\n                body = JSON.parse(body);\n            } catch (e) {\n            }\n        }\n        promise.fulfill(200, body, meta.mimeType, etagWithoutQuotes);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (idError, parentId) {\n    if (idError) {\n        callback(idError);\n    } else if (parentId) {\n        callback(null, parentId);\n    } else {\n        this._createFolder(foldername, callback);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getFileId"
+  },
+  {
+    "callback": "function (createError, response) {\n    if (createError) {\n        callback(createError);\n    } else {\n        var meta = JSON.parse(response.responseText);\n        callback(null, meta.id);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, response) {\n    if (err) {\n        callback(err);\n    } else {\n        if (response.status === 200) {\n            callback(null, JSON.parse(response.responseText));\n        } else {\n            callback('request (getting metadata for ' + id + ') failed with status: ' + response.status);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, xhr) {\n    if (xhr && xhr.status === 401) {\n        this.connect();\n        return;\n    }\n    callback(err, xhr);\n}",
+    "receiverBase": "request",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (m, item) {\n    var itemName = item.path.split('/').slice(-1)[0] + (item.is_dir ? '/' : '');\n    if (item.is_dir) {\n        m[itemName] = revCache.get(path + itemName);\n    } else {\n        m[itemName] = item.rev;\n    }\n    return m;\n}",
+    "receiverBase": "contents",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (result) {\n    promise.fulfill(status, result, mime, rev);\n}",
+    "receiverBase": "WireClient",
+    "receiverCallee": "readBinaryData"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        promise.reject(err);\n    } else {\n        var response = JSON.parse(resp.responseText);\n        if (response.path !== path) {\n            promise.fulfill(412);\n            this.rs.log('Dropbox created conflicting File ', response.path);\n        } else {\n            revCache.set(path, response.rev);\n            promise.fulfill(resp.status);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        promise.reject(error);\n    } else {\n        promise.fulfill(resp.status);\n        revCache.delete(path);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function () {\n    var args = Array.prototype.slice.call(arguments);\n    var p = promising();\n    RemoteStorage.log('calling share now');\n    self.share(path).then(function () {\n        RemoteStorage.log('shareing fullfilled promise', arguments);\n        p.fulfill.apply(p, args);\n    }, function (err) {\n        RemoteStorage.log('shareing failed', err);\n        p.fulfill.apply(p, args);\n    });\n    return p;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    RemoteStorage.log('shareing fullfilled promise', arguments);\n    p.fulfill.apply(p, args);\n}",
+    "receiverBase": "share",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    RemoteStorage.log('shareing failed', err);\n    p.fulfill.apply(p, args);\n}",
+    "receiverBase": "share",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        promise.reject(err);\n    } else {\n        try {\n            var info = JSON.parse(resp.responseText);\n            promise.fulfill(info);\n        } catch (e) {\n            promise.reject(err);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_request"
+  },
+  {
+    "callback": "function (err, xhr) {\n    if (xhr && xhr.status === 503) {\n        global.setTimeout(this._request(method, url, options, callback), 3210);\n    } else {\n        callback(err, xhr);\n    }\n}",
+    "receiverBase": "request",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var args = Array.prototype.slice.call(arguments);\n    self._revCache._activatePropagation();\n    var p = promising();\n    return p.fulfill.apply(p, args);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (entry) {\n    var path = entry[0];\n    var rev;\n    if (!entry[1]) {\n        rev = null;\n    } else {\n        if (entry[1].is_dir) {\n            return;\n        }\n        rev = entry[1].rev;\n    }\n    self._revCache.set(path, rev);\n}",
+    "receiverBase": "entries",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    rs._emit('error', new rs.SyncError(err));\n}",
+    "receiverBase": "apply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['jquery'], factory);\n    } else {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    jQuery.atmosphere.unsubscribe();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var requestsClone = [].concat(jQuery.atmosphere.requests);\n    for (var i = 0; i < requestsClone.length; i++) {\n        var rq = requestsClone[i];\n        rq.close();\n        clearTimeout(rq.response.request.id);\n        if (rq.heartbeatTimer) {\n            clearTimeout(rq.heartbeatTimer);\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (jQuery.atmosphere.requests.length > 0) {\n        for (var i = 0; i < jQuery.atmosphere.requests.length; i++) {\n            jQuery.atmosphere.requests[i].init();\n            jQuery.atmosphere.requests[i].execute();\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode === 27) {\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function (event) {\n    event = event.originalEvent;\n    if (event.key === name && event.newValue) {\n        listener(event.newValue);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _execute();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var oldTrace = trace;\n    trace = findTrace();\n    if (!trace || oldTrace.ts === trace.ts) {\n        listener(jQuery.stringifyJSON({\n            target: 'c',\n            type: 'close',\n            data: {\n                reason: 'error',\n                heir: oldTrace.heir\n            }\n        }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    _open('opening', 'local', request);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    event = event.originalEvent;\n    if (event.key === name && event.newValue) {\n        listener(event.newValue);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _triggerOpen(rq);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!sseOpened) {\n        _clearState();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _executeSSE(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!webSocketOpened) {\n        var _message = {\n                code: 1002,\n                reason: '',\n                wasClean: false\n            };\n        _websocket.onclose(_message);\n        try {\n            _clearState();\n        } catch (e) {\n        }\n        return;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _response.responseBody = '';\n    _response.messages = [];\n    _executeWebSocket(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _push('...ACK...');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _onClientTimeout(_request);\n    _disconnect();\n    _clearState();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _execute();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name, value) {\n    var h = jQuery.isFunction(value) ? value.call(this, rq, request, _response) : value;\n    if (h != null) {\n        url += '&' + encodeURIComponent(name) + '=' + encodeURIComponent(h);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!_response.ffTryingReconnect) {\n        _triggerOpen(rq);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (request.requestCount === 0) {\n        _clearState();\n        _prepareCallback('Connect timeout', 'closed', 200, request.transport);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name, value) {\n    var h = jQuery.isFunction(value) ? value.call(this, ajaxRequest, request, create, _response) : value;\n    if (h != null) {\n        ajaxRequest.setRequestHeader(name, h);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    _request.reconnectId = _executeRequest(request);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _open('re-connecting', request.transport, request);\n    _ieXDR(rq);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (rq.requestCount === 0) {\n        _clearState();\n        _prepareCallback('Connect timeout', 'closed', 200, rq.transport);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _ieStreaming(rq);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    _ieStreaming(rq);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name, value) {\n    var h = jQuery.isFunction(value) ? value.call(this, _request, _request, _response) : value;\n    if (h != null) {\n        query += '&' + encodeURIComponent(name) + '=' + encodeURIComponent(h);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function loop() {\n    timeoutId = setTimeout(function () {\n        if (fn() === false) {\n            return;\n        }\n        loop();\n    }, interval);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (fn() === false) {\n        return;\n    }\n    loop();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    if (this.matrix) {\n        this.canvasTransform = g.decompose(this.matrix);\n    } else {\n        delete this.canvasTransform;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "modifyMethod"
+  },
+  {
+    "callback": "function (step) {\n    f.addColorStop(step.offset, g.normalizeColor(step.color).toString());\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var u = ga.curvePI4;\n    bezierCircle.push(u.s, u.c1, u.c2, u.e);\n    for (var a = 45; a < 360; a += 45) {\n        var r = m.rotateg(a);\n        bezierCircle.push(mp(r, u.c1), mp(r, u.c2), mp(r, u.e));\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (p) {\n    result.push('bezierCurveTo', p);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (method) {\n    modifyMethod(g.Path, method);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  }
+]

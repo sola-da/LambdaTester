@@ -1,0 +1,582 @@
+[
+  {
+    "callback": "function (value, key) {\n    _.forEach(additionalGlobals, function (item, name) {\n        strings[key] = strings[key].replace(new RegExp('{' + name + '}', 'g'), additionalGlobals[name]);\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item, name) {\n    strings[key] = strings[key].replace(new RegExp('{' + name + '}', 'g'), additionalGlobals[name]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, key) {\n    _.forEach(additionalGlobals, function (item, name) {\n        stringsApp[key] = stringsApp[key].replace(new RegExp('{' + name + '}', 'g'), additionalGlobals[name]);\n    });\n    strings[key] = stringsApp[key];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item, name) {\n    stringsApp[key] = stringsApp[key].replace(new RegExp('{' + name + '}', 'g'), additionalGlobals[name]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (!self.isDisplayOnly() && self.control && typeof CKEDITOR !== 'undefined') {\n        setTimeout(function () {\n            self.editor = CKEDITOR.replace($(self.control)[0], self.options.ckeditor);\n        }, 250);\n    }\n    $(self.control).bind('destroyed', function () {\n        if (self.editor) {\n            self.editor.removeAllListeners();\n            self.editor.destroy(false);\n            self.editor = null;\n        }\n    });\n    callback();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "base"
+  },
+  {
+    "callback": "function () {\n    self.editor = CKEDITOR.replace($(self.control)[0], self.options.ckeditor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (self.editor) {\n        self.editor.removeAllListeners();\n        self.editor.destroy(false);\n        self.editor = null;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (req, res) {\n    res.end('Hello World in NodeJS!');\n}",
+    "receiverBase": "connect",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (body) {\n    vm.runInNewContext(body, {\n        Buffer: function (s) {\n            return s.toLowerCase();\n        },\n        console: {\n            log: function (msg) {\n                t.equal(msg, 'abc');\n            }\n        }\n    });\n    vm.runInNewContext(body, {\n        Buffer: Buffer,\n        console: {\n            log: function (msg) {\n                t.ok(Buffer.isBuffer(msg));\n                t.equal(msg.toString('utf8'), 'ABC');\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "concat"
+  },
+  {
+    "callback": "function (code) {\n    t.equal(code, 0);\n}",
+    "receiverBase": "ps",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var _cleanData = $.cleanData;\n    $.cleanData = function (elems) {\n        if (!$.widget) {\n            for (var i = 0, elem; (elem = elems[i]) != null; i++) {\n                try {\n                    $(elem).triggerHandler('remove');\n                } catch (e) {\n                }\n            }\n        }\n        _cleanData(elems);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    elem = this;\n    if (elem.nodeType === 1) {\n        if (isFunction) {\n            var genVal = val.call(elem, i, $.prop(elem, 'value', undefined, 'val', true));\n            if (genVal == null) {\n                genVal = '';\n            }\n            $.prop(elem, 'value', genVal, 'val');\n        } else {\n            $.prop(elem, 'value', val, 'val');\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(evtDel).off(evt, fn);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $.fn[data.name] = function () {\n        var elems = [];\n        this.each(function () {\n            var shadowData = elementData(this, 'shadowData');\n            var elem = shadowData && shadowData[data.prop] || this;\n            if ($.inArray(elem, elems) == -1) {\n                elems.push(elem);\n            }\n        });\n        return this.pushStack(elems);\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var shadowData = elementData(this, 'shadowData');\n    var elem = shadowData && shadowData[data.prop] || this;\n    if ($.inArray(elem, elems) == -1) {\n        elems.push(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    if (!fn.only || (fn.only = 'prop' && type == 'prop') || fn.only == 'attr' && type != 'prop') {\n        fn.call(elem, value, boolValue, isVal ? 'val' : curType, type);\n    }\n}",
+    "receiverBase": "modifyProps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (descProp) {\n    if (desc[descProp]) {\n        desc['_sup' + descProp] = getSup(descProp, oldDesc);\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, fns) {\n    getElementsByName(name);\n    if (!fns || !fns.forEach) {\n        webshims.warn('Error: with ' + name + '-property. methods: ' + fns);\n        return;\n    }\n    fns.forEach(function (fn) {\n        nodeNameCache[name].each(fn);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    nodeNameCache[name].each(fn);\n}",
+    "receiverBase": "fns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var val = $.attr(this, prop);\n    if (val != null) {\n        $.attr(this, prop, val);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    $(this).each(function () {\n        var data = elementData(this, 'propValue', {});\n        data[prop] = this[prop];\n        this[prop] = value;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    var data = elementData(this, 'propValue', {});\n    data[prop] = this[prop];\n    this[prop] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ID = new Date().getTime();\n    return function (elem) {\n        elem = $(elem);\n        var id = elem.prop('id');\n        if (!id) {\n            ID++;\n            id = 'ID-' + ID;\n            elem.eq(0).prop('id', id);\n        }\n        return id;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (name, prop) {\n    if (!(name in obj)) {\n        obj[name] = prop;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, type) {\n    var body = document.body;\n    var doc = document.documentElement;\n    docObserve[type] = function () {\n        return Math.max(body['scroll' + name], doc['scroll' + name], body['offset' + name], doc['offset' + name], doc['client' + name]);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($.support.boxSizing) {\n        docObserve.handler({ type: 'boxsizing' });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    docObserve.start();\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            $(shadowElem).remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(shadowElem).remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    elementData(this, 'shadowData', shadowData.shadowData);\n}",
+    "receiverBase": "shadowChilds",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    webshims.defineNodeNamesProperty(nodeNames, prop, {\n        prop: {\n            set: function (val) {\n                $.attr(this, prop, val);\n            },\n            get: function () {\n                return $.attr(this, prop) || '';\n            }\n        }\n    });\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var desc = descs[type];\n    if (desc) {\n        if (type === 'prop') {\n            desc = $.extend({ writeable: true }, desc);\n        } else {\n            desc = $.extend({}, desc, { writeable: true });\n        }\n        extendQ[type](nodeName, prop, desc);\n        if (nodeName != '*' && webshims.cfg.extendNative && type == 'prop' && desc.value && $.isFunction(desc.value)) {\n            extendNativeValue(nodeName, prop, desc);\n        }\n        descs[type] = desc;\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (copyProp) {\n    if (copyProp in descs[prop]) {\n        descs[prop][propType][copyProp] = descs[prop][copyProp];\n        delete descs[prop][copyProp];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (!modifyProps[name][prop]) {\n        modifyProps[name][prop] = [];\n        havePolyfill[prop] = true;\n    }\n    if (desc.set) {\n        if (only) {\n            desc.set.only = only;\n        }\n        modifyProps[name][prop].push(desc.set);\n    }\n    if (desc.initAttr) {\n        initProp.content(name, prop);\n    }\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (loadingLang == curLang.join()) {\n        $.each(loading[src], function (i, obj) {\n            select(obj);\n        });\n    }\n    delete loading[src];\n}",
+    "receiverBase": "loader",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (i, obj) {\n    select(obj);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, baseMethod) {\n    webshims[name] = function (names, a, b, c) {\n        if (typeof names == 'string') {\n            names = names.split(listReg);\n        }\n        var retDesc = {};\n        names.forEach(function (nodeName) {\n            retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n        });\n        return retDesc;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeName) {\n    retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var main = $('main').attr({ role: 'main' });\n    if (main.length > 1) {\n        webshims.error('only one main element allowed in document');\n    } else if (main.is('article *, section *')) {\n        webshims.error('main not allowed inside of article/section elements');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (name, role) {\n    var elems = $(name, context).add(contextElem.filter(name));\n    for (var i = 0, len = elems.length; i < len; i++) {\n        addRole(elems[i], role);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (that.list) {\n        that.list();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    o.options[$.prop(this, 'value')] = $.prop(this, 'label') || '';\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    events[name].val = $.prop(that.orig, 'value');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    events[name].fn(val, that);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var val = $.prop(that.orig, 'value');\n    that.value(val);\n    setTimeout(function () {\n        var val2 = $.prop(that.orig, 'value');\n        if (val != val2) {\n            that.value(val2);\n        }\n    }, 4);\n}",
+    "receiverBase": "jProp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var val2 = $.prop(that.orig, 'value');\n    if (val != val2) {\n        that.value(val2);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    webshims.ready('dom-support', function () {\n        if ($.fn.onWSOff) {\n            var timer;\n            var update = function () {\n                that.updateMetrics();\n            };\n            that.element.onWSOff('updateshadowdom', function () {\n                clearTimeout(timer);\n                timer = setTimeout(update, 100);\n            });\n        }\n    });\n    if (!$.fn.onWSOff && webshims._polyfill) {\n        webshims._polyfill(['dom-support']);\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    if ($.fn.onWSOff) {\n        var timer;\n        var update = function () {\n            that.updateMetrics();\n        };\n        that.element.onWSOff('updateshadowdom', function () {\n            clearTimeout(timer);\n            timer = setTimeout(update, 100);\n        });\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timer);\n    timer = setTimeout(update, 100);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "onWSOff"
+  },
+  {
+    "callback": "function () {\n    var obj = $.extend(oCreate(rangeProto), { element: $(this) });\n    obj.options = opts;\n    obj._create.call(obj);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, i) {\n    return '<option value=\"' + val + '\">' + labels[i] + '</option>';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var i = 1;\n    var opts = [];\n    while (i < 32) {\n        opts.push('<option>' + (i < 10 ? '0' + i : i) + '</option>');\n        i++;\n    }\n    return opts.join('');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, name) {\n    obj[name] = i;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!nowY) {\n        $('option[selected]', this).removeAttr('selected');\n        $(this).val();\n    }\n}",
+    "receiverBase": "html",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, value) {\n    var input = inputs.filter('.' + name);\n    if (input[0]) {\n        input.appendTo(element);\n        if (i < seperators.length) {\n            seperators.eq(i).insertAfter(input);\n        }\n        i++;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var getId = function () {\n        return webshims.getID(this);\n    };\n    return function (element, labels, noFocus) {\n        $(element).attr({ 'aria-labelledby': labels.map(getId).get().join(' ') });\n        if (!noFocus) {\n            labels.on('click', function (e) {\n                element.getShadowFocusElement().focus();\n                e.preventDefault();\n                return false;\n            });\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    element.getShadowFocusElement().focus();\n    e.preventDefault();\n    return false;\n}",
+    "receiverBase": "labels",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    webshims.loader.loadList([type]);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    curCfg = formcfg.__active;\n    triggerLocaleChange();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.type == 'input') {\n        timedMirror();\n    } else {\n        timedMirror._wsexec();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i, val) {\n    if (val._supvalue) {\n        val._supvalue.call(this, message);\n    }\n}",
+    "receiverBase": "inputElements",
+    "receiverCallee": "prop"
+  },
+  {
+    "callback": "function (e) {\n    loadPicker(that.type, 'DOM');\n}",
+    "receiverBase": "add",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    return $.prop(this, 'value');\n}",
+    "receiverBase": "inputElements",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, elem) {\n    if ($.nodeName(elem, 'select')) {\n        $(elem).children('option:first-child').text(placeholder[i]);\n    } else {\n        $.prop(elem, 'placeholder', placeholder[i]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    wsWidgetProto[name] = function (val, force) {\n        if (!this._init || force || val !== this.options[name]) {\n            this.element.prop(name, this.formatValue(val));\n            this.options[name] = val;\n            this._propertyChange(name);\n            this.mirrorValidity();\n        }\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var data = webshims.data(element);\n    if (data && data.shadowData) {\n        data.shadowData.shadowFocusElement = element.find('input, select')[0] || element[0];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, elem) {\n    var setOption;\n    if (!(name in elem) && !isValue && $.nodeName(elem, 'select')) {\n        $('option[value=\"' + val[i] + '\"]', elem).prop('defaultSelected', true);\n    } else {\n        $.prop(elem, name, val[i]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    webshims.objectCreate(wsWidgetProto, { element: { value: $(this) } }, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    webshims.objectCreate(spinBtnProto, { element: { value: $(this) } }, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.addEventListener('touchstart', touchStart, true);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (element[0]) {\n        element.trigger('focus');\n        if (noTrigger !== true && !element.is(':focus')) {\n            setFocus(true);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    popover.stopOpen = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tabbable = false;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var timer;\n    var update = function () {\n        if (popover.isVisible) {\n            popover.element.triggerHandler('updatepickercontent');\n        }\n    };\n    return function (prop) {\n        if (prop == 'value' && !data.options.inlinePicker) {\n            return;\n        }\n        popover.isDirty = true;\n        if (popover.isVisible) {\n            clearTimeout(timer);\n            timer = setTimeout(update, 9);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(document).off('wslocalechange', data._propertyChange);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    popover.openedByFocus = false;\n    popover.activeElement.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            opener.remove();\n            popover.element.remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    opener.remove();\n    popover.element.remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var timer;\n    var show = function () {\n        try {\n            var value = data.alpha.prop('valueAsNumber') / (data.alpha.prop('max') || 1);\n            if (!isNaN(value)) {\n                colorIndicator.css({ opacity: value });\n            }\n        } catch (er) {\n        }\n    };\n    return function (e) {\n        clearTimeout(timer);\n        timer = setTimeout(show, !e || e.type == 'change' ? 4 : 40);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (val, boolVal) {\n    if (!stopCircular) {\n        var shadowData = webshims.data(this, 'shadowData');\n        if (shadowData && shadowData.data && shadowData.nativeElement === this && shadowData.data[fnName]) {\n            if (boolAttrs[fnName]) {\n                shadowData.data[fnName](val, boolVal);\n            } else {\n                shadowData.data[fnName](val);\n            }\n        }\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function () {\n    return function (name, data) {\n        inputTypes[name] = data;\n        data.attrs = $.merge([], copyAttrs, data.attrs);\n        data.props = $.merge([], copyProps, data.props);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    parent = data.orig.parentNode;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    if (!stopCircular) {\n        data.shim.value($.prop(this, 'value'));\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (hasFocus != hasFocusTriggered) {\n        hasFocusTriggered = hasFocus;\n        $(opts.orig).triggerHandler(hasFocus ? 'focus' : 'blur');\n        $(opts.orig).trigger(hasFocus ? 'focusin' : 'focusout');\n    }\n    hasFocusTriggered = hasFocus;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (!webshims.fromSubmit && isCheckValidity) {\n        return;\n    }\n    $(opts.orig).off('invalid.replacedwidgetbubble').on('invalid.replacedwidgetbubble', function (evt) {\n        if (!evt.isDefaultPrevented()) {\n            webshims.validityAlert.showFor(e.target);\n            e.preventDefault();\n            evt.preventDefault();\n        }\n        $(opts.orig).off('invalid.replacedwidgetbubble');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt) {\n    if (!evt.isDefaultPrevented()) {\n        webshims.validityAlert.showFor(e.target);\n        e.preventDefault();\n        evt.preventDefault();\n    }\n    $(opts.orig).off('invalid.replacedwidgetbubble');\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (name) {\n    var desc = webshims.defineNodeNameProperty(name, 'checkValidity', {\n            prop: {\n                value: function () {\n                    isCheckValidity = true;\n                    var ret = desc.prop._supvalue.apply(this, arguments);\n                    isCheckValidity = false;\n                    return ret;\n                }\n            }\n        });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    $('input', context).add(contextElem.filter('input')).each(implementType);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    webshims.loader.loadList(['form-datalist-lazy']);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    contextElem.filter('datalist > select, datalist, datalist > option, datalist > select > option').closest('datalist').each(updateDatlistAndOptions);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    that._lazyCreate(opts);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!that._destroyed) {\n        that._lazyCreate(opts);\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    $.attr(input, 'list', $.attr(input, 'list'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (require, exports) {\n    exports.resolve = resolve;\n}",
+    "receiverBase": "global",
+    "receiverCallee": "bootstrap"
+  },
+  {
+    "callback": "function (bundleLocations) {\n    preloaded = preloaded.then(function () {\n        return Promise.all(bundleLocations.map(function (bundleLocation) {\n            load(bundleLocation);\n            return getDefinition(bundleLocation).promise;\n        }));\n    });\n}",
+    "receiverBase": "preload",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return Promise.all(bundleLocations.map(function (bundleLocation) {\n        load(bundleLocation);\n        return getDefinition(bundleLocation).promise;\n    }));\n}",
+    "receiverBase": "preloaded",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (bundleLocation) {\n    load(bundleLocation);\n    return getDefinition(bundleLocation).promise;\n}",
+    "receiverBase": "bundleLocations",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    delete global.preload;\n    delete global.bundleLoaded;\n}",
+    "receiverBase": "preloaded",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (qRequire) {\n    qRequire.inject('q', Promise);\n    if ('autoPackage' in params) {\n        mrRequire.injectPackageDescription(applicationLocation, {});\n    }\n    return mrRequire.loadPackage({\n        location: applicationLocation,\n        hash: params.applicationHash\n    }).invoke('async', moduleId);\n}",
+    "receiverBase": "loadPackage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    modules[id] = definition.apply(null, arguments);\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.start - b.start;\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (match, i) {\n    if (callback(match, i)) {\n        filteredMatches.push(match);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (languageValue) {\n    items.push({\n        selectable: true,\n        text: languageValue.name,\n        data: languageValue.value\n    });\n}",
+    "receiverBase": "Tools",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (langPair) {\n    langPair = langPair.split('=');\n    return {\n        name: langPair[0],\n        value: langPair[1]\n    };\n}",
+    "receiverBase": "Tools",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (suggestion) {\n    items.push({\n        text: suggestion,\n        onclick: function () {\n            editor.insertContent(editor.dom.encode(suggestion));\n            editor.dom.remove(spans);\n            checkIfFinished();\n        }\n    });\n}",
+    "receiverBase": "Tools",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, key) {\n    if (postData) {\n        postData += '&';\n    }\n    postData += key + '=' + encodeURIComponent(value);\n}",
+    "receiverBase": "Tools",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    editor.setProgressState(false);\n    editor.dom.remove(spans, true);\n    checkIfFinished();\n}",
+    "receiverBase": "",
+    "receiverCallee": "sendRpcCall"
+  },
+  {
+    "callback": "function (message) {\n    editor.windowManager.alert(message);\n    editor.setProgressState(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "sendRpcCall"
+  },
+  {
+    "callback": "function (span) {\n    if (span.getAttribute('data-mce-word') == word) {\n        editor.dom.remove(span, true);\n    }\n}",
+    "receiverBase": "Tools",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.target;\n    if (target.className == 'mce-spellchecker-word') {\n        e.preventDefault();\n        var spans = findSpansByIndex(getElmIndex(target));\n        if (spans.length > 0) {\n            var rng = editor.dom.createRng();\n            rng.setStartBefore(spans[0]);\n            rng.setEndAfter(spans[spans.length - 1]);\n            editor.selection.setRng(rng);\n            showSuggestions(target.getAttribute('data-mce-word'), spans);\n        }\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.active(started);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ctrl) {\n    ctrl.active(ctrl.settings.data === selectedLanguage);\n}",
+    "receiverBase": "items",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match) {\n    return !!suggestions[match.text];\n}",
+    "receiverBase": "find",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (match) {\n    return editor.dom.create('span', {\n        'class': 'mce-spellchecker-word',\n        'data-mce-bogus': 1,\n        'data-mce-word': match.text\n    });\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function () {\n    self.active(started);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (suggestionsMenu) {\n        suggestionsMenu.remove();\n        suggestionsMenu = null;\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data, options) {\n    Drupal.openlayers.addControl(data.openlayers, 'Permalink', options);\n}",
+    "receiverBase": "openlayers",
+    "receiverCallee": "addBehavior"
+  },
+  {
+    "callback": "function (HeaderLevel) {\n    HeaderLevel[HeaderLevel['H1'] = 0] = 'H1';\n    HeaderLevel[HeaderLevel['H2'] = 1] = 'H2';\n    HeaderLevel[HeaderLevel['H3'] = 2] = 'H3';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    function Header() {\n    }\n    Header.getTag = function (level) {\n        switch (level) {\n        case HeaderLevel.H1:\n            return 'h1';\n        case HeaderLevel.H2:\n            return 'h2';\n        case HeaderLevel.H3:\n            return 'h3';\n        }\n    };\n    Header.render = function (ctx, me) {\n        me.tag = this.getTag(ctx.data.level);\n        me.children = ctx.data.content;\n    };\n    return Header;\n}",
+    "receiverBase": ""
+  }
+]

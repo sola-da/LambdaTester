@@ -1,0 +1,404 @@
+[
+  {
+    "callback": "function (value, key) {\n    if (isNumber(value)) {\n        info[key] = Math.round(value);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o, index) {\n    if (jeeves.hasClass(o, INFLATION_CLASS_NAME)) {\n        jeeves.toggleClassName(o, INFLATION_CLASS_NAME);\n        o.parentNode.style.height = '';\n        o.parentNode.style.width = '';\n        if (balloonInst.stackHeaders && index > 0) {\n            o.style.top = '';\n        }\n    }\n    if (!jeeves.hasClass(o, FLOATING_CLASS_NAME)) {\n        jeeves.toggleClassName(o, FLOATING_CLASS_NAME);\n    }\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (h1, h2) {\n    return jeeves.getOffset(h1).top - jeeves.getOffset(h2).top;\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (header) {\n    if (!jeeves.hasClass(header, FLOATING_CLASS_NAME)) {\n        jeeves.toggleClassName(header, FLOATING_CLASS_NAME);\n    }\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem) {\n    that.headerStack.push(elem);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (id) {\n    that.inflate(id);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, id) {\n    that.inflate(id);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (header) {\n    removeIndividualHeader(header);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (id) {\n    that.deflate(id);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, id) {\n    that.deflate(id);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (header, id) {\n    that.deflate(id);\n}",
+    "receiverBase": "jeeves",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return legendHeaderTemplate(args._attr);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "html"
+  },
+  {
+    "callback": "function () {\n    if (args._attr.isOpen) {\n        return 'legend-ul';\n    }\n    return 'legend-ul hidden';\n}",
+    "receiverBase": "append",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return 'color ' + self.colorToClass(args.color(d));\n}",
+    "receiverBase": "append",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return '<i class=\"fa fa-circle dots\" style=\"color:' + args.color(d) + '\"></i>' + d;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "html"
+  },
+  {
+    "callback": "function legendClick() {\n    if (self._attr.isOpen) {\n        visEl.select('ul.legend-ul').classed('hidden', true);\n        self._attr.isOpen = false;\n        self.vis.resize();\n    } else {\n        visEl.select('ul.legend-ul').classed('hidden', false);\n        self._attr.isOpen = true;\n        self.vis.resize();\n    }\n}",
+    "receiverBase": "headerIcon",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    return d3.select(this).node().classList[1] !== liClass;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d3.select(this).node().classList[1] !== liClass;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d3.select(this).node().classList[1] !== liClass;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d3.select(this).node().classList[1] !== liClass;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var charts = visEl.selectAll('.chart');\n    legendDiv.selectAll('li').classed('blur_shape', false);\n    charts.selectAll('.color').classed('blur_shape', false);\n    charts.selectAll('.line circle').classed('blur_shape', false);\n    charts.selectAll('.slice').classed('blur_shape', false);\n    var eventEl = d3.select(this);\n    eventEl.style('white-space', 'nowrap');\n    eventEl.style('word-break', 'inherit');\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (match, name) {\n    return SCOPED_ABBR[name.toLowerCase()];\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m0, m1) {\n    return m1.toUpperCase();\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m0, m1, m2, m3) {\n    var str = (m1 ? '-' + m1.toLowerCase() : '') + m2;\n    if (m3) {\n        str += '-' + m3.toLowerCase();\n    }\n    return str;\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (val) {\n    var property = val + 'Transition';\n    if (property in DOCUMENT[DOCUMENT_ELEMENT].style) {\n        CAMEL_VENDOR_PREFIX = val;\n        VENDOR_PREFIX = Transition._toHyphen(val) + '-';\n        Transition.useNative = true;\n        Transition.supported = true;\n        Transition._VENDOR_PREFIX = val;\n    }\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val) {\n    var property = val + 'Transform';\n    if (typeof DOCUMENT_STYLE[property] !== 'undefined') {\n        Transition._TRANSFORM = property;\n    }\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    anim._onNativeEnd.call(node, {\n        propertyName: prop,\n        elapsedTime: dur\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    config.on.end.call(nodeInstance, data);\n    if (callback) {\n        callback.call(nodeInstance, data);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    callback.call(nodeInstance, data);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (exists) {\n    if (!exists) {\n        fs.mkdirSync(dir);\n    }\n    fs.writeFile(path.resolve(dir, me.id + '.xml'), me._xml, function () {\n        winsw.createExe(me.id, dir, function () {\n            me.execute('\"' + path.resolve(dir, me._exe) + '\" install', function () {\n                sleep(2);\n                me.emit('install');\n            });\n        });\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function () {\n    winsw.createExe(me.id, dir, function () {\n        me.execute('\"' + path.resolve(dir, me._exe) + '\" install', function () {\n            sleep(2);\n            me.emit('install');\n        });\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function () {\n    me.execute('\"' + path.resolve(dir, me._exe) + '\" install', function () {\n        sleep(2);\n        me.emit('install');\n    });\n}",
+    "receiverBase": "winsw",
+    "receiverCallee": "createExe"
+  },
+  {
+    "callback": "function () {\n    sleep(2);\n    me.emit('install');\n}",
+    "receiverBase": "me",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (f) {\n    rm(f);\n}",
+    "receiverBase": "_files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    sleep(1);\n    me.emit('uninstall');\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "rmdir"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (err) {\n        if (err.code == 2) {\n            me.log.warn('An attempt to stop the service failed because the service is/was not running.');\n            callback(err);\n            me.emit('alreadystopped');\n        } else {\n            me.checkPermError(err);\n        }\n    } else {\n        me.log.info(stdout);\n        me.emit('stop');\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    var phelp = parentParser.formatHelp();\n    var chelp = childParser.formatHelp();\n    assert(phelp.match(/parent group:/));\n    assert(chelp.match(/parent group:/));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        args = childParser.parseArgs(['gbararg']);\n    }, /one of the arguments (.*) is required/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    args = childParser.parseArgs(['gbararg']);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    args = childParser.parseArgs([\n        '--xbar',\n        'gbararg'\n    ]);\n    assert.equal(args.gbar, 'gbararg');\n    assert.equal(args.xbar, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        args = childParser.parseArgs([\n            '--xfoo',\n            '--xbar'\n        ]);\n    }, /Not allowed with argument/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    args = childParser.parseArgs([\n        '--xfoo',\n        '--xbar'\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function (user, done) {\n    done(null, user.id);\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "serializeUser"
+  },
+  {
+    "callback": "function (id, done) {\n    User.find({ _id: id }, function (err, user) {\n        if (err)\n            err;\n        done(err, user);\n    });\n}",
+    "receiverBase": "passport",
+    "receiverCallee": "deserializeUser"
+  },
+  {
+    "callback": "function (err, user) {\n    if (err)\n        err;\n    done(err, user);\n}",
+    "receiverBase": "User",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, user) {\n    if (err) {\n        return done(err);\n    }\n    if (!user) {\n        return done(null, false, { message: 'Unknown user ' + username });\n    }\n    if (password == user.password) {\n        return done(null, user);\n    } else {\n        return done(null, false, { message: 'Invalid password' });\n    }\n}",
+    "receiverBase": "User",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (option) {\n    var $this = $(this), data = $this.retrieve('alert');\n    if (!data)\n        $this.store('alert', data = new Alert(this));\n    if (typeof option == 'string')\n        data[option].call($this);\n    return $this;\n}",
+    "receiverBase": "Element",
+    "receiverCallee": "implement"
+  },
+  {
+    "callback": "function () {\n    actions.run('wrap_with_abbreviation', editorProxy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (x) {\n    return x.value || x;\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    if (x == '\\n')\n        return x + indentString;\n    if (typeof x == 'string')\n        return x.replace(/\\t/g, tabString);\n    return x;\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (t) {\n    return typeof t === 'object';\n}",
+    "receiverBase": "value",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (ts) {\n    ts.length = 0;\n}",
+    "receiverBase": "tabstops",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    if (typeof t === 'string') {\n        if (t[0] === '\\n') {\n            column = t.length - 1;\n            row++;\n        } else\n            column += t.length;\n        text += t;\n    } else {\n        if (!t.start)\n            t.start = {\n                row: row,\n                column: column\n            };\n        else\n            t.end = {\n                row: row,\n                column: column\n            };\n    }\n}",
+    "receiverBase": "tokens",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (scope) {\n    var snippets = snippetMap[scope];\n    if (snippets)\n        snippet = this.findMatchingSnippet(snippets, before, after);\n    return !!snippet;\n}",
+    "receiverBase": "getActiveScopes",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (scope) {\n    var snippets = snippetMap[scope];\n    if (snippets)\n        snippet = snippets[name];\n    return !!snippet;\n}",
+    "receiverBase": "getActiveScopes",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (r) {\n    return comparePoints(r.start, start) <= 0 && comparePoints(r.end, end) >= 0;\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (range) {\n    if (!range.markerId)\n        range.markerId = session.addMarker(range, 'ace_snippet-marker', 'text');\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (range) {\n    session.removeMarker(range.markerId);\n    range.markerId = null;\n}",
+    "receiverBase": "ts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (t) {\n    var parser = steal.parse(readFile('steal/parse/test/testCode.js')), token, tokens = [];\n    while (token = parser.moveNext()) {\n        tokens.push(token);\n    }\n    t.equals(tokens[0].value, 'FooBar');\n    t.equals(tokens[1].value, 'Blah');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    var parser = steal.parse(readFile('steal/parse/test/stealCode1.js')), tokens = [];\n    parser.until([\n        'steal',\n        '('\n    ]);\n    parser.partner('(', function (token) {\n        tokens.push(token);\n    });\n    t.equals(tokens[0].value, 'foo/bar');\n    t.equals(tokens[1].value, ',');\n    t.equals(tokens[2].value, 'abc/def');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (token) {\n    tokens.push(token);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "partner"
+  },
+  {
+    "callback": "function (t) {\n    var parser = steal.parse(readFile('steal/parse/test/dev.js')), tokens = [];\n    var tok = parser.until([\n            'steal',\n            '.',\n            'dev',\n            '.',\n            'log',\n            '('\n        ]);\n    parser.partner('(', function (token) {\n        tokens.push(token);\n    });\n    t.equals(tokens[0].value, 'hi()');\n}",
+    "receiverBase": "test",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (token) {\n    tokens.push(token);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "partner"
+  },
+  {
+    "callback": "function () {\n    $('#line-count span').text($(this).val().trim().split('\\n').length);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    osapi.jive.core.container.closeApp();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (response) {\n    if (response.error) {\n        appObj.showError('Error loading DL: ' + response.error.message + ' (' + response.error.code + ')');\n    } else {\n        appObj.handleLoadContext(response.list[0]);\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    $('#form-buttons').show('fast');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    $('#working').show('fast');\n    $('#messages').show('fast', function () {\n        gadgets.window.adjustHeight();\n        appObj.runBatch();\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    gadgets.window.adjustHeight();\n    appObj.runBatch();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "show"
+  },
+  {
+    "callback": "function (window, factory) {\n    if (mono) {\n        return;\n    }\n    if (window) {\n        return mono = factory();\n    }\n    exports.isFF = true;\n    exports.isModule = true;\n    exports.init = factory;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "mono",
+    "receiverCallee": "onMessage"
+  },
+  {
+    "callback": "function (message, response) {\n    if (message.responseId !== undefined) {\n        return msgTools.callCb(message);\n    }\n    var mResponse = msgTools.mkResponse.bind(_this, response, message.callbackId);\n    if (message.hook !== undefined) {\n        var hookFunc = mono.sendHook[message.hook];\n        if (hookFunc !== undefined) {\n            return mono.sendHook[message.hook](message.data, mResponse);\n        }\n    }\n    cb.call(_this, message.data, mResponse);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (tabs) {\n    if (tabs[0] === undefined || tabs[0].id < 0) {\n        return;\n    }\n    chromeMsg.sendTo(message, tabs[0].id);\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (e) {\n    if (e.detail[0] !== '<') {\n        return;\n    }\n    var data = e.detail.substr(1);\n    var json = JSON.parse(data);\n    for (var i = 0, cb; cb = onCollector[i]; i++) {\n        cb(json);\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (msg) {\n    var response = firefoxMsg.mkResponse(msg.from);\n    for (var i = 0, cb; cb = firefoxMsg.cbList[i]; i++) {\n        cb(msg, response);\n    }\n}",
+    "receiverBase": "port",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    if (message && message.responseId !== undefined) {\n        return msgTools.callCb(message);\n    }\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "sendRequest"
+  },
+  {
+    "callback": "function (tabs) {\n    if (tabs[0] === undefined || tabs[0].id < 0) {\n        return;\n    }\n    chromeMsg.sendTo(message, tabs[0].id);\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (message) {\n    if (message && message.responseId !== undefined) {\n        return msgTools.callCb(message);\n    }\n}",
+    "receiverBase": "extension",
+    "receiverCallee": "sendRequest"
+  },
+  {
+    "callback": "function () {\n    try {\n        if (chrome.runtime.getBackgroundPage === undefined)\n            return;\n    } catch (e) {\n        return;\n    }\n    mono.isChromeBgPage = location.href.indexOf('_generated_background_page.html') !== -1;\n    chrome.runtime.getBackgroundPage(function (bgWin) {\n        if (bgWin !== window) {\n            delete mono.isChromeBgPage;\n        } else {\n            mono.isChromeBgPage = 1;\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (bgWin) {\n    if (bgWin !== window) {\n        delete mono.isChromeBgPage;\n    } else {\n        mono.isChromeBgPage = 1;\n    }\n}",
+    "receiverBase": "runtime",
+    "receiverCallee": "getBackgroundPage"
+  },
+  {
+    "callback": "function () {\n    if (!mono.isChrome || !chrome.hasOwnProperty('storage'))\n        return;\n    var chStorage = function (mode) {\n        return chrome.storage[mode];\n    };\n    mono.storage = chStorage('local');\n    mono.storage.local = mono.storage;\n    mono.storage.sync = chStorage('sync');\n}",
+    "receiverBase": ""
+  }
+]

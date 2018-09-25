@@ -1,0 +1,189 @@
+[
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        console.log('Configuration file not found');\n        gConfig = {\n            port: 1337,\n            serverIP: '127.0.0.1',\n            dataFile: 'data.json',\n            pages: 'pages/'\n        };\n    } else {\n        gConfig = JSON.parse(String(data));\n    }\n    loadData();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function () {\n    writeData();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        console.log('No database file found at \"' + gConfig.dataFile + '\"');\n    } else {\n        db = JSON.parse(data);\n    }\n    bootstrapServer();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (req, res) {\n    handleRequest(req, res);\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        res.writeHead(404, { 'Content-Type': 'text/html' });\n        res.end('<html><head><title>Error</title></head><body><h1>The Render Engine Server</h1><h2>Not Found - 404</h2></body></html>');\n        return;\n    }\n    var d = String(data);\n    res.writeHead(200, {\n        'Content-Length': d.length,\n        'Content-Type': 'text/html'\n    });\n    res.end(d);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (str) {\n    return format(str, req, res);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fmt"
+  },
+  {
+    "callback": "function (_, field) {\n    return req.headers[field.toLowerCase()];\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (_, field) {\n    return res._headers ? res._headers[field.toLowerCase()] || res.__headers[field] : res.__headers && res.__headers[field];\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function convertToStrings(o) {\n    return o.source ? o.source : o;\n}",
+    "receiverBase": "nolog",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return { engine: engine };\n}",
+    "receiverBase": "engineTools",
+    "receiverCallee": "check"
+  },
+  {
+    "callback": "function () {\n    engine = phpTools.createEngine();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (scenario, description) {\n    describe(description, function () {\n        check(scenario);\n    });\n}",
+    "receiverBase": "util",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    check(scenario);\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($) {\n    $.extend(MediaElementPlayer.prototype, {\n        buildendedhtml: function (player, controls, layers, media) {\n            if (!player.isVideo)\n                return;\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['moment'], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('../moment'));\n    } else {\n        factory(window.moment);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (newValue === true) {\n        addLine();\n    }\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (plugin) {\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    return '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (e) {\n    e.Intl.add('datatable-sort', 'hu', {\n        asc: 'N\\xF6vekv\\u0151',\n        desc: 'Cs\\xF6kken\\u0151',\n        sortBy: 'Sorrend: {column}',\n        reverseSortBy: 'Ford\\xEDtott sorrend: {column}'\n    });\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    logEvent({\n        name: 'firstRun',\n        unique: true,\n        important: true\n    });\n}",
+    "receiverBase": "Meteor",
+    "receiverCallee": "startup"
+  },
+  {
+    "callback": "function (req, res) {\n    res.writeHead(200, [[\n            'content-type',\n            'text/plain'\n        ]]);\n    res.addTrailers({ 'x-foo': 'bar' });\n    res.end('stuff' + '\\n');\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n    outstanding_reqs++;\n    c.write('GET / HTTP/1.0\\r\\n\\r\\n');\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chunk) {\n    res_buffer += chunk;\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    c.end();\n    assert.ok(!/x-foo/.test(res_buffer), 'Trailer in HTTP/1.0 response.');\n    outstanding_reqs--;\n    if (outstanding_reqs == 0) {\n        server.close();\n        process.exit();\n    }\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    outstanding_reqs++;\n    c.write('GET / HTTP/1.1\\r\\n\\r\\n');\n    tid = setTimeout(assert.fail, 2000, 'Couldn\\'t find last chunk.');\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chunk) {\n    res_buffer += chunk;\n    if (/0\\r\\n/.test(res_buffer)) {\n        outstanding_reqs--;\n        clearTimeout(tid);\n        assert.ok(/0\\r\\nx-foo: bar\\r\\n\\r\\n$/.test(res_buffer), 'No trailer in HTTP/1.1 response.');\n        if (outstanding_reqs == 0) {\n            server.close();\n            process.exit();\n        }\n    }\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    http.get({\n        port: common.PORT,\n        path: '/hello',\n        headers: {}\n    }, function (res) {\n        res.on('end', function () {\n            assert.ok('x-foo' in res.trailers, 'Client doesn\\'t see trailers.');\n            outstanding_reqs--;\n            if (outstanding_reqs == 0) {\n                server.close();\n                process.exit();\n            }\n        });\n        res.resume();\n    });\n    outstanding_reqs++;\n}",
+    "receiverBase": "server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res) {\n    res.on('end', function () {\n        assert.ok('x-foo' in res.trailers, 'Client doesn\\'t see trailers.');\n        outstanding_reqs--;\n        if (outstanding_reqs == 0) {\n            server.close();\n            process.exit();\n        }\n    });\n    res.resume();\n}",
+    "receiverBase": "http",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    assert.ok('x-foo' in res.trailers, 'Client doesn\\'t see trailers.');\n    outstanding_reqs--;\n    if (outstanding_reqs == 0) {\n        server.close();\n        process.exit();\n    }\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (browser) {\n    disabledBrowsers[browser] = false;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (urlPrefix) {\n    RoutePolicy.declare(urlPrefix, 'static-online');\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (request) {\n    if (browserDisabled(request))\n        return null;\n    else\n        return { manifest: '/app.manifest' };\n}",
+    "receiverBase": "WebApp",
+    "receiverCallee": "addHtmlAttributeHook"
+  },
+  {
+    "callback": "function (resource) {\n    if (resource.where === 'client' && !RoutePolicy.classify(resource.url)) {\n        manifest += resource.url;\n        if (!resource.cacheable)\n            manifest += '?' + resource.hash;\n        manifest += '\\n';\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (resource) {\n    if (resource.where === 'client' && !RoutePolicy.classify(resource.url) && !resource.cacheable) {\n        manifest += resource.url + ' ' + resource.url + '?' + resource.hash + '\\n';\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (urlPrefix) {\n    manifest += urlPrefix + '\\n';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (resource) {\n    if (resource.where === 'client' && !RoutePolicy.classify(resource.url)) {\n        totalSize += resource.size;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!_disableSizeCheck)\n        sizeCheck();\n}",
+    "receiverBase": "Meteor",
+    "receiverCallee": "startup"
+  }
+]

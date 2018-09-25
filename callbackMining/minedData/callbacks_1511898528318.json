@@ -1,0 +1,655 @@
+[
+  {
+    "callback": "function (done) {\n    dbs.name = testUtils.adapterUrl(adapter, 'testdb');\n    testUtils.cleanup([dbs.name], done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    testUtils.cleanup([dbs.name], done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (err) {\n    err.name.should.equal('conflict', 'Put got a conflicts');\n    db.changes({\n        complete: function (err, results) {\n            results.results.should.have.length(1);\n            doc2._rev = undefined;\n            db.put(doc2, function (err) {\n                err.name.should.equal('conflict', 'Another conflict');\n                done();\n            });\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (err) {\n    err.name.should.equal('conflict', 'Another conflict');\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (err, ndoc) {\n    doc._rev = ndoc.rev;\n    db.remove(doc, function () {\n        delete doc._rev;\n        db.put(doc, function (err, ndoc) {\n            if (err) {\n                return done(err);\n            }\n            should.exist(ndoc.ok, 'written previously deleted doc without rev');\n            done();\n        });\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    delete doc._rev;\n    db.put(doc, function (err, ndoc) {\n        if (err) {\n            return done(err);\n        }\n        should.exist(ndoc.ok, 'written previously deleted doc without rev');\n        done();\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, ndoc) {\n    if (err) {\n        return done(err);\n    }\n    should.exist(ndoc.ok, 'written previously deleted doc without rev');\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    if (testUtils.isCouchMaster()) {\n        return true;\n    }\n    var db = new PouchDB(dbs.name);\n    return db.changes().then(function (changes) {\n        changes.last_seq.should.equal(0);\n        changes.results.should.have.length(0);\n        return db.info();\n    }).then(function (info) {\n        info.update_seq.should.equal(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (changes) {\n    changes.last_seq.should.equal(0);\n    changes.results.should.have.length(0);\n    return db.info();\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.update_seq.should.equal(0);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.changes();\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (changes) {\n    lastSeq = changes.last_seq;\n    changes.results[0].changes[0].rev.should.equal('2-a2');\n    changes.results[0].seq.should.equal(lastSeq);\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.update_seq.should.equal(lastSeq);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b', 'Correct revision wins');\n    return db.bulkDocs({\n        new_edits: false,\n        docs: [{\n                _id: 'fubar',\n                _rev: '2-2',\n                _revisions: {\n                    start: 2,\n                    ids: [\n                        '2',\n                        '1'\n                    ]\n                }\n            }]\n    });\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    return db.get('fubar');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('2-2', 'Correct revision wins');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('2-a', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('10-a', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b1', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b1', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b1', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b1', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('1-b1', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('2-a2', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('2-a2', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.get('fubar');\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    doc._rev.should.equal('2-a2', 'Correct revision wins');\n    return db.info();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    info.doc_count.should.equal(1, 'Correct number of docs');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.bulkDocs([{\n            _id: 'foo',\n            _rev: '1-a'\n        }], { new_edits: false });\n}",
+    "receiverBase": "chain",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    return db.put({ foo: 'bar' }, '_local/baz', result.res);\n}",
+    "receiverBase": "put",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return db.put({ foo: 'bar' }, '_local/baz');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    should.not.exist(e, 'shouldn\\'t error yet');\n    done(e);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    should.exist(e, 'error when you have a conflict');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (handle) {\n    handle.detach();\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (jQuery) {\n    'use strict';\n    var ViewSettingsDialogRenderer = {};\n    ViewSettingsDialogRenderer.render = function (oRm, oControl) {\n    };\n    return ViewSettingsDialogRenderer;\n}",
+    "receiverBase": "ui",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (item, index) {\n    if (index > 0) {\n        item.destroy();\n    }\n}",
+    "receiverBase": "items",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    ic.layout.setActiveItem(0);\n}",
+    "receiverBase": "ne",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    ic.layout.setActiveItem(0);\n}",
+    "receiverBase": "ne",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (config) {\n    var cont = new Talho.Admin.Organizations.Controller(config);\n    return cont.getPanel();\n}",
+    "receiverBase": "ScriptManager",
+    "receiverCallee": "reg"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define('bootstrap.wysihtml5.ja-JP', [\n            'jquery',\n            'bootstrap.wysihtml5'\n        ], factory);\n    } else {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define('bootstrap.wysihtml5', [\n            'jquery',\n            'wysihtml5',\n            'bootstrap',\n            'bootstrap.wysihtml5.templates',\n            'bootstrap.wysihtml5.commands'\n        ], factory);\n    } else {\n        factory(jQuery, wysihtml5);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (value, index) {\n    return [value];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (commandObj, idx, arr) {\n    return commandObj.dialog;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (commandObj, idx, arr) {\n    return commandObj.dialog;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (dialog, idx, arr) {\n    dialog.on('show', function (event) {\n        $(this.container).modal('show');\n    });\n    dialog.on('hide', function (event) {\n        $(this.container).modal('hide');\n        editor.composer.focus();\n    });\n    $(dialog.container).on('shown.bs.modal', function () {\n        $(this).find('input, select, textarea').first().focus();\n    });\n}",
+    "receiverBase": "map",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    $(this.container).modal('show');\n}",
+    "receiverBase": "dialog",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    $(this.container).modal('hide');\n    editor.composer.focus();\n}",
+    "receiverBase": "dialog",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).find('input, select, textarea').first().focus();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.delegateTarget || e.target || e.srcElement, el = $(target), showformat = el.data('wysihtml5-display-format-name'), formatname = el.data('wysihtml5-format-name') || el.html();\n    if (showformat === undefined || showformat === 'true') {\n        self.toolbar.find('.current-font').text(formatname);\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.target || e.srcElement;\n    var el = $(target);\n    self.toolbar.find('.current-color').text(el.html());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    toolbar.find('a.btn').not(changeViewSelector).toggleClass('disabled');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    $this.data('wysihtml5', new Wysihtml5($this, options));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    assert.ifError(err);\n    app.stop();\n    console.log('All %d tests passed.', tests.length);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "parallel"
+  },
+  {
+    "callback": "function () {\n    gutil.log('LR Listening on', lrport);\n}",
+    "receiverBase": "lr",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    gutil.log('Listening on', port);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    gulp.watch([\n        './**/*',\n        '!./node_modules/**/*'\n    ], function (evt) {\n        gutil.log(gutil.colors.cyan(evt.path), 'changed');\n        servers.lr.changed({ body: { files: [evt.path] } });\n    });\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function (evt) {\n    gutil.log(gutil.colors.cyan(evt.path), 'changed');\n    servers.lr.changed({ body: { files: [evt.path] } });\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "watch"
+  },
+  {
+    "callback": "function (results) {\n    var errors = [];\n    for (var i = 0; i < results.data.length; i++) {\n        var error = results.data[i];\n        if (error)\n            errors.push({\n                row: error.line - 1,\n                column: error.character - 1,\n                text: error.reason,\n                type: 'warning',\n                lint: error\n            });\n    }\n    session.setAnnotations(errors);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations([e.data]);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == '\"') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var fakeStorage = {};\n    spyOn(DomainLocalStorage, 'get').and.callFake(function (a) {\n        return fakeStorage[a];\n    });\n    spyOn(DomainLocalStorage, 'set').and.callFake(function (a, b) {\n        fakeStorage[a] = b;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (a) {\n    return fakeStorage[a];\n}",
+    "receiverBase": "and",
+    "receiverCallee": "callFake"
+  },
+  {
+    "callback": "function (a, b) {\n    fakeStorage[a] = b;\n}",
+    "receiverBase": "and",
+    "receiverCallee": "callFake"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        AjaxCallsForCurrentRequest.record('/url', undefined, { some: 'data' });\n    });\n    it('records url and data', function () {\n        expect(AjaxCallsForCurrentRequest.all()).toEqual(jasmine.objectContaining({ '/url': { some: 'data' } }));\n    });\n    itCanClearAllRecordedAjaxCallsForCurrentRequest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    AjaxCallsForCurrentRequest.record('/url', undefined, { some: 'data' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(AjaxCallsForCurrentRequest.all()).toEqual(jasmine.objectContaining({ '/url': { some: 'data' } }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        AjaxCallsForCurrentRequest.record('/url', { query: 'param' }, { some: 'data' });\n    });\n    it('records url+params and data', function () {\n        expect(AjaxCallsForCurrentRequest.all()).toEqual(jasmine.objectContaining({ '/url{\"query\":\"param\"}': { some: 'data' } }));\n    });\n    itCanClearAllRecordedAjaxCallsForCurrentRequest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    AjaxCallsForCurrentRequest.record('/url', { query: 'param' }, { some: 'data' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(AjaxCallsForCurrentRequest.all()).toEqual(jasmine.objectContaining({ '/url{\"query\":\"param\"}': { some: 'data' } }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    AjaxCallsForCurrentRequest.clear();\n    expect(AjaxCallsForCurrentRequest.all()).toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jsdoc.tag.inline).toBeDefined();\n    expect(typeof jsdoc.tag.inline).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jsdoc.tag.inline.isInlineTag).toBeDefined();\n    expect(typeof jsdoc.tag.inline.isInlineTag).toBe('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jsdoc.tag.inline.replaceInlineTag).toBeDefined();\n    expect(typeof jsdoc.tag.inline.replaceInlineTag).toBe('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jsdoc.tag.inline.extractInlineTag).toBeDefined();\n    expect(typeof jsdoc.tag.inline.replaceInlineTag).toBe('function');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('{@mytag hooray}', 'mytag')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('mytag hooray', 'mytag')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('this is {@mytag hooray}', 'mytag')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('{@anyoldtag will do}')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('mytag hooray')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(isInlineTag('{@mytags hooray}', 'mytag\\\\S')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function badInput() {\n        return isInlineTag();\n    }\n    expect(badInput).not.toThrow();\n    expect(badInput()).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function badReplacerUndefined() {\n        jsdoc.tag.inline.replaceInlineTag('{@foo tag}', 'foo');\n    }\n    function badReplacerString() {\n        jsdoc.tag.inline.replaceInlineTag('{@foo tag}', 'foo', 'hello');\n    }\n    expect(badReplacerUndefined).toThrow();\n    expect(badReplacerString).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var replacer = jasmine.createSpy('replacer');\n    var result = jsdoc.tag.inline.replaceInlineTag('braceless text', 'foo', replacer);\n    expect(replacer).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var replacer = jasmine.createSpy('replacer');\n    var result = jsdoc.tag.inline.replaceInlineTag('bad {@foo escapement \\\\', 'foo', replacer);\n    expect(replacer).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    function replacer() {\n        return 'REPLACED!';\n    }\n    var result = jsdoc.tag.inline.replaceInlineTag('a {@foo test string}', 'foo', replacer);\n    expect(result.newString).toBe('REPLACED!');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var replacers = {};\n    var text = 'some {@foo text} to parse';\n    var result = jsdoc.tag.inline.replaceInlineTags(text, replacers);\n    expect(result.newString).toBe(text);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var text = 'some {@foo text} with {@bar multiple} tags';\n    var replacers = {\n            foo: function (string, tagInfo) {\n                expect(tagInfo.completeTag).toBe('{@foo text}');\n                expect(tagInfo.text).toBe('text');\n                return string.replace(tagInfo.completeTag, 'stuff');\n            }\n        };\n    var result = jsdoc.tag.inline.replaceInlineTags(text, replacers);\n    expect(result.newString).toBe('some stuff with {@bar multiple} tags');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should work when a tag is specified', function () {\n        var result = jsdoc.tag.inline.extractInlineTag('some {@tagged text}', 'tagged');\n        expect(result.tags[0]).toBeDefined();\n        expect(typeof result.tags[0]).toBe('object');\n        expect(result.tags[0].tag).toBe('tagged');\n        expect(result.tags[0].text).toBe('text');\n        expect(result.newString).toBe('some');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var result = jsdoc.tag.inline.extractInlineTag('some {@tagged text}', 'tagged');\n    expect(result.tags[0]).toBeDefined();\n    expect(typeof result.tags[0]).toBe('object');\n    expect(result.tags[0].tag).toBe('tagged');\n    expect(result.tags[0].text).toBe('text');\n    expect(result.newString).toBe('some');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (elem, callFunc, callObj) {\n    var _this = this;\n    this.currentParent = elem;\n    this.callFunc = callFunc;\n    this.callObj = callObj ? callObj : this;\n    this.stack = [];\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "declare"
+  },
+  {
+    "callback": "function () {\n    _this.processNext();\n    clearTimeout(tid);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).hide().parent().Deactivate();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.menu', $(element).parent()).each(function () {\n        $(this).hide().parent().Deactivate();\n    });\n    if (options.Animate) {\n        $('.menu', element).first().show('slide', { direction: transitionDirection }, options.TransitionTime).Activate();\n    } else {\n        $('.menu', element).first().show();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).hide().parent().Deactivate();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).hide().parent().Deactivate();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    clearTimeout(waitHandle);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    $('.menu').each(function () {\n        $(this).hide().parent().Deactivate();\n        $(this).data('state', 0);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).hide().parent().Deactivate();\n    $(this).data('state', 0);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (attrVal) {\n    element.empty();\n    if (attrVal) {\n        $mdIcon(attrVal).then(function (svg) {\n            element.append(svg);\n        });\n    }\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (svg) {\n    element.append(svg);\n}",
+    "receiverBase": "$mdIcon",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    if (result) {\n        $log.log(key + ' was succesfully set to:', $scope.data.value);\n        $scope.data.showMore = true;\n    } else {\n        $log.log(key + ' was not set to: ' + $scope.data.value + ' we got ', result);\n    }\n}",
+    "receiverBase": "set",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    $log.log(key + ' was not set to: ' + $scope.data.value + ' due to', err);\n}",
+    "receiverBase": "set",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    $log.log(key + ' get was succesfully:', value);\n    $scope.data.pref = value;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    $log.log(key + ' get was not succesfully: ' + $scope.data.value + ' due to', err);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    app.navigateTo('/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    app.openCart();\n    expect(app.cartMenu().isDisplayed()).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var footerItems = app.footerItems();\n    footerItems.get(0).click();\n    expect(element(by.className('cc-context-view')).isDisplayed()).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var footerItems = app.footerItems();\n    footerItems.get(1).click();\n    browser.ignoreSynchronization = true;\n    expect(browser.getCurrentUrl()).toMatch('couchcommerce.shopwaredemo.de');\n    browser.ignoreSynchronization = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

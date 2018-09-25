@@ -1,0 +1,180 @@
+[
+  {
+    "callback": "function ($) {\n    var cf = termkit.config = function () {\n        };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (data) {\n    assertCount = 0;\n    currentTest = {\n        name: data.name,\n        failedAssertions: [],\n        total: 0,\n        passed: 0,\n        failed: 0,\n        start: new Date(),\n        time: 0\n    };\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "testStart"
+  },
+  {
+    "callback": "function (data) {\n    assertCount++;\n    lastAssertionTime = new Date().getTime();\n    if (!data.result) {\n        currentTest.failedAssertions.push(data);\n    }\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "log"
+  },
+  {
+    "callback": "function (data) {\n    currentTest.time = new Date().getTime() - currentTest.start.getTime();\n    currentTest.total = data.total;\n    currentTest.passed = data.passed;\n    currentTest.failed = data.failed;\n    if (currentTest.failed > 0)\n        window.globalFailedTests.push(currentTest);\n    currentTest = null;\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "testDone"
+  },
+  {
+    "callback": "function (details) {\n    details.failedTests = globalFailedTests;\n    window.globalTestResults = details;\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    function F() {\n    }\n    return function (o) {\n        if (arguments.length !== 1) {\n            throw new Error('Object.create implementation only accepts one parameter.');\n        }\n        F.prototype = o;\n        return new F();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (url) {\n    node.style.backgroundImage = 'url(' + url + ')';\n}",
+    "receiverBase": "item",
+    "receiverCallee": "getImgUrl"
+  },
+  {
+    "callback": "function (err, settings) {\n    if (err) {\n        return logger.error(err);\n    }\n    async.forEachSeries(a.positional, function (arg, cb) {\n        utils.catchAuthError(exports.deletedb, utils.argToEnv(settings, arg).db, [], cb);\n    }, function (err) {\n        if (err) {\n            return logger.error(err);\n        }\n        logger.end();\n    });\n}",
+    "receiverBase": "kansorc",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (arg, cb) {\n    utils.catchAuthError(exports.deletedb, utils.argToEnv(settings, arg).db, [], cb);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return logger.error(err);\n    }\n    logger.end();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEachSeries"
+  },
+  {
+    "callback": "function (err, url) {\n    if (err) {\n        return logger.error(err);\n    }\n    logger.info('deleting', utils.noAuthURL(url));\n    var db = couchdb(url);\n    db.deleteDB(callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "completeAuth"
+  },
+  {
+    "callback": "function (pointerType) {\n    var eventName = POINTER_EVENTS[pointerType][eventType];\n    if (eventName) {\n        res.push(eventName);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    startCoords = getCoordinates(event);\n    active = true;\n    totalX = 0;\n    totalY = 0;\n    lastPos = startCoords;\n    eventHandlers['start'] && eventHandlers['start'](startCoords, event);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    active = false;\n    eventHandlers['cancel'] && eventHandlers['cancel'](event);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    if (!active)\n        return;\n    active = false;\n    eventHandlers['end'] && eventHandlers['end'](getCoordinates(event), event);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < touchCoordinates.length; i += 2) {\n        if (touchCoordinates[i] == x && touchCoordinates[i + 1] == y) {\n            touchCoordinates.splice(i, i + 2);\n            return;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (event) {\n    tapping = true;\n    tapElement = event.target ? event.target : event.srcElement;\n    if (tapElement.nodeType == 3) {\n        tapElement = tapElement.parentNode;\n    }\n    element.addClass(ACTIVE_CLASS_NAME);\n    startTime = Date.now();\n    var touches = event.touches && event.touches.length ? event.touches : [event];\n    var e = touches[0].originalEvent || touches[0];\n    touchStartX = e.clientX;\n    touchStartY = e.clientY;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    resetState();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    resetState();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event, touchend) {\n    scope.$apply(function () {\n        clickHandler(scope, { $event: touchend || event });\n    });\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    clickHandler(scope, { $event: touchend || event });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (event) {\n    element.addClass(ACTIVE_CLASS_NAME);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    element.removeClass(ACTIVE_CLASS_NAME);\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    element.triggerHandler(eventName);\n    swipeHandler(scope, { $event: event });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    canvas.width = stream.columns / pixelWidth;\n    canvas.height = stream.rows / pixelHeight;\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    removeEvent(IDs.checkbox, 'click', clickVis);\n    removeEvent(IDs.filters, 'click', clickFilter);\n    removeEvent(IDs.controls, 'click', clickControl);\n    removeEvent(document, 'keyup', readKey);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (peer) {\n    $scope.isLoading = false;\n    $scope.$apply();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (p) {\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (m) {\n    if (!m.direct || m.direct == $scope.handle) {\n        $scope.messages.push({\n            user: m.from.user,\n            data: m.data,\n            direct: m.direct,\n            time: Symple.formatTime(new Date())\n        });\n        $scope.$apply();\n    } else\n        console.log('dropping message:', m, m.direct);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    c.status = 200;\n    $scope.remoteVideoPeer = c.from;\n    $scope.client.respond(c);\n    $scope.$apply();\n    e.modal('hide');\n}",
+    "receiverBase": "unbind",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    c.status = 500;\n    $scope.client.respond(c);\n    e.modal('hide');\n}",
+    "receiverBase": "unbind",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    console.log('disconnected');\n    $scope.isLoading = false;\n    $scope.errorText = 'Disconnected from the server';\n    $scope.$apply();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (error, message) {\n    console.log('connection error:', error, message);\n    $scope.isLoading = false;\n    $scope.errorText = 'Cannot connect to the server.';\n    $scope.$apply();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (peer) {\n    console.log('add peer:', peer);\n    $scope.peers.push(peer);\n    $scope.$apply();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (peer) {\n    console.log('remove peer:', peer);\n    for (var i = 0; i < $scope.peers.length; i++) {\n        if ($scope.peers[i].id === peer.id) {\n            $scope.peers.splice(i, 1);\n            $scope.$apply();\n            break;\n        }\n    }\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (cookie) {\n    if (reg.test(cookie = $.trim(cookie))) {\n        $.cookie(cookie.substr(0, cookie.indexOf('=')), null, opts);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  }
+]

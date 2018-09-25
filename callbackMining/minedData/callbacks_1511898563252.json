@@ -1,0 +1,608 @@
+[
+  {
+    "callback": "function () {\n    moduleTests({\n        module: 'video',\n        element: '.ui.video'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    self.step = waigo.load('support/shutdown/listener');\n    self.app = waigo.load('application').app;\n    self.app.config = {\n        mode: 'test',\n        port: 3000,\n        baseURL: 'http://dummy:4334'\n    };\n}",
+    "receiverBase": "initAsync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    closed.should.eql(1);\n}",
+    "receiverBase": "spawn",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (file) {\n    debug('file %s', file);\n    fs.watchFile(file, options, function (curr, prev) {\n        if (prev.mtime < curr.mtime)\n            fn(file);\n    });\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (curr, prev) {\n    if (prev.mtime < curr.mtime)\n        fn(file);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "watchFile"
+  },
+  {
+    "callback": "function (path) {\n    path = join(dir, path);\n    if (fs.statSync(path).isDirectory()) {\n        exports.files(path, ret);\n    } else if (path.match(/\\.(js|coffee)$/)) {\n        ret.push(path);\n    }\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj, pair) {\n    var i = pair.indexOf('='), key = pair.slice(0, i), val = pair.slice(++i);\n    obj[key] = decodeURIComponent(val);\n    return obj;\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var _cleanData = $.cleanData;\n    $.cleanData = function (elems) {\n        if (!$.widget) {\n            for (var i = 0, elem; (elem = elems[i]) != null; i++) {\n                try {\n                    $(elem).triggerHandler('remove');\n                } catch (e) {\n                }\n            }\n        }\n        _cleanData(elems);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    elem = this;\n    if (elem.nodeType === 1) {\n        if (isFunction) {\n            var genVal = val.call(elem, i, $.prop(elem, 'value', undefined, 'val', true));\n            if (genVal == null) {\n                genVal = '';\n            }\n            $.prop(elem, 'value', genVal, 'val');\n        } else {\n            $.prop(elem, 'value', val, 'val');\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        $(evtDel).off(evt, fn);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $.fn[data.name] = function () {\n        var elems = [];\n        this.each(function () {\n            var shadowData = elementData(this, 'shadowData');\n            var elem = shadowData && shadowData[data.prop] || this;\n            if ($.inArray(elem, elems) == -1) {\n                elems.push(elem);\n            }\n        });\n        return this.pushStack(elems);\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var shadowData = elementData(this, 'shadowData');\n    var elem = shadowData && shadowData[data.prop] || this;\n    if ($.inArray(elem, elems) == -1) {\n        elems.push(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, id) {\n    return id + idCount;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "prop"
+  },
+  {
+    "callback": "function () {\n    var cloned = clone(this, dataAndEvents, uniqueIds);\n    setTimeout(function () {\n        if ($.contains(document.body, cloned)) {\n            $(cloned).updatePolyfill();\n        }\n    });\n    return cloned;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if ($.contains(document.body, cloned)) {\n        $(cloned).updatePolyfill();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (fn) {\n    if (!fn.only || (fn.only = 'prop' && type == 'prop') || fn.only == 'attr' && type != 'prop') {\n        fn.call(elem, value, boolValue, isVal ? 'val' : curType, type);\n    }\n}",
+    "receiverBase": "modifyProps",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (descProp) {\n    if (desc[descProp]) {\n        desc['_sup' + descProp] = getSup(descProp, oldDesc);\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, fns) {\n    getElementsByName(name);\n    if (!fns || !fns.forEach) {\n        webshims.warn('Error: with ' + name + '-property. methods: ' + fns);\n        return;\n    }\n    fns.forEach(function (fn) {\n        nodeNameCache[name].each(fn);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    nodeNameCache[name].each(fn);\n}",
+    "receiverBase": "fns",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var val = $.attr(this, prop);\n    if (val != null) {\n        $.attr(this, prop, val);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    $(this).each(function () {\n        var data = elementData(this, 'propValue', {});\n        data[prop] = this[prop];\n        this[prop] = value;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createNodeNameInit"
+  },
+  {
+    "callback": "function () {\n    var data = elementData(this, 'propValue', {});\n    data[prop] = this[prop];\n    this[prop] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ID = new Date().getTime();\n    return function (elem) {\n        elem = $(elem);\n        var id = elem.prop('id');\n        if (!id) {\n            ID++;\n            id = 'ID-' + ID;\n            elem.eq(0).prop('id', id);\n        }\n        return id;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (name, prop) {\n    if (!(name in obj)) {\n        obj[name] = prop;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, type) {\n    var body = document.body;\n    var doc = document.documentElement;\n    docObserve[type] = function () {\n        return Math.max(body['scroll' + name], doc['scroll' + name], body['offset' + name], doc['offset' + name], doc['client' + name]);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($.support.boxSizing) {\n        docObserve.handler({ type: 'boxsizing' });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    docObserve.start();\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.originalEvent) {\n        setTimeout(function () {\n            $(shadowElem).remove();\n        }, 4);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(shadowElem).remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    elementData(this, 'shadowData', shadowData.shadowData);\n}",
+    "receiverBase": "shadowChilds",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    webshims.defineNodeNamesProperty(nodeNames, prop, {\n        prop: {\n            set: function (val) {\n                $.attr(this, prop, val);\n            },\n            get: function () {\n                return $.attr(this, prop) || '';\n            }\n        }\n    });\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (type) {\n    var desc = descs[type];\n    if (desc) {\n        if (type === 'prop') {\n            desc = $.extend({ writeable: true }, desc);\n        } else {\n            desc = $.extend({}, desc, { writeable: true });\n        }\n        extendQ[type](nodeName, prop, desc);\n        if (nodeName != '*' && webshims.cfg.extendNative && type == 'prop' && desc.value && $.isFunction(desc.value)) {\n            extendNativeValue(nodeName, prop, desc);\n        }\n        descs[type] = desc;\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (copyProp) {\n    if (copyProp in descs[prop]) {\n        descs[prop][propType][copyProp] = descs[prop][copyProp];\n        delete descs[prop][copyProp];\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (!modifyProps[name][prop]) {\n        modifyProps[name][prop] = [];\n        havePolyfill[prop] = true;\n    }\n    if (desc.set) {\n        if (only) {\n            desc.set.only = only;\n        }\n        modifyProps[name][prop].push(desc.set);\n    }\n    if (desc.initAttr) {\n        initProp.content(name, prop);\n    }\n}",
+    "receiverBase": "props",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (loadingLang == curLang.join()) {\n        $.each(loading[src], function (i, obj) {\n            select(obj);\n        });\n    }\n    delete loading[src];\n}",
+    "receiverBase": "loader",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (i, obj) {\n    select(obj);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, baseMethod) {\n    webshims[name] = function (names, a, b, c) {\n        if (typeof names == 'string') {\n            names = names.split(listReg);\n        }\n        var retDesc = {};\n        names.forEach(function (nodeName) {\n            retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n        });\n        return retDesc;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeName) {\n    retDesc[nodeName] = webshims[baseMethod](nodeName, a, b, c);\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var main = $('main').attr({ role: 'main' });\n    if (main.length > 1) {\n        webshims.error('only one main element allowed in document');\n    } else if (main.is('article *, section *')) {\n        webshims.error('main not allowed inside of article/section elements');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (name, role) {\n    var elems = $(name, context).add(contextElem.filter(name));\n    for (var i = 0, len = elems.length; i < len; i++) {\n        addRole(elems[i], role);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    setTimeout(onReset);\n}",
+    "receiverBase": "jProp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var lastWidth;\n    $input.onWSOff('updateshadowdom', function () {\n        var curWitdth = input.offsetWidth;\n        if (curWitdth && lastWidth != curWitdth) {\n            lastWidth = curWitdth;\n            picker.refresh();\n        }\n    });\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    var curWitdth = input.offsetWidth;\n    if (curWitdth && lastWidth != curWitdth) {\n        lastWidth = curWitdth;\n        picker.refresh();\n    }\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "onWSOff"
+  },
+  {
+    "callback": "function () {\n    createFilePicker.call(elem);\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (e) {\n    if (!called) {\n        options[name]({\n            type: 'progress',\n            lengthComputable: true,\n            total: 1,\n            loaded: 1\n        });\n    } else if (called.lengthComputable && called.total > called.loaded) {\n        options[name]({\n            type: 'progress',\n            lengthComputable: true,\n            total: called.total,\n            loaded: called.total\n        });\n    }\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    called = e;\n    options[name](e);\n}",
+    "receiverBase": "obj",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    var responses = {\n            text: ajax.responseText,\n            xml: ajax.responseXML\n        };\n    completeCallback(ajax.status, ajax.statusText, responses, ajax.getAllResponseHeaders());\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (name, value) {\n    ajax.setRequestHeader(name, value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (ajax) {\n        ajax = createMoxieTransport(options, originalOptions, jqXHR);\n        tmpTransport.send = ajax.send;\n        tmpTransport.abort = ajax.abort;\n        ajax.send(headers, completeCallback);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (options, originalOptions, jqXHR) {\n    var ajax, type;\n    if (options.wsType || transports[transports]) {\n        ajax = transports[transports](options, originalOptions, jqXHR);\n    }\n    if (!ajax) {\n        for (type in transports) {\n            ajax = transports[type](options, originalOptions, jqXHR);\n            if (ajax) {\n                break;\n            }\n        }\n    }\n    return ajax;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ajaxTransport"
+  },
+  {
+    "callback": "function (value, boolVal, type) {\n    var picker = webshim.data(this, 'filePicker');\n    if (picker) {\n        picker.disable(boolVal);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function (value, boolVal, type) {\n    if (value === '' && this.type == 'file' && $(this).hasClass('ws-filereader')) {\n        webshim.data(this, 'fileList', []);\n    }\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function (val) {\n    moxieData.append(appendData[i].name, val);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (context, contextElem) {\n    $(context.querySelectorAll(sel)).add(contextElem.filter(sel)).each(createFilePicker);\n}",
+    "receiverBase": "webshim",
+    "receiverCallee": "addReady"
+  },
+  {
+    "callback": "function () {\n    setReadyState(4, data);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    callSeeked(data);\n    data.seeking = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    data.lastDuration = data.duration;\n    trigger(data._elem, 'durationchange');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    data.shadowElem.css({ overflow: 'hidden' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (data.isActive == 'third' && (data._ppFlag === undefined || !data.paused)) {\n        try {\n            $(data._elem).play();\n            data._ppFlag = true;\n        } catch (er) {\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (evt) {\n    return evt + '.webshimspolyfill';\n}",
+    "receiverBase": "hideEvtArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (evt) {\n    webshims.moveToFirstEvent(elem, evt);\n}",
+    "receiverBase": "hideEvtArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var preloads = {\n            '': 1,\n            'auto': 1\n        };\n    return function (elem) {\n        var preload = $.attr(elem, 'preload');\n        if (preload == null || preload == 'none' || $.prop(elem, 'autoplay')) {\n            return false;\n        }\n        preload = $.prop(elem, 'preload');\n        return !!(preloads[preload] || preload == 'metadata' && $(elem).is('.preload-in-doubt, video:not([poster])'));\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    $(elem).mediaLoad();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (data.actionQueue.length > 5) {\n        data.actionQueue.shift();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (m) {\n    var data = getSwfDataFromElem(this);\n    if (data) {\n        m = !!m;\n        queueSwfMethod(this, 'api_muted', [m], data);\n        if (data.muted != m) {\n            data.muted = m;\n            trigger(data._elem, 'volumechange');\n        }\n        data = null;\n    } else if (mediaSup.muted.prop._supset) {\n        return mediaSup.muted.prop._supset.apply(this, arguments);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createGetSetProp"
+  },
+  {
+    "callback": "function (t) {\n    var data = getSwfDataFromElem(this);\n    if (data) {\n        t *= 1;\n        if (!isNaN(t)) {\n            queueSwfMethod(this, 'api_seek', [t], data);\n        }\n    } else if (mediaSup.currentTime.prop._supset) {\n        return mediaSup.currentTime.prop._supset.apply(this, arguments);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "createGetSetProp"
+  },
+  {
+    "callback": "function (val, boolProp) {\n    var data = getSwfDataFromElem(this);\n    $(this)[boolProp ? 'addClass' : 'removeClass']('webshims-controls');\n    if (data) {\n        if (nodeName == 'audio') {\n            setElementDimension(data, boolProp);\n        }\n        queueSwfMethod(this, 'api_controls', [boolProp], data);\n    }\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "onNodeNamesPropertyModify"
+  },
+  {
+    "callback": "function () {\n    $(elem).mediaLoad();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (prop) {\n    webshims.defineNodeNamesProperty(prop == 'src' ? [\n        'audio',\n        'video',\n        'source'\n    ] : ['video'], prop, {\n        reflect: true,\n        propType: 'src'\n    });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    webshims.defineNodeNamesBooleanProperty([\n        'audio',\n        'video'\n    ], name);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        if (!loadedSwf) {\n            document.createElement('img').src = playerSwfPath;\n        }\n    }, 9);\n}",
+    "receiverBase": "webshims",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    if (!loadedSwf) {\n        document.createElement('img').src = playerSwfPath;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    webshims.mediaelement.selectSource(this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('audio, video').each(function () {\n        var error = $.prop(this, 'error');\n        if (error && switchErrors[error]) {\n            switchOptions({ target: this });\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var error = $.prop(this, 'error');\n    if (error && switchErrors[error]) {\n        switchOptions({ target: this });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    return !that.patterns.transparent.test(val);\n}",
+    "receiverBase": "Dom",
+    "receiverCallee": "getAncestorBy"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            context.maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (results) {\n    session.setAnnotations(results.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, text) {\n    if (text === ';') {\n        var cursor = editor.getCursorPosition();\n        var line = session.doc.getLine(cursor.row);\n        var rightChar = line.substring(cursor.column, cursor.column + 1);\n        if (rightChar === ';') {\n            return {\n                text: '',\n                selection: [\n                    1,\n                    1\n                ]\n            };\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations(e.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (element) {\n    return {\n        value: element,\n        meta: 'tag',\n        score: Number.MAX_VALUE\n    };\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (attribute) {\n    return {\n        caption: attribute,\n        snippet: attribute + '=\"$0\"',\n        meta: 'attribute',\n        score: Number.MAX_VALUE\n    };\n}",
+    "receiverBase": "attributes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations(e.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.style.display = this.oldblock || '';\n    if (jQuery.css(this, 'display') == 'none') {\n        var elem = jQuery('<' + this.tagName + ' />').appendTo('body');\n        this.style.display = elem.css('display');\n        if (this.style.display == 'none')\n            this.style.display = 'block';\n        elem.remove();\n    }\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.oldblock = this.oldblock || jQuery.css(this, 'display');\n    this.style.display = 'none';\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery(this)[jQuery(this).is(':hidden') ? 'show' : 'hide']();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (fn.constructor == Array)\n        queue(this, type, fn);\n    else {\n        queue(this, type).push(fn);\n        if (queue(this, type).length == 1)\n            fn.apply(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    for (var i = timers.length - 1; i >= 0; i--)\n        if (timers[i].elem == this) {\n            if (gotoEnd)\n                timers[i](true);\n            timers.splice(i, 1);\n        }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var q = queue(this, type);\n    q.shift();\n    if (q.length)\n        q[0].apply(this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var timers = jQuery.timers;\n    for (var i = 0; i < timers.length; i++)\n        if (!timers[i]())\n            timers.splice(i--, 1);\n    if (!timers.length) {\n        clearInterval(jQuery.timerId);\n        jQuery.timerId = null;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (todos) {\n    $scope.todos = [];\n    $scope.todos = $scope.todos.concat(todos);\n}",
+    "receiverBase": "todoService",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (task) {\n    $scope.todos.push(task);\n    $scope.todoForm.$setPristine();\n    $scope.todo.Task = '';\n}",
+    "receiverBase": "todoService",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (todo) {\n    return !todo.Completed;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reject"
+  },
+  {
+    "callback": "function (item) {\n    deleteIds.push(item.Id);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var keepTodos = _.reject($scope.todos, function (todo) {\n            return todo.Completed;\n        });\n    $scope.todos = [];\n    $scope.todos = keepTodos;\n}",
+    "receiverBase": "todoService",
+    "receiverCallee": "deleteAll"
+  },
+  {
+    "callback": "function (todo) {\n    return todo.Completed;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reject"
+  },
+  {
+    "callback": "function () {\n    beforeEach(module('simpleCtrl1App'));\n    var ctrl, $loc;\n    beforeEach(inject(function ($controller, $location) {\n        ctrl = $controller('SimpleCtrl');\n        $loc = $location;\n    }));\n    it('should navigate away from the current page', function () {\n        $loc.path('/here');\n        ctrl.navigate();\n        expect($loc.path()).toEqual('/some/where/else');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($controller, $location) {\n    ctrl = $controller('SimpleCtrl');\n    $loc = $location;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    $loc.path('/here');\n    ctrl.navigate();\n    expect($loc.path()).toEqual('/some/where/else');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    if (markup.length === undefined) {\n        markup = [markup];\n    }\n    return new Collection(utils.map(markup, function (mRow) {\n        return this.buildOne(mRow);\n    }, this), this._references);\n}",
+    "receiverBase": "",
+    "receiverCallee": "withBuilder"
+  },
+  {
+    "callback": "function (mRow) {\n    return this.buildOne(mRow);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, name) {\n    if (name === 'view' || name === 'init' || name === 'as') {\n        return;\n    }\n    utils.prop(view, name, value);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    module[action]();\n    event.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var type = $(this).prop('type'), inputEvent = module.get.changeEvent(type);\n    $(this).on(inputEvent + eventNamespace, module.event.field.change);\n}",
+    "receiverBase": "$field",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    module.debug('Revalidating field', $field, module.get.validation($field));\n    module.validate.field(module.get.validation($field));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (index, name) {\n    $fields = $fields.add(module.get.field(name));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fieldName, field) {\n    if (module.get.field(field.identifier).get(0) == $field.get(0)) {\n        rules = field;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $prompt.remove();\n}",
+    "receiverBase": "$prompt",
+    "receiverCallee": "transition"
+  },
+  {
+    "callback": "function () {\n    $prompt.remove();\n}",
+    "receiverBase": "$prompt",
+    "receiverCallee": "fadeOut"
+  },
+  {
+    "callback": "function () {\n    var $field = $(this), isCheckbox = $field.filter(selector.checkbox).length > 0, value = isCheckbox ? $field.is(':checked') : $field.val();\n    $field.data(metadata.defaultValue, value);\n}",
+    "receiverBase": "$field",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    $multipleField = $field.filter('[value=\"' + value + '\"]');\n    $element = $multipleField.parent();\n    if ($multipleField.length > 0) {\n        $element.checkbox('check');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fieldName, field) {\n    if (!module.validate.field(field)) {\n        allValid = false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, rule) {\n    if (module.has.field(field.identifier) && !module.validate.rule(field, rule)) {\n        module.debug('Field is invalid', field.identifier, rule.type);\n        fieldErrors.push(rule.prompt);\n        fieldValid = false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, data) {\n    totalTime += data['Execution Time'];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, data) {\n    console.log(data['Name'] + ': ' + data['Execution Time'] + 'ms');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    html += '<li>' + value + '</li>';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  }
+]

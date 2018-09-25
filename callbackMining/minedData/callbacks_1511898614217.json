@@ -1,0 +1,1224 @@
+[
+  {
+    "callback": "function (results) {\n    session.setAnnotations(results.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations(e.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, text) {\n    if (text === ';') {\n        var cursor = editor.getCursorPosition();\n        var line = session.doc.getLine(cursor.row);\n        var rightChar = line.substring(cursor.column, cursor.column + 1);\n        if (rightChar === ';') {\n            return {\n                text: '',\n                selection: [\n                    1,\n                    1\n                ]\n            };\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (needle) {\n    if (typeList.indexOf(needle) == -1) {\n        hasType = false;\n        return false;\n    }\n}",
+    "receiverBase": "needleList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (needle) {\n    if (typeList.indexOf(needle) == -1) {\n        hasType = false;\n        return false;\n    }\n}",
+    "receiverBase": "needleList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return d3.time.day.utc(d.dd);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "dimension"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.svg().empty()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.g().empty()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(dc.hasChart(chart)).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.dimension()).toBe(dimension);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.group()).toBe(group);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.width()).toBe(500);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.height()).toBe(150);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.select('svg').attr('height')).toBe('150');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.transitionDuration()).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.margins()).not.toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x()).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.y()).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x().domain()).toEqual([\n        makeDate(2012, 4, 20),\n        makeDate(2012, 7, 15)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.select('g.brush')).not.toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.round()).not.toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x().range()[0]).toBe(0);\n    expect(chart.x().range()[1]).toBe(490);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.y().range()[0]).toBe(130);\n    expect(chart.y().range()[1]).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.y().domain()[0]).toBe(0);\n    expect(chart.y().domain()[1]).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.round(d3.time.day.utc.round);\n    expect(chart.round()).not.toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.keyAccessor()).not.toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.valueAccessor()).not.toBeNull();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.renderlet(function (chart) {\n        chart.selectAll('path').attr('fill', 'red');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (chart) {\n    chart.selectAll('path').attr('fill', 'red');\n}",
+    "receiverBase": "chart",
+    "receiverCallee": "renderlet"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('path').attr('fill')).not.toBe('red');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n    expect(chart.selectAll('path').attr('fill')).toBe('red');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.redraw();\n    expect(chart.selectAll('path').attr('fill')).toBe('red');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('defs').size()).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('defs #coordinate-grid-chart-clip').size()).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('defs #coordinate-grid-chart-clip rect').size()).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n    expect(rect.attr('width')).toBe('490');\n    expect(rect.attr('height')).toBe('130');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n    expect(rect.attr('transform')).toMatchTranslate(0, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.selectAll('g.chart-body').each(function () {\n        expect(d3.select(this).attr('clip-path')).toMatchUrl('#coordinate-grid-chart-clip');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(d3.select(this).attr('clip-path')).toMatchUrl('#coordinate-grid-chart-clip');\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    chart.clipPadding(20);\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n    expect(rect.attr('width')).toBe('530');\n    expect(rect.attr('height')).toBe('170');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n    expect(rect.attr('transform')).toMatchTranslate(-20, -20);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var sel = appendChartID('coordinate-grid').append('div').attr('class', 'chart');\n    chart = dc.lineChart('#coordinate-grid .chart').width(500).height(150).dimension(dimension).group(group).transitionDuration(0).brushOn(false).margins({\n        top: 20,\n        bottom: 0,\n        right: 10,\n        left: 0\n    }).x(d3.time.scale.utc().domain([\n        makeDate(2012, 4, 20),\n        makeDate(2012, 7, 15)\n    ]));\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid--chart-clip rect');\n    expect(rect.empty()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.width(300).height(400).redraw();\n    });\n    it('should change the clippath to the new size', function () {\n        var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n        expect(rect.attr('width')).toBe('290');\n        expect(rect.attr('height')).toBe('380');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.width(300).height(400).redraw();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var rect = chart.select('defs #coordinate-grid-chart-clip rect');\n    expect(rect.attr('width')).toBe('290');\n    expect(rect.attr('height')).toBe('380');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should trigger a descriptive exception', function () {\n        try {\n            dc.coordinateGridChart({}).group({}).dimension({}).render();\n            expect('exception').toBe('thrown');\n        } catch (e) {\n            expect(e instanceof dc.errors.InvalidStateException).toBeTruthy();\n            expect(e.message).toMatch(/Mandatory attribute chart.x is missing on chart\\[#.+\\]/);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    try {\n        dc.coordinateGridChart({}).group({}).dimension({}).render();\n        expect('exception').toBe('thrown');\n    } catch (e) {\n        expect(e instanceof dc.errors.InvalidStateException).toBeTruthy();\n        expect(e.message).toMatch(/Mandatory attribute chart.x is missing on chart\\[#.+\\]/);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.select('g.x').attr('transform')).toMatchTranslate(0, 150);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveHeight()).toBe(130);\n    chart.xAxisLabel('X Label').render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.x-axis-label').text()).toBe('X Label');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveHeight()).toBe(118);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.xAxisLabel('Custom X Label', 50).render();\n    });\n    it('should adjust the chart height with respect to the custom padding', function () {\n        expect(chart.effectiveHeight()).toBe(80);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.xAxisLabel('Custom X Label', 50).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveHeight()).toBe(80);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.elasticX(true).xAxisLabel('New X Label').redraw();\n    });\n    it('should change the x-axis label', function () {\n        expect(chart.selectAll('text.x-axis-label').text()).toBe('New X Label');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.elasticX(true).xAxisLabel('New X Label').redraw();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.x-axis-label').text()).toBe('New X Label');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.renderHorizontalGridLines(true).renderVerticalGridLines(true).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var nthGridLine = function (n) {\n        return d3.select(chart.selectAll('.grid-line.horizontal line')[0][n]);\n    };\n    expect(chart.selectAll('.grid-line.horizontal line').size()).toBe(7);\n    expect(nthGridLine(0).attr('y2')).toBe('130');\n    expect(nthGridLine(0).attr('y1')).toBe('130');\n    expect(nthGridLine(1).attr('y1')).toBe('108');\n    expect(nthGridLine(2).attr('y1')).toBe('87');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var firstGridLine = chart.select('.grid-line.horizontal line');\n    expect(firstGridLine.attr('x1')).toBe('1');\n    expect(firstGridLine.attr('x2')).toBe('490');\n    expect(firstGridLine.attr('y1')).toBe(firstGridLine.attr('y2'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.yAxis().tickValues([\n        0,\n        1,\n        2\n    ]);\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var nthGridLine = function (n) {\n        return d3.select(chart.selectAll('.grid-line.horizontal line')[0][n]);\n    };\n    expect(chart.selectAll('.grid-line.horizontal line').size()).toBe(3);\n    expect(nthGridLine(0).attr('y2')).toBe('130');\n    expect(nthGridLine(0).attr('y1')).toBe('130');\n    expect(nthGridLine(1).attr('y1')).toBe('87');\n    expect(nthGridLine(2).attr('y1')).toBe('43');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var nthGridLine = function (n) {\n        return d3.select(chart.selectAll('.grid-line.vertical line')[0][n]);\n    };\n    expect(chart.selectAll('.grid-line.vertical line').size()).toBe(13);\n    expect(nthGridLine(0).attr('x2')).toBe('0');\n    expect(nthGridLine(0).attr('x1')).toBe('0');\n    expect(nthGridLine(1).attr('x1')).toBeWithinDelta(39, 1);\n    expect(nthGridLine(2).attr('x1')).toBeWithinDelta(79, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var firstGridLine = chart.select('.grid-line.vertical line');\n    expect(firstGridLine.attr('y1')).toBe('130');\n    expect(firstGridLine.attr('y2')).toBe('0');\n    expect(firstGridLine.attr('x1')).toBe(firstGridLine.attr('x2'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.xAxis().tickValues([\n        makeDate(2012, 4, 21),\n        makeDate(2012, 5, 20),\n        makeDate(2012, 6, 1)\n    ]);\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var nthGridLine = function (n) {\n        return d3.select(chart.selectAll('.grid-line.vertical line')[0][n]);\n    };\n    expect(chart.selectAll('.grid-line.vertical line').size()).toBe(3);\n    expect(nthGridLine(0).attr('x2')).toBeWithinDelta(6, 1);\n    expect(nthGridLine(0).attr('x1')).toBeWithinDelta(6, 1);\n    expect(nthGridLine(1).attr('x1')).toBeWithinDelta(175, 1);\n    expect(nthGridLine(2).attr('x1')).toBeWithinDelta(237, 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.x(d3.scale.ordinal()).xUnits(dc.units.ordinal).render();\n    });\n    it('should render without errors', function () {\n        expect(chart.selectAll('.grid-line.vertical line').size()).toBe(6);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.x(d3.scale.ordinal()).xUnits(dc.units.ordinal).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('.grid-line.vertical line').size()).toBe(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('.axis.y').size()).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.yAxis().orient()).toBe('left');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.select('g.y').attr('transform')).toMatchTranslate(0, 20);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(490);\n    chart.yAxisLabel('The Y Axis Label').render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.y-axis-label.y-label').text()).toBe('The Y Axis Label');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(478);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.y-axis-label.y-label').attr('transform')).toMatchTransRot(12, 85, -90);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.yAxisLabel('Custom Y Label', 50).render();\n    });\n    it('should adjust the chart height with respect to the custom padding', function () {\n        expect(chart.effectiveWidth()).toBe(440);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.yAxisLabel('Custom Y Label', 50).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(440);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.useRightYAxis(true).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('.axis.y').size()).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.yAxis().orient()).toBe('right');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.select('.axis.y').attr('transform')).toMatchTranslate(490, 20);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(490);\n    chart.yAxisLabel('Right Y Axis Label').render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.y-axis-label.y-label').text()).toBe('Right Y Axis Label');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(478);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.selectAll('text.y-axis-label.y-label').attr('transform')).toMatchTransRot(488, 85, 90);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.yAxisLabel('Custom Y Label', 50).render();\n    });\n    it('should adjust the chart height with respect to the custom padding', function () {\n        expect(chart.effectiveWidth()).toBe(440);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.yAxisLabel('Custom Y Label', 50).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.effectiveWidth()).toBe(440);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        data.dimension(function (d) {\n            return d.countrycode;\n        }).filter('CA');\n        chart.elasticX(true).elasticY(true).render();\n    });\n    it('should shrink the y axis', function () {\n        expect(chart.y().domain()[1]).toBe(1);\n    });\n    it('should shrink the x domain', function () {\n        expect(chart.x().domain()).toEqual([\n            makeDate(2012, 4, 25),\n            makeDate(2012, 7, 10)\n        ]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    data.dimension(function (d) {\n        return d.countrycode;\n    }).filter('CA');\n    chart.elasticX(true).elasticY(true).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.countrycode;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "dimension"
+  },
+  {
+    "callback": "function () {\n    expect(chart.y().domain()[1]).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x().domain()).toEqual([\n        makeDate(2012, 4, 25),\n        makeDate(2012, 7, 10)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        data.dimension(function (d) {\n            return d.countrycode;\n        }).filter('INVALID CODE');\n        chart.elasticX(true).elasticY(true).render();\n    });\n    it('should set y-axis to be empty', function () {\n        expect(chart.y().domain()[0]).toBe(0);\n        expect(chart.y().domain()[1]).toBe(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    data.dimension(function (d) {\n        return d.countrycode;\n    }).filter('INVALID CODE');\n    chart.elasticX(true).elasticY(true).render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (d) {\n    return d.countrycode;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "dimension"
+  },
+  {
+    "callback": "function () {\n    expect(chart.y().domain()[0]).toBe(0);\n    expect(chart.y().domain()[1]).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var originalUnitCount;\n    beforeEach(function () {\n        chart.render();\n        originalUnitCount = chart.xUnitCount();\n        chart.x().domain([\n            makeDate(2012, 4, 20),\n            makeDate(2012, 6, 15)\n        ]);\n        chart.rescale();\n    });\n    it('should reset x unit count to reflect updated x domain', function () {\n        expect(chart.xUnitCount()).not.toEqual(originalUnitCount);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n    originalUnitCount = chart.xUnitCount();\n    chart.x().domain([\n        makeDate(2012, 4, 20),\n        makeDate(2012, 6, 15)\n    ]);\n    chart.rescale();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.xUnitCount()).not.toEqual(originalUnitCount);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rangeChart;\n    beforeEach(function () {\n        rangeChart = buildRangeChart();\n        chart.rangeChart(rangeChart);\n        chart.render();\n        rangeChart.render();\n    });\n    it('should set our chart as range chart\\'s focus chart', function () {\n        expect(chart.rangeChart().focusChart()).toEqual(chart);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    rangeChart = buildRangeChart();\n    chart.rangeChart(rangeChart);\n    chart.render();\n    rangeChart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.rangeChart().focusChart()).toEqual(chart);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.zoomScale([\n            -1,\n            10\n        ]);\n        chart.zoomOutRestrict(true);\n    });\n    it('should set the start of zoom scale extent to 1', function () {\n        expect(chart.zoomScale()[0]).toEqual(1);\n    });\n    it('sohuld leave the end of zoom scale extent unchanged', function () {\n        expect(chart.zoomScale()[1]).toEqual(10);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.zoomScale([\n        -1,\n        10\n    ]);\n    chart.zoomOutRestrict(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.zoomScale()[0]).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.zoomScale()[1]).toEqual(10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.zoomScale([\n            -1,\n            10\n        ]);\n        chart.zoomOutRestrict(false);\n    });\n    it('should set the start of zoom scale extent to 0', function () {\n        expect(chart.zoomScale()[0]).toEqual(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.zoomScale([\n        -1,\n        10\n    ]);\n    chart.zoomOutRestrict(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.zoomScale()[0]).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var newDomain = [\n            1,\n            10\n        ];\n    beforeEach(function () {\n        chart.x(d3.scale.linear().domain(newDomain));\n    });\n    it('should reset the original x domain', function () {\n        expect(chart.xOriginalDomain()).toEqual(newDomain);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.x(d3.scale.linear().domain(newDomain));\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.xOriginalDomain()).toEqual(newDomain);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var domain = chart.x().domain();\n    expect(chart.xUnitCount()).toEqual(dc.units.integers(domain[0], domain[1], domain));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.xUnits(function (start, end, xDomain) {\n            return 10;\n        });\n    });\n    it('should return the fixed unit count', function () {\n        expect(chart.xUnitCount()).toEqual(10);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.xUnits(function (start, end, xDomain) {\n        return 10;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (start, end, xDomain) {\n    return 10;\n}",
+    "receiverBase": "chart",
+    "receiverCallee": "xUnits"
+  },
+  {
+    "callback": "function () {\n    expect(chart.xUnitCount()).toEqual(10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    describe('when x units are not ordinal', function () {\n        it('should be false', function () {\n            expect(chart.isOrdinal()).toBeFalsy();\n        });\n    });\n    describe('when x units are ordinal', function () {\n        beforeEach(function () {\n            chart.xUnits(dc.units.ordinal);\n        });\n        it('should be true', function () {\n            expect(chart.isOrdinal()).toBeTruthy();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should be false', function () {\n        expect(chart.isOrdinal()).toBeFalsy();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(chart.isOrdinal()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.xUnits(dc.units.ordinal);\n    });\n    it('should be true', function () {\n        expect(chart.isOrdinal()).toBeTruthy();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.xUnits(dc.units.ordinal);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.isOrdinal()).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var filter = [\n            makeDate(2012, 5, 20),\n            makeDate(2012, 6, 15)\n        ];\n    beforeEach(function () {\n        chart.brushOn(true);\n        chart.render();\n        chart.filter(filter);\n    });\n    it('should update the brush extent', function () {\n        expect(chart.brush().extent()).toEqual(filter);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.brushOn(true);\n    chart.render();\n    chart.filter(filter);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.brush().extent()).toEqual(filter);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.brushOn(true);\n        chart.render();\n        chart.brush().extent([\n            makeDate(2012, 5, 20),\n            makeDate(2012, 6, 15)\n        ]);\n        chart.filter(null);\n    });\n    it('should clear the brush extent', function () {\n        expect(chart.brush().empty()).toBeTruthy();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.brushOn(true);\n    chart.render();\n    chart.brush().extent([\n        makeDate(2012, 5, 20),\n        makeDate(2012, 6, 15)\n    ]);\n    chart.filter(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.brush().empty()).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.mouseZoomable(false);\n        spyOn(chart, '_disableMouseZoom');\n        chart.render();\n    });\n    it('should not explicitly disable mouse zooming', function () {\n        expect(chart._disableMouseZoom).not.toHaveBeenCalled();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.mouseZoomable(false);\n    spyOn(chart, '_disableMouseZoom');\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart._disableMouseZoom).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.mouseZoomable(true);\n        chart.render();\n        chart.mouseZoomable(false);\n        spyOn(chart, '_disableMouseZoom');\n        chart.render();\n    });\n    it('should explicitly disable mouse zooming', function () {\n        expect(chart._disableMouseZoom).toHaveBeenCalled();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.mouseZoomable(true);\n    chart.render();\n    chart.mouseZoomable(false);\n    spyOn(chart, '_disableMouseZoom');\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart._disableMouseZoom).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.mouseZoomable(false);\n        chart.render();\n    });\n    it('should not respond to double-click by refocusing', function () {\n        doubleClick(chart);\n        expect(chart.refocused()).toBeFalsy();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.mouseZoomable(false);\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    doubleClick(chart);\n    expect(chart.refocused()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    zoomCallback = jasmine.createSpy();\n    chart.on('zoomed', zoomCallback);\n    chart.mouseZoomable(true);\n    rangeChart = buildRangeChart();\n    chart.rangeChart(rangeChart);\n    chart.render();\n    rangeChart.render();\n    spyOn(dc, 'redrawAll');\n    spyOn(chart, 'redraw');\n    spyOn(rangeChart, 'redraw');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        doubleClick(chart);\n    });\n    itActsLikeItZoomed(context);\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    doubleClick(chart);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.focus([\n            makeDate(2012, 5, 1),\n            makeDate(2012, 5, 15)\n        ]);\n    });\n    itActsLikeItZoomed(context);\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.focus([\n        makeDate(2012, 5, 1),\n        makeDate(2012, 5, 15)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chart = context().chart;\n    zoomCallback = context().zoomCallback;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.refocused()).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var filter = chart.filter();\n    delete filter.isFiltered;\n    expect(filter).toEqual(chart.x().domain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var domain = chart.x().domain();\n    expect(chart.xUnitCount()).toEqual(dc.units.integers(domain[0], domain[1], domain));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.redraw).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.rangeChart().filter()).toEqual(chart.filter());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(chart.rangeChart().redraw).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(zoomCallback).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jasmine.clock().tick(100);\n    expect(dc.redrawAll).toHaveBeenCalledWith(chart.chartGroup());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.render();\n        doubleClick(chart);\n        chart.focus(chart.xOriginalDomain());\n    });\n    it('should not be flagged as refocused', function () {\n        expect(chart.refocused()).toBeFalsy();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n    doubleClick(chart);\n    chart.focus(chart.xOriginalDomain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.refocused()).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.brushOn(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    spyOn(chart, '_disableMouseZoom');\n    spyOn(chart, '_enableMouseZoom');\n    chart.mouseZoomable(true);\n    chart.render();\n    chart.brush().extent([\n        makeDate(2012, 6, 1),\n        makeDate(2012, 6, 15)\n    ]);\n    chart.brush().event(chart.root());\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chart.brush().extent([\n        makeDate(2012, 6, 1),\n        makeDate(2012, 6, 15)\n    ]);\n    chart.brush().event(chart.root());\n    expect(chart._disableMouseZoom).toHaveBeenCalled();\n    expect(chart._enableMouseZoom).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        spyOn(chart, '_enableMouseZoom');\n        chart.mouseZoomable(false);\n        chart.render();\n        chart.brush().extent([\n            makeDate(2012, 6, 1),\n            makeDate(2012, 6, 15)\n        ]);\n        chart.brush().event(chart.root());\n    });\n    it('should not enable mouse zooming', function () {\n        expect(chart._enableMouseZoom).not.toHaveBeenCalled();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    spyOn(chart, '_enableMouseZoom');\n    chart.mouseZoomable(false);\n    chart.render();\n    chart.brush().extent([\n        makeDate(2012, 6, 1),\n        makeDate(2012, 6, 15)\n    ]);\n    chart.brush().event(chart.root());\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart._enableMouseZoom).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        spyOn(chart, 'filter');\n        chart.brush().clear();\n        chart.render();\n        chart.brush().event(chart.root());\n    });\n    it('should clear the chart filter', function () {\n        expect(chart.filter()).toEqual(undefined);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    spyOn(chart, 'filter');\n    chart.brush().clear();\n    chart.render();\n    chart.brush().event(chart.root());\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.filter()).toEqual(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    rangeChart = buildRangeChart();\n    chart.rangeChart(rangeChart);\n    chart.render();\n    rangeChart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    spyOn(chart, 'focus').and.callThrough();\n    rangeChart.brush().extent(selectedRange);\n    rangeChart.brush().event(rangeChart.g());\n    jasmine.clock().tick(100);\n    var focus = chart.focus.calls.argsFor(0)[0];\n    delete focus.isFiltered;\n    expect(focus).toEqual(selectedRange);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    rangeChart.brush().extent(selectedRange);\n    rangeChart.brush().event(rangeChart.g());\n    jasmine.clock().tick(100);\n    expect(chart.x().domain()).toEqual(selectedRange);\n    rangeChart.filter(null);\n    jasmine.clock().tick(100);\n    expect(rangeChart.x().domain()).toEqual(rangeChart.xOriginalDomain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spyOn(rangeChart, 'replaceFilter');\n    chart.focus(selectedRange);\n    var replaceFilter = rangeChart.replaceFilter.calls.argsFor(0)[0];\n    delete replaceFilter.isFiltered;\n    expect(replaceFilter).toEqual(selectedRange);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.zoomOutRestrict(true);\n    chart.render();\n    chart.focus([\n        makeDate(2012, 8, 20),\n        makeDate(2012, 8, 25)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chart.focus([\n        makeDate(2012, 2, 20),\n        makeDate(2012, 9, 15)\n    ]);\n    expect(chart.x().domain()).toEqual(chart.xOriginalDomain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rangeChart = buildRangeChart();\n    chart.rangeChart(rangeChart);\n    chart.render();\n    rangeChart.render();\n    chart.focus([\n        makeDate(2012, 8, 20),\n        makeDate(2012, 8, 25)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chart.focus([\n        makeDate(2012, 2, 20),\n        makeDate(2012, 9, 15)\n    ]);\n    expect(chart.x().domain()).toEqual(chart.rangeChart().xOriginalDomain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.zoomOutRestrict(false);\n    chart.render();\n    chart.focus([\n        makeDate(2012, 8, 20),\n        makeDate(2012, 8, 25)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    chart.focus([\n        makeDate(2012, 2, 20),\n        makeDate(2012, 9, 15)\n    ]);\n    chart.render();\n    expect(chart.x().domain()).toEqual([\n        makeDate(2012, 2, 20),\n        makeDate(2012, 9, 15)\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    chart.render();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var focusDomain = [\n            makeDate(2012, 5, 20),\n            makeDate(2012, 5, 30)\n        ];\n    beforeEach(function () {\n        chart.focus(focusDomain);\n    });\n    it('should update the x domain to match specified domain', function () {\n        expect(chart.x().domain()).toEqual(focusDomain);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.focus(focusDomain);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x().domain()).toEqual(focusDomain);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        chart.focus([\n            makeDate(2012, 5, 1),\n            makeDate(2012, 5, 2)\n        ]);\n        chart.focus();\n    });\n    it('should revert the x domain to the original domain', function () {\n        expect(chart.x().domain()).toEqual(chart.xOriginalDomain());\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    chart.focus([\n        makeDate(2012, 5, 1),\n        makeDate(2012, 5, 2)\n    ]);\n    chart.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(chart.x().domain()).toEqual(chart.xOriginalDomain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (d) {\n    return d.id;\n}",
+    "receiverBase": "group",
+    "receiverCallee": "reduceSum"
+  },
+  {
+    "callback": "function () {\n    editor.setValue('');\n    expect(editor.getLine(1)).toEqual('');\n    designerAsserts.shelfElements(shelf.elemRamlVersion);\n    expect(editor.IsParserErrorDisplayed()).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    apiConsole.expandCollapseMainResourcebyPos(0);\n    apiConsole.areResourceGroupsCollapsed();\n    var expList = [\n            '/res1',\n            '/ress1'\n        ];\n    designerAsserts.consoleMainResources(expList);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    apiConsole.expandCollapseMainResourcebyPos(0);\n    apiConsole.areResourceGroupsExpanded();\n    var expList = [\n            '/res1',\n            '/ress1'\n        ];\n    designerAsserts.consoleMainResources(expList);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expList = [\n            '/res1',\n            '/res1 /res2',\n            '/ress1',\n            '/ress1 /ress2'\n        ];\n    designerAsserts.consoleResourceName(expList);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var expList = [\n            'resourceT1',\n            'resourceT2',\n            'resourceT2',\n            'resourceT1'\n        ];\n    apiConsole.toggleResourceExpansion();\n    designerAsserts.consoleResourceResourceType(expList);\n    apiConsole.toggleResourceExpansion();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (n) {\n    return n.nodeType == goog.dom.NodeType.ELEMENT && n.tagName == 'BODY';\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "findNode"
+  },
+  {
+    "callback": "function (n) {\n    return n.nodeType == goog.dom.NodeType.ELEMENT && n.tagName == 'P';\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "findNode"
+  },
+  {
+    "callback": "function (n) {\n    return false;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "findNode"
+  },
+  {
+    "callback": "function (n) {\n    return n.nodeType == goog.dom.NodeType.ELEMENT && n.tagName == 'P';\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "findNodes"
+  },
+  {
+    "callback": "function (n) {\n    return false;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "findNodes"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function (el) {\n    return el == searchEl;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function (el) {\n    return el == searchEl;\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "getAncestor"
+  },
+  {
+    "callback": "function (name) {\n    return window['inner' + name] || document.compatMode === 'CSS1Compat' && document.documentElement['client' + name] || document.body['client' + name];\n}",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    wSize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function (Rx, exports) {\n    return factory(root, exports, Rx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (v) {\n    v.queue.shift();\n}",
+    "receiverBase": "joinObservers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    externalSubscriptions.forEach(function (v) {\n        v.onError(err);\n    });\n    observer.onError(err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "observerCreate"
+  },
+  {
+    "callback": "function (v) {\n    v.onError(err);\n}",
+    "receiverBase": "externalSubscriptions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (activePlan) {\n    var idx = activePlans.indexOf(activePlan);\n    activePlans.splice(idx, 1);\n    activePlans.length === 0 && observer.onCompleted();\n}",
+    "receiverBase": "plans",
+    "receiverCallee": "activate"
+  },
+  {
+    "callback": "function (joinObserver) {\n    joinObserver.subscribe();\n    group.add(joinObserver);\n}",
+    "receiverBase": "externalSubscriptions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (String($(this).attr('title')).length > 0 && $(this).val() === '') {\n        $(this).data('prompt', $(this).attr('title'));\n        $(this).attr('title', '');\n        $(this).val($(this).data('prompt'));\n        $(this).addClass('blur');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).val() == $(this).data('prompt'))\n        $(this).val('');\n    $(this).removeClass('blur');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "focus"
+  },
+  {
+    "callback": "function () {\n    var self = this;\n    setTimeout(function () {\n        if ($(self).val().length === 0) {\n            $(self).val($(self).data('prompt'));\n            $(self).addClass('blur');\n        }\n    }, 300);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "blur"
+  },
+  {
+    "callback": "function () {\n    if ($(self).val().length === 0) {\n        $(self).val($(self).data('prompt'));\n        $(self).addClass('blur');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (node, index) {\n    if (index === 0) {\n        firstChild = node;\n    } else {\n        divNode.append(node);\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    selectedBlocks.push(EditorBidi.blockParent(node, false, root));\n}",
+    "receiverBase": "selected",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    var d = direction;\n    n = EditorBidi.removeTextAlign(n);\n    if (!d) {\n        dir = n.getAttribute(DIR);\n        if (!dir || dir === 'ltr') {\n            d = 'rtl';\n        } else {\n            d = 'ltr';\n        }\n    }\n    n.setAttribute(DIR, d);\n}",
+    "receiverBase": "selectedBlocks",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (r) {\n    if (r.success) {\n        console.log('removeItem success');\n        fadingMsg('Item ' + scancode + ' Deleted.', 'short');\n    } else {\n        navigator.notification.alert('Error Removing: ' + scancode, null, 'Delete Item Status', 'Close');\n        console.log('deleteItemRemote failed, item: ' + scancode);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    navigator.notification.confirm('Add Skew to location?\\n(useful for development)\\nNo Skew gets true location\\nCancel returns to Edit.', editLocConfirm, 'New Location and Time', 'Add Skew,No Skew, Cancel');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "live"
+  },
+  {
+    "callback": "function () {\n    var scancode = $('#editscancode').text();\n    scannedItemsList.splice($.inArray(scancode, scannedItemsList), 1);\n    $('li#item' + scancode).remove();\n    if ($('ul#item_list').find('li').length === 1) {\n        $('#li-placeholder').css('display', 'block');\n    }\n    try {\n        $('ul#item_list').listview('refresh');\n    } catch (e) {\n    }\n    deleteItemLocal(scancode);\n    deleteItemRemote(scancode);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "live"
+  },
+  {
+    "callback": "function (test_results) {\n    var tests = [];\n    for (var i = 0, len = log.length; i < len; i++) {\n        var details = log[i];\n        tests.push({\n            name: details.name,\n            result: details.result,\n            expected: details.expected,\n            actual: details.actual,\n            source: details.source\n        });\n    }\n    test_results.tests = tests;\n    window.global_test_results = test_results;\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (testDetails) {\n    QUnit.log(function (details) {\n        if (!details.result) {\n            details.name = testDetails.name;\n            log.push(details);\n        }\n    });\n    $dropdown = $('#testmeout').menuButton();\n    plugin = $dropdown.data().plugin_menuButton;\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "testStart"
+  },
+  {
+    "callback": "function (details) {\n    if (!details.result) {\n        details.name = testDetails.name;\n        log.push(details);\n    }\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "log"
+  },
+  {
+    "callback": "function (details) {\n    $dropdown = null;\n    plugin = null;\n}",
+    "receiverBase": "QUnit",
+    "receiverCallee": "testDone"
+  },
+  {
+    "callback": "function () {\n    equal(plugin._name, 'menuButton', 'default plugin name');\n    equal(plugin.options.propertyName, 'value', 'default property name');\n    ok($(plugin.$element).hasClass('button-dropdown'), 'has button-dropdown class');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var $dropdown = $('#testmeout').menuButton();\n    plugin = $dropdown.data().plugin_menuButton;\n    plugin.showMenu();\n    equal($dropdown.data('dropdown'), 'show', 'gets shown');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var $dropdown = $('#testmeout').menuButton();\n    plugin = $dropdown.data().plugin_menuButton;\n    plugin.hideMenu();\n    equal($dropdown.data('dropdown'), 'hide', 'gets hidden');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (v, i) {\n    html.push(desc(v[0], v[1]));\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (i, str) {\n    str.replace(/^([^:]+):\\s*(.*)$/, function (_, key, val) {\n        if (Object.exists(obj, key)) {\n            if (Object.vartype(obj[key]) != 'array') {\n                obj[key] = [obj[key]];\n            }\n            obj[key].push(val);\n        } else {\n            obj[key] = val;\n        }\n    });\n}",
+    "receiverBase": "split",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, key, val) {\n    if (Object.exists(obj, key)) {\n        if (Object.vartype(obj[key]) != 'array') {\n            obj[key] = [obj[key]];\n        }\n        obj[key].push(val);\n    } else {\n        obj[key] = val;\n    }\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var ax = {\n            'fso': 'Scripting.FileSystemObject',\n            'xml': 'Microsoft.XMLDOM',\n            'stream': 'ADODB.Stream',\n            'http': 'Microsoft.XMLHTTP'\n        };\n    var cache = {};\n    Object.keys(ax).forEach(function (v) {\n        F[v] = function (isnew) {\n            return isnew ? new ActiveXObject(ax[v]) : cache[v] || (cache[v] = new ActiveXObject(ax[v]));\n        };\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (v) {\n    F[v] = function (isnew) {\n        return isnew ? new ActiveXObject(ax[v]) : cache[v] || (cache[v] = new ActiveXObject(ax[v]));\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (match, code) {\n    return '\\',' + code.replace(/\\\\'/g, '\\'') + ',\\'';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, code) {\n    return '\\');' + code.replace(/\\\\'/g, '\\'').replace(/[\\r\\n\\t]/g, ' ') + '__x.push(\\'';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (p) {\n    t[p] = f.setPath(p).getDateLastModified().getTime();\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var html = '';\n    try {\n        html = new Function('obj', tmpl)(data);\n    } catch (e) {\n        die(e.message);\n    } finally {\n        return html;\n    }\n}",
+    "receiverBase": ""
+  }
+]

@@ -1,0 +1,534 @@
+[
+  {
+    "callback": "function () {\n    var _cb = cb;\n    return function (x) {\n        userdb.releaseUser(user);\n        _cb(x);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return cb(err);\n    common.genAssertionAndVerify(cfg, user, context, email, origin, function (err) {\n        cb(err);\n    });\n}",
+    "receiverBase": "common",
+    "receiverCallee": "authAndKey"
+  },
+  {
+    "callback": "function (err) {\n    cb(err);\n}",
+    "receiverBase": "common",
+    "receiverCallee": "genAssertionAndVerify"
+  },
+  {
+    "callback": "function () {\n    _advance(m);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (el) {\n    bower[el] = pkg[el];\n    jqConfig[el] = pkg[el];\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (el) {\n    jqConfig[el] = pkg[el];\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var readme = grunt.file.read('readme.md'), head = grunt.template.process(grunt.file.read('lib/tmpl/header.tpl')), foot = grunt.file.read('lib/tmpl/footer.tpl'), doc = marked(readme);\n    grunt.file.write('index.html', head + doc + foot);\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function (child) {\n    if (child.resize) {\n        child.resize();\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    cb(client, host, port);\n}",
+    "receiverBase": "net",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err) {\n    db.emit('error');\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (writes.velocity <= writes.last_velocity && writes.velocity >= 0) {\n        writes.ticks++;\n        if (writes.ticks >= writes.velocity * 2) {\n            writes.ticks = 0;\n            --writes.velocity;\n        }\n    }\n    var new_interval = 0;\n    if (new_interval != writes.last_velocity) {\n        writes.last_velocity = writes.velocity;\n        connect_velocity = new_interval;\n        connect();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (req, res) {\n    res.render('privacy/privacy', { url: req.url });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (entity) {\n    assert.equals(43, entity);\n}",
+    "receiverBase": "entity",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (entity) {\n    assert.equals(43, entity);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (status) {\n    assert.equals(200, status);\n}",
+    "receiverBase": "status",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (status) {\n    assert.equals(200, status);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (_headers) {\n    assert.same(headers, _headers);\n}",
+    "receiverBase": "headers",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_headers) {\n    assert.same(headers, _headers);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (_header) {\n    assert.same(headers['Content-Type'], _header);\n}",
+    "receiverBase": "header",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_header) {\n    assert.same(headers['Content-Type'], _header);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (_header) {\n    assert.same(headers['Content-Type'], _header);\n}",
+    "receiverBase": "header",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    assert.same('http://example.com/next', response._links.self.href);\n}",
+    "receiverBase": "entity",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    assert.same('limited', response.request.params.projection);\n    assert.same('http://example.com/next', response.entity._links.self.href);\n}",
+    "receiverBase": "follow",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    assert.same('http://example.com/?q=hypermedia%20client', response.request.path);\n    refute('params' in response.request);\n}",
+    "receiverBase": "follow",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    assert.same('http://example.com/next/next', response._links.self.href);\n}",
+    "receiverBase": "entity",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    assert.same('http://example.com/next/next', response._links.self.href);\n}",
+    "receiverBase": "entity",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    assert.same('Hypermedia response expected', err.message);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (err) {\n    assert.same('Unknown relationship: prev', err.message);\n}",
+    "receiverBase": "",
+    "receiverCallee": "failOnThrow"
+  },
+  {
+    "callback": "function (moduleId) {\n    return require(moduleId.indexOf(packageName) === 0 ? pathToRoot + moduleId.substr(packageName.length) : moduleId);\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    $j('div.flash a.close-text').click(function () {\n        Effect.Fade($(this).up());\n        return false;\n    });\n}",
+    "receiverBase": "$j",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    Effect.Fade($(this).up());\n    return false;\n}",
+    "receiverBase": "$j",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    d1.dispose();\n}",
+    "receiverBase": "",
+    "receiverCallee": "assertThrows"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (result) {\n    var accessTokenParameters = result.split('&');\n    var parameterMap = {};\n    for (var i = 0; i < accessTokenParameters.length; i++) {\n        parameterMap[accessTokenParameters[i].split('=')[0]] = accessTokenParameters[i].split('=')[1];\n    }\n    if (parameterMap.hasOwnProperty('oauth_token_secret') === false) {\n        deferred.reject('Oauth access token was not received');\n    }\n    deferred.resolve(parameterMap);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (data) {\n    deferred.resolve(data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    deferred.reject('Problem authenticating');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (result) {\n    var parameterMap = $cordovaOauthUtility.parseResponseParameters(result);\n    if (parameterMap.hasOwnProperty('oauth_token_secret') === false) {\n        deferred.reject('Oauth access token was not received');\n    }\n    deferred.resolve(parameterMap);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (result) {\n    var accessTokenParameters = result.split('&');\n    var parameterMap = {};\n    for (var i = 0; i < accessTokenParameters.length; i++) {\n        parameterMap[accessTokenParameters[i].split('=')[0]] = accessTokenParameters[i].split('=')[1];\n    }\n    if (parameterMap.hasOwnProperty('oauth_token_secret') === false) {\n        deferred.reject('Oauth access token was not received');\n    }\n    deferred.resolve(parameterMap);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        browserRef.close();\n    }, 10);\n}",
+    "receiverBase": "error",
+    "receiverCallee": "finally"
+  },
+  {
+    "callback": "function () {\n    browserRef.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (error) {\n    deferred.reject(error);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "removeEventListener"
+  },
+  {
+    "callback": "function (event) {\n    deferred.reject('The sign in flow was canceled');\n}",
+    "receiverBase": "browserRef",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "common",
+    "receiverCallee": "inspect"
+  },
+  {
+    "callback": "function () {\n    this.push(true);\n    return this.length;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "__defineGetter__"
+  }
+]

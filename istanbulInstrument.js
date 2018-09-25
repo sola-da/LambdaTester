@@ -12,7 +12,7 @@ var inputPolyfillPath = process.argv[2];
 var polyfillName = path.basename(inputPolyfillPath, ".js");
 var methodName = path.basename(path.dirname(inputPolyfillPath));
 
-var instrumentedPolyfillsDir = "./coverage-generated/instrumented_libraries";
+var instrumentedPolyfillsDir = "./coverage/instrumented_libraries";
 var instrumentedPolyfillPath = path.join(instrumentedPolyfillsDir, methodName+ "_"+polyfillName + "_instrumented.js");
 
 var instrumenter = new istanbul.Instrumenter();

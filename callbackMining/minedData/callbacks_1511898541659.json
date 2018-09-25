@@ -1,0 +1,192 @@
+[
+  {
+    "callback": "function (results) {\n    session.setAnnotations(results.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations(e.data);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (state, action, editor, session, text) {\n    if (text === ';') {\n        var cursor = editor.getCursorPosition();\n        var line = session.doc.getLine(cursor.row);\n        var rightChar = line.substring(cursor.column, cursor.column + 1);\n        if (rightChar === ';') {\n            return {\n                text: '',\n                selection: [\n                    1,\n                    1\n                ]\n            };\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (type) {\n    return tokenTypes.indexOf(type) !== -1;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (type) {\n    return tokenTypes.indexOf(type) !== -1;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (i, s) {\n    pathFuncs.push(s + 'Abs');\n    pathFuncs.push(s + 'Rel');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (svgedit.path.path)\n        svgedit.path.path.setSegType();\n}",
+    "receiverBase": "grip",
+    "receiverCallee": "dblclick"
+  },
+  {
+    "callback": "function (i) {\n    if (i <= index)\n        return true;\n    if (this.type === 2) {\n        return false;\n    } else if (this.type === 1) {\n        closed = true;\n        return false;\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "eachSeg"
+  },
+  {
+    "callback": "function (i) {\n    this.select(false);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSeg"
+  },
+  {
+    "callback": "function () {\n    this.show(y);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSeg"
+  },
+  {
+    "callback": "function (i) {\n    if (this.prev) {\n        pt = i;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSeg"
+  },
+  {
+    "callback": "function (i) {\n    this.item = elem.pathSegList.getItem(i);\n    this.update();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSeg"
+  },
+  {
+    "callback": "function (data) {\n    $scope.titletext = data.message;\n    $scope.featuredplaylists = data.playlists.items;\n    $scope.headerplaylist = data.playlists.items[Math.floor(Math.random() * data.playlists.items.length)];\n    loadHeaderPlaylistTracks();\n}",
+    "receiverBase": "getFeaturedPlaylists",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (track) {\n    track.artiststring = util.artistsToString(track.artists);\n    if (track.name.indexOf('loading') > -1)\n        tracksloaded = false;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tracks) {\n    mopidyservice.playTrack(tracks[0], tracks);\n}",
+    "receiverBase": "lookup",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (mode, callback) {\n    this.submissionPort = rndport();\n    this.solutionPort = this.submissionPort + 1;\n    this.submissionArgs = [\n        this.submissionPort,\n        path.join(__dirname, 'public')\n    ];\n    this.solutionArgs = [\n        this.solutionPort,\n        path.join(__dirname, 'public')\n    ];\n    process.nextTick(callback);\n}",
+    "receiverBase": "exercise",
+    "receiverCallee": "addSetup"
+  },
+  {
+    "callback": "function (mode, callback) {\n    this.submissionStdout.pipe(process.stdout);\n    this.submissionStdout = through2();\n    if (mode == 'verify')\n        this.solutionStdout = through2();\n    setTimeout(query.bind(this, mode), 500);\n    process.nextTick(function () {\n        callback(null, true);\n    });\n}",
+    "receiverBase": "exercise",
+    "receiverCallee": "addProcessor"
+  },
+  {
+    "callback": "function () {\n    callback(null, true);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err) {\n    exercise.emit('fail', exercise.__('fail.connection', {\n        address: url,\n        message: err.message\n    }));\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (node, log, logBefore) {\n    logNode(node.value, log, logBefore);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "log"
+  },
+  {
+    "callback": "function (slide) {\n    timeline.addEvent(slide.startTime, slide);\n}",
+    "receiverBase": "states",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    browsercast.setAttribute('data-hidden', '');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    document.addEventListener('mousemove', handleMouseMove);\n    resetTimeout();\n}",
+    "receiverBase": "timeline",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    resetTimeout();\n    clearTimeout(timeout);\n    document.removeEventListener('mousemove', handleMouseMove);\n}",
+    "receiverBase": "timeline",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    event.play(time);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    event.pause();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    timeline.on('timeUpdate', update);\n}",
+    "receiverBase": "timeline",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    timeline.off('timeUpdate', update);\n    stop();\n}",
+    "receiverBase": "timeline",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "audio",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    me.play();\n    setTimeout(function () {\n        media.hide();\n    }, 10);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    media.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.play();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

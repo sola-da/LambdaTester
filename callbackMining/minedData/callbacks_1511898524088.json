@@ -1,0 +1,307 @@
+[
+  {
+    "callback": "function ($scope, projectGroup, $modalInstance) {\n    'use strict';\n    $scope.projectGroup = projectGroup;\n    $scope.isUpdating = true;\n    $scope.error = {};\n    $scope.remove = function () {\n        $scope.projectGroup.$delete(function () {\n            $modalInstance.close('success');\n        });\n    };\n    $scope.close = function () {\n        $modalInstance.dismiss('cancel');\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function () {\n    $modalInstance.close('success');\n}",
+    "receiverBase": "projectGroup",
+    "receiverCallee": "$delete"
+  },
+  {
+    "callback": "function (evHandle) {\n    if (evHandle && evHandle.detach) {\n        evHandle.detach();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrEach"
+  },
+  {
+    "callback": "function (modifier) {\n    if (e[modifier + 'Key']) {\n        keyCode = modifier + '-' + keyCode;\n        keyName = modifier + '-' + keyName;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrEach"
+  },
+  {
+    "callback": "function () {\n    assert.equal(count, 0);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    var collection = event.collection;\n    if (typeof data[collection] == 'undefined') {\n        data[collection] = [];\n    }\n    var item = event.data || {};\n    if (typeof event.keen == 'object') {\n        item.keen = event.keen;\n    }\n    data[collection].push(item);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (staticRoute) {\n    if (fs.existsSync(staticRoute + file)) {\n        file = staticRoute + file;\n        fileExists = true;\n    }\n}",
+    "receiverBase": "static",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (error, content) {\n    if (error) {\n        res.writeHead(500);\n        res.end();\n    } else {\n        res.writeHead(200, { 'Content-Type': contentType });\n        res.end(content, 'utf-8');\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (declare, Widget) {\n    return declare('dojox.gauges.Range', [Widget], {\n        low: 0,\n        high: 0,\n        hover: '',\n        color: null,\n        size: 0,\n        startup: function () {\n            this.color = this.color ? this.color.color || this.color : 'black';\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    pageImage = 'the_html_image';\n    referenceImage = 'the_reference_image';\n    viewport = {\n        width: 42,\n        height: 21\n    };\n    rendererBackend = jasmine.createSpyObj('renderer', ['render']);\n    storageBackend = jasmine.createSpyObj('storageBackend', [\n        'readReferenceImage',\n        'storeReferenceImage'\n    ]);\n    reporting = csscriticLib.reporting(rendererBackend, storageBackend, util);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    reporter = jasmine.createSpyObj('Reporter', [\n        'reportComparisonStarting',\n        'reportSelectedComparison',\n        'reportDeselectedComparison'\n    ]);\n    reporting.addReporter(reporter);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportConfiguredComparison({ testCase: { url: 'samplepage.html' } }, true);\n    expect(reporter.reportSelectedComparison).toHaveBeenCalledWith({ testCase: { url: 'samplepage.html' } });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var startingComparison = 'blah';\n    var reporting = csscriticLib.reporting(rendererBackend, storageBackend, util);\n    reporting.addReporter({});\n    reporting.doReportConfiguredComparison(startingComparison, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    delayCall(function () {\n        expect(reporterHasStarted).toBe(true);\n        defer.resolve();\n        reporterHasFinished = true;\n    });\n    reporterHasStarted = true;\n    return defer.promise;\n}",
+    "receiverBase": "and",
+    "receiverCallee": "callFake"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasStarted).toBe(true);\n    defer.resolve();\n    reporterHasFinished = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "delayCall"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasFinished).toBe(true);\n    done();\n}",
+    "receiverBase": "doReportConfiguredComparison",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportConfiguredComparison({ testCase: { url: 'samplepage.html' } }, false);\n    expect(reporter.reportDeselectedComparison).toHaveBeenCalledWith({ testCase: { url: 'samplepage.html' } });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporter = jasmine.createSpyObj('Reporter', ['reportComparison']);\n    reporting.addReporter(reporter);\n    comparison = { viewport: viewport };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var emptyReporter = {};\n    reporting.doReportComparison([emptyReporter], comparison);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    delayCall(function () {\n        expect(reporterHasStarted).toBe(true);\n        defer.resolve();\n        reporterHasFinished = true;\n    });\n    reporterHasStarted = true;\n    return defer.promise;\n}",
+    "receiverBase": "and",
+    "receiverCallee": "callFake"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasStarted).toBe(true);\n    defer.resolve();\n    reporterHasFinished = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "delayCall"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasFinished).toBe(true);\n    done();\n}",
+    "receiverBase": "doReportComparison",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'failed',\n        testCase: { url: 'differentpage.html' },\n        pageImage: pageImage,\n        referenceImage: referenceImage,\n        renderErrors: [],\n        viewport: viewport\n    });\n    expect(reporter.reportComparison).toHaveBeenCalledWith(jasmine.objectContaining({ status: 'failed' }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'error',\n        testCase: { url: 'differentpage.html' }\n    });\n    expect(reporter.reportComparison).toHaveBeenCalledWith({\n        status: 'error',\n        testCase: { url: 'differentpage.html' }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(rendererBackend.render).toHaveBeenCalledWith(jasmine.objectContaining({\n        url: 'differentpage.html',\n        width: 16,\n        height: 34\n    }));\n    expect(result.pageImage).toBe(newpageImage);\n    done();\n}",
+    "receiverBase": "resizePageImage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    expect(rendererBackend.render).toHaveBeenCalledWith(jasmine.objectContaining({ hover: '.selector' }));\n    done();\n}",
+    "receiverBase": "resizePageImage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'referenceMissing',\n        testCase: {\n            url: 'differentpage.html',\n            height: 21\n        },\n        pageImage: pageImage,\n        referenceImage: undefined,\n        renderErrors: [],\n        viewport: viewport\n    });\n    expect(reporter.reportComparison).not.toHaveBeenCalledWith(jasmine.objectContaining({ resizePageImage: jasmine.any(Function) }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'referenceMissing',\n        testCase: {\n            url: 'differentpage.html',\n            width: 42\n        },\n        pageImage: pageImage,\n        referenceImage: undefined,\n        renderErrors: [],\n        viewport: viewport\n    });\n    expect(reporter.reportComparison).not.toHaveBeenCalledWith(jasmine.objectContaining({ resizePageImage: jasmine.any(Function) }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'referenceMissing',\n        testCase: { url: 'differentpage.html' },\n        pageImage: pageImage,\n        referenceImage: undefined,\n        renderErrors: [],\n        viewport: viewport\n    });\n    reporter.reportComparison.calls.mostRecent().args[0].acceptPage();\n    expect(storageBackend.storeReferenceImage).toHaveBeenCalledWith({ url: 'differentpage.html' }, pageImage, jasmine.any(Object));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportComparison({\n        status: 'referenceMissing',\n        testCase: { url: 'differentpage.html' },\n        pageImage: pageImage,\n        referenceImage: undefined,\n        renderErrors: [],\n        viewport: viewport\n    });\n    reporter.reportComparison.calls.mostRecent().args[0].acceptPage();\n    expect(storageBackend.storeReferenceImage).toHaveBeenCalledWith(jasmine.any(Object), pageImage, viewport);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    result.acceptPage();\n    expect(storageBackend.storeReferenceImage).toHaveBeenCalledWith(jasmine.any(Object), pageImage, {\n        width: 16,\n        height: 34\n    });\n    done();\n}",
+    "receiverBase": "resizePageImage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    reporter = jasmine.createSpyObj('Reporter', ['reportTestSuite']);\n    reporting.addReporter(reporter);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportTestSuite(true);\n    expect(reporter.reportTestSuite).toHaveBeenCalledWith({ success: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    reporting.doReportTestSuite(false);\n    expect(reporter.reportTestSuite).toHaveBeenCalledWith({ success: false });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var emptyReporter = {};\n    reporting.doReportTestSuite([emptyReporter], true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    delayCall(function () {\n        expect(reporterHasStarted).toBe(true);\n        defer.resolve();\n        reporterHasFinished = true;\n    });\n    reporterHasStarted = true;\n    return defer.promise;\n}",
+    "receiverBase": "and",
+    "receiverCallee": "callFake"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasStarted).toBe(true);\n    defer.resolve();\n    reporterHasFinished = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "delayCall"
+  },
+  {
+    "callback": "function () {\n    expect(reporterHasFinished).toBe(true);\n    done();\n}",
+    "receiverBase": "doReportTestSuite",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function ($injector) {\n    var $rootScope = $injector.get('$rootScope');\n    var $controller = $injector.get('$controller');\n    $httpBackend = $injector.get('$httpBackend');\n    scope = $rootScope.$new();\n    SERVER_URL = $injector.get('SERVER_URL');\n    createController = function () {\n        return $controller('AdminTagsCtrl', { $scope: scope });\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var controller = createController();\n    expect(typeof controller).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $httpBackend.expectGET(SERVER_URL + '/api/tags').respond([\n        {},\n        {}\n    ]);\n    createController();\n    $httpBackend.flush();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $httpBackend.expectGET(SERVER_URL + '/api/tags').respond([]);\n    createController();\n    $httpBackend.flush();\n    scope.add();\n    expect(scope.tags.length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $httpBackend.expectGET(SERVER_URL + '/api/tags').respond([]);\n    createController();\n    $httpBackend.flush();\n    scope.add();\n    expect(scope.tags.length).toBe(1);\n    scope.remove(0);\n    expect(scope.tags.length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $httpBackend.expectGET(SERVER_URL + '/api/tags').respond([]);\n    createController();\n    $httpBackend.flush();\n    $httpBackend.expectPOST(SERVER_URL + '/api/tags').respond({});\n    scope.save({});\n    $httpBackend.flush();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $httpBackend.expectGET(SERVER_URL + '/api/tags').respond([]);\n    createController();\n    $httpBackend.flush();\n    $httpBackend.expectPUT(SERVER_URL + '/api/tags/1').respond({});\n    scope.save({ _id: 1 });\n    $httpBackend.flush();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    RxOld.Observable.from(args).subscribe();\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    RxNew.Observable.from(args).subscribe();\n}",
+    "receiverBase": "add",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    RxOld.Observable.from(argStr).subscribe();\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    RxNew.Observable.from(argStr).subscribe();\n}",
+    "receiverBase": "add",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    console.log(String(event.target));\n}",
+    "receiverBase": "add",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('Fastest is ' + this.filter('fastest').pluck('name'));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    http.get(options, function (res) {\n        t.deepEqual(res.statusCode, 200);\n        res.on('data', function (d) {\n            t.deepEqual(d.toString(), 'Hello World');\n        });\n    }).on('error', function (e) {\n        console.log(e.message);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (res) {\n    t.deepEqual(res.statusCode, 200);\n    res.on('data', function (d) {\n        t.deepEqual(d.toString(), 'Hello World');\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (d) {\n    t.deepEqual(d.toString(), 'Hello World');\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    console.log(e.message);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function callback(result) {\n    test.equals(result.status, 0);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "submitForm"
+  },
+  {
+    "callback": "function callback(result) {\n    test.equals(result.status, 0);\n    test.done();\n}",
+    "receiverBase": "submitForm",
+    "receiverCallee": "submitForm"
+  },
+  {
+    "callback": "function magnify(err) {\n    finish(err);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "write"
+  },
+  {
+    "callback": "function (loginInfo) {\n    cryptoView.init(loginInfo, function () {\n        fsView.init(loginInfo, function () {\n        });\n    });\n}",
+    "receiverBase": "menuView",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n    fsView.init(loginInfo, function () {\n    });\n}",
+    "receiverBase": "cryptoView",
+    "receiverCallee": "init"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "fsView",
+    "receiverCallee": "init"
+  }
+]

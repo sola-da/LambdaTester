@@ -1,0 +1,176 @@
+[
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (err) {\n        console.error(stderr);\n        reject(err, stderr);\n    } else {\n        resolve();\n        console.info(stdout);\n    }\n}",
+    "receiverBase": "cp",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    return Promise.all([\n        retrieve(),\n        doGenerate()\n    ]);\n}",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (code) {\n    t.equal(code, 0);\n    var r = spawn(tmp + '/a.out', []);\n    r.stdout.pipe(concat(function (body) {\n        t.equal(body + '', 'The mean of 5.20 and 7.90 is 6.55\\n');\n    }));\n    r.on('exit', function (code) {\n        t.equal(code, 0);\n    });\n}",
+    "receiverBase": "q",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (body) {\n    t.equal(body + '', 'The mean of 5.20 and 7.90 is 6.55\\n');\n}",
+    "receiverBase": "",
+    "receiverCallee": "concat"
+  },
+  {
+    "callback": "function (code) {\n    t.equal(code, 0);\n}",
+    "receiverBase": "r",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (Aloha) {\n    'use strict';\n    return {\n        mozilla: Aloha.browser.mozilla,\n        ie8: Aloha.browser.msie && parseInt(Aloha.browser.version, 10) < 9,\n        ie7: Aloha.browser.msie && parseInt(Aloha.browser.version, 10) < 8,\n        ie: Aloha.browser.msie\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (x) {\n    return x.children[0];\n}",
+    "receiverBase": "children",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return x.children[1];\n}",
+    "receiverBase": "children",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return church_ast_to_string(x);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    $movedLi.removeClass('moved');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var $link = $(this), $dropdown = $link.siblings('.dropdown'), $titleLi = $('<li class=\"title back js-generated\"><h5><a href=\"#\"></a></h5></li>');\n    if (self.settings.custom_back_text == true) {\n        $titleLi.find('h5>a').html('&laquo; ' + self.settings.back_text);\n    } else {\n        $titleLi.find('h5>a').html('&laquo; ' + $link.html());\n    }\n    $dropdown.prepend($titleLi);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).children('li').length > largest.children('li').length) {\n        largest = $(this);\n    }\n}",
+    "receiverBase": "uls",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    total += self.outerHeight($(this), true);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($window.scrollTop() >= distance) {\n        $(klass).addClass('fixed');\n        $('body').css('padding-top', offst);\n    } else if ($window.scrollTop() < distance) {\n        $(klass).removeClass('fixed');\n        $('body').css('padding-top', '0');\n    }\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "scroll"
+  },
+  {
+    "callback": "function (content) {\n    return r.branch(projectModel.hasPermission(cycle('stages')(contentId)('visible'), project('role'), project('events')).not(), r.error('{\"code\": 403, \"message\": \"You are not permitted to view this stage.\"}'), {\n        authorizations: projectModel.processPermissions(cycle('stages')(contentId)('component')('permissions'), project, project('role')),\n        project_id: project('id')\n    });\n}",
+    "receiverBase": "default",
+    "receiverCallee": "merge"
+  },
+  {
+    "callback": "function (s) {\n    return [\n        s.nth(0),\n        project('contents')(s.nth(0)).default({\n            id: s.nth(0),\n            data: {},\n            status_id: 'none'\n        }).merge(function (content) {\n            return {\n                authorizations: projectModel.processPermissions(s.nth(1)('component')('permissions'), project, project('role')),\n                project_id: project('id')\n            };\n        })\n    ];\n}",
+    "receiverBase": "coerceTo",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (content) {\n    return {\n        authorizations: projectModel.processPermissions(s.nth(1)('component')('permissions'), project, project('role')),\n        project_id: project('id')\n    };\n}",
+    "receiverBase": "default",
+    "receiverCallee": "merge"
+  },
+  {
+    "callback": "function (c) {\n    return projectModel.hasPermission(cycle('stages')(c.nth(0))('visible'), project('role'), project('events'));\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (result) {\n    return Q.all(_.map(_.sortBy(result.contents, function (content) {\n        return result.stages[content.id].order;\n    }), function (content) {\n        if (!resources.components[result.stages[content.id].component.name])\n            return content;\n        return resources.components[result.stages[content.id].component.name].content.get(content, result.stages[content.id], result.project, result.cycle);\n    }));\n}",
+    "receiverBase": "run",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (content) {\n    return result.stages[content.id].order;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "sortBy"
+  },
+  {
+    "callback": "function (content) {\n    if (!resources.components[result.stages[content.id].component.name])\n        return content;\n    return resources.components[result.stages[content.id].component.name].content.get(content, result.stages[content.id], result.project, result.cycle);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    if (!resources.components[result.stage.component.name])\n        return result.content;\n    return resources.components[result.stage.component.name].content.get(result.content, result.stage, result.project, result.cycle);\n}",
+    "receiverBase": "_getContentDependencies",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    if (!resources.components[result.stage.component.name])\n        return data;\n    return resources.components[result.stage.component.name].content.update(data, result.content, result.stage, result.project, result.cycle);\n}",
+    "receiverBase": "_getContentDependencies",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (cycle) {\n    return r.branch(r.or(cycle.not(), cycle('stages').hasFields(contentId).not()), r.error('{\"code\": 404, \"message\": \"Stage does not exist\"}'), project.merge(delta).do(function (write) {\n        return r.branch(r.table('projects').get(projectId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), write('contents')(contentId).merge({ project_id: project('id') }));\n    }));\n}",
+    "receiverBase": "get",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (write) {\n    return r.branch(r.table('projects').get(projectId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), write('contents')(contentId).merge({ project_id: project('id') }));\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (result) {\n    if (!resources.components[result.stage.component.name])\n        return data;\n    return resources.components[result.stage.component.name].content.save(data, result.content, result.stage, result.project, result.cycle);\n}",
+    "receiverBase": "_getContentDependencies",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (cycle) {\n    return r.branch(r.or(cycle.not(), cycle('stages').hasFields(contentId).not()), r.error('{\"code\": 404, \"message\": \"Stage does not exist\"}'), project.merge(delta).do(function (write) {\n        return r.branch(r.table('projects').get(projectId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), write('contents')(contentId).merge({ project_id: project('id') }));\n    }));\n}",
+    "receiverBase": "get",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (write) {\n    return r.branch(r.table('projects').get(projectId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), write('contents')(contentId).merge({ project_id: project('id') }));\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function () {\n    self.default_tab_hashes.push(this.hash);\n}",
+    "receiverBase": "S",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');\n    if (!settings.is_hover || Modernizr.touch) {\n        e.preventDefault();\n        e.stopPropagation();\n        self.toggle_active_tab(S(this).parent());\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var settings = S(this).closest('[' + self.attr_name() + ']').data(self.attr_name(true) + '-init');\n    if (settings.is_hover)\n        self.toggle_active_tab(S(this).parent());\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    self.handle_location_hash_change();\n}",
+    "receiverBase": "S",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, value) {\n    $(value).popover('hide');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    var pop = $(value.element).popover({\n            trigger: 'manual',\n            content: value.message\n        });\n    pop.data('popover').options.content = value.message;\n    $(value.element).popover('show');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (angular, controllers) {\n    'use strict';\n    var mod = angular.module('user.routes', [\n            'user.services',\n            'yourprefix.common'\n        ]);\n    mod.config([\n        '$routeProvider',\n        function ($routeProvider) {\n            $routeProvider.when('/login', {\n                templateUrl: '/assets/javascripts/user/login.html',\n                controller: controllers.LoginCtrl\n            });\n        }\n    ]);\n    return mod;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  }
+]

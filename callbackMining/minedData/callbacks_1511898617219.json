@@ -1,0 +1,217 @@
+[
+  {
+    "callback": "function (el) {\n    return el.types.indexOf('locality') !== -1;\n}",
+    "receiverBase": "address_components",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function ($super, updateCount) {\n    var t1 = new Date().getTime();\n    world.Step(1 / gameSpeed, 1);\n    var t2 = new Date().getTime();\n    $super(updateCount);\n    this.opacity = b.IsSleeping() ? 0.5 : 1;\n    var c = b.GetCenterPosition();\n    this.x = c.x - this.width / 2;\n    this.y = c.y - this.height / 2;\n    this.rotation = b.GetRotation();\n}",
+    "receiverBase": "update",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function ($super, updateCount) {\n    $super(updateCount);\n    this.opacity = a.IsSleeping() ? 0.5 : 1;\n    this.x = a.m_position.x - this.width / 2;\n    this.y = a.m_position.y - this.height / 2;\n    this.rotation = a.m_rotation;\n}",
+    "receiverBase": "update",
+    "receiverCallee": "wrap"
+  },
+  {
+    "callback": "function (e) {\n    newBox(e.x, e.y);\n}",
+    "receiverBase": "Input",
+    "receiverCallee": "observe"
+  },
+  {
+    "callback": "function () {\n    newBox(Math.random() * 400 + 10, Math.random() * 200 + 10);\n}",
+    "receiverBase": "LIT:10",
+    "receiverCallee": "times"
+  },
+  {
+    "callback": "function (src) {\n    if (src.method && (src.method === 'PUT' || src.method == 'POST')) {\n        var p = self.promise('body');\n        src.on('error', function (e) {\n            p(e);\n        });\n        src.on('body', function (body) {\n            p(null, body);\n        });\n        if (src.json) {\n            var jp = self.promise('json');\n            src.on('json', function (obj) {\n                jp(null, obj);\n            });\n        }\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    p(e);\n}",
+    "receiverBase": "src",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (body) {\n    p(null, body);\n}",
+    "receiverBase": "src",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (obj) {\n    jp(null, obj);\n}",
+    "receiverBase": "src",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (self.dests.length) {\n        self.dests.forEach(function (resp) {\n            if (resp.error)\n                return resp.error(err);\n        });\n    } else {\n        self.application.logger.error('Page::Uncaught Error:');\n        self.application.logger.error(e);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (resp) {\n    if (resp.error)\n        return resp.error(err);\n}",
+    "receiverBase": "dests",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (!self.tempcache[name]) {\n        self.tempcache[name] = new self.Template(name);\n    }\n    cb(null, self.tempcache[name]);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (e, filemap) {\n    if (e)\n        return self.emit('error', e);\n    for (i in filemap) {\n        if (path.basename(i).charAt(0) === '.')\n            continue;\n        self.files[i] = new self.Template(filemap[i]);\n        self.names[path.basename(i)] = i;\n        self.names[path.basename(i, path.extname(i))] = i;\n    }\n    self.loading -= 1;\n    self.loaded = true;\n    if (self.loading === 0)\n        self.emit('loaded');\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadfiles"
+  },
+  {
+    "callback": "function (e, files) {\n    if (e)\n        return cb(e);\n    for (i in files) {\n        filesmap[i] = files[i];\n    }\n    counter -= 1;\n    if (counter === 0)\n        cb(null, filesmap);\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadfiles"
+  },
+  {
+    "callback": "function (e, data) {\n    filesmap[path.join(f, filename)] = data.toString();\n    counter -= 1;\n    if (counter === 0)\n        cb(null, filesmap);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (onWrite) {\n    var c = onWrite.apply(resp, args);\n    if (c !== undefined)\n        args[0] = c;\n}",
+    "receiverBase": "onWrites",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (chunk) {\n    buffer += chunk;\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chunk) {\n    if (chunk)\n        buffer += chunk;\n    req.emit('body', buffer);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (route) {\n    self.router.define(route.path, function (req, resp, authHandler) {\n        route.handler(req, resp, authHandler);\n    });\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, resp, authHandler) {\n    route.handler(req, resp, authHandler);\n}",
+    "receiverBase": "router",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (request, socket, head) {\n    self._ioEmitter.emit('upgrade', request, socket, head);\n}",
+    "receiverBase": "httpServer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (request, socket, head) {\n    self._ioEmitter.emit('upgrade', request, socket, head);\n}",
+    "receiverBase": "httpsServer",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, resp) {\n    self.onRequest(req, resp);\n}",
+    "receiverBase": "",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n    process.nextTick(function () {\n        var text = template.render(page.results);\n        page.dests.forEach(function (d) {\n            if (d._header)\n                return;\n            if (d.writeHead) {\n                d.statusCode = 200;\n                d.setHeader('content-type', page.mimetype || 'text/html');\n                d.setHeader('content-length', text.length);\n            }\n            d.write(text);\n            d.end();\n        });\n    });\n}",
+    "receiverBase": "page",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var text = template.render(page.results);\n    page.dests.forEach(function (d) {\n        if (d._header)\n            return;\n        if (d.writeHead) {\n            d.statusCode = 200;\n            d.setHeader('content-type', page.mimetype || 'text/html');\n            d.setHeader('content-length', text.length);\n        }\n        d.write(text);\n        d.end();\n    });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (d) {\n    if (d._header)\n        return;\n    if (d.writeHead) {\n        d.statusCode = 200;\n        d.setHeader('content-type', page.mimetype || 'text/html');\n        d.setHeader('content-length', text.length);\n    }\n    d.write(text);\n    d.end();\n}",
+    "receiverBase": "dests",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (body) {\n    try {\n        req.emit('json', JSON.parse(body));\n    } catch (e) {\n        req.emit('error', e);\n    }\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (user) {\n    if (resp._header)\n        return;\n    req.user = user;\n    if (self._must && self._must.indexOf('auth') !== -1 && !req.user) {\n        resp.statusCode = 403;\n        resp.setHeader('content-type', 'application/json');\n        resp.end(JSON.stringify({ error: 'This resource requires auth.' }));\n        return;\n    }\n    self.emit('request', req, resp);\n    req.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "authHandler"
+  },
+  {
+    "callback": "function (user) {\n    req.user = user;\n    if (self._must && self._must.indexOf('auth') !== -1 && !req.user) {\n        if (resp._header)\n            return;\n        resp.statusCode = 403;\n        resp.setHeader('content-type', 'application/json');\n        resp.end(JSON.stringify({ error: 'This resource requires auth.' }));\n        return;\n    }\n    run();\n    req.release();\n}",
+    "receiverBase": "",
+    "receiverCallee": "authHandler"
+  },
+  {
+    "callback": "function (req, resp) {\n    var f = filed(filepath);\n    req.pipe(f);\n    f.pipe(resp);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, resp) {\n    req.route.extras.unshift(filepath);\n    var p = path.join.apply(path.join, req.route.extras);\n    if (p.slice(0, filepath.length) !== filepath) {\n        resp.statusCode = 403;\n        return resp.end('Naughty Naughty!');\n    }\n    var f = filed(p);\n    req.pipe(f);\n    f.pipe(resp);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.hosts[i].close(end);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (handle, index) {\n    handle.detach();\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, k) {\n    this.publish(v, {\n        type: v,\n        emitFacade: true,\n        bubbles: true,\n        queuable: false,\n        prefix: 'drag'\n    });\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, n) {\n    if (n == RIGHT || n == BOTTOM) {\n        region[n] -= i;\n    } else {\n        region[n] += i;\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function ($routeProvider) {\n    $routeProvider.when('/notes', {\n        templateUrl: 'note/note.tpl.html',\n        controller: 'NoteController'\n    });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "config"
+  },
+  {
+    "callback": "function ($scope) {\n    $scope.notes = ['test'];\n}",
+    "receiverBase": "config",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (lang) {\n    var fxArg = lang.getObject('dojox.fx._arg', true);\n    fxArg.StyleArgs = function (args) {\n        this.node = args.node;\n        this.cssClass = args.cssClass;\n    };\n    fxArg.ShadowResizeArgs = function (args) {\n        this.x = args.x;\n        this.y = args.y;\n    };\n    return fxArg;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (err, removedItems) {\n    console.log(D(), err ? 'removeOld'.red.bold.inverse : 'removeOld'.blue.bold.inverse, err ? err : removedItems + ' removed');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function () {\n    Field.activate(field);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (entry) {\n    return 2 === entry.length ? entry : [\n        entry,\n        entry\n    ].flatten();\n}",
+    "receiverBase": "_collection",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (cm, val, old) {\n    var prev = old && old != CodeMirror.Init;\n    if (val && !prev) {\n        updateActiveLine(cm, cm.getCursor().line);\n        cm.on('beforeSelectionChange', selectionChange);\n    } else if (!val && prev) {\n        cm.off('beforeSelectionChange', selectionChange);\n        clearActiveLine(cm);\n        delete cm.state.activeLine;\n    }\n}",
+    "receiverBase": "CodeMirror",
+    "receiverCallee": "defineOption"
+  },
+  {
+    "callback": "function () {\n    clearActiveLine(cm);\n    cm.addLineClass(line, 'wrap', WRAP_CLASS);\n    cm.addLineClass(line, 'background', BACK_CLASS);\n    cm.state.activeLine = line;\n}",
+    "receiverBase": "cm",
+    "receiverCallee": "operation"
+  }
+]

@@ -1,0 +1,355 @@
+[
+  {
+    "callback": "function (kv) {\n    var offset = kv.indexOf('=');\n    if (offset === -1) {\n        return;\n    }\n    params[decodeURIComponent(kv.substring(0, offset))] = decodeURIComponent(kv.substring(offset + 1));\n}",
+    "receiverBase": "kvp",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (entry) {\n    return entry.path;\n}",
+    "receiverBase": "contents",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    spy = sinon.spy();\n    because: {\n        method = overload([String], spy);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        because: {\n            method('hello');\n        }\n    });\n    it('should call the spy', function () {\n        expect(spy.callCount).toBe(1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    because: {\n        method('hello');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(spy.callCount).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        because: {\n            method(true);\n        }\n    });\n    it('should not call the spy', function () {\n        expect(spy.callCount).toBe(0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    because: {\n        method(true);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(spy.callCount).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (func_name, return_fn) {\n    if (typeof func_name === 'string' && typeof return_fn === 'function') {\n        Stats.incr('client.command');\n        Stats.incr('client.command.' + func_name);\n    }\n}",
+    "receiverBase": "rpc",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    that.heartbeat();\n}",
+    "receiverBase": "websocket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    websocketDisconnect.apply(that, arguments);\n}",
+    "receiverBase": "websocket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    websocketError.apply(that, arguments);\n}",
+    "receiverBase": "websocket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (callback, args) {\n    that.client_info = { build_version: args.build_version.toString() || undefined };\n}",
+    "receiverBase": "rpc",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (callback, args) {\n    that.heartbeat();\n}",
+    "receiverBase": "rpc",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).remove();\n}",
+    "receiverBase": "delay",
+    "receiverCallee": "slideUp"
+  },
+  {
+    "callback": "function (data, status) {\n    var message = 'You added ' + item + ' to your shopping list.';\n    presentNotice(false, message);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    var message = 'An error occurred adding ' + item + ' to your shopping list. Please reload the page and try again.';\n    presentNotice(true, message);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (farm) {\n    if (angular.isDefined(farm.latitude) && angular.isDefined(farm.longitude)) {\n        var marketCoord = {\n                latitude: 43.074703,\n                longitude: -76.167891\n            };\n        var farmCoord = {\n                latitude: farm.latitude,\n                longitude: farm.longitude\n            };\n        angular.extend($scope, {\n            mapCenter: marketCoord,\n            mapMarkers: [farmCoord]\n        });\n    }\n}",
+    "receiverBase": "farm",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    result.booths.forEach(function (booth) {\n        booth.sellSheet = _.filter(booth.sellSheet, function (item) {\n            return productName == item.item;\n        });\n        booth.hasVarieties = false;\n    });\n    return result;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (booth) {\n    booth.sellSheet = _.filter(booth.sellSheet, function (item) {\n        return productName == item.item;\n    });\n    booth.hasVarieties = false;\n}",
+    "receiverBase": "booths",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    return productName == item.item;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (result) {\n    return _.groupBy(result, function (item) {\n        return item.shed;\n    });\n}",
+    "receiverBase": "shoppingList",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item) {\n    return item.shed;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "groupBy"
+  },
+  {
+    "callback": "function (result) {\n    return result.length == 0;\n}",
+    "receiverBase": "shoppingList",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data, status) {\n    success();\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    var message = 'An error occurred removing ' + item + ' from your shopping list. Please reload the page and try again.';\n    presentNotice(true, message);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status) {\n    $scope.shoppingListIsEmpty = true;\n    $scope.sheds = {};\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n    var message = 'An error occurred clearing your shopping list. Please try again.';\n    presentNotice(true, message);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'jquery',\n            'sifter',\n            'microplugin'\n        ], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('jquery'), require('sifter'), require('microplugin'));\n    } else {\n        root.Selectize = factory(root.jQuery, root.Sifter, root.MicroPlugin);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    highlight(this);\n}",
+    "receiverBase": "$element",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    fn.apply(self, args);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    var child = e.target;\n    while (child && child.parentNode !== $parent[0]) {\n        child = child.parentNode;\n    }\n    e.currentTarget = child;\n    return fn.apply(this, [e]);\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return self.onOptionHover.apply(self, arguments);\n}",
+    "receiverBase": "$dropdown",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return self.onOptionSelect.apply(self, arguments);\n}",
+    "receiverBase": "$dropdown",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return self.onItemSelect.apply(self, arguments);\n}",
+    "receiverBase": "",
+    "receiverCallee": "watchChildEvent"
+  },
+  {
+    "callback": "function (e) {\n    self.isCmdDown = e[IS_MAC ? 'metaKey' : 'ctrlKey'];\n    self.isCtrlDown = e[IS_MAC ? 'altKey' : 'ctrlKey'];\n    self.isShiftDown = e.shiftKey;\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode === KEY_CTRL)\n        self.isCtrlDown = false;\n    if (e.keyCode === KEY_SHIFT)\n        self.isShiftDown = false;\n    if (e.keyCode === KEY_CMD)\n        self.isCmdDown = false;\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (self.isFocused) {\n        if (e.target === self.$dropdown[0] || e.target.parentNode === self.$dropdown[0]) {\n            return false;\n        }\n        if (!self.$control.has(e.target).length && e.target !== self.$control[0]) {\n            self.blur();\n        }\n    }\n}",
+    "receiverBase": "$document",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (self.isOpen) {\n        self.positionDropdown.apply(self, arguments);\n    }\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.ignoreHover = false;\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    self.isInvalid = true;\n    self.refreshState();\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.focus();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (callback) {\n    fn.apply(self, [\n        value,\n        callback\n    ]);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    this.clear();\n    this.addItems(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "debounce_events"
+  },
+  {
+    "callback": "function () {\n    self.ignoreFocus = false;\n    self.onFocus();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (data) {\n    self.unlock();\n    if (!data || typeof data !== 'object')\n        return;\n    var value = hash_key(data[self.settings.valueField]);\n    if (!value)\n        return;\n    self.setTextboxValue('');\n    self.addOption(data);\n    self.setCaret(caret);\n    self.addItem(value);\n    self.refreshOptions(triggerDropdown && self.settings.mode !== 'single');\n}",
+    "receiverBase": "",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    var original = self.lock;\n    return function () {\n        var sortable = self.$control.data('sortable');\n        if (sortable)\n            sortable.disable();\n        return original.apply(self, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var original = self.unlock;\n    return function () {\n        var sortable = self.$control.data('sortable');\n        if (sortable)\n            sortable.enable();\n        return original.apply(self, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    values.push($(this).attr('data-value'));\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var original = self.setup;\n    return function () {\n        original.apply(self, arguments);\n        self.$dropdown_header = $(options.html(options));\n        self.$dropdown.prepend(self.$dropdown_header);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    if (self.isLocked)\n        return;\n    var $item = $(e.currentTarget).parent();\n    self.setActiveItem($item);\n    if (self.deleteSelection()) {\n        self.setCaret(self.items.length);\n    }\n}",
+    "receiverBase": "$control",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (header) {\n    var duration = new Date() - start;\n    res.setHeader('X-Response-Time', duration + 'ms');\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    try {\n        document.documentElement.doScroll('left');\n    } catch (e) {\n        setTimeout(arguments.callee, 50);\n        return;\n    }\n    t.ready();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var now = new Date(), zeroise;\n    zeroise = function (number) {\n        var str = number.toString();\n        if (str.length < 2)\n            str = '0' + str;\n        return str;\n    };\n    return now.getUTCFullYear() + '-' + zeroise(now.getUTCMonth() + 1) + '-' + zeroise(now.getUTCDate()) + 'T' + zeroise(now.getUTCHours()) + ':' + zeroise(now.getUTCMinutes()) + ':' + zeroise(now.getUTCSeconds()) + '+00:00';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    qt._buttonsInit();\n}",
+    "receiverBase": "",
+    "receiverCallee": "_domReady"
+  },
+  {
+    "callback": "function (m0, m1) {\n    return String(vals[m1]);\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m0, m1, m2) {\n    return '' + m1 + ' ' + m2.toLowerCase();\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.name < b.name ? -1 : b.name < a.name ? 1 : 0;\n}",
+    "receiverBase": "accumulators",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (accum) {\n    Ext.log(accum.format(calibration));\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (accum) {\n    if (all || accum.count) {\n        ret[accum.name] = accum.getData();\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (accum) {\n    var me = accum;\n    me.count = me.childCount = me.depth = me.maxDepth = 0;\n    me.pure = {\n        min: Number.MAX_VALUE,\n        max: 0,\n        sum: 0\n    };\n    me.total = {\n        min: Number.MAX_VALUE,\n        max: 0,\n        sum: 0\n    };\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    return _this.next();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    return _this.prev();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    return _this.end();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return _this.showStep(_this._current);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_onResize"
+  },
+  {
+    "callback": "function (e) {\n    if (_this._current < _this._steps.length - 1) {\n        return _this.next();\n    } else {\n        return _this.end();\n    }\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timeout);\n    return timeout = setTimeout(callback, 100);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (!e.which) {\n        return;\n    }\n    switch (e.which) {\n    case 39:\n        e.preventDefault();\n        if (_this._current < _this._steps.length - 1) {\n            return _this.next();\n        } else {\n            return _this.end();\n        }\n        break;\n    case 37:\n        e.preventDefault();\n        if (_this._current > 0) {\n            return _this.prev();\n        }\n        break;\n    case 27:\n        e.preventDefault();\n        return _this.end();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    return cb.call(_this, arg);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var people = store.find(Person), record = store.find(Person, 1);\n    equals(people.get('length'), 3, 'precond - there are 3 People records in the store');\n    store.unloadRecord(Person, 1);\n    people = store.find(Person);\n    equals(people.get('length'), 2, 'there are 2 People records in the store after calling unloadRecord');\n    ok(store.peekStatus(record) & SC.Record.EMPTY, 'Record now has status of SC.Record.EMPTY');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (name, definition) {\n    if (typeof module !== 'undefined')\n        module.exports = definition();\n    else if (typeof define === 'function' && typeof define.amd === 'object')\n        define(definition);\n    else\n        this[name] = definition();\n}",
+    "receiverBase": ""
+  }
+]

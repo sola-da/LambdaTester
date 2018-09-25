@@ -1,0 +1,345 @@
+[
+  {
+    "callback": "function expression() {\n    var tpl = '{{title}}';\n    var data = Mock.tpl(tpl, { title: '@TITLE' });\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.title = Random.title(3);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    data.title = Random.title(3);\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function expression() {\n    var tpl = '<span>{{title}}</span>';\n    var data = Mock.tpl(tpl, { title: '@TITLE' });\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.title = Random.title(3);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    data.title = Random.title(3);\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function expression_dot() {\n    var tpl = '<span>{{article.title}}</span>';\n    var data = Mock.tpl(tpl);\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.article = { title: Random.guid() };\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    data.article = { title: Random.guid() };\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function expression_slash() {\n    var tpl = '<span>{{article/title}}</span>';\n    var data = Mock.tpl(tpl);\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.article = { title: Random.sentence() };\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    data.article = { title: Random.sentence() };\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function expression_escape() {\n    var tpl = '<span>{{{foo}}}</span>';\n    var data = Mock.tpl(tpl);\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.foo = '<a href=\"#\">' + Random.title(3) + '</a>';\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    data.foo = '<a href=\"#\">' + Random.title(3) + '</a>';\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function expression_complex() {\n    var tpl = Mock.heredoc(function () {\n        });\n    var data = Mock.tpl(tpl, { hero: Random.hero() });\n    doit(data, tpl, arguments.callee.name);\n    tasks.push(function () {\n        data.hero = Random.hero();\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Mock",
+    "receiverCallee": "heredoc"
+  },
+  {
+    "callback": "function () {\n    data.hero = Random.hero();\n}",
+    "receiverBase": "tasks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (options) {\n    stubAjaxResponder(options.success);\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    $('#hourly-traffic-module').remove();\n    jQuery.ajax.reset();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    GOVUK.Insights.hourlyTraffic();\n    expect(jQuery.ajax).toHaveBeenCalled();\n    var svg = $('#hourly-traffic-module').find('svg');\n    var img = $('#hourly-traffic-module').find('img');\n    expect(svg.length).not.toBe(0);\n    expect($('#hidden-stuff').hasClass('datainsight-hidden')).toBeFalsy();\n    expect(img.length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spyOn(GOVUK, 'isSvgSupported').andReturn(false);\n    GOVUK.Insights.hourlyTraffic();\n    expect(jQuery.ajax).toHaveBeenCalled();\n    var png = $('#hourly-traffic-module').find('img');\n    expect(png.length).not.toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jsonResponse = null;\n    spyOn(GOVUK, 'isSvgSupported').andReturn(true);\n    GOVUK.Insights.hourlyTraffic();\n    expect(jQuery.ajax).toHaveBeenCalled();\n    var actualErrorMsg = $('#reach').find('#error-msg').text();\n    var expectedErrorMsg = $(GOVUK.Insights.Helpers.error_div).text();\n    expect(actualErrorMsg).toBe(expectedErrorMsg);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    GOVUK.Insights.hourlyTraffic();\n    expect(jQuery.ajax).toHaveBeenCalled();\n    var actualForDateLabel = $('#hourly-traffic-module .for_date').text();\n    var expectedForDateLabel = '13 August';\n    expect(actualForDateLabel).toBe(expectedForDateLabel);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.key < b.key) {\n        return -1;\n    } else if (a.key > b.key) {\n        return 1;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "sorted",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    var getPromise = sampleService.getOpenkeyval(sampleKey);\n    getPromise.then(function (response) {\n        $log.log('Success', response);\n    }, function (response) {\n        $log.log('Error', response);\n    });\n    $scope.firstResult = getPromise;\n}",
+    "receiverBase": "putPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    $log.log('Success', response);\n}",
+    "receiverBase": "getPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    $log.log('Error', response);\n}",
+    "receiverBase": "getPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var getPromise2 = sampleService.getOpenkeyval(sample2Key);\n    var getPromise3 = sampleService.getOpenkeyval(sample2Key2);\n    $scope.completeQuote = $q.all([\n        getPromise2,\n        getPromise3\n    ]).then(function (response) {\n        return response[0] + ' ' + response[1];\n    });\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    return response[0] + ' ' + response[1];\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    $scope.retrievedValue = response;\n}",
+    "receiverBase": "getOpenkeyval",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    if (!result || !result[0] || !result[0]['/type/reflect/any_reverse']) {\n        return ps.callback([]);\n    }\n    return ps.callback(result[0]['/type/reflect/any_reverse']);\n}",
+    "receiverBase": "freebase",
+    "receiverCallee": "paginate"
+  },
+  {
+    "callback": "function (s) {\n    s.property = key;\n    return s;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    c.property = fns.kill_boring(c.property);\n    Object.keys(c.property).forEach(function (key2) {\n        if (c.property[key2].valuetype == 'object') {\n            c.property[key2].values = c.property[key2].values.map(function (s) {\n                s.property = [\n                    key,\n                    key2\n                ];\n                return s;\n            });\n            out = out.concat(c.property[key2].values);\n        }\n    });\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key2) {\n    if (c.property[key2].valuetype == 'object') {\n        c.property[key2].values = c.property[key2].values.map(function (s) {\n            s.property = [\n                key,\n                key2\n            ];\n            return s;\n        });\n        out = out.concat(c.property[key2].values);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    s.property = [\n        key,\n        key2\n    ];\n    return s;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (o) {\n    return {\n        name: o.text,\n        id: o.id,\n        property: o.property\n    };\n}",
+    "receiverBase": "out",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (k) {\n    if (k.match(/^\\!/)) {\n        outgoing[k] = r.property[k];\n    } else {\n        incoming[k] = r.property[k];\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (v) {\n    return {\n        subject: topic,\n        property: { id: v.property },\n        object: v,\n        direction: 'outgoing'\n    };\n}",
+    "receiverBase": "incoming",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v) {\n    return {\n        object: topic,\n        property: { id: v.property },\n        subject: v,\n        direction: 'incoming'\n    };\n}",
+    "receiverBase": "outgoing",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v) {\n    return fns.isin(v.property, data.related_properties);\n}",
+    "receiverBase": "result",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (v) {\n    if (!v.sentence) {\n        v.sentence = v.name + ' is related to ' + result.name;\n    }\n    return v;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (r) {\n    if (!r || fns.isempty(r)) {\n        return ps.callback(all);\n    }\n    r = r.map(function (v) {\n        v.sentence = v.name + ' is also a ' + result.name;\n        return v;\n    });\n    all = all.concat(r);\n    all = fns.json_unique(all, 'id');\n    return ps.callback(all);\n}",
+    "receiverBase": "freebase",
+    "receiverCallee": "list"
+  },
+  {
+    "callback": "function (v) {\n    v.sentence = v.name + ' is also a ' + result.name;\n    return v;\n}",
+    "receiverBase": "r",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (declare, _StoreMixin) {\n    return declare(_StoreMixin, {\n        refresh: function () {\n            var self = this;\n            this.inherited(arguments);\n            if (!this._renderedCollection) {\n                return;\n            }\n            return this._trackError(function () {\n                return self.renderQueryResults(self._renderedCollection.fetch());\n            });\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return self.renderQueryResults(self._renderedCollection.fetch());\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_trackError"
+  },
+  {
+    "callback": "function (e) {\n    if ('object' == typeof exports)\n        module.exports = e();\n    else if ('function' == typeof define && define.amd)\n        define(e);\n    else {\n        var f;\n        'undefined' != typeof window ? f = window : 'undefined' != typeof global ? f = global : 'undefined' != typeof self && (f = self), f.React = e();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (prop) {\n    prefixes.forEach(function (prefix) {\n        isUnitlessNumber[prefixKey(prefix, prop)] = isUnitlessNumber[prop];\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prefix) {\n    isUnitlessNumber[prefixKey(prefix, prop)] = isUnitlessNumber[prop];\n}",
+    "receiverBase": "prefixes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (styleName) {\n    return escapeTextForBrowser(hyphenate(styleName));\n}",
+    "receiverBase": "",
+    "receiverCallee": "memoizeStringOnly"
+  },
+  {
+    "callback": "function (name) {\n    return escapeTextForBrowser(name) + '=\"';\n}",
+    "receiverBase": "",
+    "receiverCallee": "memoizeStringOnly"
+  },
+  {
+    "callback": "function (value, key) {\n    'production' !== 'development' ? invariant(one[key] === undefined, 'mergeObjectsWithNoDuplicateKeys(): ' + 'Tried to merge two objects with the same key: %s', key) : invariant(one[key] === undefined);\n    one[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "objMap"
+  },
+  {
+    "callback": "function (rootID, transaction, mountDepth) {\n    ReactComponent.Mixin.mountComponent.call(this, rootID, transaction, mountDepth);\n    assertValidProps(this.props);\n    return this._createOpenTagMarkupAndPutListeners(transaction) + this._createContentMarkup(transaction) + this._tagClose;\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (transaction, prevProps, prevOwner) {\n    ReactComponent.Mixin.updateComponent.call(this, transaction, prevProps, prevOwner);\n    this._updateDOMProperties(prevProps, transaction);\n    this._updateDOMChildren(prevProps, transaction);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (id, name, value) {\n    var node = ReactMount.getNode(id);\n    'production' !== 'development' ? invariant(!INVALID_PROPERTY_ERRORS.hasOwnProperty(name), 'updatePropertyByID(...): %s', INVALID_PROPERTY_ERRORS[name]) : invariant(!INVALID_PROPERTY_ERRORS.hasOwnProperty(name));\n    if (value != null) {\n        DOMPropertyOperations.setValueForProperty(node, name, value);\n    } else {\n        DOMPropertyOperations.deleteValueForProperty(node, name);\n    }\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (id, name, value) {\n    var node = ReactMount.getNode(id);\n    'production' !== 'development' ? invariant(!INVALID_PROPERTY_ERRORS.hasOwnProperty(name), 'updatePropertyByID(...): %s', INVALID_PROPERTY_ERRORS[name]) : invariant(!INVALID_PROPERTY_ERRORS.hasOwnProperty(name));\n    DOMPropertyOperations.deleteValueForProperty(node, name, value);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (id, styles) {\n    var node = ReactMount.getNode(id);\n    CSSPropertyOperations.setValueForStyles(node, styles);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (id, content) {\n    var node = ReactMount.getNode(id);\n    DOMChildrenOperations.updateTextContent(node, content);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (id, markup) {\n    var node = ReactMount.getNode(id);\n    DOMChildrenOperations.dangerouslyReplaceNodeWithMarkup(node, markup);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (updates, markup) {\n    for (var i = 0; i < updates.length; i++) {\n        updates[i].parentNode = ReactMount.getNode(updates[i].parentID);\n    }\n    DOMChildrenOperations.processUpdates(updates, markup);\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function (item) {\n    return {\n        'Component class name': item.componentName,\n        'Total inclusive time (ms)': roundFloat(item.inclusive),\n        'Total exclusive time (ms)': roundFloat(item.exclusive),\n        'Exclusive time per instance (ms)': roundFloat(item.exclusive / item.count),\n        'Instances': item.count\n    };\n}",
+    "receiverBase": "summary",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item) {\n    return {\n        'Owner > component': item.componentName,\n        'Inclusive time (ms)': roundFloat(item.time),\n        'Instances': item.count\n    };\n}",
+    "receiverBase": "summary",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item) {\n    return {\n        'Owner > component': item.componentName,\n        'Wasted time (ms)': item.time,\n        'Instances': item.count\n    };\n}",
+    "receiverBase": "summary",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item) {\n    var result = {};\n    result[DOMProperty.ID_ATTRIBUTE_NAME] = item.id;\n    result['type'] = item.type;\n    result['args'] = JSON.stringify(item.args);\n    return result;\n}",
+    "receiverBase": "summary",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (write) {\n    items.push({\n        id: id,\n        type: DOM_OPERATION_TYPES[write.type] || write.type,\n        args: write.args\n    });\n}",
+    "receiverBase": "writes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.exclusive - a.exclusive;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.time - a.time;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    prevComponent.replaceProps(nextProps, callback);\n}",
+    "receiverBase": "ReactMount",
+    "receiverCallee": "scrollMonitor"
+  },
+  {
+    "callback": "function (nextComponent, container, shouldReuseMarkup) {\n    var componentInstance = instantiateReactComponent(nextComponent);\n    var reactRootID = ReactMount._registerComponent(componentInstance, container);\n    componentInstance.mountComponentIntoNode(reactRootID, container, shouldReuseMarkup);\n    if ('production' !== 'development') {\n        rootElementsByReactRootID[reactRootID] = getReactRootElementInContainer(container);\n    }\n    return componentInstance;\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function () {\n    var componentInstance = instantiateReactComponent(component);\n    var markup = componentInstance.mountComponent(id, transaction, 0);\n    return ReactMarkupChecksum.addChecksumToMarkup(markup);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function () {\n    var componentInstance = instantiateReactComponent(component);\n    return componentInstance.mountComponent(id, transaction, 0);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "perform"
+  },
+  {
+    "callback": "function () {\n    try {\n        runBatchedUpdates();\n    } finally {\n        clearDirtyComponents();\n    }\n}",
+    "receiverBase": "ReactPerf",
+    "receiverCallee": "measure"
+  },
+  {
+    "callback": "function () {\n    return args[argIndex++];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return args[argIndex++];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  }
+]

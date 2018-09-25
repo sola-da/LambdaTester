@@ -1,0 +1,162 @@
+[
+  {
+    "callback": "function ($scope, $rootScope, Groups, User) {\n    $scope.members = [];\n    $rootScope.$on('change:members', function (event, members) {\n        $scope.members = members;\n    });\n    Groups.getMembers(User.currentGroup());\n}",
+    "receiverBase": "app",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (event, members) {\n    $scope.members = members;\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (err, buf) {\n    if (err) {\n        return callback(err);\n    }\n    fs.writeFile(destination, buf, callback);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function () {\n    app.set('views', __dirname + '/app/views');\n    app.set('view engine', 'html');\n    app.engine('html', require('hbs').__express);\n    app.use(express.logger());\n    app.use(express.cookieParser());\n    app.use(express.bodyParser());\n    app.use(express.methodOverride());\n    app.use(express.session({ secret: 'This is an example.' }));\n    app.use(app.router);\n    app.use(express.static(__dirname + '/public'));\n}",
+    "receiverBase": "app",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (req, res) {\n    res.render('layout');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (req, res) {\n    cp(req.files.upload_file.filename.path, __dirname + req.files.upload_file.filename.name, function () {\n        res.send({ saved: 'saved' });\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    res.send({ saved: 'saved' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "cp"
+  },
+  {
+    "callback": "function (err, accessToken) {\n    if (err) {\n        res.send(err);\n        return;\n    } else {\n        req.session.accessToken = accessToken;\n        Watson.speechToText(__dirname + '/public/audio/audio.wav', req.session.accessToken, function (err, reply) {\n            if (err) {\n                res.send(err);\n                return;\n            }\n            res.send(reply);\n            return;\n        });\n    }\n}",
+    "receiverBase": "Watson",
+    "receiverCallee": "getAccessToken"
+  },
+  {
+    "callback": "function (err, reply) {\n    if (err) {\n        res.send(err);\n        return;\n    }\n    res.send(reply);\n    return;\n}",
+    "receiverBase": "Watson",
+    "receiverCallee": "speechToText"
+  },
+  {
+    "callback": "function (err, reply) {\n    if (err) {\n        res.send(err);\n        return;\n    }\n    res.send(reply);\n    return;\n}",
+    "receiverBase": "Watson",
+    "receiverCallee": "speechToText"
+  },
+  {
+    "callback": "function (notification) {\n    notification.addEventListener('click', function () {\n        this.notificationHandler.bind(this, notification, openSettings);\n    });\n}",
+    "receiverBase": "send",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    this.notificationHandler.bind(this, notification, openSettings);\n}",
+    "receiverBase": "notification",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    var w = self.label.element.offsetWidth;\n    self.addTask(new hydra.task.Sequence([\n        hydra.task.StyleTo.linear('opacity', '1', 0.5),\n        hydra.task.MoveTo.linear(-w, 0, (w + 200) / 100, self.label),\n        hydra.task.StyleTo.linear('opacity', '0', 0.5)\n    ]));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    console.log('Mongodb connection open');\n}",
+    "receiverBase": "db",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (value, key) {\n    if (!isFunction(value) && !isUndefined(value)) {\n        text.push(encode(key) + '=' + encode(String(value)));\n    }\n}",
+    "receiverBase": "O",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (cpu) {\n    return cpu.model;\n}",
+    "receiverBase": "cpus",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (o, model) {\n    if (!o[model])\n        o[model] = 0;\n    o[model]++;\n    return o;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (key) {\n    return key + ' \\xD7 ' + cpus[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, res) {\n    report(err, res);\n    if (res.lastErr)\n        console.error(res.lastErr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "perf"
+  },
+  {
+    "callback": "function (f) {\n    return !/^src-/.test(path.basename(f));\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r1, r2) {\n    return parseFloat(r1.data.time) - parseFloat(r2.data.time);\n}",
+    "receiverBase": "res",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (r) {\n    var failText = 'OOM';\n    if (r.data.timeout)\n        failText = 'T/O';\n    return [\n        path.basename(r.file),\n        r.data.mem != null ? r.data.time : failText,\n        r.data.mem != null ? r.data.mem.toFixed(2) : failText\n    ];\n}",
+    "receiverBase": "res",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if (complete)\n        return;\n    timedout = true;\n    p.kill();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (d) {\n    r.data.push(d.toString());\n}",
+    "receiverBase": "stdout",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (code) {\n    complete = true;\n    try {\n        r.data = JSON.parse(r.data.join(''));\n    } catch (e) {\n        r.data = {\n            time: Number.POSITIVE_INFINITY,\n            mem: null,\n            missing: true,\n            timeout: timedout\n        };\n    }\n    done(null, r);\n}",
+    "receiverBase": "stdout",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    n.className = n.className;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "defer"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "runJobFlow"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "terminateJobFlows"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "setTerminationProtection"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "addInstanceGroups"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "modifyInstanceGroups"
+  },
+  {
+    "callback": "function () {\n    me.refresh();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "addJobFlowSteps"
+  }
+]

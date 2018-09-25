@@ -1,0 +1,167 @@
+[
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.simpleGetCallResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.simpleGetCallResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    data = jsonFilter(data);\n    $scope.getCallJSONResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallJSONResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallTimeoutResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallTimeoutResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallCustomHeadersResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallCustomHeadersResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallTransformFuncsResult = logResult('GET SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.getCallTransformFuncsResult = logResult('GET ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.postCallResult = logResult('POST SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.postCallResult = logResult('POST ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.putCallResult = logResult('PUT SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "put",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.putCallResult = logResult('PUT ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.deleteCallResult = logResult('DELETE SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "delete",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.deleteCallResult = logResult('DELETE ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.headCallResult = logResult('HEAD SUCCESS', data, status, headers, config);\n}",
+    "receiverBase": "head",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status, headers, config) {\n    $scope.headCallResult = logResult('HEAD ERROR', data, status, headers, config);\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (req, res) {\n    if (req.path[0] === 'user' && req.path[1] === 'info')\n        return res.send('come on') && true;\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (res) {\n    var body = '';\n    res.on('data', function (chunk) {\n        body += chunk;\n    });\n    res.on('end', function () {\n        cb(res, body);\n    });\n}",
+    "receiverBase": "http",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (chunk) {\n    body += chunk;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cb(res, body);\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    throw e;\n}",
+    "receiverBase": "request",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, body) {\n    should.strictEqual(res.statusCode, 200);\n    should.strictEqual(body, 'index/index');\n    result('index');\n}",
+    "receiverBase": "",
+    "receiverCallee": "getfn"
+  },
+  {
+    "callback": "function (res, body) {\n    should.strictEqual(res.statusCode, 200);\n    should.strictEqual(body, 'user/index');\n    result('user/index');\n}",
+    "receiverBase": "",
+    "receiverCallee": "getfn"
+  },
+  {
+    "callback": "function (res, body) {\n    should.strictEqual(res.statusCode, 200);\n    should.strictEqual(body, 'user/face');\n    result('user/face');\n}",
+    "receiverBase": "",
+    "receiverCallee": "getfn"
+  },
+  {
+    "callback": "function (res, body) {\n    should.strictEqual(res.statusCode, 200);\n    should.not.exist(res.headers.user);\n    should.strictEqual(body, 'come on');\n    result('user/info');\n}",
+    "receiverBase": "",
+    "receiverCallee": "getfn"
+  },
+  {
+    "callback": "function (err, _presenter) {\n    if (err) {\n        return opts.res.end(hook.formatError(err));\n    }\n    opts.theme = _theme;\n    opts.presenter = _presenter;\n    hook.runUntrustedHook(opts, userModule, function (err, result) {\n        if (err) {\n            return opts.res.end(hook.formatError(err));\n        }\n        callback(err, result);\n        hook.postprocessHook(err, opts, userModule);\n    });\n}",
+    "receiverBase": "hook",
+    "receiverCallee": "fetchHookPresenter"
+  },
+  {
+    "callback": "function (err, result) {\n    if (err) {\n        return opts.res.end(hook.formatError(err));\n    }\n    callback(err, result);\n    hook.postprocessHook(err, opts, userModule);\n}",
+    "receiverBase": "hook",
+    "receiverCallee": "runUntrustedHook"
+  },
+  {
+    "callback": "function () {\n    Globalize.addCultureInfo('fr', { messages: { 'translate': 'traduire' } });\n    strictEqual(Globalize.localize('translate', 'fr'), 'traduire', 'translate \\'translate\\' to french');\n    strictEqual(Globalize('fr').localize('translate'), 'traduire', 'translate \\'translate\\' to french');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    Globalize.addCultureInfo('pirate', { messages: { 'translate': 'TARRRR' } });\n    Globalize.culture('pirate');\n    strictEqual(Globalize.localize('translate'), 'TARRRR', 'translate \\'translate\\' to pirate language');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  }
+]

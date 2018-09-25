@@ -1,0 +1,152 @@
+[
+  {
+    "callback": "function (listener) {\n    try {\n        listener();\n    } catch (e) {\n        FBTrace.sysout('SelectionController.selectionChanged; EXCEPTION ' + e, e);\n        FBTestApp.FBTest.exception('SelectionController', e);\n    }\n}",
+    "receiverBase": "listeners",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, doc, key) {\n    fulfill('get');\n    if (err)\n        throw err;\n    assert.deepEqual(doc, thesis, 'Loading it back should look the same');\n    assert.equal(key, 'thesis', 'The key should be there');\n}",
+    "receiverBase": "documents",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, doc, newKey) {\n    fulfill('get back');\n    if (err)\n        throw err;\n    assert.deepEqual(doc, thesis, 'Loading it back should look the same');\n    assert.deepEqual(newKey, key, 'The new key should be the same');\n}",
+    "receiverBase": "documents",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    expect('delayed save');\n    documents.save('slow', thesis, function (err, key) {\n        fulfill('delayed save');\n        if (err)\n            throw err;\n        assert.equal(documents.length, 3, 'There should be 3 documents in the collection');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, key) {\n    fulfill('delayed save');\n    if (err)\n        throw err;\n    assert.equal(documents.length, 3, 'There should be 3 documents in the collection');\n}",
+    "receiverBase": "documents",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (subView, selector) {\n    if (subView.isRendered) {\n        subView.$el.detach();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSubView"
+  },
+  {
+    "callback": "function (subView) {\n    if (subView.replaceEl) {\n        subView.setElement(me.$(subView.selector)[0]);\n        if (subView.className) {\n            subView.$el.addClass(subView.className);\n        }\n        subView.render();\n    } else {\n        var containerEl = me.$el;\n        if (subView.selector) {\n            containerEl = me.$(subView.selector);\n        }\n        subView.render();\n        if (subView.el) {\n            containerEl.append(subView.el);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSubView"
+  },
+  {
+    "callback": "function (subView) {\n    subView.onShow();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSubView"
+  },
+  {
+    "callback": "function (subView) {\n    subView.onHide();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSubView"
+  },
+  {
+    "callback": "function (subView) {\n    if (scope) {\n        callback.call(scope, subView);\n    } else {\n        callback(subView);\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (subView) {\n    success = subView.callOrRecurse(methodName, params) && success;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "eachSubView"
+  },
+  {
+    "callback": "function (e) {\n    e('type/0.1.0/b'), console.log('a@0.1.0');\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (element, selection) {\n    if (!element || !element.is('img') || element.getAttribute('_cke_realelement'))\n        return null;\n    return { image: CKEDITOR.TRISTATE_OFF };\n}",
+    "receiverBase": "contextMenu",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function ($$) {\n    var actions = $$.actions([\n            'addTodo',\n            'removeTodo',\n            'toggleTodo',\n            'updateTodo',\n            'toggleAllTodos',\n            'filter'\n        ]);\n    return actions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (req, res) {\n    res.statusCode = 408;\n    res.end('Timeout');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (req, res) {\n    res.destroy();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (req, res) {\n    res.statusCode = 502;\n    res.end('Gateway Timeout');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (req, res) {\n    res.statusCode = 503;\n    res.setHeader('retry-after', '10');\n    res.end('Come back later');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (req, res) {\n    res.statusCode = 200;\n    res.json(pkg);\n}",
+    "receiverBase": "server",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (er, data) {\n    if (er)\n        throw er;\n    t.deepEqual(data, pkg);\n    t.end();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    try {\n        window.getSelection().removeAllRanges();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (elm) {\n    return !$parse(expression)(elm);\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (pattern) {\n    var match, i, url;\n    if (match = pattern.regex.exec(data.source1)) {\n        url = pattern.url;\n        for (i = 0; match[i]; i++) {\n            url = url.replace('$' + i, function () {\n                return match[i];\n            });\n        }\n        data.source1 = url;\n        data.type = pattern.type;\n        data.width = pattern.w;\n        data.height = pattern.h;\n    }\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return match[i];\n}",
+    "receiverBase": "url",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (value, key) {\n    data[key] = editor.dom.encode(value);\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var name;\n    if (e.target.nodeType == 1 && (name = e.target.getAttribute('data-mce-object'))) {\n        e.name = name;\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (name) {\n    specialElements[name] = new RegExp('</' + name + '[^>]*>', 'gi');\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    boolAttrs[name] = {};\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (e.target.getAttribute('data-mce-object') == 'audio') {\n        e.preventDefault();\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.target, html;\n    if (target.getAttribute('data-mce-object')) {\n        html = target.getAttribute('data-mce-html');\n        if (html) {\n            html = unescape(html);\n            target.setAttribute('data-mce-html', escape(updateHtml(html, {\n                width: e.width,\n                height: e.height\n            })));\n        }\n    }\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  }
+]

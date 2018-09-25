@@ -1,0 +1,132 @@
+[
+  {
+    "callback": "function saved(err) {\n    next(err);\n}",
+    "receiverBase": "prev",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function () {\n    new Filter($('#controls-listing'), '#controls-search', 'h4');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (oEvent) {\n    var sKey = oEvent.getParameter('key');\n    var oNavItem = oEvent.getParameter('item');\n    var oContext = oNavItem.getBindingContext();\n    var sCompName = oContext.getProperty('component');\n    that.getShellContent(sKey, sCompName);\n}",
+    "receiverBase": "oShell",
+    "receiverCallee": "attachWorksetItemSelected"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == '\"') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (key, node) {\n    console.log(node.layoutData);\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, node) {\n    node.layoutData.old_dx = node.layoutData.dx;\n    node.layoutData.old_dy = node.layoutData.dy;\n    node.layoutData.dx *= that.inertia;\n    node.layoutData.dy *= that.inertia;\n    if (node.degree > that.nodes.maxDegree) {\n        that.nodes.maxDegree = node.degree;\n    }\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key1, node1) {\n    that.nodes.forEach(function (key2, node2) {\n        ForceVectorUtils.fcBiRepulsor(node1, node2, that.repulsionStrength * (1 + node1.degree) * (1 + node2.degree));\n    });\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key2, node2) {\n    ForceVectorUtils.fcBiRepulsor(node1, node2, that.repulsionStrength * (1 + node1.degree) * (1 + node2.degree));\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, node) {\n    var nx = node.nodeData.x;\n    var ny = node.nodeData.y;\n    var d = 0.0001 + Math.sqrt(nx * nx + ny * ny);\n    var gf = 0.0001 * that.gravity * d;\n    node.layoutData.dx -= gf * nx / d;\n    node.layoutData.dy -= gf * ny / d;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, node) {\n    node.layoutData.dx *= that.speed * 10;\n    node.layoutData.dy *= that.speed * 10;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, node) {\n    node.layoutData.dx *= that.speed;\n    node.layoutData.dy *= that.speed;\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, node) {\n    if (node.nodeData.x < maxbl.x) {\n        maxbl.x = node.nodeData.x;\n    } else if (node.nodeData.x > maxtr.x) {\n        maxtr.x = node.nodeData.x;\n    }\n    if (node.nodeData.y < maxbl.y) {\n        maxbl.y = node.nodeData.y;\n    } else if (node.nodeData.y > maxtr.y) {\n        maxtr.y = node.nodeData.y;\n    }\n}",
+    "receiverBase": "nodes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e, js) {\n    console.error('error:' + util.inspect(e));\n    console.error('config: ' + JSON.stringify(js.config));\n    Object.keys(js.data).forEach(function (key) {\n        console.error(key + '\\t' + js.data[key].length);\n    });\n}",
+    "receiverBase": "sync",
+    "receiverCallee": "sync"
+  },
+  {
+    "callback": "function (key) {\n    console.error(key + '\\t' + js.data[key].length);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (windowWidth, oldValue) {\n    setClass(windowWidth);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newClass, oldClass) {\n    if (newClass != oldClass || firstTime) {\n        broadcastEvent(oldClass);\n        firstTime = false;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    for (var c in R.util.RenderUtil.tempContexts) {\n        R.util.RenderUtil.tempContexts[c].destroy();\n        R.util.RenderUtil.tempContexts = {};\n    }\n}",
+    "receiverBase": "Engine",
+    "receiverCallee": "onShutdown"
+  },
+  {
+    "callback": "function () {\n    win.find('#find')[0].focus();\n}",
+    "receiverBase": "MessageBox",
+    "receiverCallee": "alert"
+  },
+  {
+    "callback": "function () {\n    me.scroller.updateBoundary(me.snappingAnimationDuration);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return (Math.random() * 16 | 0).toString(16);\n}",
+    "receiverBase": "join",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    describe('#configure', function () {\n        _.each(capConversion, function (newCap, cap) {\n            var name = 'should store the ' + cap + ' capability as the ' + newCap + ' arg';\n            it(name, function () {\n                var caps = {};\n                caps[cap] = 'iOS';\n                var testDevice = new Test();\n                testDevice.configure({}, caps);\n                testDevice.args[newCap].should.equal('iOS');\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    _.each(capConversion, function (newCap, cap) {\n        var name = 'should store the ' + cap + ' capability as the ' + newCap + ' arg';\n        it(name, function () {\n            var caps = {};\n            caps[cap] = 'iOS';\n            var testDevice = new Test();\n            testDevice.configure({}, caps);\n            testDevice.args[newCap].should.equal('iOS');\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (newCap, cap) {\n    var name = 'should store the ' + cap + ' capability as the ' + newCap + ' arg';\n    it(name, function () {\n        var caps = {};\n        caps[cap] = 'iOS';\n        var testDevice = new Test();\n        testDevice.configure({}, caps);\n        testDevice.args[newCap].should.equal('iOS');\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var caps = {};\n    caps[cap] = 'iOS';\n    var testDevice = new Test();\n    testDevice.configure({}, caps);\n    testDevice.args[newCap].should.equal('iOS');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

@@ -1,0 +1,521 @@
+[
+  {
+    "callback": "function () {\n    $('#map').width($(window).width());\n    $('#map').height($(window).height());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    $('#directionsPanel').toggle();\n    $('#directionsCompact').toggle();\n    directionsShown = !directionsShown;\n    audios.init();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    compactMode = !compactMode;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    var whichLayer = $(this).val();\n    switchLayer(map, Layers[whichLayer]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function (item, i) {\n    var a = $('<audio />').attr('data-text', item).attr('preload', 'auto');\n    $('<source />').attr('src', 'audio/' + item + '.mp3').attr('type', 'audio/mpeg').appendTo(a);\n    $('<source />').attr('src', 'audio/' + item + '.ogg').attr('type', 'audio/ogg').appendTo(a);\n    a.appendTo('#audio');\n}",
+    "receiverBase": "audios",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    updateMyMarker = false;\n}",
+    "receiverBase": "myMarker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var ll = myMarker.getLatLng();\n    ll.ts = new Date().getTime();\n    speedMeasurer.push(ll);\n}",
+    "receiverBase": "myMarker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    checkCenterMap();\n}",
+    "receiverBase": "myMarker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (pStr) {\n    var pArr = pStr.split(';');\n    var ll = latLngCoder.decode(pArr[0]);\n    var iconUrl = pArr[1];\n    var text = decodeURIComponent(pArr[2]);\n    var place = new L.Marker(new L.LatLng(ll.lat, ll.lng), { draggable: false });\n    place.setIcon(new MarkerIcon({ iconUrl: icons.urlPrefix + iconUrl }));\n    place.bindPopup(text);\n    map.addLayer(place);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    autocenter = false;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    audioPlaying = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    console.log('play audio ended');\n    audioPlaying = false;\n}",
+    "receiverBase": "speak",
+    "receiverCallee": "play"
+  },
+  {
+    "callback": "function (item) {\n    var row = $('<tr />').addClass('point');\n    $('<img />').attr('src', item.iconUrl).appendTo($('<td/>').appendTo(row));\n    var textCell = $('<td />').addClass('text');\n    textCell.html(item.narrative);\n    textCell.appendTo(row);\n    var distCell = $('<td />').addClass('distance');\n    if (lastItem) {\n        distCell.html(Convert.toDistance(lastItem.distance));\n    }\n    lastItem = item;\n    distCell.appendTo(row);\n    row.appendTo($('#directionsPanel > table'));\n}",
+    "receiverBase": "maneuvers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    return new L.LatLng(m.startPoint.lat, m.startPoint.lng);\n}",
+    "receiverBase": "maneuvers",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var self = {};\n    var locs = [];\n    var push = self.push = function (loc) {\n            locs.push(loc);\n            while (locs.length && loc.ts - locs[0].ts > 5000)\n                locs.shift();\n        };\n    var get = self.get = function () {\n            var l2 = locs[locs.length - 1], l1 = locs[0];\n            return l2.distanceTo(l1) / ((l2.ts - l1.ts) / 1000);\n        };\n    return self;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (position) {\n    lastKnownPosition = {\n        lat: position.coords.latitude,\n        lng: position.coords.longitude\n    };\n    if (!updateMyMarker)\n        return;\n    var latlng = new L.LatLng(position.coords.latitude, position.coords.longitude);\n    if (!myMarker)\n        createMyMarker(position.coords.latitude, position.coords.longitude);\n    else\n        myMarker.setLatLng(latlng);\n    latlng.ts = new Date().getTime();\n    speedMeasurer.push(latlng);\n    checkCenterMap();\n}",
+    "receiverBase": "geolocation",
+    "receiverCallee": "watchPosition"
+  },
+  {
+    "callback": "function () {\n    var hash = window.location.hash.substring(1);\n    if (hash != currentUrl) {\n        navigateTo(hash);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    var itemUrl = $('#url-bar').val();\n    navigateTo(itemUrl);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (data, request) {\n    $('#main').removeClass('loading').empty().renderJson(data.editableCopy());\n}",
+    "receiverBase": "req",
+    "receiverCallee": "getData"
+  },
+  {
+    "callback": "function (link, data, request) {\n    navigateTo(link.href, request);\n    return true;\n}",
+    "receiverBase": "Jsonary",
+    "receiverCallee": "addLinkHandler"
+  },
+  {
+    "callback": "function (schema) {\n    var updateLink = schema.getLink('update');\n    updateLink.addHandler(function () {\n        Jsonary.invalidate('json/view.php');\n        Jsonary.invalidate('json/update.php?schema');\n    });\n}",
+    "receiverBase": "Jsonary",
+    "receiverCallee": "getSchema"
+  },
+  {
+    "callback": "function () {\n    Jsonary.invalidate('json/view.php');\n    Jsonary.invalidate('json/update.php?schema');\n}",
+    "receiverBase": "updateLink",
+    "receiverCallee": "addHandler"
+  },
+  {
+    "callback": "function (ch, i) {\n    var code = ch.charCodeAt(0);\n    switch (code) {\n    case 120:\n    case 88:\n        return has_x ? false : has_x = true;\n    case 101:\n    case 69:\n        return has_x ? true : has_e ? false : has_e = after_e = true;\n    case 45:\n        return after_e || i == 0 && !prefix;\n    case 43:\n        return after_e;\n    case after_e = false, 46:\n        return !has_dot && !has_x && !has_e ? has_dot = true : false;\n    }\n    return is_alphanumeric_char(code);\n}",
+    "receiverBase": "",
+    "receiverCallee": "read_while"
+  },
+  {
+    "callback": "function (ch) {\n    if (ch >= '0' && ch <= '7') {\n        if (!first) {\n            first = ch;\n            return ++octal_len;\n        } else if (first <= '3' && octal_len <= 2)\n            return ++octal_len;\n        else if (first >= '4' && octal_len <= 1)\n            return ++octal_len;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "read_while"
+  },
+  {
+    "callback": "function (a, ret) {\n    for (var i = 0; i < a.length; ++i) {\n        var b = a[i];\n        for (var j = 0; j < b.length; ++j) {\n            ret[b[j]] = i + 1;\n        }\n    }\n    return ret;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (l) {\n    return l.name == label.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (ref) {\n    if (ref instanceof AST_Continue) {\n        ref = ref.label.start;\n        croak('Continue label `' + label.name + '` refers to non-IterationStatement.', ref.line, ref.col, ref.pos);\n    }\n}",
+    "receiverBase": "references",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (l) {\n    return l.name == label.name;\n}",
+    "receiverBase": "",
+    "receiverCallee": "find_if"
+  },
+  {
+    "callback": "function (first, a) {\n    while (!is('punc', ')')) {\n        if (first)\n            first = false;\n        else\n            expect(',');\n        a.push(as_symbol(AST_SymbolFunarg));\n    }\n    next();\n    return a;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (loop, labels) {\n    ++S.in_function;\n    S.in_directives = true;\n    S.in_loop = 0;\n    S.labels = [];\n    var a = block_();\n    --S.in_function;\n    S.in_loop = loop;\n    S.labels = labels;\n    return a;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    expect('[');\n    return new AST_Array({ elements: expr_list(']', !options.strict, true) });\n}",
+    "receiverBase": "",
+    "receiverCallee": "embed_tokens"
+  },
+  {
+    "callback": "function () {\n    var start = S.token;\n    var body = [];\n    while (!is('eof'))\n        body.push(statement());\n    var end = prev();\n    var toplevel = options.toplevel;\n    if (toplevel) {\n        toplevel.body = toplevel.body.concat(body);\n        toplevel.end = end;\n    } else {\n        toplevel = new AST_Toplevel({\n            start: start,\n            body: body,\n            end: end\n        });\n    }\n    return toplevel;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (sCmd) {\n    return function ($editable, value) {\n        beforeCommand($editable);\n        document.execCommand(sCmd, false, value);\n        afterCommand($editable);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function ($image) {\n    beforeCommand($editable);\n    $image.css({\n        display: '',\n        width: Math.min($editable.width(), $image.width())\n    });\n    range.create().insertNode($image[0]);\n    range.createFromNode($image[0]).collapse().select();\n    afterCommand($editable);\n}",
+    "receiverBase": "createImage",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var callbacks = $editable.data('callbacks');\n    if (callbacks.onImageUploadError) {\n        callbacks.onImageUploadError();\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (idx) {\n    return function ($editable) {\n        this.formatBlock($editable, 'H' + idx);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (idx, span) {\n    $(span).css({ 'font-size': value + 'px' });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, anchor) {\n    $(anchor).attr('href', linkUrl);\n    if (isNewWindow) {\n        $(anchor).attr('target', '_blank');\n    } else {\n        $(anchor).removeAttr('target');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (request, sender, sendResponse) {\n    if (request.type === 'enable') {\n        chrome.pageAction.show(sender.tab.id);\n    } else if (request.type === 'up') {\n        capture(sender.tab.id, request.dimensions);\n    }\n    sendResponse({});\n    function send(request) {\n        chrome.tabs.sendMessage(sender.tab.id, request, function (response) {\n        });\n    }\n}",
+    "receiverBase": "onMessage",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (response) {\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "sendMessage"
+  },
+  {
+    "callback": "function onClicked(tab) {\n    chrome.tabs.sendMessage(tab.id, { type: 'start' }, function (response) {\n    });\n}",
+    "receiverBase": "onClicked",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (response) {\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "sendMessage"
+  },
+  {
+    "callback": "function () {\n    validator.cancelSubmit = true;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    validator.submitButton = this;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    valid &= validator.element(this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    result[value] = $element.attr(value);\n    $element.removeAttr(value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, method) {\n    filtered[method] = existingRules[method];\n    delete existingRules[method];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, n) {\n    source = source.replace(new RegExp('\\\\{' + i + '\\\\}', 'g'), n);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, value) {\n    $.each(value.split(/\\s/), function (index, name) {\n        groups[name] = key;\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, name) {\n    groups[name] = key;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, value) {\n    rules[key] = $.validator.normalizeRule(value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (element) {\n    return !(element.name in errors);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (n) {\n    return n.element.name == lastActive.name;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function () {\n    !this.name && validator.settings.debug && window.console && console.error('%o has no name assigned', this);\n    if (this.name in rulesCache || !validator.objectLength($(this).rules()))\n        return false;\n    rulesCache[this.name] = true;\n    return true;\n}",
+    "receiverBase": "not",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return this.element;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return $(this).attr('for') == name;\n}",
+    "receiverBase": "errors",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (index, element) {\n    return element.form == form && element.name == name && element || null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if (this in $.validator.classRuleSettings) {\n        $.extend(rules, $.validator.classRuleSettings[this]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (rule, parameter) {\n    rules[rule] = $.isFunction(parameter) ? parameter(element) : parameter;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (rules[this]) {\n        rules[this] = Number(rules[this]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (rules[this]) {\n        rules[this] = [\n            Number(rules[this][0]),\n            Number(rules[this][1])\n        ];\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    transformed[this] = true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(element).valid();\n}",
+    "receiverBase": "unbind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function ($) {\n    var ajax = $.ajax;\n    var pendingRequests = {};\n    $.ajax = function (settings) {\n        settings = $.extend(settings, $.extend({}, $.ajaxSettings, settings));\n        var port = settings.port;\n        if (settings.mode == 'abort') {\n            if (pendingRequests[port]) {\n                pendingRequests[port].abort();\n            }\n            return pendingRequests[port] = ajax.apply(this, arguments);\n        }\n        return ajax.apply(this, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (event) {\n    var target = $(event.target);\n    if (target.is(delegate)) {\n        return handler.apply(target, arguments);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (result, key) {\n    var pair = cb(obj[key], key, obj);\n    result[pair[0]] = pair[1];\n    return result;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (value, key) {\n    return [\n        key,\n        cb(value, key, obj)\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "mapKeysAndValues"
+  },
+  {
+    "callback": "function (value, key) {\n    return [\n        cb(value, key, obj),\n        value\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "mapKeysAndValues"
+  },
+  {
+    "callback": "function (item) {\n    return item.reduce(function (model, val, i) {\n        model[headers[i]] = val;\n        return model;\n    }, {});\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (model, val, i) {\n    model[headers[i]] = val;\n    return model;\n}",
+    "receiverBase": "item",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (value, key) {\n    var newKey = keyMap[key];\n    if (newKey == null) {\n        throw new Error('Key not found in translator.');\n    }\n    return newKey;\n}",
+    "receiverBase": "",
+    "receiverCallee": "mapKeys"
+  },
+  {
+    "callback": "function (match, c) {\n    return c ? c.toUpperCase() : '';\n}",
+    "receiverBase": "toLowerCase",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (ret, set) {\n    var name = downcaseFirst(set.name);\n    ret[name] = collectify(jsifyHeaders(set.headers), set.rowSet);\n    return ret;\n}",
+    "receiverBase": "resultSets",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (player) {\n    var result = {};\n    var names = player.displayLastCommaFirst.split(', ').reverse();\n    result.firstName = names[0].trim();\n    result.lastName = (names[1] ? names[1] : '').trim();\n    result.playerId = player.personId;\n    return result;\n}",
+    "receiverBase": "baseResponseTransform",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (player) {\n    player.fullName = player.firstName + (player.lastName ? ' ' + player.lastName : '');\n}",
+    "receiverBase": "players",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (itemA) {\n    var matcher, findMatch, items;\n    matcher = {};\n    matcher[idProp] = itemA[idProp];\n    findMatch = partial(findWhere, matcher);\n    items = [\n        {},\n        itemA\n    ].concat(collections.map(findMatch));\n    return merge.apply(null, items);\n}",
+    "receiverBase": "first",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item) {\n    return args.reduce(function (obj, key) {\n        obj[key] = item[key];\n        return obj;\n    }, {});\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (obj, key) {\n    obj[key] = item[key];\n    return obj;\n}",
+    "receiverBase": "args",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (key) {\n    ret[key] = obj[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (data, status) {\n    $scope.model.message = data.message;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, status) {\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (err, res) {\n    res.body.should.not.be.empty;\n    res.body.should.have.property('posts');\n    res.body.posts.should.have.property('body');\n    res.body.posts.body.should.eql(body);\n    post = res.body.posts;\n    done();\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var body = 'Comment';\n    funcTestHelper.createComment(body, post.id, authToken, function (err, res) {\n        res.body.should.not.be.empty;\n        res.body.should.have.property('comments');\n        res.body.comments.should.have.property('body');\n        res.body.comments.body.should.eql(body);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    res.body.should.not.be.empty;\n    res.body.should.have.property('comments');\n    res.body.comments.should.have.property('body');\n    res.body.comments.body.should.eql(body);\n    done();\n}",
+    "receiverBase": "funcTestHelper",
+    "receiverCallee": "createComment"
+  },
+  {
+    "callback": "function (done) {\n    var body = 'Comment';\n    funcTestHelper.createComment(body, post.id, 'token', function (err, res) {\n        err.should.not.be.empty;\n        err.status.should.eql(401);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    err.should.not.be.empty;\n    err.status.should.eql(401);\n    done();\n}",
+    "receiverBase": "funcTestHelper",
+    "receiverCallee": "createComment"
+  },
+  {
+    "callback": "function (done) {\n    var body = 'Comment';\n    funcTestHelper.createComment(body, 'id', authToken, function (err, res) {\n        err.should.not.be.empty;\n        err.status.should.eql(422);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    err.should.not.be.empty;\n    err.status.should.eql(422);\n    done();\n}",
+    "receiverBase": "funcTestHelper",
+    "receiverCallee": "createComment"
+  },
+  {
+    "callback": "function (err, res) {\n    authToken = res.body.authToken;\n    var body = 'Post body';\n    request.post(app.config.host + '/v1/posts').send({\n        post: { body: body },\n        authToken: authToken\n    }).end(function (err, res) {\n        post = res.body.posts;\n        var body = 'Comment';\n        funcTestHelper.createComment(body, post.id, authToken, function (err, res) {\n            comment = res.body.comments;\n            done();\n        });\n    });\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    post = res.body.posts;\n    var body = 'Comment';\n    funcTestHelper.createComment(body, post.id, authToken, function (err, res) {\n        comment = res.body.comments;\n        done();\n    });\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    comment = res.body.comments;\n    done();\n}",
+    "receiverBase": "funcTestHelper",
+    "receiverCallee": "createComment"
+  },
+  {
+    "callback": "function (done) {\n    var newBody = 'New body';\n    request.post(app.config.host + '/v1/comments/' + comment.id).send({\n        comment: { body: newBody },\n        authToken: authToken,\n        '_method': 'put'\n    }).end(function (err, res) {\n        res.body.should.not.be.empty;\n        res.body.should.have.property('comments');\n        res.body.comments.should.have.property('body');\n        res.body.comments.body.should.eql(newBody);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    res.body.should.not.be.empty;\n    res.body.should.have.property('comments');\n    res.body.comments.should.have.property('body');\n    res.body.comments.body.should.eql(newBody);\n    done();\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    var newBody = 'New body';\n    request.post(app.config.host + '/v1/comments/' + comment.id).send({\n        comment: { body: newBody },\n        '_method': 'put'\n    }).end(function (err, res) {\n        err.should.not.be.empty;\n        err.status.should.eql(401);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    err.should.not.be.empty;\n    err.status.should.eql(401);\n    done();\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    authToken = res.body.authToken;\n    var body = 'Post body';\n    request.post(app.config.host + '/v1/posts').send({\n        post: { body: body },\n        authToken: authToken\n    }).end(function (err, res) {\n        post = res.body.posts;\n        var body = 'Comment';\n        funcTestHelper.createComment(body, post.id, authToken, function (err, res) {\n            comment = res.body.comments;\n            done();\n        });\n    });\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    post = res.body.posts;\n    var body = 'Comment';\n    funcTestHelper.createComment(body, post.id, authToken, function (err, res) {\n        comment = res.body.comments;\n        done();\n    });\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    comment = res.body.comments;\n    done();\n}",
+    "receiverBase": "funcTestHelper",
+    "receiverCallee": "createComment"
+  },
+  {
+    "callback": "function (err, res) {\n    res.should.not.be.empty;\n    res.body.should.not.be.empty;\n    res.body.should.have.property('timelines');\n    res.body.timelines.should.have.property('name');\n    res.body.timelines.name.should.eql('Comments');\n    res.body.timelines.should.have.property('posts');\n    res.body.timelines.posts.length.should.eql(1);\n    res.body.should.have.property('posts');\n    res.body.posts[0].comments.length.should.eql(0);\n    done();\n}",
+    "receiverBase": "query",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    request.post(app.config.host + '/v1/comments/' + comment.id).send({ '_method': 'delete' }).end(function (err, res) {\n        err.should.not.be.empty;\n        err.status.should.eql(401);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    err.should.not.be.empty;\n    err.status.should.eql(401);\n    done();\n}",
+    "receiverBase": "send",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    if (window.XMLHttpRequest)\n        return new XMLHttpRequest();\n    var names, i;\n    if (window.ActiveXObject) {\n        names = [\n            'Msxml2.XMLHTTP.6.0',\n            'Msxml2.XMLHTTP.3.0',\n            'Msxml2.XMLHTTP',\n            'Microsoft.XMLHTTP'\n        ];\n        for (i in names)\n            try {\n                return new ActiveXObject(names[i]);\n            } catch (e) {\n            }\n    }\n    return null;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['jquery'], factory);\n    } else {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (newShape) {\n    return newShape.id;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    if (document.namespaces && !document.namespaces.v) {\n        $.fn.sparkline.hasVML = true;\n        document.namespaces.add('v', 'urn:schemas-microsoft-com:vml', '#default#VML');\n    } else {\n        $.fn.sparkline.hasVML = false;\n    }\n    var el = document.createElement('canvas');\n    $.fn.sparkline.hasCanvas = !!(el.getContext && el.getContext('2d'));\n}",
+    "receiverBase": ""
+  }
+]

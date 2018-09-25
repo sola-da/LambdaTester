@@ -1,0 +1,297 @@
+[
+  {
+    "callback": "function (consoleLog) {\n    return;\n}",
+    "receiverBase": "safeTail_p",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (consoleLog) {\n    render.sendPage(res, 500, 'An error has occurred', {\n        template: 'error-500',\n        templateDir: templateDir,\n        vars: {\n            message: errorText,\n            detail: detail,\n            console: consoleLog\n        }\n    });\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    logger.error('Failed to render error 500 page: ' + err.message);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    try {\n        res.end();\n    } catch (err) {\n        logger.error('Error while cleaning up response: ' + err);\n    }\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function (status) {\n    appWorkerHandle.proxy.close();\n    logger.trace(appWorkerHandle.endpoint.ToString() + ' proxy closed');\n}",
+    "receiverBase": "exitPromise",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function (err) {\n    logger.error('Error during proxy: ' + err.message);\n    error500(req, res, 'An error occurred while transferring data from the application.', err.message, appSpec.settings.templateDir, appWorkerHandle.logFilePath);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (acquired) {\n        cleanupResponse(res);\n    }\n    logger.info('Error getting worker: ' + err);\n    if (err.code === 'ENOTFOUND')\n        error404(req, res, appSpec.settings.templateDir);\n    else {\n        error500(req, res, 'The application failed to start.', err.message, appSpec.settings.templateDir, err.consoleLogFile);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (err) {\n    error500(req, res, 'Invalid application configuration.', err.message, req.templateDir);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (req, res, target) {\n    req.keepalive = isKeepalive(req);\n    stripConnectionHeaders(req);\n    req.headers.connection = 'close';\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, res, response) {\n    response.headers.connection = req.keepalive ? 'keep-alive' : 'close';\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, req, res) {\n    error500(req, res, 'The application exited unexpectedly.', err.message, req.templateDir, appWorkerHandle.logFilePath);\n    cleanupResponse(res);\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req, res) {\n    cleanupResponse(res);\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (header) {\n    if (header.length === 0)\n        return;\n    delete req.headers[header.toLowerCase()];\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return new Date();\n}",
+    "receiverBase": "dummy",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    $dialog.dialog();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (i) {\n    $('ul#loggedin-users').append('<li id=\"' + i.sessionid + '\">' + i.handle + '</li>');\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    $('ul#available-channels').append('<li id=\"' + i._id + '\">' + i.channel + '</li>');\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    if (i.sessionid == id) {\n        handle = i.handle;\n        return false;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data) {\n    logMessageToConsole('connect');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    data = JSON.parse(data);\n    console.log(data);\n    if (data.type !== 'connected') {\n        insertMessage(data);\n        console.log('message');\n    } else if (data.type !== 'channel created') {\n        getChannels();\n        console.log('channel');\n    } else {\n        getLoggedInUsers();\n        console.log('load users');\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $.ajax({\n        type: 'post',\n        url: '/user/delete/',\n        dataType: 'json',\n        data: 'handle=' + you + '&sessionid=' + isConnected.transport.sessionid,\n        success: function (response) {\n            logMessageToConsole('disconnect');\n        }\n    });\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chunk) {\n    serverData += chunk;\n}",
+    "receiverBase": "response",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('Response Status:', response.statusCode);\n    console.log('Response Headers:', response.headers);\n    console.log(serverData);\n}",
+    "receiverBase": "response",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (response) {\n    handleResponse(response);\n}",
+    "receiverBase": "http",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (colObj) {\n    return !!colObj.name.match(/\\.col1$/);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (key, eachNext) {\n    var obj = testFixture.col1[key];\n    obj._id = key;\n    results.col1.insert(obj, eachNext);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    next(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (colObj) {\n    return !!colObj.name.match(/\\.col2$/);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (key, eachNext) {\n    var obj = testFixture.col2[key];\n    obj._id = key;\n    results.col2.insert(obj, eachNext);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    next(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err) {\n    callback(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "auto"
+  },
+  {
+    "callback": "function (el) {\n    return el.num === 1 && el.char === 'A';\n}",
+    "receiverBase": "useIds",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (el) {\n    return el.num === 2 && el.char === 'B';\n}",
+    "receiverBase": "useIds",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (el) {\n    return el.num === 2 && el.char === 'B';\n}",
+    "receiverBase": "useObj",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (el) {\n    return el.num === 3 && el.char === 'C';\n}",
+    "receiverBase": "useObj",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (doc) {\n    return doc._id === 'docA';\n}",
+    "receiverBase": "col1",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    createDOMHelper();\n    $(window).on('resize', function () {\n        testBreakPoints();\n        draw();\n    });\n    _fontBase = getDOMHelperHeight();\n    startFontWatch();\n    testBreakPoints();\n    draw();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    testBreakPoints();\n    draw();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (className) {\n    if (className == baseClass) {\n        hasBaseClass = true;\n    } else if (className) {\n        this.setStateFromClassName(container, className, baseClass);\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    it('should create a table wp_table1wp_table2s', function () {\n        var Table2 = this.sequelize.define('wp_table2', { foo: DataTypes.STRING }), Table1 = this.sequelize.define('wp_table1', { foo: DataTypes.STRING });\n        Table1.hasMany(Table2);\n        Table2.hasMany(Table1);\n        expect(this.sequelize.daoFactoryManager.getDAO('wp_table1swp_table2s')).to.exist;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var Table2 = this.sequelize.define('wp_table2', { foo: DataTypes.STRING }), Table1 = this.sequelize.define('wp_table1', { foo: DataTypes.STRING });\n    Table1.hasMany(Table2);\n    Table2.hasMany(Table1);\n    expect(this.sequelize.daoFactoryManager.getDAO('wp_table1swp_table2s')).to.exist;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Table2 = this.sequelize.define('ms_table1', { foo: DataTypes.STRING }), Table1 = this.sequelize.define('ms_table2', { foo: DataTypes.STRING });\n    Table1.hasMany(Table2, { joinTableName: 'table1_to_table2' });\n    Table2.hasMany(Table1, { joinTableName: 'table1_to_table2' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(this.sequelize.daoFactoryManager.getDAO('ms_table1sms_table2s')).not.to.exist;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(this.sequelize.daoFactoryManager.getDAO('table1_to_table2')).to.exist;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return self.User.bulkCreate(users).then(function () {\n        return self.Task.bulkCreate(tasks).then(function () {\n            return self.User.findAll().then(function (_users) {\n                return self.Task.findAll().then(function (_tasks) {\n                    self.user = _users[0];\n                    self.task = _tasks[0];\n                });\n            });\n        });\n    });\n}",
+    "receiverBase": "sync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.Task.bulkCreate(tasks).then(function () {\n        return self.User.findAll().then(function (_users) {\n            return self.Task.findAll().then(function (_tasks) {\n                self.user = _users[0];\n                self.task = _tasks[0];\n            });\n        });\n    });\n}",
+    "receiverBase": "bulkCreate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.User.findAll().then(function (_users) {\n        return self.Task.findAll().then(function (_tasks) {\n            self.user = _users[0];\n            self.task = _tasks[0];\n        });\n    });\n}",
+    "receiverBase": "bulkCreate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_users) {\n    return self.Task.findAll().then(function (_tasks) {\n        self.user = _users[0];\n        self.task = _tasks[0];\n    });\n}",
+    "receiverBase": "findAll",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_tasks) {\n    self.user = _users[0];\n    self.task = _tasks[0];\n}",
+    "receiverBase": "findAll",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var self = this;\n    return self.user.getTasks().then(function (_tasks) {\n        expect(_tasks).to.have.length(0);\n        return self.user.addTask(self.task).then(function () {\n            return self.user.getTasks().then(function (_tasks) {\n                expect(_tasks).to.have.length(1);\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_tasks) {\n    expect(_tasks).to.have.length(0);\n    return self.user.addTask(self.task).then(function () {\n        return self.user.getTasks().then(function (_tasks) {\n            expect(_tasks).to.have.length(1);\n        });\n    });\n}",
+    "receiverBase": "getTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.user.getTasks().then(function (_tasks) {\n        expect(_tasks).to.have.length(1);\n    });\n}",
+    "receiverBase": "addTask",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_tasks) {\n    expect(_tasks).to.have.length(1);\n}",
+    "receiverBase": "getTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.user.getTasks().then(function (_tasks) {\n        expect(_tasks).to.have.length(self.tasks.length - 1);\n        return self.user.removeTasks([\n            self.tasks[1],\n            self.tasks[2]\n        ]).then(function () {\n            return self.user.getTasks().then(function (_tasks) {\n                expect(_tasks).to.have.length(self.tasks.length - 3);\n            });\n        });\n    });\n}",
+    "receiverBase": "removeTask",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_tasks) {\n    expect(_tasks).to.have.length(self.tasks.length - 1);\n    return self.user.removeTasks([\n        self.tasks[1],\n        self.tasks[2]\n    ]).then(function () {\n        return self.user.getTasks().then(function (_tasks) {\n            expect(_tasks).to.have.length(self.tasks.length - 3);\n        });\n    });\n}",
+    "receiverBase": "getTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.user.getTasks().then(function (_tasks) {\n        expect(_tasks).to.have.length(self.tasks.length - 3);\n    });\n}",
+    "receiverBase": "removeTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_tasks) {\n    expect(_tasks).to.have.length(self.tasks.length - 3);\n}",
+    "receiverBase": "getTasks",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    var alertBox = S(this).closest('[' + self.attr_name() + ']'), settings = alertBox.data(self.attr_name(true) + '-init') || self.settings;\n    e.preventDefault();\n    alertBox[settings.animation](settings.speed, function () {\n        S(this).trigger('closed').remove();\n        settings.callback();\n    });\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    S(this).trigger('closed').remove();\n    settings.callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "alertBox"
+  }
+]

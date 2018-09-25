@@ -1,0 +1,281 @@
+[
+  {
+    "callback": "function (child) {\n    return root + child;\n}",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (item) {\n    return value !== item;\n}",
+    "receiverBase": "_set",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (error, results) {\n    if (error)\n        return callback(error);\n    callback(null, results);\n}",
+    "receiverBase": "lean",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (results) {\n    callback(null, invoice);\n}",
+    "receiverBase": "ds",
+    "receiverCallee": "joinModel"
+  },
+  {
+    "callback": "function (error, results) {\n    if (error)\n        return callback(error);\n    callback(null, invoices);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, el) {\n    $(el.contentWindow).off('focus.wysihtml5').on({\n        'focus.wysihtml5': function () {\n            $('li.dropdown').removeClass('open');\n        }\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.target || e.srcElement;\n    var el = $(target);\n    self.toolbar.find('.current-font').text(el.html());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    var target = e.target || e.srcElement;\n    var el = $(target);\n    self.toolbar.find('.current-color').text(el.html());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    toolbar.find('a.btn').not(changeViewSelector).toggleClass('disabled');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which == 13) {\n        insertImage();\n        insertImageModal.modal('hide');\n    }\n}",
+    "receiverBase": "urlInput",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function () {\n    urlInput.focus();\n}",
+    "receiverBase": "insertImageModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.editor.currentView.element.focus();\n}",
+    "receiverBase": "insertImageModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var activeButton = $(this).hasClass('wysihtml5-command-active');\n    if (!activeButton) {\n        self.editor.currentView.element.focus(false);\n        caretBookmark = self.editor.composer.selection.getBookmark();\n        insertImageModal.appendTo('body').modal('show');\n        insertImageModal.on('click.dismiss.modal', '[data-dismiss=\"modal\"]', function (e) {\n            e.stopPropagation();\n        });\n        return false;\n    } else {\n        return true;\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n}",
+    "receiverBase": "insertImageModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which == 13) {\n        insertLink();\n        insertLinkModal.modal('hide');\n    }\n}",
+    "receiverBase": "urlInput",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function () {\n    urlInput.focus();\n}",
+    "receiverBase": "insertLinkModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.editor.currentView.element.focus();\n}",
+    "receiverBase": "insertLinkModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n}",
+    "receiverBase": "insertLinkModal",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    $this.data('wysihtml5', new Wysihtml5($this, options));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    optionsArray.push($(value).attr('data-option'));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $input = $(this), $option = $input.attr('data-option');\n    if ($input.hasClass('on')) {\n        debug[$option].off();\n        $input.removeClass('on');\n        if (window.localStorage) {\n            localStorage.removeItem('debug-' + $option);\n        }\n    } else {\n        debug[$option].on();\n        $input.addClass('on');\n        if (window.localStorage) {\n            localStorage.setItem('debug-' + $option, true);\n        }\n    }\n}",
+    "receiverBase": "$optionButtons",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, value) {\n    if (localStorage.getItem('debug-' + value) === 'true') {\n        $optionButtons.filter('[data-option=\"' + value + '\"]').trigger('click');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if ($(e.target).parents().filter($panel).length !== 1) {\n        closePanel();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($panel.hasClass('open')) {\n        closePanel();\n    } else {\n        openPanel();\n    }\n    return false;\n}",
+    "receiverBase": "$button",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, value) {\n    var $debugBox = $(value);\n    $debugBox.contents().appendTo($debugBox.parent());\n    $debugBox.remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    $(value).wrapInner('<div class=\"debug-box\"></div>').find('.debug-box').append('<div class=\"debug-number\">' + (index + 1) + '</div>');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    var result = frwd.matchViewport(index);\n    $debugViewportSummary.find('.' + index).removeClass('' + !result).addClass('' + result);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    var query = value.query, pixels = debug.calculatePixels(query, 'min-width') || debug.calculatePixels(query, 'min-height');\n    content += '<tr class=\"' + index + '\">' + '<th>' + index + '</th>' + '<td>' + query + '</td>' + '<td>' + (pixels ? pixels + 'px' : '') + '</td>' + '</tr>';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    debug.viewportSummary.minimize[$(this).hasClass('minimized') ? 'off' : 'on']();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var current = $(this).attr('data-position'), next = parseInt(current, 10) + 1;\n    if (next > 4)\n        next = 1;\n    debug.viewportSummary.position.move(next);\n    if (window.localStorage) {\n        localStorage.setItem('debug-position', next);\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, value) {\n    query = value.query;\n    if (query.indexOf('min-width') > 0) {\n        value = debug.calculatePixels(query, 'min-width');\n        widths += '<li style=\"width: ' + value + 'px\"><span>' + index + '</span></li>';\n    }\n    if (query.indexOf('min-height') > 0) {\n        value = debug.calculatePixels(query, 'min-height');\n        heights += '<li style=\"height: ' + value + 'px\"><span>' + index + '</span></li>';\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    outputDOMError(error);\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (action) {\n    component.set('v.actionStatus', action.getState());\n}",
+    "receiverBase": "a",
+    "receiverCallee": "setCallback"
+  },
+  {
+    "callback": "function (styleBlock) {\n    text += styleBlock.text;\n}",
+    "receiverBase": "styleBlocks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (token) {\n    return token.color;\n}",
+    "receiverBase": "hints",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (item) {\n    if (item.matched) {\n        $hintObj.append($('<span>').text(item.text).addClass('matched-hint'));\n    } else {\n        $hintObj.append(item.text);\n    }\n}",
+    "receiverBase": "stringRanges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (color) {\n    return {\n        text: color,\n        color: color\n    };\n}",
+    "receiverBase": "COLOR_NAMES",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (pvalue) {\n    var result = StringMatch.stringMatch(pvalue.text || pvalue, valueNeedle, stringMatcherOptions);\n    if (result) {\n        if (pvalue.color) {\n            result.color = pvalue.color;\n        }\n        return result;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (pvalues, pname) {\n    var result = StringMatch.stringMatch(pname, needle, stringMatcherOptions);\n    if (result) {\n        return result;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var cssPropHints = new CssPropHints();\n    CodeHintManager.registerHintProvider(cssPropHints, [\n        'css',\n        'scss',\n        'less'\n    ], 0);\n    ExtensionUtils.loadStyleSheet(module, 'styles/brackets-css-hints.css');\n    exports.cssPropHintProvider = cssPropHints;\n}",
+    "receiverBase": "AppInit",
+    "receiverCallee": "appReady"
+  },
+  {
+    "callback": "function () {\n    if (pageInitialized) {\n        return;\n    }\n    pageInitialized = true;\n    $('.justified-gallery').justifiedGallery({ sizeRangeSuffixes: sizeRangeSuffixes });\n    $('abbr.timeago').timeago();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (data) {\n    try {\n        Receive.useData(data);\n    } catch (err) {\n        ERROR.err(3, err);\n    }\n}",
+    "receiverBase": "Socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    Receive.unfreeze();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    player.map = data.p.map;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (ax) {\n    var version = [], d = ax.GetVariable('$version');\n    if (d) {\n        d = d.split(' ')[1].split(',');\n        version = [\n            parseInt(d[0], 10),\n            parseInt(d[1], 10),\n            parseInt(d[2], 10)\n        ];\n    }\n    return version;\n}",
+    "receiverBase": "PluginDetector",
+    "receiverCallee": "addPlugin"
+  },
+  {
+    "callback": "function (__exports__) {\n    function SafeString(string) {\n        this.string = string;\n    }\n    SafeString.prototype.toString = function () {\n        return '' + this.string;\n    };\n    __exports__['default'] = SafeString;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (arg) {\n    if (arguments.length === 2) {\n        return undefined;\n    } else {\n        throw new Exception('Missing helper: \\'' + arg + '\\'');\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (conditional, options) {\n    if (isFunction(conditional)) {\n        conditional = conditional.call(this);\n    }\n    if (!options.hash.includeZero && !conditional || Utils.isEmpty(conditional)) {\n        return options.inverse(this);\n    } else {\n        return options.fn(this);\n    }\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (conditional, options) {\n    return instance.helpers['if'].call(this, conditional, {\n        fn: options.inverse,\n        inverse: options.fn,\n        hash: options.hash\n    });\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (context, options) {\n    if (isFunction(context)) {\n        context = context.call(this);\n    }\n    if (!Utils.isEmpty(context))\n        return options.fn(context);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (context, options) {\n    var level = options.data && options.data.level != null ? parseInt(options.data.level, 10) : 1;\n    instance.log(level, context);\n}",
+    "receiverBase": "instance",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (__dependency1__, __dependency2__, __exports__) {\n    var parser = __dependency1__['default'];\n    var AST = __dependency2__['default'];\n    __exports__.parser = parser;\n    function parse(input) {\n        if (input.constructor === AST.ProgramNode) {\n            return input;\n        }\n        parser.yy = AST;\n        return parser.parse(input);\n    }\n    __exports__.parse = parse;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (current) {\n    params.splice(1, 0, current);\n    return 'blockHelperMissing.call(' + params.join(', ') + ')';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (current) {\n    return 'typeof ' + current + ' === functionType ? ' + current + '.apply(depth0) : ' + current;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (current) {\n    return current + ' == null || ' + current + ' === false ? ' + current + ' : ' + this.nameLookup(current, name, 'context');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  }
+]

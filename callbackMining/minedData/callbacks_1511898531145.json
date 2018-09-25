@@ -1,0 +1,155 @@
+[
+  {
+    "callback": "function () {\n    $(elementSelector + '.' + $.placeholder.className).val('');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (this !== document.activeElement && $this.val() === '') {\n        $this.addClass($.placeholder.className).val(placeholder);\n    }\n}",
+    "receiverBase": "$this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if ($this.hasClass($.placeholder.className)) {\n        $this.val('').removeClass($.placeholder.className);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if ($this.hasClass($.placeholder.className)) {\n        $this.removeClass($.placeholder.className);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $this.triggerHandler('focus.placeholder');\n}",
+    "receiverBase": "parents",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var GLOBAL_ENV = YUI.Env;\n    if (!GLOBAL_ENV._ready) {\n        GLOBAL_ENV._ready = function () {\n            GLOBAL_ENV.DOMReady = true;\n            GLOBAL_ENV.remove(YUI.config.doc, 'DOMContentLoaded', GLOBAL_ENV._ready);\n        };\n        GLOBAL_ENV.add(YUI.config.doc, 'DOMContentLoaded', GLOBAL_ENV._ready);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    Y.fire('domready');\n}",
+    "receiverBase": "Do",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (v, k) {\n    args[2] = v;\n    handles.push(Event._attach(args.slice(), conf));\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    ret.handle = Event._attach(args, conf);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "onAvailable"
+  },
+  {
+    "callback": "function (v, k) {\n    results.push(v);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, k) {\n    if (v.type == 'unload') {\n        v.fire(e);\n    }\n    v.detachAll();\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    var tmp = item, color;\n    if (Lang.isString(item)) {\n        color = AColor.toHex(item);\n        tmp = {\n            name: color,\n            value: color\n        };\n    }\n    return tmp;\n}",
+    "receiverBase": "AArray",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    tcp.close();\n    console.log('tcp server connection');\n    var buf = '';\n    s.on('data', function (d) {\n        buf += d;\n    });\n    s.on('end', function () {\n        console.error('SERVER: end', buf.toString());\n        assert.equal(buf, 'L\\'\\xC9tat, c\\'est moi');\n        console.log('tcp socket disconnect');\n        s.end();\n    });\n    s.on('error', function (e) {\n        console.log('tcp server-side error: ' + e.message);\n        process.exit(1);\n    });\n}",
+    "receiverBase": "net",
+    "receiverCallee": "Server"
+  },
+  {
+    "callback": "function (d) {\n    buf += d;\n}",
+    "receiverBase": "s",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.error('SERVER: end', buf.toString());\n    assert.equal(buf, 'L\\'\\xC9tat, c\\'est moi');\n    console.log('tcp socket disconnect');\n    s.end();\n}",
+    "receiverBase": "s",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    console.log('tcp server-side error: ' + e.message);\n    process.exit(1);\n}",
+    "receiverBase": "s",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('socket connected');\n    connectHappened = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (v) {\n    function f() {\n        console.error('write', v);\n        socket.write(v);\n    }\n    assert.throws(f, TypeError);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (er) {\n    console.error('write cb');\n    dataWritten = true;\n    assert.ok(connectHappened);\n    console.error('socket.bytesWritten', socket.bytesWritten);\n    console.error('data written');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "write"
+  },
+  {
+    "callback": "function () {\n    assert.ok(connectHappened);\n    assert.ok(dataWritten);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var message = e.message;\n    switch (message.type) {\n    case 'open':\n        open(message);\n        break;\n    case 'ping':\n        break;\n    }\n}",
+    "receiverBase": "bridge",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    tree.select(node);\n    tree.scrollToSelection();\n}",
+    "receiverBase": "tree",
+    "receiverCallee": "expand"
+  },
+  {
+    "callback": "function () {\n    fs.exists(path, function (existing) {\n        tabs.open({\n            path: path,\n            active: i === 0,\n            document: existing ? undefined : { meta: { newfile: true } }\n        }, function () {\n        });\n    });\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (existing) {\n    tabs.open({\n        path: path,\n        active: i === 0,\n        document: existing ? undefined : { meta: { newfile: true } }\n    }, function () {\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "tabs",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    load();\n}",
+    "receiverBase": "plugin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "plugin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    beforeEach(module('league.home'));\n    it('should have a dummy test', inject(function () {\n        expect(true).toBeTruthy();\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(true).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (status) {\n    if (status != 'success') {\n        console.log('Unable to load the address!');\n    } else {\n        window.setTimeout(function () {\n            page.render(output);\n            phantom.exit();\n        }, 200);\n    }\n}",
+    "receiverBase": "page",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function () {\n    page.render(output);\n    phantom.exit();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  }
+]

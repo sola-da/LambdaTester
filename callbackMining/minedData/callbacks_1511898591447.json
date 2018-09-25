@@ -1,0 +1,141 @@
+[
+  {
+    "callback": "function (Y, NAME) {\n    Y.Overlay = Y.Base.create('overlay', Y.Widget, [\n        Y.WidgetStdMod,\n        Y.WidgetPosition,\n        Y.WidgetStack,\n        Y.WidgetPositionAlign,\n        Y.WidgetPositionConstrain\n    ]);\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (ev) {\n    self.fire(AjaxType.event.PROGRESS, {\n        'loaded': ev.loaded,\n        'total': ev.total\n    });\n}",
+    "receiverBase": "upload",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (val, key) {\n    formData.append(key, val);\n}",
+    "receiverBase": "S",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    stream = s;\n    Room.init(stream);\n    stream = URL.createObjectURL(stream);\n    if (!$routeParams.roomId) {\n        Room.createRoom().then(function (roomId) {\n            $location.path('/room/' + roomId);\n        });\n    } else {\n        Room.joinRoom($routeParams.roomId);\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (roomId) {\n    $location.path('/room/' + roomId);\n}",
+    "receiverBase": "createRoom",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $scope.error = 'No audio/video permissions. Please refresh your browser and allow the audio/video capturing.';\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (peer) {\n    console.log('Client connected, adding new stream');\n    $scope.peers.push({\n        id: peer.id,\n        stream: URL.createObjectURL(peer.stream)\n    });\n}",
+    "receiverBase": "Room",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (peer) {\n    console.log('Client disconnected, removing stream');\n    $scope.peers = $scope.peers.filter(function (p) {\n        return p.id !== peer.id;\n    });\n}",
+    "receiverBase": "Room",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (p) {\n    return p.id !== peer.id;\n}",
+    "receiverBase": "peers",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (child) {\n    var s = child.domStyles;\n    s['-webkit-box-sizing'] = 'border-box';\n    s.margin = 0;\n    s.position = 'absolute';\n    if (child.size !== undefined) {\n        s.height = child.size + 'px';\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    var s = child.domStyles;\n    s['-webkit-box-sizing'] = 'border-box';\n    s.position = 'absolute';\n    s.margin = 0;\n    if (child.size !== undefined) {\n        s.width = child.size + 'px';\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (this.get('value') === '') {\n        this.setStyle('backgroundColor', '#FFEBE8');\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (eventObject) {\n    if (eventObject.keyCode === 13) {\n        tryLogin();\n    }\n}",
+    "receiverBase": "all",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'cldr',\n            '../globalize',\n            'cldr/event',\n            'cldr/supplemental'\n        ], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('cldrjs'), require('globalize'));\n    } else {\n        factory(root.Cldr, root.Globalize);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (symbol) {\n    return symbolMap[symbol];\n}",
+    "receiverBase": "character",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (digit) {\n    return nuDigitsMap[+digit];\n}",
+    "receiverBase": "character",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, minimumSignificantDigitsMatch, maximumSignificantDigitsMatch) {\n    minimumSignificantDigits = minimumSignificantDigitsMatch.length;\n    maximumSignificantDigits = minimumSignificantDigits + maximumSignificantDigitsMatch.length;\n}",
+    "receiverBase": "significantPattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    minimumFractionDigits = match;\n}",
+    "receiverBase": "fractionPattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    minimumIntegerDigits = match.length;\n}",
+    "receiverBase": "integerPattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (localizedSymbol) {\n    return regexpEscape(localizedSymbol);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (localizedSymbol) {\n    return invertedSymbolMap[localizedSymbol];\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (localizedDigit) {\n    return regexpEscape(localizedDigit);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (localizedDigit) {\n    return invertedNuDigitsMap[localizedDigit];\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (object, localizedDigit, i) {\n    object[localizedDigit] = String(i);\n    return object;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (object, digit) {\n    object[digit] = 'invalid';\n    return object;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    this.get(alpha);\n    this.path('/nested/:id', function () {\n        this.get(beta);\n        this.path('/route/:id', function () {\n            this.get(gamma);\n        });\n    });\n}",
+    "receiverBase": "router",
+    "receiverCallee": "path"
+  },
+  {
+    "callback": "function () {\n    this.get(beta);\n    this.path('/route/:id', function () {\n        this.get(gamma);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "path"
+  },
+  {
+    "callback": "function () {\n    this.get(gamma);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "path"
+  }
+]

@@ -1,0 +1,246 @@
+[
+  {
+    "callback": "function () {\n    funcCalc($(this));\n}",
+    "receiverBase": "$fb",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.fluidbox-overlay').css({ opacity: 1 });\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $ghost.css({ 'background-image': 'url(' + $activeFb.attr('href') + ')' });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    $('.fluidbox-overlay').remove();\n    $wrap.css({ 'z-index': settings.stackIndex - settings.stackIndexDelta });\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode == trigger.keyCode)\n        funcCloseFb();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var $img = $(this);\n    if ($img.width() > 0 && $img.height() > 0) {\n        funcCalc($fbItem);\n        $fbItem.click(fbClickHandler);\n    } else {\n        $img.load(function () {\n            funcCalc($fbItem);\n            $fbItem.click(fbClickHandler);\n        });\n    }\n}",
+    "receiverBase": "after",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    funcCalc($fbItem);\n    $fbItem.click(fbClickHandler);\n}",
+    "receiverBase": "$img",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (e) {\n    completedCount++;\n    if (qx.core.Environment.get('engine.name') === 'mshtml' && e.getContent() === '' && !emptyContent) {\n        this.warn('Skipping test due to empty content in one of the request\\'s response');\n        emptyContent = true;\n        return;\n    }\n    if (!emptyContent) {\n        var response = qx.lang.Json.parse(e.getContent());\n        request = e.getTarget();\n        this.assertEquals(request.getParameter('test'), response['test']);\n    }\n}",
+    "receiverBase": "request",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    that.assertEquals(i, completedCount);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "wait"
+  },
+  {
+    "callback": "function (e) {\n    var response = qx.lang.Json.parse(e.getContent());\n    this.assertEquals('affe', response['test']);\n}",
+    "receiverBase": "request",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (row) {\n    row = this.renderRowHtml(row, this.token_);\n    if (this.topAlign_) {\n        this.element_.insertBefore(row, curRow);\n    } else {\n        this.dom_.appendChild(this.element_, row);\n    }\n    curRow = row;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (str) {\n    return !goog.string.isEmptySafe(str);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (t, k, v) {\n    v = v.replace(/^\"(.+)\"$/, '$1');\n    ch[k] = v;\n}",
+    "receiverBase": "ch_str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (mechanism) {\n    return mechanism == 'SUN-COMMS-CLIENT-PROXY-AUTH';\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (mechanism, session) {\n    return new dojox.xmpp.sasl.SunWebClientAuth(session);\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (mechanism) {\n    return mechanism == 'DIGEST-MD5';\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (mechanism, session) {\n    return new dojox.xmpp.sasl.DigestMD5(session);\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (mechanism) {\n    return mechanism == 'PLAIN';\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (mechanism, session) {\n    return new dojox.xmpp.sasl.Plain(session);\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    var uid = new Date(), result;\n    try {\n        localStorage.setItem('uid', uid);\n        result = localStorage.getItem('uid') === uid;\n        localStorage.removeItem('uid');\n        return result && localStorage;\n    } catch (e) {\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (module) {\n    this.load_(module);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (this.modules_[module]) {\n        return;\n    }\n    var url = this.getModuleUrl_(this.urlBase_, module);\n    var urlInFlight = goog.object.containsValue(this.pendingModuleUrls_, url);\n    this.pendingModuleUrls_[module] = url;\n    if (urlInFlight) {\n        return;\n    }\n    var s = goog.dom.createDom('script', {\n            'type': 'text/javascript',\n            'src': url\n        });\n    document.body.appendChild(s);\n}",
+    "receiverBase": "Timer",
+    "receiverCallee": "callOnce"
+  },
+  {
+    "callback": "function (localizedSymbol) {\n    return regexpEscape(localizedSymbol);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (localizedSymbol) {\n    return invertedSymbolMap[localizedSymbol];\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (localizedDigit) {\n    return regexpEscape(localizedDigit);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (localizedDigit) {\n    return invertedNuDigitsMap[localizedDigit];\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (worker) {\n    console.log('tidy: worker ' + a++ + ' aquired');\n    request.get('http://www.yahoo.com/').pipe(worker);\n}",
+    "receiverBase": "pool",
+    "receiverCallee": "aquire"
+  },
+  {
+    "callback": "function (req, res) {\n    var url = 'http://wikipedia-live-monitor.herokuapp.com/';\n    res.statusCode = 301;\n    res.setHeader('Content-Type', 'text/plain');\n    res.setHeader('Location', url);\n    res.end('Redirecting to ' + url);\n}",
+    "receiverBase": "require",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('asdf');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('\\n\\n<body>\\n  Hello\\n</body');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('\\n\\n\\n<bodyd>\\n  Hello\\n</body>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('\\n\\n\\n\\n<body foo=>\\n  Hello\\n</body>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('\\n<body>Hello');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('\\n\\n<template>Hi</template>\\n\\n<template>Hi</template>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\" ' + '\"http://www.w3.org/TR/html4/strict.dtd\">' + '\\n\\n<head>\\n</head>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('<!doctype html>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('<body foo=\"bar\">\\n  Hello\\n</body>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('<head foo=\"bar\">\\n  Hello\\n</head>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function () {\n    return html_scanner.scan('<template name=\"foo\\'>' + 'pizza</template>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkError"
+  },
+  {
+    "callback": "function (req, res) {\n    res.writeHead(200, { 'Content-Type': 'text/plain' });\n    visits += 1;\n    var msg = 'Visits: ' + visits;\n    res.end(msg + '\\n');\n    console.log(msg);\n    if (visits == 5) {\n        process.exit();\n    }\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (S, Magix) {\n    var Extend = function (props, ctor) {\n        var BaseModel = function () {\n            BaseModel.superclass.constructor.apply(this, arguments);\n            if (ctor) {\n                Magix.safeExec(ctor, [], this);\n            }\n        };\n        Magix.mix(BaseModel, this, { prototype: true });\n        return S.extend(BaseModel, this, props);\n    };\n    eval(Magix.include('../tmpl/model', 1));\n    return Model;\n}",
+    "receiverBase": "KISSY",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    drop.css('cursor', '');\n    body.off('selectstart.' + $.drop.nS + ' mousemove.' + $.drop.nS + ' mouseup.' + $.drop.nS);\n}",
+    "receiverBase": "body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n}",
+    "receiverBase": "body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    drop.data('drp').droppableIn = true;\n    var l = e.pageX - left, t = e.pageY - top;\n    if (!drop.data('drp').droppableLimit) {\n        l = l < 0 ? 0 : l;\n        t = t < 0 ? 0 : t;\n        var addW = condScroll ? $.drop.widthScroll : 0;\n        l = l + w + addW < wndW ? l : wndW - w - addW;\n        t = t + h < wndH ? t : wndH - h;\n    }\n    $this.css({\n        'left': l,\n        'top': t\n    });\n}",
+    "receiverBase": "body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    methods.open({}, undefined, $next);\n}",
+    "receiverBase": "methods",
+    "receiverCallee": "close"
+  },
+  {
+    "callback": "function () {\n    methods[place](drop, true);\n}",
+    "receiverBase": "methods",
+    "receiverCallee": "_checkMethod"
+  },
+  {
+    "callback": "function () {\n    methods._show(confirmBtn, e, opt, false, hashChange);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n    if (elSet.after)\n        $(confirmBtnDrop).data({ 'drp': $.extend($(confirmBtnDrop).data('drp'), { 'elClosed': elSet.after }) });\n    methods.close($(confirmBtnDrop));\n    if (source)\n        _confirmF();\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    methods._show(promptBtn, e, opt, false, hashChange);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

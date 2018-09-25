@@ -1,0 +1,545 @@
+[
+  {
+    "callback": "function (AngularForceObjectFactory) {\n    var objDesc = {\n            type: 'Contact',\n            fields: [\n                'FirstName',\n                'LastName',\n                'Title',\n                'Phone',\n                'Email',\n                'Id',\n                'Account.Name'\n            ],\n            where: '',\n            orderBy: 'LastName',\n            limit: 20\n        };\n    var Contact = AngularForceObjectFactory(objDesc);\n    return Contact;\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    $location.path('/contacts/');\n    $scope.$apply();\n}",
+    "receiverBase": "AngularForce",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function () {\n    $location.path('/logout');\n    $scope.$apply();\n}",
+    "receiverBase": "AngularForce",
+    "receiverCallee": "logout"
+  },
+  {
+    "callback": "function (data) {\n    $scope.contacts = data.records;\n    $scope.$apply();\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (data) {\n    alert('Query Error');\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (data) {\n    $scope.contacts = data;\n    $scope.$apply();\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "search"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "search"
+  },
+  {
+    "callback": "function (contact) {\n    var c = contact;\n    $scope.$apply(function () {\n        $location.path('/view/' + c.Id);\n    });\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function () {\n    $location.path('/view/' + c.Id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    Contact.get({ id: $routeParams.contactId }, function (contact) {\n        self.original = contact;\n        $scope.contact = new Contact(self.original);\n        $scope.$apply();\n    });\n}",
+    "receiverBase": "AngularForce",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function (contact) {\n    self.original = contact;\n    $scope.contact = new Contact(self.original);\n    $scope.$apply();\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    Contact.get({ id: $routeParams.contactId }, function (contact) {\n        self.original = contact;\n        $scope.contact = new Contact(self.original);\n        $scope.$apply();\n    });\n}",
+    "receiverBase": "AngularForce",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function (contact) {\n    self.original = contact;\n    $scope.contact = new Contact(self.original);\n    $scope.$apply();\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    $scope.$apply(function () {\n        $location.path('/contacts');\n    });\n}",
+    "receiverBase": "original",
+    "receiverCallee": "destroy"
+  },
+  {
+    "callback": "function () {\n    $location.path('/contacts');\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (errors) {\n    alert('Could not delete contact!\\n' + JSON.parse(errors.responseText)[0].message);\n}",
+    "receiverBase": "original",
+    "receiverCallee": "destroy"
+  },
+  {
+    "callback": "function () {\n    $scope.$apply(function () {\n        $location.path('/view/' + $scope.contact.Id);\n    });\n}",
+    "receiverBase": "contact",
+    "receiverCallee": "update"
+  },
+  {
+    "callback": "function () {\n    $location.path('/view/' + $scope.contact.Id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (contact) {\n    var c = contact;\n    $scope.$apply(function () {\n        $location.path('/view/' + c.Id || c.id);\n    });\n}",
+    "receiverBase": "Contact",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function () {\n    $location.path('/view/' + c.Id || c.id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (request, response) {\n    response.set('Content-Type', 'text/javascript');\n    var files = [];\n    for (var i = 0; i < clientDeps.length; i++) {\n        files[i] = __dirname + clientDeps[i];\n    }\n    async.map(files, fs.readFile, function (err, res) {\n        this.impress = res.join('');\n        response.send(this.impress);\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, res) {\n    this.impress = res.join('');\n    response.send(this.impress);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (data) {\n    if (!presenter) {\n        socket.emit('mode:presenter', { broadcast: false });\n        totalSlides = data.totalSlides;\n    } else {\n        socket.emit('mode:view', { slide: currentSlide });\n        if (presenter == socket) {\n            totalSlides = data.totalSlides;\n        }\n    }\n    socket.on('follow:presenter', function () {\n        socket.emit('mode:view', { slide: currentSlide });\n    });\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    socket.emit('mode:view', { slide: currentSlide });\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    var data = {\n            slide: currentSlide || 0,\n            totalSlides: totalSlides || 0\n        };\n    socket.emit('init:remote', data);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (socket == presenter) {\n        presenter = null;\n        io.sockets.emit('mode:presenter', { broadcast: false });\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    console.log('claim with ', data);\n    if (self.getPass() == data.pass) {\n        if (presenter == socket)\n            return;\n        currentSlide = data.slide;\n        if (presenter) {\n            presenter.emit('mode:view', { slide: currentSlide });\n        } else {\n            socket.broadcast.emit('mode:view', { slide: currentSlide });\n        }\n        presenter = socket;\n        socket.emit('mode:presenter', { broadcast: true });\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    if (presenter == socket) {\n        currentSlide = data.slide;\n        socket.broadcast.emit('goto', data);\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (presenter == socket) {\n        presenter = null;\n        currentSlide = null;\n        socket.broadcast.emit('mode:presenter', { broadcast: false });\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var spy = testutils.spyOnJq('navbar');\n    var c = testutils.compileInPage('<div data-role=\"navbar\" ng-repeat=\"l in list\"></div>');\n    expect(spy.callCount).toBe(0);\n    var scope = c.page.scope();\n    scope.list = [\n        1,\n        2\n    ];\n    scope.$root.$digest();\n    expect(spy.callCount).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var d = testutils.compileInPage('<div data-role=\"navbar\"><ul><li><a href=\"#\">One</a></li></ul></div>');\n    var link = d.element.find('a');\n    expect(link.hasClass($.mobile.activeBtnClass)).toBe(false);\n    link.trigger('vclick');\n    expect(link.hasClass($.mobile.activeBtnClass)).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var navbar = $('<div><ul><li><a href=\"#\">One</a></li></ul></div>');\n    navbar.navbar();\n    var addClassSpy = spyOn($.fn, 'addClass').andCallThrough();\n    navbar.find('a').trigger('vclick');\n    expect(addClassSpy.callCount).toBe(1);\n    navbar.find('a').removeClass('ui-btn-active');\n    navbar.navbar('refresh');\n    addClassSpy.reset();\n    navbar.find('a').trigger('vclick');\n    expect(addClassSpy.callCount).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    conn.cmd.ping(Date.now());\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (attr) {\n    if (startsWith.call(attr.name, 'data-'))\n        return null;\n    return (!re.test(attr.name) ? '\\'' + attr.name + '\\'' : attr.name) + ': ' + text(attr.value);\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    metrics.destroy();\n    windowMock = router = navigateUrl = navigateOptions = metrics = null;\n    Backbone.Router.prototype.navigate = origNavigate;\n    $('#container').empty();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    windowMock.location.search = '';\n    router.navigate('/signin');\n    assert.equal(navigateUrl, '/signin');\n    assert.deepEqual(navigateOptions, { trigger: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    windowMock.location.search = '?context=' + Constants.FX_DESKTOP_CONTEXT;\n    router.navigate('/forgot');\n    assert.equal(navigateUrl, '/forgot?context=' + Constants.FX_DESKTOP_CONTEXT);\n    assert.deepEqual(navigateOptions, { trigger: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    windowMock.location.search = '';\n    router.redirectToSignupOrSettings();\n    assert.equal(navigateUrl, '/signup');\n    assert.deepEqual(navigateOptions, {\n        trigger: true,\n        replace: true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    windowMock.location.search = '';\n    sinon.stub(user, 'getSignedInAccount', function () {\n        return user.initAccount({ sessionToken: 'abc123' });\n    });\n    router.redirectToSignupOrSettings();\n    assert.equal(navigateUrl, '/settings');\n    assert.deepEqual(navigateOptions, {\n        trigger: true,\n        replace: true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return user.initAccount({ sessionToken: 'abc123' });\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    signInView = signUpView = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    return router.showView(signInView).then(function () {\n        assert.ok($('#fxa-signin-header').length);\n        return router.showView(signUpView);\n    }).then(function () {\n        assert.ok($('#fxa-signup-header').length);\n        assert.isTrue(TestHelpers.isEventLogged(metrics, 'screen.signin'));\n        assert.isTrue(TestHelpers.isEventLogged(metrics, 'screen.signup'));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.ok($('#fxa-signin-header').length);\n    return router.showView(signUpView);\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.ok($('#fxa-signup-header').length);\n    assert.isTrue(TestHelpers.isEventLogged(metrics, 'screen.signin'));\n    assert.isTrue(TestHelpers.isEventLogged(metrics, 'screen.signup'));\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    sinon.stub(broker, 'afterLoaded', function () {\n    });\n    return router.showView(signInView).then(function () {\n        assert.ok($('#fxa-signin-header').length);\n        assert.isTrue(broker.afterLoaded.called);\n        return router.showView(signUpView);\n    }).then(function () {\n        assert.ok($('#fxa-signup-header').length);\n        assert.isTrue(broker.afterLoaded.calledOnce);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    assert.ok($('#fxa-signin-header').length);\n    assert.isTrue(broker.afterLoaded.called);\n    return router.showView(signUpView);\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.ok($('#fxa-signup-header').length);\n    assert.isTrue(broker.afterLoaded.calledOnce);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    throw boom;\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    assert.isFalse(broker.afterLoaded.called);\n    assert.isTrue(signInView.navigate.calledWith('unexpected_error', { error: boom }));\n    return router.showView(signUpView);\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.isTrue(broker.afterLoaded.calledOnce);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    view = new SignUpView({\n        metrics: metrics,\n        window: windowMock,\n        router: router,\n        user: user,\n        ephemeralMessages: new EphemeralMessages(),\n        relier: relier,\n        broker: broker,\n        screenName: 'signup',\n        formPrefill: formPrefill\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    view = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    var origRender = view.render;\n    sinon.stub(view, 'render', function () {\n        return origRender.call(view).then(function () {\n            return p(false);\n        });\n    });\n    return router.showView(view).then(function () {\n        assert.equal($('#fxa-signup-header').length, 0);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return origRender.call(view).then(function () {\n        return p(false);\n    });\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    return p(false);\n}",
+    "receiverBase": "call",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.equal($('#fxa-signup-header').length, 0);\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    view.beforeRender = function () {\n        throw new Error('boom');\n    };\n    var navigate = view.navigate;\n    view.navigate = function (url, options) {\n        assert.equal(options.error.message, 'boom');\n        return navigate.call(this, url, options);\n    };\n    return router.showView(view).then(function () {\n        assert.include(navigateUrl, 'unexpected_error');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.include(navigateUrl, 'unexpected_error');\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    view.context = function () {\n        throw new Error('boom');\n    };\n    var navigate = view.navigate;\n    view.navigate = function (url, options) {\n        assert.equal(options.error.message, 'boom');\n        return navigate.call(this, url, options);\n    };\n    return router.showView(view).then(function () {\n        assert.include(navigateUrl, 'unexpected_error');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.include(navigateUrl, 'unexpected_error');\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    view.afterRender = function () {\n        throw new Error('boom');\n    };\n    var navigate = view.navigate;\n    view.navigate = function (url, options) {\n        assert.equal(options.error.message, 'boom');\n        return navigate.call(this, url, options);\n    };\n    return router.showView(view).then(function () {\n        assert.include(navigateUrl, 'unexpected_error');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.include(navigateUrl, 'unexpected_error');\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.equal(metrics.getFilteredData().events.length, 1);\n    assert.isTrue(TestHelpers.isEventLogged(metrics, 'screen.signup-complete'));\n}",
+    "receiverBase": "showView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    assert.equal(router.fragmentToScreenName('/signin'), 'signin');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal(router.fragmentToScreenName('signup/'), 'signup');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal(router.fragmentToScreenName('/legal/tos/'), 'legal.tos');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal(router.fragmentToScreenName('complete_sign_up'), 'complete-sign-up');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal(router.fragmentToScreenName('complete_sign_up?email=testuser@testuser.com'), 'complete-sign-up');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $('#container').empty().append('<a href=\"/signup\">Sign up</a>');\n    event = $.Event('click');\n    event.currentTarget = $('a[href=\"/signup\"]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    sinon.stub(event, 'isDefaultPrevented', function () {\n        return true;\n    });\n    testNoNavigation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    event.altKey = true;\n    testNoNavigation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    event.ctrlKey = true;\n    testNoNavigation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    event.metaKey = true;\n    testNoNavigation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    event.shiftKey = true;\n    testNoNavigation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    sinon.stub(router, 'navigate', function () {\n        return;\n    });\n    router.onAnchorClick(event);\n    assert.isTrue(router.navigate.calledWith('signup'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return;\n}",
+    "receiverBase": "sinon",
+    "receiverCallee": "stub"
+  },
+  {
+    "callback": "function () {\n    it('creates and shows a view', function () {\n        return router.createAndShowView(SignUpView, { canGoBack: false }).then(function () {\n            assert.equal($('#fxa-signup-header').length, 1);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    return router.createAndShowView(SignUpView, { canGoBack: false }).then(function () {\n        assert.equal($('#fxa-signup-header').length, 1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal($('#fxa-signup-header').length, 1);\n}",
+    "receiverBase": "createAndShowView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    NL.loadEditor();\n    perPage = Neatline.g.neatline.per_page;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('tags: tag1, tag2').trigger('keyup');\n    expect(NL.v.search.__ui.search).toHaveClass('bold');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('map:').trigger('keyup');\n    expect(NL.v.search.__ui.search).toHaveClass('bold');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('tags:').trigger('keyup');\n    NL.v.search.__ui.search.val('').trigger('keyup');\n    expect(NL.v.search.__ui.search).not.toHaveClass('bold');\n    NL.v.search.__ui.search.val('tags:').trigger('keyup');\n    NL.v.search.__ui.search.val('').trigger('keyup');\n    expect(NL.v.search.__ui.search).not.toHaveClass('bold');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('one word', function () {\n        NL.v.search.__ui.search.val('word1').trigger('keyup');\n        NL.assertRoute('browse/query=word1');\n    });\n    it('multiple words', function () {\n        NL.v.search.__ui.search.val('word1 word2 word3').trigger('keyup');\n        NL.assertRoute('browse/query=word1+word2+word3');\n    });\n    it('empty query', function () {\n        NL.v.search.__ui.search.val('').trigger('keyup');\n        NL.assertRoute('browse');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('word1').trigger('keyup');\n    NL.assertRoute('browse/query=word1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('word1 word2 word3').trigger('keyup');\n    NL.assertRoute('browse/query=word1+word2+word3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    NL.v.search.__ui.search.val('').trigger('keyup');\n    NL.assertRoute('browse');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (lng, app, undefined) {\n    lng.View.Template.create('twitterfriends', '<li id=\"{{id}}\"><strong>@{{screen_name}}</strong></li>');\n    return {};\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (window, $) {\n    'use strict';\n    window.TodoApp = Sammy('#todoapp').use('Template');\n    TodoApp.notFound = function () {\n        this.runRoute('get', '#/');\n    };\n    $(function () {\n        TodoApp.run('#/');\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    TodoApp.run('#/');\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (prod) {\n    var prodId = prod.get('id');\n    var prodBranches = [];\n    _.each(branches, function (branch) {\n        prodBranches.push({\n            name: branch.name,\n            listed: _.indexOf(branch.products, prodId) != -1,\n            queued: false\n        });\n    });\n    prod.set('branches', prodBranches);\n}",
+    "receiverBase": "this_products",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (branch) {\n    prodBranches.push({\n        name: branch.name,\n        listed: _.indexOf(branch.products, prodId) != -1,\n        queued: false\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (r) {\n    r.queued = false;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function () {\n    that.searchTimer = null;\n    var filterText = that.$el.find('input').val();\n    if (filterText)\n        console.log('Filtering on \"' + filterText + '\"');\n    else\n        console.log('No text filtering');\n    that.model.set('filterText', filterText);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (b) {\n    branchArrPos++;\n    return b.name == branchName;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    newBranchInput.val('');\n    MargaritaApp.trigger('catalogsChanged');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (options) {\n    MargaritaApp.productChanges.reset();\n    MargaritaApp.products.fetch();\n}",
+    "receiverBase": "MargaritaApp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (options) {\n    MargaritaApp.updates.show(new ProgressBarView());\n}",
+    "receiverBase": "MargaritaApp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var updateTableView = new UpdatesTableView({\n            collection: MargaritaApp.products,\n            filterCriteria: MargaritaApp.filterCriteria\n        });\n    MargaritaApp.updates.show(updateTableView);\n}",
+    "receiverBase": "products",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    MargaritaApp.start();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  }
+]

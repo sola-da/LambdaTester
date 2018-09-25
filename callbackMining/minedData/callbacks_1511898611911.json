@@ -1,0 +1,197 @@
+[
+  {
+    "callback": "function (declare, dom, _WidgetBase, _TemplatedMixin, _Contained, template) {\n    return declare('dijit.MenuSeparator', [\n        _WidgetBase,\n        _TemplatedMixin,\n        _Contained\n    ], {\n        templateString: template,\n        buildRendering: function () {\n            this.inherited(arguments);\n            dom.setSelectable(this.domNode, false);\n        },\n        isFocusable: function () {\n            return false;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    assert.equal(subject.element, dom);\n    assert.equal(subject._unitClassName, unitStyle.className);\n    assert.equal(subject._upper, 11);\n    assert.equal(subject._range, 12);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(subject.container.getAttribute('role'), 'spinbutton');\n    assert.equal(subject.container.getAttribute('aria-valuemin'), 0);\n    assert.equal(subject.container.getAttribute('aria-valuemax'), 11);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.isTrue(document.querySelector.withArgs('.value-picker-month').calledOnce);\n    assert.isFalse(document.querySelector.withArgs('.value-picker-year').calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject._currentIndex = 2;\n    assert.equal(subject.getSelectedIndex(), 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var currentlySelected = subject.element.querySelector('.selected');\n    subject.setSelectedIndex(3);\n    assert.isFalse(currentlySelected.classList.contains('selected'));\n    assert.equal(subject.element.querySelector('.selected').textContent, unitStyle.valueDisplayedText[3]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(subject.getSelectedDisplayedText(), unitStyle.valueDisplayedText[0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject._currentIndex = 3;\n    assert.equal(subject.getSelectedDisplayedText(), unitStyle.valueDisplayedText[3]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.setRange(0, 11);\n    assert.equal(subject._lower, 0);\n    assert.equal(subject._upper, 11);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    document.body.innerHTML = '<div class=\"value-picker-hour24-wrapper\">' + '<div class=\"value-picker-hour24-state animation-on\"></div>' + '</div>';\n    dom = document.querySelector('.value-picker-hour24-state');\n    parent = document.querySelector('.value-picker-hour24-wrapper');\n    unitStyle = {\n        valueDisplayedText: [\n            'AM',\n            'PM'\n        ],\n        className: 'picker-unit'\n    };\n    subject = new ValuePicker(dom, unitStyle);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    document.body.innerHTML = '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "teardown"
+  },
+  {
+    "callback": "function () {\n    assert.equal(subject.element, dom);\n    assert.equal(subject.container, parent);\n    assert.equal(subject._unitClassName, unitStyle.className);\n    assert.equal(subject._upper, 1);\n    assert.equal(subject._range, 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(subject.container.getAttribute('role'), 'spinbutton');\n    assert.equal(subject.container.getAttribute('aria-valuemin'), 0);\n    assert.equal(subject.container.getAttribute('aria-valuemax'), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (Modernizr, testAllProps) {\n    Modernizr.addTest('bgpositionxy', function () {\n        return testAllProps('backgroundPositionX', '3px', true) && testAllProps('backgroundPositionY', '5px', true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return testAllProps('backgroundPositionX', '3px', true) && testAllProps('backgroundPositionY', '5px', true);\n}",
+    "receiverBase": "Modernizr",
+    "receiverCallee": "addTest"
+  },
+  {
+    "callback": "function (response) {\n    delete YUI.Env.DataSource.callbacks[guid];\n    delete Y.DataSource.Local.transactions[e.tId];\n    var process = this.get('asyncMode') !== 'ignoreStaleResponses' || this._last === guid;\n    if (process) {\n        this.fire('data', Y.mix({ data: response }, e));\n    } else {\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, o) {\n    delete YUI.Env.DataSource.callbacks[guid];\n    delete Y.DataSource.Local.transactions[e.tId];\n    e.error = new Error(o.msg || 'Script node data failure');\n    this.fire('data', e);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, o) {\n    delete YUI.Env.DataSource.callbacks[guid];\n    delete Y.DataSource.Local.transactions[e.tId];\n    e.error = new Error(o.msg || 'Script node data timeout');\n    this.fire('data', e);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), data = $this.data('shift');\n    if (!data)\n        $this.data('shift', data = new Shift(this));\n    if (typeof option == 'string')\n        data[option]();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (screenfull.enabled) {\n        screenfull.request();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var $target = $(e.target), $popover = $target.closest('.popover').prev();\n    $popover && $popover.popover('hide');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    $('#ajaxModal').remove();\n    e.preventDefault();\n    var $this = $(this), $remote = $this.data('remote') || $this.attr('href'), $modal = $('<div class=\"modal\" id=\"ajaxModal\"><div class=\"modal-body\"></div></div>');\n    $('body').append($modal);\n    $modal.modal();\n    $modal.load($remote);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var $str = $(this).parent().text();\n    $str && $text.push($.trim($str));\n}",
+    "receiverBase": "$items",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    e && e.preventDefault();\n    var $this = $(e.target), $class = 'collapse', $target;\n    if (!$this.is('a'))\n        $this = $this.closest('a');\n    $target = $this.closest('.panel');\n    $target.find('.panel-body').toggleClass($class);\n    $this.toggleClass('active');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var $this = $(e.target);\n    $this.is('i') && ($this = $this.parent());\n    $this.button('loading');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!pageYOffset)\n        window.scrollTo(0, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    clearTimeout($resize);\n    $resize = setTimeout(function () {\n        $window.width() < 767 && mobile();\n        $window.width() >= 768 && mobile('reset') && fixVbox();\n    }, 500);\n}",
+    "receiverBase": "$window",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    $window.width() < 767 && mobile();\n    $window.width() >= 768 && mobile('reset') && fixVbox();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $(this).height($(this).parent().height());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (vm.activeServer) {\n        fetchConformance(vm.activeServer);\n    }\n}",
+    "receiverBase": "activateController",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (selectedServer) {\n    return vm.activeServer = selectedServer;\n}",
+    "receiverBase": "getServerById",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError('Error ' + error);\n    toggleSpinner(false);\n}",
+    "receiverBase": "getServerById",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (conformance) {\n    logSuccess('Loaded conformance statement for ' + vm.activeServer.name);\n    return vm.conformance = conformance;\n}",
+    "receiverBase": "getConformance",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(error);\n}",
+    "receiverBase": "getConformance",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    logSuccess('Loaded profiles for ' + vm.activeServer.name);\n}",
+    "receiverBase": "getProfiles",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError('Failed retrieving Profiles from remote server. Error code: ' + error.status + '\\n' + error.outcome);\n}",
+    "receiverBase": "getProfiles",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (server) {\n    return vm.activeServer = server;\n}",
+    "receiverBase": "getActiveServer",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (servers) {\n    return vm.servers = servers;\n}",
+    "receiverBase": "getAllServers",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (x) {\n    return x.copyForViewSlot();\n}",
+    "receiverBase": "contentSelectors",
+    "receiverCallee": "map"
+  }
+]

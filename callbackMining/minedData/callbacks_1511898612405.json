@@ -1,0 +1,227 @@
+[
+  {
+    "callback": "function () {\n    loadFixtures('standard.html');\n    if (Modernizr.history) {\n        history.replaceState({}, '', '#');\n    } else {\n        window.location.hash = '#';\n    }\n    $.deck('.slide');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect($(defaults.selectors.statusTotal)).toHaveText($.deck('getSlides').length);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect($(defaults.selectors.statusCurrent)).toHaveText(1);\n    $.deck('go', 2);\n    $.deck('.slide');\n    expect($(defaults.selectors.statusCurrent)).toHaveText(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $.deck('go', 2);\n    expect($(defaults.selectors.statusCurrent)).toHaveText('3');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    loadFixtures('nesteds.html');\n    if (Modernizr.history) {\n        history.replaceState({}, '', '#');\n    } else {\n        window.location.hash = '#';\n    }\n    $.deck('.slide', { countNested: false });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect($(defaults.selectors.statusTotal)).toHaveText('5');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $.deck('go', 10);\n    expect($(defaults.selectors.statusCurrent)).toHaveText('4');\n    $.deck('prev');\n    expect($(defaults.selectors.statusCurrent)).toHaveText('3');\n    $.deck('go', 3);\n    expect($(defaults.selectors.statusCurrent)).toHaveText('3');\n    $.deck('go', 1);\n    expect($(defaults.selectors.statusCurrent)).toHaveText('2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (el) {\n    if (selLocked) {\n        editor.unlockSelection(1);\n        selLocked = 0;\n    }\n    instance.execute(el);\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (ev, element) {\n    ev = new CKEDITOR.dom.event(ev);\n    var keystroke = ev.getKeystroke();\n    if (keystroke == 40) {\n        editor.once('panelShow', function (evt) {\n            evt.data._.panel._.currentBlock.onKeyDown(40);\n        });\n    }\n    switch (keystroke) {\n    case 13:\n    case 32:\n    case 40:\n        CKEDITOR.tools.callFunction(clickFn, element);\n        break;\n    default:\n        instance.onkey(instance, keystroke);\n    }\n    ev.preventDefault();\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (evt) {\n    evt.data._.panel._.currentBlock.onKeyDown(40);\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    instance.onfocus && instance.onfocus();\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function () {\n    if (CKEDITOR.env.opera) {\n        var edt = editor.editable();\n        if (edt.isInline() && edt.hasFocus) {\n            editor.lockSelection();\n            selLocked = 1;\n        }\n    }\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function () {\n    list.focus(!list.multiSelect && me.getValue());\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (dim) {\n    return {\n        name: 'another/c/sub',\n        dimName: dim.name\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    equal(jQuery('<img>').isVoidElement(), true, 'returns true on void elements');\n    equal(jQuery('<div></div>').isVoidElement(), false, 'returns false on not-void elements');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var html = '<div class=\"blah\">hi</div>';\n    var element = jQuery(html);\n    equal(element.outerHtml(), html, 'works w/ one matched element');\n    var moreHtml = '<div class=\"foo\">bop</div>';\n    equal(element.add(jQuery(moreHtml)).outerHtml(), html + moreHtml, 'works w/ more than one matched element');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var stuff = jQuery('<div></div>');\n    stuff.emit('hello ', jQuery('<em>there</em>'), ' dude');\n    equal(stuff.html(), 'hello <em>there</em> dude', 'emit() appends text nodes and HTML');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var overlay = jQuery('#qunit-header').overlay();\n    ok(overlay.hasClass('webxray-overlay'), 'overlay has the \\'webxray-overlay\\' class');\n    ok(true, 'overlay() does not throw');\n    overlay.remove();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(jQuery('#qunit-header').ancestor(1).get(0) === window.document.body, 'ancestor() works w/ non-null result');\n    ok(jQuery('#qunit-header').ancestor(30) === null, 'ancestor() works w/ null result');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var div = jQuery('<div><p>hello</p><span>hi</span></div>');\n    var p = div.find('p').get(0);\n    var removal = jQuery(p).temporarilyRemove();\n    equals(div.html(), '<span>hi</span>');\n    removal.undo();\n    equals(div.html(), '<p>hello</p><span>hi</span>');\n    ok(p === div.find('p').get(0));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var js = 'jQueryLoadScriptSuccessful=true;';\n    delete window.jQueryLoadScriptSuccessful;\n    jQuery.loadScript('data:application/javascript,' + js).done(function () {\n        equal(window.jQueryLoadScriptSuccessful, true);\n        delete window.jQueryLoadScriptSuccessful;\n        start();\n    });\n    stop();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    equal(window.jQueryLoadScriptSuccessful, true);\n    delete window.jQueryLoadScriptSuccessful;\n    start();\n}",
+    "receiverBase": "loadScript",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    equals(jQuery.shortenText('hello', 3), 'hel\\u2026');\n    equals(jQuery.shortenText('hello', 5), 'hello');\n    equals(jQuery.shortenText('hello', 200), 'hello');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var $ = jQuery;\n    var a = $('<div class=\"foo\"></div>');\n    var b = a.clone();\n    equal('<div class=\"\"></div>', a.removeClass('foo').outerHtml());\n    equal('<div></div>', b.reallyRemoveClass('foo').outerHtml());\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (n) {\n    return dojox.fx.addClass(n, cssClass, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (n) {\n    return dojox.fx.removeClass(n, cssClass, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (n) {\n    return dojox.fx.toggleClass(n, cssClass, force, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (er, buf) {\n    if (er) {\n        callback(er);\n        return;\n    }\n    try {\n        callback(null, JSON.parse(buf.toString()));\n    } catch (er) {\n        callback(er);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (er, obj) {\n    if (er)\n        return cb(er);\n    resolveInheritance(obj);\n    cb(null, obj);\n}",
+    "receiverBase": "",
+    "receiverCallee": "readInstalled_"
+  },
+  {
+    "callback": "function (er, i) {\n    if (er)\n        i = [];\n    installed = i.filter(function (f) {\n        return f.charAt(0) !== '.';\n    });\n    next();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readdir"
+  },
+  {
+    "callback": "function (f) {\n    return f.charAt(0) !== '.';\n}",
+    "receiverBase": "i",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (er, data) {\n    obj = copy(data);\n    if (!parent) {\n        obj = obj || true;\n        er = null;\n    }\n    return next(er);\n}",
+    "receiverBase": "",
+    "receiverCallee": "readJson"
+  },
+  {
+    "callback": "function (er, st) {\n    if (er) {\n        if (!parent)\n            real = true;\n        return next(er);\n    }\n    fs.realpath(folder, function (er, rp) {\n        real = rp;\n        if (st.isSymbolicLink())\n            link = rp;\n        next(er);\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "lstat"
+  },
+  {
+    "callback": "function (er, rp) {\n    real = rp;\n    if (st.isSymbolicLink())\n        link = rp;\n    next(er);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "realpath"
+  },
+  {
+    "callback": "function (i) {\n    obj.dependencies[i] = '*';\n}",
+    "receiverBase": "installed",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (pkg, cb) {\n    var rv = obj.dependencies[pkg];\n    if (!rv && obj.devDependencies)\n        rv = obj.devDependencies[pkg];\n    readInstalled_(path.resolve(folder, 'node_modules/' + pkg), obj, pkg, obj.dependencies[pkg], depth + 1, maxDepth, cb);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncMap"
+  },
+  {
+    "callback": "function (er, installedData) {\n    if (er)\n        return cb(er);\n    installedData.forEach(function (dep) {\n        obj.dependencies[dep.realName] = dep;\n    });\n    if (obj.optionalDependencies) {\n        Object.keys(obj.optionalDependencies).forEach(function (dep) {\n            if (typeof obj.dependencies[dep] === 'string') {\n                delete obj.dependencies[dep];\n            }\n        });\n    }\n    return cb(null, obj);\n}",
+    "receiverBase": "",
+    "receiverCallee": "asyncMap"
+  },
+  {
+    "callback": "function (dep) {\n    obj.dependencies[dep.realName] = dep;\n}",
+    "receiverBase": "installedData",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep) {\n    if (typeof obj.dependencies[dep] === 'string') {\n        delete obj.dependencies[dep];\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep) {\n    findUnmet(obj.dependencies[dep]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dep) {\n    resolveInheritance(obj.dependencies[dep]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (d) {\n    return typeof deps[d] === 'string';\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (er, map) {\n    console.error(called++);\n    if (er)\n        return console.error(er.stack || er.message);\n    cleanup(map);\n    console.error(util.inspect(map, true, 10, true));\n}",
+    "receiverBase": "",
+    "receiverCallee": "readInstalled"
+  },
+  {
+    "callback": "function (require) {\n    var _ = require('lodash');\n    return function ($scope) {\n        var toggleFilter = require('components/filter_bar/lib/toggleFilter')($scope);\n        return function (force) {\n            $scope.filters.forEach(function (filter) {\n                toggleFilter(filter, force);\n            });\n            $scope.state.filters = $scope.filters;\n        };\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (filter) {\n    toggleFilter(filter, force);\n}",
+    "receiverBase": "filters",
+    "receiverCallee": "forEach"
+  }
+]

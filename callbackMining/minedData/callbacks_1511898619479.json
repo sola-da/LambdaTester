@@ -1,0 +1,177 @@
+[
+  {
+    "callback": "function (t1, t2) {\n    return t2.lastTouchedTime < t1.lastTouchedTime ? -1 : t2.lastTouchedTime > t1.lastTouchedTime ? 1 : 0;\n}",
+    "receiverBase": "recentTiles",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    console.log(c.boldred(' ** ' + name + ' ** '), '-', c.blue(meta.tagline), '\\n');\n    console.log('  Developed by ' + c.magenta(meta.author), '\\n');\n    console.log('  ' + meta.welcome + '');\n    console.log('\\n');\n    console.log(c.cyan('  The game begins now!'));\n    self.executer(self.rooms[0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (k, v) {\n    _r = room[k];\n    _r.name = k;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    if (parseInt(_r.exits[k]) != -1) {\n        _r[k] = _r['go ' + k] = _r.exits[k];\n    } else {\n        _r[k] = _r['go ' + k] = 'nothing';\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    _r.actions[k] = _r.actions[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    _r[k] = _r.objects[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    _r[k] = _r.enemies[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    _r[k] = _r.meta[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    var _r = self.rooms[key];\n    if (found)\n        return;\n    if (roomName == 'nothing') {\n        found = true;\n        console.log('Looks like there is nothing here..');\n        return self.executer(self.currentRoom);\n    }\n    Object.keys(_r).forEach(function (k, v) {\n        if (k === roomName) {\n            found = true;\n            return self.executer(_r);\n        }\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, v) {\n    if (k === roomName) {\n        found = true;\n        return self.executer(_r);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k, i) {\n    table.push([\n        i + 1,\n        k\n    ]);\n}",
+    "receiverBase": "items",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    $(this).fadeOut(options.fadeSpeed);\n}",
+    "receiverBase": "$menu",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (i, e) {\n    if ($(this).is(':checked')) {\n        visibleColumns.push(columns[i]);\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (hide) {\n        el.hide();\n    }\n    $.effects.restore(el, props);\n    $.effects.removeWrapper(el);\n    done();\n}",
+    "receiverBase": "el",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (timerId) {\n    Timer.clear(timerId);\n}",
+    "receiverBase": "object",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.el = document.createElement('div');\n    this.el.className = 'editor';\n    this.el.innerHTML = '';\n    document.body.appendChild(this.el);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    tearDown(this.el);\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.el.innerHTML = 'some text';\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.el.innerHTML = '<img src=\"foo.jpg\">';\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.el.innerHTML = '<p><br></p><div class=\"empty\"></div>';\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).toContain('medium-editor-placeholder');\n    fireEvent(editor.elements[0], 'keypress');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.el.innerHTML = 'some text';\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n    editor.elements[0].innerHTML = '';\n    fireEvent(document.querySelector('div'), 'click');\n    expect(editor.elements[0].className).toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var editor = new MediumEditor('.editor');\n    expect(editor.elements[0].className).toContain('medium-editor-placeholder');\n    editor.elements[0].innerHTML = 'some text';\n    fireEvent(editor.elements[0], 'blur');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var editor = new MediumEditor('.editor');\n    validatePlaceholderContent(editor.elements[0], editor.options.placeholder);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var editor, placeholderText = 'Custom placeholder';\n    this.el.setAttribute('data-placeholder', placeholderText);\n    editor = new MediumEditor('.editor');\n    validatePlaceholderContent(editor.elements[0], placeholderText);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var editor = new MediumEditor('.editor', { disablePlaceholders: true });\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.el.innerHTML = 'some text';\n    var editor = new MediumEditor('.editor', { disablePlaceholders: true });\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n    editor.elements[0].innerHTML = '';\n    fireEvent(document.querySelector('div'), 'click');\n    expect(editor.elements[0].className).not.toContain('medium-editor-placeholder');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        bs.events.emit('config:warn', { msg: err });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "checkProxyTarget"
+  },
+  {
+    "callback": "function (res) {\n    res.on('data', function (data) {\n        chunks.push(data);\n    });\n}",
+    "receiverBase": "require",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (data) {\n    chunks.push(data);\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (_.contains([\n            'ENOTFOUND',\n            'ECONNREFUSED'\n        ], err.code)) {\n        logError();\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!chunks.length) {\n        logError();\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    exports.snippetText = '';\n    exports.scope = 'livescript';\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (entry) {\n    var timings = Object.keys(entry.timings);\n    for (var i = 0; i < timings.length; i++) {\n        if (timings[i] === 'comment') {\n            continue;\n        }\n        if (timeMetrics.hasOwnProperty(timings[i])) {\n            timeMetrics[timings[i]].push(Number(entry.timings[timings[i]]));\n        } else {\n            timeMetrics[timings[i]] = new Stats();\n            timeMetrics[timings[i]].push(Number(entry.timings[timings[i]]));\n        }\n    }\n}",
+    "receiverBase": "entries",
+    "receiverCallee": "forEach"
+  }
+]

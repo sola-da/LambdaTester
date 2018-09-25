@@ -1,0 +1,376 @@
+[
+  {
+    "callback": "function (field) {\n    var term = {};\n    term[field] = filters[field];\n    return { term: term };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (hit) {\n    return hit._source;\n}",
+    "receiverBase": "hits",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (field) {\n    var facet = data.facets[field];\n    return {\n        field: field,\n        terms: facet.terms\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (data) {\n    cb(null, JSON.parse(data)._source);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    try {\n        cb(null, formatResults(JSON.parse(data)));\n    } catch (err) {\n        cb(err);\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    cb(null, data);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return cb(err);\n    if (!data || !data.packages || data.packages.length === 0)\n        return cb(new Error('Won\\'t dump an empty database'));\n    try {\n        cb(null, JSON.stringify(data, null, 2));\n    } catch (err) {\n        cb(err);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "loadAll"
+  },
+  {
+    "callback": "function (err, jsonData) {\n    if (err)\n        return cb(err);\n    fs.writeFile(file, jsonData, function (err) {\n        if (err)\n            return cb(err);\n        cb(null, 'Data backuped to ' + file);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "dump"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return cb(err);\n    cb(null, 'Data backuped to ' + file);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function (data) {\n    this.emit('info', 'indexed package', pkg.name);\n    cb(null, JSON.parse(data));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    this.emit('info', 'indexed package', pkg.name);\n    cb(null, JSON.parse(data));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    cb(null, JSON.parse(data));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (file) {\n    return /\\.json$/.test(file);\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (b1, b2) {\n    return b1.name > b2.name ? -1 : 1;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (backup) {\n    return backup.name === name;\n}",
+    "receiverBase": "listBackups",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, results) {\n    if (err)\n        return cb(err);\n    cb(null, 'Imported ' + results.length + ' packages from ' + name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "loadFromFile"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return cb(err);\n    cb(null, 'Reimported ' + data.length + ' packages from ' + backup.name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "loadFromFile"
+  },
+  {
+    "callback": "function (err, src) {\n    var completeScript = src + innersource(tests);\n    var script = vm.createScript(completeScript);\n    fs.writeFileSync(__dirname + '/compiled.js', completeScript);\n    var context = getContext();\n    context.self = context.window;\n    script.runInNewContext(context);\n    assert.equal(context.window.test, 'world');\n    assert.equal(context.window.test2, 'world');\n    assert.equal(context.window.test3, 'tests();');\n    assert.equal(context.window.test4, 'works');\n}",
+    "receiverBase": "add",
+    "receiverCallee": "bundle"
+  },
+  {
+    "callback": "function (err, src) {\n    var sourceMapComment = src.split('\\n').slice(-2)[0];\n    var json = convert.fromComment(sourceMapComment);\n    var expected = JSON.parse(require('./expected-sourcemap')).mappings;\n    assert.equal(json.sourcemap.mappings, expected);\n}",
+    "receiverBase": "add",
+    "receiverCallee": "bundle"
+  },
+  {
+    "callback": "function (err, src) {\n    fs.writeFileSync(__dirname + '/compiled-for-coffee-source-maps.js', src);\n    var sourceMapComment = src.split('\\n').slice(-2)[0];\n    var json = convert.fromComment(sourceMapComment);\n    var expected = JSON.parse(require('./expected-coffescript-sourcemap')).mappings;\n    assert.equal(json.sourcemap.mappings, expected);\n}",
+    "receiverBase": "add",
+    "receiverCallee": "bundle"
+  },
+  {
+    "callback": "function (err, src) {\n    if (err) {\n        throw err;\n    }\n    var script = vm.createScript(src);\n    var context = getContext();\n    script.runInNewContext(context);\n}",
+    "receiverBase": "add",
+    "receiverCallee": "bundle"
+  },
+  {
+    "callback": "function () {\n    tests();\n}",
+    "receiverBase": "",
+    "receiverCallee": "innersource"
+  },
+  {
+    "callback": "function (file) {\n    if (!pushFile(file, p))\n        return;\n    if (options.recursive) {\n        var oldDir = _pwd();\n        _cd('', p);\n        if (fs.statSync(file).isDirectory())\n            list = list.concat(_ls('-R' + (options.all ? 'A' : ''), file + '/*'));\n        _cd('', oldDir);\n    }\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    if (file.match(new RegExp(regexp))) {\n        if (!pushFile(path.normalize(dirname + '/' + file), basename))\n            return;\n        if (options.recursive) {\n            var pp = dirname + '/' + file;\n            if (fs.lstatSync(pp).isDirectory())\n                list = list.concat(_ls('-R' + (options.all ? 'A' : ''), pp + '/*'));\n        }\n    }\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    pushFile(file);\n    if (fs.statSync(file).isDirectory()) {\n        _ls('-RA', file + '/*').forEach(function (subfile) {\n            pushFile(subfile);\n        });\n    }\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (subfile) {\n    pushFile(subfile);\n}",
+    "receiverBase": "_ls",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (src, i) {\n    if (src[src.length - 1] === '/')\n        sources[i] += '*';\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (dir) {\n    if (fs.existsSync(dir)) {\n        if (!options.fullpath)\n            error('path already exists: ' + dir, true);\n        return;\n    }\n    var baseDir = path.dirname(dir);\n    if (!fs.existsSync(baseDir) && !options.fullpath) {\n        error('no such file or directory: ' + baseDir, true);\n        return;\n    }\n    if (options.fullpath)\n        mkdirSyncRecursive(dir);\n    else\n        fs.mkdirSync(dir, parseInt('0777', 8));\n}",
+    "receiverBase": "dirs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    if (!fs.existsSync(file))\n        error('no such file or directory: ' + file);\n    cat += fs.readFileSync(file, 'utf8') + '\\n';\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    if (!fs.existsSync(file)) {\n        error('no such file or directory: ' + file, true);\n        return;\n    }\n    var contents = fs.readFileSync(file, 'utf8'), lines = contents.split(/\\r*\\n/);\n    lines.forEach(function (line) {\n        var matched = line.match(regex);\n        if (options.inverse && !matched || !options.inverse && matched)\n            grep += line + '\\n';\n    });\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (line) {\n    var matched = line.match(regex);\n    if (options.inverse && !matched || !options.inverse && matched)\n        grep += line + '\\n';\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function addFile(expandedFile) {\n    var stat = fs.lstatSync(expandedFile);\n    if (!stat.isSymbolicLink()) {\n        files.push(expandedFile);\n        if (stat.isDirectory()) {\n            fs.readdirSync(expandedFile).forEach(function (child) {\n                addFile(expandedFile + '/' + child);\n            });\n        }\n    }\n}",
+    "receiverBase": "expand",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (child) {\n    addFile(expandedFile + '/' + child);\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    if (c in map)\n        options[map[c]] = true;\n    else\n        error('option not recognized: ' + c);\n}",
+    "receiverBase": "chars",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    if (callback)\n        callback(err ? err.code : 0, output);\n}",
+    "receiverBase": "child",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (data) {\n    output += data;\n    if (!options.silent)\n        process.stdout.write(data);\n}",
+    "receiverBase": "stdout",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    output += data;\n    if (!options.silent)\n        process.stdout.write(data);\n}",
+    "receiverBase": "stderr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (listEl) {\n    if (listEl.search(/\\*/) > -1) {\n        _ls('', listEl).forEach(function (file) {\n            expanded.push(file);\n        });\n    } else {\n        expanded.push(listEl);\n    }\n}",
+    "receiverBase": "list",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    expanded.push(file);\n}",
+    "receiverBase": "_ls",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (source) {\n    for (var key in source)\n        target[key] = source[key];\n}",
+    "receiverBase": "sources",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var el = $(id);\n    if (el != null)\n        self.fromHTML();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (panel) {\n    this._buildPanel(panel, this._panelsElement);\n}",
+    "receiverBase": "panels",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (toggler) {\n    o.height -= toggler.getSize().y;\n}",
+    "receiverBase": "_togglers",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    this._lastKey = e.keyCode;\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (n) {\n    var g = true;\n    if (Y.UA.webkit) {\n        g = false;\n        if (n.get('innerHTML') === '|') {\n            g = true;\n        }\n    }\n    if (g) {\n        last = insert(n);\n        if ((!last.previous() || !last.previous().test('br')) && Y.UA.gecko) {\n            var s = last.cloneNode();\n            last.insert(s, 'after');\n            last = s;\n        }\n        n.remove();\n    }\n}",
+    "receiverBase": "all",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (l) {\n    str = self._wrapContent(l.get('innerHTML'));\n}",
+    "receiverBase": "lis",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    html.push(n.get('innerHTML'));\n}",
+    "receiverBase": "ps",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    var a = inst.Node.create(v);\n    if (a && a.test('p')) {\n        if (a.hasAttribute(DIR)) {\n            dir = a.getAttribute(DIR);\n        }\n        v = a.get('innerHTML');\n    }\n    list += '<li>' + v + '</li>';\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (h) {\n    html.append(self._wrapContent(h.get('innerHTML'), hasPParent));\n}",
+    "receiverBase": "elm",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    if (!n.hasClass(cls)) {\n        n.setAttribute(DIR, dir);\n    }\n}",
+    "receiverBase": "list",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (f) {\n    s.appendChild(f);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    return e[property];\n}",
+    "receiverBase": "events",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (previousValue, currentValue) {\n    return previousValue + currentValue;\n}",
+    "receiverBase": "totals",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    expect(schema).toBeDefined();\n    expect(typeof schema).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.BUGS_SCHEMA).toBeDefined();\n    expect(typeof schema.BUGS_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.CONTACT_INFO_SCHEMA).toBeDefined();\n    expect(typeof schema.CONTACT_INFO_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.DOCLET_SCHEMA).toBeDefined();\n    expect(typeof schema.DOCLET_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.DOCLETS_SCHEMA).toBeDefined();\n    expect(typeof schema.DOCLETS_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.ENUM_PROPERTY_SCHEMA).toBeDefined();\n    expect(typeof schema.ENUM_PROPERTY_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.META_SCHEMA).toBeDefined();\n    expect(typeof schema.META_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.PACKAGE_SCHEMA).toBeDefined();\n    expect(typeof schema.PACKAGE_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.PARAM_SCHEMA).toBeDefined();\n    expect(typeof schema.PARAM_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(schema.TYPE_PROPERTY_SCHEMA).toBeDefined();\n    expect(typeof schema.TYPE_PROPERTY_SCHEMA).toBe('object');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var doclets = [{ foo: 'bar' }];\n    var validationResult = validate(doclets, schema.DOCLETS_SCHEMA);\n    expect(validationResult.valid).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jasmine.getParseResults().forEach(function (doclets) {\n        var validationResult;\n        validationResult = validate(doclets.doclets, schema.DOCLETS_SCHEMA);\n        if (validationResult.errors.length) {\n            expect(doclets.filename).toBe('');\n            expect(validationResult.errors).toEqual([]);\n        } else {\n            expect(validationResult.errors.length).toBe(0);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (doclets) {\n    var validationResult;\n    validationResult = validate(doclets.doclets, schema.DOCLETS_SCHEMA);\n    if (validationResult.errors.length) {\n        expect(doclets.filename).toBe('');\n        expect(validationResult.errors).toEqual([]);\n    } else {\n        expect(validationResult.errors.length).toBe(0);\n    }\n}",
+    "receiverBase": "getParseResults",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (Drag) {\n    var gestures = Ext.manifest.gestures;\n    Drag.instance = new Drag(gestures && gestures.drag);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var E = $(this), F = E.closest('.one-month'), A = F.children('.omo-list');\n    if (!F.hasClass('selected')) {\n        var _current = $('.one-month.selected'), _list = _current.children('.omo-list');\n        F.addClass('selected');\n        _current.removeClass('selected');\n        _list.slideUp();\n        A.slideDown();\n    } else {\n        F.removeClass('selected');\n        A.slideUp();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var userAgent = '';\n    if ('undefined' !== typeof navigator && navigator && 'string' == typeof navigator.userAgent) {\n        userAgent = navigator.userAgent;\n    }\n    var isOpera = userAgent.indexOf('Opera') == 0;\n    return {\n        jscript: { HAS_JSCRIPT: 'ScriptEngine' in this },\n        OPERA: isOpera,\n        IE: !isOpera && userAgent.indexOf('MSIE') != -1,\n        WEBKIT: !isOpera && userAgent.indexOf('WebKit') != -1\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (tok, tagName) {\n    if (tagName) {\n        tagName = tagName.toLowerCase();\n        if (opt_tagWhitelist.hasOwnProperty(tagName) && opt_tagWhitelist[tagName]) {\n            var start = tok.charAt(1) === '/' ? '</' : '<';\n            var index = tags.length;\n            tags[index] = start + tagName + '>';\n            return '[' + index + ']';\n        }\n    }\n    return '';\n}",
+    "receiverBase": "html",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (_, index) {\n    return tags[index];\n}",
+    "receiverBase": "html",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (validator) {\n    var index = validators.push(validator) - 1;\n    return 'if ((result = validators[' + index + '].validate(value)) !== true) {\\n' + '  isValid = false;\\n' + '  error = result;\\n' + '}\\n';\n}",
+    "receiverBase": "map",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, user) {\n    user.stream('statuses/sample').get(function (err, stream) {\n        carrier.carry(stream, function (line) {\n            var line = JSON.parse(line);\n            if (!line.delete) {\n                console.log(line.text);\n            }\n        });\n    });\n}",
+    "receiverBase": "connect",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function (err, stream) {\n    carrier.carry(stream, function (line) {\n        var line = JSON.parse(line);\n        if (!line.delete) {\n            console.log(line.text);\n        }\n    });\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (line) {\n    var line = JSON.parse(line);\n    if (!line.delete) {\n        console.log(line.text);\n    }\n}",
+    "receiverBase": "carrier",
+    "receiverCallee": "carry"
+  }
+]

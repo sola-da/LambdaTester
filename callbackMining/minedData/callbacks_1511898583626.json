@@ -1,0 +1,667 @@
+[
+  {
+    "callback": "function (keystroke) {\n    if (this._.onEscape(keystroke) === false)\n        return false;\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    this._.onHide && this._.onHide();\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (index) {\n    clearTimeout(this._.showSubTimeout);\n    this._.showSubTimeout = CKEDITOR.tools.setTimeout(this._.showSubMenu, editor.config.menu_subMenuDelay || 400, this, [index]);\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (index) {\n    clearTimeout(this._.showSubTimeout);\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (index) {\n    var item = this.items[index];\n    if (item.state == CKEDITOR.TRISTATE_DISABLED) {\n        this.hide();\n        return;\n    }\n    if (item.getItems)\n        this._.showSubMenu(index);\n    else\n        this._.onClick(item);\n}",
+    "receiverBase": "tools",
+    "receiverCallee": "addFunction"
+  },
+  {
+    "callback": "function (itemA, itemB) {\n    if (itemA.group < itemB.group)\n        return -1;\n    else if (itemA.group > itemB.group)\n        return 1;\n    return itemA.order < itemB.order ? -1 : itemA.order > itemB.order ? 1 : 0;\n}",
+    "receiverBase": "items",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    $$(this).children('article').first().addClass('show');\n}",
+    "receiverBase": "sections",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $$(this).children('article').first().addClass('show');\n}",
+    "receiverBase": "sections",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $$(this).on('click', function (e) {\n        Chungo.Router.section(e.target.dataset.viewSection);\n    });\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    Chungo.Router.section(e.target.dataset.viewSection);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $$(this).on('click', function (e) {\n        Chungo.Router.article($$(e.target).closest('section').attr('id'), e.target.dataset.viewArticle);\n    });\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    Chungo.Router.article($$(e.target).closest('section').attr('id'), e.target.dataset.viewArticle);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $$(this).on('click', function (e) {\n        Chungo.Aside.toggle(e.target.dataset.viewAside);\n    });\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    Chungo.Aside.toggle(e.target.dataset.viewAside);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var icon = this.dataset.icon;\n    $$(this).addClass('icon').addClass(icon);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var image = this.dataset.image;\n    $$(this).prepend($$('<img/>').attr('src', image).addClass('icon'));\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var links = $$(this).children('[data-view-article]');\n    links.first().addClass('selected').siblings().removeClass('selected');\n    links.each(function () {\n        $$(this).on('click', function (e) {\n            $$(this).addClass('selected').siblings().removeClass('selected');\n        });\n    });\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $$(this).on('click', function (e) {\n        $$(this).addClass('selected').siblings().removeClass('selected');\n    });\n}",
+    "receiverBase": "links",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    $$(this).addClass('selected').siblings().removeClass('selected');\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $$('header[data-title]').each(function () {\n        var title = $$(this).data('l10n-title') && '_' in window ? _($$(this).data('l10n-title')) : $$(this).data('title');\n        $$(this).append($$('<h1/>').text(title));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var title = $$(this).data('l10n-title') && '_' in window ? _($$(this).data('l10n-title')) : $$(this).data('title');\n    $$(this).append($$('<h1/>').text(title));\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, i, a) {\n    return e[key] == value;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function () {\n    $$('section#' + to).removeClass('fast');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    Chungo.Aside.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, name) {\n    var fn;\n    if ('is' + name in $)\n        return;\n    switch (name) {\n    case 'Null':\n        fn = function (obj) {\n            return obj === null;\n        };\n        break;\n    case 'Undefined':\n        fn = function (obj) {\n            return obj === undefined;\n        };\n        break;\n    default:\n        fn = function (obj) {\n            return new RegExp(name + ']', 'i').test(toString(obj));\n        };\n    }\n    $['is' + name] = fn;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    event = parse(key);\n    !$.support.touch && transEvent[event.e] && (org[transEvent[event.e] + event.ns] = this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, type) {\n    event = parse(type);\n    events.push(!$.support.touch && transEvent[event.e] ? transEvent[event.e] + event.ns : type);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $location.url('/note/').search('folderID', $scope.currentFolder.id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "fadeOutFoldersAndNotes"
+  },
+  {
+    "callback": "function (confirm, data) {\n    if (!confirm)\n        return;\n    var folder = new folderFactory();\n    folder.name = data;\n    folder.parrentFolderID = $scope.currentFolder.id;\n    folder.$save({ levels: null }).then(function (data) {\n        $rootScope.$emit('reloadListView', {});\n        $location.url('/folder/' + folder.id);\n    });\n}",
+    "receiverBase": "alertify",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function (data) {\n    $rootScope.$emit('reloadListView', {});\n    $location.url('/folder/' + folder.id);\n}",
+    "receiverBase": "$save",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $scope.currentFolder.$get({ id: $routeParams.id }).then(function (data) {\n        if ($scope.currentFolder.id == null && $scope.currentFolder.foldersInside.length == 0) {\n            $scope.currentFolder.name = null;\n            alertify.alert('It looks like you dont have any folders. You can create one using the \"New Folder\" button in the top right of the page.');\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (data) {\n    if ($scope.currentFolder.id == null && $scope.currentFolder.foldersInside.length == 0) {\n        $scope.currentFolder.name = null;\n        alertify.alert('It looks like you dont have any folders. You can create one using the \"New Folder\" button in the top right of the page.');\n    }\n}",
+    "receiverBase": "$get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $scope.$apply(function () {\n        callback();\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "fadeTo"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    $scope.$apply(function () {\n        callback();\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "fadeTo"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    $location.url('/folder/' + folder.id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "fadeOutFoldersAndNotes"
+  },
+  {
+    "callback": "function () {\n    $location.url('/note/' + note.id);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "fadeOutFoldersAndNotes"
+  },
+  {
+    "callback": "function (confirm, data) {\n    if (!confirm)\n        return;\n    $scope.currentFolder.name = data;\n    $scope.currentFolder.$update({ levels: null }).then(function (data) {\n        $scope.currentFolder.$get({ id: $scope.currentFolder.id });\n        $rootScope.$emit('reloadListView', {});\n    });\n}",
+    "receiverBase": "alertify",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function (data) {\n    $scope.currentFolder.$get({ id: $scope.currentFolder.id });\n    $rootScope.$emit('reloadListView', {});\n}",
+    "receiverBase": "$update",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (confirm) {\n    if (!confirm)\n        return;\n    var parrentFolderID = $scope.currentFolder.parrentFolderID;\n    $scope.currentFolder.$remove({ id: $scope.currentFolder.id }).then(function (data) {\n        $rootScope.$emit('reloadListView', {});\n        if (parrentFolderID == null)\n            $location.url('/folder/');\n        else\n            $location.url('/folder/' + parrentFolderID);\n    });\n}",
+    "receiverBase": "alertify",
+    "receiverCallee": "confirm"
+  },
+  {
+    "callback": "function (data) {\n    $rootScope.$emit('reloadListView', {});\n    if (parrentFolderID == null)\n        $location.url('/folder/');\n    else\n        $location.url('/folder/' + parrentFolderID);\n}",
+    "receiverBase": "$remove",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (event, request) {\n    if (request.folder.parrentFolderID == $scope.currentFolder.id || $scope.currentFolder.id == request.oldParrentFolderID) {\n        $scope.currentFolder.$get({ id: $scope.currentFolder.id });\n    }\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    moment.locale('en');\n    $rootScope = _$rootScope_;\n    $rootScope.date = moment('2013-01-22T00:00:00.000').toDate();\n    element = _$compile_('<datetimepicker data-datetimepicker-config=\"{ startView: \\'year\\'}\" data-ng-model=\"date\"></datetimepicker>')($rootScope);\n    $rootScope.$digest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('table', element).hasClass('year-view')).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    moment.locale('en');\n    $compile = _$compile_;\n    $rootScope = _$rootScope_;\n    $rootScope.date = null;\n    element = $compile('<datetimepicker data-ng-model=\"date\" data-datetimepicker-config=\"{ startView: \\'year\\' }\"></datetimepicker>')($rootScope);\n    $rootScope.$digest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(element.prop('tagName')).toBe('DIV');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.hasClass('datetimepicker')).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.find('table').length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.find('table').find('thead').length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.find('table').find('thead').find('tr').length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('th[class*=left]', element).length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('th[class*=left] > i[class*=icon-arrow-left]', element).length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('th[class*=switch][colspan=5]', element).length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('th[class*=right]', element).length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('th[class*=right] > i[class*=icon-arrow-right]', element).length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(element.find('table').find('tbody').length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('thead th[class*=switch]', element).html()).toBe('2010-2019');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('tbody span[class*=year]', element).length).toBe(12);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('tbody span[class*=year][class*=active]', element).length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('tbody span[class*=year][class*=past]', element).length).toBe(1);\n    expect(jQuery('tbody span[class*=year][class*=past]', element).text()).toBe('2009');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('tbody span[class*=year][class*=future]', element).length).toBe(1);\n    expect(jQuery('tbody span[class*=year][class*=future]', element).text()).toBe('2020');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jQuery('.left', element).trigger('click');\n    expect(jQuery('.switch', element).html()).toBe('2000-2009');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jQuery('.right', element).trigger('click');\n    expect(jQuery('.switch', element).html()).toBe('2020-2029');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jQuery('.switch', element).trigger('click');\n    expect(jQuery('.switch', element).html()).toBe('2010-2019');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var pastElement = jQuery('.past', element);\n    pastElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe(pastElement.text());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var futureElement = jQuery('.future', element);\n    futureElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe(futureElement.text());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var pastElement = jQuery('.past', element);\n    pastElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe(pastElement.text());\n    var switchElement = jQuery('.switch', element);\n    switchElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2000-2009');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.active', element).length).toBe(0);\n    $rootScope.date = moment('2010-10-01').toDate();\n    $rootScope.$apply();\n    expect(jQuery('.active', element).length).toBe(1);\n    expect(jQuery('.active', element).text()).toBe('2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $rootScope.date = moment('2010-10-01').toDate();\n    $rootScope.$digest();\n    var pastElement = jQuery('.past', element);\n    pastElement.trigger('click');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var rightElement = jQuery('.right', element);\n    rightElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rightElement = jQuery('.left', element);\n    rightElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2008');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var rightElement = jQuery('.switch', element);\n    rightElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2000-2009');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.past', element).length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.future', element).length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.active', element).length).toBe(0);\n    var rightElement = jQuery('.right', element);\n    rightElement.trigger('click');\n    expect(jQuery('.active', element).length).toBe(1);\n    expect(jQuery('.switch', element).text()).toBe('2010');\n    var monthElement = jQuery('.active', element);\n    monthElement.trigger('click');\n    expect(jQuery('.active', element).length).toBe(1);\n    expect(jQuery('.active', element).text()).toBe('1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $rootScope.date = moment('2010-10-01').toDate();\n    $rootScope.$digest();\n    var pastElement = jQuery('.active', element);\n    pastElement.trigger('click');\n    pastElement = jQuery('.active', element);\n    pastElement.trigger('click');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.active', element).length).toBe(1);\n    expect(jQuery('.active', element).text()).toBe('1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.left', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2010-Sep');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.right', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2010-Nov');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.switch', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery(jQuery('.past', element)[0]);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('Sep 26, 2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery(jQuery('.future', element)[0]);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('Nov 1, 2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.day', element).length).toBe(42);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.past', element).length).toBe(5);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.future', element).length).toBe(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $rootScope.date = moment('2010-10-01').toDate();\n    $rootScope.$digest();\n    var selectedElement = jQuery('.active', element);\n    selectedElement.trigger('click');\n    selectedElement = jQuery('.active', element);\n    selectedElement.trigger('click');\n    selectedElement = jQuery('.active', element);\n    selectedElement.trigger('click');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.active', element).length).toBe(1);\n    expect(jQuery('.active', element).text()).toBe(moment($rootScope.date).format('LT'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.left', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('Sep 30, 2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.right', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('Oct 2, 2010');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.switch', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('2010-Oct');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var selectedElement = jQuery('.active', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.minute', element).length).toBe(12);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    $compile = _$compile_;\n    $rootScope = _$rootScope_;\n    $rootScope.date = null;\n    element = $compile('<datetimepicker data-datetimepicker-config=\"{ startView: \\'year\\', minView: \\'year\\' }\" data-ng-model=\"date\"></datetimepicker>')($rootScope);\n    $rootScope.$digest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.switch', element).text()).toBe('2010-2019');\n    var selectedElement = jQuery('.future', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.active', element).text()).toBe('2020');\n    expect($rootScope.date).toEqual(moment('2020-01-01T00:00:00.000').toDate());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    $compile = _$compile_;\n    $rootScope = _$rootScope_;\n    $rootScope.date = moment('1970-01-01T00:00:00.000').toDate();\n    element = $compile('<datetimepicker data-datetimepicker-config=\"{ startView: \\'year\\', minView: \\'year\\' }\" data-ng-model=\"date\"></datetimepicker>')($rootScope);\n    $rootScope.$digest();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(jQuery('.switch', element).text()).toBe('1970-1979');\n    var selectedElement = jQuery('.left', element);\n    selectedElement.trigger('click');\n    expect(jQuery('.switch', element).text()).toBe('1960-1969');\n    expect($rootScope.date).toEqual(moment('1970-01-01T00:00:00.000').toDate());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (result) {\n    if (result != -1) {\n        $('#comm' + id).hide('slow');\n        try {\n            deleteCommentCount(appid);\n        } catch (err) {\n        }\n    } else {\n        Alert('\\u5220\\u9664\\u5931\\u8D25');\n        return;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    $('#loadding').html('');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    $('#content').unbind('blur');\n}",
+    "receiverBase": "toggle",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function () {\n    $('#content').blur(function () {\n        $('#smileylist').hide();\n    });\n}",
+    "receiverBase": "mouseover",
+    "receiverCallee": "mouseout"
+  },
+  {
+    "callback": "function () {\n    $('#smileylist').hide();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "blur"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('id');\n    $('#d-' + id).show();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('id');\n    $('#d-' + id).hide();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('id');\n    $('#d-' + id).show();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('id');\n    $('#d-' + id).hide();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    getComments();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (count) {\n    if (count != -1 && count > 100) {\n        var data_count = count;\n        var items_per_page = 10;\n        $('#Pagination').pagination(data_count, {\n            num_edge_entries: 2,\n            num_display_entries: 8,\n            items_per_page: items_per_page,\n            next_text: next_text,\n            prev_text: prev_text,\n            link_to: '#comment',\n            callback: pageselectCallback\n        });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (key, value) {\n    a[key] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, value) {\n    a[key] = value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session();\n    session.participate('show-bieber', [\n        'trolled',\n        'not-trolled'\n    ], function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.alternative.name).to.match(/trolled/);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.alternative.name).to.match(/trolled/);\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.alternative.name).to.equal('trolled');\n    session.participate('show-bieber', [\n        'trolled',\n        'not-trolled'\n    ], 'not-trolled', function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.alternative.name).to.equal('not-trolled');\n        done();\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.alternative.name).to.equal('not-trolled');\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session();\n    expect(session.client_id.length).to.equal(36);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session('mike');\n    session.participate('show-bieber', [\n        'trolled',\n        'not-trolled'\n    ], function (err, resp) {\n        if (err)\n            throw err;\n        session.convert('show-bieber', function (err, resp) {\n            if (err)\n                throw err;\n            expect(resp.status).to.equal('ok');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    session.convert('show-bieber', function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.status).to.equal('ok');\n        done();\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.status).to.equal('ok');\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "convert"
+  },
+  {
+    "callback": "function (err, alt) {\n    if (err)\n        throw err;\n    session.convert('show-bieber', function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.status).to.equal('ok');\n        session.convert('show-bieber', function (err, alt) {\n            if (err)\n                throw err;\n            expect(resp.status).to.equal('ok');\n            done();\n        });\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.status).to.equal('ok');\n    session.convert('show-bieber', function (err, alt) {\n        if (err)\n            throw err;\n        expect(resp.status).to.equal('ok');\n        done();\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "convert"
+  },
+  {
+    "callback": "function (err, alt) {\n    if (err)\n        throw err;\n    expect(resp.status).to.equal('ok');\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "convert"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session('unknown_idizzle');\n    session.convert('show-bieber', function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.status).to.equal('failed');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.status).to.equal('failed');\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "convert"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session('mike');\n    session.convert('show-blieber', function (err, resp) {\n        if (err)\n            throw err;\n        expect(resp.status).to.equal('failed');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err)\n        throw err;\n    expect(resp.status).to.equal('failed');\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "convert"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session();\n    session.participate('%%', [\n        'trolled',\n        'not-trolled'\n    ], function (err, alt) {\n        assert.equal(alt, null);\n        expect(err).instanceof(Error);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, alt) {\n    assert.equal(alt, null);\n    expect(err).instanceof(Error);\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (done) {\n    var sixpack = require('../');\n    session = new sixpack.Session();\n    session.participate('show-bieber', ['trolled'], function (err, alt) {\n        assert.equal(alt, null);\n        expect(err).instanceof(Error);\n        session.participate('show-bieber', [\n            'trolled',\n            '%%'\n        ], function (err, alt) {\n            assert.equal(alt, null);\n            expect(err).instanceof(Error);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, alt) {\n    assert.equal(alt, null);\n    expect(err).instanceof(Error);\n    session.participate('show-bieber', [\n        'trolled',\n        '%%'\n    ], function (err, alt) {\n        assert.equal(alt, null);\n        expect(err).instanceof(Error);\n        done();\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, alt) {\n    assert.equal(alt, null);\n    expect(err).instanceof(Error);\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        throw err;\n    session.client_id = old_id;\n    session.participate('testing', [\n        'one',\n        'two'\n    ], function (err, res) {\n        if (err)\n            throw err;\n        expect(res.alternative.name).to.equal(alt1);\n        done();\n    });\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        throw err;\n    expect(res.alternative.name).to.equal(alt1);\n    done();\n}",
+    "receiverBase": "session",
+    "receiverCallee": "participate"
+  },
+  {
+    "callback": "function () {\n    me.setURL();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    me.setData();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  }
+]

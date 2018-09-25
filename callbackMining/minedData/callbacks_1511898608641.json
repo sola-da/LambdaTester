@@ -1,0 +1,1796 @@
+[
+  {
+    "callback": "function (callback) {\n    require(['dijit/registry'], function (registry) {\n        registry.byId('CODE_MIRROR_1').setValue('<node>value</node>');\n        callback();\n    });\n}",
+    "receiverBase": "click",
+    "receiverCallee": "executeAsync"
+  },
+  {
+    "callback": "function (registry) {\n    registry.byId('CODE_MIRROR_1').setValue('<node>value</node>');\n    callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    var topicData = document.querySelectorAll('.sl-topic[data-publish-topic=FORM_POST] + td.sl-data'), lastTopic = topicData && topicData[topicData.length - 1], dataContent = lastTopic && (lastTopic.textContent || lastTopic.innerText);\n    return dataContent || null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "pollUntil"
+  },
+  {
+    "callback": "function (dataContent) {\n    assert.include(dataContent, 'codeMirrorValue', 'Publish did not include editor Form ID');\n    assert.include(dataContent, '<node>value</node>', 'Publish did not include created content');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    assert.fail(null, null, 'Unable to enter content and publish it: ' + err);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (callback) {\n    require(['dijit/registry'], function (registry) {\n        registry.byId('CODE_MIRROR_2').setValue('<node2>value2</node2>');\n        callback();\n    });\n}",
+    "receiverBase": "click",
+    "receiverCallee": "executeAsync"
+  },
+  {
+    "callback": "function (registry) {\n    registry.byId('CODE_MIRROR_2').setValue('<node2>value2</node2>');\n    callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    var topicData = document.querySelectorAll('.sl-topic[data-publish-topic=POST_FORM_DIALOG] + td.sl-data'), lastTopic = topicData && topicData[topicData.length - 1], dataContent = lastTopic && (lastTopic.textContent || lastTopic.innerText);\n    return dataContent || null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "pollUntil"
+  },
+  {
+    "callback": "function (dataContent) {\n    assert.include(dataContent, 'codeMirrorValue2', 'Publish did not include editor Form ID');\n    assert.include(dataContent, '<node2>value2</node2>', 'Publish did not include created content');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    assert.fail(null, null, 'Unable to enter content in Dialog and publish it: ' + err);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (record) {\n    record.set('title', 'toto2');\n    record.send('willCommit');\n    equal(get(record, 'isDirty'), true, 'record is dirty');\n    expectAssertion(function () {\n        record.unloadRecord();\n    }, 'You can only unload a record which is not inFlight. `' + Ember.inspect(record) + '`', 'can not unload dirty record');\n    run(function () {\n        record.transitionTo('deleted.saved');\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    record.unloadRecord();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expectAssertion"
+  },
+  {
+    "callback": "function () {\n    record.transitionTo('deleted.saved');\n}",
+    "receiverBase": "",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (record) {\n    equal(get(record, 'id'), 1, 'found record with id 1');\n    equal(get(record, 'isDirty'), false, 'record is not dirty');\n    run(function () {\n        store.unloadRecord(record);\n    });\n    equal(get(record, 'isDirty'), false, 'record is not dirty');\n    equal(get(record, 'isDeleted'), true, 'record is deleted');\n    tryToFind = false;\n    return store.find(Record, 1).then(function () {\n        equal(tryToFind, true, 'not found record with id 1');\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    store.unloadRecord(record);\n}",
+    "receiverBase": "",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    equal(tryToFind, true, 'not found record with id 1');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (records) {\n    like = store.createRecord(Like, {\n        id: 1,\n        product: product\n    });\n    records.like = like.save();\n    return Ember.RSVP.hash(records);\n}",
+    "receiverBase": "asyncRecords",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (records) {\n    store.unloadRecord(records.product);\n    return store.find(Product, 1);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (product) {\n    equal(product.get('description'), 'cuisinart', 'The record was unloaded and the adapter\\'s `find` was called');\n    store.destroy();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res, data) {\n    var parts = data.split(':');\n    if (opts.ignoreConnect) {\n        return fn && fn.apply(null, parts);\n    }\n    self.get('/socket.io/{protocol}/xhr-polling/' + parts[0], function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'connect',\n            endpoint: '',\n            qs: ''\n        });\n        fn && fn.apply(null, parts);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '',\n        qs: ''\n    });\n    fn && fn.apply(null, parts);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('close timeout', 0.05);\n    io.set('polling duration', 0);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'error',\n        reason: 'client not handshaken',\n        endpoint: '',\n        advice: 'reconnect'\n    });\n    --total || finish();\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    --total || finish();\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.id.should.eql(sid);\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sessid) {\n    sid = sessid;\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].type.should.eql('connect');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].type.should.eql('connect');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.id.should.eql(sid);\n    socket.on('disconnect', function () {\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sessid) {\n    sid = sessid;\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].type.should.eql('connect');\n        setTimeout(function () {\n            cl.end();\n        }, 10);\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].type.should.eql('connect');\n    setTimeout(function () {\n        cl.end();\n    }, 10);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        disconnected = true;\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    disconnected = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'disconnect',\n        endpoint: ''\n    });\n    disconnected.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid + '/?disconnect');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        io.server.close();\n        done();\n    });\n    cl.end();\n    socket.disconnect();\n    forced = true;\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'disconnect',\n            endpoint: ''\n        });\n        forced.should.be.true;\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'disconnect',\n        endpoint: ''\n    });\n    forced.should.be.true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (client) {\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({ type: 'disconnect' }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n    client.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sessid) {\n    sid = sessid;\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].type.should.eql('connect');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].type.should.eql('connect');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.2);\n    io.set('close timeout', 0.5);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (client) {\n    end = function () {\n        cl.end();\n        console.log('ending');\n        client.on('disconnect', function () {\n            disconnected = true;\n        });\n    };\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    disconnected = true;\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid);\n    setTimeout(end, 30);\n    setTimeout(function () {\n        console.log('finished');\n        disconnected.should.be.false;\n        io.server.close();\n        done();\n    }, 100);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function () {\n    console.log('finished');\n    disconnected.should.be.false;\n    io.server.close();\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.send('woot');\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, packs) {\n        packs.should.have.length(1);\n        packs[0].type.should.eql('message');\n        packs[0].data.should.eql('woot');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, packs) {\n    packs.should.have.length(1);\n    packs[0].type.should.eql('message');\n    packs[0].data.should.eql('woot');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (data) {\n    messages++;\n    if (messages == 1)\n        data.should.eql('a');\n    if (messages == 2)\n        data.should.eql('b');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messages.should.eql(2);\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sessid) {\n    sid = sessid;\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].type.should.eql('connect');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].type.should.eql('connect');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.1);\n    io.set('close timeout', 0.2);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    tobi = function () {\n        socket.send('a');\n        socket.send('b');\n        socket.send('c');\n    };\n    socket.on('disconnect', function () {\n        messages.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messages.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(3);\n    msgs[0].should.eql({\n        type: 'message',\n        endpoint: '',\n        data: 'a'\n    });\n    msgs[1].should.eql({\n        type: 'message',\n        endpoint: '',\n        data: 'b'\n    });\n    msgs[2].should.eql({\n        type: 'message',\n        endpoint: '',\n        data: 'c'\n    });\n    messages = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    connectMessage.should.be.true;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, data) {\n        cl.get('/socket.io/{protocol}/xhr-polling/' + sid);\n        connectMessage = true;\n        cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n            type: 'connect',\n            endpoint: '/woot'\n        }), function (res, data) {\n            res.statusCode.should.eql(200);\n            data.should.eql('1');\n        });\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, data) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid);\n    connectMessage = true;\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'connect',\n        endpoint: '/woot'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    mainConnected = true;\n    socket.on('disconnect', function () {\n        tobiConnected.should.be.false;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    tobiConnected.should.be.false;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    tobiConnected = true;\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (data) {\n        data.should.eql('ferret');\n        mainDisconnected.should.be.false;\n        wootDisconnected.should.be.true;\n        checked = true;\n    });\n    socket.on('disconnect', function () {\n        mainDisconnected = true;\n        checked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    data.should.eql('ferret');\n    mainDisconnected.should.be.false;\n    wootDisconnected.should.be.true;\n    checked = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    mainDisconnected = true;\n    checked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        wootDisconnected = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    wootDisconnected = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'message',\n        data: 'ferret'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.2);\n    io.set('close timeout', 0.2);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        setTimeout(function () {\n            aDisconnected.should.be.true;\n            bDisconnected.should.be.true;\n            cl.end();\n            io.server.close();\n            done();\n        }, 50);\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        aDisconnected.should.be.true;\n        bDisconnected.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    }, 50);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    aDisconnected.should.be.true;\n    bDisconnected.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function (msg) {\n        aDisconnected = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    aDisconnected = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function (msg) {\n        bDisconnected = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    bDisconnected = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql('');\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.true;\n        aMessaged.should.be.true;\n        bMessaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql('');\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.true;\n    aMessaged.should.be.true;\n    bMessaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql('a');\n        aMessaged = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql('a');\n    aMessaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql('b');\n        bMessaged = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql('b');\n    bMessaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'message',\n        endpoint: '/a',\n        data: 'a'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'message',\n        endpoint: '/b',\n        data: 'b'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'json',\n        data: [\n            'a',\n            'b',\n            'c'\n        ],\n        endpoint: ''\n    });\n    msgs[1].should.eql({\n        type: 'json',\n        data: {\n            a: 'b',\n            c: 'd'\n        },\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.1);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        messages++;\n        if (messages == 1) {\n            msg.should.eql({ tobi: 'rocks' });\n        } else if (messages == 2) {\n            msg.should.eql(5000);\n        }\n    });\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    messages++;\n    if (messages == 1) {\n        msg.should.eql({ tobi: 'rocks' });\n    } else if (messages == 2) {\n        msg.should.eql(5000);\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.equal('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'json',\n        data: 5000\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.equal('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.equal('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'tobi is playing',\n        endpoint: '',\n        args: []\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'edwald',\n        endpoint: '',\n        args: [\n            { woot: 'woot' },\n            [\n                1,\n                2,\n                3\n            ]\n        ]\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('jane', function (a, b, c) {\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a, b, c) {\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'event',\n        name: 'jane'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.equal('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.equal('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'event',\n        name: 'error'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.equal('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.equal('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('woot', function (a, b, c) {\n        a.should.eql('a');\n        b.should.eql(2);\n        c.should.eql([\n            1,\n            2\n        ]);\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a, b, c) {\n    a.should.eql('a');\n    b.should.eql(2);\n    c.should.eql([\n        1,\n        2\n    ]);\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.equal('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    s.volatile.send('woooot');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.equal(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'noop',\n            endpoint: ''\n        });\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    s.volatile.json.send('woooot');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.equal(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'noop',\n            endpoint: ''\n        });\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n    s.volatile.emit('woooot');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.equal(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'noop',\n            endpoint: ''\n        });\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.equal(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'noop',\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'message',\n            data: 'woooot',\n            endpoint: ''\n        });\n    });\n    setTimeout(function () {\n        s.volatile.send('woooot');\n    }, 10);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'message',\n        data: 'woooot',\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.send('woooot');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'json',\n            data: 5,\n            endpoint: ''\n        });\n    });\n    setTimeout(function () {\n        s.volatile.json.send(5);\n    }, 10);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'json',\n        data: 5,\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.json.send(5);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (sid) {\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'event',\n            name: 'tobi',\n            args: [],\n            endpoint: ''\n        });\n    });\n    setTimeout(function () {\n        s.volatile.json.emit('tobi');\n    }, 10);\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "handshake"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'tobi',\n        args: [],\n        endpoint: ''\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.json.emit('tobi');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql('woot');\n        received = true;\n    });\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql('woot');\n    received = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.should.have.length(1);\n        msgs[0].should.eql({\n            type: 'ack',\n            ackId: '1',\n            endpoint: '',\n            args: []\n        });\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'ack',\n        ackId: '1',\n        endpoint: '',\n        args: []\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (data, fn) {\n        data.should.eql('tobi');\n        fn('woot');\n        acknowledged = true;\n    });\n    socket.on('disconnect', function () {\n        acknowledged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data, fn) {\n    data.should.eql('tobi');\n    fn('woot');\n    acknowledged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acknowledged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'ack',\n        args: ['woot'],\n        endpoint: '',\n        ackId: '3'\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.send('aaaa', function () {\n        acknowledged = true;\n    });\n    socket.on('disconnect', function () {\n        acknowledged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acknowledged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "send"
+  },
+  {
+    "callback": "function () {\n    acknowledged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'message',\n        id: '1',\n        data: 'aaaa',\n        ack: true,\n        endpoint: ''\n    });\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'ack',\n        ackId: '1'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('woot', 1, 2, '3', function () {\n        acked = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acked = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'woot',\n        args: [\n            1,\n            2,\n            '3'\n        ],\n        id: '1',\n        ack: true,\n        endpoint: ''\n    });\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'ack',\n        ackId: '1',\n        args: [],\n        endpoint: ''\n    }));\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('woot', 1, 2, '3', function (a) {\n        a.should.eql('1');\n        acked = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a) {\n    a.should.eql('1');\n    acked = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'woot',\n        args: [\n            1,\n            2,\n            '3'\n        ],\n        id: '1',\n        ack: 'data',\n        endpoint: ''\n    });\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'ack',\n        ackId: '1',\n        args: ['1'],\n        endpoint: ''\n    }));\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.json.send([\n        1,\n        2,\n        { 3: 4 }\n    ]);\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'json',\n        data: [\n            1,\n            2,\n            { 3: 4 }\n        ],\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.false;\n        subMessaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.false;\n    subMessaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql([\n            'a',\n            'b',\n            { c: 'd' }\n        ]);\n        subMessaged = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql([\n        'a',\n        'b',\n        { c: 'd' }\n    ]);\n    subMessaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'json',\n        endpoint: '/a',\n        data: [\n            'a',\n            'b',\n            { c: 'd' }\n        ]\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('tj');\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'event',\n        name: 'tj',\n        args: [],\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('tj', 1, 2, 3, 4);\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'event',\n        name: 'tj',\n        args: [\n            1,\n            2,\n            3,\n            4\n        ],\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.false;\n        subMessaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.false;\n    subMessaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('tj', function () {\n        subMessaged = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    subMessaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'event',\n        name: 'tj',\n        endpoint: '/a'\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        messaged.should.be.false;\n        subMessaged.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messaged.should.be.false;\n    subMessaged.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('tj', function (ferret, age) {\n        ferret.should.eql('tobi');\n        age.should.eql(23);\n        subMessaged = true;\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ferret, age) {\n    ferret.should.eql('tobi');\n    age.should.eql(23);\n    subMessaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    cl.post('/socket.io/{protocol}/xhr-polling/' + sid, parser.encodePacket({\n        type: 'event',\n        name: 'tj',\n        endpoint: '/a',\n        args: [\n            'tobi',\n            23\n        ]\n    }), function (res, data) {\n        res.statusCode.should.eql(200);\n        data.should.eql('1');\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        empty.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    empty.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    s.volatile.send('woot');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.length.should.eql(1);\n        msgs[0].should.eql({\n            type: 'connect',\n            endpoint: '/chrislee',\n            qs: ''\n        });\n        empty = true;\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.length.should.eql(1);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    empty = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        empty.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    empty.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    s.volatile.json.send(15);\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.length.should.eql(1);\n        msgs[0].should.eql({\n            type: 'connect',\n            endpoint: '/chrislee',\n            qs: ''\n        });\n        empty = true;\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.length.should.eql(1);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    empty = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        empty.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    empty.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n    s.volatile.json.emit('woot');\n    cl.get('/socket.io/{protocol}/xhr-polling/' + sid, function (res, msgs) {\n        res.statusCode.should.eql(200);\n        msgs.length.should.eql(1);\n        msgs[0].should.eql({\n            type: 'connect',\n            endpoint: '/chrislee',\n            qs: ''\n        });\n        empty = true;\n    });\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.length.should.eql(1);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/chrislee',\n        qs: ''\n    });\n    empty = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'message',\n        data: 'edwald',\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.send('edwald');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'json',\n        data: 152,\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.json.send(152);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    s = socket;\n    socket.on('disconnect', function () {\n        received.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    received.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    msgs.should.have.length(1);\n    msgs[0].should.eql({\n        type: 'event',\n        name: 'woooo',\n        args: [[\n                1,\n                2\n            ]],\n        endpoint: '/chrislee'\n    });\n    received = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    s.volatile.emit('woooo', [\n        1,\n        2\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg) {\n        msg.should.eql('woot');\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.eql('woot');\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/tobi',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'ack',\n        ackId: '3',\n        endpoint: '/tobi',\n        args: []\n    });\n    acked = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (msg, fn) {\n        msg.should.eql('woot');\n        fn();\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg, fn) {\n    msg.should.eql('woot');\n    fn();\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/tobi',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'ack',\n        ackId: '3',\n        args: [],\n        endpoint: '/tobi'\n    });\n    acked = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('woot', function (msg, fn) {\n        msg.should.eql(1);\n        fn('aaaa');\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg, fn) {\n    msg.should.eql(1);\n    fn('aaaa');\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, msgs) {\n    res.statusCode.should.eql(200);\n    msgs.should.have.length(2);\n    msgs[0].should.eql({\n        type: 'connect',\n        endpoint: '/tobi',\n        qs: ''\n    });\n    msgs[1].should.eql({\n        type: 'ack',\n        ackId: '3',\n        args: ['aaaa'],\n        endpoint: '/tobi'\n    });\n    acked = true;\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.send('aaa', function () {\n        acked = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    acked = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "send"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('woot', 'a', function (a, b, c) {\n        a.should.eql(5);\n        b.should.eql('hello');\n        c.should.eql([\n            1,\n            2,\n            3\n        ]);\n        acked = true;\n    });\n    socket.on('disconnect', function () {\n        acked.should.be.true;\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "of",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a, b, c) {\n    a.should.eql(5);\n    b.should.eql('hello');\n    c.should.eql([\n        1,\n        2,\n        3\n    ]);\n    acked = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function () {\n    acked.should.be.true;\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    res.statusCode.should.eql(200);\n    data.should.eql('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('polling duration', 0.05);\n    io.set('close timeout', 0.05);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.send('woot');\n    socket.on('message', function (msg) {\n        msg.should.equal('woot');\n        messaged = true;\n    });\n    socket.on('disconnect', function () {\n        cl.end();\n        io.server.close();\n        done();\n    });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    msg.should.equal('woot');\n    messaged = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cl.end();\n    io.server.close();\n    done();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, data) {\n    var headers = res.headers;\n    headers['access-control-allow-origin'].should.equal('http://localhost:3500');\n    headers['access-control-allow-credentials'].should.equal('true');\n    data.should.equal('1');\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    io.set('close timeout', 0.1);\n}",
+    "receiverBase": "io",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (socket) {\n    socket.send('a');\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, packs) {\n    res.statusCode.should.equal(200);\n    packs.should.have.length(1);\n    packs[0].should.eql({\n        type: 'event',\n        endpoint: '',\n        name: 'woot',\n        args: ['b']\n    });\n    --total || finish();\n}",
+    "receiverBase": "cl",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (res, packs) {\n    res.statusCode.should.equal(200);\n    packs.should.have.length(1);\n    packs[0].should.eql({\n        type: 'event',\n        endpoint: '',\n        name: 'woot',\n        args: ['b']\n    });\n    --total || finish();\n}",
+    "receiverBase": "cl2",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var oop = require('../lib/oop');\n    var TextMode = require('./text').Mode;\n    var LispHighlightRules = require('./lisp_highlight_rules').LispHighlightRules;\n    var Mode = function () {\n        this.HighlightRules = LispHighlightRules;\n    };\n    oop.inherits(Mode, TextMode);\n    (function () {\n        this.lineCommentStart = ';';\n        this.$id = 'ace/mode/lisp';\n    }.call(Mode.prototype));\n    exports.Mode = Mode;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (table) {\n    table.string('id').primary();\n    table.string('identity_id');\n    table.string('domain');\n    table.string('value');\n    table.boolean('visibility').defaultTo(false);\n}",
+    "receiverBase": "schema",
+    "receiverCallee": "createTable"
+  },
+  {
+    "callback": "function () {\n    if (document.activeElement.className == '\\u2708IME') {\n        go.Terminal.Input.capture();\n    }\n}",
+    "receiverBase": "E",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (panel) {\n    go.Terminal.Input.capture();\n    go.Terminal.setActive();\n}",
+    "receiverBase": "E",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (go.Terminal.mouseUpEscSeq != go.Terminal.mouseUpEscSeqLast) {\n        go.Terminal.sendString(go.Terminal.mouseUpEscSeq);\n        go.Terminal.mouseUpEscSeqLast = go.Terminal.mouseUpEscSeq;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    t.Input.handlingPaste = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!u.getSelText() && t.terminals[selectedTerm]) {\n        u.showElement(t.terminals[selectedTerm]['pasteNode']);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    u.showElements('.\\u2708pastearea');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (workspace) {\n    t.Input.disableCapture(null, true);\n}",
+    "receiverBase": "E",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (termNode) {\n    termNode.addEventListener('copy', t.Input.onCopy, false);\n    termNode.addEventListener('paste', t.Input.onPaste, false);\n    termNode.addEventListener('mousedown', t.Input.onMouseDown, false);\n    termNode.addEventListener('mouseup', t.Input.onMouseUp, false);\n    termNode.addEventListener('contextmenu', t.Input.onContextMenu, false);\n    termNode.addEventListener(mousewheelevt, t.Input.onMouseWheel, false);\n}",
+    "receiverBase": "terms",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    t.Input.handlingPaste = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    t.Input.composition = null;\n    t.Input.inputNode.value = '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    t.Input.F11 = false;\n    t.Input.emulateKey(e, true);\n    t.Input.sendChars();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    t.Input.inputNode.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    return e.command.exec(e.editor, e.args || {});\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "setDefaultHandler"
+  },
+  {
+    "callback": "function (x) {\n    if (typeof x == 'string')\n        this.exec(x, editor);\n    else\n        this.exec(x[0], editor, x[1]);\n}",
+    "receiverBase": "macro",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    if (typeof x[0] != 'string')\n        x[0] = x[0].name;\n    if (!x[1])\n        x = x[0];\n    return x;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if ($.inArray(this, elems) !== -1) {\n        add_this = true;\n    }\n}",
+    "receiverBase": "parents",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var gse = svgCanvas.groupSelectedElements;\n    svgCanvas.groupSelectedElements = function () {\n        svgCanvas.removeFromSelection($(conn_sel).toArray());\n        gse();\n    };\n    var mse = svgCanvas.moveSelectedElements;\n    svgCanvas.moveSelectedElements = function () {\n        svgCanvas.removeFromSelection($(conn_sel).toArray());\n        mse.apply(this, arguments);\n        updateConnectors();\n    };\n    se_ns = svgCanvas.getEditorNS();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var conn = this.getAttributeNS(se_ns, 'connector');\n    if (conn) {\n        this.setAttribute('class', conn_sel.substr(1));\n        var conn_data = conn.split(' ');\n        var sbb = svgCanvas.getStrokedBBox([getElem(conn_data[0])]);\n        var ebb = svgCanvas.getStrokedBBox([getElem(conn_data[1])]);\n        $(this).data('c_start', conn_data[0]).data('c_end', conn_data[1]).data('start_bb', sbb).data('end_bb', ebb);\n        svgCanvas.getEditorNS(true);\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var conn = this.getAttributeNS(se_ns, 'connector');\n    if (conn == conn_str || conn == alt_str)\n        return true;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    attachDnode();\n}",
+    "receiverBase": "tls",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function () {\n    attachDnode();\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    attachDnode();\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (middleware) {\n    middleware.call(client.instance, client.remote, client);\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    params.block.call(client.instance, client.remote, client);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (client.listeners('error').length === 0) {\n        client.on('error', function (err) {\n            console.error(err && err.stack || err);\n        });\n    }\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err) {\n    console.error(err && err.stack || err);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (stream) {\n    var client = createClient(self.proto, stream);\n    clients[client.id] = client;\n    self.stack.forEach(function (middleware) {\n        middleware.call(client.instance, client.remote, client);\n    });\n    if (params.block) {\n        client.on('remote', function () {\n            params.block.call(client.instance, client.remote, client);\n        });\n    }\n    client.start();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (middleware) {\n    middleware.call(client.instance, client.remote, client);\n}",
+    "receiverBase": "stack",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    params.block.call(client.instance, client.remote, client);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (id, wrappedObject) {\n    var f = wrappedObject[id].f;\n    wrappedObject[id] = {};\n    f = weak(f, function () {\n        var cullNotify = typeof wrappedObject[id] === 'object';\n        delete wrappedObject[id];\n        if (cullNotify) {\n            delete client.remoteStore.items[id];\n            client.remoteStore.emit('cull', id);\n        }\n    });\n    wrappedObject[id].__defineGetter__('f', function () {\n        return weak.get(f);\n    });\n}",
+    "receiverBase": "remoteStore",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var cullNotify = typeof wrappedObject[id] === 'object';\n    delete wrappedObject[id];\n    if (cullNotify) {\n        delete client.remoteStore.items[id];\n        client.remoteStore.emit('cull', id);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "weak"
+  },
+  {
+    "callback": "function () {\n    return weak.get(f);\n}",
+    "receiverBase": "wrappedObject",
+    "receiverCallee": "__defineGetter__"
+  },
+  {
+    "callback": "function () {\n    if (client.listeners('error').length === 0) {\n        client.on('error', function (err) {\n            console.error(err && err.stack || err);\n        });\n    }\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err) {\n    console.error(err && err.stack || err);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (req) {\n    if (stream.writable) {\n        stream.write(JSON.stringify(req) + '\\n');\n    } else {\n        client.emit('dropped', req);\n    }\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var dgeni = new Dgeni([mockPackage()]);\n    var injector = dgeni.configureInjector();\n    trimIndentation = injector.get('trimIndentation');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('   abc  ')).toEqual('abc  ');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('abc\\n     xyz\\n     123\\n\\n')).toEqual('abc\\nxyz\\n123');\n    expect(trimIndentation('  abc\\n     xyz\\n     123\\n\\n')).toEqual('abc\\n   xyz\\n   123');\n    expect(trimIndentation(' abc\\n  xyz\\n   123\\n\\n')).toEqual('abc\\n xyz\\n  123');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('\\n\\n\\nabc')).toEqual('abc');\n    expect(trimIndentation('\\n\\n\\n   abc')).toEqual('abc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('abc\\n\\n\\n')).toEqual('abc');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('.ng-hide {\\n' + '  /&#42; this is just another form of hiding an element &#42;/\\n' + '  display:block!important;\\n' + '  position:absolute;\\n' + '  top:-9999px;\\n' + '  left:-9999px;\\n' + '}')).toEqual('.ng-hide {\\n' + '  /&#42; this is just another form of hiding an element &#42;/\\n' + '  display:block!important;\\n' + '  position:absolute;\\n' + '  top:-9999px;\\n' + '  left:-9999px;\\n' + '}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation('\\n\\n')).toEqual('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation.calcIndent('   abc  ')).toEqual(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation.calcIndent('abc\\n     xyz\\n     123\\n\\n')).toEqual(5);\n    expect(trimIndentation.calcIndent('  abc\\n     xyz\\n     123\\n\\n')).toEqual(2);\n    expect(trimIndentation.calcIndent(' abc\\n  xyz\\n   123\\n\\n')).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation.calcIndent('\\n\\n')).toEqual(9999);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should add whitespace to the start of each line', function () {\n        expect(trimIndentation.reindent('abc\\n  xyz', 4)).toEqual('    abc\\n      xyz');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(trimIndentation.reindent('abc\\n  xyz', 4)).toEqual('    abc\\n      xyz');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    Ext.apply(Ext.form.field.ComboBox.prototype.defaultListConfig, { loadingText: '\\u8B80\\u53D6\\u4E2D ...' });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "define"
+  }
+]

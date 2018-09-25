@@ -1,0 +1,655 @@
+[
+  {
+    "callback": "function (keys) {\n    self.well.html('<div style=\"line-height:1em\">' + 'Value Management contains a total of <strong>' + keys.length + '</strong> key/values.' + '</div>');\n}",
+    "receiverBase": "_store",
+    "receiverCallee": "keys"
+  },
+  {
+    "callback": "function (obj) {\n    var kv = $(self._renderKeyValue(obj));\n    self.tbody.append(kv);\n}",
+    "receiverBase": "_store",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, root) {\n    if (e) {\n        return writeError(e);\n    }\n    try {\n        callback(e, root, input, sheet, {\n            local: false,\n            lastModified: 0,\n            remaining: remaining\n        }, sheetName);\n    } catch (e) {\n        writeError(e);\n    }\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "parse"
+  },
+  {
+    "callback": "function (p) {\n    if (p) {\n        return p;\n    }\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e, root) {\n    if (e) {\n        writeError(e, options);\n        quit(1);\n    } else {\n        result = root.toCSS(options);\n        if (output) {\n            writeFile(output, result);\n            console.log('Written to ' + output);\n        } else {\n            print(result);\n        }\n        quit(0);\n    }\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "parse"
+  },
+  {
+    "callback": "function () {\n    rootWin.activity.actionBar.hide();\n}",
+    "receiverBase": "rootWin",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    aboutToExitApp = false;\n}",
+    "receiverBase": "layout",
+    "receiverCallee": "showLeftSidebar"
+  },
+  {
+    "callback": "function () {\n    var result = pane.get('clippingFrame'), expected = pane.get('frame');\n    expected.x = expected.y = 0;\n    same(result, expected, 'pane');\n    result = a.get('clippingFrame');\n    expected = a.get('frame');\n    expected.x = expected.y = 0;\n    same(result, expected, 'child');\n    result = aa.get('clippingFrame');\n    expected = aa.get('frame');\n    expected.x = expected.y = 0;\n    same(result, expected, 'nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var result, expected;\n    a.adjust('top', -50);\n    result = a.get('clippingFrame');\n    expected = a.get('frame');\n    expected.x = 0;\n    expected.y = 50;\n    expected.height = 50;\n    same(result, expected, 'child');\n    result = aa.get('clippingFrame');\n    expected = aa.get('frame');\n    expected.x = 0;\n    expected.y = 30;\n    expected.height = 10;\n    same(result, expected, 'nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var result, expected;\n    a.adjust('top', 150);\n    result = a.get('clippingFrame');\n    expected = a.get('frame');\n    expected.x = 0;\n    expected.y = 0;\n    expected.height = 50;\n    same(result, expected, 'child');\n    result = aa.get('clippingFrame');\n    expected = aa.get('frame');\n    expected.x = 0;\n    expected.y = 0;\n    expected.height = 30;\n    same(result, expected, 'nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var result, expected;\n    a.adjust('left', -50);\n    result = a.get('clippingFrame');\n    expected = a.get('frame');\n    expected.y = 0;\n    expected.x = 50;\n    expected.width = 50;\n    same(result, expected, 'child');\n    result = aa.get('clippingFrame');\n    expected = aa.get('frame');\n    expected.y = 0;\n    expected.x = 30;\n    expected.width = 10;\n    same(result, expected, 'nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var result, expected;\n    a.adjust('left', 150);\n    result = a.get('clippingFrame');\n    expected = a.get('frame');\n    expected.y = 0;\n    expected.x = 0;\n    expected.width = 50;\n    same(result, expected, 'child');\n    result = aa.get('clippingFrame');\n    expected = aa.get('frame');\n    expected.y = 0;\n    expected.x = 0;\n    expected.width = 30;\n    same(result, expected, 'nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var callCount = 0;\n    function observer() {\n        callCount++;\n    }\n    a.addObserver('clippingFrame', observer);\n    aa.addObserver('clippingFrame', observer);\n    a.adjust('top', -50);\n    equals(callCount, 2, 'should invoke observer on child and nested child');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var callCount = 0;\n    function observer() {\n        callCount++;\n    }\n    a.addObserver('clippingFrame', observer);\n    aa.addObserver('clippingFrame', observer);\n    aa.hasStaticLayout = true;\n    a.adjust('top', -50);\n    equals(callCount, 1, 'should invoke observer on child only');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var $self = $(this);\n    if (helpers._isTable($self)) {\n        methods.setup.apply(this, Array.prototype.slice.call(arguments, 1));\n        $.isFunction(settings.create) && settings.create.call(this);\n    } else {\n        $.error('Invalid table mark-up');\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $.isFunction(arg2) && arg2.call(this);\n}",
+    "receiverBase": "$wrapper",
+    "receiverCallee": "show"
+  },
+  {
+    "callback": "function () {\n    $.isFunction(arg3) && arg3.call(this);\n}",
+    "receiverBase": "$wrapper",
+    "receiverCallee": "show"
+  },
+  {
+    "callback": "function () {\n    $.isFunction(arg3) && arg3.call(this);\n}",
+    "receiverBase": "$wrapper",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    $.isFunction(arg3) && arg3.call(this);\n}",
+    "receiverBase": "$wrapper",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    if (settings.fixedColumns > 0) {\n        var $fixedColumns = $wrapper.find('.fht-fixed-column');\n        $fixedColumns.find('.fht-tbody table').css({ 'margin-top': -$self.scrollTop() });\n    }\n    $thead.find('table').css({ 'margin-left': -this.scrollLeft });\n    if (settings.footer || settings.cloneHeadToFoot) {\n        $tfoot.find('table').css({ 'margin-left': -this.scrollLeft });\n    }\n}",
+    "receiverBase": "$self",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    $(this).css({ 'width': width == undefined ? $(this).width() + tableProps.border : width + tableProps.border });\n}",
+    "receiverBase": "$obj",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).css({ 'width': width == undefined ? $(this).parent().width() + tableProps.border : width + tableProps.border });\n}",
+    "receiverBase": "$obj",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    fixedColumnWidth += $(this).outerWidth(true);\n}",
+    "receiverBase": "$firstThChildren",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    tdWidths.push($(this).width());\n}",
+    "receiverBase": "$firstThChildren",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    helpers._fixHeightWithCss($(this), tableProps);\n    helpers._fixWidthWithCss($(this), tableProps, tdWidths[index % settings.fixedColumns]);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    if (index % settings.fixedColumns == 0) {\n        $newRow = $('<tr></tr>').appendTo($tbody.find('tbody'));\n        if (settings.altClass && $(this).parent().hasClass(settings.altClass)) {\n            $newRow.addClass(settings.altClass);\n        }\n    }\n    $(this).clone().appendTo($newRow);\n}",
+    "receiverBase": "$firstTdChildren",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (event, delta, deltaX, deltaY) {\n    if (deltaY == 0) {\n        return;\n    }\n    var top = parseInt($(this).css('marginTop'), 10) + (deltaY > 0 ? 120 : -120);\n    if (top > 0) {\n        top = 0;\n    }\n    if (top < -maxTop) {\n        top = -maxTop;\n    }\n    $(this).css('marginTop', top);\n    $fixedBody.find('.fht-tbody').scrollTop(-top).scroll();\n    return false;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (index) {\n    tableProp.thead[index] = $(this).width() + tableProp.border;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    tableProp.tfoot[index] = $(this).width() + tableProp.border;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index) {\n    tableProp.tbody[index] = $(this).width() + tableProp.border;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (err, finalString) {\n    var topic = { output: finalString };\n    if (mixins) {\n        Object.keys(mixins).forEach(function (key) {\n            topic[key] = mixins[key];\n        });\n    }\n    vow.callback(err, topic);\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (key) {\n    topic[key] = mixins[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (topic) {\n    var vow = this;\n    portfinder.getPort(function (err, port) {\n        if (err) {\n            vow.callback(err);\n            return;\n        }\n        port = String(port);\n        topic.stderr.expect('usage', vow.callback.bind(vow, port));\n        topic.fe.route([\n            'node',\n            'cli.js',\n            '-p',\n            port\n        ]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "cliTopic"
+  },
+  {
+    "callback": "function (err, port) {\n    if (err) {\n        vow.callback(err);\n        return;\n    }\n    port = String(port);\n    topic.stderr.expect('usage', vow.callback.bind(vow, port));\n    topic.fe.route([\n        'node',\n        'cli.js',\n        '-p',\n        port\n    ]);\n}",
+    "receiverBase": "portfinder",
+    "receiverCallee": "getPort"
+  },
+  {
+    "callback": "function (topic) {\n    var vow = this;\n    portfinder.getPort(function (err, port) {\n        if (err) {\n            vow.callback(err);\n            return;\n        }\n        port = String(port);\n        topic.stderr.expect('started', vow.callback.bind(vow, port));\n        topic.fe.route([\n            'node',\n            'cli.js',\n            '-s',\n            '-p',\n            port\n        ]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "cliTopic"
+  },
+  {
+    "callback": "function (err, port) {\n    if (err) {\n        vow.callback(err);\n        return;\n    }\n    port = String(port);\n    topic.stderr.expect('started', vow.callback.bind(vow, port));\n    topic.fe.route([\n        'node',\n        'cli.js',\n        '-s',\n        '-p',\n        port\n    ]);\n}",
+    "receiverBase": "portfinder",
+    "receiverCallee": "getPort"
+  },
+  {
+    "callback": "function (err, port) {\n    if (err) {\n        vow.callback(err);\n        return;\n    }\n    port = String(port);\n    topic.stderr.expect('When ready', vow.callback.bind(vow, port));\n    topic.fe.route([\n        'node',\n        'cli.js',\n        '-p',\n        port,\n        __dirname + '/fixture/basic.html',\n        __dirname + '/fixture/qunit.html',\n        __dirname + '/fixture/jasmine.html',\n        __dirname + '/fixture/mocha.html',\n        __dirname + '/fixture/doh.html'\n    ]);\n}",
+    "receiverBase": "portfinder",
+    "receiverCallee": "getPort"
+  },
+  {
+    "callback": "function (err, page) {\n    page.open('http://localhost:' + cli.port, onPageOpen);\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "createPage"
+  },
+  {
+    "callback": "function (code) {\n    vow.callback(null, code);\n}",
+    "receiverBase": "emitter",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (topic) {\n    var vow = this;\n    portfinder.getPort(function (err, port) {\n        if (err) {\n            vow.callback(err);\n            return;\n        }\n        port = String(port);\n        topic.stderr.expect('When ready', vow.callback.bind(vow, port));\n        topic.fe.route([\n            'node',\n            'cli.js',\n            '--coverage',\n            '-p',\n            port,\n            __dirname + '/fixture/query-string.html'\n        ]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "cliTopic"
+  },
+  {
+    "callback": "function (err, port) {\n    if (err) {\n        vow.callback(err);\n        return;\n    }\n    port = String(port);\n    topic.stderr.expect('When ready', vow.callback.bind(vow, port));\n    topic.fe.route([\n        'node',\n        'cli.js',\n        '--coverage',\n        '-p',\n        port,\n        __dirname + '/fixture/query-string.html'\n    ]);\n}",
+    "receiverBase": "portfinder",
+    "receiverCallee": "getPort"
+  },
+  {
+    "callback": "function (err, page) {\n    page.open('http://localhost:' + cli.port, onPageOpen);\n}",
+    "receiverBase": "browser",
+    "receiverCallee": "createPage"
+  },
+  {
+    "callback": "function () {\n    assert.include(capture, '0.00');\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function (code) {\n    vow.callback(null, code);\n}",
+    "receiverBase": "emitter",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (event, srcEvent, treeId, node) {\n    tools.apply(setting.callback.onCheck, [\n        !!srcEvent ? srcEvent : event,\n        treeId,\n        node\n    ]);\n}",
+    "receiverBase": "o",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (current) {\n    params.splice(1, 0, current);\n    return 'blockHelperMissing.call(' + params.join(', ') + ')';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (current) {\n    return 'typeof ' + current + ' === functionType ? ' + current + '.apply(depth0) : ' + current;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (current) {\n    return current + ' == null || ' + current + ' === false ? ' + current + ' : ' + this.nameLookup(current, name, 'context');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (name) {\n    return name + ' ? ' + name + '.call(' + helper.callParams + ') ' + ': helperMissing.call(' + helper.helperMissingParams + ')';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "replaceStack"
+  },
+  {
+    "callback": "function (ev) {\n    event.data = args.slice(1);\n    ev.handler.apply(self, args);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (part) {\n    frag.appendChild(part);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (arg, j) {\n    arg.done(function () {\n        rp[j] = arguments.length < 2 ? arguments[0] : arguments;\n        if (++done == args.length) {\n            df.resolve.apply(df, rp);\n        }\n    }).fail(function () {\n        df.reject(arguments.length === 1 ? arguments[0] : arguments);\n    });\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    rp[j] = arguments.length < 2 ? arguments[0] : arguments;\n    if (++done == args.length) {\n        df.resolve.apply(df, rp);\n    }\n}",
+    "receiverBase": "arg",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    df.reject(arguments.length === 1 ? arguments[0] : arguments);\n}",
+    "receiverBase": "done",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (v, i, args) {\n    if (!v)\n        return;\n    if (v.constructor === Array) {\n        args.callee.apply(self, v);\n    } else {\n        if (self._status === _status)\n            v.apply(self, self._resultArgs || []);\n        self[type].push(v);\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    d.resolve(done.apply(this, arguments));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    if (fail) {\n        d.reject(fail.apply(this, arguments));\n    } else {\n        d.reject.apply(d, arguments);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (d) {\n    d.apply(context, args);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    fn.apply(this, [event].concat(args));\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    if (node.nodeType !== 1) {\n        node.parentNode.removeChild(node);\n    } else {\n        return true;\n    }\n}",
+    "receiverBase": "wrapped",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (whole, inside) {\n    var ob = can.getObject(inside, data, remove === true ? false : undefined);\n    if (ob === undefined) {\n        obs = null;\n        return '';\n    }\n    if (isContainer(ob) && obs) {\n        obs.push(ob);\n        return '';\n    }\n    return '' + ob;\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (item) {\n    if (item && item.unbind) {\n        item.unbind('change' + namespace);\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var args = can.makeArray(arguments), ev = args.shift();\n    args[0] = (prop === '*' ? [\n        parent.indexOf(child),\n        args[0]\n    ] : [\n        prop,\n        args[0]\n    ]).join('.');\n    ev.triggeredNS = ev.triggeredNS || {};\n    if (ev.triggeredNS[parent._cid]) {\n        return;\n    }\n    ev.triggeredNS[parent._cid] = true;\n    can.trigger(parent, ev, args);\n}",
+    "receiverBase": "child",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (val, name) {\n    where[name] = canMakeObserve(val) && can.isFunction(val[how]) ? val[how]() : val;\n}",
+    "receiverBase": "observe",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child, prop) {\n    if (child && child.bind) {\n        bindToChildAndBubbleToParent(child, wildcard || prop, parent);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_each"
+  },
+  {
+    "callback": "function (args) {\n    can.trigger.apply(can, args);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (cb) {\n    cb();\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (child) {\n    unhookup([child], cid);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_each"
+  },
+  {
+    "callback": "function (where, name) {\n    list.prototype[name] = function () {\n        var args = getArgs(arguments), len = where && this.length ? this.length - 1 : 0;\n        var res = [][name].apply(this, args);\n        this._triggerChange('' + len, 'remove', undefined, [res]);\n        if (res && res.unbind) {\n            res.unbind('change' + this._cid);\n        }\n        return res;\n    };\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (arg, i) {\n    args[i] = arg instanceof can.Observe.List ? arg.serialize() : arg;\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ob) {\n    if (observing[ob.obj._cid + '|' + ob.attr]) {\n        observing[ob.obj._cid + '|' + ob.attr].matched = matched;\n    } else {\n        observing[ob.obj._cid + '|' + ob.attr] = {\n            matched: matched,\n            observe: ob\n        };\n        ob.obj.bind(ob.attr, onchanged);\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var args = can.makeArray(arguments);\n    args[0] = model[func](args[0]);\n    d.resolveWith(d, args);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    d.rejectWith(this, arguments);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    self[method || type + 'd'](data, jqXHR);\n    return self;\n}",
+    "receiverBase": "jqXHR",
+    "receiverCallee": "pipe"
+  },
+  {
+    "callback": "function () {\n    can.Model._reqs++;\n    var def = newMethod.apply(this, arguments);\n    var then = def.then(clean, clean);\n    then.abort = def.abort;\n    return then;\n}",
+    "receiverBase": "Construct",
+    "receiverCallee": "_overwrite"
+  },
+  {
+    "callback": "function (rawPart) {\n    tmp.push(self.model(rawPart));\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, prop) {\n    if (prop !== 'data') {\n        res.attr(prop, val);\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data) {\n    self.destroyed(data);\n}",
+    "receiverBase": "def",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (method, name) {\n    can.Model[name] = function (oldMethod) {\n        return function () {\n            var args = can.makeArray(arguments), oldArgs = can.isFunction(args[1]) ? args.splice(0, 1) : args.splice(0, 2), def = pipe(oldMethod.apply(this, oldArgs), this, method);\n            def.then(args[0], args[1]);\n            return def;\n        };\n    };\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (funcName) {\n    can.Model.prototype[funcName] = function (attrs) {\n        var stub, constructor = this.constructor;\n        stub = attrs && typeof attrs == 'object' && this.attr(attrs.attr ? attrs.attr() : attrs);\n        can.trigger(this, 'change', funcName);\n        can.trigger(constructor, funcName, this);\n    };\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (result, data) {\n    deferred.resolve.call(deferred, pipe(result), data);\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    deferred.fail.apply(deferred, arguments);\n}",
+    "receiverBase": "result",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (part) {\n    if (part) {\n        return part;\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (node) {\n    if (node.nodeType === 1) {\n        hookupEls.push(node);\n        hookupEls.push.apply(hookupEls, can.makeArray(node.getElementsByTagName('*')));\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el) {\n    if (el.getAttribute && (id = el.getAttribute('data-view-id')) && (func = $view.hookups[id])) {\n        func(el, parentNode, id);\n        delete $view.hookups[id];\n        el.removeAttribute('data-view-id');\n    }\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (resolved) {\n    var objs = makeArray(arguments), renderer = objs.pop(), result;\n    if (can.isDeferred(data)) {\n        dataCopy = usefulPart(resolved);\n    } else {\n        for (var prop in data) {\n            if (can.isDeferred(data[prop])) {\n                dataCopy[prop] = usefulPart(objs.shift());\n            }\n        }\n    }\n    result = renderer(dataCopy, helpers);\n    deferred.resolve(result, dataCopy);\n    callback && callback(result, dataCopy);\n}",
+    "receiverBase": "apply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    deferred.reject.apply(deferred, arguments);\n}",
+    "receiverBase": "apply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (renderer) {\n    callback(data ? renderer(data, helpers) : renderer);\n}",
+    "receiverBase": "deferred",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (renderer) {\n    response = data ? renderer(data, helpers) : renderer;\n}",
+    "receiverBase": "deferred",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (options, success, error) {\n    var type = $view.types['.' + options.type], id = $view.toId(options.id);\n    options.text = 'steal(\\'' + (type.plugin || 'can/view/' + options.type) + '\\',function(can){return ' + 'can.view.preload(\\'' + id + '\\',' + options.text + ');\\n})';\n    success();\n}",
+    "receiverBase": "steal",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function (options, success, error) {\n    var type = $view.types['.' + options.type], id = $view.toId(options.id + '');\n    options.text = type.script(id, options.text);\n    success();\n}",
+    "receiverBase": "steal",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function (data, helpers) {\n    return renderer.call(data, data, helpers);\n}",
+    "receiverCallee": "resolve"
+  },
+  {
+    "callback": "function (node) {\n    addNodeListId(node, nodeListId);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    addNodeListId(node, nLId);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    removeNodeListId(node, nLId);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    return id(n) + ':' + (n.innerHTML || n.nodeValue);\n}",
+    "receiverBase": "nodeList",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    compute.bind('change', change);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function (data) {\n    compute.unbind('change', change);\n    if (data.nodeList) {\n        nodeLists.unregister(data.nodeList);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function (item) {\n    var itemHTML = func.call(context, item), itemFrag = can.view.frag(itemHTML, parentNode);\n    newMappings.push(can.makeArray(itemFrag.childNodes));\n    frag.appendChild(itemFrag);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeList) {\n    nodeLists.register(nodeList);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nodeList) {\n    [].push.apply(itemsToRemove, nodeList);\n    nodeLists.replace(nodeList, []);\n    nodeLists.unregister(nodeList);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    list.bind('add', add).bind('remove', remove);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    list.unbind('add', add).unbind('remove', remove);\n    can.each(nodesMap, function (nodeList) {\n        nodeLists.unregister(nodeList);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function (nodeList) {\n    nodeLists.unregister(nodeList);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ev, newVal, oldVal) {\n    var attached = nodes[0].parentNode;\n    if (attached) {\n        makeAndPut(newVal);\n    }\n    data.teardownCheck(nodes[0].parentNode);\n}",
+    "receiverBase": "",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (ev, newVal, oldVal) {\n    if (typeof node.nodeValue != 'unknown') {\n        node.nodeValue = '' + newVal;\n    }\n    data.teardownCheck(node.parentNode);\n}",
+    "receiverBase": "",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (ev, newVal) {\n    setAttrs(newVal);\n}",
+    "receiverBase": "",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (ev, newVal) {\n    elements.setAttr(el, attributeName, hook.render());\n}",
+    "receiverBase": "",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    return elements.contentText(hook.computes[i++]());\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (el) {\n    can.each(hooks, function (fn) {\n        fn(el);\n    });\n}",
+    "receiverBase": "view",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function (fn) {\n    fn(el);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el, parentNode) {\n    live.list(el, listData.list, listData.renderer, self, parentNode);\n}",
+    "receiverBase": "view",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function (el) {\n    live.attributes(el, compute, compute());\n    unbind();\n}",
+    "receiverBase": "pendingHookups",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (el) {\n    live.attribute(el, attributeName, compute);\n    unbind();\n}",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (bracket, offset) {\n    brackets.push([\n        bracket,\n        offset\n    ]);\n}",
+    "receiverBase": "part",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (item, i) {\n    cb(item, i, list);\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el) {\n    can.unbind.call(el, 'destroyed', destroyCB);\n}",
+    "receiverBase": "bindings",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (value) {\n    value(el);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    processors[v] = basicProcessor;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, name) {\n    tags.push((name === 'className' ? 'class' : name) + '=\"' + (name === 'href' ? val : can.esc(val)) + '\"');\n}",
+    "receiverBase": "can",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (whole, name, i) {\n    names.push(name);\n    var next = '\\\\' + (url.substr(i + whole.length, 1) || can.route._querySeparator);\n    return '([^' + next + ']' + (defaults[name] ? '*' : '+') + ')';\n}",
+    "receiverBase": "url",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    propCount++;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (temp, name) {\n    matchCount = matchesData(temp, data);\n    if (matchCount > matches) {\n        route = temp;\n        matches = matchCount;\n    }\n    if (matchCount >= propCount) {\n        return false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (whole, name) {\n    delete cpy[name];\n    return data[name] === route.defaults[name] ? '' : encodeURIComponent(data[name]);\n}",
+    "receiverBase": "route",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (val, name) {\n    if (cpy[name] === val) {\n        delete cpy[name];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (temp, name) {\n    if (temp.test.test(url) && temp.length > route.length) {\n        route = temp;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (part, i) {\n    if (part && part !== can.route._querySeparator) {\n        obj[route.names[i]] = decodeURIComponent(part);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    can.route[name] = function () {\n        if (!can.route.data[name]) {\n            return;\n        }\n        return can.route.data[name].apply(can.route.data, arguments);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ev, attr) {\n    changingData = 1;\n    clearTimeout(timer);\n    timer = setTimeout(function () {\n        changingData = 0;\n        var serialized = can.route.data.serialize();\n        lastHash = can.route._setHash(serialized);\n    }, 1);\n}",
+    "receiverBase": "route",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    changingData = 0;\n    var serialized = can.route.data.serialize();\n    lastHash = can.route._setHash(serialized);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

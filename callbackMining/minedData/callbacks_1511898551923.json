@@ -1,0 +1,222 @@
+[
+  {
+    "callback": "function (result) {\n    file = result.file;\n    error = result.error;\n    str += file + ': line ' + error.line + ', col ' + error.character + ', ' + error.reason + '\\n';\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, exports, module) {\n    module.exports = req('./first');\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (err, stream) {\n    t.ok(err, 'got err in error event: ' + err);\n    t.equal(err.code, 'ENOENT', 'error code is ENOENT');\n    t.ok(stream, 'got a stream argument');\n    t.equal(stream.path, LOG_PATH);\n    t.equal(stream.type, 'file');\n    t.end();\n}",
+    "receiverBase": "log",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key, value) {\n    out.push(key + '=' + value);\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (field) {\n    Ext.Array.forEach(field.getErrors(), function (error) {\n        errors.push({\n            name: field.getFieldLabel(),\n            error: error\n        });\n    });\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (error) {\n    errors.push({\n        name: field.getFieldLabel(),\n        error: error\n    });\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    _this.Active = !_this.Active;\n    if (_this.Active) {\n        canvas.style.cursor = 'move';\n    } else {\n        canvas.style.cursor = 'default';\n    }\n}",
+    "receiverBase": "keyboardHandler",
+    "receiverCallee": "OnCommandPress"
+  },
+  {
+    "callback": "function (e) {\n    _this._downAt = e.Position;\n    _this._cameraStartPosition = camera.Position.Clone();\n    _this._dragging = true;\n}",
+    "receiverBase": "OnDown",
+    "receiverCallee": "Bind"
+  },
+  {
+    "callback": "function (e) {\n    _this._cameraStartPosition = null;\n    window.setTimeout(function () {\n        this.Dragging = false;\n    }, 150);\n}",
+    "receiverBase": "OnUp",
+    "receiverCallee": "Bind"
+  },
+  {
+    "callback": "function () {\n    this.Dragging = false;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (_this._dragging && _this._cameraStartPosition && _this.Active) {\n        camera.Position = _this._cameraStartPosition.Add(_this._downAt.Subtract(e.Position));\n    }\n}",
+    "receiverBase": "OnMove",
+    "receiverCallee": "Bind"
+  },
+  {
+    "callback": "function (d) {\n    return d.values.length;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return d;\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "text"
+  },
+  {
+    "callback": "function (d, i) {\n    return d.color || color(d, i);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d, i) {\n    return !data[i].disabled;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    return !d.disabled;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d, i) {\n    d.disabled = !d.disabled;\n    if (!data.filter(function (d) {\n            return !d.disabled;\n        }).length) {\n        data.map(function (d) {\n            d.disabled = false;\n            wrap.selectAll('.nv-series').classed('disabled', false);\n            return d;\n        });\n    }\n    state.disabled = data.map(function (d) {\n        return !!d.disabled;\n    });\n    dispatch.stateChange(state);\n    selection.transition().call(chart);\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (d) {\n    return !d.disabled;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (d) {\n    d.disabled = false;\n    wrap.selectAll('.nv-series').classed('disabled', false);\n    return d;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (d) {\n    return !!d.disabled;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    if (tooltips)\n        showTooltip(e, that.parentNode);\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (typeof e.disabled !== 'undefined') {\n        data.forEach(function (series, i) {\n            series.disabled = e.disabled[i];\n        });\n        state.disabled = e.disabled;\n    }\n    selection.call(chart);\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (series, i) {\n    series.disabled = e.disabled[i];\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    e.pos = [\n        e.pos[0] + margin.left,\n        e.pos[1] + margin.top\n    ];\n    dispatch.tooltipShow(e);\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    dispatch.tooltipHide(e);\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (tooltips)\n        nv.tooltip.cleanup();\n}",
+    "receiverBase": "dispatch",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (Y) {\n    Y.Intl.add('i18n', 'en-US', { TITLE: 'Hello!' });\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    reframeCenterIU('.' + transition.id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "show"
+  },
+  {
+    "callback": "function () {\n    reframeCenterIU('.' + transition.id);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "show"
+  },
+  {
+    "callback": "function () {\n    $(secondObj).css({\n        'visibility': 'hidden',\n        'display': 'block'\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    $(secondObj).css({\n        'visibility': 'hidden',\n        'display': 'block'\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function (i) {\n    if (i != index) {\n        $(this).css('display', 'none');\n    } else {\n        $(this).css('display', 'block');\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var pos = $(this).position().top;\n    var caller = $(this).attr('linkcaller');\n    dict[caller] = pos;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (a, b) {\n    return a[1] - b[1];\n}",
+    "receiverBase": "sortable",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    $(this).removeAttr('style');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    resizeCollection();\n    reframeCenter();\n    resizePageLinkSet();\n    resizeSideBar();\n    makefullSizeSection();\n    resizePageContentHeight();\n    reloadTextMediaQuery();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    onWebMovieAutoPlay();\n    moveScrollAnimation();\n    activateDivLink();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "scroll"
+  },
+  {
+    "callback": "function (newValue) {\n    if (newValue.length === 0) {\n        scope.placeholder = attrs.placeholder ? attrs.placeholder : '';\n    } else\n        scope.placeholder = '';\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue) {\n    var length = scope.placeholder.length;\n    if (newValue.length > 0)\n        length = newValue.length;\n    scope.inputWidth = 10 + length * 6;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (newValue) {\n    scope.showSelector = newValue.some(function (element) {\n        return element;\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (element) {\n    return element;\n}",
+    "receiverBase": "newValue",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (err) {\n    console.log(err);\n}",
+    "receiverBase": "seneca",
+    "receiverCallee": "act"
+  },
+  {
+    "callback": "function () {\n    handleOpenWindow({\n        target: 'Remove Object',\n        id: evt.id,\n        classname: evt.classname\n    });\n}",
+    "receiverBase": "remove",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.success) {\n        alert('Updated!');\n    } else {\n        error(e);\n    }\n    button.show();\n}",
+    "receiverBase": "Objects",
+    "receiverCallee": "update"
+  }
+]

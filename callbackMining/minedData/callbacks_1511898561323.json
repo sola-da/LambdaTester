@@ -1,0 +1,732 @@
+[
+  {
+    "callback": "function () {\n    clearTimeout(keyTimeout);\n    keyTimeout = setTimeout(function () {\n        input.change();\n    }, timeout);\n}",
+    "receiverBase": "change",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function () {\n    input.change();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    require('./removeIgnores');\n    require('./analytics');\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var container = document.querySelector('#stamp-top-left');\n    var msnry = new Masonry(container, {\n            itemSelector: '.item',\n            stamp: '.stamp'\n        });\n    checkItemPositions(msnry, {\n        0: {\n            left: 0,\n            top: 20\n        },\n        1: {\n            left: 135,\n            top: 20\n        },\n        2: {\n            left: 45,\n            top: 40\n        },\n        3: {\n            left: 90,\n            top: 40\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var msnry = new Masonry('#stamp-column-width-multiple', {\n            itemSelector: '.item',\n            stamp: '.stamp'\n        });\n    checkItemPositions(msnry, {\n        0: {\n            left: 0,\n            top: 0\n        },\n        1: {\n            left: 135,\n            top: 0\n        },\n        2: {\n            left: 0,\n            top: 30\n        },\n        3: {\n            left: 45,\n            top: 30\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (dep) {\n    if (!dep)\n        return;\n    dep = DEPENDENCIES[dep] || dep;\n    var ext = dep.split(/\\./).pop();\n    if (ext == 'css') {\n        properties.head += '<link rel=\"stylesheet\" href=\"' + dep + '\" type=\"text/css\">\\n';\n    } else if (ext == 'js') {\n        properties.head += '<script src=\"' + dep + '\"></script>\\n';\n    } else {\n        properties.module = '=\"' + dep + '\"';\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fileName) {\n    var script = getEmbeddedTemplate(fileName);\n    try {\n        if (window.execScript) {\n            window.execScript(script || '\"\"');\n        } else {\n            window.eval(script + '//@ sourceURL=' + fileName);\n        }\n    } catch (e) {\n        if (window.console) {\n            window.console.log(script, '\\n', e);\n        } else {\n            window.alert(e);\n        }\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    this.$get = [\n        '$rootScope',\n        function ($rootScope) {\n            docsRootScope.$on('$locationChangeSuccess', function (event, oldUrl, newUrl) {\n                $rootScope.$broadcast('$locationChangeSuccess', oldUrl, newUrl);\n            });\n            return $location;\n        }\n    ];\n    this.html5Mode = angular.noop;\n    this.hashPrefix = function () {\n        return '';\n    };\n}",
+    "receiverBase": "$provide",
+    "receiverCallee": "provider"
+  },
+  {
+    "callback": "function (event, oldUrl, newUrl) {\n    $rootScope.$broadcast('$locationChangeSuccess', oldUrl, newUrl);\n}",
+    "receiverBase": "docsRootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    embedRootScope.$$postDigest(docsRootDigest);\n}",
+    "receiverBase": "embedRootScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function embedRootScopeDigestWatch() {\n    embedRootScope.$digest();\n}",
+    "receiverBase": "docsRootScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (event) {\n    if (event.target.attributes.getNamedItem('ng-click')) {\n        event.preventDefault();\n    }\n}",
+    "receiverBase": "element",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    deregisterEmbedRootScope();\n    embedRootScope.$destroy();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (_, key, indent) {\n    var value = properties[key];\n    if (indent) {\n        value = indentCode(value, indent);\n    }\n    return value == undefined ? '' : value;\n}",
+    "receiverBase": "template",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (val) {\n    return !(this.date instanceof Date);\n}",
+    "receiverBase": "Person",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (ev, errs) {\n    ok(this === task, 'we get task back by binding');\n    ok(errs, 'There are errors');\n    equals(errs.age.length, 1, 'there is one error');\n    equals(errs.age[0], 'it\\'s a date type', 'error message is right');\n}",
+    "receiverBase": "task",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "task",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (errs) {\n    ok(this === task, 'we get task back in error handler');\n    ok(errs, 'There are errors');\n    equals(errs.age.length, 1, 'there is one error');\n    equals(errs.age[0], 'it\\'s a date type', 'error message is right');\n}",
+    "receiverBase": "task",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (test) {\n    Session.setDefault('def', 'argyle');\n    test.equal(Session.get('def'), 'argyle');\n    Session.set('def', 'noodle');\n    test.equal(Session.get('def'), 'noodle');\n    Session.set('nondef', 'potato');\n    test.equal(Session.get('nondef'), 'potato');\n    Session.setDefault('nondef', 'eggs');\n    test.equal(Session.get('nondef'), 'potato');\n    delete Session.keys['def'];\n    delete Session.keys['nondef'];\n}",
+    "receiverBase": "Tinytest",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    Session.equals('arr', [\n        1,\n        2,\n        {\n            a: 1,\n            b: [\n                5,\n                6\n            ]\n        }\n    ]);\n}",
+    "receiverBase": "test",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    Session.equals('obj', {\n        a: 1,\n        b: [\n            5,\n            6\n        ]\n    });\n}",
+    "receiverBase": "test",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function (test) {\n    Session.set('frozen-array', [\n        1,\n        2,\n        3\n    ]);\n    Session.get('frozen-array')[1] = 42;\n    test.equal(Session.get('frozen-array'), [\n        1,\n        2,\n        3\n    ]);\n    Session.set('frozen-object', {\n        a: 1,\n        b: 2\n    });\n    Session.get('frozen-object').a = 43;\n    test.equal(Session.get('frozen-object'), {\n        a: 1,\n        b: 2\n    });\n}",
+    "receiverBase": "Tinytest",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (test) {\n    var xGetExecutions = 0;\n    Deps.autorun(function () {\n        ++xGetExecutions;\n        Session.get('x');\n    });\n    test.equal(xGetExecutions, 1);\n    Session.set('x', 1);\n    test.equal(xGetExecutions, 1);\n    Deps.flush();\n    test.equal(xGetExecutions, 2);\n    Session.set('x', 1);\n    Deps.flush();\n    test.equal(xGetExecutions, 2);\n    Session.set('x', '1');\n    Deps.flush();\n    test.equal(xGetExecutions, 3);\n}",
+    "receiverBase": "Tinytest",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    ++xGetExecutions;\n    Session.get('x');\n}",
+    "receiverBase": "Deps",
+    "receiverCallee": "autorun"
+  },
+  {
+    "callback": "function () {\n    ++xEqualsExecutions;\n    Session.equals('x', 5);\n}",
+    "receiverBase": "Deps",
+    "receiverCallee": "autorun"
+  },
+  {
+    "callback": "function () {\n    ++yEqualsExecutions;\n    Session.equals('y', undefined);\n}",
+    "receiverBase": "Deps",
+    "receiverCallee": "autorun"
+  },
+  {
+    "callback": "function setup() {\n    app = loopback();\n    steps = [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (name) {\n    app.middleware(name, namedHandler(name));\n}",
+    "receiverBase": "PHASES",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'initial',\n        'session',\n        'auth',\n        'parse',\n        'main',\n        'routes',\n        'files',\n        'final'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('initial', namedHandler('first'));\n    app.middleware('initial', namedHandler('second'));\n    executeMiddlewareHandlers(app, function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql([\n            'first',\n            'second'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'first',\n        'second'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('routes:before', namedHandler('routes:before'));\n    app.middleware('routes:after', namedHandler('routes:after'));\n    app.use(namedHandler('main'));\n    executeMiddlewareHandlers(app, function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql([\n            'routes:before',\n            'main',\n            'routes:after'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'routes:before',\n        'main',\n        'routes:after'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'my-handler',\n        'extra-handler'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql(['my-handler']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql(['my-handler']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (req, res, next) {\n    steps.push('initial');\n    next(expectedError);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function errorHandler(err, req, res, next) {\n    expect(err).to.equal(expectedError);\n    steps.push('error');\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'initial',\n        'error'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    var expectedError = new Error('expected error');\n    app.middleware('initial', function (req, res, next) {\n        next(expectedError);\n    });\n    executeMiddlewareHandlers(app, function (err) {\n        expect(err).to.equal(expectedError);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, next) {\n    next(expectedError);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.equal(expectedError);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (req, res, next) {\n    process.nextTick(function () {\n        next(expectedError);\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function () {\n    next(expectedError);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, req, res, next) {\n    handledError = err;\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(handledError).to.equal(expectedError);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('initial', '/scope', pathSavingHandler());\n    async.eachSeries([\n        '/',\n        '/scope',\n        '/scope/item',\n        '/other'\n    ], function (url, next) {\n        executeMiddlewareHandlers(app, url, next);\n    }, function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql([\n            '/scope',\n            '/scope/item'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (url, next) {\n    executeMiddlewareHandlers(app, url, next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        '/scope',\n        '/scope/item'\n    ]);\n    done();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('initial', /^\\/(a|b)/, pathSavingHandler());\n    async.eachSeries([\n        '/',\n        '/a',\n        '/b',\n        '/c'\n    ], function (url, next) {\n        executeMiddlewareHandlers(app, url, next);\n    }, function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql([\n            '/a',\n            '/b'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (url, next) {\n    executeMiddlewareHandlers(app, url, next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        '/a',\n        '/b'\n    ]);\n    done();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (url, next) {\n    executeMiddlewareHandlers(app, url, next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        '/a',\n        '/b',\n        '/scope'\n    ]);\n    done();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('initial', ['/scope'], function (req, res, next) {\n        steps.push(req.url);\n        next();\n    });\n    executeMiddlewareHandlers(app, '/scope/id', function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql(['/id']);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, next) {\n    steps.push(req.url);\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql(['/id']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (rq, rs, next) {\n    req = rq;\n    res = rs;\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(getObjectAndPrototypeKeys(req), 'request').to.include.members([\n        'accepts',\n        'get',\n        'param',\n        'params',\n        'query',\n        'res'\n    ]);\n    expect(getObjectAndPrototypeKeys(res), 'response').to.include.members([\n        'cookie',\n        'download',\n        'json',\n        'jsonp',\n        'redirect',\n        'req',\n        'send',\n        'sendFile',\n        'set'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    var reqProps;\n    app.middleware('initial', function (req, res, next) {\n        reqProps = {\n            baseUrl: req.baseUrl,\n            originalUrl: req.originalUrl\n        };\n        next();\n    });\n    executeMiddlewareHandlers(app, '/test/url', function (err) {\n        if (err)\n            return done(err);\n        expect(reqProps).to.eql({\n            baseUrl: '',\n            originalUrl: '/test/url'\n        });\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, next) {\n    reqProps = {\n        baseUrl: req.baseUrl,\n        originalUrl: req.originalUrl\n    };\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(reqProps).to.eql({\n        baseUrl: '',\n        originalUrl: '/test/url'\n    });\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    app.middleware('files', namedHandler('files'));\n    app.get('/test', namedHandler('route'));\n    executeMiddlewareHandlers(app, '/test', function (err) {\n        if (err)\n            return done(err);\n        expect(steps).to.eql([\n            'route',\n            'files'\n        ]);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        'route',\n        'files'\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (done) {\n    var numbers = [\n            1,\n            2,\n            3,\n            4,\n            5,\n            6,\n            7,\n            8,\n            9\n        ];\n    numbers.forEach(function (n) {\n        app.middleware('routes', namedHandler(n));\n    });\n    executeMiddlewareHandlers(app, function (err) {\n        if (err)\n            return done;\n        expect(steps).to.eql(numbers);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (n) {\n    app.middleware('routes', namedHandler(n));\n}",
+    "receiverBase": "numbers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done;\n    expect(steps).to.eql(numbers);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (req, res, next) {\n    data = {\n        mountpath: req.app.mountpath,\n        parent: req.app.parent\n    };\n    next();\n}",
+    "receiverBase": "subapp",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function () {\n    mountWasEmitted = true;\n}",
+    "receiverBase": "subapp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(mountWasEmitted, 'mountWasEmitted').to.be.true;\n    expect(data).to.eql({\n        mountpath: '/mountpath',\n        parent: app\n    });\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function verifyTestAssumptions(req, res, next) {\n    expect(req.__proto__).to.not.equal(expected.req);\n    expect(res.__proto__).to.not.equal(expected.res);\n    next();\n}",
+    "receiverBase": "subapp",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function saveOriginalValues(req, res, next) {\n    expected.req = req.__proto__;\n    expected.res = res.__proto__;\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function saveActualValues(req, res, next) {\n    actual.req = req.__proto__;\n    actual.res = res.__proto__;\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(actual.req, 'req').to.equal(expected.req);\n    expect(actual.res, 'res').to.equal(expected.res);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        ['before'],\n        [expectedConfig],\n        [\n            'after',\n            2\n        ]\n    ]);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function factory() {\n    return function (req, res, next) {\n        steps.push(req.originalUrl);\n        next();\n    };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middlewareFromConfig"
+  },
+  {
+    "callback": "function (url, next) {\n    executeMiddlewareHandlers(app, url, next);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql([\n        '/a',\n        '/b',\n        '/scope'\n    ]);\n    done();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "eachSeries"
+  },
+  {
+    "callback": "function () {\n    app = loopback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    app.defineMiddlewarePhases('custom');\n    verifyMiddlewarePhases([\n        'custom',\n        'routes'\n    ], done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    app.defineMiddlewarePhases([\n        'first',\n        'routes',\n        'subapps'\n    ]);\n    verifyMiddlewarePhases([\n        'first',\n        'initial',\n        'routes',\n        'subapps'\n    ], done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    app.defineMiddlewarePhases([\n        'initial',\n        'postinit',\n        'preauth',\n        'auth',\n        'routes',\n        'subapps',\n        'final',\n        'last'\n    ]);\n    verifyMiddlewarePhases([\n        'initial',\n        'postinit',\n        'preauth',\n        'auth',\n        'routes',\n        'subapps',\n        'files',\n        'final',\n        'last'\n    ], done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.defineMiddlewarePhases([\n        'first',\n        'second'\n    ]);\n    expect(function () {\n        app.defineMiddlewarePhases([\n            'second',\n            'first'\n        ]);\n    }).to.throw(/Ordering conflict.*first.*second/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.defineMiddlewarePhases([\n        'second',\n        'first'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function (it) {\n    app.middleware(it, function (req, res, next) {\n        steps.push(it);\n        next();\n    });\n}",
+    "receiverBase": "names",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, res, next) {\n    steps.push(it);\n    next();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "middleware"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    expect(steps).to.eql(names);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "executeMiddlewareHandlers"
+  },
+  {
+    "callback": "function () {\n    app = loopback();\n    db = loopback.createDataSource({ connector: loopback.Memory });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var Color = PersistedModel.extend('color', { name: String });\n    app.model(Color);\n    Color.attachTo(db);\n    expect(app.models()).to.eql([Color]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Color = PersistedModel.extend('color', { name: String });\n    app.model(Color);\n    Color.attachTo(db);\n    expect(app.remoteObjects()).to.eql({ color: Color });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Color = PersistedModel.extend('color', { name: String });\n    app.model(Color);\n    Color.attachTo(db);\n    var classes = app.remotes().classes().map(function (c) {\n            return c.name;\n        });\n    expect(classes).to.contain('color');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (c) {\n    return c.name;\n}",
+    "receiverBase": "classes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var Color = db.createModel('color', { name: String });\n    app.model(Color);\n    expect(Color.app).to.be.equal(app);\n    expect(Color.shared).to.equal(true);\n    expect(app.models.color).to.equal(Color);\n    expect(app.models.Color).to.equal(Color);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Color = PersistedModel.extend('color', { name: String });\n    Color.shared = true;\n    var remotedClass;\n    app.on('modelRemoted', function (sharedClass) {\n        remotedClass = sharedClass;\n    });\n    app.model(Color);\n    expect(remotedClass).to.exist;\n    expect(remotedClass).to.eql(Color.sharedClass);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (sharedClass) {\n    remotedClass = sharedClass;\n}",
+    "receiverBase": "app",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    app.use(loopback.rest());\n    request(app).get('/colors').expect(404, function (err, res) {\n        if (err)\n            return done(err);\n        var Color = PersistedModel.extend('color', { name: String });\n        app.model(Color);\n        Color.attachTo(db);\n        request(app).get('/colors').expect(200, done);\n    });\n}",
+    "receiverBase": "it",
+    "receiverCallee": "onServer"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    var Color = PersistedModel.extend('color', { name: String });\n    app.model(Color);\n    Color.attachTo(db);\n    request(app).get('/colors').expect(200, done);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    app.model('MyTestModel', { dataSource: null });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.model('MyTestModel', {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app = loopback();\n    app.dataSource('db', { connector: 'memory' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    app.model('foo', { dataSource: 'db' });\n    var Foo = app.models.foo;\n    var f = new Foo();\n    assert(f instanceof app.registry.getModel('Model'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.model('foo', {\n        dataSource: 'db',\n        base: 'User'\n    });\n    expect(app.models.foo.definition.settings.base).to.equal('User');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.model('foo', {\n        dataSource: 'db',\n        base: 'User',\n        options: { base: 'Application' }\n    });\n    expect(app.models.foo.definition.settings.base).to.equal('Application');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.model('foo', {\n        dataSource: 'db',\n        public: false\n    });\n    expect(app.models.foo.app).to.equal(app);\n    expect(app.models.foo.shared).to.equal(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.model('foo', { dataSource: 'db' });\n    expect(app.models.foo.app).to.equal(app);\n    expect(app.models.foo.shared).to.equal(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('attaches the model to a datasource', function () {\n        var previousModel = loopback.registry.findModel('TestModel');\n        app.dataSource('db', { connector: 'memory' });\n        if (previousModel) {\n            delete previousModel.dataSource;\n        }\n        assert(!previousModel || !previousModel.dataSource);\n        app.model('TestModel', { dataSource: 'db' });\n        expect(app.models.TestModel.dataSource).to.equal(app.dataSources.db);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var previousModel = loopback.registry.findModel('TestModel');\n    app.dataSource('db', { connector: 'memory' });\n    if (previousModel) {\n        delete previousModel.dataSource;\n    }\n    assert(!previousModel || !previousModel.dataSource);\n    app.model('TestModel', { dataSource: 'db' });\n    expect(app.models.TestModel.dataSource).to.equal(app.dataSources.db);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('is unique per app instance', function () {\n        app.dataSource('db', { connector: 'memory' });\n        var Color = app.model('Color', { dataSource: 'db' });\n        expect(app.models.Color).to.equal(Color);\n        var anotherApp = loopback();\n        expect(anotherApp.models.Color).to.equal(undefined);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    app.dataSource('db', { connector: 'memory' });\n    var Color = app.model('Color', { dataSource: 'db' });\n    expect(app.models.Color).to.equal(Color);\n    var anotherApp = loopback();\n    expect(anotherApp.models.Color).to.equal(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('is unique per app instance', function () {\n        app.dataSource('ds', { connector: 'memory' });\n        expect(app.datasources.ds).to.not.equal(undefined);\n        var anotherApp = loopback();\n        expect(anotherApp.datasources.ds).to.equal(undefined);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    app.dataSource('ds', { connector: 'memory' });\n    expect(app.datasources.ds).to.not.equal(undefined);\n    var anotherApp = loopback();\n    expect(anotherApp.datasources.ds).to.equal(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('looks up the connector in `app.connectors`', function () {\n        app.connector('custom', loopback.Memory);\n        app.dataSource('custom', { connector: 'custom' });\n        expect(app.dataSources.custom.name).to.equal(loopback.Memory.name);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    app.connector('custom', loopback.Memory);\n    app.dataSource('custom', { connector: 'custom' });\n    expect(app.dataSources.custom.name).to.equal(loopback.Memory.name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('port', 0);\n    app.get('/', function (req, res) {\n        res.status(200).send('OK');\n    });\n    var server = app.listen();\n    expect(server).to.be.an.instanceOf(require('http').Server);\n    request(server).get('/').expect(200, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.status(200).send('OK');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('port', 0);\n    app.listen(function () {\n        expect(app.get('port'), 'port').to.not.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(app.get('port'), 'port').to.not.equal(0);\n    done();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('port', 0);\n    app.set('host', undefined);\n    app.listen(function () {\n        var host = process.platform === 'win32' ? 'localhost' : app.get('host');\n        var expectedUrl = 'http://' + host + ':' + app.get('port') + '/';\n        expect(app.get('url'), 'url').to.equal(expectedUrl);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var host = process.platform === 'win32' ? 'localhost' : app.get('host');\n    var expectedUrl = 'http://' + host + ':' + app.get('port') + '/';\n    expect(app.get('url'), 'url').to.equal(expectedUrl);\n    done();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('port', 1);\n    app.listen(0, '127.0.0.1', function () {\n        expect(app.get('port'), 'port').to.not.equal(0).and.not.equal(1);\n        expect(this.address().address).to.equal('127.0.0.1');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(app.get('port'), 'port').to.not.equal(0).and.not.equal(1);\n    expect(this.address().address).to.equal('127.0.0.1');\n    done();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('port', 1);\n    app.listen(0).on('listening', function () {\n        expect(app.get('port'), 'port').to.not.equal(0).and.not.equal(1);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(app.get('port'), 'port').to.not.equal(0).and.not.equal(1);\n    done();\n}",
+    "receiverBase": "listen",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.set('host', '127.0.0.1');\n    app.listen().on('listening', function () {\n        expect(this.address().address).to.equal('127.0.0.1');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(this.address().address).to.equal('127.0.0.1');\n    done();\n}",
+    "receiverBase": "listen",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    it('should set app.isAuthEnabled to true', function () {\n        expect(app.isAuthEnabled).to.not.equal(true);\n        app.enableAuth();\n        expect(app.isAuthEnabled).to.equal(true);\n    });\n}",
+    "receiverBase": "describe",
+    "receiverCallee": "onServer"
+  },
+  {
+    "callback": "function () {\n    expect(app.isAuthEnabled).to.not.equal(true);\n    app.enableAuth();\n    expect(app.isAuthEnabled).to.equal(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var app = loopback();\n    app.get('/', loopback.status());\n    request(app).get('/').expect(200).end(function (err, res) {\n        if (err)\n            return done(err);\n        assert.equal(typeof res.body, 'object');\n        assert(res.body.started);\n        assert(res.body.uptime !== undefined);\n        var elapsed = Date.now() - Number(new Date(res.body.started));\n        assert(elapsed >= 0);\n        assert(elapsed < 100);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return done(err);\n    assert.equal(typeof res.body, 'object');\n    assert(res.body.started);\n    assert(res.body.uptime !== undefined);\n    var elapsed = Date.now() - Number(new Date(res.body.started));\n    assert(elapsed >= 0);\n    assert(elapsed < 100);\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    it('is unique per app instance', function () {\n        app.connectors.foo = 'bar';\n        var anotherApp = loopback();\n        expect(anotherApp.connectors.foo).to.equal(undefined);\n    });\n    it('includes Remote connector', function () {\n        expect(app.connectors.remote).to.equal(loopback.Remote);\n    });\n    it('includes Memory connector', function () {\n        expect(app.connectors.memory).to.equal(loopback.Memory);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    app.connectors.foo = 'bar';\n    var anotherApp = loopback();\n    expect(anotherApp.connectors.foo).to.equal(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(app.connectors.remote).to.equal(loopback.Remote);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(app.connectors.memory).to.equal(loopback.Memory);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.connector('foo-bar', loopback.Memory);\n    expect(app.connectors['foo-bar']).to.equal(loopback.Memory);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.connector('foo-bar', loopback.Memory);\n    expect(app.connectors.FooBar).to.equal(loopback.Memory);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.connector('FOO-BAR', loopback.Memory);\n    expect(app.connectors.FOOBAR).to.equal(loopback.Memory);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.set('write-key', 'write-value');\n    expect(app.settings).to.have.property('write-key', 'write-value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app.settings['read-key'] = 'read-value';\n    expect(app.get('read-key')).to.equal('read-value');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var app1 = loopback();\n    var app2 = loopback();\n    expect(app1.settings).to.not.equal(app2.settings);\n    app1.set('key', 'value');\n    expect(app2.get('key'), 'app2 value').to.equal(undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var app = loopback();\n    expect(app.loopback).to.equal(loopback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    app = loopback();\n    db = loopback.createDataSource({ connector: loopback.Memory });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    var UserAccount = PersistedModel.extend('UserAccount', { name: String }, { remoting: { normalizeHttpPath: true } });\n    app.model(UserAccount);\n    UserAccount.attachTo(db);\n    app.use(loopback.rest());\n    request(app).get('/user-accounts').expect(200, done);\n}",
+    "receiverBase": "it",
+    "receiverCallee": "onServer"
+  },
+  {
+    "callback": "function (req, res) {\n    app.handle(req, res, callback);\n}",
+    "receiverBase": "http",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return callback(err);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (entries, dir) {\n    var isDraft = dir.charAt(0) === '_';\n    if (!isDraft && isDirectory(path.join(__dirname, dir)))\n        entries[dir] = path.join(__dirname, dir, 'app.js');\n    return entries;\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (e) {\n    this._correctDimensions(e);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  }
+]

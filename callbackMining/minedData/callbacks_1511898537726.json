@@ -1,0 +1,406 @@
+[
+  {
+    "callback": "function ($) {\n    $.fn.fontFlex = function (min, max, mid) {\n        var $this = this;\n        $(window).resize(function () {\n            var size = window.innerWidth / mid;\n            if (size < min)\n                size = min;\n            if (size > max)\n                size = max;\n            $this.css('font-size', size + 'px');\n        }).trigger('resize');\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var size = window.innerWidth / mid;\n    if (size < min)\n        size = min;\n    if (size > max)\n        size = max;\n    $this.css('font-size', size + 'px');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function (field) {\n    return field.toJSON();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (field) {\n    return _.indexOf(self.state.get('hiddenFields'), field.id) == -1;\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (field, idx) {\n    if (idx == 0) {\n        field.set({ width: width + remainder });\n    } else {\n        field.set({ width: width });\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (doc) {\n    var tr = $('<tr />');\n    self.el.find('tbody').append(tr);\n    var newView = new my.GridRow({\n            model: doc,\n            el: tr,\n            fields: self.fields\n        });\n    newView.render();\n}",
+    "receiverBase": "records",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    return {\n        field: field.id,\n        width: field.get('width'),\n        value: doc.getFieldValue(field)\n    };\n}",
+    "receiverBase": "_fields",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (response) {\n    this.trigger('recline:flash', {\n        message: 'Row updated successfully',\n        category: 'success'\n    });\n}",
+    "receiverBase": "save",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    this.trigger('recline:flash', {\n        message: 'Error saving row',\n        category: 'error',\n        persist: true\n    });\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function (x) {\n    observer.onNext(x);\n    var result = null;\n    try {\n        result = selector(x);\n    } catch (e) {\n        observer.onError(e);\n    }\n    q.push(result);\n    activeCount++;\n    ensureActive();\n}",
+    "receiverBase": "work",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    d.remove(m1);\n    activeCount--;\n    if (activeCount === 0) {\n        observer.onCompleted();\n    }\n}",
+    "receiverBase": "work",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    callback(null, new Date().getTime());\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    specHelper.connect(function () {\n        queue = new specHelper.NR.queue({\n            connection: specHelper.cleanConnectionDetails(),\n            queue: specHelper.queue\n        }, function () {\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    queue = new specHelper.NR.queue({\n        connection: specHelper.cleanConnectionDetails(),\n        queue: specHelper.queue\n    }, function () {\n        done();\n    });\n}",
+    "receiverBase": "specHelper",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (done) {\n    queue.delQueue(specHelper.queue, function (err) {\n        should.not.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "delQueue"
+  },
+  {
+    "callback": "function (done) {\n    multiWorker.workers.length.should.equal(0);\n    multiWorker.start(function () {\n        setTimeout(function () {\n            multiWorker.workers.length.should.equal(1);\n            multiWorker.end(done);\n        }, checkTimeout + 1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        multiWorker.workers.length.should.equal(1);\n        multiWorker.end(done);\n    }, checkTimeout + 1);\n}",
+    "receiverBase": "multiWorker",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    multiWorker.workers.length.should.equal(1);\n    multiWorker.end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    this.timeout(10 * 1000);\n    var i = 0;\n    while (i < 100) {\n        queue.enqueue(specHelper.queue, 'slowSleepJob', []);\n        i++;\n    }\n    multiWorker.start(function () {\n        setTimeout(function () {\n            multiWorker.workers.length.should.equal(maxTaskProcessors);\n            multiWorker.end(done);\n        }, checkTimeout * 30);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        multiWorker.workers.length.should.equal(maxTaskProcessors);\n        multiWorker.end(done);\n    }, checkTimeout * 30);\n}",
+    "receiverBase": "multiWorker",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    multiWorker.workers.length.should.equal(maxTaskProcessors);\n    multiWorker.end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    this.timeout(10 * 1000);\n    var i = 0;\n    while (i < 100) {\n        queue.enqueue(specHelper.queue, 'slowCPUJob', []);\n        i++;\n    }\n    multiWorker.start(function () {\n        setTimeout(function () {\n            multiWorker.workers.length.should.equal(1);\n            multiWorker.end(done);\n        }, checkTimeout * 30);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        multiWorker.workers.length.should.equal(1);\n        multiWorker.end(done);\n    }, checkTimeout * 30);\n}",
+    "receiverBase": "multiWorker",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function () {\n    multiWorker.workers.length.should.equal(1);\n    multiWorker.end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    queue.enqueue(specHelper.queue, 'crazyJob', []);\n    var listener = multiWorker.on('failure', function (workerId, queue, job, error) {\n            String(error).should.equal('Error: No job defined for class \\'crazyJob\\'');\n            multiWorker.removeAllListeners('error');\n            multiWorker.end(done);\n        });\n    multiWorker.start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (workerId, queue, job, error) {\n    String(error).should.equal('Error: No job defined for class \\'crazyJob\\'');\n    multiWorker.removeAllListeners('error');\n    multiWorker.end(done);\n}",
+    "receiverBase": "multiWorker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    re.scene(re.scene.map);\n}",
+    "receiverBase": "e",
+    "receiverCallee": "addSignal"
+  },
+  {
+    "callback": "function (t) {\n    this.posY += 40 * t;\n    if (this.posY >= 50) {\n        this.posY = 50;\n        re('bitfont').extend('drawing', true);\n        return false;\n    }\n}",
+    "receiverBase": "centerX",
+    "receiverCallee": "addSignal"
+  },
+  {
+    "callback": "function () {\n    re('draw').dispose();\n}",
+    "receiverBase": "enter",
+    "receiverCallee": "exit"
+  },
+  {
+    "callback": "function () {\n    as._sendQueriesBatch(params, callback);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    callback(true, cache[cacheID]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (response) {\n    opts.callback(false, true, response.data);\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    if (response.status === 0) {\n        opts.callback(true, false, response.data);\n    } else if (response.status == 400 || response.status === 403 || response.status === 404) {\n        opts.callback(false, false, response.data);\n    } else {\n        opts.callback(true, false, response.data);\n    }\n}",
+    "receiverBase": "$http",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    timedOut = true;\n    clean();\n    opts.callback(true, false, { 'message': 'Timeout - Failed to load JSONP script.' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    indexObj._search(params, callback);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (success, content) {\n    if (success) {\n        cb(content.hits);\n    } else {\n        cb(content && content.message);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "search"
+  },
+  {
+    "callback": "function () {\n    indexObj.waitTask(taskID, callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    return '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (c) {\n    c.on('data', function (data) {\n        var msg = data.toString(self.encoding);\n        self.incoming = self.incoming.concat(msg.split('\\r\\n'));\n    });\n    self.on('send', function (data) {\n        self.outgoing.push(data);\n        c.write(data);\n    });\n    c.on('end', function () {\n        self.emit('end');\n    });\n}",
+    "receiverBase": "connectionClass",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (data) {\n    var msg = data.toString(self.encoding);\n    self.incoming = self.incoming.concat(msg.split('\\r\\n'));\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    self.outgoing.push(data);\n    c.write(data);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.emit('end');\n}",
+    "receiverBase": "c",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (msg) {\n    return msg;\n}",
+    "receiverBase": "incoming",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (x) {\n    return x !== self;\n}",
+    "receiverBase": "_cs",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (depth, node, output, depth_first) {\n    if (!depth_first) {\n        for (var n = 0; n < depth; n++)\n            output += '    ';\n        output += '\"' + node.name() + '\"';\n        if (typeof callback === 'function')\n            output += ': ' + callback(node);\n        output += '\\n';\n    }\n    return output;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "walk_down"
+  },
+  {
+    "callback": "function () {\n    api.isAccessTokenValid = function () {\n        return true;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    api.isAccessTokenValid = isAccessTokenValid;\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    muk(urllib, 'request', function (url, args, callback) {\n        var resp = {\n                'type': 'image',\n                'media_id': 'usr5xL_gcxapoRjwH3bQZw_zKvcXL-DU4tRJtLtrtN71-3bXL52p3xX63ebp7tqA',\n                'created_at': 1383233542\n            };\n        process.nextTick(function () {\n            callback(null, resp);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (url, args, callback) {\n    var resp = {\n            'type': 'image',\n            'media_id': 'usr5xL_gcxapoRjwH3bQZw_zKvcXL-DU4tRJtLtrtN71-3bXL52p3xX63ebp7tqA',\n            'created_at': 1383233542\n        };\n    process.nextTick(function () {\n        callback(null, resp);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "muk"
+  },
+  {
+    "callback": "function () {\n    callback(null, resp);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    muk.restore();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    api['upload' + method](path.join(__dirname, './fixture/image.jpg'), function (err, data, res) {\n        expect(err).not.to.be.ok();\n        expect(data).to.have.property('type', 'image');\n        expect(data).to.have.property('media_id');\n        expect(data).to.have.property('created_at');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, data, res) {\n    expect(err).not.to.be.ok();\n    expect(data).to.have.property('type', 'image');\n    expect(data).to.have.property('media_id');\n    expect(data).to.have.property('created_at');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function (done) {\n    api['upload' + method](path.join(__dirname, './fixture/inexist.jpg'), function (err, data, res) {\n        expect(err).to.be.ok();\n        expect(err).to.have.property('name', 'Error');\n        expect(err).to.have.property('code', 'ENOENT');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, data, res) {\n    expect(err).to.be.ok();\n    expect(err).to.have.property('name', 'Error');\n    expect(err).to.have.property('code', 'ENOENT');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function () {\n    muk(urllib, 'request', function (url, args, callback) {\n        var buffer = new Buffer('Hello world!');\n        var res = { headers: { 'content-type': 'image/jpeg' } };\n        process.nextTick(function () {\n            callback(null, buffer, res);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (url, args, callback) {\n    var buffer = new Buffer('Hello world!');\n    var res = { headers: { 'content-type': 'image/jpeg' } };\n    process.nextTick(function () {\n        callback(null, buffer, res);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "muk"
+  },
+  {
+    "callback": "function () {\n    callback(null, buffer, res);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    muk.restore();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    api.getMedia('media_id', function (err, data, res) {\n        expect(err).not.to.be.ok();\n        expect(data.toString()).to.be('Hello world!');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, data, res) {\n    expect(err).not.to.be.ok();\n    expect(data.toString()).to.be('Hello world!');\n    done();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "getMedia"
+  },
+  {
+    "callback": "function () {\n    muk(urllib, 'request', function (url, args, callback) {\n        var data = JSON.stringify({\n                'errcode': 40007,\n                'errmsg': 'invalid media_id'\n            });\n        var res = { headers: { 'content-type': 'application/json' } };\n        process.nextTick(function () {\n            callback(null, data, res);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (url, args, callback) {\n    var data = JSON.stringify({\n            'errcode': 40007,\n            'errmsg': 'invalid media_id'\n        });\n    var res = { headers: { 'content-type': 'application/json' } };\n    process.nextTick(function () {\n        callback(null, data, res);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "muk"
+  },
+  {
+    "callback": "function () {\n    callback(null, data, res);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    muk.restore();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    api.getMedia('media_id', function (err, data, res) {\n        expect(err).to.be.ok();\n        expect(err).to.have.property('name', 'WeChatAPIError');\n        expect(err).to.have.property('message', 'invalid media_id');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, data, res) {\n    expect(err).to.be.ok();\n    expect(err).to.have.property('name', 'WeChatAPIError');\n    expect(err).to.have.property('message', 'invalid media_id');\n    done();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "getMedia"
+  },
+  {
+    "callback": "function () {\n    muk(urllib, 'request', function (url, args, callback) {\n        var data = '{\"errcode\":40007, \"errmsg\":\"invalid media_id\"';\n        var res = { headers: { 'content-type': 'application/json' } };\n        process.nextTick(function () {\n            callback(null, data, res);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (url, args, callback) {\n    var data = '{\"errcode\":40007, \"errmsg\":\"invalid media_id\"';\n    var res = { headers: { 'content-type': 'application/json' } };\n    process.nextTick(function () {\n        callback(null, data, res);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "muk"
+  },
+  {
+    "callback": "function () {\n    callback(null, data, res);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    muk.restore();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    api.getMedia('media_id', function (err, data, res) {\n        expect(err).to.be.ok();\n        expect(err).to.have.property('name', 'SyntaxError');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, data, res) {\n    expect(err).to.be.ok();\n    expect(err).to.have.property('name', 'SyntaxError');\n    done();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "getMedia"
+  },
+  {
+    "callback": "function (s) {\n    if (s)\n        t.insertAndClose();\n}",
+    "receiverBase": "windowManager",
+    "receiverCallee": "confirm"
+  },
+  {
+    "callback": "function (sv) {\n    sv = dom.getStyle(e, 'border-' + sv + '-width');\n    if (!sv || sv != v && v !== 0) {\n        v = 0;\n        return false;\n    }\n    if (sv)\n        v = sv;\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    var p = v.split('=');\n    cl.push({\n        'title': p[0],\n        'class': p[1]\n    });\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o) {\n    lst.options[lst.options.length] = new Option(o.title || o['class'], o['class']);\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o) {\n    lst.options[lst.options.length] = new Option(o[0], o[1]);\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (port) {\n    port.send('secondLoad');\n}",
+    "receiverBase": "connect",
+    "receiverCallee": "then"
+  }
+]

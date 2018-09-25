@@ -1,0 +1,152 @@
+[
+  {
+    "callback": "function () {\n    if (!self.resizing) {\n        if (this.className)\n            var axis = this.className.match(/ui-resizable-(se|sw|ne|nw|n|e|s|w)/i);\n        self.axis = axis && axis[1] ? axis[1] : 'se';\n    }\n}",
+    "receiverBase": "_handles",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function () {\n    $(this).removeClass('ui-resizable-autohide');\n    self._handles.show();\n}",
+    "receiverBase": "addClass",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    if (!self.resizing) {\n        $(this).addClass('ui-resizable-autohide');\n        self._handles.hide();\n    }\n}",
+    "receiverBase": "addClass",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function (v, i) {\n    var border = parseInt(v, 10) || 0, padding = parseInt(p[i], 10) || 0;\n    return border + padding;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    $(this).data('resizable-alsoresize', {\n        width: parseInt($(this).width(), 10),\n        height: parseInt($(this).height(), 10),\n        left: parseInt($(this).css('left'), 10),\n        top: parseInt($(this).css('top'), 10)\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (exp, c) {\n    _store(exp);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, prop) {\n    var sum = (start[prop] || 0) + (delta[prop] || 0);\n    if (sum && sum >= 0)\n        style[prop] = sum || null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (exp, c) {\n    _alsoResize(exp, c);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    p[i] = num(element.css('padding' + name));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    this.setState('active');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (this.value !== this.__value) {\n        this.trigger('change', [this.value]);\n        this.__value = this.value;\n    }\n    this.setState('default');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (match, pragma, options) {\n    if (!that.pragmas_implemented[pragma]) {\n        throw { message: 'This implementation of mustache doesn\\'t understand the \\'' + pragma + '\\' pragma' };\n    }\n    that.pragmas[pragma] = {};\n    if (options) {\n        var opts = options.split('=');\n        that.pragmas[pragma][opts[0]] = opts[1];\n    }\n    return '';\n}",
+    "receiverBase": "template",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (row) {\n    return that.render(content, that.create_context(row), partials, true);\n}",
+    "receiverBase": "that",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (text) {\n    return that.render(text, context, partials, true);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (s) {\n    switch (s) {\n    case '&':\n        return '&amp;';\n    case '\\\\':\n        return '\\\\\\\\';\n    case '\"':\n        return '\"';\n    case '<':\n        return '&lt;';\n    case '>':\n        return '&gt;';\n    default:\n        return s;\n    }\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    $('#progressbar').progressbar({\n        value: 5,\n        create: function () {\n            deepEqual(5, $(this).progressbar('value'));\n        },\n        change: function () {\n            ok(false, 'create() has triggered change()');\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(1);\n    $('#progressbar').progressbar({\n        change: function () {\n            deepEqual(5, $(this).progressbar('value'));\n        }\n    }).progressbar('value', 5);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return CryptoJS;\n}",
+    "receiverBase": "myAppServices",
+    "receiverCallee": "service"
+  },
+  {
+    "callback": "function (er) {\n    if (er) {\n        console.error('Could not load NPM: ' + er);\n        process.exit(1);\n    } else {\n        callback();\n    }\n}",
+    "receiverBase": "npm",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (err) {\n    callback(err);\n}",
+    "receiverBase": "padManager",
+    "receiverCallee": "removePad"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        throw err;\n    else {\n        console.log('Finished deleting padId: ' + padId);\n        process.exit();\n    }\n}",
+    "receiverBase": "async",
+    "receiverCallee": "series"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    return 'translate(' + self.config.cx + ', ' + self.config.cy + ') rotate(270)';\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function (d) {\n    return d.x;\n}",
+    "receiverBase": "line",
+    "receiverCallee": "x"
+  },
+  {
+    "callback": "function (d) {\n    return d.y;\n}",
+    "receiverBase": "x",
+    "receiverCallee": "y"
+  },
+  {
+    "callback": "function () {\n    describe('constructor values', function () {\n        it('test various values', function (done) {\n            ObjectManager.get('com://home/menu.view.json').then(function (view) {\n                view.getIdentifier().should.be.an.Object;\n                view.mimetype.should.equal('application/json');\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('test various values', function (done) {\n        ObjectManager.get('com://home/menu.view.json').then(function (view) {\n            view.getIdentifier().should.be.an.Object;\n            view.mimetype.should.equal('application/json');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    ObjectManager.get('com://home/menu.view.json').then(function (view) {\n        view.getIdentifier().should.be.an.Object;\n        view.mimetype.should.equal('application/json');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (view) {\n    view.getIdentifier().should.be.an.Object;\n    view.mimetype.should.equal('application/json');\n    done();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  }
+]

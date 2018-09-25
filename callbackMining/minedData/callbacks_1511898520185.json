@@ -1,0 +1,187 @@
+[
+  {
+    "callback": "function (err, result) {\n    if (err)\n        throw err;\n    console.log('%j', result);\n}",
+    "receiverBase": "etcd",
+    "receiverCallee": "watch"
+  },
+  {
+    "callback": "function () {\n    etcd.set('some-test', 'variation', function (err) {\n        if (err)\n            throw err;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        throw err;\n}",
+    "receiverBase": "etcd",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (e) {\n    clearTimeout(ttTools.autoVote.timeout);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (index, user) {\n    ttTools.views.users.updateUser(user.userid);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, user) {\n    delete this.userActivityLog[user.userid];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (ttObjects.room.currentSong) {\n        ttObjects.api({\n            api: 'room.vote',\n            roomid: ttObjects.room.roomId,\n            val: enabled,\n            vh: $.sha1(ttObjects.room.roomId + enabled + ttObjects.room.currentSong._id),\n            th: $.sha1(Math.random() + ''),\n            ph: $.sha1(Math.random() + '')\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (ttObjects.room.numDjs() < ttObjects.room.maxDjs) {\n        ttObjects.api({\n            api: 'room.add_dj',\n            roomid: ttObjects.room.roomId\n        }, function (response) {\n            if (!response.success && !ttObjects.room.isDj())\n                return;\n            ttTools.autoDJ.setEnabled(false);\n            ttTools.views.toolbar.update();\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (response) {\n    if (!response.success && !ttObjects.room.isDj())\n        return;\n    ttTools.autoDJ.setEnabled(false);\n    ttTools.views.toolbar.update();\n}",
+    "receiverBase": "ttObjects",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function (index, uid) {\n    var dancer = ttObjects.manager.djs_uid[uid][0];\n    if (uid === ttObjects.room.currentDj)\n        return ttObjects.manager.add_animation_to(dancer, 'bob');\n    if ($.inArray(uid, ttObjects.room.upvoters) > -1)\n        return ttObjects.manager.add_animation_to(dancer, 'rock');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, uid) {\n    var dancer = ttObjects.manager.listeners[uid];\n    if ($.inArray(uid, ttObjects.room.upvoters) > -1)\n        return ttObjects.manager.add_animation_to(dancer, 'rock');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, uid) {\n    ttObjects.manager.djs_uid[uid][0].stop();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, uid) {\n    ttObjects.manager.listeners[uid].stop();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, file) {\n    if (file.fileId !== currentSong._id)\n        return;\n    ttTools.moveSongToBottom(file.fileId);\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, uid) {\n    ttTools.userActivityLog.initUser(uid);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, activity) {\n    total += activities[activity];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, vote) {\n    if (vote[0] === '')\n        return;\n    ttTools.userActivityLog[vote[0]].vote = util.now();\n    if (vote[1] === 'up') {\n        var downIndex = $.inArray(vote[0], ttTools.downVotes.downvoters);\n        if (downIndex > -1) {\n            ttTools.downVotes.downvoters.splice(downIndex, 1);\n        }\n    } else {\n        ttTools.downVotes.downvoters.push(vote[0]);\n    }\n    ttTools.views.users.updateUser(vote[0]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, file) {\n    if (file.fileId !== fid)\n        return;\n    if (index === maxIndex)\n        return false;\n    turntable.playlist.files.splice(index, 1);\n    turntable.playlist.files.splice(maxIndex, 0, file);\n    turntable.playlist.updatePlaylist(null, true);\n    ttObjects.api({\n        api: 'playlist.reorder',\n        playlist_name: 'default',\n        index_from: index,\n        index_to: maxIndex\n    });\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (prop) {\n    data[prop] = bundle[iso + '_' + prop];\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    _this.TryInitialize(userInformation, function (initialization) {\n        initialization.UserInformation = userInformation;\n        _this._payloadDecompressor = new Server.PayloadDecompressor(initialization.CompressionContracts);\n        result.resolve(initialization);\n        _this.Proxy.invoke('readyForPayloads');\n    });\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (initialization) {\n    initialization.UserInformation = userInformation;\n    _this._payloadDecompressor = new Server.PayloadDecompressor(initialization.CompressionContracts);\n    result.resolve(initialization);\n    _this.Proxy.invoke('readyForPayloads');\n}",
+    "receiverBase": "_this",
+    "receiverCallee": "TryInitialize"
+  },
+  {
+    "callback": "function (initialization) {\n    if (!initialization) {\n        if (count >= ServerAdapter.NEGOTIATE_RETRIES) {\n            console.log('Could not negotiate with server, refreshing the page.');\n            window.location.reload();\n        } else {\n            setTimeout(function () {\n                _this.TryInitialize(userInformation, onComplete, count + 1);\n            }, ServerAdapter.RETRY_DELAY.Milliseconds);\n        }\n    } else {\n        onComplete(initialization);\n    }\n}",
+    "receiverBase": "invoke",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    _this.TryInitialize(userInformation, onComplete, count + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (payload) {\n    _this.OnPayload.Trigger(_this._payloadDecompressor.Decompress(payload));\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (leaderboardUpdate) {\n    _this.OnLeaderboardUpdate.Trigger(_this._payloadDecompressor.DecompressLeaderboard(leaderboardUpdate));\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _this.OnForcedDisconnct.Trigger();\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _this.OnControlTransferred.Trigger();\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _this.OnPingRequest.Trigger();\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (size) {\n    _this.OnMapResize.Trigger(new eg.Size2d(size.Width, size.Height));\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (from, message, type) {\n    _this.OnMessageReceived.Trigger(new ShootR.ChatMessage(from, message, type));\n}",
+    "receiverBase": "Proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._destroyContainer();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "onceAfter"
+  },
+  {
+    "callback": "function (handle) {\n    if (handle) {\n        handle.detach();\n    }\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('#leadUnlocked').hide();\n}",
+    "receiverBase": "delay",
+    "receiverCallee": "animate"
+  },
+  {
+    "callback": "function (r) {\n    if (r.cursor.row == row)\n        return true;\n    row = r.cursor.row;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (r) {\n    var p = r.cursor;\n    var line = session.getLine(p.row);\n    var spaceOffset = line.substr(p.column).search(/\\S/g);\n    if (spaceOffset == -1)\n        spaceOffset = 0;\n    if (p.column > maxCol)\n        maxCol = p.column;\n    if (spaceOffset < minSpace)\n        minSpace = spaceOffset;\n    return spaceOffset;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (r, i) {\n    var p = r.cursor;\n    var l = maxCol - p.column;\n    var d = spaceOffsets[i] - minSpace;\n    if (l > d)\n        session.insert(p, lang.stringRepeat(' ', l - d));\n    else\n        session.remove(new Range(p.row, p.column, p.row, p.column - l + d));\n    r.start.column = r.end.column = maxCol;\n    r.start.row = r.end.row = p.row;\n    r.cursor = r.end;\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode == 18 && !(e.ctrlKey || e.shiftKey || e.metaKey)) {\n        if (!altCursor) {\n            editor.renderer.setMouseCursor('crosshair');\n            altCursor = true;\n        }\n    } else if (altCursor) {\n        reset();\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "addListener"
+  }
+]

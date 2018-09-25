@@ -1,0 +1,374 @@
+[
+  {
+    "callback": "function (e, user) {\n    $scope.deleteUser = user;\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return pane.done(translateFilter('Error deleting document'), err);\n    }\n    $scope.deleteUser = null;\n    $rootScope.$broadcast('UsersUpdated');\n    pane.done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "DeleteUser"
+  },
+  {
+    "callback": "function () {\n    var size = new Size(10, 20);\n    equals(size.toString(), '{ width: 10, height: 20 }');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var size = new Size([\n            10,\n            20\n        ]);\n    equals(size.toString(), '{ width: 10, height: 20 }');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var size = new Size({\n            width: 10,\n            height: 20\n        });\n    equals(size.toString(), '{ width: 10, height: 20 }');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var size = new Size(new Point(10, 20));\n    equals(size.toString(), '{ width: 10, height: 20 }');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var size = new Size({\n            x: 10,\n            y: 20\n        });\n    equals(size.toString(), '{ width: 10, height: 20 }');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    it('should be a function', function () {\n        filesize.should.be.a.Function;\n    });\n    it('invoking should return an object', function () {\n        filesize(0).should.be.an.Object;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    filesize.should.be.a.Function;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    filesize(0).should.be.an.Object;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (options) {\n    this.util = options.util;\n    this.keys = options.keys;\n    this.id = options.id || this.util.uid('mouse');\n    this.currentNodeId = '';\n    this.registered = {};\n}",
+    "receiverBase": "oo",
+    "receiverCallee": "declare"
+  },
+  {
+    "callback": "function (evt) {\n    console.warn('RIGHTCLICK');\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (evt) {\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (evt) {\n    this.down(evt);\n    _isDown = true;\n    c = dojo.connect(document, 'mousemove', this, 'drag');\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (evt) {\n    dojo.disconnect(c);\n    _isDown = false;\n    this.up(evt);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (evt) {\n    if (!_isDown) {\n        this.move(evt);\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (evt) {\n    this._dragged = false;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (callback) {\n    anonymousRestContext = TestsUtil.createTenantRestContext(global.oaeTests.tenants.cam.host);\n    camAdminRestContext = TestsUtil.createTenantAdminRestContext(global.oaeTests.tenants.cam.host);\n    callback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (result) {\n    return result.id === discussionId;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err, results) {\n    assert.ok(!err);\n    var doc = _getDocument(results.results, discussion.id);\n    assert.ok(doc);\n    assert.equal(doc.displayName, randomText);\n    assert.equal(doc.description, randomText);\n    assert.equal(doc.profilePath, '/discussion/' + global.oaeTests.tenants.cam.alias + '/' + AuthzUtil.getResourceFromId(discussion.id).resourceId);\n    callback();\n}",
+    "receiverBase": "SearchTestsUtil",
+    "receiverCallee": "searchAll"
+  },
+  {
+    "callback": "function (err, results) {\n    assert.ok(!err);\n    var doc = _getDocument(results.results, discussion.id);\n    assert.ok(doc);\n    assert.equal(doc.displayName, randomText2);\n    assert.equal(doc.description, randomText2);\n    assert.equal(doc.profilePath, '/discussion/' + global.oaeTests.tenants.cam.alias + '/' + AuthzUtil.getResourceFromId(discussion.id).resourceId);\n    callback();\n}",
+    "receiverBase": "SearchTestsUtil",
+    "receiverCallee": "searchAll"
+  },
+  {
+    "callback": "function (message) {\n    if (tabInfo.subscriptions.has(message.action)) {\n        passMessageToDevTools(message, tabId);\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "storedMessages",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    expect(3);\n    var dm = AeroGear.DataManager({\n            name: 'createTest1',\n            type: 'IndexedDB'\n        }).stores;\n    equal(Object.keys(dm).length, 1, 'Single Store created');\n    equal(Object.keys(dm)[0], 'createTest1', 'Store Name createTest1');\n    equal(dm.createTest1 instanceof AeroGear.DataManager.adapters.SessionLocal, true, 'Fellback to SessionLocal');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(3);\n    var dm = AeroGear.DataManager({\n            name: 'createTest1',\n            type: 'WebSQL',\n            settings: { fallback: false }\n        }).stores;\n    equal(Object.keys(dm).length, 1, 'Single Store created');\n    equal(Object.keys(dm)[0], 'createTest1', 'Store Name createTest1');\n    equal(dm.createTest1 instanceof AeroGear.DataManager.adapters.WebSQL, true, 'Didn\\'t Fallback');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    expect(3);\n    var dm = AeroGear.DataManager({\n            name: 'createTest1',\n            type: 'IndexedDB',\n            settings: { preferred: ['Memory'] }\n        }).stores;\n    equal(Object.keys(dm).length, 1, 'Single Store created');\n    equal(Object.keys(dm)[0], 'createTest1', 'Store Name createTest1');\n    equal(dm.createTest1 instanceof AeroGear.DataManager.adapters.Memory, true, 'Fellback to Memory');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (notes) {\n    if (notes) {\n        value(notes);\n        updateStatus('Notes loaded.');\n    } else {\n        updateStatus('No saved notes found!');\n    }\n}",
+    "receiverBase": "load",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    updateStatus('Notes saved.');\n}",
+    "receiverBase": "save",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    NotesStorage.load().then(function (notes) {\n        if (notes) {\n            value(notes);\n            updateStatus('Notes loaded.');\n        } else {\n            Buttons.paste();\n            updateStatus('Example notes pasted. (No saved notes found.)');\n        }\n    }, updateStatus);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (notes) {\n    if (notes) {\n        value(notes);\n        updateStatus('Notes loaded.');\n    } else {\n        Buttons.paste();\n        updateStatus('Example notes pasted. (No saved notes found.)');\n    }\n}",
+    "receiverBase": "load",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (event) {\n    switch (event.target.id) {\n    case 'load':\n        Buttons.load();\n        break;\n    case 'save':\n        Buttons.save();\n        break;\n    case 'paste':\n        Buttons.paste();\n        break;\n    case 'clear':\n        Buttons.clear();\n        break;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    describe('.use()', function () {\n        it('should work', function (done) {\n            var style = new Style('body { color: blue }');\n            style.use(function (style) {\n                assert(style);\n                done();\n            });\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    it('should work', function (done) {\n        var style = new Style('body { color: blue }');\n        style.use(function (style) {\n            assert(style);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var style = new Style('body { color: blue }');\n    style.use(function (style) {\n        assert(style);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (style) {\n    assert(style);\n    done();\n}",
+    "receiverBase": "style",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function () {\n    if (self.$$lastUrl != self.$$url) {\n        self.$$lastUrl = self.$$url;\n        listener(self.$$url);\n    }\n}",
+    "receiverBase": "pollFns",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.time - b.time;\n}",
+    "receiverBase": "deferredFns",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (fn, index) {\n    if (fn.id === deferId)\n        fnIndex = index;\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (pollFn) {\n    pollFn();\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (logLevel) {\n    angular.forEach($log[logLevel].logs, function (log) {\n        angular.forEach(log, function (logItem) {\n            errors.push('MOCK $log (' + logLevel + '): ' + String(logItem) + '\\n' + (logItem.stack || ''));\n        });\n    });\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (log) {\n    angular.forEach(log, function (logItem) {\n        errors.push('MOCK $log (' + logLevel + '): ' + String(logItem) + '\\n' + (logItem.stack || ''));\n    });\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (logItem) {\n    errors.push('MOCK $log (' + logLevel + '): ' + String(logItem) + '\\n' + (logItem.stack || ''));\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (methodName) {\n    self[methodName] = function () {\n        throw Error('Method \\'' + methodName + '\\' is not implemented in the TzDate mock');\n    };\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (element) {\n    out.append(angular.element(element).clone());\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (o) {\n    out.push(serialize(o));\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (method) {\n    $httpBackend[prefix + method] = function (url, headers) {\n        return $httpBackend[prefix](method, url, undefined, headers);\n    };\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (method) {\n    $httpBackend[prefix + method] = function (url, data, headers) {\n        return $httpBackend[prefix](method, url, data, headers);\n    };\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (headerVal, headerName) {\n    if (!header && angular.lowercase(headerName) == name)\n        header = headerVal;\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, key) {\n    lines.push(key + ': ' + value);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (task) {\n    result.push('{id: ' + task.id + ', ' + 'time: ' + task.time + '}');\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function ($provide) {\n    $provide.decorator('$timeout', angular.mock.$TimeoutDecorator);\n}",
+    "receiverBase": "provider",
+    "receiverCallee": "config"
+  },
+  {
+    "callback": "function ($provide) {\n    $provide.decorator('$httpBackend', angular.mock.e2e.$httpBackendDecorator);\n}",
+    "receiverBase": "module",
+    "receiverCallee": "config"
+  },
+  {
+    "callback": "function (window) {\n    window.dump = function () {\n        var args = [];\n        angular.forEach(arguments, function (arg) {\n            args.push(angular.mock.dump(arg));\n        });\n        jstestdriver.console.log.apply(jstestdriver.console, args);\n        if (window.console) {\n            window.console.log.apply(window.console, args);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (arg) {\n    args.push(angular.mock.dump(arg));\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    currentSpec = this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (val, key) {\n    delete angular.element.fragments[key];\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (val, key) {\n    delete angular.callbacks[key];\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (module) {\n    modules.push(module);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (addon) {\n    var component;\n    if (jQuery && jQuery.UIkit) {\n        component = addon(jQuery, jQuery.UIkit);\n    }\n    if (typeof define == 'function' && define.amd) {\n        define('uikit-form-select', ['uikit'], function () {\n            return component || addon(jQuery, jQuery.UIkit);\n        });\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return component || addon(jQuery, jQuery.UIkit);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var select = $this.select[0], fn = function () {\n            try {\n                $this.target.text(select.options[select.selectedIndex].text);\n            } catch (e) {\n            }\n            return fn;\n        };\n    return fn();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (context) {\n    $('[data-uk-form-select]', context).each(function () {\n        var ele = $(this);\n        if (!ele.data('formSelect')) {\n            var obj = UI.formSelect(ele, UI.Utils.options(ele.attr('data-uk-form-select')));\n        }\n    });\n}",
+    "receiverBase": "UI",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    var ele = $(this);\n    if (!ele.data('formSelect')) {\n        var obj = UI.formSelect(ele, UI.Utils.options(ele.attr('data-uk-form-select')));\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    it('1. WHILE BREAK', function (done) {\n        alasql('SET @i = 1;             WHILE @i < 5             BEGIN                 PRINT @i;                SET @i = @i + 1;                IF @i = 2 CONTINUE;                 PRINT @i*10;             END', [], function () {\n            console.log('ok');\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    alasql('SET @i = 1;             WHILE @i < 5             BEGIN                 PRINT @i;                SET @i = @i + 1;                IF @i = 2 CONTINUE;                 PRINT @i*10;             END', [], function () {\n        console.log('ok');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    console.log('ok');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "alasql"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            context.maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    doStrips();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (e) {\n    if (typeof window !== 'undefined' && window.QUnit) {\n        QUnit.equal(document.getElementById('test-element').clientWidth, 200, 'element width set by css');\n        QUnit.start();\n        removeMyself();\n    } else {\n        console.log('width', document.getElementById('test-element').clientWidth);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (point) {\n    return !list.contains(nodes, point.node);\n}",
+    "receiverBase": "dom",
+    "receiverCallee": "prevPointUntil"
+  },
+  {
+    "callback": "function (idx, node) {\n    var parent = node.parentNode;\n    if (point.node !== parent && dom.nodeLength(parent) === 1) {\n        emptyParents.push(parent);\n    }\n    dom.remove(node, false);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, node) {\n    dom.remove(node, false);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (resolve, reject) {\n    resolve(testFn.call(window, card));\n}",
+    "receiverBase": "RSVP",
+    "receiverCallee": "Promise"
+  }
+]

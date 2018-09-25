@@ -1,0 +1,322 @@
+[
+  {
+    "callback": "function () {\n    expect(calendarUtils.isDate(new Date())).toBeTruthy();\n    expect(calendarUtils.isDate({})).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(calendarUtils.isObject({})).toBeTruthy();\n    expect(calendarUtils.isObject(3)).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var date1 = new Date('Jan 1, 2012, 13:00'), date2 = new Date('Jan 1, 2012, 13:01'), date3 = new Date('Jan 1, 2012, 12:59'), date4 = new Date('Jan 1, 2012, 13:00');\n    expect(calendarUtils.isBeforeOrEqual(date1, date2)).toBeTruthy();\n    expect(calendarUtils.isBeforeOrEqual(date1, date3)).toBeFalsy();\n    expect(calendarUtils.isBeforeOrEqual(date1, date4)).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var option1 = {}, option2 = { 'detail': 123 }, option3 = { 'filter': { 'substring': 'abc' } };\n    expect(calendarUtils.validateFindArguments(option1)).toBeTruthy();\n    expect(calendarUtils.validateFindArguments(option2)).toBeFalsy();\n    expect(calendarUtils.validateFindArguments(option3)).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o) {\n    return o.key == oType.toLowerCase();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (o) {\n    return o.key == oType.toLowerCase();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (done) {\n    helpers.run(path.join(__dirname, '../filter')).withArguments('some').on('end', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    var filePath = 'app/' + config.DEFAULT_MODULE + '/filters/some-fil.js';\n    assert.fileContent([\n        [\n            filePath,\n            'angular.module(\\'' + config.DEFAULT_MODULE + '\\')'\n        ],\n        [\n            filePath,\n            'filter(\\'some\\','\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    helpers.run(path.join(__dirname, '../filter')).withArguments('someThing myModule').on('end', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    var filePath = 'app/my-module/filters/some-thing-fil.js';\n    assert.fileContent([\n        [\n            filePath,\n            'angular.module(\\'myModule\\')'\n        ],\n        [\n            filePath,\n            'filter(\\'someThing\\','\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    if (validSession) {\n        fn();\n        return true;\n    } else {\n        if (debugEnabled) {\n            console.debug('[VertX EB Service] Message was not sent because login is required');\n        }\n        return false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ensureOpenConnection"
+  },
+  {
+    "callback": "function (message, replyTo) {\n    callback(message, replyTo);\n    return $rootScope.$digest();\n}",
+    "receiverBase": "fnWrapperMap",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    vertxEventBus.send(address, message, function (reply) {\n        if (deferred) {\n            return deferred.resolve(reply);\n        }\n    });\n    if (deferred) {\n        return $timeout(function () {\n            return deferred.reject();\n        }, timeout);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ensureOpenAuthConnection"
+  },
+  {
+    "callback": "function (reply) {\n    if (deferred) {\n        return deferred.resolve(reply);\n    }\n}",
+    "receiverBase": "vertxEventBus",
+    "receiverCallee": "send"
+  },
+  {
+    "callback": "function () {\n    return deferred.reject();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    return vertxEventBus.publish(address, message);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ensureOpenAuthConnection"
+  },
+  {
+    "callback": "function (reply) {\n    if ((reply != null ? reply.status : void 0) === 'ok') {\n        deferred.resolve(reply);\n        return $rootScope.$broadcast('' + prefix + 'system.login.succeeded', { status: reply != null ? reply.status : void 0 });\n    } else {\n        deferred.reject(reply);\n        return $rootScope.$broadcast('' + prefix + 'system.login.failed', { status: reply != null ? reply.status : void 0 });\n    }\n}",
+    "receiverBase": "vertxEventBus",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function () {\n    return deferred.reject();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (reply) {\n    validSession = true;\n    return reply;\n}",
+    "receiverBase": "login",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (reply) {\n    validSession = false;\n    return reply;\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return wrapped.getConnectionState(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$interval"
+  },
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    $compile = _$compile_;\n    $rootScope = _$rootScope_;\n    parentScope = $rootScope.$new();\n}",
+    "receiverBase": "mock",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var element = createField(new UserEnteredDollars('123'));\n    var inputField = element.find('input');\n    expect(inputField.val()).to.be('123');\n    expect(inputField.hasClass('invalid')).to.be(false);\n    expect(inputField.attr('title')).to.be('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = createField(new UserEnteredDollars('xxx'));\n    var inputField = element.find('input');\n    expect(inputField.val()).to.be('xxx');\n    expect(inputField.hasClass('invalid')).to.be(true);\n    expect(inputField.attr('title')).to.be('Invalid dollar amount');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = createField(new UserEnteredDollars('123'));\n    var inputField = element.find('input');\n    element.isolateScope().renderedText = 'xxx';\n    $rootScope.$digest();\n    expect(inputField.hasClass('invalid')).to.be(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = createField(new UserEnteredDollars('123'));\n    var inputField = element.find('input');\n    parentScope.initialValue = new UserEnteredDollars('xxx');\n    $rootScope.$digest();\n    expect(inputField.val()).to.be('xxx');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = createField(new UserEnteredDollars('123'));\n    element.isolateScope().setText('9998');\n    $rootScope.$digest();\n    var inputField = element.find('input');\n    expect(inputField.val()).to.be('9998');\n    expect(parentScope.initialValue).to.eql(new UserEnteredDollars('9998'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function ($exceptionHandlerProvider) {\n    $exceptionHandlerProvider.mode('log');\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.reset);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountLoad);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountUnload);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleRippleLines);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleRippleLinesError);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleOffers);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleOffersError);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountEntry);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountTx);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountTxError);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleAccountEvent);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.processTxn);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.updateOffer);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.updateLines);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.updateRippleBalance);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.compare);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    assert.isFunction(ctrl.handleFirstConnection);\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should be initialized with an empty account', function (done) {\n        expect(scope.account).to.be.an('object');\n        expect(scope.account).to.be.empty;\n        run(scope, done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    expect(scope.account).to.be.an('object');\n    expect(scope.account).to.be.empty;\n    run(scope, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (position) {\n    this.currentPosition = position;\n    defer.resolve(this.currentPosition);\n}",
+    "receiverBase": "geolocation",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function (error) {\n    defer.reject(error);\n}",
+    "receiverBase": "geolocation",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function (position) {\n    self.currentPosition = position;\n    self.locations.push(position);\n    defer.resolve(position);\n}",
+    "receiverBase": "geolocation",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function (error) {\n    defer.reject(error);\n}",
+    "receiverBase": "geolocation",
+    "receiverCallee": "getCurrentPosition"
+  },
+  {
+    "callback": "function () {\n    if ($(cuid).find('[data-ui-field=widget]').data('ControlPopUp')) {\n        $(cuid).find('[data-ui-field=widget]').data('ControlPopUp').popup('open');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($(cuid).find('[data-ui-field=widget]').data('ControlPopUp')) {\n        $(cuid).find('[data-ui-field=widget]').data('ControlPopUp').popup('open');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Modules",
+    "receiverCallee": "ServiceCall"
+  },
+  {
+    "callback": "function () {\n    HG.Control.Modules.ServiceCall('Control.On', module.Domain, module.Address, null, function (data) {\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Modules",
+    "receiverCallee": "ServiceCall"
+  },
+  {
+    "callback": "function () {\n    HG.Control.Modules.ServiceCall('Control.On', module.Domain, module.Address, null, function (data) {\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Modules",
+    "receiverCallee": "ServiceCall"
+  },
+  {
+    "callback": "function () {\n    HG.Control.Modules.ServiceCall('Control.Off', module.Domain, module.Address, null, function (data) {\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Modules",
+    "receiverCallee": "ServiceCall"
+  },
+  {
+    "callback": "function () {\n    HG.Control.Modules.ServiceCall('Control.Off', module.Domain, module.Address, null, function (data) {\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "Modules",
+    "receiverCallee": "ServiceCall"
+  },
+  {
+    "callback": "function () {\n    HG.WebApp.Control.EditModule(module);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  }
+]

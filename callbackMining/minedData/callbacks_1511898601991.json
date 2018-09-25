@@ -1,0 +1,227 @@
+[
+  {
+    "callback": "function (_$compile_, _$rootScope_) {\n    $compile = _$compile_;\n    $rootScope = _$rootScope_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(compileTree).not.toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $rootScope.data = { '': { '$id': 1 } };\n    compileTree();\n    expect(element.text()).toBe('$id: 1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return function (items) {\n        var filteredItems = [];\n        for (var i = 0; i < items.length; i++) {\n            if (!items[i].completed) {\n                filteredItems.push(items[i]);\n            }\n        }\n        return filteredItems;\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    Logger.logInteraction(Logger.actions.CHART_MOUSEOVER, scope.vlSpec);\n    scope.hoverFocus = !scope.thumbnail;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (p) {\n    p.isNumber = vg.isNumber(p[1]);\n    return p;\n}",
+    "receiverBase": "pairs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var spec = getVgSpec();\n    render(spec);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    var vgSpec = getVgSpec();\n    if (vgSpec) {\n        return;\n    }\n    var spec = getCompiledSpec();\n    render(spec);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    console.log('vlplot destroyed');\n    view.off('mouseover');\n    view.off('mouseout');\n    view = null;\n    scope.destroyed = true;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function () {\n    $.post('/deletefile/', {\n        groupId: _priority.uid,\n        name: file.name\n    }, function () {\n        $row.remove();\n    });\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $row.remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (file) {\n    _drawRow(file);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function (index, file) {\n    _drawRow(file);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, data) {\n    self.changed(e, data, true);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    days.push($(this).data().value);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    var data = $this.data('scheduler');\n    var options = typeof option === 'object' && option;\n    if (!data)\n        $this.data('scheduler', data = new Scheduler(this, options));\n    if (typeof option === 'string')\n        methodReturn = data[option].apply(data, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('body').on('mousedown.scheduler.data-api', '.scheduler', function () {\n        var $this = $(this);\n        if ($this.data('scheduler'))\n            return;\n        $this.scheduler($this.data());\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    if ($this.data('scheduler'))\n        return;\n    $this.scheduler($this.data());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ctx, content, revision, members) {\n    PreviewProcessorAPI.submitForProcessing(content.id, revision.revisionId);\n}",
+    "receiverBase": "ContentAPI",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ctx, newContentObj, oldContentObj) {\n    if (newContentObj.resourceSubType === 'link' && newContentObj.link !== oldContentObj.link) {\n        PreviewProcessorAPI.submitForProcessing(newContentObj.id, oldContentObj.latestRevisionId);\n    }\n}",
+    "receiverBase": "ContentAPI",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ctx, newContentObj, oldContentObj, revision) {\n    PreviewProcessorAPI.submitForProcessing(newContentObj.id, newContentObj.latestRevisionId);\n}",
+    "receiverBase": "ContentAPI",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (blobKey) {\n    ok(blobKey);\n    server.downloadBlob(blobKey, function (download) {\n        ok(download);\n        var reader = new FileReader();\n        reader.onload = function (event) {\n            var encrStr = event.target.result;\n            equal(encrStr, testImg1Base64);\n            server.deleteBlob(blobKey, function (resp) {\n                equal(resp, '');\n                start();\n            });\n        };\n        reader.readAsBinaryString(download);\n    });\n}",
+    "receiverBase": "server",
+    "receiverCallee": "uploadBlob"
+  },
+  {
+    "callback": "function (download) {\n    ok(download);\n    var reader = new FileReader();\n    reader.onload = function (event) {\n        var encrStr = event.target.result;\n        equal(encrStr, testImg1Base64);\n        server.deleteBlob(blobKey, function (resp) {\n            equal(resp, '');\n            start();\n        });\n    };\n    reader.readAsBinaryString(download);\n}",
+    "receiverBase": "server",
+    "receiverCallee": "downloadBlob"
+  },
+  {
+    "callback": "function (resp) {\n    equal(resp, '');\n    start();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "deleteBlob"
+  },
+  {
+    "callback": "function (err) {\n    start();\n    return;\n}",
+    "receiverBase": "server",
+    "receiverCallee": "uploadBlob"
+  },
+  {
+    "callback": "function (latitude, longitude, accuracy, altitude) {\n    this.latitude = latitude;\n    this.longitude = longitude;\n    this.accuracy = !accuracy ? 0 : accuracy;\n    this.altitude = !altitude ? 0 : altitude;\n}",
+    "receiverBase": "Class",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n    return response.content.readAsStringAsync();\n}",
+    "receiverBase": "getAsync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (content) {\n    localFolder.createFileAsync(filename, Windows.Storage.CreationCollisionOption.replaceExisting).done(function (file) {\n        Windows.Storage.FileIO.writeTextAsync(file, content);\n    });\n    return WinJS.Promise.as(content);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (file) {\n    Windows.Storage.FileIO.writeTextAsync(file, content);\n}",
+    "receiverBase": "createFileAsync",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (properties) {\n    return properties.dateModified;\n}",
+    "receiverBase": "getBasicPropertiesAsync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (date) {\n    var httpClient = new Windows.Web.Http.HttpClient();\n    var headers = httpClient.defaultRequestHeaders;\n    headers.ifModifiedSince = date;\n    return httpClient.getAsync(new Windows.Foundation.Uri(url));\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n    if (response.statusCode === 304) {\n        return localFolder.getFileAsync(filename).then(function (file) {\n            return Windows.Storage.FileIO.readTextAsync(file);\n        });\n    } else {\n        return fetch_new();\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (file) {\n    return Windows.Storage.FileIO.readTextAsync(file);\n}",
+    "receiverBase": "getFileAsync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return fetch_new();\n}",
+    "receiverBase": "getFileFromApplicationUriAsync",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (content) {\n    content = JSON.parse(content);\n    that.service_config[name] = content.configuration;\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n    if (response.isSuccessStatusCode) {\n        return response.content.readAsStringAsync();\n    }\n}",
+    "receiverBase": "create_installation",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n    if (response.isSuccessStatusCode) {\n        return parse.save_object('update', {\n            channels: {\n                __op: 'AddUnique',\n                objects: ['c' + yak_id + 'c']\n            },\n            objectId: object_id\n        });\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (response) {\n    console.log(response);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item) {\n    item.clear();\n}",
+    "receiverBase": "items",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (previous, current) {\n    return current < previous ? current : previous;\n}",
+    "receiverBase": "_dayLimits",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (item) {\n    return item.book.dayLimit;\n}",
+    "receiverBase": "items",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var $section;\n    $section = $(this);\n    if ($section.position().top < scrollTop && scrollTop < $section.position().top + $section.outerHeight()) {\n        setSection($section.data('section'));\n    }\n    return true;\n}",
+    "receiverBase": "$sections",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return $(this).data().drop.close() || true;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $iframe.contents().find('.left').scrollTop(scrollTop);\n    scrollTop += scrollTopDirection;\n    if (scrollTop > 50) {\n        scrollTopDirection = -1;\n    }\n    if (scrollTop < 0) {\n        return scrollTopDirection = 1;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (child) {\n    _this.expandToLevel(child, tree.expandLevel - 1);\n}",
+    "receiverBase": "lang",
+    "receiverCallee": "forEach"
+  }
+]

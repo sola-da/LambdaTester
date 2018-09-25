@@ -1,0 +1,129 @@
+[
+  {
+    "callback": "function (err) {\n    if (err)\n        return console.error(err);\n    console.log('Delete ' + db);\n    process.exit(0);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "deleteDatabase"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return console.error(err);\n    client.query(query, function (err, data) {\n        if (err)\n            return console.error(err);\n        data.forEach(function (d) {\n            console.log(d.points);\n        });\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "writePoints"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return console.error(err);\n    data.forEach(function (d) {\n        console.log(d.points);\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "query"
+  },
+  {
+    "callback": "function (d) {\n    console.log(d.points);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return 'https://github.com/' + self.username() + '/' + self.name();\n}",
+    "receiverBase": "ko",
+    "receiverCallee": "computed"
+  },
+  {
+    "callback": "function (path) {\n    var index = ko.utils.arrayIndexOf(paths, path);\n    var pathTillIndex = '/';\n    for (var i = 0; i <= index; i++) {\n        pathTillIndex += paths[i] + '/';\n    }\n    result.push(new breadcrumbViewModel(path, self.buildUrl(pathTillIndex), index < paths.length - 1));\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "arrayForEach"
+  },
+  {
+    "callback": "function (result) {\n    self.findResult(new findResultWindowViewModel('Find result for \"' + text + '\"', result));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (result) {\n    if (result) {\n        self.openFile(result);\n    } else {\n        self.projectStatus('Couldn\\'t find any implementation in the current solution.');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (context, username, project, path) {\n    var projectVm = new projectViewModel(project, username, path || '');\n    self.projectInfo(null);\n    self.project(projectVm);\n    projectVm.openProject(context.params.line);\n    self.projectIsActive(true);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (context) {\n    this.app.runRoute('get', '#/open/' + context.params.username + '/' + context.params.project + '/');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    self.projectIsActive(false);\n    self.project(null);\n    self.projectInfo(new projectInfoViewModel());\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    var projectConnectionId = $.connection.hub.id;\n    $.cookie('ProjectConnectionId', projectConnectionId, { expires: 1 });\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    $('#apploader').toggleClass('hide');\n    $('#main').toggleClass('hide');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var elem = this, isWin = !elem.nodeName || $.inArray(elem.nodeName.toLowerCase(), [\n            'iframe',\n            '#document',\n            'html',\n            'body'\n        ]) != -1;\n    if (!isWin)\n        return elem;\n    var doc = (elem.contentWindow || elem).document || elem.ownerDocument || elem;\n    return /webkit/i.test(navigator.userAgent) || doc.compatMode == 'BackCompat' ? doc.body : doc.documentElement;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    bootstrapDebug('React Rendered');\n}",
+    "receiverBase": "React",
+    "receiverCallee": "render"
+  },
+  {
+    "callback": "function (err, context) {\n    if (err) {\n        throw err;\n    }\n    window.context = context;\n    var firstRender = true;\n    Router.run(app.getComponent(), HistoryLocation, function (Handler, state) {\n        if (firstRender) {\n            RenderApp(context, Handler);\n            firstRender = false;\n        } else {\n            context.executeAction(navigateAction, state, function () {\n                RenderApp(context, Handler);\n            });\n        }\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "rehydrate"
+  },
+  {
+    "callback": "function (Handler, state) {\n    if (firstRender) {\n        RenderApp(context, Handler);\n        firstRender = false;\n    } else {\n        context.executeAction(navigateAction, state, function () {\n            RenderApp(context, Handler);\n        });\n    }\n}",
+    "receiverBase": "Router",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    RenderApp(context, Handler);\n}",
+    "receiverBase": "context",
+    "receiverCallee": "executeAction"
+  },
+  {
+    "callback": "function () {\n    callback(currTime + timeToCall);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    for (x = 0; x < vendors.length; ++x) {\n        if (window[vendors[x] + 'AnimationStartTime']) {\n            return function () {\n                return window[vendors[x] + 'AnimationStartTime'];\n            };\n        }\n    }\n    return function () {\n        return Date.now();\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if ('webkitIsFullScreen' in document) {\n        return function () {\n            return document.webkitFullscreenEnabled;\n        };\n    }\n    if ('mozFullScreenEnabled' in document) {\n        return function () {\n            return document.mozFullScreenEnabled;\n        };\n    }\n    GameShim.supports.fullscreen = false;\n    return function () {\n        return false;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var i = 0, name = [\n            'webkitCurrentFullScreenElement',\n            'webkitFullscreenElement',\n            'mozFullScreenElement'\n        ];\n    for (; i < name.length; i++) {\n        if (name[i] in document) {\n            return function () {\n                return document[name[i]];\n            };\n        }\n    }\n    return function () {\n        return null;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (elementPrototype.webkitRequestFullScreen) {\n        return function () {\n            this.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);\n        };\n    }\n    if (elementPrototype.mozRequestFullScreen) {\n        return function () {\n            this.mozRequestFullScreen();\n        };\n    }\n    return function () {\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return document.webkitCancelFullScreen || document.mozCancelFullScreen || function () {\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if ('webkitPointerLockElement' in document) {\n        return function () {\n            return document.webkitPointerLockElement;\n        };\n    }\n    if ('mozPointerLockElement' in document) {\n        return function () {\n            return document.mozPointerLockElement;\n        };\n    }\n    return function () {\n        return null;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return document.webkitExitPointerLock || document.mozExitPointerLock || function () {\n        if (navigator.pointer) {\n            var elem = this;\n            navigator.pointer.unlock();\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (window.performance.webkitNow) {\n        return window.performance.webkitNow;\n    }\n    GameShim.supports.highResTimer = false;\n    return function () {\n        return Date.now() - window.performance.timing.navigationStart;\n    };\n}",
+    "receiverBase": ""
+  }
+]

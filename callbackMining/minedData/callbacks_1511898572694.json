@@ -1,0 +1,375 @@
+[
+  {
+    "callback": "function () {\n    sha1(input);\n}",
+    "receiverBase": "",
+    "receiverCallee": "bench"
+  },
+  {
+    "callback": "function () {\n    nativeSha1('Hello World\\n');\n}",
+    "receiverBase": "",
+    "receiverCallee": "bench"
+  },
+  {
+    "callback": "function () {\n    var googlePlacesApi;\n    beforeEach(module('google.places'));\n    beforeEach(inject(function (_$window_, _googlePlacesApi_) {\n        googlePlacesApi = _googlePlacesApi_;\n    }));\n    it('should load', function () {\n        expect(googlePlacesApi).toBeDefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (_$window_, _googlePlacesApi_) {\n    googlePlacesApi = _googlePlacesApi_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(googlePlacesApi).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function ($rootScope, _$compile_) {\n    $parentScope = $rootScope.$new();\n    $compile = _$compile_;\n    $parentScope.place = null;\n    compileAndDigest('<input type=\"text\" g-places-autocomplete ng-model=\"place\" />');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function ($rootScope, _$compile_) {\n    $parentScope = $rootScope.$new();\n    $compile = _$compile_;\n    $parentScope.input = angular.element('<input type=\"text\"/>');\n    $parentScope.query = '';\n    $parentScope.predictions = [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        compileAndDigest(template);\n    });\n    it('should close drawer', function () {\n        expect($isolatedScope.isOpen()).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    compileAndDigest(template);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect($isolatedScope.isOpen()).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $parentScope.predictions = angular.copy(PREDICTIONS);\n    compileAndDigest(template);\n    predictionElements = element.children().children();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect($isolatedScope.isOpen()).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var activeElement = angular.element(predictionElements['1']);\n    activeElement.triggerHandler('mouseenter');\n    expect($isolatedScope.active).toBe(1);\n    expect($isolatedScope.isActive(1)).toBe(true);\n    expect($isolatedScope.isActive(0)).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var activeElement = angular.element(predictionElements['2']);\n    activeElement.triggerHandler('click');\n    expect($isolatedScope.selected).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect($isolatedScope.position).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function ($rootScope, _$compile_) {\n    $parentScope = $rootScope.$new();\n    $compile = _$compile_;\n    $parentScope.$index = 0;\n    $parentScope.prediction = angular.copy(PREDICTIONS[0]);\n    $parentScope.query = '18';\n    compileAndDigest('<div g-places-autocomplete-prediction index=\"$index\" prediction=\"prediction\" query=\"query\"></div>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_unmatchedTermsOnlyFilter_) {\n    unmatchedTermsOnlyFilter = _unmatchedTermsOnlyFilter_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var prediction = angular.copy(PREDICTIONS[0]);\n    var result = unmatchedTermsOnlyFilter(prediction.terms, prediction);\n    expect(result).toEqual([\n        {\n            'offset': 21,\n            'value': 'Waterloo'\n        },\n        {\n            'offset': 31,\n            'value': 'New South Wales'\n        },\n        {\n            'offset': 48,\n            'value': 'Australia'\n        }\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (_trailingCommaFilter_) {\n    trailingCommaFilter = _trailingCommaFilter_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var result = trailingCommaFilter('a string', true);\n    expect(result).toEqual('a string,');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result = trailingCommaFilter('a string', false);\n    expect(result).toEqual('a string');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeAttr(this, name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    try {\n        this[name] = undefined;\n        delete this[name];\n    } catch (e) {\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).addClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).removeClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value == null ? '' : value + '';\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    this.selected = jQuery.inArray(jQuery(this).val(), values) >= 0;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = jQuery.extend(jQuery.attrHooks[name], {\n        set: function (elem, value) {\n            if (value === '') {\n                elem.setAttribute(name, 'auto');\n                return value;\n            }\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = jQuery.extend(jQuery.attrHooks[name], {\n        get: function (elem) {\n            var ret = elem.getAttribute(name, 2);\n            return ret === null ? undefined : ret;\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = {\n        get: function (elem) {\n            return elem.getAttribute('value') === null ? 'on' : elem.value;\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = jQuery.extend(jQuery.valHooks[this], {\n        set: function (elem, value) {\n            if (jQuery.isArray(value)) {\n                return elem.checked = jQuery.inArray(jQuery(elem).val(), value) >= 0;\n            }\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (oct) {\n    if (ii < 16) {\n        buf[i + ii++] = _hexToByte[oct];\n    }\n}",
+    "receiverBase": "toLowerCase",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return uuid;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (!test.ntf.closed) {\n        test.ntf.closed = true;\n        socket.destroy();\n    }\n}",
+    "receiverBase": "teardown",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (err) {\n    test.ntf.closed = true;\n    if (!done) {\n        done = true;\n        test.ok(false, err);\n        test.done();\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    test.ntf.connected = true;\n    callback(test, socket);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    test.ntf.closed = true;\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!done) {\n        test.fail(new Date().getTime() - start, opts.timeout, '', '>=', 'Connection timed out');\n        socket.destroy();\n        test.done();\n    }\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    layout.innerCt.dom.scrollLeft = 0;\n}",
+    "receiverBase": "innerCt",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    document.body.addEventListener('beforeinsert', registerTbBModEvents, false);\n    document.body.addEventListener('afterinsert', afterInsert, false);\n    nodes = document.querySelectorAll('ul, div, form');\n    for (var i = 0; i < nodes.length; i++) {\n        registerTbBModEvents(nodes[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (i, parser) {\n    var match = parser.re.exec(red), values = match && parser.parse(match), parsed, spaceName = parser.space || 'rgba', cache = spaces[spaceName].cache;\n    if (values) {\n        parsed = inst[spaceName](values);\n        inst[cache] = parsed[cache];\n        rgba = inst._rgba = parsed._rgba;\n        return false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, prop) {\n    rgba[prop.idx] = clamp(red[prop.idx], prop);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (spaceName, space) {\n    if (red[space.cache]) {\n        inst[space.cache] = red[space.cache].slice();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (spaceName, space) {\n    each(space.props, function (key, prop) {\n        var cache = space.cache;\n        if (!inst[cache] && space.to) {\n            if (red[key] == null || key === 'alpha') {\n                return;\n            }\n            inst[cache] = space.to(inst._rgba);\n        }\n        inst[cache][prop.idx] = clamp(red[key], prop, true);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, prop) {\n    var cache = space.cache;\n    if (!inst[cache] && space.to) {\n        if (red[key] == null || key === 'alpha') {\n            return;\n        }\n        inst[cache] = space.to(inst._rgba);\n    }\n    inst[cache][prop.idx] = clamp(red[key], prop, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, space) {\n    var isCache = is[space.cache], localCache;\n    if (isCache) {\n        localCache = myself[space.cache] || space.to && space.to(myself._rgba) || [];\n        each(space.props, function (_, prop) {\n            if (isCache[prop.idx] != null) {\n                same = isCache[prop.idx] == localCache[prop.idx];\n                return same;\n            }\n        });\n    }\n    return same;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, prop) {\n    if (isCache[prop.idx] != null) {\n        same = isCache[prop.idx] == localCache[prop.idx];\n        return same;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (spaceName, space) {\n    if (inst[space.cache]) {\n        used.push(spaceName);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, i) {\n    return (1 - a) * blend[i] + a * v;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v, i) {\n    return v == null ? i > 2 ? 1 : 0 : v;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v, i) {\n    if (v == null) {\n        v = i > 2 ? 1 : 0;\n    }\n    if (i && i < 3) {\n        v = Math.round(v * 100) + '%';\n    }\n    return v;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v, i) {\n    v = (v || 0).toString(16);\n    return v.length == 1 ? '0' + v : v;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key, prop) {\n    var val = arr[type === 'object' ? key : prop.idx];\n    if (val == null) {\n        val = local[prop.idx];\n    }\n    local[prop.idx] = clamp(val, prop);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var div = document.createElement('div'), div_style = div.style;\n    div_style.cssText = 'background-color:rgba(1,1,1,.5)';\n    support.rgba = div_style.backgroundColor.indexOf('rgba') > -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "jQuery"
+  },
+  {
+    "callback": "function () {\n    return !!document.createElementNS && !!document.createElementNS(SVG.ns, 'svg').createSVGRect;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (from, to) {\n    return fx._at({\n        from: from,\n        to: to\n    }, pos);\n}",
+    "receiverBase": "_during",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var interval = 1000 / 60, start = new Date().getTime(), finish = start + d;\n    fx.interval = setInterval(function () {\n        var time = new Date().getTime(), pos = time > finish ? 1 : (time - start) / d;\n        fx.to(pos);\n        if (time > finish) {\n            clearInterval(fx.interval);\n            fx._after ? fx._after.apply(element, [fx]) : fx.stop();\n        }\n    }, d > interval ? interval : d);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var time = new Date().getTime(), pos = time > finish ? 1 : (time - start) / d;\n    fx.to(pos);\n    if (time > finish) {\n        clearInterval(fx.interval);\n        fx._after ? fx._after.apply(element, [fx]) : fx.stop();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (event) {\n    SVG.Element.prototype[event] = function (f) {\n        var self = this;\n        this.node['on' + event] = typeof f == 'function' ? function () {\n            return f.apply(self, arguments);\n        } : null;\n        return this;\n    };\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    element.style('position:relative;');\n    element.parent.removeChild(element.node.parentNode);\n    element.node.parentNode.removeChild(element.node);\n    element.parent.appendChild(element.node);\n    element.fixSubPixelOffset();\n    SVG.on(window, 'resize', function () {\n        element.fixSubPixelOffset();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    element.fixSubPixelOffset();\n}",
+    "receiverBase": "SVG",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var post_id = $('#post_id').val();\n    var content_id = $('#content_id').val();\n    if (post_id != undefined) {\n        var post = $('#opt-' + post_id).text();\n        $('#post-select > [value=\\'' + post_id + '\\']').attr('selected', 'true');\n    }\n    if (content_id != undefined) {\n        var content = $('#opt-content-' + content_id).text();\n        $('#content-select > [value=\\'' + content_id + '\\']').attr('selected', 'true');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (model) {\n    return model.get(attr);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (method) {\n    Backbone.Collection.prototype[method] = function () {\n        return _[method].apply(_, [this.models].concat(_.toArray(arguments)));\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match, ch) {\n    return ch.toUpperCase();\n}",
+    "receiverBase": "nodeName",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x, y) {\n    return x.priority - y.priority;\n}",
+    "receiverBase": "ruleClasses",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    $alert.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (key) {\n    if (angular.isDefined(attr[key]))\n        options[key] = attr[key];\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    attr[key] && attr.$observe(key, function (newValue, oldValue) {\n        scope[key] = $sce.trustAsHtml(newValue);\n    });\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    scope[key] = $sce.trustAsHtml(newValue);\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (newValue, oldValue) {\n    if (angular.isObject(newValue)) {\n        angular.extend(scope, newValue);\n    } else {\n        scope.content = newValue;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    alert.destroy();\n    options = null;\n    alert = null;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  }
+]

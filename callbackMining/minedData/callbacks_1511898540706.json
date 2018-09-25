@@ -1,0 +1,1664 @@
+[
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : canplaythrough');\n    jPlayerObj._trigger($.jPlayer.event.canplaythrough);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        if (DEBUG)\n            console.log('Trigger : loadeddata');\n        jPlayerObj._trigger($.jPlayer.event.loadeddata);\n    }, 0);\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : loadeddata');\n    jPlayerObj._trigger($.jPlayer.event.loadeddata);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    checkDuration(event);\n    checkCanPlayThrough(event);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    checkDuration(event);\n    checkCanPlayThrough(event);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        if (DEBUG)\n            console.log('Trigger : playing');\n        jPlayerObj._trigger($.jPlayer.event.playing);\n    }, 0);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : playing');\n    jPlayerObj._trigger($.jPlayer.event.playing);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.jPlayer.flash.used) {\n        jPlayerFlashEventsPatch();\n    }\n    $(this).jPlayer('setMedia', jpMedia).jPlayer('load');\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (DEBUG)\n        console.log('Dispatched event: ' + name + (event && event.jPlayer ? ' (' + event.jPlayer.status.currentTime + 's)' : ''));\n    media.dispatchEvent(name);\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (DEBUG)\n        console.log('Dispatched event: loadeddata' + (event && event.jPlayer ? ' (' + event.jPlayer.status.currentTime + 's)' : ''));\n    media.dispatchEvent('loadeddata');\n    ready = true;\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    duration = event.jPlayer.status.duration;\n    dispatchDurationChange();\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    error = event.jPlayer.error;\n    if (error.type === $.jPlayer.error.URL) {\n        error.code = 4;\n    } else {\n        error.code = 0;\n    }\n    if (DEBUG)\n        console.log('Dispatched event: error');\n    if (DEBUG)\n        console.dir(error);\n    media.dispatchEvent('error');\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    jPlayerDownloading = false;\n    jPlayerInit();\n}",
+    "receiverBase": "Popcorn",
+    "receiverCallee": "getScript"
+  },
+  {
+    "callback": "function () {\n    jQueryDownloading = false;\n    jPlayerCheck();\n}",
+    "receiverBase": "Popcorn",
+    "receiverCallee": "getScript"
+  },
+  {
+    "callback": "function (source) {\n    for (var prop in source) {\n        obj[prop] = source[prop];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (filter) {\n    var fObj = genFilterObject(filter);\n    if (fObj !== null) {\n        query.custom_filters_score.filters.push(fObj);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (f) {\n    var fObj = genFilterObject(f);\n    if (fObj !== null) {\n        query.custom_filters_score.filters.push(fObj);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (field) {\n    highlight.fields[field] = {};\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (field) {\n    if (!has(highlight.fields, field)) {\n        highlight.fields[field] = {};\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (handle) {\n    var destroyMethodName = 'destroyRecursive' in handle ? 'destroyRecursive' : 'destroy' in handle ? 'destroy' : 'remove';\n    var odh = aspect.before(this, 'destroy', function (preserveDom) {\n            handle[destroyMethodName](preserveDom);\n        });\n    var hdh = aspect.after(handle, destroyMethodName, function () {\n            odh.remove();\n            hdh.remove();\n        }, true);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (preserveDom) {\n    handle[destroyMethodName](preserveDom);\n}",
+    "receiverBase": "aspect",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    odh.remove();\n    hdh.remove();\n}",
+    "receiverBase": "aspect",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (Y, NAME) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    navigator.mozInputMethod = realMozInputMethod;\n}",
+    "receiverBase": "",
+    "receiverCallee": "teardown"
+  },
+  {
+    "callback": "function () {\n    target = {\n        keyCode: 99,\n        keyCodeUpper: 999,\n        longPressValue: '$$',\n        longPressKeyCode: 9999\n    };\n    handler = new DefaultTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledWith(target));\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledOnce);\n    assert.isTrue(app.visualHighlightManager.show.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.show.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(99));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(99));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.newTargetActivate();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(99));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.longPress();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(9999));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce, 'Do nothing');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledTwice);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledTwice);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce, 'Do nothing');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveIn();\n    assert.isTrue(app.visualHighlightManager.show.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.show.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(99));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(99));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.longPress();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(9999));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce, 'Do nothing');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledTwice);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledTwice);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce, 'Do nothing');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new NullTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.longPress();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new SpaceKeyTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.longPress();\n    assert.isTrue(app.targetHandlersManager.activeTargetsManager.clearAllTargets.calledOnce);\n    assert.isTrue(navigator.mozInputMethod.mgmt.hide.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.commit, DefaultTargetHandler.prototype.commit, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {\n        data: 'data',\n        text: 'text'\n    };\n    handler = new CandidateSelectionTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.candidatePanelManager.hideFullPanel.calledOnce);\n    assert.isTrue(app.inputMethodManager.currentIMEngine.select.calledWith('text', 'data'));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.select.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new BackspaceTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledWith(target));\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledOnce);\n    assert.isTrue(app.visualHighlightManager.show.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.show.calledOnce);\n    assert.isTrue(window.setTimeout.calledOnce);\n    assert.equal(window.setTimeout.getCall(0).args[1], handler.REPEAT_TIMEOUT);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    window.setTimeout.getCall(0).args[0].call(window);\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, true));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledOnce);\n    assert.isTrue(window.setInterval.calledOnce);\n    assert.equal(window.setInterval.getCall(0).args[1], handler.REPEAT_RATE);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(1).calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledTwice);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(1).calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledTwice);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    window.setInterval.getCall(0).args[0].call(window);\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(1).calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, true));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledTwice);\n    assert.isTrue(window.setInterval.calledOnce);\n    assert.equal(window.setInterval.getCall(0).args[1], handler.REPEAT_RATE);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(2).calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledThrice);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(2).calledWith(KeyEvent.DOM_VK_BACK_SPACE, null, false));\n    assert.isTrue(app.inputMethodManager.currentIMEngine.click.calledThrice);\n    assert.isTrue(window.clearTimeout.calledOnce);\n    assert.isTrue(window.clearInterval.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveIn();\n    assert.isFalse(app.feedbackManager.triggerFeedback.calledOnce);\n    assert.isFalse(app.visualHighlightManager.show.calledOnce);\n    assert.isFalse(window.setTimeout.calledOnce);\n    assert.isFalse(window.setInterval.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.isFalse(app.inputMethodManager.currentIMEngine.click.calledOnce, 'Should not be called whatsoever.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "teardown"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.cancel();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = { compositeKey: 'lol' };\n    handler = new CompositeTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    for (var i = 0; i < 'lol'.length; i++) {\n        assert.isTrue(app.inputMethodManager.currentIMEngine.click.getCall(i).calledWith('lol'.charCodeAt(i)));\n    }\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new CapsLockTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.activate();\n    assert.isTrue(app.upperCaseStateManager.switchUpperCaseState.calledWith({ isUpperCaseLocked: true }));\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledWith(target));\n    assert.isTrue(app.feedbackManager.triggerFeedback.calledOnce);\n    assert.isTrue(app.visualHighlightManager.show.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.show.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.upperCaseStateManager.switchUpperCaseState.calledWith({\n        isUpperCase: true,\n        isUpperCaseLocked: false\n    }));\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.newTargetActivate();\n    handler.commit();\n    assert.isTrue(app.upperCaseStateManager.switchUpperCaseState.calledWith({\n        isUpperCase: false,\n        isUpperCaseLocked: false\n    }));\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.doubleTap();\n    assert.isTrue(app.upperCaseStateManager.switchUpperCaseState.calledWith({ isUpperCaseLocked: true }));\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {\n        keyCode: KeyEvent.DOM_VK_ALT,\n        targetPage: 99\n    };\n    handler = new PageSwitchingTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.setLayoutPage.calledWith(99));\n    assert.isTrue(app.setLayoutPage.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n    assert.isTrue(app.inputMethodManager.currentIMEngine.empty.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new SwitchKeyboardTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.longPress();\n    assert.isTrue(app.targetHandlersManager.activeTargetsManager.clearAllTargets.calledOnce);\n    assert.isTrue(navigator.mozInputMethod.mgmt.showAll.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.targetHandlersManager.activeTargetsManager.clearAllTargets.calledOnce);\n    assert.isTrue(navigator.mozInputMethod.mgmt.next.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new ToggleCandidatePanelTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.candidatePanelManager.toggleFullPanel.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = {};\n    handler = new DismissSuggestionsTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.activate, DefaultTargetHandler.prototype.activate, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveIn, DefaultTargetHandler.prototype.moveIn, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.move, DefaultTargetHandler.prototype.move, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.moveOut, DefaultTargetHandler.prototype.moveOut, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.inputMethodManager.currentIMEngine.dismissSuggestions.calledOnce);\n    assert.isTrue(app.visualHighlightManager.hide.calledWith(target));\n    assert.isTrue(app.visualHighlightManager.hide.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    target = { isHandwritingPad: true };\n    press = { target: target };\n    handler = new HandwritingPadTargetHandler(target, app);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    handler.activate(press);\n    assert.isTrue(app.handwritingPadsManager.handlePressStart.calledWith(press));\n    assert.isTrue(app.handwritingPadsManager.handlePressStart.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.longPress, DefaultTargetHandler.prototype.longPress, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.move(press);\n    assert.isTrue(app.handwritingPadsManager.handlePressMove.calledWith(press));\n    assert.isTrue(app.handwritingPadsManager.handlePressMove.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveIn(press);\n    assert.isTrue(app.handwritingPadsManager.handlePressStart.calledWith(press));\n    assert.isTrue(app.handwritingPadsManager.handlePressStart.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.moveOut();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    handler.commit();\n    assert.isTrue(app.handwritingPadsManager.handlePressEnd.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.cancel, DefaultTargetHandler.prototype.cancel, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    assert.equal(handler.doubleTap, DefaultTargetHandler.prototype.doubleTap, 'function not overwritten');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var endCol = lines[row].length;\n    view.replaceCharacters({\n        start: {\n            col: endCol,\n            row: row\n        },\n        end: {\n            col: /^\\s*/.exec(lines[row + 1])[0].length,\n            row: row + 1\n        }\n    }, '');\n}",
+    "receiverBase": "view",
+    "receiverCallee": "groupChanges"
+  },
+  {
+    "callback": "function (selected) {\n    return selected.replace(args.search + '/g', args.replace);\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (selected) {\n    return selected.replace(' {' + tabstop + '}', '\\t');\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (selected) {\n    return selected.replace('\\t', new Array(tabstop + 1).join(' '));\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (selected) {\n    var lines = selected.split('\\n');\n    lines = lines.map(function (line) {\n        if (args.side === 'left' || args.side === 'both') {\n            line = line.replace(/^\\s+/, '');\n        }\n        if (args.side === 'right' || args.side === 'both') {\n            line = line.replace(/\\s+$/, '');\n        }\n        return line;\n    });\n    return lines.join('\\n');\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (line) {\n    if (args.side === 'left' || args.side === 'both') {\n        line = line.replace(/^\\s+/, '');\n    }\n    if (args.side === 'right' || args.side === 'both') {\n        line = line.replace(/\\s+$/, '');\n    }\n    return line;\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (selected) {\n    return selected.toUpperCase();\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (selected) {\n    return selected.toLowerCase();\n}",
+    "receiverBase": "",
+    "receiverCallee": "withSelection"
+  },
+  {
+    "callback": "function (line) {\n    var width = line.characters.length;\n    if (max < width) {\n        max = width;\n    }\n}",
+    "receiverBase": "textLines",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (patch) {\n    textStorage.replaceCharacters(patch.oldRange, patch.newCharacters);\n}",
+    "receiverBase": "patches",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (patch) {\n    return {\n        oldCharacters: patch.newCharacters,\n        oldRange: patch.newRange,\n        newCharacters: patch.oldCharacters,\n        newRange: patch.oldRange\n    };\n}",
+    "receiverBase": "patches",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (error) {\n    promise.reject(error);\n}",
+    "receiverBase": "saveContents",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (contents) {\n    self._model.value = contents;\n}",
+    "receiverBase": "loadContents",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (rect) {\n    context.fillRect(rect.x, rect.y, rect.width, rect.height);\n}",
+    "receiverBase": "rectsForRange",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (rect) {\n    this.invalidateRect(adjustRect(rect));\n}",
+    "receiverBase": "rects",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (evt) {\n    if (self.delegate && self.delegate.didFocus) {\n        self.delegate.didFocus();\n    }\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    if (self.delegate && self.delegate.didBlur) {\n        self.delegate.didBlur();\n    }\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    if (self.delegate && self.delegate.keyDown) {\n        return self.delegate.keyDown(evt);\n    } else {\n        return false;\n    }\n}",
+    "receiverBase": "KeyUtil",
+    "receiverCallee": "addKeyDownListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._textInserted(evt.data);\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._textInserted(evt.data);\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._textInserted(evt.clipboardData.getData('text/plain'));\n    evt.preventDefault();\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._composing = true;\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._composing = false;\n    self._textFieldChanged();\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (evt) {\n    self._setValueAndSelect('');\n    window.setTimeout(function () {\n        self._textFieldChanged();\n    }, 0);\n}",
+    "receiverBase": "textField",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    self._textFieldChanged();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._setValueAndSelect('');\n    self._ignore = false;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (root) {\n    that.queue.splice(that.queue.indexOf(path), 1);\n    that.files[path] = root;\n    callback(root);\n    if (that.queue.length === 0) {\n        finish();\n    }\n}",
+    "receiverBase": "Parser",
+    "receiverCallee": "importer"
+  },
+  {
+    "callback": "function (comment) {\n    return that.optimization > 1 ? '' : comment.replace(/\\n(\\s*\\n)+/g, '\\n');\n}",
+    "receiverBase": "input",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (c) {\n    return number(c);\n}",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a) {\n    return a.eval(env);\n}",
+    "receiverBase": "args",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (a) {\n    return a.toCSS();\n}",
+    "receiverBase": "args",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return parseInt(c, 16);\n}",
+    "receiverBase": "match",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return parseInt(c + c, 16);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    i = Math.round(i);\n    i = (i > 255 ? 255 : i < 0 ? 0 : i).toString(16);\n    return i.length === 1 ? '0' + i : i;\n}",
+    "receiverBase": "rgb",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return e.eval(env);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return e.toCSS();\n}",
+    "receiverBase": "value",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (root) {\n    that.root = root;\n}",
+    "receiverBase": "imports",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (a) {\n    return a.toCSS();\n}",
+    "receiverBase": "arguments",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (count, p) {\n    if (p.name && !p.value) {\n        return count + 1;\n    } else {\n        return count;\n    }\n}",
+    "receiverBase": "params",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (v) {\n    return v.eval(env);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return e.toCSS();\n}",
+    "receiverBase": "value",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rule) {\n    if (rule.evalRules) {\n        rules.push(rule.evalRules(context));\n    } else if (rule instanceof tree.mixin.Call) {\n        Array.prototype.push.apply(rules, rule.eval(context));\n    } else {\n        rules.push(rule.eval(context));\n    }\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (hash, r) {\n    if (r instanceof tree.Rule && r.variable === true) {\n        hash[r.name] = r;\n    }\n    return hash;\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (r) {\n    if (r instanceof tree.Ruleset || r instanceof tree.mixin.Definition) {\n        return r;\n    }\n}",
+    "receiverBase": "rules",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (rule) {\n    if (rule !== self) {\n        for (var j = 0; j < rule.selectors.length; j++) {\n            if (match = selector.match(rule.selectors[j])) {\n                if (selector.elements.length > 1) {\n                    Array.prototype.push.apply(rules, rule.find(new tree.Selector(selector.elements.slice(1)), self));\n                } else {\n                    rules.push(rule);\n                }\n                break;\n            }\n        }\n    }\n}",
+    "receiverBase": "rulesets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    return [s];\n}",
+    "receiverBase": "selectors",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (p) {\n    return p.map(function (s) {\n        return s.toCSS();\n    }).join('').trim();\n}",
+    "receiverBase": "paths",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    return s.toCSS();\n}",
+    "receiverBase": "p",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    if (typeof e === 'string') {\n        return ' ' + e.trim();\n    } else {\n        return e.toCSS();\n    }\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (frame) {\n    if (v = frame.variable(name)) {\n        return v.value.eval(env);\n    }\n}",
+    "receiverBase": "tree",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (root, sheet, env) {\n    createCSS(root.toCSS(), sheet, env.lastModified);\n    if (env.local) {\n        log('less: loading ' + sheet.href + ' from local storage.');\n    } else {\n        log('less: parsed ' + sheet.href + ' successfully.');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadStyleSheets"
+  },
+  {
+    "callback": "function () {\n    if (/!refresh/.test(location.hash)) {\n        loadStyleSheets(function (root, sheet, lastModified) {\n            createCSS(root.toCSS(), sheet, lastModified);\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (root, sheet, lastModified) {\n    createCSS(root.toCSS(), sheet, lastModified);\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadStyleSheets"
+  },
+  {
+    "callback": "function (e, root) {\n    if (e) {\n        return error(e, sheet.href);\n    }\n    try {\n        callback(root, sheet, {\n            local: false,\n            lastModified: lastModified\n        });\n    } catch (e) {\n        error(e, sheet.href);\n    }\n}",
+    "receiverCallee": "parse"
+  },
+  {
+    "callback": "function (status) {\n    throw new Error('Couldn\\'t load ' + sheet.href + ' (' + status + ')');\n}",
+    "receiverBase": "",
+    "receiverCallee": "xhr"
+  },
+  {
+    "callback": "function (_, i) {\n    return e.line + parseInt(i);\n}",
+    "receiverBase": "template",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (_, i) {\n    return e.extract[parseInt(i)];\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    if (document.body) {\n        document.body.insertBefore(elem, document.body.childNodes[0]);\n        clearInterval(timer);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (root) {\n    callback(root);\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadStyleSheet"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (name) {\n    map[name] = getOwnPropertyDescriptor(obj, name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    set[name] = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (trait) {\n    forEach(getOwnPropertyNames(trait), function (name) {\n        var pd = trait[name];\n        if (hasOwnProperty(newTrait, name) && !newTrait[name].required) {\n            if (pd.required) {\n                return;\n            }\n            if (!isSameDesc(newTrait[name], pd)) {\n                newTrait[name] = makeConflictingPropDesc(name);\n            }\n        } else {\n            newTrait[name] = pd;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var pd = trait[name];\n    if (hasOwnProperty(newTrait, name) && !newTrait[name].required) {\n        if (pd.required) {\n            return;\n        }\n        if (!isSameDesc(newTrait[name], pd)) {\n            newTrait[name] = makeConflictingPropDesc(name);\n        }\n    } else {\n        newTrait[name] = pd;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    if (!hasOwnProperty(exclusions, name) || trait[name].required) {\n        newTrait[name] = trait[name];\n    } else {\n        newTrait[name] = makeRequiredPropDesc(name);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (trait) {\n    forEach(getOwnPropertyNames(trait), function (name) {\n        var pd = trait[name];\n        if (!hasOwnProperty(newTrait, name) || newTrait[name].required) {\n            newTrait[name] = pd;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var pd = trait[name];\n    if (!hasOwnProperty(newTrait, name) || newTrait[name].required) {\n        newTrait[name] = pd;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (command) {\n    var request = new Request({\n            command: command,\n            commandExt: commandExt\n        });\n    history.execute(match.args, request);\n}",
+    "receiverBase": "commandExt",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function (binding) {\n    if (!util.none(binding.key)) {\n        binding.key = new RegExp('^' + binding.key + '$');\n    } else if (Array.isArray(binding.regex)) {\n        binding.key = new RegExp('^' + binding.regex[1] + '$');\n        binding.regex = new RegExp(binding.regex.join('') + '$');\n    } else {\n        binding.regex = new RegExp(binding.regex + '$');\n    }\n}",
+    "receiverBase": "bindings",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (param) {\n    if (!util.none(param.match) && !util.none(match)) {\n        value = match[param.match] || param.defaultValue;\n    } else {\n        value = param.defaultValue;\n    }\n    if (param.type === 'number') {\n        value = parseInt(value);\n    }\n    args[param.name] = value;\n}",
+    "receiverBase": "params",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ev) {\n    if (util.isMozilla) {\n        if (exports.KeyHelper.FUNCTION_KEYS[ev.keyCode]) {\n            return true;\n        } else if ((ev.ctrlKey || ev.metaKey) && exports.KeyHelper.PRINTABLE_KEYS[ev.keyCode]) {\n            return true;\n        }\n    }\n    if (isFunctionOrNonPrintableKey(ev)) {\n        return handleBoundFunction(ev);\n    }\n    return true;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (ident) {\n    delete syms['-' + ident];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (lineSyms, i) {\n    symbols.replaceLine(startRow + i, lineSyms);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (tag) {\n    return tag.name;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "sortedIndex"
+  },
+  {
+    "callback": "function (a, b) {\n    var nameA = a.name, nameB = b.name;\n    if (nameA < nameB) {\n        return -1;\n    }\n    if (nameA === nameB) {\n        return 0;\n    }\n    return 1;\n}",
+    "receiverBase": "tags",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (tag) {\n    return tag.name === id;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_search"
+  },
+  {
+    "callback": "function (tag) {\n    return tag.name.substring(0, len) === prefix;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_search"
+  },
+  {
+    "callback": "function (field) {\n    var match = /^([^:]+):(.*)/.exec(field);\n    fields[match[1]] = match[2];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (theme) {\n    if (currentThemeExt) {\n        themestyles.unregisterThemeStyles(currentThemeExt);\n    }\n    themestyles.currentThemeVariables = theme();\n    currentThemeExt = themeExt;\n    themestyles.parseGlobalVariables();\n    themestyles.reparse();\n    if (themeExt.url) {\n        themestyles.registerThemeStyles(themeExt);\n    }\n    catalog.publish(exports, 'themeChange');\n}",
+    "receiverBase": "load",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ext) {\n    if (ext.ep === 'themevariable') {\n        var value = ext.name;\n        themeVariables[value] = themeVariables[value] || ext.defaultValue;\n    }\n}",
+    "receiverBase": "provides",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (xhr) {\n    xhr.overrideMimeType('text/plain');\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "xhr"
+  },
+  {
+    "callback": "function (response) {\n    processStyleContent(resourceURL, pluginName, response, p);\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    console.error('registerLessFile: Could not load ' + resourceURL + styleFile);\n    p.resolve();\n}",
+    "receiverBase": "xhr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    exports.parsePlugin(pluginName);\n}",
+    "receiverBase": "group",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    pr.reject(err);\n}",
+    "receiverBase": "themeDataLoadPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (option) {\n    if (value == option) {\n        match = true;\n    }\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj) {\n    var reply = obj(typeSpec);\n    if (typeof reply.then === 'function') {\n        reply.then(function (data) {\n            extension.data = data;\n            promise.resolve();\n        });\n    } else {\n        extension.data = reply;\n        promise.resolve();\n    }\n}",
+    "receiverBase": "loadObjectForPropertyPath",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    extension.data = data;\n    promise.resolve();\n}",
+    "receiverBase": "reply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "loadObjectForPropertyPath",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (obj) {\n    var reply = obj(typeSpec);\n    if (typeof reply.then === 'function') {\n        reply.then(function (newTypeSpec) {\n            promise.resolve(newTypeSpec);\n        }, function (ex) {\n            promise.reject(ex);\n        });\n    } else {\n        promise.resolve(reply);\n    }\n}",
+    "receiverBase": "loadObjectForPropertyPath",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (newTypeSpec) {\n    promise.resolve(newTypeSpec);\n}",
+    "receiverBase": "reply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "reply",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "loadObjectForPropertyPath",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (newTypeSpec) {\n    resolveTypeExt(newTypeSpec).then(function (reply) {\n        promise.resolve(reply);\n    }, function (ex) {\n        promise.reject(ex);\n    });\n}",
+    "receiverBase": "undeferTypeSpec",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (reply) {\n    promise.resolve(reply);\n}",
+    "receiverBase": "resolveTypeExt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "resolveTypeExt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (type) {\n    if (typeof type.resolveTypeSpec === 'function') {\n        type.resolveTypeSpec(data.ext, data.typeSpec).then(function () {\n            promise.resolve({\n                type: type,\n                ext: data.ext\n            });\n        }, function (ex) {\n            promise.reject(ex);\n        });\n    } else {\n        promise.resolve({\n            type: type,\n            ext: data.ext\n        });\n    }\n}",
+    "receiverBase": "ext",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    promise.resolve({\n        type: type,\n        ext: data.ext\n    });\n}",
+    "receiverBase": "resolveTypeSpec",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "resolveTypeSpec",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    promise.reject(ex);\n}",
+    "receiverBase": "resolveTypeExt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (typeData) {\n    promise.resolve(typeData.type.fromString(stringVersion, typeData.ext));\n}",
+    "receiverBase": "resolveType",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (typeData) {\n    promise.resolve(typeData.type.toString(objectVersion, typeData.ext));\n}",
+    "receiverBase": "resolveType",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (typeData) {\n    promise.resolve(typeData.type.isValid(originalVersion, typeData.ext));\n}",
+    "receiverBase": "resolveType",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'define metadata';\n    ({});\n    'end';\n    exports.$ = window.$;\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'define metadata';\n    ({\n        'dependencies': {\n            'appconfig': '0.0.0',\n            'edit_session': '0.0.0',\n            'theme_manager': '0.0.0',\n            'screen_theme': '0.0.0',\n            'text_editor': '0.0.0'\n        }\n    });\n    'end';\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.key < b.key) {\n        return -1;\n    } else if (a.key == b.key) {\n        return 0;\n    } else {\n        return 1;\n    }\n}",
+    "receiverBase": "settingsList",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (setting) {\n    html += '<a class=\"setting\" href=\"https://wiki.mozilla.org/Labs/Bespin/Settings#' + setting.key + '\" title=\"View external documentation on setting: ' + setting.key + '\" target=\"_blank\">' + setting.key + '</a> = ' + setting.value + '<br/>';\n}",
+    "receiverBase": "settingsList",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    data[key] = settings.get(key);\n}",
+    "receiverBase": "_getSettingNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (assignment) {\n    if (assignment.param.name === 'setting') {\n        settingAssignment = assignment;\n    }\n}",
+    "receiverBase": "assignments",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ex) {\n    console.error('Error setting', key, ': ', ex);\n}",
+    "receiverBase": "fromString",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (ex) {\n    console.error('Type error ', ex, ' ignoring setting ', settingExt);\n}",
+    "receiverBase": "isValid",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (settingExt) {\n    typeNames.push(settingExt.name);\n}",
+    "receiverBase": "getExtensions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    replyPromise.resolve();\n}",
+    "receiverBase": "groupPromises",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    reply[key] = value;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    replyPromise.resolve(reply);\n}",
+    "receiverBase": "groupPromises",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (settingExt) {\n    defaultValues[settingExt.name] = settingExt.defaultValue;\n}",
+    "receiverBase": "getExtensions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (loginController) {\n    var pr = loginController.showLogin();\n    pr.then(function (username) {\n        config.objects.session.arguments.push(username);\n        exports.launchEditor(catalog, config).then(resolveLaunchPromise, launchPromise.reject.bind(launchPromise));\n    });\n}",
+    "receiverBase": "createObject",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (username) {\n    config.objects.session.arguments.push(username);\n    exports.launchEditor(catalog, config).then(resolveLaunchPromise, launchPromise.reject.bind(launchPromise));\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    launchPromise.reject(error);\n}",
+    "receiverBase": "themeLoadingPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var themeManager = require('theme_manager');\n    if (config.theme.basePlugin) {\n        themeManager.setBasePlugin(config.theme.basePlugin);\n    }\n    if (config.theme.standard) {\n        themeManager.setStandardTheme(config.theme.standard);\n    }\n    themeManager.startParsing().then(function () {\n        themeLoadingPromise.resolve();\n    }, function (error) {\n        themeLoadingPromise.reject(error);\n    });\n}",
+    "receiverBase": "require",
+    "receiverCallee": "ensurePackage"
+  },
+  {
+    "callback": "function () {\n    themeLoadingPromise.resolve();\n}",
+    "receiverBase": "startParsing",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    themeLoadingPromise.reject(error);\n}",
+    "receiverBase": "startParsing",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    generateGUI(catalog, config, retPr);\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    console.error('Error while creating objects');\n    new Trace(error).log();\n    retPr.reject(error);\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (handler) {\n    handler.func.apply(null, args);\n}",
+    "receiverBase": "handlers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "tiki",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (item) {\n    style += item + ':' + getCSSProperty(element, container, item) + ';';\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (env) {\n    prEnv = env;\n    pr.resolve(env);\n}",
+    "receiverBase": "launch",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (env) {\n    node.bespin = env;\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    throw new Error('Launch failed: ' + error);\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    window.onBespinLoad();\n}",
+    "receiverBase": "group",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    throw new Error('At least one Bespin failed to launch!');\n}",
+    "receiverBase": "group",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        debug('dispatching RECEIVE_MESSAGES_FAILURE', message);\n        context.dispatch('RECEIVE_MESSAGES_FAILURE', [message]);\n        done();\n        return;\n    }\n    debug('dispatching RECEIVE_MESSAGES_SUCCESS', message);\n    context.dispatch('RECEIVE_MESSAGES_SUCCESS', [message]);\n    done();\n}",
+    "receiverBase": "service",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (ed, evt) {\n    if (evt.keyCode == 13) {\n        if (handleEnterKey(evt) !== false) {\n            evt.preventDefault();\n        }\n    }\n}",
+    "receiverBase": "onKeyDown",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (req, res) {\n    var agentsResp = [];\n    config.agents.forEach(function (agent) {\n        agentsResp.push({\n            name: agent.name,\n            group: agent.group,\n            dead: agent.dead,\n            version: agent.version,\n            configVersion: agent.configVersion,\n            loadBalancerState: agent.loadBalancerState\n        });\n    });\n    agentsResp = _.sortBy(agentsResp);\n    res.json(agentsResp);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (agent) {\n    agentsResp.push({\n        name: agent.name,\n        group: agent.group,\n        dead: agent.dead,\n        version: agent.version,\n        configVersion: agent.configVersion,\n        loadBalancerState: agent.loadBalancerState\n    });\n}",
+    "receiverBase": "agents",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, res) {\n    clientSockets.sockets.volatile.emit('agent:event', req.body);\n    app.vent.emit('agentEvent:' + req.body.eventName, req.body);\n    deployLifecycleClient.send(req.body.eventName, req.body, req.body.correlationId);\n    res.json('ok');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (req, res) {\n    clientSockets.sockets.volatile.emit('agent:log', req.body);\n    res.json('ok');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (req, res) {\n    agentApiClient.sendCommand(req.body.agentName, '/action', req.body, req.user);\n    res.json('ok');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (req, res) {\n    agentApiClient.get(req.query.agentName, req.query.url, function (data) {\n        res.json(data);\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (data) {\n    res.json(data);\n}",
+    "receiverBase": "agentApiClient",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    this.fieldLayout = new OO.ui.FieldLayout(new OO.ui.CheckboxInputWidget({ $: this.$ }), {\n        $: advancedSettingsPage.$,\n        align: 'inline',\n        label: this.label\n    });\n    advancedSettingsPage.advancedSettingsFieldset.addItems([this.fieldLayout]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var isSelected = !!advancedSettingsPage.getMetaItem(this.metaName);\n    this.fieldLayout.getField().setSelected(isSelected);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var currentItem = advancedSettingsPage.getMetaItem(this.metaName), isSelected = this.fieldLayout.getField().isSelected();\n    if (currentItem && !isSelected) {\n        currentItem.remove();\n    } else if (!currentItem && isSelected) {\n        advancedSettingsPage.metaList.insertMeta({ type: this.metaName });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "continueScript"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "continueScript"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "lookup"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "backtrace"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "scope"
+  },
+  {
+    "callback": "function (version) {\n    called = true;\n    assertEquals('2.1.10.5', version.V8Version);\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "version"
+  },
+  {
+    "callback": "function (scripts) {\n    assertEquals(4, scripts.length);\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "scripts"
+  },
+  {
+    "callback": "function (body) {\n    assertEquals('scriptName', body.type);\n    assertEquals(1, body.breakpoint);\n    assertEquals(24, body.line);\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "setbreakpoint"
+  },
+  {
+    "callback": "function (body) {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "changebreakpoint"
+  },
+  {
+    "callback": "function (body) {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "clearbreakpoint"
+  },
+  {
+    "callback": "function (e) {\n    called = true;\n    assertEquals(1, e.data.breakpoints[0]);\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "$debugger",
+    "receiverCallee": "suspend"
+  },
+  {
+    "callback": "function (x) {\n    if (x != null) {\n        x.parent = node;\n        traverse(x, cb);\n    }\n}",
+    "receiverBase": "node",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    if (key === 'parent' || !node[key])\n        return;\n    node[key].parent = node;\n    traverse(node[key], cb);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node) {\n    if (!isRequire(node))\n        return;\n    if (node.arguments.length) {\n        if (node.arguments[0].type === 'Literal') {\n            modules.strings.push(node.arguments[0].value);\n        } else {\n            modules.expressions.push(escodegen.generate(node.arguments[0]));\n        }\n    }\n    if (opts.nodes)\n        modules.nodes.push(node);\n}",
+    "receiverBase": "",
+    "receiverCallee": "walk"
+  }
+]

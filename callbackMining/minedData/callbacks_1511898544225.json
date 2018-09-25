@@ -1,0 +1,64 @@
+[
+  {
+    "callback": "function (err, json, res) {\n    console.log(err, json, res.headers);\n    if (err) {\n        next(err, pool);\n        return;\n    }\n    pool.push(json.users);\n    if (json.next_cursor) {\n        query = clone(query);\n        query.cursor = json.next_cursor_str;\n        assemble(endpoint, query, next, pool);\n    } else {\n        next(err, json);\n    }\n}",
+    "receiverBase": "endpoint",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, user) {\n    assemble(user('followers/list'), {\n        screen_name: 'timcameronryan',\n        skip_status: true,\n        include_user_entities: false\n    }, function (err, users) {\n        console.log(users.length);\n    });\n}",
+    "receiverBase": "connect",
+    "receiverCallee": "prompt"
+  },
+  {
+    "callback": "function (err, users) {\n    console.log(users.length);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assemble"
+  },
+  {
+    "callback": "function () {\n    function Span(pos, length) {\n        this.pos = pos;\n        this.length = length;\n    }\n    Span.prototype.end = function () {\n        return this.pos + this.length;\n    };\n    return Span;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    'use strict';\n    Ember.Handlebars.helper('pluralize', function (singular, count) {\n        var inflector = Ember.Inflector.inflector;\n        return count === 1 ? singular : inflector.pluralize(singular);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (singular, count) {\n    var inflector = Ember.Inflector.inflector;\n    return count === 1 ? singular : inflector.pluralize(singular);\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "helper"
+  },
+  {
+    "callback": "function (socket) {\n    socket.on('message', function (message) {\n        socket.send(message);\n    });\n    socket.on('close', function () {\n        console.log('server', 'close');\n    });\n}",
+    "receiverBase": "websockets",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (message) {\n    socket.send(message);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('server', 'close');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('client', 'open');\n    for (var i = 0; i < max; i++) {\n        ws.send('hello world');\n    }\n}",
+    "receiverBase": "ws",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    if (message !== 'hello world') {\n        console.log('meh', message);\n    }\n    if (++rcvd === max) {\n        var delta = Date.now() - now;\n        console.log(delta + 'ms', Math.round(1000 * max / delta) + 'msg/s');\n    }\n}",
+    "receiverBase": "ws",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('client', 'close');\n}",
+    "receiverBase": "ws",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (app) {\n    var data = app.ns('data');\n    var ux = app.ns('ux');\n    data.MetaDataFactory = ux.Observable.extend({\n        defaults: { cluster: null },\n        init: function () {\n            this._super();\n            this.config.cluster.get('_cluster/state', function (data) {\n                this.metaData = new app.data.MetaData({ state: data });\n                this.fire('ready', this.metaData, { originalData: data });\n            }.bind(this));\n        }\n    });\n}",
+    "receiverBase": ""
+  }
+]

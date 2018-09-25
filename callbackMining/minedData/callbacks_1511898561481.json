@@ -1,0 +1,381 @@
+[
+  {
+    "callback": "function () {\n    expect(function () {\n        new AGOLGeocoder();\n    }).to.throw(Error, 'ArcGis Online Geocoder requires a httpAdapter to be defined');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new AGOLGeocoder();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        new AGOLGeocoder(mockedRequestifyAdapter, { client_secret: 'CLIENT_SECRET' });\n    }).to.throw(Error, 'You must specify the client_id and the client_secret');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new AGOLGeocoder(mockedRequestifyAdapter, { client_secret: 'CLIENT_SECRET' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        new AGOLGeocoder(mockedRequestifyAdapter, { client_id: 'CLIENT_ID' });\n    }).to.throw(Error, 'You must specify the client_id and the client_secret');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new AGOLGeocoder(mockedRequestifyAdapter, { client_id: 'CLIENT_ID' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        new AGOLGeocoder(mockedRequestifyAdapter);\n    }).to.throw(Error, 'You must specify the client_id and the client_secret');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new AGOLGeocoder(mockedRequestifyAdapter);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var geocoder = new AGOLGeocoder(mockedRequestifyAdapter, mockedOptions);\n    geocoder.should.be.instanceof(AGOLGeocoder);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var geocoder = new AGOLGeocoder(mockedRequestifyAdapter, mockedOptions);\n    expect(function () {\n        geocoder.geocode('127.0.0.1');\n    }).to.throw(Error, 'The AGOL geocoder does not support IP addresses');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    geocoder.geocode('127.0.0.1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var geocoder = new AGOLGeocoder(mockedRequestifyAdapter, mockedOptions);\n    expect(function () {\n        geocoder.geocode('2001:0db8:0000:85a3:0000:0000:ac1f:8001');\n    }).to.throw(Error, 'The AGOL geocoder does not support IP addresses');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    geocoder.geocode('2001:0db8:0000:85a3:0000:0000:ac1f:8001');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var geocoder = new AGOLGeocoder(mockedAuthHttpAdapter, mockedOptions);\n    geocoder._getToken(function (err, token) {\n        token.should.equal('ABCD');\n    });\n    geocoder._getToken(function (err, token) {\n        token.should.equal('ABCD');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, token) {\n    token.should.equal('ABCD');\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "_getToken"
+  },
+  {
+    "callback": "function (err, token) {\n    token.should.equal('ABCD');\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "_getToken"
+  },
+  {
+    "callback": "function () {\n    var geocoder = new AGOLGeocoder(mockedAuthHttpAdapter, mockedOptions);\n    geocoder.cache.token = 'AAA';\n    geocoder.cache.tokenExp = new Date().getTime() - 2000;\n    geocoder.cache.token.should.equal('AAA');\n    geocoder._getToken(function (err, token) {\n        token.should.equal('ABCD');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, token) {\n    token.should.equal('ABCD');\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "_getToken"
+  },
+  {
+    "callback": "function (err, results) {\n    err.should.to.equal(false);\n    results[0].should.to.deep.equal({\n        latitude: 34.05649072776595,\n        longitude: -117.19566584280369,\n        country: 'USA',\n        city: 'Redlands',\n        state: 'California',\n        stateCode: null,\n        zipcode: '92373',\n        streetName: ' New York St',\n        streetNumber: '380',\n        countryCode: 'USA'\n    });\n    mock.verify();\n    done();\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "geocode"
+  },
+  {
+    "callback": "function (err, results) {\n    err.should.to.deep.equal({\n        'code': 498,\n        'message': 'Invalid Token',\n        'details': []\n    });\n    mock.verify();\n    done();\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "geocode"
+  },
+  {
+    "callback": "function () {\n    var mock = sinon.mock(mockedRequestifyAdapter);\n    mock.expects('get').once().returns({\n        then: function () {\n        }\n    });\n    var geocoder = new AGOLGeocoder(mockedRequestifyAdapter, mockedOptions);\n    geocoder.reverse(10.0235, -2.3662);\n    mock.verify();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, results) {\n    err.should.to.equal(false);\n    results[0].should.to.deep.equal({\n        latitude: 39.64942309095201,\n        longitude: -104.97389993455704,\n        country: 'USA',\n        city: 'Englewood',\n        state: 'Colorado',\n        zipcode: '80113',\n        countryCode: 'USA',\n        address: '1190 E Kenyon Ave',\n        neighborhood: null,\n        loc_name: 'USA.PointAddress'\n    });\n    mock.verify();\n    done();\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "reverse"
+  },
+  {
+    "callback": "function (err, results) {\n    err.should.to.deep.equal({\n        'code': 42,\n        'message': 'Random Error',\n        'details': []\n    });\n    mock.verify();\n    done();\n}",
+    "receiverBase": "geocoder",
+    "receiverCallee": "reverse"
+  },
+  {
+    "callback": "function (err, collection) {\n    collection.insert([\n        { a: 1 },\n        { b: 2 }\n    ], { w: 1 }, function (err, result) {\n        test.equal(null, err);\n        collection.remove();\n        collection.find().toArray(function (err, items) {\n            test.equal(null, err);\n            test.equal(0, items.length);\n            db.close();\n            test.done();\n        });\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "collection"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(null, err);\n    collection.remove();\n    collection.find().toArray(function (err, items) {\n        test.equal(null, err);\n        test.equal(0, items.length);\n        db.close();\n        test.done();\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, items) {\n    test.equal(null, err);\n    test.equal(0, items.length);\n    db.close();\n    test.done();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "toArray"
+  },
+  {
+    "callback": "function (err, collection) {\n    collection.insert([\n        { a: 1 },\n        { b: 2 }\n    ], { w: 1 }, function (err, result) {\n        test.equal(null, err);\n        collection.remove({ a: 1 }, { w: 1 }, function (err, numberOfRemovedDocs) {\n            test.equal(null, err);\n            test.equal(1, numberOfRemovedDocs);\n            db.close();\n            test.done();\n        });\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "collection"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(null, err);\n    collection.remove({ a: 1 }, { w: 1 }, function (err, numberOfRemovedDocs) {\n        test.equal(null, err);\n        test.equal(1, numberOfRemovedDocs);\n        db.close();\n        test.done();\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, numberOfRemovedDocs) {\n    test.equal(null, err);\n    test.equal(1, numberOfRemovedDocs);\n    db.close();\n    test.done();\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, ids) {\n    collection.insert({ i: 2 }, { w: 1 }, function (err, ids) {\n        collection.count(function (err, count) {\n            test.equal(2, count);\n            collection.remove({}, { w: 1 }, function (err, result) {\n                test.equal(2, result);\n                collection.count(function (err, count) {\n                    test.equal(0, count);\n                    test.done();\n                });\n            });\n        });\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, ids) {\n    collection.count(function (err, count) {\n        test.equal(2, count);\n        collection.remove({}, { w: 1 }, function (err, result) {\n            test.equal(2, result);\n            collection.count(function (err, count) {\n                test.equal(0, count);\n                test.done();\n            });\n        });\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, count) {\n    test.equal(2, count);\n    collection.remove({}, { w: 1 }, function (err, result) {\n        test.equal(2, result);\n        collection.count(function (err, count) {\n            test.equal(0, count);\n            test.done();\n        });\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(2, result);\n    collection.count(function (err, count) {\n        test.equal(0, count);\n        test.done();\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, count) {\n    test.equal(0, count);\n    test.done();\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, collection) {\n    collection.insert({ address: '485 7th ave new york' }, { w: 1 }, function (err, ids) {\n        collection.remove({ address: /485 7th ave/ }, { w: 1 }, function (err, result) {\n            test.equal(1, result);\n            collection.count(function (err, count) {\n                test.equal(0, count);\n                test.done();\n            });\n        });\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "collection"
+  },
+  {
+    "callback": "function (err, ids) {\n    collection.remove({ address: /485 7th ave/ }, { w: 1 }, function (err, result) {\n        test.equal(1, result);\n        collection.count(function (err, count) {\n            test.equal(0, count);\n            test.done();\n        });\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(1, result);\n    collection.count(function (err, count) {\n        test.equal(0, count);\n        test.done();\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, count) {\n    test.equal(0, count);\n    test.done();\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(null, err);\n    collection.remove({ a: 1 }, {\n        w: 1,\n        single: true\n    }, function (err, number) {\n        test.equal(1, number);\n        collection.find({ a: 1 }).count(function (err, result) {\n            test.equal(3, result);\n            test.done();\n        });\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "insert"
+  },
+  {
+    "callback": "function (err, number) {\n    test.equal(1, number);\n    collection.find({ a: 1 }).count(function (err, result) {\n        test.equal(3, result);\n        test.done();\n    });\n}",
+    "receiverBase": "collection",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (err, result) {\n    test.equal(3, result);\n    test.done();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "count"
+  },
+  {
+    "callback": "function (reply) {\n    var items = searchUtils.channelsToJSON(reply, mostActiveNs), rsm = searchUtils.rsmToJSON(reply), body = {\n            items: items,\n            rsm: rsm\n        };\n    res.contentType('json');\n    res.send(body);\n}",
+    "receiverBase": "",
+    "receiverCallee": "requestMostActive"
+  },
+  {
+    "callback": "function (e) {\n    _yuitest_coverfunc('build/resize-plugin/resize-plugin.js', '(anonymous 2)', 101);\n    _yuitest_coverline('build/resize-plugin/resize-plugin.js', 102);\n    this._correctDimensions(e);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    getPractitionerRoles();\n    getPractitionerSpecialties();\n    getRequestedPractitioner();\n}",
+    "receiverBase": "activateController",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    logSuccess('Deleted practitioner ' + practitioner.resourceId);\n    $location.path('/practitioners');\n}",
+    "receiverBase": "deleteCachedPractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n}",
+    "receiverBase": "deleteCachedPractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (server) {\n    return vm.activeServer = server;\n}",
+    "receiverBase": "getActiveServer",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (expansions) {\n    return vm.practitionerRoles = expansions;\n}",
+    "receiverBase": "getExpansion",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n}",
+    "receiverBase": "getExpansion",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (expansions) {\n    return vm.practitionerSpecialties = expansions;\n}",
+    "receiverBase": "getExpansion",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n}",
+    "receiverBase": "getExpansion",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (data) {\n    vm.loadingOrganizations = false;\n    deferred.resolve(data);\n}",
+    "receiverBase": "getOrganizationReference",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    vm.loadingOrganizations = false;\n    logError(common.unexpectedOutcome(error));\n    deferred.reject();\n}",
+    "receiverBase": "getOrganizationReference",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n}",
+    "receiverBase": "getCachedPractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n}",
+    "receiverBase": "getPractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (removedItem) {\n    return removedItem.$$hashKey === item.$$hashKey;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (removedItem) {\n    return removedItem.$$hashKey === item.$$hashKey;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "remove"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n    toggleSpinner(false);\n}",
+    "receiverBase": "updatePractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    logError(common.unexpectedOutcome(error));\n    toggleSpinner(false);\n}",
+    "receiverBase": "addPractitioner",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (root, factory) {\n    if (typeof exports === 'object') {\n        factory(exports, require('underscore'), require('./parser'), require('./expander'));\n    } else if (typeof define === 'function' && define.amd) {\n        define([\n            'exports',\n            'underscore',\n            'parser',\n            'expander'\n        ], factory);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (stx) {\n    if (!stx.token) {\n        return stx;\n    }\n    if (stx.token.inner) {\n        return syntaxFromToken(stx.token, {\n            deferredContext: applyContext(stx.deferredContext, self.deferredContext),\n            context: applyContext(stx.context, self.deferredContext)\n        });\n    } else {\n        return syntaxFromToken(stx.token, { context: applyContext(stx.context, self.deferredContext) });\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (stx) {\n    if (stx.token.inner) {\n        stx.token.inner = syntaxToTokens(stx.token.inner);\n    }\n    return stx.token;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (token) {\n    if (token.inner) {\n        token.inner = tokensToSyntax(token.inner);\n    }\n    return syntaxFromToken(token);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (acc, join) {\n    acc.push(makePunc(punc, join), join);\n    return acc;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (acc, join) {\n    acc.push(makePunc(punc, _.first(join)));\n    Array.prototype.push.apply(acc, join);\n    return acc;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (stx) {\n    var o = syntaxFromToken(_.clone(stx.token), stx);\n    if (o.token.type === parser.Token.Delimiter) {\n        o.token.inner = cloneSyntaxArray(o.token.inner);\n    }\n    return o;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (acc, line) {\n    var ind = '';\n    while (ind.length < line.indent * 2) {\n        ind += ' ';\n    }\n    return ind + line.str + '\\n' + acc;\n}",
+    "receiverBase": "unparsedLines",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (nodeAssert) {\n    assert = nodeAssert;\n    assertEqual = nodeAssert.equal;\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == '\"') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (results) {\n    var errors = [];\n    for (var i = 0; i < results.data.length; i++) {\n        var error = results.data[i];\n        if (error)\n            errors.push({\n                row: error.line - 1,\n                column: error.character - 1,\n                text: error.reason,\n                type: 'warning',\n                lint: error\n            });\n    }\n    session.setAnnotations(errors);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    session.setAnnotations([e.data]);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    session.clearAnnotations();\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    var errors = [];\n    e.data.forEach(function (message) {\n        errors.push({\n            row: message.line - 1,\n            column: message.col - 1,\n            text: message.message,\n            type: message.type,\n            lint: message\n        });\n    });\n    session.setAnnotations(errors);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    errors.push({\n        row: message.line - 1,\n        column: message.col - 1,\n        text: message.message,\n        type: message.type,\n        lint: message\n    });\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  }
+]

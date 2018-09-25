@@ -1,0 +1,1712 @@
+[
+  {
+    "callback": "function (e) {\n    if ('object' == typeof exports)\n        module.exports = e();\n    else if ('function' == typeof define && define.amd)\n        define(e);\n    else {\n        var f;\n        'undefined' != typeof window ? f = window : 'undefined' != typeof global ? f = global : 'undefined' != typeof self && (f = self), f.PouchDB = e();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, prnt) {\n    var rev = pos + '-' + id;\n    if (isLeaf) {\n        height[rev] = 0;\n    }\n    if (prnt !== undefined) {\n        edges.push({\n            from: prnt,\n            to: rev\n        });\n    }\n    return rev;\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (edge) {\n    if (height[edge.from] === undefined) {\n        height[edge.from] = 1 + height[edge.to];\n    } else {\n        height[edge.from] = Math.min(height[edge.from], 1 + height[edge.to]);\n    }\n}",
+    "receiverBase": "edges",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (optKey) {\n    delete subOpts[optKey];\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return reject(err);\n    }\n    finalResults.total_rows = res.total_rows;\n    resolve(res.rows[0] || {\n        key: key,\n        error: 'not_found'\n    });\n}",
+    "receiverBase": "api",
+    "receiverCallee": "_allDocs"
+  },
+  {
+    "callback": "function (results) {\n    finalResults.rows = results;\n    return finalResults;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    if (doc.ok && doc.id) {\n        self.compactDocument(doc.id, 1, decCount);\n    } else {\n        decCount();\n    }\n}",
+    "receiverBase": "res",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (eventName) {\n    if (~eventNames.indexOf(eventName)) {\n        listeners--;\n        if (listeners) {\n            return;\n        }\n    } else {\n        return;\n    }\n    changes.cancel();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (doc, opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    if (typeof doc !== 'object' || Array.isArray(doc)) {\n        return callback(errors.NOT_AN_OBJECT);\n    }\n    this.bulkDocs({ docs: [doc] }, opts, this.autoCompact(yankError(callback)));\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (doc) {\n    if (doc._rev !== rev) {\n        throw errors.REV_CONFLICT;\n    }\n    return createAttachment(doc);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.error === errors.MISSING_DOC.error) {\n        return createAttachment({ _id: docId });\n    } else {\n        throw err;\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, obj) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    if (obj._rev !== rev) {\n        callback(errors.REV_CONFLICT);\n        return;\n    }\n    if (!obj._attachments) {\n        return callback();\n    }\n    delete obj._attachments[attachmentId];\n    if (Object.keys(obj._attachments).length === 0) {\n        delete obj._attachments;\n    }\n    self.put(obj, callback);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    var idx = missingForId.indexOf(rev);\n    if (idx === -1) {\n        return;\n    }\n    missingForId.splice(idx, 1);\n    if (opts.status !== 'available') {\n        addToMissing(id, rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (rev) {\n    addToMissing(id, rev);\n}",
+    "receiverBase": "missingForId",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err && err.name === 'not_found' && err.message === 'missing') {\n        missing.set(id, { missing: req[id] });\n    } else if (err) {\n        return callback(err);\n    } else {\n        processDoc(id, rev_tree);\n    }\n    if (++count === ids.length) {\n        var missingObj = {};\n        missing.forEach(function (value, key) {\n            missingObj[key] = value;\n        });\n        return callback(null, missingObj);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (value, key) {\n    missingObj[key] = value;\n}",
+    "receiverBase": "missing",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (rev) {\n    if (height[rev] > max_height) {\n        candidates.push(rev);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, revHash, ctx, opts) {\n    var rev = pos + '-' + revHash;\n    if (opts.status === 'available' && candidates.indexOf(rev) !== -1) {\n        opts.status = 'missing';\n        revs.push(rev);\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (row) {\n    self.compactDocument(row.id, 0, function () {\n        count--;\n        if (!count) {\n            callback();\n        }\n    });\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    count--;\n    if (!count) {\n        callback();\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "compactDocument"
+  },
+  {
+    "callback": "function (leaf) {\n    self.get(id, {\n        rev: leaf,\n        revs: opts.revs,\n        attachments: opts.attachments\n    }, function (err, doc) {\n        if (!err) {\n            result.push({ ok: doc });\n        } else {\n            result.push({ missing: leaf });\n        }\n        count--;\n        if (!count) {\n            callback(null, result);\n        }\n    });\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (!err) {\n        result.push({ ok: doc });\n    } else {\n        result.push({ missing: leaf });\n    }\n    count--;\n    if (!count) {\n        callback(null, result);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, rev_tree) {\n    if (err) {\n        rev_tree = [];\n    }\n    leaves = merge.collectLeaves(rev_tree).map(function (leaf) {\n        return leaf.rev;\n    });\n    finishOpenRevs();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getRevisionTree"
+  },
+  {
+    "callback": "function (leaf) {\n    return leaf.rev;\n}",
+    "receiverBase": "collectLeaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (arr) {\n    return arr.ids.map(function (x) {\n        return x.id;\n    }).indexOf(doc._rev.split('-')[1]) !== -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "arrayFirst"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return x.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    return rev.id;\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (rev) {\n    pos--;\n    return {\n        rev: pos + '-' + rev.id,\n        status: rev.opts.status\n    };\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    this._getAttachment(attachments[key], {\n        encode: true,\n        ctx: ctx\n    }, function (err, data) {\n        var att = doc._attachments[key];\n        att.data = data;\n        delete att.stub;\n        if (!--count) {\n            callback(null, doc);\n        }\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, data) {\n    var att = doc._attachments[key];\n    att.data = data;\n    delete att.stub;\n    if (!--count) {\n        callback(null, doc);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_getAttachment"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return callback(err);\n    }\n    if (res.doc._attachments && res.doc._attachments[attachmentId]) {\n        opts.ctx = res.ctx;\n        self._getAttachment(res.doc._attachments[attachmentId], opts, callback);\n    } else {\n        return callback(errors.MISSING_DOC);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_get"
+  },
+  {
+    "callback": "function (incompatibleOpt) {\n    return incompatibleOpt in opts;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (callback) {\n    this._closed = true;\n    return this._close(callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (callback) {\n    var self = this;\n    this._info(function (err, info) {\n        if (err) {\n            return callback(err);\n        }\n        info.db_name = info.db_name || self._db_name;\n        callback(null, info);\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, info) {\n    if (err) {\n        return callback(err);\n    }\n    info.db_name = info.db_name || self._db_name;\n    callback(null, info);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_info"
+  },
+  {
+    "callback": "function (callback) {\n    return this._id(callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return callback(err);\n    }\n    return callback(null, { db: depDB });\n}",
+    "receiverBase": "",
+    "receiverCallee": "upsert"
+  },
+  {
+    "callback": "function ($0, $1, $2) {\n    if ($1) {\n        uri[o.q.name][$1] = $2;\n    }\n}",
+    "receiverBase": "uri",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (err, ret) {\n    if (err && err.status === 401) {\n        ajax({\n            headers: host.headers,\n            method: 'HEAD',\n            url: dbUrl\n        }, function (err, ret) {\n            if (err) {\n                callback(err);\n            } else {\n                callback(null, api);\n            }\n        });\n    } else if (!err || err.status === 412) {\n        callback(null, api);\n    } else {\n        callback(err);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, ret) {\n    if (err) {\n        callback(err);\n    } else {\n        callback(null, api);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, ret) {\n    if (err) {\n        if (err.status === 404) {\n            createDB();\n        } else {\n            callback(err);\n        }\n    } else {\n        callback(null, api);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (callback) {\n    ajax({\n        headers: host.headers,\n        method: 'GET',\n        url: genUrl(host, '')\n    }, function (err, result) {\n        var uuid = result && result.uuid ? result.uuid + host.db : genDBUrl(host, '');\n        callback(null, uuid);\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, result) {\n    var uuid = result && result.uuid ? result.uuid + host.db : genDBUrl(host, '');\n    callback(null, uuid);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (options, callback) {\n    options.headers = host.headers;\n    options.url = genDBUrl(host, options.url);\n    ajax(options, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function () {\n    function ping() {\n        api.info(function (err, res) {\n            if (!res.compact_running) {\n                callback();\n            } else {\n                setTimeout(ping, opts.interval || 200);\n            }\n        });\n    }\n    if (typeof callback === 'function') {\n        ping();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, res) {\n    if (!res.compact_running) {\n        callback();\n    } else {\n        setTimeout(ping, opts.interval || 200);\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        callback(err);\n    } else {\n        res.host = genDBUrl(host, '');\n        callback(null, res);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (err, doc, xhr) {\n    if (err) {\n        return callback(err);\n    }\n    callback(null, doc, xhr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (docId, attachmentId, opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    opts = utils.clone(opts);\n    if (opts.auto_encode === undefined) {\n        opts.auto_encode = true;\n    }\n    if (opts.auto_encode) {\n        docId = encodeDocId(docId);\n    }\n    opts.auto_encode = false;\n    api.get(docId + '/' + attachmentId, opts, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (docId, attachmentId, rev, callback) {\n    ajax({\n        headers: host.headers,\n        method: 'DELETE',\n        url: genDBUrl(host, encodeDocId(docId) + '/' + attachmentId) + '?rev=' + rev\n    }, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return callback(err);\n    }\n    res.ok = true;\n    callback(null, res);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (doc, opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    opts = utils.clone(opts);\n    if (typeof doc !== 'object') {\n        return callback(errors.NOT_AN_OBJECT);\n    }\n    if (!('_id' in doc)) {\n        doc._id = utils.uuid();\n    }\n    api.put(doc, opts, function (err, res) {\n        if (err) {\n            return callback(err);\n        }\n        res.ok = true;\n        callback(null, res);\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err) {\n        return callback(err);\n    }\n    res.ok = true;\n    callback(null, res);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function () {\n    ajax({\n        headers: host.headers,\n        method: 'POST',\n        url: genDBUrl(host, '_bulk_docs'),\n        body: req\n    }, function (err, results) {\n        if (err) {\n            return callback(err);\n        }\n        results.forEach(function (result) {\n            result.ok = true;\n        });\n        callback(null, results);\n    });\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, results) {\n    if (err) {\n        return callback(err);\n    }\n    results.forEach(function (result) {\n        result.ok = true;\n    });\n    callback(null, results);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (result) {\n    result.ok = true;\n}",
+    "receiverBase": "results",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    return k + '=' + params[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    leftToFetch--;\n    var ret = utils.filterChange(opts)(c);\n    if (ret) {\n        if (returnDocs) {\n            results.results.push(c);\n        }\n        utils.call(opts.onChange, c);\n    }\n    return ret;\n}",
+    "receiverBase": "results",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    fetch(lastFetchedSeq, fetched);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (req, opts, callback) {\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    ajax({\n        headers: host.headers,\n        method: 'POST',\n        url: genDBUrl(host, '_revs_diff'),\n        body: JSON.stringify(req)\n    }, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (callback) {\n    ajax({\n        url: genDBUrl(host, ''),\n        method: 'DELETE',\n        headers: host.headers\n    }, function (err, resp) {\n        if (err) {\n            api.emit('error', err);\n            callback(err);\n        } else {\n            api.emit('destroyed');\n            callback(null, resp);\n        }\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        api.emit('error', err);\n        callback(err);\n    } else {\n        api.emit('destroyed');\n        callback(null, resp);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (name, opts, callback) {\n    var host = getHost(name, opts);\n    opts = opts || {};\n    if (typeof opts === 'function') {\n        callback = opts;\n        opts = {};\n    }\n    opts = utils.clone(opts);\n    opts.headers = host.headers;\n    opts.method = 'DELETE';\n    opts.url = genDBUrl(host, '');\n    var ajaxOpts = opts.ajax || {};\n    opts = utils.extend({}, opts, ajaxOpts);\n    utils.ajax(opts, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (err, res) {\n    tryCode(item.callback, this, [\n        err,\n        res\n    ]);\n    taskQueue.running = false;\n    process.nextTick(applyNext);\n}",
+    "receiverBase": "item",
+    "receiverCallee": "action"
+  },
+  {
+    "callback": "function (callback) {\n    callback(null, instanceId);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (doc, i) {\n    if (doc._id && utils.isLocalId(doc._id)) {\n        return doc;\n    }\n    var newDoc = utils.parseDoc(doc, newEdits);\n    newDoc._bulk_seq = i;\n    return newDoc;\n}",
+    "receiverBase": "userDocs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (docInfo) {\n    return docInfo.error;\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        results[resultsIdx] = err;\n    } else {\n        results[resultsIdx] = {};\n    }\n    checkDoneWritingDocs();\n}",
+    "receiverBase": "",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function (docInfo) {\n    if (docInfo._id && utils.isLocalId(docInfo._id)) {\n        return checkDone();\n    }\n    var id = docInfo.metadata.id;\n    var req = txn.objectStore(DOC_STORE).get(id);\n    req.onsuccess = function process_docRead(event) {\n        var metadata = event.target.result;\n        if (metadata) {\n            fetchedDocs.set(id, metadata);\n        }\n        checkDone();\n    };\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (result) {\n    if (result._bulk_seq) {\n        delete result._bulk_seq;\n    } else if (!Object.keys(result).length) {\n        return { ok: true };\n    }\n    if (result.error) {\n        return result;\n    }\n    var metadata = result.metadata;\n    var rev = merge.winningRev(metadata);\n    return {\n        ok: true,\n        id: metadata.id,\n        rev: rev\n    };\n}",
+    "receiverBase": "results",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (result) {\n    att.digest = 'md5-' + result;\n    finish();\n}",
+    "receiverBase": "MD5",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    att.digest = 'md5-' + result;\n    finish();\n}",
+    "receiverBase": "MD5",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var stores = [\n            DOC_STORE,\n            BY_SEQ_STORE,\n            ATTACH_STORE,\n            META_STORE,\n            LOCAL_STORE\n        ];\n    txn = idb.transaction(stores, 'readwrite');\n    txn.onerror = idbError(callback);\n    txn.ontimeout = idbError(callback);\n    txn.oncomplete = complete;\n    fetchExistingDocs(processDocs);\n}",
+    "receiverBase": "",
+    "receiverCallee": "preprocessAttachments"
+  },
+  {
+    "callback": "function (err, totalRows) {\n    if (err) {\n        return callback(err);\n    }\n    if (opts.limit === 0) {\n        return callback(null, {\n            total_rows: totalRows,\n            offset: opts.skip,\n            rows: []\n        });\n    }\n    allDocsQuery(totalRows, opts, callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "countDocs"
+  },
+  {
+    "callback": "function (rev) {\n    var index = txn.objectStore(BY_SEQ_STORE).index('_doc_id_rev');\n    var key = docId + '::' + rev;\n    index.getKey(key).onsuccess = function (e) {\n        var seq = e.target.result;\n        if (!seq) {\n            return;\n        }\n        txn.objectStore(BY_SEQ_STORE)['delete'](seq);\n        count--;\n        if (!count) {\n            txn.objectStore(DOC_STORE).put(metadata);\n        }\n    };\n}",
+    "receiverBase": "revs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    callback(null, api);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (transaction) {\n    migrateLocalStore(e, transaction);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addDeletedOrLocalIndex"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err && err.status === 405) {\n        blobSupport = true;\n    } else {\n        blobSupport = !!(res && res.type === 'image/png');\n    }\n    checkSetupComplete();\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "ajax"
+  },
+  {
+    "callback": "function (name, opts, callback) {\n    taskQueue.queue.push({\n        action: function (thisCallback) {\n            destroy(name, opts, thisCallback);\n        },\n        callback: callback\n    });\n    applyNext();\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function () {\n    return '?';\n}",
+    "receiverBase": "local",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    tx.executeSql('UPDATE ' + BY_SEQ_STORE + ' SET deleted = 1 WHERE seq IN (' + deleted.map(function () {\n        return '?';\n    }).join(',') + ')', deleted, callback);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    return '?';\n}",
+    "receiverBase": "deleted",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tx) {\n    tx.executeSql('DELETE FROM ' + DOC_STORE + ' WHERE id=?', [row.id], function (tx) {\n        tx.executeSql('DELETE FROM ' + BY_SEQ_STORE + ' WHERE seq=?', [row.seq], function () {\n            doNext();\n        });\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    tx.executeSql('DELETE FROM ' + BY_SEQ_STORE + ' WHERE seq=?', [row.seq], function () {\n        doNext();\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    doNext();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    doNext();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, res) {\n    var rows = [];\n    for (var i = 0; i < res.rows.length; i++) {\n        rows.push(res.rows.item(i));\n    }\n    tx.executeSql('SELECT dbid, hex(dbid) AS hexId FROM ' + META_STORE, [], function (tx, result) {\n        var id = result.rows.item(0).dbid;\n        var hexId = result.rows.item(0).hexId;\n        var encoding = hexId.length === id.length * 2 ? 'UTF-8' : 'UTF-16';\n        updateRows(rows, encoding);\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    var id = result.rows.item(0).dbid;\n    var hexId = result.rows.item(0).hexId;\n    var encoding = hexId.length === id.length * 2 ? 'UTF-8' : 'UTF-16';\n    updateRows(rows, encoding);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    var id = result.rows.item(0).dbid;\n    var hexId = result.rows.item(0).hexId;\n    encoding = hexId.length === id.length * 2 ? 'UTF-8' : 'UTF-16';\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    var initSeq = 'INSERT INTO ' + META_STORE + ' (update_seq, db_version, dbid) VALUES (?, ?, ?)';\n    instanceId = utils.uuid();\n    var initSeqArgs = [\n            0,\n            ADAPTER_VERSION,\n            instanceId\n        ];\n    tx.executeSql(initSeq, initSeqArgs, function (tx) {\n        onGetInstanceId(tx);\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    onGetInstanceId(tx);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    instanceId = result.rows.item(0).dbid;\n    onGetInstanceId(tx);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    runMigration3(tx, function () {\n        runMigration4(tx, setupDone);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "runMigration2"
+  },
+  {
+    "callback": "function () {\n    runMigration4(tx, setupDone);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runMigration3"
+  },
+  {
+    "callback": "function () {\n    runMigration4(tx, setupDone);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runMigration3"
+  },
+  {
+    "callback": "function () {\n    onGetVersion(tx, 1);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    var dbVersion = result.rows.item(0).db_version;\n    onGetVersion(tx, dbVersion);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function cordova_init() {\n    global.removeEventListener(name + '_pouch', cordova_init, false);\n    setup();\n}",
+    "receiverBase": "global",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (callback) {\n    callback(null, instanceId);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (tx) {\n    countDocs(tx, function (docCount) {\n        var sql = 'SELECT update_seq FROM ' + META_STORE;\n        tx.executeSql(sql, [], function (tx, result) {\n            var updateSeq = result.rows.item(0).update_seq;\n            callback(null, {\n                doc_count: docCount,\n                update_seq: updateSeq\n            });\n        });\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "readTransaction"
+  },
+  {
+    "callback": "function (docCount) {\n    var sql = 'SELECT update_seq FROM ' + META_STORE;\n    tx.executeSql(sql, [], function (tx, result) {\n        var updateSeq = result.rows.item(0).update_seq;\n        callback(null, {\n            doc_count: docCount,\n            update_seq: updateSeq\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "countDocs"
+  },
+  {
+    "callback": "function (tx, result) {\n    var updateSeq = result.rows.item(0).update_seq;\n    callback(null, {\n        doc_count: docCount,\n        update_seq: updateSeq\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (doc, i) {\n    if (doc._id && utils.isLocalId(doc._id)) {\n        return doc;\n    }\n    var newDoc = utils.parseDoc(doc, newEdits);\n    newDoc._bulk_seq = i;\n    return newDoc;\n}",
+    "receiverBase": "userDocs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (docInfo) {\n    return docInfo.error;\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (result) {\n    if (result._bulk_seq) {\n        delete result._bulk_seq;\n    } else if (!Object.keys(result).length) {\n        return { ok: true };\n    }\n    if (result.error) {\n        return result;\n    }\n    var metadata = result.metadata;\n    var rev = merge.winningRev(metadata);\n    return {\n        ok: true,\n        id: metadata.id,\n        rev: rev\n    };\n}",
+    "receiverBase": "results",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tx, result) {\n    var update_seq = result.rows.item(0).update_seq + updateSeq;\n    var sql = 'UPDATE ' + META_STORE + ' SET update_seq=?';\n    tx.executeSql(sql, [update_seq], function () {\n        callback(null, aresults);\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback(null, aresults);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (result) {\n    att.digest = 'md5-' + result;\n    finish();\n}",
+    "receiverBase": "MD5",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (tx, result) {\n    dataWritten(tx, result.insertId);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, res) {\n    var seq = res.rows.item(0).seq;\n    var sql = 'UPDATE ' + BY_SEQ_STORE + ' SET json=?, deleted=? WHERE doc_id=? AND rev=?;';\n    var sqlArgs = [\n            json,\n            deletedInt,\n            id,\n            rev\n        ];\n    tx.executeSql(sql, sqlArgs, function (tx) {\n        updateSeq--;\n        dataWritten(tx, seq);\n    });\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    updateSeq--;\n    dataWritten(tx, seq);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    results[resultsIdx] = docInfo;\n    fetchedDocs.set(id, docInfo.metadata);\n    callback();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        results[resultsIdx] = err;\n    } else {\n        results[resultsIdx] = {};\n    }\n    checkDoneWritingDocs();\n}",
+    "receiverBase": "",
+    "receiverCallee": "api"
+  },
+  {
+    "callback": "function (docInfo) {\n    if (docInfo._id && utils.isLocalId(docInfo._id)) {\n        return checkDone();\n    }\n    var id = docInfo.metadata.id;\n    tx.executeSql('SELECT json FROM ' + DOC_STORE + ' WHERE id = ?', [id], function (tx, result) {\n        if (result.rows.length) {\n            var metadata = JSON.parse(result.rows.item(0).json);\n            fetchedDocs.set(id, metadata);\n        }\n        checkDone();\n    });\n}",
+    "receiverBase": "docInfos",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx, result) {\n    if (result.rows.length) {\n        var metadata = JSON.parse(result.rows.item(0).json);\n        fetchedDocs.set(id, metadata);\n    }\n    checkDone();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    db.transaction(function (txn) {\n        tx = txn;\n        fetchExistingDocs(processDocs);\n    }, unknownError(callback), function () {\n        docCount = -1;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "preprocessAttachments"
+  },
+  {
+    "callback": "function (txn) {\n    tx = txn;\n    fetchExistingDocs(processDocs);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    docCount = -1;\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (txn) {\n    opts.ctx = txn;\n    api._get(id, opts, callback);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "readTransaction"
+  },
+  {
+    "callback": "function (a, results) {\n    if (!results.rows.length) {\n        err = errors.MISSING_DOC;\n        return finish();\n    }\n    var item = results.rows.item(0);\n    metadata = JSON.parse(item.metadata);\n    if (item.deleted && !opts.rev) {\n        err = errors.error(errors.MISSING_DOC, 'deleted');\n        return finish();\n    }\n    doc = unstringifyDoc(item.data, metadata.id, item.rev);\n    finish();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, result) {\n    docCount = result.rows.item(0).num;\n    callback(docCount);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback(null, {\n        total_rows: totalRows,\n        offset: opts.skip,\n        rows: results\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "readTransaction"
+  },
+  {
+    "callback": "function () {\n    return '?';\n}",
+    "receiverBase": "doc_ids",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (tx, result) {\n    var data = parseHexString(result.rows.item(0).body, encoding);\n    if (opts.encode) {\n        res = btoa(data);\n    } else {\n        data = utils.fixBinary(data);\n        res = utils.createBlob([data], { type: type });\n    }\n    callback(null, res);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'SELECT json AS metadata FROM ' + DOC_STORE + ' WHERE id = ?';\n    tx.executeSql(sql, [docId], function (tx, result) {\n        if (!result.rows.length) {\n            callback(errors.MISSING_DOC);\n        } else {\n            var data = JSON.parse(result.rows.item(0).metadata);\n            callback(null, data.rev_tree);\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "readTransaction"
+  },
+  {
+    "callback": "function (tx, result) {\n    if (!result.rows.length) {\n        callback(errors.MISSING_DOC);\n    } else {\n        var data = JSON.parse(result.rows.item(0).metadata);\n        callback(null, data.rev_tree);\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (rev) {\n    var sql = 'DELETE FROM ' + BY_SEQ_STORE + ' WHERE doc_id=? AND rev=?';\n    tx.executeSql(sql, [\n        docId,\n        rev\n    ], function (tx) {\n        if (++numDone === revs.length) {\n            var sql = 'UPDATE ' + DOC_STORE + ' SET json = ? WHERE id = ?';\n            tx.executeSql(sql, [\n                JSON.stringify(metadata),\n                docId\n            ], function () {\n                callback();\n            });\n        }\n    });\n}",
+    "receiverBase": "revs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (tx) {\n    if (++numDone === revs.length) {\n        var sql = 'UPDATE ' + DOC_STORE + ' SET json = ? WHERE id = ?';\n        tx.executeSql(sql, [\n            JSON.stringify(metadata),\n            docId\n        ], function () {\n            callback();\n        });\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'SELECT json, rev FROM ' + LOCAL_STORE + ' WHERE id=?';\n    tx.executeSql(sql, [id], function (tx, res) {\n        if (res.rows.length) {\n            var item = res.rows.item(0);\n            var doc = unstringifyDoc(item.json, id, item.rev);\n            callback(null, doc);\n        } else {\n            callback(errors.MISSING_DOC);\n        }\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "readTransaction"
+  },
+  {
+    "callback": "function (tx, res) {\n    if (res.rows.length) {\n        var item = res.rows.item(0);\n        var doc = unstringifyDoc(item.json, id, item.rev);\n        callback(null, doc);\n    } else {\n        callback(errors.MISSING_DOC);\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx, res) {\n    if (res.rowsAffected) {\n        ret = {\n            ok: true,\n            id: id,\n            rev: newRev\n        };\n        if (opts.ctx) {\n            callback(null, ret);\n        }\n    } else {\n        callback(errors.REV_CONFLICT);\n    }\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback(errors.REV_CONFLICT);\n    return false;\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (tx) {\n    putLocal(tx);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    if (ret) {\n        callback(null, ret);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'DELETE FROM ' + LOCAL_STORE + ' WHERE id=? AND rev=?';\n    var params = [\n            doc._id,\n            doc._rev\n        ];\n    tx.executeSql(sql, params, function (tx, res) {\n        if (!res.rowsAffected) {\n            return callback(errors.REV_CONFLICT);\n        }\n        ret = {\n            ok: true,\n            id: doc._id,\n            rev: '0-0'\n        };\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx, res) {\n    if (!res.rowsAffected) {\n        return callback(errors.REV_CONFLICT);\n    }\n    ret = {\n        ok: true,\n        id: doc._id,\n        rev: '0-0'\n    };\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    callback(null, ret);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var stores = [\n            DOC_STORE,\n            BY_SEQ_STORE,\n            ATTACH_STORE,\n            META_STORE,\n            LOCAL_STORE\n        ];\n    stores.forEach(function (store) {\n        tx.executeSql('DROP TABLE IF EXISTS ' + store, []);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (store) {\n    tx.executeSql('DROP TABLE IF EXISTS ' + store, []);\n}",
+    "receiverBase": "stores",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (utils.hasLocalStorage()) {\n        delete global.localStorage['_pouch__websqldb_' + name];\n        delete global.localStorage[name];\n    }\n    callback(null, { 'ok': true });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        self.emit('error', err);\n    } else {\n        self.emit('complete', resp);\n    }\n    self.removeAllListeners();\n    db.removeListener('destroyed', onDestroy);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (resp) {\n    oldComplete(null, resp);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    oldComplete(err);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (oldOnChange) {\n        self.removeListener('change', oldOnChange);\n    }\n    opts.complete(null, { status: 'cancelled' });\n}",
+    "receiverBase": "self",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (result) {\n    complete(null, result);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (self.isCancelled) {\n        self.emit('cancel');\n    } else {\n        self.doChanges(opts);\n    }\n}",
+    "receiverBase": "taskqueue",
+    "receiverCallee": "addTask"
+  },
+  {
+    "callback": "function (x) {\n    return { rev: x.rev };\n}",
+    "receiverBase": "collectLeaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (info) {\n    if (self.isCancelled) {\n        callback(null, { status: 'cancelled' });\n        return;\n    }\n    opts.since = info.update_seq - 1;\n    self.doChanges(opts);\n}",
+    "receiverBase": "info",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (info) {\n    self.startSeq = info.update_seq - 1;\n}",
+    "receiverBase": "info",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.id === 'idbNull') {\n        return;\n    }\n    throw err;\n}",
+    "receiverBase": "info",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (args) {\n    newPromise.cancel();\n    cancel.apply(this, args);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "getArguments"
+  },
+  {
+    "callback": "function (opts) {\n    if (opts.complete) {\n        opts.complete(err);\n    }\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (callback) {\n    var self = this;\n    self.info(function (err, info) {\n        if (err) {\n            return callback(err);\n        }\n        self.constructor.destroy(info.db_name, callback);\n    });\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "adapterFun"
+  },
+  {
+    "callback": "function (err, info) {\n    if (err) {\n        return callback(err);\n    }\n    self.constructor.destroy(info.db_name, callback);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "info"
+  },
+  {
+    "callback": "function (resp) {\n    oldCB(null, resp);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (args) {\n    if (requestCompleted) {\n        return;\n    }\n    adapterCallback.apply(this, args);\n    requestCompleted = true;\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "getArguments"
+  },
+  {
+    "callback": "function (key) {\n    var value = self.store[key];\n    key = self.unmangle(key);\n    cb(value, key);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (byte) {\n    return String.fromCharCode(byte);\n}",
+    "receiverBase": "bytes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err) {\n        if (err.name !== 'not_found') {\n            return reject(err);\n        }\n        return fulfill(tryAndPut(db, diffFun({ _id: docId }), diffFun));\n    }\n    var newDoc = diffFun(doc);\n    if (!newDoc) {\n        return fulfill(doc);\n    }\n    fulfill(tryAndPut(db, newDoc, diffFun));\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err.name !== 'conflict') {\n        throw err;\n    }\n    return upsert(db, doc, diffFun);\n}",
+    "receiverBase": "",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (resp) {\n    cb(null, resp);\n}",
+    "receiverBase": "upsert",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (el, idx) {\n    trees.push({\n        ids: el,\n        diff: item.diff - 1,\n        parent: item.ids,\n        parentIdx: idx\n    });\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.pos - b.pos;\n}",
+    "receiverBase": "restree",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (path) {\n    var stemmed = path.ids.slice(-depth);\n    return {\n        pos: path.pos + (path.ids.length - stemmed.length),\n        ids: pathToTree(stemmed)\n    };\n}",
+    "receiverBase": "rootToLeaf",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (prev, current, i, arr) {\n    return doMerge(prev, current, true).tree;\n}",
+    "receiverBase": "stemmedPaths",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, something, opts) {\n    if (isLeaf) {\n        leafs.push({\n            pos: pos,\n            id: id,\n            deleted: !!opts.deleted\n        });\n    }\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.deleted !== b.deleted) {\n        return a.deleted > b.deleted ? 1 : -1;\n    }\n    if (a.pos !== b.pos) {\n        return b.pos - a.pos;\n    }\n    return a.id < b.id ? 1 : -1;\n}",
+    "receiverBase": "leafs",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, acc, opts) {\n    if (isLeaf) {\n        leaves.unshift({\n            rev: pos + '-' + id,\n            pos: pos,\n            opts: opts\n        });\n    }\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (a, b) {\n    return b.pos - a.pos;\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (leaf) {\n    delete leaf.pos;\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (leaf) {\n    if (leaf.rev !== win && !leaf.opts.deleted) {\n        conflicts.push(leaf.rev);\n    }\n}",
+    "receiverBase": "leaves",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, history, opts) {\n    history = history ? history.slice(0) : [];\n    history.push({\n        id: id,\n        opts: opts\n    });\n    if (isLeaf) {\n        var rootPos = pos + 1 - history.length;\n        paths.unshift({\n            pos: rootPos,\n            ids: history\n        });\n    }\n    return history;\n}",
+    "receiverBase": "PouchMerge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (err) {\n}",
+    "receiverBase": "",
+    "receiverCallee": "self"
+  },
+  {
+    "callback": "function (src_id) {\n    return target.id().then(function (target_id) {\n        var queryData = src_id + target_id + filterFun + JSON.stringify(opts.query_params) + opts.doc_ids;\n        return utils.MD5(queryData).then(function (md5) {\n            md5 = md5.replace(/\\//g, '.').replace(/\\+/g, '_');\n            return '_local/' + md5;\n        });\n    });\n}",
+    "receiverBase": "id",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (target_id) {\n    var queryData = src_id + target_id + filterFun + JSON.stringify(opts.query_params) + opts.doc_ids;\n    return utils.MD5(queryData).then(function (md5) {\n        md5 = md5.replace(/\\//g, '.').replace(/\\+/g, '_');\n        return '_local/' + md5;\n    });\n}",
+    "receiverBase": "id",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (md5) {\n    md5 = md5.replace(/\\//g, '.').replace(/\\+/g, '_');\n    return '_local/' + md5;\n}",
+    "receiverBase": "MD5",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status === 404) {\n        return { _id: id };\n    }\n    throw err;\n}",
+    "receiverBase": "",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (doc) {\n    if (returnValue.cancelled) {\n        return;\n    }\n    doc.last_seq = checkpoint;\n    return db.put(doc);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return self.updateSource(checkpoint);\n}",
+    "receiverBase": "updateTarget",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    var isForbidden = typeof err.status === 'number' && Math.floor(err.status / 100) === 4;\n    if (isForbidden) {\n        self.readOnlySource = true;\n        return true;\n    }\n    throw err;\n}",
+    "receiverBase": "",
+    "receiverCallee": "updateCheckpoint"
+  },
+  {
+    "callback": "function (sourceDoc) {\n    if (targetDoc.last_seq === sourceDoc.last_seq) {\n        return sourceDoc.last_seq;\n    }\n    return 0;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status === 404 && targetDoc.last_seq) {\n        return self.src.put({\n            _id: self.id,\n            last_seq: 0\n        }).then(function () {\n            return 0;\n        }, function (err) {\n            if (err.status === 401) {\n                self.readOnlySource = true;\n                return targetDoc.last_seq;\n            }\n            return 0;\n        });\n    }\n    throw err;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return 0;\n}",
+    "receiverBase": "put",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status === 401) {\n        self.readOnlySource = true;\n        return targetDoc.last_seq;\n    }\n    return 0;\n}",
+    "receiverBase": "put",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status !== 404) {\n        throw err;\n    }\n    return 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    if (!res.ok) {\n        result.doc_write_failures++;\n        errors.push(new Error(res.reason || res.message || 'Unknown reason'));\n    }\n}",
+    "receiverBase": "res",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    result.doc_write_failures += docs.length;\n    throw err;\n}",
+    "receiverBase": "bulkDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (docs) {\n    docs.forEach(function (doc) {\n        if (returnValue.cancelled) {\n            return completeReplication();\n        }\n        if (doc.ok) {\n            result.docs_read++;\n            currentBatch.pendingRevs++;\n            currentBatch.docs.push(doc.ok);\n            delete diffs[doc.ok._id];\n        }\n    });\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (doc) {\n    if (returnValue.cancelled) {\n        return completeReplication();\n    }\n    if (doc.ok) {\n        result.docs_read++;\n        currentBatch.pendingRevs++;\n        currentBatch.docs.push(doc.ok);\n        delete diffs[doc.ok._id];\n    }\n}",
+    "receiverBase": "docs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (id) {\n    var missing = currentBatch.diffs[id].missing;\n    return missing.length === 1 && missing[0].slice(0, 2) === '1-';\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (res) {\n    if (returnValue.cancelled) {\n        completeReplication();\n        throw new Error('cancelled');\n    }\n    res.rows.forEach(function (row) {\n        if (row.doc && !row.deleted && row.value.rev.slice(0, 2) === '1-' && (!row.doc._attachments || Object.keys(row.doc._attachments).length === 0)) {\n            result.docs_read++;\n            currentBatch.pendingRevs++;\n            currentBatch.docs.push(row.doc);\n            delete currentBatch.diffs[row.id];\n        }\n    });\n}",
+    "receiverBase": "allDocs",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (row) {\n    if (row.doc && !row.deleted && row.value.rev.slice(0, 2) === '1-' && (!row.doc._attachments || Object.keys(row.doc._attachments).length === 0)) {\n        result.docs_read++;\n        currentBatch.pendingRevs++;\n        currentBatch.docs.push(row.doc);\n        delete currentBatch.diffs[row.id];\n    }\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (res) {\n    writingCheckpoint = false;\n    if (returnValue.cancelled) {\n        completeReplication();\n        throw new Error('cancelled');\n    }\n    result.last_seq = last_seq = currentBatch.seq;\n    result.docs_written += currentBatch.docs.length;\n    returnValue.emit('change', utils.clone(result));\n    currentBatch = undefined;\n    getChanges();\n}",
+    "receiverBase": "writeCheckpoint",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    writingCheckpoint = false;\n    abortReplication('writeCheckpoint completed with error', err);\n    throw err;\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (change) {\n    diff[change.id] = change.changes.map(function (x) {\n        return x.rev;\n    });\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    return x.rev;\n}",
+    "receiverBase": "changes",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (diffs) {\n    if (returnValue.cancelled) {\n        completeReplication();\n        throw new Error('cancelled');\n    }\n    currentBatch.diffs = diffs;\n    currentBatch.pendingRevs = 0;\n}",
+    "receiverBase": "revsDiff",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    abortReplication('batch processing terminated with error', err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (checkpoint) {\n    last_seq = checkpoint;\n    changesOpts = {\n        since: last_seq,\n        limit: batch_size,\n        batch_size: batch_size,\n        style: 'all_docs',\n        doc_ids: doc_ids,\n        returnDocs: false\n    };\n    if (opts.filter) {\n        changesOpts.filter = opts.filter;\n    }\n    if (opts.query_params) {\n        changesOpts.query_params = opts.query_params;\n    }\n    getChanges();\n}",
+    "receiverBase": "getCheckpoint",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    abortReplication('getCheckpoint rejected with ', err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    opts.complete(null, result);\n}",
+    "receiverBase": "returnValue",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (res) {\n    writingCheckpoint = false;\n    if (returnValue.cancelled) {\n        completeReplication();\n        return;\n    }\n    last_seq = opts.since;\n    startChanges();\n}",
+    "receiverBase": "writeCheckpoint",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    writingCheckpoint = false;\n    abortReplication('writeCheckpoint completed with error', err);\n    throw err;\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (src) {\n    return toPouch(target, opts).then(function (target) {\n        return genReplicationId(src, target, opts).then(function (repId) {\n            replicate(repId, src, target, opts, replicateRet);\n        });\n    });\n}",
+    "receiverBase": "toPouch",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (target) {\n    return genReplicationId(src, target, opts).then(function (repId) {\n        replicate(repId, src, target, opts, replicateRet);\n    });\n}",
+    "receiverBase": "toPouch",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (repId) {\n    replicate(repId, src, target, opts, replicateRet);\n}",
+    "receiverBase": "genReplicationId",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    replicateRet.emit('error', err);\n    opts.complete(err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (method) {\n    PouchDB[method] = eventEmitter[method].bind(eventEmitter);\n}",
+    "receiverBase": "eventEmitterMethods",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        callback(err);\n    } else {\n        PouchDB.emit('destroyed', name);\n        PouchDB.emit(name, 'destroyed');\n        callback(null, resp || { 'ok': true });\n    }\n}",
+    "receiverBase": "adapter",
+    "receiverCallee": "destroy"
+  },
+  {
+    "callback": "function (name) {\n    var trueName = usePrefix ? name.replace(new RegExp('^' + PouchDB.prefix), '') : name;\n    var subOpts = utils.extend(true, opts, { adapter: backend.adapter });\n    return PouchDB.destroy(trueName, subOpts);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (error) {\n    callback(error);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (callback) {\n    var err = new Error('allDbs method removed');\n    err.stats = '400';\n    callback(err);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (id) {\n    PouchDB.prototype[id] = obj[id];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name, opts, callback) {\n    if (typeof opts === 'function' || typeof opts === 'undefined') {\n        callback = opts;\n        opts = {};\n    }\n    if (name && typeof name === 'object') {\n        opts = name;\n        name = undefined;\n    }\n    opts = utils.extend(true, {}, defaultOpts, opts);\n    return PouchDB.destroy(name, opts, callback);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "toPromise"
+  },
+  {
+    "callback": "function (method) {\n    PouchAlt[method] = eventEmitter[method].bind(eventEmitter);\n}",
+    "receiverBase": "eventEmitterMethods",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    if (!(key in PouchAlt)) {\n        PouchAlt[key] = PouchDB[key];\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (resp) {\n    var out = {\n            push: resp[0],\n            pull: resp[1]\n        };\n    self.emit('complete', out);\n    if (complete) {\n        complete(null, out);\n    }\n    self.removeAllListeners();\n    return out;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err) {\n    self.cancel();\n    self.emit('error', err);\n    if (complete) {\n        complete(err);\n    }\n    self.removeAllListeners();\n    throw err;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item) {\n    obj[item] = true;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (args) {\n    if (!args.length) {\n        return;\n    }\n    var fun = args.shift();\n    if (typeof fun === 'function') {\n        fun.apply(this, args);\n    }\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "getArguments"
+  },
+  {
+    "callback": "function (isLeaf, pos, id, acc, opts) {\n    if (id === rev) {\n        deleted = !!opts.deleted;\n    }\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "traverseRevTree"
+  },
+  {
+    "callback": "function (acc, x) {\n    if (acc === null) {\n        return [\n            x,\n            opts,\n            []\n        ];\n    } else {\n        return [\n            x,\n            { status: 'missing' },\n            [acc]\n        ];\n    }\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (e) {\n    if (e.db_name != null) {\n        self.emit(e.dbName.newValue);\n    }\n}",
+    "receiverBase": "onChanged",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    self.emit(e.key);\n}",
+    "receiverBase": "global",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    self.emit(e.key);\n}",
+    "receiverBase": "global",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (args) {\n    if (called) {\n        if (typeof console.trace === 'function') {\n            console.trace();\n        }\n        throw new Error('once called  more than once');\n    } else {\n        called = true;\n        fun.apply(this, args);\n    }\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "getArguments"
+  },
+  {
+    "callback": "function () {\n    tempCB(err, resp);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, mesg) {\n    if (err) {\n        reject(err);\n    } else {\n        fulfill(mesg);\n    }\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (result) {\n    usedCB(null, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (failed) {\n    if (failed) {\n        reject(failed);\n    } else {\n        fulfill(self[name].apply(self, args));\n    }\n}",
+    "receiverBase": "taskqueue",
+    "receiverCallee": "addTask"
+  },
+  {
+    "callback": "function (err, resp) {\n    if (err) {\n        oldComplete(err);\n    } else {\n        emitter.emit('end', resp);\n        oldComplete(null, resp);\n    }\n    emitter.removeAllListeners();\n}",
+    "receiverBase": "exports",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    emitter.removeAllListeners();\n}",
+    "receiverBase": "self",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (result) {\n    complete(null, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (promise.isCancelled) {\n        opts.complete(null, { status: 'cancelled' });\n    } else {\n        fun(self, opts, promise);\n    }\n}",
+    "receiverBase": "taskqueue",
+    "receiverCallee": "addTask"
+  },
+  {
+    "callback": "function (ev) {\n    var source = ev.source;\n    if ((source === window || source === null) && ev.data === 'process-tick') {\n        ev.stopPropagation();\n        if (queue.length > 0) {\n            var fn = queue.shift();\n            fn();\n        }\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (error) {\n    if (!called) {\n        called = true;\n        handlers.reject(promise, error);\n    }\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var returnValue;\n    try {\n        returnValue = func(value);\n    } catch (e) {\n        return handlers.reject(promise, e);\n    }\n    if (returnValue === promise) {\n        handlers.reject(promise, new TypeError('Cannot resolve promise with itself'));\n    } else {\n        handlers.resolve(promise, returnValue);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "immediate"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status !== 404) {\n        throw err;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (lastSeqDoc) {\n    view.seq = lastSeqDoc ? lastSeqDoc.seq : 0;\n    if (!temporary) {\n        sourceDB._cachedViews = sourceDB._cachedViews || {};\n        sourceDB._cachedViews[viewSignature] = view;\n        view.db.on('destroyed', function () {\n            delete sourceDB._cachedViews[viewSignature];\n        });\n    }\n    return view;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    delete sourceDB._cachedViews[viewSignature];\n}",
+    "receiverBase": "db",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key) {\n    if (Array.isArray(fun[key])) {\n        body[key] = fun[key];\n    } else {\n        body[key] = fun[key].toString();\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (metaDoc.keys.length) {\n        return view.db.allDocs({\n            keys: metaDoc.keys,\n            include_docs: true\n        });\n    }\n    return { rows: [] };\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (row) {\n    return row.doc;\n}",
+    "receiverBase": "rows",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (row) {\n    return row;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (kvDoc) {\n    oldKeysMap[kvDoc._id] = true;\n    kvDoc._deleted = !indexableKeysToKeyValues[kvDoc._id];\n    if (!kvDoc._deleted) {\n        var keyValue = indexableKeysToKeyValues[kvDoc._id];\n        if ('value' in keyValue) {\n            kvDoc.value = keyValue.value;\n        }\n    }\n}",
+    "receiverBase": "kvDocs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    if (!oldKeysMap[key]) {\n        var kvDoc = { _id: key };\n        var keyValue = indexableKeysToKeyValues[key];\n        if ('value' in keyValue) {\n            kvDoc.value = keyValue.value;\n        }\n        kvDocs.push(kvDoc);\n    }\n}",
+    "receiverBase": "newKeys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (docId) {\n    return getDocsToPersist(docId, view, docIdsToEmits);\n}",
+    "receiverBase": "docIds",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (listOfDocsToPersist) {\n    var docsToPersist = [];\n    listOfDocsToPersist.forEach(function (docList) {\n        docsToPersist = docsToPersist.concat(docList);\n    });\n    lastSeqDoc.seq = seq;\n    docsToPersist.push(lastSeqDoc);\n    return view.db.bulkDocs({ docs: docsToPersist });\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (docList) {\n    docsToPersist = docsToPersist.concat(docList);\n}",
+    "receiverBase": "listOfDocsToPersist",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    view.seq = currentSeq;\n    resolve();\n}",
+    "receiverBase": "finish",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (row) {\n    var val = row.value;\n    var docId = val && typeof val === 'object' && val._id || row.id;\n    return view.sourceDB.get(docId).then(function (joinedDoc) {\n        row.doc = joinedDoc;\n    }, function () {\n    });\n}",
+    "receiverBase": "results",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (joinedDoc) {\n    row.doc = joinedDoc;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return res;\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (prev, cur) {\n    return prev.concat(cur);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (key) {\n    var viewOpts = {\n            startkey: toIndexableString([key]),\n            endkey: toIndexableString([\n                key,\n                {}\n            ])\n        };\n    return fetchFromView(viewOpts);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (fullViewName) {\n    var parts = parseViewName(fullViewName);\n    var designDocName = '_design/' + parts[0];\n    var viewName = parts[1];\n    docsToViews[designDocName] = docsToViews[designDocName] || {};\n    docsToViews[designDocName][viewName] = true;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (viewName) {\n    var fullViewName = ddocName + '/' + viewName;\n    if (!metaDoc.views[fullViewName]) {\n        fullViewName = viewName;\n    }\n    var viewDBNames = Object.keys(metaDoc.views[fullViewName]);\n    var statusIsGood = row.doc && row.doc.views && row.doc.views[viewName];\n    viewDBNames.forEach(function (viewDBName) {\n        viewsToStatus[viewDBName] = viewsToStatus[viewDBName] || statusIsGood;\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (viewDBName) {\n    viewsToStatus[viewDBName] = viewsToStatus[viewDBName] || statusIsGood;\n}",
+    "receiverBase": "viewDBNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (viewDBName) {\n    return !viewsToStatus[viewDBName];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (viewDBName) {\n    return db.constructor.destroy(viewDBName, { adapter: db.adapter });\n}",
+    "receiverBase": "dbsToDelete",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return { ok: true };\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var db = this;\n    if (db.type() === 'http') {\n        return httpViewCleanup(db);\n    }\n    return localViewCleanup(db);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "callbackify"
+  },
+  {
+    "callback": "function () {\n    return createView(createViewOpts).then(function (view) {\n        function cleanup() {\n            return view.db.destroy();\n        }\n        return utils.fin(updateView(view).then(function () {\n            return queryView(view, opts);\n        }), cleanup);\n    });\n}",
+    "receiverBase": "tempViewQueue",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (view) {\n    function cleanup() {\n        return view.db.destroy();\n    }\n    return utils.fin(updateView(view).then(function () {\n        return queryView(view, opts);\n    }), cleanup);\n}",
+    "receiverBase": "createView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return queryView(view, opts);\n}",
+    "receiverBase": "updateView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (view) {\n    if (opts.stale === 'ok' || opts.stale === 'update_after') {\n        if (opts.stale === 'update_after') {\n            process.nextTick(function () {\n                updateView(view);\n            });\n        }\n        return queryView(view, opts);\n    } else {\n        return updateView(view).then(function () {\n            return queryView(view, opts);\n        });\n    }\n}",
+    "receiverBase": "createView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    updateView(view);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    return queryView(view, opts);\n}",
+    "receiverBase": "updateView",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return queryPromised(db, fun, opts);\n}",
+    "receiverBase": "resolve",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "promise"
+  },
+  {
+    "callback": "function () {\n    return promiseFactory();\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (err, doc) {\n    if (err) {\n        if (err.status !== 404) {\n            return reject(err);\n        }\n        return fulfill(tryAndPut(db, diffFun({ _id: docId }), diffFun));\n    }\n    var newDoc = diffFun(doc);\n    if (!newDoc) {\n        return fulfill(doc);\n    }\n    fulfill(tryAndPut(db, newDoc, diffFun));\n}",
+    "receiverBase": "db",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err.status !== 409) {\n        throw err;\n    }\n    return upsert(db, doc, diffFun);\n}",
+    "receiverBase": "",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (element) {\n    map[element] = true;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (res) {\n    process.nextTick(function () {\n        callback(null, res);\n    });\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback(null, res);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (reason) {\n    process.nextTick(function () {\n        callback(reason);\n    });\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    callback(reason);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (args) {\n    var cb = args.pop();\n    var promise = fun.apply(this, args);\n    if (typeof cb === 'function') {\n        exports.promisedCallback(promise, cb);\n    }\n    return promise;\n}",
+    "receiverBase": "",
+    "receiverCallee": "argsarray"
+  },
+  {
+    "callback": "function (res) {\n    var promise2 = cb();\n    if (typeof promise2.then === 'function') {\n        return promise2.then(function () {\n            return res;\n        });\n    }\n    return res;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return res;\n}",
+    "receiverBase": "promise2",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (reason) {\n    var promise2 = cb();\n    if (typeof promise2.then === 'function') {\n        return promise2.then(function () {\n            throw reason;\n        });\n    }\n    throw reason;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    throw reason;\n}",
+    "receiverBase": "promise2",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return promiseFactory.apply(that, args);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof exports === 'object') {\n        module.exports = factory();\n    } else if (typeof define === 'function' && define.amd) {\n        define(factory);\n    } else {\n        var glob;\n        try {\n            glob = window;\n        } catch (e) {\n            glob = self;\n        }\n        glob.SparkMD5 = factory();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    this.original = utils.command;\n    this.originalType = os.type;\n    os.type = function () {\n        return 'Linux';\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    utils.command = this.original;\n    os.type = this.originalType;\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (done) {\n    var expected = [\n            '\"title\"',\n            '\"body\"'\n        ];\n    utils.command = function (notifier, argsList, callback) {\n        argsList.should.eql(expected);\n        done();\n    };\n    var notifier = new Notify({ suppressOsdCheck: true });\n    notifier.notify({\n        title: 'title',\n        message: 'body'\n    }, function (err) {\n        should.not.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function (done) {\n    var expected = [\n            '\"Node Notification:\"',\n            '\"body\"'\n        ];\n    utils.command = function (notifier, argsList, callback) {\n        argsList.should.eql(expected);\n        done();\n    };\n    var notifier = new Notify({ suppressOsdCheck: true });\n    notifier.notify({ message: 'body' }, function (err) {\n        should.not.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function (done) {\n    utils.command = function (notifier, argsList, callback) {\n        should.not.exist(argsList);\n        done();\n    };\n    var notifier = new Notify({ suppressOsdCheck: true });\n    notifier.notify({}, function (err) {\n        err.message.should.equal('Message is required.');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    err.message.should.equal('Message is required.');\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function (done) {\n    var expected = [\n            '\"Node Notification:\"',\n            '\"some \\\\\"me\\'ss\\\\`age\\\\`\\\\\"\"'\n        ];\n    utils.command = function (notifier, argsList, callback) {\n        argsList.should.eql(expected);\n        done();\n    };\n    var notifier = new Notify({ suppressOsdCheck: true });\n    notifier.notify({ message: 'some \"me\\'ss`age`\"' }, function (err) {\n        should.not.exist(err);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function (err) {\n    should.not.exist(err);\n    done();\n}",
+    "receiverBase": "notifier",
+    "receiverCallee": "notify"
+  },
+  {
+    "callback": "function () {\n    self.init_(doc);\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (cs1, cs2) {\n    return cs1.offset - cs2.offset;\n}",
+    "receiverBase": "colors_",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    server.listen(5050, function () {\n        done();\n    });\n}",
+    "receiverBase": "truncate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (done) {\n    server.close(function () {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteTeardown"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "close"
+  },
+  {
+    "callback": "function (done) {\n    request.post({\n        url: 'http://localhost:5050/v1/user?' + 'signature_account=' + testPerson.address + '&signature_blob_id=' + testPerson.blob_id,\n        json: testPerson\n    }, function (err, resp, body) {\n        assert.equal(resp.statusCode, 201, 'after proper create request, status code should be 201');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(resp.statusCode, 201, 'after proper create request, status code should be 201');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(resp.statusCode, 401, 'status code should be incorrect, 401 response');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(resp.statusCode, 400, 'should be errored, we did not include patch');\n    assert.equal(body.missing.patch, true, 'we should be missing patch information');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(resp.statusCode, 400, 'should be errored, we did not include patch');\n    assert.equal(body.missing.blob_id, true, 'we should be missing patch information');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.deepEqual(body, {\n        result: 'success',\n        revision: 1\n    });\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.deepEqual(body, {\n        result: 'success',\n        revision: 2\n    });\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    request.get({\n        url: 'http://localhost:5050/v1/blob/' + testPerson.blob_id + '/patch/2',\n        json: true\n    }, function (err, resp, body) {\n        assert.equal(body.result, 'success', 'we should be able to retreive patch 2');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(body.result, 'success', 'we should be able to retreive patch 2');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(body.result, 'success', 'we should be able to consolidate patches 1 and 2 into 3');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    request.get({\n        url: 'http://localhost:5050/v1/blob/' + testPerson.blob_id,\n        json: true\n    }, function (err, resp, body) {\n        assert.equal(body.revision, 3, 'revision should be equal to 3');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(body.revision, 3, 'revision should be equal to 3');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, resp, body) {\n    assert.equal(resp.statusCode, 200, 'after delete request, status code should be 200');\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "del"
+  },
+  {
+    "callback": "function (pTouchEvent) {\n    mSelf.onTouch(pTouchEvent);\n}",
+    "receiverBase": "pElement",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (pTouchEvent) {\n    mSelf.onTouch(pTouchEvent);\n}",
+    "receiverBase": "pElement",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    '7708530509f40102'.should.equal(writeInt64('144664982633777271'));\n    '0100000000000000'.should.equal(writeInt64(1));\n    '0001000000000000'.should.equal(writeInt64(256));\n    'bd34a75e47780300'.should.equal(writeInt64(976672856159421));\n    '0000000000002000'.should.equal(writeInt64(Math.pow(2, 53)));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    readUInt64('0000000000000000').should.equal(0);\n    readUInt64('0000000000002000').should.equal(Math.pow(2, 53));\n    readUInt64('ffffffff00000000').should.equal(Math.pow(2, 32) - 1);\n    readUInt64('feffffffffffffff').should.equal('18446744073709551614');\n    readUInt64('ffffffffffffffff').should.equal('18446744073709551615');\n    readUInt64('bd34a75e47780300').should.equal(976672856159421);\n    readUInt64('7708530509f40102').should.equal('144664982633777271');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    should(null === readDec128('ffffffffffffffffffffffffffffffff')).ok;\n    should(null === readDec128('00000000000000000000000000000077')).ok;\n    should(null === readDecFloat('00000000000000000000000000000077')).ok;\n    should(null === readDecFixed('00000000000000000000000000000077')).ok;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    readDec128('00000000000000000000000000004030').should.eql({\n        s: 1,\n        m: 0,\n        e: 0\n    });\n    readDec128('000000000000000000000000000040b0').should.eql({\n        s: -1,\n        m: 0,\n        e: 0\n    });\n    readDec128('00000000000000000000000000000000').should.eql({\n        s: 1,\n        m: 0,\n        e: -6176\n    });\n    readDec128('0000000000000000000000000000feef').should.eql({\n        s: -1,\n        m: 0,\n        e: 8159\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    readDec128('63000000000000000000000000003eb0').should.eql({\n        s: -1,\n        m: 99,\n        e: -1\n    });\n    readDec128('ae080000000000000000000000003cb0').should.eql({\n        s: -1,\n        m: 2222,\n        e: -2\n    });\n    readDec128('ffffffffffffffffffffffffffffffef').should.eql({\n        s: -1,\n        m: '10384593717069655257060992658440191',\n        e: 8159\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    writeDec128({\n        s: -1,\n        m: 99,\n        e: -1\n    }).should.eql('63000000000000000000000000003eb0');\n    writeDec128({\n        s: -1,\n        m: 2222,\n        e: -2\n    }).should.eql('ae080000000000000000000000003cb0');\n    writeDec128({\n        s: -1,\n        m: '10384593717069655257060992658440191',\n        e: 8159\n    }).should.eql('ffffffffffffffffffffffffffffffef');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    readDecFloat('301b0f00000000000000000000003630').should.equal('9.9e+0');\n    readDecFloat('ffffffffffffffffffffffffffffff6f').should.equal('1.0384593717069655257060992658440191e+8193');\n    readDecFloat('000000000000000000000000000040b0').should.equal('-0e+0');\n    readDecFloat('01000000000000000000000000004030').should.equal('1e+0');\n    readDecFloat('01000000000000000000000000003eb0').should.equal('-1e-1');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (i, v) {\n    newList.push(v.substr(0, 1).toUpperCase() + v.substr(1, v.length));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var t = document.createElement('pre');\n    YAHOO.util.Dom.addClass(t, 'yui-log-entry');\n    return t;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (x, placeholder) {\n    return placeholder in info ? info[placeholder] : '';\n}",
+    "receiverBase": "entryFormat",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    oSelf._printBuffer();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!$('.dotstruct').is('.sel'))\n        expand();\n}",
+    "receiverBase": "arrow",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if ($('.dotstruct').is('.sel'))\n        expand();\n}",
+    "receiverBase": "hdr",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    delete stats[i];\n    delete store.indexedProperties[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (e) {\n    print('Failed removing index for ' + i + ': ' + e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    expireIndexes(store, options);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    stats[i] = {\n        created: now,\n        lastAccess: now,\n        counter: 1\n    };\n    store.indexedProperties[i] = 'adaptive';\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (e) {\n    print('Failed setting index for ' + i + ': ' + e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (parameter) {\n    if (parameter.charAt(0) === '+' || parameter.charAt(0) === '-') {\n        parameter = parameter.substring(1);\n    }\n    if (!(parameter in store.indexedProperties))\n        updateStatistics(parameter);\n}",
+    "receiverBase": "parameters",
+    "receiverCallee": "forEach"
+  }
+]

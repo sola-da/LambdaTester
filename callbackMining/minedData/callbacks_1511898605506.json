@@ -1,0 +1,162 @@
+[
+  {
+    "callback": "function () {\n    _monitorProcesses.call(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.startShutdown();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (err, filePath) {\n    if (err) {\n        console.log('Geddy needs an app to run. See \"geddy -h\" for help.');\n        process.exit();\n    }\n    items = [\n        _readConfig,\n        _initLogging,\n        _monitorProcesses\n    ];\n    chain = new geddy.async.SimpleAsyncChain(items, self);\n    chain.last = function () {\n        if (self.config.environment == 'development' && process.platform != 'win32') {\n            _watchFiles.call(self);\n        }\n    };\n    chain.run();\n}",
+    "receiverBase": "file",
+    "receiverCallee": "searchParentPath"
+  },
+  {
+    "callback": "function (msg) {\n    self.receiveMessage(msg);\n}",
+    "receiverBase": "worker",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    self.handleWorkerExit(pid);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (data) {\n    self.sendMessage(data.id, { method: 'shutdown' });\n}",
+    "receiverBase": "workers",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    modelInfo.set('component_id', modelInfo.component.id);\n}",
+    "receiverBase": "u",
+    "receiverCallee": "monitorProperty"
+  },
+  {
+    "callback": "function () {\n    modelInfo.set('component_cid', modelInfo.component.cid);\n}",
+    "receiverBase": "u",
+    "receiverCallee": "monitorProperty"
+  },
+  {
+    "callback": "function () {\n    var componentCollectionInfo = appCollectionsInfo.getByComponent(modelInfo.component.collection);\n    var componentCollectionIndex = componentCollectionInfo ? componentCollectionInfo.index : null;\n    modelInfo.set('component_collectionIndex', componentCollectionIndex);\n    updateModelUrl();\n}",
+    "receiverBase": "u",
+    "receiverCallee": "monitorProperty"
+  },
+  {
+    "callback": "function () {\n    callback(currTime + timeToCall);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return scope.$eval(attrs.startTyping);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (val) {\n    if (val) {\n        startTyping();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    removeCaret(element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (part) {\n    part = part.split('=');\n    var key = part.shift().toLowerCase();\n    var value = part.join('=').trim();\n    if (key === 'user') {\n        username = value;\n    } else if (key === 'auth') {\n        value = value.split(/\\s+/);\n        if (value.shift().toLowerCase() === 'bearer') {\n            accessToken = value.join(' ');\n        }\n    }\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    var id = e.source.id;\n    _.each(style, function (o) {\n        if (o.key === id && o.isId) {\n            Ti.API.info(JSON.stringify(o));\n        }\n    });\n}",
+    "receiverBase": "child",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (o) {\n    if (o.key === id && o.isId) {\n        Ti.API.info(JSON.stringify(o));\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    it('should do some tests', function (done) {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    if (e.code === 'EADDRINUSE') {\n        log.error('error', 'this port is in use, change to another one');\n    } else {\n        throw e;\n    }\n}",
+    "receiverBase": "listen",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (socket) {\n    socket && !socket.disconnected && socket.emit('reload', { message: message });\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (socket) {\n    socket.emit('hello', { message: 'nico' });\n    sockets.push(socket);\n}",
+    "receiverBase": "sockets",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    rebuild(message);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (message) {\n    rebuild(message);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (filepath, r, s) {\n    var d = path.join(r, s || '');\n    if (_src[d])\n        return;\n    _src[d] = true;\n    fs.watch(d, function (event, filename) {\n        log.info(event, filename);\n        events.emit('sourceModified', filename);\n    });\n}",
+    "receiverBase": "file",
+    "receiverCallee": "recurse"
+  },
+  {
+    "callback": "function (event, filename) {\n    log.info(event, filename);\n    events.emit('sourceModified', filename);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "watch"
+  },
+  {
+    "callback": "function (filepath, r, s) {\n    var d = path.join(r, s || '');\n    if (_theme[d])\n        return;\n    _theme[d] = true;\n    fs.watch(d, function (event, filename) {\n        log.info(event, filename);\n        events.emit('themeModified', filename);\n    });\n}",
+    "receiverBase": "file",
+    "receiverCallee": "recurse"
+  },
+  {
+    "callback": "function (event, filename) {\n    log.info(event, filename);\n    events.emit('themeModified', filename);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "watch"
+  },
+  {
+    "callback": "function () {\n    return new goog.ui.SplitBehavior(null, null);\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "setDecoratorByClassName"
+  },
+  {
+    "callback": "function (callback) {\n    callback(data);\n}",
+    "receiverBase": "callbacks",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (event) {\n    var modifiers = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;\n    var mapped = map[event.which];\n    if (!modifiers) {\n        if (mapped !== undefined) {\n            event.preventDefault();\n            self.emit('move', mapped);\n        }\n    }\n    if (!modifiers && event.which === 82) {\n        self.restart.call(self, event);\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    if (!window.navigator.msPointerEnabled && event.touches.length > 1 || event.targetTouches > 1) {\n        return;\n    }\n    if (window.navigator.msPointerEnabled) {\n        touchStartClientX = event.pageX;\n        touchStartClientY = event.pageY;\n    } else {\n        touchStartClientX = event.touches[0].clientX;\n        touchStartClientY = event.touches[0].clientY;\n    }\n    event.preventDefault();\n}",
+    "receiverBase": "gameContainer",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    event.preventDefault();\n}",
+    "receiverBase": "gameContainer",
+    "receiverCallee": "addEventListener"
+  }
+]

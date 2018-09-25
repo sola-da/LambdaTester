@@ -1,0 +1,548 @@
+[
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    player.vastTracker.setPaused(false);\n}",
+    "receiverBase": "player",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    player.off('canplay', canplayFn);\n    player.off('timeupdate', timeupdateFn);\n    player.off('pause', pauseFn);\n    player.off('error', errorFn);\n    if (!errorOccurred) {\n        player.vastTracker.complete();\n    }\n}",
+    "receiverBase": "player",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    player.trigger('adsready');\n}",
+    "receiverBase": "player",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    player.play();\n}",
+    "receiverBase": "player",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    player.play();\n}",
+    "receiverBase": "player",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    player.vast.getContent(settings.url);\n}",
+    "receiverBase": "player",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!settings.url) {\n        player.trigger('adscanceled');\n        return null;\n    }\n    player.vast.preroll();\n}",
+    "receiverBase": "player",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    spyOn(navigatorComponent, 'update').and.callThrough();\n    dashboard.update(navigatorComponent);\n    setTimeout(function () {\n        expect(navigatorComponent.update).toHaveBeenCalled();\n        done();\n    }, 100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(navigatorComponent.update).toHaveBeenCalled();\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (e, t) {\n    console.log('want to see this 1'), console.log('want to see this 2'), console.log('want to see this 3'), console.log('want to see this 4'), console.log('want to see this 5');\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var dgeni = new Dgeni([mockPackage()]);\n    var injector = dgeni.configureInjector();\n    processor = injector.get('computeIdsProcessor');\n    mockLog = injector.get('log');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    processor.idTemplates = [{\n            docTypes: ['a'],\n            idTemplate: '${ docType }'\n        }];\n    var doc = { docType: 'a' };\n    processor.$process([doc]);\n    expect(doc).toEqual({\n        docType: 'a',\n        id: 'a'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    processor.idTemplates = [\n        {\n            docTypes: ['a'],\n            idTemplate: 'A'\n        },\n        {\n            docTypes: ['b'],\n            idTemplate: 'B'\n        }\n    ];\n    var docA = { docType: 'a' };\n    var docB = { docType: 'b' };\n    processor.$process([\n        docA,\n        docB\n    ]);\n    expect(docA).toEqual({\n        docType: 'a',\n        id: 'A'\n    });\n    expect(docB).toEqual({\n        docType: 'b',\n        id: 'B'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    var config = { instrument: false };\n    function configure(name, value) {\n        if (arguments.length === 2) {\n            config[name] = value;\n        } else {\n            return config[name];\n        }\n    }\n    __exports__.config = config;\n    __exports__.configure = configure;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var resolve;\n    new local.Promise(function (r) {\n        resolve = r;\n    });\n    return isFunction(resolve);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function invokePromiseCallback() {\n    invokeCallback(promise._state, thenPromise, callbacks[promise._state - 1], promise._detail);\n}",
+    "receiverBase": "config",
+    "receiverCallee": "async"
+  },
+  {
+    "callback": "function (val) {\n    if (resolved) {\n        return true;\n    }\n    resolved = true;\n    if (value !== val) {\n        resolve(promise, val);\n    } else {\n        fulfill(promise, val);\n    }\n}",
+    "receiverBase": "then",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (val) {\n    if (resolved) {\n        return true;\n    }\n    resolved = true;\n    reject(promise, val);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    function reject(reason) {\n        var Promise = this;\n        return new Promise(function (resolve, reject) {\n            reject(reason);\n        });\n    }\n    __exports__.reject = reject;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    function resolve(value) {\n        if (value && typeof value === 'object' && value.constructor === this) {\n            return value;\n        }\n        var Promise = this;\n        return new Promise(function (resolve) {\n            resolve(value);\n        });\n    }\n    __exports__.resolve = resolve;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return localforageSerializer;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var store = dbInfo.db.transaction(dbInfo.storeName, 'readonly').objectStore(dbInfo.storeName);\n    var req = store.get(key);\n    req.onsuccess = function () {\n        var value = req.result;\n        if (value === undefined) {\n            value = null;\n        }\n        resolve(value);\n    };\n    req.onerror = function () {\n        reject(req.error);\n    };\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var transaction = dbInfo.db.transaction(dbInfo.storeName, 'readwrite');\n    var store = transaction.objectStore(dbInfo.storeName);\n    var req = store.clear();\n    transaction.oncomplete = function () {\n        resolve();\n    };\n    transaction.onabort = transaction.onerror = function () {\n        reject(req.error);\n    };\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var store = dbInfo.db.transaction(dbInfo.storeName, 'readonly').objectStore(dbInfo.storeName);\n    var req = store.count();\n    req.onsuccess = function () {\n        resolve(req.result);\n    };\n    req.onerror = function () {\n        reject(req.error);\n    };\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var store = dbInfo.db.transaction(dbInfo.storeName, 'readonly').objectStore(dbInfo.storeName);\n    var req = store.openCursor();\n    var keys = [];\n    req.onsuccess = function () {\n        var cursor = req.result;\n        if (!cursor) {\n            resolve(keys);\n            return;\n        }\n        keys.push(cursor.key);\n        cursor['continue']();\n    };\n    req.onerror = function () {\n        reject(req.error);\n    };\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    callback(null, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    callback(error);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (result) {\n    deferCallback(callback, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    callback(error);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return callback(null, result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return asyncStorage;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (lib) {\n    serializer = lib;\n    return Promise.resolve();\n}",
+    "receiverBase": "serializerPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var keyPrefix = self._dbInfo.keyPrefix;\n    for (var i = localStorage.length - 1; i >= 0; i--) {\n        var key = localStorage.key(i);\n        if (key.indexOf(keyPrefix) === 0) {\n            localStorage.removeItem(key);\n        }\n    }\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var result = localStorage.getItem(dbInfo.keyPrefix + key);\n    if (result) {\n        result = serializer.deserialize(result);\n    }\n    return result;\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var keyPrefix = self._dbInfo.keyPrefix;\n    var keyPrefixLength = keyPrefix.length;\n    var length = localStorage.length;\n    for (var i = 0; i < length; i++) {\n        var key = localStorage.key(i);\n        var value = localStorage.getItem(key);\n        if (value) {\n            value = serializer.deserialize(value);\n        }\n        value = iterator(value, key.substring(keyPrefixLength), i + 1);\n        if (value !== void 0) {\n            return value;\n        }\n    }\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var result;\n    try {\n        result = localStorage.key(n);\n    } catch (error) {\n        result = null;\n    }\n    if (result) {\n        result = result.substring(dbInfo.keyPrefix.length);\n    }\n    return result;\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    var length = localStorage.length;\n    var keys = [];\n    for (var i = 0; i < length; i++) {\n        if (localStorage.key(i).indexOf(dbInfo.keyPrefix) === 0) {\n            keys.push(localStorage.key(i).substring(dbInfo.keyPrefix.length));\n        }\n    }\n    return keys;\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (keys) {\n    return keys.length;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    localStorage.removeItem(dbInfo.keyPrefix + key);\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value, error) {\n    if (error) {\n        reject(error);\n    } else {\n        try {\n            var dbInfo = self._dbInfo;\n            localStorage.setItem(dbInfo.keyPrefix + key, value);\n            resolve(originalValue);\n        } catch (e) {\n            if (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {\n                reject(e);\n            }\n            reject(e);\n        }\n    }\n}",
+    "receiverBase": "serializer",
+    "receiverCallee": "serialize"
+  },
+  {
+    "callback": "function (result) {\n    callback(null, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    callback(error);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return localStorageWrapper;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return self._initStorage(options);\n}",
+    "receiverBase": "setDriver",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('CREATE TABLE IF NOT EXISTS ' + dbInfo.storeName + ' (id INTEGER PRIMARY KEY, key unique, value)', [], function () {\n        self._dbInfo = dbInfo;\n        resolve();\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    self._dbInfo = dbInfo;\n    resolve();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (lib) {\n    serializer = lib;\n    return dbInfoPromise;\n}",
+    "receiverBase": "serializerPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('SELECT * FROM ' + dbInfo.storeName + ' WHERE key = ? LIMIT 1', [key], function (t, results) {\n            var result = results.rows.length ? results.rows.item(0).value : null;\n            if (result) {\n                result = serializer.deserialize(result);\n            }\n            resolve(result);\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('SELECT * FROM ' + dbInfo.storeName + ' WHERE key = ? LIMIT 1', [key], function (t, results) {\n        var result = results.rows.length ? results.rows.item(0).value : null;\n        if (result) {\n            result = serializer.deserialize(result);\n        }\n        resolve(result);\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (t, results) {\n    var result = results.rows.length ? results.rows.item(0).value : null;\n    if (result) {\n        result = serializer.deserialize(result);\n    }\n    resolve(result);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, results) {\n    var rows = results.rows;\n    var length = rows.length;\n    for (var i = 0; i < length; i++) {\n        var item = rows.item(i);\n        var result = item.value;\n        if (result) {\n            result = serializer.deserialize(result);\n        }\n        result = iterator(result, item.key, i + 1);\n        if (result !== void 0) {\n            resolve(result);\n            return;\n        }\n    }\n    resolve();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('INSERT OR REPLACE INTO ' + dbInfo.storeName + ' (key, value) VALUES (?, ?)', [\n        key,\n        value\n    ], function () {\n        resolve(originalValue);\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    resolve(originalValue);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (sqlError) {\n    if (sqlError.code === sqlError.QUOTA_ERR) {\n        reject(sqlError);\n    }\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('DELETE FROM ' + dbInfo.storeName + ' WHERE key = ?', [key], function () {\n            resolve();\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('DELETE FROM ' + dbInfo.storeName + ' WHERE key = ?', [key], function () {\n        resolve();\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    resolve();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('DELETE FROM ' + dbInfo.storeName, [], function () {\n            resolve();\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('DELETE FROM ' + dbInfo.storeName, [], function () {\n        resolve();\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    resolve();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('SELECT COUNT(key) as c FROM ' + dbInfo.storeName, [], function (t, results) {\n            var result = results.rows.item(0).c;\n            resolve(result);\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('SELECT COUNT(key) as c FROM ' + dbInfo.storeName, [], function (t, results) {\n        var result = results.rows.item(0).c;\n        resolve(result);\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (t, results) {\n    var result = results.rows.item(0).c;\n    resolve(result);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('SELECT key FROM ' + dbInfo.storeName + ' WHERE id = ? LIMIT 1', [n + 1], function (t, results) {\n            var result = results.rows.length ? results.rows.item(0).key : null;\n            resolve(result);\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('SELECT key FROM ' + dbInfo.storeName + ' WHERE id = ? LIMIT 1', [n + 1], function (t, results) {\n        var result = results.rows.length ? results.rows.item(0).key : null;\n        resolve(result);\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (t, results) {\n    var result = results.rows.length ? results.rows.item(0).key : null;\n    resolve(result);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    var dbInfo = self._dbInfo;\n    dbInfo.db.transaction(function (t) {\n        t.executeSql('SELECT key FROM ' + dbInfo.storeName, [], function (t, results) {\n            var keys = [];\n            for (var i = 0; i < results.rows.length; i++) {\n                keys.push(results.rows.item(i).key);\n            }\n            resolve(keys);\n        }, function (t, error) {\n            reject(error);\n        });\n    });\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (t) {\n    t.executeSql('SELECT key FROM ' + dbInfo.storeName, [], function (t, results) {\n        var keys = [];\n        for (var i = 0; i < results.rows.length; i++) {\n            keys.push(results.rows.item(i).key);\n        }\n        resolve(keys);\n    }, function (t, error) {\n        reject(error);\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (t, results) {\n    var keys = [];\n    for (var i = 0; i < results.rows.length; i++) {\n        keys.push(results.rows.item(i).key);\n    }\n    resolve(keys);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (t, error) {\n    reject(error);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (result) {\n    callback(null, result);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    callback(error);\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return webSQLStorage;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (typeof self.openDatabase !== 'undefined' && self.navigator && self.navigator.userAgent && /Safari/.test(self.navigator.userAgent) && !/Chrome/.test(self.navigator.userAgent)) {\n        return false;\n    }\n    try {\n        return indexedDB && typeof indexedDB.open === 'function' && typeof self.IDBKeyRange !== 'undefined';\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    try {\n        return self.localStorage && 'setItem' in self.localStorage && self.localStorage.setItem;\n    } catch (e) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return localForageInstance[libraryMethod].apply(localForageInstance, _args);\n}",
+    "receiverBase": "ready",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (supportResult) {\n    driverSupport[driverName] = supportResult;\n    CustomDrivers[driverName] = driverObject;\n    resolve();\n}",
+    "receiverBase": "supportPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    if (self._ready === null) {\n        self._ready = self._initStorage(self._config);\n    }\n    self._ready.then(resolve, reject);\n}",
+    "receiverBase": "_driverSet",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (lib) {\n    self._extend(lib);\n    resolve();\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    return localForage;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (all) {\n    var blobId = all[0], fileV = all[1];\n    file = fileV;\n    var previousId = file ? file.version : null;\n    version = {\n        userAccountId: userAccount.id,\n        date: new Date(),\n        blobId: blobId,\n        creatorId: userAccount.id,\n        previousId: previousId\n    };\n    version.id = Version.createHash(version);\n    return Version.insert(version).execWithin(tx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (q) {\n    return q.execWithin(tx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "createQueryCtxless"
+  },
+  {
+    "callback": "function () {\n    return newId;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createQueryCtxless"
+  },
+  {
+    "callback": "function (fileIdV) {\n    fileId = fileIdV;\n    return FileVersion.insert({\n        fileId: fileId,\n        versionId: version.id\n    }).execWithin(tx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return File.whereUpdate({ id: fileId }, { version: version.id }).execWithin(tx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    tx.commit();\n    return done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (err) {\n    tx.rollback();\n    return done(err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e, i, a) {\n    a[i] = String.fromCharCode(e);\n}",
+    "receiverBase": "fieldValues",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (bitsPerSample, i, bitsPerSampleValues) {\n    sampleProperties[i] = {\n        bitsPerSample: bitsPerSample,\n        hasBytesPerSample: false,\n        bytesPerSample: undefined\n    };\n    if (bitsPerSample % 8 === 0) {\n        sampleProperties[i].hasBytesPerSample = true;\n        sampleProperties[i].bytesPerSample = bitsPerSample / 8;\n    }\n    bitsPerPixel += bitsPerSample;\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sample, index, samples) {\n    samples[index] = invertValue - sample;\n}",
+    "receiverBase": "pixelSamples",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, answer) {\n    answer.answer.forEach(function (oneAnswer) {\n        answer = {\n            name: hostname,\n            type: question.type,\n            class: question.class,\n            data: oneAnswer.address,\n            ttl: oneAnswer.ttl\n        };\n        res.answer.push(answer);\n    });\n}",
+    "receiverBase": "nativeReq",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (oneAnswer) {\n    answer = {\n        name: hostname,\n        type: question.type,\n        class: question.class,\n        data: oneAnswer.address,\n        ttl: oneAnswer.ttl\n    };\n    res.answer.push(answer);\n}",
+    "receiverBase": "answer",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (!timedout) {\n        $this.logger.log('info', '%s:%s/%s - %s - %s question:\"%s\" - %j', req.connection.remoteAddress, req.connection.remotePort, req.connection.type, dnsAddress, hostname, question, res.answer, $this.meta);\n        next(null);\n    }\n}",
+    "receiverBase": "nativeReq",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    answer.data = data;\n    res.answer.push(answer);\n    $this.logger.log('info', '%s:%s/%s - local - %s question:\"%s\" - %j', req.connection.remoteAddress, req.connection.remotePort, req.connection.type, hostname, question, answer, $this.meta);\n}",
+    "receiverBase": "object",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        $this.logger.log('error', '%s:%s/%s - local - %s question:\"%s\" - %j -- ERROR:%j', req.connection.remoteAddress, req.connection.remotePort, req.connection.type, hostname, question, res.answer, err, $this.meta);\n    }\n    res.end();\n}",
+    "receiverBase": "$this",
+    "receiverCallee": "nativeDNS"
+  },
+  {
+    "callback": "function (req, res) {\n    $this.resolver(req, res);\n}",
+    "receiverBase": "dnsd",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (n) {\n    return 0 === n.failed_pings;\n}",
+    "receiverBase": "live",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return 0 === n.failed_pings;\n}",
+    "receiverBase": "live",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (n) {\n    return 0 === n.failed_pings;\n}",
+    "receiverBase": "live",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (cm, data) {\n    return getHyperlink(cm, data);\n}",
+    "receiverBase": "CodeMirror",
+    "receiverCallee": "registerHelper"
+  }
+]

@@ -1,0 +1,527 @@
+[
+  {
+    "callback": "function () {\n    logger.info('adapter rego  connected to ccu.io');\n    initialize();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    logger.info('adapter rego  disconnected from ccu.io');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    socket.disconnect();\n    logger.info('adapter rego  terminating');\n    setTimeout(function () {\n        process.exit();\n    }, 1000);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "emit"
+  },
+  {
+    "callback": "function () {\n    process.exit();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (item) {\n    return BUI.Date.format(new Date(item), 'yyyy-mm-dd HH:MM:ss');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var info = {\n            min: new Date(2010, 1, 1).getTime(),\n            max: new Date(2019, 12, 31).getTime(),\n            data: []\n        };\n    var rst = Auto.Time.caculate(info);\n    expect(rst.ticks.length).toBe(6);\n    log(info.data, rst, '\\u6307\\u5B9A\\u6700\\u5927\\u503C\\uFF0C\\u6700\\u5C0F\\u503C,\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            Date.UTC(2010, 1, 1),\n            Date.UTC(2019, 12, 31)\n        ];\n    var rst = Auto.Time.caculate({ data: data });\n    expect(rst.ticks.length).toBe(6);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            new Date('2010/12/31'),\n            new Date('2012/01/01')\n        ];\n    var rst = Auto.Time.caculate({ data: data });\n    expect(rst.ticks.length).toBe(15);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E\\uFF0C,\\u6D4B\\u8BD5\\u6708\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            new Date('2010/01/01'),\n            new Date('2012/02/01')\n        ];\n    var rst = Auto.Time.caculate({ data: data });\n    expect(rst.ticks.length).toBe(10);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E\\uFF0C,\\u6D4B\\u8BD5\\u6708\\u5C0F\\u4E8E\\u7ED3\\u675F\\u6708\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            new Date('2010/12/20'),\n            new Date('2011/05/20')\n        ];\n    var rst = Auto.Time.caculate({ data: data });\n    expect(rst.ticks.length).toBe(9);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E,\\u6D4B\\u8BD5\\u5929\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            new Date('2010/1/20'),\n            new Date('2010/06/20')\n        ];\n    var rst = Auto.Time.caculate({ data: data });\n    expect(rst.ticks.length).toBe(9);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E,\\u6D4B\\u8BD5\\u5929\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var data = [\n            new Date('2010/1/20'),\n            new Date('2010/03/20')\n        ];\n    var rst = Auto.Time.caculate({\n            data: data,\n            interval: 7 * 24 * 3600 * 1000\n        });\n    expect(rst.ticks.length).toBe(8);\n    log(data, rst, '\\u6307\\u5B9A\\u6570\\u636E,\\u6D4B\\u8BD5\\u5929\\uFF0C\\u4E0D\\u6307\\u5B9Ainterval');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return configuration;\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    localStorage[LOCAL_STORAGE_ID] = JSON.stringify(configuration);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function ($compile, $rootScope) {\n    var parent = angular.element('<div>');\n    el = angular.element('<md-sidenav ' + (attrs || '') + '>');\n    parent.append(el);\n    $compile(parent)($rootScope);\n    $rootScope.$apply();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (_$mdComponentRegistry_, _$timeout_) {\n    $mdComponentRegistry = _$mdComponentRegistry_;\n    $timeout = _$timeout_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function ($log) {\n    spyOn($log, 'error');\n    $mdComponentRegistry.notFoundError('badHandle');\n    expect($log.error).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    $mdComponentRegistry.register({ needle: true }, 'test');\n    var instance = $mdComponentRegistry.get('test');\n    expect(instance).toBeTruthy();\n    expect(instance.needle).not.toBe(undefined);\n    expect($mdComponentRegistry.getInstances().length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var deregister = $mdComponentRegistry.register({ needle: true }, 'test');\n    expect($mdComponentRegistry.getInstances().length).toBe(1);\n    deregister();\n    expect($mdComponentRegistry.getInstances().length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = setup('md-component-id=\"left\"');\n    var instance = $mdComponentRegistry.get('left');\n    expect(instance).not.toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = setup('md-component-id=\"left\"');\n    el.triggerHandler('$destroy');\n    var instance = $mdComponentRegistry.get('left');\n    expect(instance).toBe(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var promise = $mdComponentRegistry.when('left');\n    var el = setup('md-component-id=\"left\"');\n    var instance = $mdComponentRegistry.get('left');\n    var resolved = false;\n    promise.then(function (inst) {\n        resolved = inst;\n    });\n    $timeout.flush();\n    expect(instance).toBe(resolved);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (inst) {\n    resolved = inst;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (inst) {\n    count += 1;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (inst) {\n    resolved = inst;\n    count += 1;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (_$mdComponentRegistry_, _$timeout_) {\n    $mdComponentRegistry = _$mdComponentRegistry_;\n    $timeout = _$timeout_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    var el = setup();\n    var resolved;\n    var count = 0;\n    var promise = $mdComponentRegistry.when('left');\n    var instance = $mdComponentRegistry.get('left');\n    promise.then(function (inst) {\n        resolved = inst;\n        count += 1;\n    });\n    $timeout.flush();\n    expect(count).toBe(0);\n    expect(instance).toBe(null);\n    expect(resolved).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (inst) {\n    resolved = inst;\n    count += 1;\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var el = setup();\n    var fail, componentID;\n    var onFail = function () {\n        fail = true;\n    };\n    fail = false;\n    $mdComponentRegistry.when(componentID = undefined).catch(onFail);\n    $timeout.flush();\n    expect(fail).toBe(true);\n    fail = false;\n    $mdComponentRegistry.when(componentID = '').catch(onFail);\n    $timeout.flush();\n    expect(fail).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = setup();\n    el.triggerHandler('$destroy');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var div = $('<div></div>');\n    ok(div.tooltip, 'popover method is defined');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var div = $('<div></div>');\n    ok(div.tooltip() == div, 'document.body returned');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!!$.fn.tooltip.defaults, 'defaults is defined');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').tooltip();\n    ok(!tooltip.attr('title'), 'title tag was removed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').tooltip();\n    equals(tooltip.attr('data-original-title'), 'Another tooltip', 'original title preserved in data attribute');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    $.support.transition = false;\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').appendTo('#qunit-fixture').tooltip({ placement: 'bottom' }).tooltip('show');\n    ok($('.tooltip').is('.fade.bottom.in'), 'has correct classes applied');\n    tooltip.tooltip('hide');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    $.support.transition = false;\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"<b>@fat</b>\"></a>').appendTo('#qunit-fixture').tooltip('show');\n    ok($('.tooltip b').length, 'b tag was inserted');\n    tooltip.tooltip('hide');\n    ok(!$('.tooltip').length, 'tooltip removed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').appendTo('#qunit-fixture').tooltip({ template: '<div class=\"tooltip some-class\"><div class=\"tooltip-arrow\"/><div class=\"tooltip-inner\"/></div>' }).tooltip('show');\n    ok($('.tooltip').hasClass('some-class'), 'custom class is present');\n    tooltip.tooltip('hide');\n    ok(!$('.tooltip').length, 'tooltip removed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').appendTo('#qunit-fixture').tooltip({ delay: 200 });\n    stop();\n    tooltip.trigger('mouseenter');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n        tooltip.trigger('mouseout');\n        setTimeout(function () {\n            ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n            start();\n        }, 200);\n    }, 100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    tooltip.trigger('mouseout');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n        start();\n    }, 200);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    tooltip.trigger('mouseout');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n        start();\n    }, 200);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').appendTo('#qunit-fixture').tooltip({ delay: 100 });\n    stop();\n    tooltip.trigger('mouseenter');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n        tooltip.trigger('mouseout');\n        setTimeout(function () {\n            ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n            start();\n        }, 100);\n    }, 50);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    tooltip.trigger('mouseout');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n        start();\n    }, 100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var tooltip = $('<a href=\"#\" rel=\"tooltip\" title=\"Another tooltip\"></a>').appendTo('#qunit-fixture').tooltip({ delay: 150 });\n    stop();\n    tooltip.trigger('mouseenter');\n    setTimeout(function () {\n        ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n    }, 100);\n    setTimeout(function () {\n        ok($('.tooltip').is('.fade.in'), 'tooltip has faded in');\n        start();\n    }, 200);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!$('.tooltip').is('.fade.in'), 'tooltip is not faded in');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok($('.tooltip').is('.fade.in'), 'tooltip has faded in');\n    start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    ok(!$.fn.tooltip.Constructor.prototype.isHTML('foo'), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok(!$.fn.tooltip.Constructor.prototype.isHTML('&lt;foo&gt;'), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok($.fn.tooltip.Constructor.prototype.isHTML('<div>foo</div>'), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok($.fn.tooltip.Constructor.prototype.isHTML('asdfa<div>foo</div>asdfasdf'), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok($.fn.tooltip.Constructor.prototype.isHTML(document.createElement('div')), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ok($.fn.tooltip.Constructor.prototype.isHTML($('<div></div>')), 'correctly detected html');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (transaction) {\n    transaction.executeSql(sql, [], function (transaction, results) {\n        var row = results.rows.item(0);\n        dfd.resolve(row);\n    });\n}",
+    "receiverBase": "SQLiteDB",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, results) {\n    var row = results.rows.item(0);\n    dfd.resolve(row);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, results) {\n    dfd.resolve(parseRows2Json(results.rows));\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction) {\n    transaction.executeSql(insSql, valus, function (transaction, results) {\n        var obj = $.extend({}, data);\n        obj.id = results.insertId;\n        dfd.resolve(obj);\n    }, function (a, b) {\n        console.log(b);\n    });\n}",
+    "receiverBase": "SQLiteDB",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, results) {\n    var obj = $.extend({}, data);\n    obj.id = results.insertId;\n    dfd.resolve(obj);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (a, b) {\n    console.log(b);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction) {\n    transaction.executeSql(uptSql, [], function (transaction, results) {\n        var obj = $.extend({}, data);\n        obj.id = id;\n        dfd.resolve(obj);\n    });\n}",
+    "receiverBase": "SQLiteDB",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, results) {\n    var obj = $.extend({}, data);\n    obj.id = id;\n    dfd.resolve(obj);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction) {\n    var delSql = 'DELETE FROM ' + dao._tableName + ' where ';\n    var condition = '1 != 1';\n    if (id) {\n        condition = dao.getIdName() + ' = \\'' + id + '\\'';\n    }\n    delSql = delSql + condition;\n    transaction.executeSql(delSql, [], function (transaction, results) {\n        dfd.resolve(id);\n    });\n}",
+    "receiverBase": "SQLiteDB",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (transaction, results) {\n    dfd.resolve(id);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, results) {\n    dfd.resolve(ids);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, results) {\n    var obj = $.extend({}, data);\n    obj.id = results.insertId;\n    returnArray.push(obj);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, results) {\n    var obj = $.extend({}, data);\n    obj.id = results.insertId;\n    returnArray.push(obj);\n    dfd.resolve(returnArray);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (transaction, results) {\n    dfd.resolve(results.rows.item(0).count);\n}",
+    "receiverBase": "transaction",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    Y.mix(handle, Y[method].apply(Y, originalArgs), true);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (node) {\n    var subArgs = args.slice(), filter;\n    node = Y.one(node);\n    if (node) {\n        if (delegate) {\n            filter = subArgs.splice(3, 1)[0];\n        }\n        subArgs.splice(0, 4, subArgs[1], subArgs[3]);\n        if (!this.preventDups || !this.getSubs(node, args, null, true)) {\n            handles.push(this._subscribe(node, method, subArgs, extra, filter));\n        }\n    }\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (t) {\n    Y.Node.DOM_EVENTS[t] = 1;\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    if (!events[name]) {\n        events[name] = [];\n    }\n    events[name].push(handler);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    handler.call(null, args);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item, index) {\n    array[index] = {};\n    array[index][key] = item;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    $scope.events.trigger('input-keydown', e);\n}",
+    "receiverBase": "input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    scope.newTag.text = '';\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    ngModelCtrl.$setViewValue(scope.tags);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    scope.newTag.invalid = true;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    tagList.selected = null;\n    scope.newTag.invalid = null;\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    ngModelCtrl.$setValidity('leftoverText', true);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!options.addFromAutocompleteOnly) {\n        if (options.addOnBlur) {\n            tagList.addText(scope.newTag.text);\n        }\n        setElementValidity();\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (validationOptions.indexOf(e.name) !== -1) {\n        setElementValidity();\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (value) {\n    scope.tags = makeObjectArray(value, options.displayProperty);\n    tagList.items = scope.tags;\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    setElementValidity();\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    if (scope.hasFocus) {\n        return;\n    }\n    scope.hasFocus = true;\n    events.trigger('input-focus');\n    scope.$apply();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $timeout(function () {\n        var activeElement = $document.prop('activeElement'), lostFocusToBrowserWindow = activeElement === input[0], lostFocusToChildElement = element[0].contains(activeElement);\n        if (lostFocusToBrowserWindow || !lostFocusToChildElement) {\n            scope.hasFocus = false;\n            events.trigger('input-blur');\n        }\n    });\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var activeElement = $document.prop('activeElement'), lostFocusToBrowserWindow = activeElement === input[0], lostFocusToChildElement = element[0].contains(activeElement);\n    if (lostFocusToBrowserWindow || !lostFocusToChildElement) {\n        scope.hasFocus = false;\n        events.trigger('input-blur');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    input[0].focus();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (item) {\n    return !findInObjectArray(array2, item, options.tagsInput.displayProperty);\n}",
+    "receiverBase": "array1",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (items) {\n    if (promise !== lastPromise) {\n        return;\n    }\n    items = makeObjectArray(items.data || items, options.tagsInput.displayProperty);\n    items = getDifference(items, tags);\n    self.items = items.slice(0, options.maxResultsToShow);\n    if (self.items.length > 0) {\n        self.show();\n    } else {\n        self.reset();\n    }\n}",
+    "receiverBase": "promise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    suggestionList.reset();\n}",
+    "receiverBase": "tagsInput",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (value) {\n    if (shouldLoadSuggestions(value)) {\n        suggestionList.load(value, tagsInput.getTags());\n    } else {\n        suggestionList.reset();\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var value = tagsInput.getCurrentTagText();\n    if (options.loadOnFocus && shouldLoadSuggestions(value)) {\n        suggestionList.load(value, tagsInput.getTags());\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return function (scope, element, attrs, ctrl, transcludeFn) {\n        transcludeFn(function (clone) {\n            element.append(clone);\n        });\n    };\n}",
+    "receiverBase": "tagsInput",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (clone) {\n    element.append(clone);\n}",
+    "receiverBase": "",
+    "receiverCallee": "transcludeFn"
+  },
+  {
+    "callback": "function (value) {\n    if (!ctrl.$modelValue) {\n        resize(value);\n    }\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function () {\n    return function (scope, element, attrs) {\n        scope.$watch(attrs.tiBindAttrs, function (value) {\n            angular.forEach(value, function (value, key) {\n                attrs.$set(key, value);\n            });\n        }, true);\n    };\n}",
+    "receiverBase": "tagsInput",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value) {\n    angular.forEach(value, function (value, key) {\n        attrs.$set(key, value);\n    });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value, key) {\n    attrs.$set(key, value);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    updateValue(value);\n    scope.events.trigger('option-change', {\n        name: key,\n        newValue: value\n    });\n}",
+    "receiverBase": "attrs",
+    "receiverCallee": "$observe"
+  },
+  {
+    "callback": "function (aliasName) {\n    self._commands[aliasName] = function (params) {\n        a[aliasName].split(' && ').forEach(function (command) {\n            self._commands[command](params);\n        });\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (command) {\n    self._commands[command](params);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (et) {\n    _run(et);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (f, e) {\n    if (e.getKey() == e.ENTER) {\n        this.onTrigger2Click();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  }
+]

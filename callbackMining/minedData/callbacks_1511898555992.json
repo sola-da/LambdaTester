@@ -1,0 +1,98 @@
+[
+  {
+    "callback": "function () {\n    return self._test(cmd, cb);\n}",
+    "receiverBase": "_download",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    exec(self.buildScript, { cwd: tmp }, function (err) {\n        if (err) {\n            return cb(err);\n        }\n        rm.sync(tmp);\n        return cb();\n    });\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return cb(err);\n    }\n    rm.sync(tmp);\n    return cb();\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (res) {\n    var len = parseInt(res.headers['content-length'], 10);\n    var bar = new ProgressBar('  ' + path.basename(src) + ': downloading [:bar] :percent :etas', {\n            complete: '=',\n            incomplete: ' ',\n            width: 20,\n            total: len\n        });\n    res.on('data', function (data) {\n        bar.tick(data.length);\n    });\n    res.on('end', function () {\n        console.log('\\n');\n    });\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    bar.tick(data.length);\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('\\n');\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    working = false;\n    return cb(working);\n}",
+    "receiverBase": "bin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (code) {\n    working = code === 0;\n    return cb(working);\n}",
+    "receiverBase": "bin",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (val) {\n    if (!hasOwn(opts, val)) {\n        throw new Error(val + ' option is required');\n    }\n}",
+    "receiverBase": "required",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (factory) {\n    'use strict';\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'underscore',\n            'backbone'\n        ], factory);\n    } else {\n        factory(_, Backbone);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (deferredTitle) {\n    document.title = deferredTitle;\n    _this.trigger('change:title', routeName, deferredTitle);\n    delete _this.titles[routeName];\n    _this.titles[routeName] = new jQuery.Deferred();\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    throw new Error('Backbonejs-Router-Title-Helper: Your deferred job failed. No title to set.');\n}",
+    "receiverBase": "when",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return 'bazz';\n}",
+    "receiverBase": "obj2",
+    "receiverCallee": "__defineGetter__"
+  },
+  {
+    "callback": "function (fn) {\n    if (fn !== 'inspect') {\n        assert.isFunction(utile[fn]);\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    Ext.callback(cb, scope);\n}",
+    "receiverBase": "anim",
+    "receiverCallee": "animateX"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define(['moment'], factory);\n    } else if (typeof exports === 'object') {\n        module.exports = factory(require('../moment'));\n    } else {\n        factory(window.moment);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (MML) {\n    var MO = MML.mo.OPTYPES;\n    var TEXCLASS = MML.TEXCLASS;\n    MathJax.Hub.Insert(MML.mo.prototype, {\n        OPTABLE: {\n            postfix: {\n                '\\u02CD': MO.WIDEACCENT,\n                '\\u02DA': MO.ACCENT,\n                '\\u02DD': MO.ACCENT,\n                '\\u02F7': MO.WIDEACCENT\n            }\n        }\n    });\n    MathJax.Ajax.loadComplete(MML.optableDir + '/SpacingModLetters.js');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var isXML = Y.config.doc.createElement('div').tagName !== 'DIV';\n    return isXML;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (results) {\n    Array.prototype.unshift.call(args, results);\n    return QueryResults(array[method].apply(array, args));\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (results) {\n    return results.length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  }
+]

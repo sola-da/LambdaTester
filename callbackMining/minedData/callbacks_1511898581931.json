@@ -1,0 +1,112 @@
+[
+  {
+    "callback": "function (columnKey, columnValue) {\n    defaultDataItem[columnValue.field] = contrail.checkIfExist(columnValue.defaultValue) ? columnValue.defaultValue : null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, d) {\n    if (d.id == 'icon-minus')\n        iconMinusAdded = true;\n    if (d.id == 'icon-plus')\n        iconPlusAdded = true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, args) {\n    var thisGrid = $('#' + elId).data('contrailDynamicgrid')._grid;\n    if (contrail.checkIfExist(args.item[options.uniqueColumn]) && args.item[options.uniqueColumn] != '') {\n        var item = $.extend(true, {}, defaultDataItem, args.item);\n        thisGrid.invalidateRow(data.length);\n        data.push(item);\n        thisGrid.updateRowCount();\n        thisGrid.render();\n    } else {\n        thisGrid.invalidateRow(data.length);\n        thisGrid.render();\n    }\n}",
+    "receiverBase": "onAddNewRow",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (e, args) {\n    if (contrail.checkIfFunction(options.events.onUpdate)) {\n        options.events.onUpdate();\n    }\n}",
+    "receiverBase": "onActiveCellChanged",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    var rowIndex = $(this).data('row'), thisGrid = $('#' + elId).data('contrailDynamicgrid')._grid;\n    data.splice(rowIndex + 1, 0, $.extend(true, {}, defaultDataItem));\n    thisGrid.setData(data);\n    thisGrid.gotoCell(rowIndex + 1, 0, true);\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var rowIndex = $(this).data('row'), thisGrid = $('#' + elId).data('contrailDynamicgrid')._grid;\n    data.splice(rowIndex, 1);\n    thisGrid.setData(data);\n    if (contrail.checkIfFunction(options.events.onUpdate)) {\n        options.events.onUpdate();\n    }\n}",
+    "receiverBase": "off",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (username) {\n    $scope.$emit('signedIn');\n    $location.path('/user/' + username);\n}",
+    "receiverBase": "signin",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (reason) {\n    if (reason === 'Unauthorized') {\n        $scope.alerts.incorrect = true;\n    }\n    $scope.signinSubmitted = true;\n    $scope.signin.password = null;\n}",
+    "receiverBase": "signin",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var self = this;\n    this.authenticate(['twitter'], function (error, authenticated) {\n        self.redirect(self.session['twitter_redirect_url']);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (error, authenticated) {\n    self.redirect(self.session['twitter_redirect_url']);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "authenticate"
+  },
+  {
+    "callback": "function (error, oauth_token, oauth_token_secret, oauth_authorize_url, additionalParameters) {\n    if (error) {\n        callback(null);\n    } else {\n        request.session['twitter_redirect_url'] = request.back;\n        request.session.auth['twitter_oauth_token_secret'] = oauth_token_secret;\n        request.session.auth['twitter_oauth_token'] = oauth_token;\n        request.redirect('http://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);\n    }\n}",
+    "receiverBase": "_oAuth",
+    "receiverCallee": "getOAuthRequestToken"
+  },
+  {
+    "callback": "function (i, ctl) {\n    var opts = controlOptions[ctl] || undefined;\n    ctl = ctl.replace(/^\\w/, function (m) {\n        return m.toUpperCase();\n    });\n    mapCtls.push(new OpenLayers.Control[ctl](opts));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m) {\n    return m.toUpperCase();\n}",
+    "receiverBase": "ctl",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m) {\n    return m.toLowerCase();\n}",
+    "receiverBase": "evtType",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (evt) {\n    fn(scope, evt);\n}",
+    "receiverBase": "elem",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (f) {\n    return _.any(f.geometry.coordinates, function (d) {\n        return iD.geo.pointInPolygon(loc, d[0]);\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (d) {\n    return iD.geo.pointInPolygon(loc, d[0]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (event, self) {\n    gameStart(self.obj.index);\n}",
+    "receiverBase": "menuButton",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.writeHead(200);\n    res.end('hehe');\n}",
+    "receiverBase": "",
+    "receiverCallee": "wechat"
+  },
+  {
+    "callback": "function (err, req, res, next) {\n    res.statusCode = err.status || 500;\n    res.end(err.name);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function (done) {\n    var xml = '<xml><ToUserName><![CDATA[gh_d3e07d51b513]]></ToUserName><FromUserName><![CDATA[oPKu7jgOibOA-De4u8J2RuNKpZRw]]></FromUserName><CreateTime>1361374891</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[/:8-)]]></Content><MsgId>5847060634540564918</MsgId></xml>';\n    request(app).post('/wechat' + tail()).send(xml).expect(200).expect('hehe').end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var xml = '<xml><badToUserName><![CDATA[gh_d3e07d51b513]]></ToUserName><FromUserName><![CDATA[oPKu7jgOibOA-De4u8J2RuNKpZRw]]></FromUserName><CreateTime>1361374891</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[/:8-)]]></Content><MsgId>5847060634540564918</MsgId></xml>';\n    request(app).post('/wechat' + tail()).send(xml).expect(500).expect('BadMessageError').end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

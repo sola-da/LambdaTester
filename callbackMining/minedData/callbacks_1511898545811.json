@@ -1,0 +1,492 @@
+[
+  {
+    "callback": "function (res) {\n    self.end(res);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runInput"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(module.db);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (db) {\n    me.transaction = db.transaction([storeName], mode || READONLY);\n    me.transaction.oncomplete = module.onTransactionComplete;\n    me.transaction.onabort = module.onTransactionAbort;\n    me.onerror = module.onTransactionError;\n    return me.transaction.objectStore(storeName);\n}",
+    "receiverBase": "dbPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    d.notify(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.reject(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.notify(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.reject(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (store) {\n    var req = store.delete(key);\n    req.onsuccess = req.onerror = function (e) {\n        $rootScope.$apply(function () {\n            d.resolve(e.target.result);\n        });\n    };\n    return d.promise;\n}",
+    "receiverBase": "internalObjectStore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (store) {\n    var req = store.clear();\n    req.onsuccess = req.onerror = function (e) {\n        $rootScope.$apply(function () {\n            d.resolve(e.target.result);\n        });\n    };\n    return d.promise;\n}",
+    "receiverBase": "internalObjectStore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (store) {\n    return store.count();\n}",
+    "receiverBase": "internalObjectStore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (store) {\n    var req;\n    if (keyIfIndex) {\n        req = store.index(keyOrIndex).get(keyIfIndex);\n    } else {\n        req = store.get(keyOrIndex);\n    }\n    req.onsuccess = req.onerror = function (e) {\n        $rootScope.$apply(function () {\n            d.resolve(e.target.result);\n        });\n    };\n    return promise;\n}",
+    "receiverBase": "internalObjectStore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    d.resolve(results);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    if (!e.target.result) {\n        d.resolve(e.target.result);\n    }\n    callback(e.target.result);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (storeName) {\n    store = tx.objectStore(storeName);\n    stores.push({\n        name: storeName,\n        keyPath: store.keyPath,\n        autoIncrement: store.autoIncrement,\n        count: store.count(),\n        indices: Array.prototype.slice.apply(store.indexNames)\n    });\n}",
+    "receiverBase": "storeNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (db) {\n    db.close();\n}",
+    "receiverBase": "dbPromise",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (cycle) {\n    return cycleModel.stripCollections(cycleModel.addContext(r.expr(user), cycle));\n}",
+    "receiverBase": "cycles",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (f) {\n    cycles = cycles.filter(f);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (results) {\n    results.cycles.total = results.total;\n    return results.cycles;\n}",
+    "receiverBase": "run",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (cycle) {\n    return r.branch(cycle.not(), r.error('{\"code\": 404, \"message\": \"Cycle not found.\"}'), cycleModel.stripCollections(cycleModel.addContext(r.expr(user), cycle)).do(function (cycle) {\n        return r.branch(cycle('status_id').eq('draft').and(cycle('role').ne(true)), r.error('{\"code\": 404, \"message\": \"Cycle not found.\"}'), cycle);\n    }));\n}",
+    "receiverBase": "get",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (cycle) {\n    return r.branch(cycle('status_id').eq('draft').and(cycle('role').ne(true)), r.error('{\"code\": 404, \"message\": \"Cycle not found.\"}'), cycle);\n}",
+    "receiverBase": "stripCollections",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (write) {\n    return r.table('cycles').insert(write).do(function (result) {\n        return r.branch(result('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), cycleModel.stripCollections(cycleModel.addContext(r.expr(user), write)));\n    });\n}",
+    "receiverBase": "processWriteHooks",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (result) {\n    return r.branch(result('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), cycleModel.stripCollections(cycleModel.addContext(r.expr(user), write)));\n}",
+    "receiverBase": "insert",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (write) {\n    return r.branch(r.table('cycles').get(cycleId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), cycleModel.addContext(r.expr(user), write));\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (write) {\n    return r.branch(r.table('cycles').get(cycleId).replace(write)('errors').gt(0), r.error('{\"code\": 500, \"message\": \"Error writing to the database.\"}'), cycleModel.addContext(r.expr(user), write));\n}",
+    "receiverBase": "merge",
+    "receiverCallee": "do"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    tinymce.PluginManager.add('dblclick', function (editor) {\n        editor.on('dblclick', function () {\n            console.log('dblclick', editor.selection.getNode());\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (editor) {\n    editor.on('dblclick', function () {\n        console.log('dblclick', editor.selection.getNode());\n    });\n}",
+    "receiverBase": "PluginManager",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    console.log('dblclick', editor.selection.getNode());\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    server = http.createServer(proxy.decide.bind(proxy)).listen(common.port, done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    server.on('close', done);\n    server.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    it('should proxy PUT /priv-error to private registry', function (done) {\n        var opts = {\n                uri: common.host + '/priv-error',\n                json: true\n            };\n        request.put(opts, common.error(done));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var opts = {\n            uri: common.host + '/priv-error',\n            json: true\n        };\n    request.put(opts, common.error(done));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should error on PUT /pub-error to public registry', function (done) {\n        var opts = {\n                uri: common.host + '/pub-error',\n                json: true\n            };\n        request.put(opts, common.error(done));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    var opts = {\n            uri: common.host + '/pub-error',\n            json: true\n        };\n    request.put(opts, common.error(done));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res) {\n    res.statusCode = 500;\n    res.setHeader('Content-Type', 'text/plain');\n    res.end('Internal Server Error');\n}",
+    "receiverBase": "connect",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (e) {\n    if (J.isMenuOpen) {\n        J.Menu.hide();\n    } else if (J.hasPopupOpen) {\n        J.closePopup();\n    } else {\n        var sectionId = $('section.active').attr('id');\n        if (sectionId == 'index_section') {\n            J.confirm('\\u63D0\\u793A', '\\u662F\\u5426\\u9000\\u51FA\\u7A0B\\u5E8F\\uFF1F', function () {\n                navigator.app.exitApp();\n            });\n        } else {\n            J.Router.back();\n        }\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    navigator.app.exitApp();\n}",
+    "receiverBase": "J",
+    "receiverCallee": "confirm"
+  },
+  {
+    "callback": "function (k, v) {\n    var sectionId = '#' + k + '_section';\n    $('body').delegate(sectionId, 'pageinit', function () {\n        v.init && v.init.call(v);\n    });\n    $('body').delegate(sectionId, 'pageshow', function (e, isBack) {\n        v.show && v.show.call(v);\n        if (!isBack && v.load) {\n            v.load.call(v);\n        }\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    v.init && v.init.call(v);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "delegate"
+  },
+  {
+    "callback": "function (e, isBack) {\n    v.show && v.show.call(v);\n    if (!isBack && v.load) {\n        v.load.call(v);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "delegate"
+  },
+  {
+    "callback": "function () {\n    _login(callback);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "tap"
+  },
+  {
+    "callback": "function (result) {\n    $('#btn_login .icon').removeClass('spinner').addClass('lock');\n    if (result.error) {\n        J.showToast(result.error, 'error');\n    } else {\n        App.userInfo = result;\n        App.userInfo.p = pwd;\n        window.localStorage.setItem('userInfo', JSON.stringify(result));\n        callback.call();\n    }\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function () {\n    J.showToast('\\u8BF7\\u68C0\\u67E5\\u60A8\\u7684\\u7F51\\u7EDC\\u8FDE\\u63A5', 'error');\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "login"
+  },
+  {
+    "callback": "function () {\n    App.run();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function () {\n    window.plugins.barcodeScanner.scan('one', function (result) {\n        if (!result.cancelled) {\n            App.page('search').searchParam = {\n                value: result.text,\n                searchType: 'isbn',\n                bookType: ''\n            };\n            J.Router.turnTo('#search_section');\n        }\n    }, function (error) {\n        J.showToast('\\u626B\\u63CF\\u5931\\u8D25: ' + error, 'error');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (result) {\n    if (!result.cancelled) {\n        App.page('search').searchParam = {\n            value: result.text,\n            searchType: 'isbn',\n            bookType: ''\n        };\n        J.Router.turnTo('#search_section');\n    }\n}",
+    "receiverBase": "barcodeScanner",
+    "receiverCallee": "scan"
+  },
+  {
+    "callback": "function (error) {\n    J.showToast('\\u626B\\u63CF\\u5931\\u8D25: ' + error, 'error');\n}",
+    "receiverBase": "barcodeScanner",
+    "receiverCallee": "scan"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    if (App.userInfo) {\n        J.Router.showArticle('#index_user_article', $this);\n    } else {\n        var $this = $(this);\n        App.showLogin(function () {\n            J.closePopup();\n            J.Router.showArticle('#index_user_article', $this);\n        });\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "tap"
+  },
+  {
+    "callback": "function () {\n    J.closePopup();\n    J.Router.showArticle('#index_user_article', $this);\n}",
+    "receiverBase": "App",
+    "receiverCallee": "showLogin"
+  },
+  {
+    "callback": "function () {\n    window.localStorage.removeItem('userInfo');\n    App.userInfo = null;\n    $('#index_section footer a:eq(0)').trigger('tap');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $('#txt_username').text(App.userInfo.userName);\n    $('#txt_loginname').text(App.userInfo.loginName);\n    $('#txt_cardno').text(App.userInfo.cardNo);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $loading.hide();\n    if (data.success) {\n        J.showToast(data.success, 'success');\n        App.userInfo.loginName = newName;\n        $('#txt_loginname').text(newName);\n        window.localStorage.setItem('userInfo', JSON.stringify(App.userInfo));\n        J.closePopup();\n    } else {\n        J.showToast(data.failure, 'error');\n    }\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "changeLoginName"
+  },
+  {
+    "callback": "function (data) {\n    $loading.hide();\n    if (data.success) {\n        J.showToast(data.success, 'success');\n        App.userInfo.p = newPwd;\n        window.localStorage.setItem('userInfo', JSON.stringify(App.userInfo));\n        J.closePopup();\n    } else {\n        J.showToast(data.failure, 'error');\n    }\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "changePassword"
+  },
+  {
+    "callback": "function (data) {\n    J.tmpl('#index_phone_article ul', 'tel_service_tpl', data);\n    J.Scroll('#index_phone_article');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function () {\n    var value = $('#index_search_value').val();\n    if ($.trim(value) == '') {\n        J.showToast('\\u8BF7\\u8F93\\u5165\\u5173\\u952E\\u5B57');\n        return;\n    }\n    App.page('search').searchParam = {\n        value: value,\n        searchType: 'all',\n        bookType: $('#checkbox_reserve').data('checkbox') == 'checked' ? 'local_reserve' : ''\n    };\n    J.Router.turnTo('#search_section');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var loaded = $(this).data('loaded');\n    if (loaded)\n        return;\n    $(this).data('loaded', true);\n    var date = new Date();\n    var year = date.getFullYear();\n    var month = date.getMonth() + 1;\n    if (month < 10) {\n        month = '0' + month;\n    } else {\n        month = month + '';\n    }\n    SzLibAPI.getNewBookList(year + month, function (data) {\n        J.tmpl('#newbook_container', 'tpl_cloud_tag', data);\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    J.tmpl('#newbook_container', 'tpl_cloud_tag', data);\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getNewBookList"
+  },
+  {
+    "callback": "function () {\n    App.page('book').recordNo = $(this).attr('data-recordno');\n    J.Router.turnTo('#book_section');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    if (pageNo == 1) {\n        _renderFirstPage(data);\n    } else {\n        _renderNextPage(data);\n    }\n    J.Scroll('#notice_article');\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getNotices"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('data-id');\n    App.page('news').id = id;\n    J.Router.turnTo('#news_section');\n}",
+    "receiverBase": "$list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $getMoreBtn.text('\\u6B63\\u5728\\u52A0\\u8F7D...');\n    pageNo++;\n    _getPage();\n}",
+    "receiverBase": "$getMoreBtn",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    J.showMask();\n    pageNo = 1;\n    _getPage();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    if (pageNo == 1) {\n        _renderFirstPage(data);\n    } else {\n        _renderNextPage(data);\n    }\n    J.Scroll('#lecture_article');\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getForum"
+  },
+  {
+    "callback": "function () {\n    var id = $(this).attr('data-id');\n    App.page('news').id = id;\n    J.Router.turnTo('#news_section');\n}",
+    "receiverBase": "$list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $getMoreBtn.text('\\u6B63\\u5728\\u52A0\\u8F7D...');\n    pageNo++;\n    _getPage();\n}",
+    "receiverBase": "$getMoreBtn",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    J.showMask();\n    pageNo = 1;\n    _getPage();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    $('#news_section header .title').text(data.title);\n    $scrollWrapper.html(data.result);\n    if ($scrollWrapper.find('table').length > 0) {\n        $scrollWrapper.width(700);\n    }\n    J.Scroll('#news_article', { hScroll: true }).scrollTo(0, 0);\n    J.hideMask();\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getNewsDetail"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    if (!$this.data('selected'))\n        return;\n    if ($this.hasClass('active')) {\n        $this.removeClass('active');\n        $(this).children('.icon').attr('class', 'icon checkbox-unchecked');\n    } else {\n        $this.addClass('active');\n        $(this).children('.icon').attr('class', 'icon checkbox-checked');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    barcodes.push($(this).attr('data-barcode'));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data) {\n    if (data.status == 'success') {\n        J.showToast('\\u7EED\\u501F\\u6210\\u529F', 'error');\n        _this.load();\n    } else {\n        J.hideMask();\n        J.showToast('\\u7EED\\u501F\\u5931\\u8D25\\uFF1A' + data.msg, 'error');\n    }\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "renewBook"
+  },
+  {
+    "callback": "function (data) {\n    if (data.length == 0) {\n        J.Template.background('#loanbook_article ul', '\\u672A\\u627E\\u5230\\u76F8\\u5173\\u8BB0\\u5F55', 'notification');\n    } else {\n        J.tmpl('#loanbook_article ul', 'tpl_loanbook', data);\n        J.Scroll('#loanbook_article');\n    }\n    J.hideMask();\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getLoanBooks"
+  },
+  {
+    "callback": "function () {\n    this.load = function () {\n        J.showMask();\n        SzLibAPI.getReservebooks(App.userInfo.recordNo, function (data) {\n            if (data.length == 0) {\n                J.Template.background('#reservebook_article ul', '\\u672A\\u627E\\u5230\\u76F8\\u5173\\u8BB0\\u5F55', 'notification');\n            } else {\n                J.tmpl('#reservebook_article ul', 'tpl_reverse', data);\n            }\n            J.hideMask();\n        });\n    };\n}",
+    "receiverBase": "App",
+    "receiverCallee": "page"
+  },
+  {
+    "callback": "function (data) {\n    if (data.length == 0) {\n        J.Template.background('#reservebook_article ul', '\\u672A\\u627E\\u5230\\u76F8\\u5173\\u8BB0\\u5F55', 'notification');\n    } else {\n        J.tmpl('#reservebook_article ul', 'tpl_reverse', data);\n    }\n    J.hideMask();\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getReservebooks"
+  },
+  {
+    "callback": "function () {\n    App.page('book').recordNo = $(this).attr('data-recordno');\n    J.Router.turnTo('#book_section');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $getMoreBtn.text('\\u6B63\\u5728\\u52A0\\u8F7D...');\n    pageNo++;\n    _search();\n}",
+    "receiverBase": "$getMoreBtn",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var searchType = $('#menu_search_type').val();\n    var value = $('#menu_search_value').val();\n    var bookType = $('#menu_checkbox_reserve').data('checkbox') == 'checked' ? 'local_reserve' : '';\n    if ($.trim(value) == '') {\n        J.showToast('\\u8BF7\\u8F93\\u5165\\u5173\\u952E\\u5B57');\n        return;\n    }\n    _this.searchParam = {\n        value: value,\n        searchType: searchType,\n        bookType: bookType\n    };\n    J.Menu.hide();\n    _this.load();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    if (pageNo == 1) {\n        _renderFirstPage(data);\n    } else {\n        _renderNextPage(data);\n    }\n    J.Scroll('#search_article');\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "queryBook"
+  },
+  {
+    "callback": "function () {\n    var text = $(this).text();\n    var target = $('#selflib_article li.divider[data-area^=\"' + text + '\"]')[0];\n    J.Scroll('#selflib_article').scrollToElement(target, 300);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    App.page('lib_book').sslNo = $(this).attr('data-no');\n    App.page('lib_book').title = $(this).find('strong').text();\n    J.Router.turnTo('#lib_book_section');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    J.tmpl('#selflib_article ul', 'tpl_selflib', data);\n    J.Scroll('#selflib_article');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function () {\n    var text = $(this).text();\n    var target = $('#adress_article li.divider[data-area^=\"' + text + '\"]')[0];\n    J.Scroll('#adress_article').scrollToElement(target, 300);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    J.tmpl('#adress_article ul', 'tpl_adress', data);\n    J.Scroll('#adress_article');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function () {\n    App.page('book').recordNo = $(this).attr('data-recordno');\n    J.Router.turnTo('#book_section');\n}",
+    "receiverBase": "$list",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    J.tmpl($list, 'tpl_lib_book', data);\n    J.Scroll('#lib_book_article');\n    J.hideMask();\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getLibBookList"
+  },
+  {
+    "callback": "function () {\n    var text = $(this).text();\n    var $p = $(this).parent();\n    if (text == '\\u5C55\\u5F00') {\n        $p.css('maxHeight', '1000px');\n        $(this).text('\\u6536\\u8D77');\n    } else {\n        $p.css('maxHeight', '100px');\n        $(this).text('\\u5C55\\u5F00');\n    }\n    J.Scroll('#book_article');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    var loaded = $(this).data('loaded');\n    if (loaded)\n        return;\n    $(this).data('loaded', true);\n    if (bookData && bookData.doubanId) {\n        doubanId = bookData.doubanId;\n    }\n    if (doubanId) {\n        J.showMask();\n        pageNo = 1;\n        _getReviewPage();\n    } else {\n        J.Template.no_result($reviewList);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    bookData = data;\n    $('#book_section header .title').text(data.title);\n    J.tmpl('#book_article>div', 'book_tpl', data);\n    J.Scroll('#book_article').scrollTo(0, 0);\n    J.hideMask();\n    _renderDesc();\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getBook"
+  },
+  {
+    "callback": "function (data) {\n    if (pageNo == 1) {\n        _renderFirstPage(data);\n    } else {\n        _renderNextPage(data);\n    }\n    J.Scroll('#review_article');\n}",
+    "receiverBase": "SzLibAPI",
+    "receiverCallee": "getBookReview"
+  },
+  {
+    "callback": "function () {\n    var url = $(this).data('url');\n    window.open(url, '_system');\n}",
+    "receiverBase": "$reviewList",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $getMoreBtn.text('\\u6B63\\u5728\\u52A0\\u8F7D...');\n    pageNo++;\n    _getReviewPage();\n}",
+    "receiverBase": "$getMoreBtn",
+    "receiverCallee": "on"
+  }
+]

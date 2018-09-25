@@ -1,0 +1,321 @@
+[
+  {
+    "callback": "function () {\n    Ink._checkPendingRequireModules();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (m) {\n    var cutAt = m.indexOf('.');\n    if (cutAt === -1) {\n        cutAt = m.indexOf('_');\n    }\n    var root = m.substring(0, cutAt);\n    m = m.substring(cutAt + 1);\n    var rootPath = Ink.getPath(root);\n    return [\n        '<script type=\"text/javascript\" src=\"',\n        rootPath,\n        m.replace(/\\./g, '/'),\n        '/\"></script>'\n    ].join('');\n}",
+    "receiverBase": "mlo",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if (exception.message) {\n        exception.message += '\\n' + (exception.stacktrace || exception.stack || '');\n    }\n    throw exception;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (this.options.onTimeout) {\n        this.safeCall('onTimeout');\n        this.abort();\n    }\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    window.clearTimeout(this.timeout);\n    delete window.Ink.Net.JsonP[this.options.internalCallback];\n    this._removeScriptTag();\n    this.options.onSuccess(arguments[0]);\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    this.addRemoveClassName(element, className, negate);\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (_, $1) {\n    return $1.toUpperCase();\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (event, _url) {\n    var url = _url;\n    this._loadedCSSFiles[url] = true;\n    var callbacks = this._loadingCSSFiles[url];\n    for (var i = 0, f = callbacks.length; i < f; ++i) {\n        callbacks[i](url);\n    }\n    delete this._loadingCSSFiles[url];\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bindEvent"
+  },
+  {
+    "callback": "function (_, $1) {\n    return $1.toUpperCase();\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (ev, eventName, cb) {\n    if (ev.eventName === eventName) {\n        if (window.addEventListener) {\n            window.event = ev;\n        }\n        cb();\n    }\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bindEvent"
+  },
+  {
+    "callback": "function () {\n    fn.call(context.win, 'lazy');\n}",
+    "receiverBase": "Ink",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (div) {\n    div.appendChild(doc.createComment(''));\n    return !div.getElementsByTagName('*').length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select></select>';\n    var type = typeof div.lastChild.getAttribute('multiple');\n    return type !== 'boolean' && type !== 'string';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<div class=\\'hidden e\\'></div><div class=\\'hidden\\'></div>';\n    if (!div.getElementsByClassName || !div.getElementsByClassName('e').length) {\n        return false;\n    }\n    div.lastChild.className = 'e';\n    return div.getElementsByClassName('e').length === 2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.id = expando + 0;\n    div.appendChild(document.createElement('a')).setAttribute('name', expando);\n    div.appendChild(document.createElement('i')).setAttribute('name', expando);\n    docElem.appendChild(div);\n    var pass = doc.getElementsByName && doc.getElementsByName(expando).length === 2 + doc.getElementsByName(expando + 0).length;\n    docElem.removeChild(div);\n    return pass;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div1) {\n    return div1.compareDocumentPosition && div1.compareDocumentPosition(document.createElement('div')) & 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<a href=\\'#\\'></a>';\n    return div.firstChild && typeof div.firstChild.getAttribute !== strundefined && div.firstChild.getAttribute('href') === '#';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select><option selected=\\'\\'></option></select>';\n    if (!div.querySelectorAll('[selected]').length) {\n        rbuggyQSA.push('\\\\[' + whitespace + '*(?:checked|disabled|ismap|multiple|readonly|selected|value)');\n    }\n    if (!div.querySelectorAll(':checked').length) {\n        rbuggyQSA.push(':checked');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<input type=\\'hidden\\' i=\\'\\'/>';\n    if (div.querySelectorAll('[i^=\\'\\']').length) {\n        rbuggyQSA.push('[*^$]=' + whitespace + '*(?:\"\"|\\'\\')');\n    }\n    if (!div.querySelectorAll(':enabled').length) {\n        rbuggyQSA.push(':enabled', ':disabled');\n    }\n    div.querySelectorAll('*,:x');\n    rbuggyQSA.push(',.*:');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    support.disconnectedMatch = matches.call(div, 'div');\n    matches.call(div, '[s!=\\'\\']:x');\n    rbuggyMatches.push('!=', pseudos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (argument) {\n    argument = +argument;\n    return markFunction(function (seed, matches) {\n        var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n        while (i--) {\n            if (seed[j = matchIndexes[i]]) {\n                seed[j] = !(matches[j] = seed[j]);\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n    while (i--) {\n        if (seed[j = matchIndexes[i]]) {\n            seed[j] = !(matches[j] = seed[j]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (elem) {\n    return pattern.test(elem.className || typeof elem.getAttribute !== strundefined && elem.getAttribute('class') || '');\n}",
+    "receiverBase": "",
+    "receiverCallee": "classCache"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var idx, matched = fn(seed, argument), i = matched.length;\n    while (i--) {\n        idx = indexOf.call(seed, matched[i]);\n        seed[idx] = !(matches[idx] = matched[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches, context, xml) {\n    var elem, unmatched = matcher(seed, null, xml, []), i = seed.length;\n    while (i--) {\n        if (elem = unmatched[i]) {\n            seed[i] = !(matches[i] = elem);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (selector) {\n    return function (elem) {\n        return Sizzle(selector, elem).length > 0;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (text) {\n    return function (elem) {\n        return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    return [0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    return [length - 1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    return [argument < 0 ? argument + length : argument];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 0;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 1;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; --i >= 0;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; ++i < length;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === checkContext;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (elem) {\n    return indexOf.call(checkContext, elem) > -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (_, $1, $2, $3) {\n    return $1 + $2.toUpperCase() + $3.toLowerCase();\n}",
+    "receiverBase": "String",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function ($0) {\n    if ($0.charAt(2) === 'x') {\n        return String.fromCharCode(parseInt($0.substring(3), 16));\n    } else {\n        return String.fromCharCode(parseInt($0.substring(2), 10));\n    }\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (c) {\n    return chars[c];\n}",
+    "receiverBase": "String",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a, b) {\n    var x = a[key];\n    var y = b[key];\n    return x < y ? -1 : x > y ? 1 : 0;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    connection.handleOpen();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    connection.handleData(JSON.stringify({ version: opts.version }));\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (n) {\n    return fakeFinger(n);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "times"
+  },
+  {
+    "callback": "function (n) {\n    return fakeTool(n);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "times"
+  },
+  {
+    "callback": "function () {\n    return fakeHand();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "times"
+  },
+  {
+    "callback": "function () {\n    return fakeFinger();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "times"
+  },
+  {
+    "callback": "function () {\n    this._destroyContainer();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "onceAfter"
+  },
+  {
+    "callback": "function (handle) {\n    if (handle) {\n        handle.detach();\n    }\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(1);\n    var sel = select();\n    sel.select('.row', function (elem) {\n        elem.setAttribute('class', 'row cool');\n    });\n    sel.select('[key=\"msg\"]', function (elem) {\n        elem.createWriteStream({ inner: true }).end([\n            'text',\n            Buffer('wow')\n        ]);\n    });\n    fs.createReadStream(__dirname + '/attr_and_deeper/index.html').pipe(tokenize()).pipe(sel).pipe(collect(function (body) {\n        t.equal(body, expected);\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (elem) {\n    elem.setAttribute('class', 'row cool');\n}",
+    "receiverBase": "sel",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (elem) {\n    elem.createWriteStream({ inner: true }).end([\n        'text',\n        Buffer('wow')\n    ]);\n}",
+    "receiverBase": "sel",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (body) {\n    t.equal(body, expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "collect"
+  },
+  {
+    "callback": "function (str) {\n    return str.substring(0, 1).toUpperCase() + str.substring(1);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "cached"
+  },
+  {
+    "callback": "function (result) {\n    assert(!result.inError, 'Create should not be in error');\n    logger.debug('TEST: Sleeping for 20 seconds for server restart');\n    var sleep = require('sleep');\n    sleep.sleep(20);\n    logger.debug('TEST: Calling save post create');\n    db.save({ first: 'isfirst' }, uri, function (result) {\n        assert(!result.inError, 'Should be able to save new document if db is created.');\n        done();\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function (result) {\n    assert(!result.inError, 'Should be able to save new document if db is created.');\n    done();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (result) {\n    assert(result.inError, 'Should not be able to save new document if db is destroyed.');\n    logger.debug('TEST: Calling create after exists()->false');\n    db.create(function (result) {\n        assert(!result.inError, 'Should be able to create db: ' + result.error);\n        dodestroy();\n    });\n}",
+    "receiverBase": "db",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (result) {\n    assert(!result.inError, 'Should be able to create db: ' + result.error);\n    dodestroy();\n}",
+    "receiverBase": "db",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function () {\n    function cb(res) {\n        console.error('in cb');\n        done += 1;\n        res.on('end', statusLater);\n    }\n    var req = http.get({\n            hostname: 'localhost',\n            pathname: '/',\n            port: PORT\n        }, cb);\n    count++;\n    weak(req, afterGC);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (value) {\n    Object.getOwnPropertyNames(value).forEach(function (item) {\n        appObj[property](item, value[item]);\n    });\n}",
+    "receiverBase": "configs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    appObj[property](item, value[item]);\n}",
+    "receiverBase": "getOwnPropertyNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    appObj[property](value);\n}",
+    "receiverBase": "configs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    properties.forEach(function (property) {\n        if (envConfig.hasOwnProperty(property)) {\n            configApp(appObj, property, envConfig[property]);\n        }\n    });\n}",
+    "receiverBase": "appObj",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (property) {\n    if (envConfig.hasOwnProperty(property)) {\n        configApp(appObj, property, envConfig[property]);\n    }\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (cell) {\n    if (cell.relWidth) {\n        cell.width = cell.unitWidth = cell.relWidth / relSum * (100 - pctSum) + '%';\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  }
+]

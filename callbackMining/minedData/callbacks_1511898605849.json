@@ -1,0 +1,470 @@
+[
+  {
+    "callback": "function () {\n    this.attribute('login', String);\n    this.hasMany('posts');\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    this.attribute('title', String);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    should.exist(phil.posts);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.should.be.an.instanceof(Array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.new.should.be.a.Function;\n    phil.posts.chain.should.be.a.Function;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.should.not.be.equal(Post);\n    phil.posts.should.be.equal(phil.posts.chain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts[0].should.have.property('title');\n    phil.posts[1].title.should.be.equal('Title B');\n    should.not.exist(phil.posts[1].invalid_attribute);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.hasMany('websites');\n    this.attribute('login', String);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    this.attribute('url', String);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    this.attribute('title', String);\n    this.belongsTo('user');\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    should.exist(post.user);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    post.user.should.be.an.instanceof(User);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    post.user.isValid.should.be.a.Function;\n    post.user.validate.should.be.a.Function;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    post.user.should.have.property('login');\n    post.user.login.should.be.equal('phil');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    post.user = {\n        login: 'admin',\n        unknown_attr: 'test'\n    };\n    post.user.login.should.be.equal('admin');\n    should.not.exist(post.user.unknown_attr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    post.user = null;\n    should.not.exist(post.user);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var user = new User({ login: 'admin' });\n    post.user = user;\n    post.user.login.should.be.equal('admin');\n    post.user.should.be.equal(user);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    nested_post.user.login.should.be.equal('phil');\n    nested_post.user.websites.length.should.be.equal(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.attribute('login', String);\n    this.belongsToMany('posts');\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    this.attribute('title', String);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function () {\n    should.exist(phil.posts);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.should.be.an.instanceof(Array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.new.should.be.a.Function;\n    phil.posts.chain.should.be.a.Function;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts.should.not.be.equal(Post);\n    phil.posts.should.be.equal(phil.posts.chain());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    phil.posts[0].should.have.property('title');\n    phil.posts[1].title.should.be.equal('Title B');\n    should.not.exist(phil.posts[1].invalid_attribute);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (next) {\n    this.hasMany('posts');\n    setTimeout(next, 10);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function (next) {\n    this.belongsTo('user');\n    setTimeout(next, 20);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "Model"
+  },
+  {
+    "callback": "function (next) {\n    store.ready(function () {\n        var User = store.Model('User');\n        var Post = store.Model('Post');\n        User.definition.relations.should.have.property('posts');\n        Post.definition.relations.should.have.property('user');\n    });\n    next();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var User = store.Model('User');\n    var Post = store.Model('Post');\n    User.definition.relations.should.have.property('posts');\n    Post.definition.relations.should.have.property('user');\n}",
+    "receiverBase": "store",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (msg) {\n    this.onBindResource(msg, hasSession);\n    return msg;\n}",
+    "receiverBase": "def",
+    "receiverCallee": "addCallback"
+  },
+  {
+    "callback": "function () {\n    puts(test + ' \\x1B[32m[Success]\\x1B[m');\n    if (tests.length == 0) {\n        puts(' \\x1B[32mAll tests finished.\\x1B[m');\n        process.exit();\n    }\n    var nextTest = tests.shift();\n    engine.connector.deleteDatabase(function (error, doc) {\n        engine.connector.createDatabase(function (error, doc) {\n            nextTest();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "callback"
+  },
+  {
+    "callback": "function (error, doc) {\n    engine.connector.createDatabase(function (error, doc) {\n        nextTest();\n    });\n}",
+    "receiverBase": "connector",
+    "receiverCallee": "deleteDatabase"
+  },
+  {
+    "callback": "function (error, doc) {\n    nextTest();\n}",
+    "receiverBase": "connector",
+    "receiverCallee": "createDatabase"
+  },
+  {
+    "callback": "function (func, name) {\n    tests.push(function () {\n        run(func, name);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    run(func, name);\n}",
+    "receiverBase": "tests",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), data = $this.data('collapse'), options = typeof option == 'object' && option;\n    if (!data)\n        $this.data('collapse', data = new Collapse(this, options));\n    if (typeof option == 'string')\n        data[option]();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('body').on('click.collapse.data-api', '[data-toggle=collapse]', function (e) {\n        var $this = $(this), href, target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\\s]+$)/, ''), option = $(target).data('collapse') ? 'toggle' : $this.data();\n        $(target).collapse(option);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (e) {\n    var $this = $(this), href, target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\\s]+$)/, ''), option = $(target).data('collapse') ? 'toggle' : $this.data();\n    $(target).collapse(option);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (cs1, cs2) {\n    return cs1.offset - cs2.offset;\n}",
+    "receiverBase": "stops",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (source) {\n    var key, _results;\n    _results = [];\n    for (key in source) {\n        _results.push(target[key] = source[key]);\n    }\n    return _results;\n}",
+    "receiverBase": "call",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return $$.query(domain, children);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return container.removeChild(this);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el, i) {\n    return fn.call(el, i, el);\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return this[property];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (element) {\n    return element.parentNode && $$.query(element.parentNode, selector).indexOf(element) >= 0;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (item) {\n    return item !== void 0 && item !== null;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return Quo.query(this, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (index, element) {\n    return Array.prototype.slice.call(element.parentNode.children).filter(function (child) {\n        return child !== element;\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (child) {\n    return child !== element;\n}",
+    "receiverBase": "call",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    return Array.prototype.slice.call(this.children);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (element, index) {\n    return callback.call(element, index, element);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node) {\n    if ((node = node.parentNode) && node !== document && ancestors.indexOf(node) < 0) {\n        ancestors.push(node);\n        return node;\n    }\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    if (!_existsClass(name, this.className)) {\n        this.className += ' ' + name;\n        return this.className = this.className.trim();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!name) {\n        return this.className = '';\n    } else {\n        if (_existsClass(name, this.className)) {\n            return this.className = this.className.replace(name, ' ').replace(/\\s+/g, ' ').trim();\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (_existsClass(name, this.className)) {\n        return this.className = this.className.replace(name, ' ');\n    } else {\n        this.className += ' ' + name;\n        return this.className = this.className.trim();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.style[property] = value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.setAttribute(name, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.removeAttribute(name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.value = value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.parentNode != null) {\n        return this.parentNode.removeChild(this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.textContent = value;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (type === 'string' || type === 'number') {\n        return this.innerHTML = value;\n    } else {\n        this.innerHTML = null;\n        return this.appendChild(value);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var _this = this;\n    if (type === 'string') {\n        return this.insertAdjacentHTML('beforeend', value);\n    } else if (type === 'array') {\n        return value.each(function (index, value) {\n            return _this.appendChild(value);\n        });\n    } else {\n        return this.appendChild(value);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    return _this.appendChild(value);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _prependElement(this, value, type);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.parentNode) {\n        return _prependElement(this.parentNode, value, type);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.innerHTML = null;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (index, value) {\n    return parent.insertBefore(value, parent.firstChild);\n}",
+    "receiverBase": "value",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _xhrTimeout(xhr, settings);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return _xhrTimeout(xhr, settings);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    $$.fn[event] = function (callback) {\n        return $$(document.body).delegate(this.selector, event, callback);\n    };\n    return this;\n}",
+    "receiverBase": "SHORTCUTS",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return callback($$);\n}",
+    "receiverBase": "fn",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function () {\n    _subscribe(this, event, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    _unsubscribe(this, event, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fn) {\n    return function (e) {\n        var evt, match;\n        match = $$(e.target).closest(selector, element).get(0);\n        if (match) {\n            evt = $$.extend(_createProxy(e), {\n                currentTarget: match,\n                liveFired: element\n            });\n            return fn.apply(match, [evt].concat([].slice.call(arguments, 1)));\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "_subscribe"
+  },
+  {
+    "callback": "function () {\n    _unsubscribe(this, event, callback, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.dispatchEvent(event);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (handler) {\n    delete HANDLERS[element_id][handler.index];\n    return $$.fn.removeEvent(element, handler.event, handler.proxy);\n}",
+    "receiverBase": "_findHandlers",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    return handler && (!event || handler.event === event) && (!fn || handler.fn === fn) && (!selector || handler.selector === selector);\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (name, method) {\n    proxy[name] = function () {\n        this[method] = function () {\n            return true;\n        };\n        return event[name].apply(event, arguments);\n    };\n    return proxy[method] = function () {\n        return false;\n    };\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (event) {\n    $$.fn[event] = function (callback) {\n        return this.on(event, callback);\n    };\n}",
+    "receiverBase": "GESTURES",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return _listenTouches();\n}",
+    "receiverBase": "$$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    _trigger('singleTap');\n    return _cleanGesture();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function ($0, $1) {\n    var index = values.indexOf($1);\n    ++matches[index];\n    return '';\n}",
+    "receiverBase": "ref",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (msg) {\n    return typeof msg === 'string' ? msg : msg instanceof Error ? msg.message : exports.stringify(msg);\n}",
+    "receiverBase": "msgs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    callback.apply(null, args);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (ko, template) {\n    function SideBar(params) {\n        this.route = params.route;\n    }\n    SideBar.prototype.isHome = function () {\n        return this.route().page === 'home';\n    };\n    return {\n        viewModel: SideBar,\n        template: template\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (unique, filter, some, contains) {\n    function difference(arr) {\n        var arrs = Array.prototype.slice.call(arguments, 1), result = filter(unique(arr), function (needle) {\n                return !some(arrs, function (haystack) {\n                    return contains(haystack, needle);\n                });\n            });\n        return result;\n    }\n    return difference;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (needle) {\n    return !some(arrs, function (haystack) {\n        return contains(haystack, needle);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (haystack) {\n    return contains(haystack, needle);\n}",
+    "receiverBase": "",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function then() {\n    test.assertTitle('Content - Test Blog', 'Ghost admin has incorrect title');\n    test.assertUrlMatch(/ghost\\/\\d+\\/$/, 'Landed on the correct URL without signing in');\n}",
+    "receiverBase": "casper",
+    "receiverCallee": "thenOpenAndWaitForPageLoad"
+  },
+  {
+    "callback": "function checkOpaque() {\n    return this.evaluate(function () {\n        var menu = document.querySelector('.user-menu .dropdown.open');\n        return window.getComputedStyle(menu).getPropertyValue('display') === 'block' && window.getComputedStyle(menu).getPropertyValue('opacity') === '1';\n    });\n}",
+    "receiverBase": "thenClick",
+    "receiverCallee": "waitFor"
+  },
+  {
+    "callback": "function () {\n    var menu = document.querySelector('.user-menu .dropdown.open');\n    return window.getComputedStyle(menu).getPropertyValue('display') === 'block' && window.getComputedStyle(menu).getPropertyValue('opacity') === '1';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function assertSuccess() {\n    test.assert(true, 'Got login screen');\n}",
+    "receiverBase": "waitForSelector",
+    "receiverCallee": "then"
+  }
+]

@@ -1,0 +1,426 @@
+[
+  {
+    "callback": "function (jqxhr, statusTxt, error) {\n    self.showErrors(jqxhr.statusCode().status + ' ' + error);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    self.enableSubmit('icon-ok');\n}",
+    "receiverBase": "then",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function (value) {\n    if (flag.short === value) {\n        found = true;\n    }\n}",
+    "receiverBase": "flags",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    saveTask(task);\n}",
+    "receiverBase": "toolkit",
+    "receiverCallee": "delayAction"
+  },
+  {
+    "callback": "function (task) {\n    console.debug('Adding task:id ' + task.id);\n    tasks.push(task);\n}",
+    "receiverBase": "post",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    e.createReadStream({ inner: true }).pipe(through.obj(function (row, enc, next) {\n        t.deepEqual(row, expected.shift());\n        next();\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "select"
+  },
+  {
+    "callback": "function (row, enc, next) {\n    t.deepEqual(row, expected.shift());\n    next();\n}",
+    "receiverBase": "through",
+    "receiverCallee": "obj"
+  },
+  {
+    "callback": "function () {\n    manager.reset();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function (done) {\n    prism.useApi();\n    httpGet('/_prism/version').then(function (res) {\n        assert.equal(res.body, require('../../package.json').version);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, require('../../package.json').version);\n    done();\n}",
+    "receiverBase": "httpGet",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    prism.useApi();\n    var postData = querystring.stringify({\n            'name': 'createTest',\n            'mode': 'proxy',\n            'context': '/test',\n            'host': 'localhost',\n            'port': 8090\n        });\n    httpPost('/_prism/create', postData).then(function (res) {\n        assert.equal(res.body, 'OK');\n        return httpGet('/test');\n    }).then(function (res) {\n        assert.equal(res.body, 'a server response');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'a server response');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    prism.create({\n        name: 'removeTest',\n        mode: 'proxy',\n        context: '/test',\n        host: 'localhost',\n        port: 8090\n    });\n    prism.useApi();\n    httpPost('/_prism/remove/removeTest').then(function (res) {\n        assert.equal(res.body, 'OK');\n        return httpGet('/test');\n    }).then(function (res) {\n        assert.equal(res.statusCode, 404);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.statusCode, 404);\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'an overidden server response');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'a server response');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    prism.create({\n        name: 'overrideRemoveTest',\n        mode: 'mock',\n        context: '/test',\n        host: 'localhost',\n        mocksPath: 'mocksToRead',\n        port: 8090\n    });\n    prism.useApi();\n    httpPost('/_prism/override/overrideRemoveTest/clear').then(function (res) {\n        assert.equal(res.body, 'OK');\n        return httpGet('/test');\n    }).then(function (res) {\n        assert.equal(res.body, 'a server response');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'a server response');\n    done();\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    prism.create({\n        name: 'setModeTest',\n        mode: 'proxy',\n        context: '/test',\n        host: 'localhost',\n        port: 8090\n    });\n    prism.useApi();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    var pathToResponse = deleteMock('/test');\n    httpPost('/_prism/setmode/setModeTest/record').then(function (res) {\n        assert.equal(res.body, 'OK');\n        return httpGet('/test');\n    }).then(function (res) {\n        waitForFile(pathToResponse, function (pathToResponse) {\n            assert.equal(fs.existsSync(pathToResponse), true);\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'OK');\n    return httpGet('/test');\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (res) {\n    waitForFile(pathToResponse, function (pathToResponse) {\n        assert.equal(fs.existsSync(pathToResponse), true);\n        done();\n    });\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (pathToResponse) {\n    assert.equal(fs.existsSync(pathToResponse), true);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "waitForFile"
+  },
+  {
+    "callback": "function (done) {\n    httpPost('/_prism/setmode/setModeTest/foo').then(function (res) {\n        assert.equal(res.body, 'An invalid prism mode was given.');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'An invalid prism mode was given.');\n    done();\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (done) {\n    httpPost('/_prism/setmode/foo/record').then(function (res) {\n        assert.equal(res.body, 'The prism name specified does not exist.');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (res) {\n    assert.equal(res.body, 'The prism name specified does not exist.');\n    done();\n}",
+    "receiverBase": "httpPost",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (j) {\n    domConstruct.create('a', {\n        classname: _css + ' ' + _css + j + ' ' + (j == r.idx ? _selected : ''),\n        href: s,\n        onclick: function (e) {\n            event.stop(e);\n            if (r) {\n                r.control.apply(r, [\n                    'go',\n                    j\n                ]);\n            }\n        },\n        title: t,\n        innerHTML: '<img src=\"' + s + '\" alt=\"' + t + '\"/>'\n    }, node);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var exec = require('child_process').exec;\n    var cb = this.async();\n    exec('bower update', { cwd: '.' }, function (err, stdout, stderr) {\n        console.log(stdout);\n        console.err(stderr);\n        cb();\n    });\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    console.log(stdout);\n    console.err(stderr);\n    cb();\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    var exec = require('child_process').exec;\n    var cb = this.async();\n    exec('npm update', { cwd: '.' }, function (err, stdout, stderr) {\n        console.log(stdout);\n        console.err(stderr);\n        cb();\n    });\n}",
+    "receiverBase": "grunt",
+    "receiverCallee": "registerTask"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    console.log(stdout);\n    console.err(stderr);\n    cb();\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    grunt.log.writeln(stdout);\n    if (stderr) {\n        grunt.log.error(stderr);\n    }\n    grunt.log.writeln('Done');\n    cb();\n}",
+    "receiverBase": "childProcess",
+    "receiverCallee": "execFile"
+  },
+  {
+    "callback": "function () {\n    new Image().src = _this.href;\n    _this._hideLoading();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (signal) {\n    signal.remove();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (signal) {\n    signal.remove();\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'If statement',\n        data: { second: true },\n        done: function ($) {\n            expect($('p').length).to.equal(2);\n        }\n    });\n    test({\n        fixture: 'If statement',\n        data: { second: false },\n        done: function ($) {\n            expect($('p').length).to.equal(1);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'Unless statement',\n        data: { second: false },\n        done: function ($) {\n            expect($('p').length).to.equal(2);\n        }\n    });\n    test({\n        fixture: 'Unless statement',\n        data: { second: true },\n        done: function ($) {\n            expect($('p').length).to.equal(1);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    var data = {\n            method: function () {\n                spy();\n                return false;\n            }\n        };\n    test({\n        fixture: 'If with method invocation',\n        data: data,\n        done: function ($) {\n            expect(spy.called).to.be.true;\n            expect($('p').length).to.equal(0);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'If-else statement',\n        data: { first: true },\n        done: function ($) {\n            expect($('p').text()).to.equal('First option');\n        }\n    });\n    test({\n        fixture: 'If-else statement',\n        data: { first: false },\n        done: function ($) {\n            expect($('p').text()).to.equal('Second option');\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'If-else nested',\n        data: {\n            first: false,\n            second: false\n        },\n        done: function ($) {\n            expect($('p').text()).to.equal('Third option');\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'If-else else without if',\n        throwOnCompile: true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'If-else multiple else',\n        throwOnCompile: true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'Conditional attributes with method invocation',\n        data: {\n            isDisabled: function () {\n                return true;\n            }\n        },\n        done: function ($) {\n            expect($('button#disabled').is(':disabled')).to.be.true;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test({\n        fixture: 'Conditional attributes with method invocation and arguments',\n        data: {\n            isDisabled: function (arg1, arg2) {\n                return arg1 && arg2;\n            },\n            arg1: true,\n            arg2: true\n        },\n        done: function ($) {\n            expect($('button#disabled').is(':disabled')).to.be.true;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var items = [\n            { name: 'Item 1' },\n            { name: 'Item 2' }\n        ];\n    test({\n        fixture: 'For each with nested parent conditional',\n        data: {\n            showItems: true,\n            items: items\n        },\n        done: function ($) {\n            expect($('li').length).to.equal(2);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, next) {\n    var targetUrl = config.iframe.target;\n    res.end('<html><body style=\"margin:0;\">' + '<iframe style=\"border:none;\" height=\"100%\" width=\"100%\" src=\"' + targetUrl + '\"></iframe>' + reloadClientMarkup + '</body></html>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "route"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.write('__reloadServerUrl=\"ws://localhost:' + config.port + '\";\\n');\n    fs.createReadStream(__dirname + '/include/livereload.js').pipe(res);\n}",
+    "receiverBase": "",
+    "receiverCallee": "route"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.setHeader('content-type', 'application/javascript');\n    fs.createReadStream(__dirname + '/include/reloadClient.js').pipe(res);\n}",
+    "receiverBase": "",
+    "receiverCallee": "route"
+  },
+  {
+    "callback": "function (req, res, next) {\n    taskEvent.emit('reload', req.body.files, req.body.target);\n    res.end('reload triggered');\n}",
+    "receiverBase": "",
+    "receiverCallee": "route"
+  },
+  {
+    "callback": "function (reasonCode, description) {\n    console.log(new Date() + ' Peer ' + connection.remoteAddress + ' disconnected.');\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (files, target) {\n    handleReload(wsServer, files, target);\n}",
+    "receiverBase": "taskEvent",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (error, response) {\n    if (!error && response.statusCode === 200) {\n        grunt.log.writeln('Triggered reload in running reload-server');\n    } else {\n        startServer.call(that, target);\n    }\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    beforeEach(function () {\n        this.ItemView = proxyquire('../../src/colors/index/item-view.js', {});\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    this.ItemView = proxyquire('../../src/colors/index/item-view.js', {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (err, data) {\n    fmt.msg('deleting distribution - expecting failure (invalid distribution id)');\n    fmt.dump(err, 'Error');\n    fmt.dump(data, 'Data');\n}",
+    "receiverBase": "cloudFront",
+    "receiverCallee": "DeleteDistribution"
+  },
+  {
+    "callback": "function (o) {\n    if (o.getVnum() === vnum) {\n        objs.push(o);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (affect.deactivate) {\n        affect.deactivate();\n    }\n    self.removeAffect(name);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (word) {\n    return keyword === word;\n}",
+    "receiverBase": "getKeywords",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (i) {\n    return parseInt(i, 10);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_paginate') != null;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_info').innerHTML == 'Showing 1 to 10 of 57 entries';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    oSession.fnRestore();\n    $('#example').dataTable({\n        'bServerSide': true,\n        'sAjaxSource': '../../../examples/server_side/scripts/server_processing.php',\n        'bPaginate': false\n    });\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_paginate') == null;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_info').innerHTML == 'Showing 1 to 57 of 57 entries';\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    oSession.fnRestore();\n    $('#example').dataTable({\n        'bServerSide': true,\n        'sAjaxSource': '../../../examples/server_side/scripts/server_processing.php',\n        'bPaginate': true\n    });\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return document.getElementById('example_paginate') != null;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "__defineSetter__"
+  },
+  {
+    "callback": "function (tag) {\n    return tag.match(whitelist) ? tag : '';\n}",
+    "receiverBase": "html",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, m1) {\n    var charCodeToReplace = parseInt(m1);\n    return String.fromCharCode(charCodeToReplace);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (text) {\n    return extra.doTransform(postNormalizationTransformations, text) + '\\n';\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "chain"
+  },
+  {
+    "callback": "function (text, blockGamutHookCallback) {\n    extra.blockGamutHookCallback = blockGamutHookCallback;\n    text = processEscapes(text);\n    return extra.doTransform(preBlockGamutTransformations, text) + '\\n';\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "chain"
+  },
+  {
+    "callback": "function (text) {\n    text = extra.doTransform(postConversionTransformations, text);\n    extra.hashBlocks = [];\n    extra.footnotes = {};\n    extra.usedFootnotes = [];\n    return text;\n}",
+    "receiverBase": "hooks",
+    "receiverCallee": "chain"
+  },
+  {
+    "callback": "function (wholeMatch, m1) {\n    hasHash = true;\n    var key = parseInt(m1, 10);\n    return self.hashBlocks[key];\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, m1, m2) {\n    m1 = slugify(m1);\n    m2 += '\\n';\n    m2 = m2.replace(/^[ ]{0,3}/g, '');\n    self.footnotes[m1] = m2;\n    return '\\n';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, m1) {\n    var id = slugify(m1);\n    var footnote = self.footnotes[id];\n    if (footnote === undefined) {\n        return wholeMatch;\n    }\n    footnoteCounter++;\n    self.usedFootnotes.push(id);\n    var html = '<a href=\"#fn:' + id + '\" id=\"fnref:' + id + '\" title=\"See footnote\" class=\"footnote\">' + footnoteCounter + '</a>';\n    return self.hashExtraInline(html);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, m1, m2, m3, m4, m5, m6, offset) {\n    newBlockText += applyPants(blockText.substring(blockOffset, offset)) + educatePants(wholeMatch, m1, m2, m3, m4, m5, m6);\n    blockOffset = offset + wholeMatch.length;\n}",
+    "receiverBase": "blockText",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, pre, list) {\n    var result = trim(self.processDefListItems(list));\n    result = '<dl>\\n' + result + '\\n</dl>';\n    return pre + self.hashExtraBlock(result) + '\\n\\n';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, pre, termsStr) {\n    var terms = trim(termsStr).split('\\n');\n    var text = '';\n    for (var i = 0; i < terms.length; i++) {\n        var term = terms[i];\n        term = convertSpans(trim(term), self);\n        text += '\\n<dt>' + term + '</dt>';\n    }\n    return text + '\\n';\n}",
+    "receiverBase": "listStr",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, leadingLine, markerSpace, def) {\n    if (leadingLine || def.match(/\\n{2,}/)) {\n        def = Array(markerSpace.length + 1).join(' ') + def;\n        def = outdent(def) + '\\n\\n';\n        def = '\\n' + convertAll(def, self) + '\\n';\n    } else {\n        def = rtrim(def);\n        def = convertSpans(outdent(def), self);\n    }\n    return '\\n<dd>' + def + '</dd>\\n';\n}",
+    "receiverBase": "listStr",
+    "receiverCallee": "replace"
+  }
+]

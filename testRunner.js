@@ -15,6 +15,7 @@ if (process.argv.length < 5) {
 }
 var testFolder = origTestFolder + 'Copy';
 fs.mkdirSync(testFolder);
+console.log(copyDir)
 
 copyDir.sync(origTestFolder, testFolder);
 

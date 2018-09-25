@@ -1,0 +1,402 @@
+[
+  {
+    "callback": "function () {\n    var NG_ANIMATE_CHILDREN = '$$ngAnimateChildren';\n    return function (scope, element, attrs) {\n        var val = attrs.ngAnimateChildren;\n        if (angular.isString(val) && val.length === 0) {\n            element.data(NG_ANIMATE_CHILDREN, true);\n        } else {\n            scope.$watch(val, function (value) {\n                element.data(NG_ANIMATE_CHILDREN, !!value);\n            });\n        }\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value) {\n    element.data(NG_ANIMATE_CHILDREN, !!value);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    var a = bod.offsetWidth + 1;\n    fn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$$rAF"
+  },
+  {
+    "callback": "function () {\n    $rootScope.$$postDigest(function () {\n        rootAnimateState.running = false;\n    });\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    rootAnimateState.running = false;\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function (animationFactory) {\n    var created = registerAnimation(animationFactory, animationEvent);\n    if (!created && isSetClassOperation) {\n        registerAnimation(animationFactory, 'addClass');\n        registerAnimation(animationFactory, 'removeClass');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (animation) {\n    animation.fn && animations.push(animation);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    beforeComplete = noop;\n    allCompleteFn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    afterComplete = noop;\n    allCompleteFn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (cancelFn) {\n    (cancelFn || noop)(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (cancelFn) {\n    (cancelFn || noop)(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    element = stripCommentsFromElement(element);\n    performAnimation('enter', 'ng-enter', element, parentElement, afterElement, noop, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    performAnimation('leave', 'ng-leave', stripCommentsFromElement(element), null, null, function () {\n        $delegate.leave(element);\n    }, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    $delegate.leave(element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    element = stripCommentsFromElement(element);\n    performAnimation('move', 'ng-move', element, parentElement, afterElement, noop, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    $delegate.addClass(element, className);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    $delegate.removeClass(element, className);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    $delegate.setClass(element, add, remove);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function (operation) {\n    operation.cancel();\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    var element = angular.element(this);\n    var state = element.data(NG_ANIMATE_STATE);\n    if (state) {\n        var activeLeaveAnimation = state.active['ng-leave'];\n        if (activeLeaveAnimation) {\n            activeLeaveAnimation.cancel();\n            cleanup(element, 'ng-leave');\n        }\n    }\n}",
+    "receiverBase": "element",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function (cancelled) {\n    var data = element.data(NG_ANIMATE_STATE);\n    cancelled = cancelled || !data || !data.active[className] || runner.isClassBased && data.active[className].event != animationEvent;\n    fireDOMOperation();\n    if (cancelled === true) {\n        closeAnimation();\n    } else {\n        fireAfterCallbackAsync();\n        runner.after(closeAnimation);\n    }\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    element.triggerHandler(eventName, {\n        event: animationEvent,\n        className: className\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$$asyncCallback"
+  },
+  {
+    "callback": "function () {\n    doneCallback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$$asyncCallback"
+  },
+  {
+    "callback": "function () {\n    var data = element.data(NG_ANIMATE_STATE) || {};\n    if (localAnimationCount == data.index) {\n        cleanup(element, className, animationEvent);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$$asyncCallback"
+  },
+  {
+    "callback": "function (element) {\n    element = angular.element(element);\n    var data = element.data(NG_ANIMATE_STATE);\n    if (data && data.active) {\n        forEach(data.active, function (runner) {\n            runner.cancel();\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (runner) {\n    runner.cancel();\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    forEach(animationReflowQueue, function (fn) {\n        fn();\n    });\n    animationReflowQueue = [];\n    cancelAnimationReflow = null;\n    lookupCache = {};\n}",
+    "receiverBase": "",
+    "receiverCallee": "$$animateReflow"
+  },
+  {
+    "callback": "function (fn) {\n    fn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    closeAllAnimations(animationElementQueue);\n    animationElementQueue = [];\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (element) {\n    var elementData = element.data(NG_ANIMATE_CSS_DATA_KEY);\n    if (elementData) {\n        (elementData.closeAnimationFn || noop)();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    maxValue = Math.max(parseFloat(value) || 0, maxValue);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return getElementAnimationDetails(element, eventCacheKey);\n}",
+    "receiverBase": "",
+    "receiverCallee": "calculationDecorator"
+  },
+  {
+    "callback": "function (klass, i) {\n    activeClassName += (i > 0 ? ' ' : '') + klass + '-active';\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (val, i) {\n    style += (i > 0 ? ',' : '') + (index * staggerDelay + parseInt(val, 10)) + 's';\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element, className);\n    unblockKeyframeAnimations(element);\n    cancel = animateAfter(animationEvent, element, className, animationComplete);\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (fn) {\n    var klass = element.attr('class');\n    element.removeClass(remove);\n    element.addClass(add);\n    var timings = fn();\n    element.attr('class', klass);\n    return timings;\n}",
+    "receiverBase": "",
+    "receiverCallee": "animateBefore"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element, className);\n    unblockKeyframeAnimations(element);\n    animationCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (fn) {\n    element.addClass(className);\n    var timings = fn();\n    element.removeClass(className);\n    return timings;\n}",
+    "receiverBase": "",
+    "receiverCallee": "animateBefore"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element, className);\n    unblockKeyframeAnimations(element);\n    animationCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (fn) {\n    var klass = element.attr('class');\n    element.removeClass(className);\n    var timings = fn();\n    element.attr('class', klass);\n    return timings;\n}",
+    "receiverBase": "",
+    "receiverCallee": "animateBefore"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element, className);\n    unblockKeyframeAnimations(element);\n    animationCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (klass, i) {\n    if (klass && klass.length > 0) {\n        className += (i > 0 ? ' ' : '') + klass + suffix;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ev) {\n    calls++;\n    space();\n    ev.pause();\n    setTimeout(function () {\n        ev.resume();\n    }, 100);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "delegate"
+  },
+  {
+    "callback": "function () {\n    ev.resume();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    space();\n    equals(calls, 2, 'both lis called');\n    start();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (i) {\n    if (i == 0) {\n        _w_table_firsttd = $(this);\n        _w_table_SpanNum = 1;\n    } else {\n        _w_table_currenttd = $(this);\n        if (_w_table_firsttd.text() == _w_table_currenttd.text()) {\n            _w_table_SpanNum++;\n            _w_table_currenttd.hide();\n            _w_table_firsttd.attr('rowSpan', _w_table_SpanNum);\n        } else {\n            _w_table_firsttd = $(this);\n            _w_table_SpanNum = 1;\n        }\n    }\n}",
+    "receiverBase": "_w_table_Obj",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $current = $(this);\n    $('#currentRow').val($current.data('id'));\n    updateBatchOption($current.data('id'));\n    $('#sku td.operation a').each(function () {\n        if ($current.data('id') != $(this).data('id')) {\n            $(this).popover('hide');\n        }\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($current.data('id') != $(this).data('id')) {\n        $(this).popover('hide');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $that = $(this);\n    var newArray = new Array();\n    var newArray = new Array();\n    $(this).find('.change').filter(':checked').each(function () {\n        newArray.push($(this).val() + ';' + $(this).parent().text() + ';' + $(this).data('id'));\n    });\n    array.push(newArray);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    newArray.push($(this).val() + ';' + $(this).parent().text() + ';' + $(this).data('id'));\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var i;\n    for (i in nameArr) {\n        if (this.name === nameArr[i]) {\n            return;\n        }\n    }\n    nameArr.push(this.name);\n}",
+    "receiverBase": "$chb",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    renderTable();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_price);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_qty);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_tag);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_price);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_qty);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).val(cur_tag);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var optid = $(this).data('optid');\n    var index = $(this).data('index');\n    apply_same_param(optid, index, 0);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var optid = $(this).data('optid');\n    var index = $(this).data('index');\n    apply_same_param(optid, index, 1);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var optid = $(this).data('optid');\n    var index = $(this).data('index');\n    apply_same_param(optid, index, 2);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    $('.popover-content').find('input[type=radio]:checked').each(function () {\n        $(this).removeAttr('checked');\n    });\n    $('#hint-contentbox').html($('.popover-content').html());\n    $('#sku td.operation a').popover('hide');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $(this).removeAttr('checked');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (user) {\n    return user.channelNick(channel);\n}",
+    "receiverBase": "users",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (nick) {\n    return server.normalizeName(nick) === userNick;\n}",
+    "receiverBase": "inviteList",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (ban) {\n    return user.matchesMask(ban.mask);\n}",
+    "receiverBase": "banned",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (ban) {\n    return ban.mask === mask;\n}",
+    "receiverBase": "banned",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (user) {\n    try {\n        user.send(message);\n    } catch (exception) {\n        winston.error('Error writing to stream:', exception);\n    }\n}",
+    "receiverBase": "users",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (user) {\n    try {\n        user.send(message);\n    } catch (exception) {\n        winston.error('Error writing to stream:', exception);\n    }\n}",
+    "receiverBase": "users",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (mode) {\n    if (channel.addMode[mode])\n        channel.addMode[mode].apply(channel, [\n            user,\n            arg\n        ]);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (mode) {\n    if (channel.removeMode[mode])\n        channel.removeMode[mode].apply(channel, [\n            user,\n            arg\n        ]);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    self.assertTrue(aria.templates.RefreshManager.isStopped(), 'The refresh manager should be stopped during the call of the module controller.');\n    throw myException;\n}",
+    "receiverBase": "$moduleCtrl",
+    "receiverCallee": "callMethodWithException"
+  },
+  {
+    "callback": "function (element, selection) {\n    if (!element)\n        return null;\n    while (element) {\n        if (element.getName() in contextMenuTags) {\n            return {\n                tablecell: CKEDITOR.TRISTATE_OFF,\n                tablerow: CKEDITOR.TRISTATE_OFF,\n                tablecolumn: CKEDITOR.TRISTATE_OFF\n            };\n        }\n        element = element.getParent();\n    }\n    return null;\n}",
+    "receiverBase": "contextMenu",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (isPrimitive) {\n    function get(obj, prop) {\n        var parts = prop.split('.'), last = parts.pop();\n        while (prop = parts.shift()) {\n            obj = obj[prop];\n            if (obj == null)\n                return;\n        }\n        return obj[last];\n    }\n    return get;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    callback(currTime + timeToCall);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (result, child, idx) {\n    var name = child.getKey(idx);\n    result[name] = child;\n    return result;\n}",
+    "receiverBase": "childrenToUse",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (result, child, idx) {\n    var name = child.getKey(idx);\n    result[name] = child;\n    return result;\n}",
+    "receiverBase": "children",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (key) {\n    return View.dirtyViews[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v1, v2) {\n    return v1._depth - v2._depth;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    View.flushUpdates();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "requestAnimationFrame"
+  }
+]

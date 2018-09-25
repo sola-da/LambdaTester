@@ -1,0 +1,477 @@
+[
+  {
+    "callback": "function (match, code) {\n    return '\\',' + code.replace(/\\\\'/g, '\\'') + ',\\'';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, code) {\n    return '\\');' + code.replace(/\\\\'/g, '\\'').replace(/[\\r\\n\\t]/g, ' ') + '__p.push(\\'';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this);\n    var pos = $this.offset();\n    $.data(this, 'selectable-item', {\n        element: this,\n        $element: $this,\n        left: pos.left,\n        top: pos.top,\n        right: pos.left + $this.outerWidth(),\n        bottom: pos.top + $this.outerHeight(),\n        startselected: false,\n        selected: $this.hasClass('ui-selected'),\n        selecting: $this.hasClass('ui-selecting'),\n        unselecting: $this.hasClass('ui-unselecting')\n    });\n}",
+    "receiverBase": "selectees",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var selectee = $.data(this, 'selectable-item');\n    selectee.startselected = true;\n    if (!event.metaKey && !event.ctrlKey) {\n        selectee.$element.removeClass('ui-selected');\n        selectee.selected = false;\n        selectee.$element.addClass('ui-unselecting');\n        selectee.unselecting = true;\n        self._trigger('unselecting', event, { unselecting: selectee.element });\n    }\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var selectee = $.data(this, 'selectable-item');\n    selectee.$element.removeClass('ui-unselecting');\n    selectee.unselecting = false;\n    selectee.startselected = false;\n    self._trigger('unselected', event, { unselected: selectee.element });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var selectee = $.data(this, 'selectable-item');\n    selectee.$element.removeClass('ui-selecting').addClass('ui-selected');\n    selectee.selecting = false;\n    selectee.selected = true;\n    selectee.startselected = true;\n    self._trigger('selected', event, { selected: selectee.element });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (data, status, jqXHR) {\n    opt.completefunc(jqXHR, status);\n}",
+    "receiverBase": "cachedPromise",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function () {\n    $(this).find('Field[DisplayName=\\'' + opt.childColumn + '\\']').each(function () {\n        childColumnRequired = $(this).attr('Required') === 'TRUE';\n        childColumnStatic = $(this).attr('StaticName');\n        return false;\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    childColumnRequired = $(this).attr('Required') === 'TRUE';\n    childColumnStatic = $(this).attr('StaticName');\n    return false;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "Obj",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "optHid",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    cascadeDropdown(parentSelect);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    var thisSelected = $(this);\n    thisSelected.prop('selected', true);\n    $(childSelect.master.candidateControl).find('option[value=\\'' + thisSelected.val() + '\\']').each(function () {\n        thisSelected.prop('selected', false);\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    thisSelected.prop('selected', false);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisSelected = $(this);\n    $(childSelect.master.resultControl).find('option[value=\\'' + thisSelected.val() + '\\']').each(function () {\n        thisSelected.remove();\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    thisSelected.remove();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisVal = $(this).val();\n    columnSelect.optHid.val(thisVal);\n    $(columnSelect.Obj).val($(this).find('option[value=\\'' + (thisVal !== '0' ? thisVal : '') + '\\']').html());\n}",
+    "receiverBase": "simpleSelectObj",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    if (opt.debug) {\n        errBox(thisFunction, 'relatedList: ' + opt.relatedList, 'List not found');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    showRelated(opt, divId, relatedListXML, relatedColumnsXML);\n}",
+    "receiverBase": "Obj",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    showRelated(opt, divId, relatedListXML, relatedColumnsXML);\n}",
+    "receiverBase": "optHid",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    outString += '<tr>';\n    for (i = 0; i < opt.relatedColumns.length; i++) {\n        outString += '<td class=\\'' + opt.rowCSSClass + '\\'>' + showColumn(relatedListXML, relatedColumnsXML[opt.relatedColumns[i]], $(this).attr('ows_' + opt.relatedColumns[i]), opt) + '</td>';\n    }\n    outString += '</tr>';\n}",
+    "receiverBase": "SPFilterNode",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).find('Field[DisplayName=\\'' + opt.columnName + '\\']').each(function () {\n        columnColumnRequired = $(this).attr('Required') === 'TRUE';\n        return false;\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    columnColumnRequired = $(this).attr('Required') === 'TRUE';\n    return false;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisSelected = $(this);\n    $(this).attr('selected', 'selected');\n    $(columnSelect.master.candidateControl).find('option').each(function () {\n        if ($(this).html() === thisSelected.html()) {\n            thisSelected.removeAttr('selected');\n        }\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).html() === thisSelected.html()) {\n        thisSelected.removeAttr('selected');\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisSelected = $(this);\n    $(columnSelect.master.resultControl).find('option').each(function () {\n        if ($(this).html() === thisSelected.html()) {\n            thisSelected.remove();\n        }\n    });\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).html() === thisSelected.html()) {\n        thisSelected.remove();\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    lookupListUrl = $(this).attr('WebFullUrl');\n    lookupListUrl = lookupListUrl !== SLASH ? lookupListUrl + SLASH : lookupListUrl;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    userId = $(this).attr('ID');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    lastId = $(this).attr('ows_ID');\n}",
+    "receiverBase": "SPFilterNode",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisValue = opt.ignoreCase ? $(this).attr('ows_' + opt.columnStaticName).toUpperCase() : $(this).attr('ows_' + opt.columnStaticName);\n    if (testValue === thisValue && $(this).attr('ows_ID') !== thisID) {\n        columnValueIDs.push([\n            $(this).attr('ows_ID'),\n            $(this).attr('ows_' + opt.columnStaticName)\n        ]);\n    }\n}",
+    "receiverBase": "SPFilterNode",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    document.forms.aspnetForm.action = newAction;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    cloneObj.append('<option value=\\'' + $(this).html() + '\\'>' + $(this).html() + '</option>');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    cloneObj.append('<option value=\\'' + $(this).val() + '\\'>' + $(this).html() + '</option>');\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    SPScriptAuditPage(opt, listXml, 'Form', this.nodeName, (opt.webURL.length > 0 ? opt.webURL : $().SPServices.SPGetCurrentSite()) + SLASH + $(this).text());\n    formTypes[i][2] = true;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    SPScriptAuditPage(opt, listXml, 'View', $(this).attr('DisplayName'), $(this).attr('Url'));\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    listXml = $(this);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisPageUrl = $(this).attr('ows_FileRef').split(spDelim)[1];\n    var thisTitle = $(this).attr('ows_Title');\n    var thisPageType = typeof thisTitle !== 'undefined' ? thisTitle : '';\n    if (thisPageUrl.indexOf('.aspx') > 0) {\n        SPScriptAuditPage(opt, listXml, 'Page', thisPageType, SLASH + thisPageUrl);\n    }\n}",
+    "receiverBase": "SPFilterNode",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    columnFillInChoice = $(this).attr('FillInChoice') === 'TRUE';\n    return false;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (choiceNumber) {\n    if (columnFillInChoice && choiceNumber === totalChoices - 2) {\n        fillinPrompt = $(this).find('td');\n    } else if (columnFillInChoice && choiceNumber === totalChoices - 1) {\n        fillinInput = $(this).find('td');\n    } else {\n        columnOptions.push($(this).find('td'));\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('#' + containerId).fadeOut(opt.slideUpSpeed);\n    columnObj.val($(this).text());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var mouseoverCss = {\n            'cursor': 'hand',\n            'color': '#ffffff',\n            'background': '#3399ff'\n        };\n    $(this).css(mouseoverCss);\n}",
+    "receiverBase": "click",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function () {\n    var mouseoutCss = {\n            'cursor': 'inherit',\n            'color': columnObjColor,\n            'background': 'transparent'\n        };\n    $(this).css(mouseoutCss);\n}",
+    "receiverBase": "mouseover",
+    "receiverCallee": "mouseout"
+  },
+  {
+    "callback": "function () {\n    var defaultViewUrl = $(this).attr('DefaultViewUrl');\n    var listCollList = defaultViewUrl.substring(0, defaultViewUrl.lastIndexOf(SLASH) + 1).toUpperCase();\n    if (listPath.indexOf(listCollList) > 0) {\n        currentContext.thisList = $(this).attr('ID');\n        return false;\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    itemsToUpdate.push($(this).attr('ows_ID'));\n    var fileRef = $(this).attr('ows_FileRef');\n    fileRef = '/' + fileRef.substring(fileRef.indexOf(spDelim) + 2);\n    documentsToUpdate.push(fileRef);\n}",
+    "receiverBase": "SPFilterNode",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    deletedIds.push($(this).text());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var thisField = $(this);\n    var thisType = thisField.attr('Type');\n    if ($.inArray(thisType, spListFieldTypes) >= 0) {\n        thisListJsonMapping['ows_' + thisField.attr('Name')] = {\n            mappedName: thisField.attr('Name'),\n            objectType: thisField.attr('Type')\n        };\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return this.nodeName === name;\n}",
+    "receiverBase": "find",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    row[this.mappedName] = '';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return $(this).contents().eq(0).text() === opt.peoplePickerDisplayName;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var key = $(this).find('Key').text();\n    dictionaryEntry[key] = $(this).find('Value').text();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $.each(this.attributes, function (i, attrib) {\n        dictionaryEntry[attrib.name] = attrib.value;\n    });\n    dictionaryEntries.push(dictionaryEntry);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, attrib) {\n    dictionaryEntry[attrib.name] = attrib.value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (matchOnId) {\n        columnSelectSelected.push($(this).val());\n    } else {\n        columnSelectSelected.push($(this).html());\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $(this).fadeOut('3000', function () {\n        $(this).remove();\n    });\n}",
+    "receiverBase": "fadeTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $(this).remove();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "fadeOut"
+  },
+  {
+    "callback": "function () {\n    if (searchText.test($(this).html())) {\n        thisFormBody = $(this);\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (str, item) {\n    return xml_special_to_escaped_one_map[item];\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (str, item) {\n    return escaped_one_to_xml_special_map[item];\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    _this.to(pos);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    var nextIndicator = _this.indicators.children()[_this.getActiveIndex()];\n    nextIndicator && domClass.add(nextIndicator, 'active');\n}",
+    "receiverBase": "on",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    domClass.remove(next[0], [\n        type,\n        direction\n    ].join(' '));\n    domClass.add(next[0], 'active');\n    domClass.remove(active[0], [\n        'active',\n        direction\n    ].join(' '));\n    _this.sliding = false;\n    setTimeout(function () {\n        on.emit(_this.domNode, 'slid.bs.carousel', {\n            bubbles: false,\n            cancelable: false\n        });\n    }, 0);\n}",
+    "receiverBase": "on",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    on.emit(_this.domNode, 'slid.bs.carousel', {\n        bubbles: false,\n        cancelable: false\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (node) {\n    var data = support.getData(node, 'carousel');\n    var action = typeof option === 'string' ? option : options.slide;\n    if (!data) {\n        support.setData(node, 'carousel', data = new Carousel(node, options));\n    }\n    if (typeof option === 'number') {\n        data.to(option);\n    } else if (action) {\n        data[action].call(data);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    var target = domAttr.get(this, 'data-target') || support.hrefValue(this);\n    var options = {};\n    if (!support.getData(target, 'collapse')) {\n        options = lang.mixin({}, lang.mixin(support.getData(target), support.getData(this)));\n    }\n    query(target).carousel(options);\n    e.preventDefault();\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now + 1, now)).to.be('in the future');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1)).to.be('just now');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60)).to.be('1 minute ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 2)).to.be('2 minutes ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 60)).to.be('1 hour ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 60 * 2)).to.be('2 hours ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 60 * 24)).to.be('Yesterday');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 60 * 24 * 7)).to.be('7 days ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var now = Date.now();\n    expect(prettyDate(now, now + 1000 * 60 * 60 * 24 * 14)).to.be('2 weeks ago');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    addPoll();\n    setFixedPopupSize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var $tr_src, $tr_new, $th, idx;\n    $tr_src = $(this).prev().children('table').find('>tbody>tr:last');\n    $tr_new = $tr_src.clone();\n    match = $tr_src.find('td>input').attr('name').match(/item_(\\d+)_(\\d+)$/);\n    if (!match)\n        return;\n    match[2]++;\n    ($th = $tr_new.find('th')).html($th.html().replace(/ \\d+/, ' ' + match[2]));\n    $tr_new.find('td>input').attr('name', 'item_' + match[1] + '_' + match[2]);\n    $tr_src.after($tr_new);\n    setFixedPopupSize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var $tr, match;\n    $tr = $(this).prevAll('div').children('table').find('>tbody>tr:last');\n    match = $tr.find('td>input').attr('name').match(/item_(\\d+)_(\\d+)/);\n    if (!match || match[2] == 2)\n        return;\n    $tr.remove();\n    setFixedPopupSize();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    $(this).parent('.poll_box').remove();\n    reindex();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (idx, val) {\n    if (/^checkcount_/.test(val))\n        poll_idx++;\n    return val.replace(/^([a-z]+_)(?:tidx|\\d+)/, '$1' + poll_idx);\n}",
+    "receiverBase": "$inputs",
+    "receiverCallee": "attr"
+  },
+  {
+    "callback": "function () {\n    this.destroy();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    this.$element.triggerHandler('shown');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), dataKey = 'editableContainer', data = $this.data(dataKey), options = typeof option === 'object' && option;\n    if (!data) {\n        $this.data(dataKey, data = new EditableContainer(this, options));\n    }\n    if (typeof option === 'string') {\n        data[option].apply(data, Array.prototype.slice.call(args, 1));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (dir, file, type, nomin) {\n    var path = dir + '/' + file;\n    if (!nomin) {\n        path += '-min';\n    }\n    path += '.' + (type || CSS);\n    return path;\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "cached"
+  },
+  {
+    "callback": "function (v, k) {\n    v.group = name;\n    self.patterns[k] = v;\n}",
+    "receiverBase": "YObject",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v, k) {\n    v.group = name;\n    self.addModule(v, k);\n}",
+    "receiverBase": "YObject",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    Y.mix(o, this.getProvides(v));\n}",
+    "receiverBase": "YArray",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (lang, mname) {\n    return 'lang/' + mname + (lang ? '_' + lang : '');\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "cached"
+  },
+  {
+    "callback": "function (v, name) {\n    m = this.getModule(name);\n    if (m) {\n        var expound = m.expound;\n        if (expound) {\n            r[expound] = this.getModule(expound);\n            reqs = this.getRequires(r[expound]);\n            Y.mix(r, YArray.hash(reqs));\n        }\n        reqs = this.getRequires(m);\n        Y.mix(r, YArray.hash(reqs));\n    }\n}",
+    "receiverBase": "YObject",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (k) {\n    delete this.inserted[k];\n}",
+    "receiverBase": "YObject",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    self._insert(copy, o, type);\n}",
+    "receiverBase": "_queue",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (Y) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (value) {\n    var item = {};\n    item.value = value;\n    item.selected = item.value == selectedValue;\n    return item;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  }
+]

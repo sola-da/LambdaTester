@@ -1,0 +1,256 @@
+[
+  {
+    "callback": "function (accept, reject, info) {\n    rows = info.rows;\n    cols = info.cols;\n    term = info.term;\n    accept && accept();\n}",
+    "receiverBase": "accept",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (accept, reject, info) {\n    rows = info.rows;\n    cols = info.cols;\n    if (stream) {\n        stream.rows = rows;\n        stream.columns = cols;\n        stream.emit('resize');\n    }\n    accept && accept();\n}",
+    "receiverBase": "once",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (line) {\n    input.clearValue();\n    screen.render();\n    if (!input.focused)\n        input.focus();\n    line = line.replace(RE_SPECIAL, '').trim();\n    if (line.length > MAX_MSG_LEN)\n        line = line.substring(0, MAX_MSG_LEN);\n    if (line.length > 0) {\n        if (line === '/quit' || line === '/exit')\n            stream.end();\n        else\n            userBroadcast(line, stream);\n    }\n}",
+    "receiverBase": "input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (stream !== undefined) {\n        spliceOne(users, users.indexOf(stream));\n        for (var i = 0; i < users.length; ++i) {\n            var user = users[i], output = user.output;\n            output.add(formatMessage('{magenta-fg}*** {bold}', output) + name + formatMessage('{/bold} has left the chat{/}', output));\n        }\n    }\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('Listening on port ' + this.address().port);\n}",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (Iq) {\n    stanza.add(Iq, 'jidPrep', {\n        get: function () {\n            var data = types.getSubText(this.xml, NS, 'jid');\n            if (data) {\n                var jid = new JID(data);\n                jid.prepped = true;\n                return jid;\n            }\n        },\n        set: function (value) {\n            types.setSubText(this.xml, NS, 'jid', (value || '').toString());\n        }\n    });\n}",
+    "receiverBase": "stanza",
+    "receiverCallee": "withIq"
+  },
+  {
+    "callback": "function (node) {\n    var config = { text: lib.getText(node) };\n    var panel = node.getAttribute('data-for');\n    if (panel) {\n        config.panel = panel;\n    }\n    return config;\n}",
+    "receiverBase": "u",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    window.UmbracoProject.Validation.initValidations();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            context.maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    return books.parse('basic').then(function (book) {\n        book.options.title.should.be.equal('Readme');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (book) {\n    book.options.title.should.be.equal('Readme');\n}",
+    "receiverBase": "parse",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return books.parse('basic').then(function (book) {\n        book.options.description.should.be.equal('Default description for the book.');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (book) {\n    book.options.description.should.be.equal('Default description for the book.');\n}",
+    "receiverBase": "parse",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return books.parse('config-json').then(function (book) {\n        book.options.title.should.be.equal('json-config');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (book) {\n    book.options.title.should.be.equal('json-config');\n}",
+    "receiverBase": "parse",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return books.parse('config-js').then(function (book) {\n        book.options.title.should.be.equal('js-config');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (book) {\n    book.options.title.should.be.equal('js-config');\n}",
+    "receiverBase": "parse",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (child) {\n    found = true;\n    return { data: child };\n}",
+    "receiverBase": "string",
+    "receiverCallee": "tokenize"
+  },
+  {
+    "callback": "function (item) {\n    ddh._attributes[item] = true;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (parent) {\n    this._parent = parent;\n    this._cache = [];\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (node) {\n    this.contents = node;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (nodes) {\n    this.contents = nodes || [];\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (str) {\n    this.contents = new dd._Filter(str);\n    this._lists = {};\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (node, up, root) {\n    this.contents = node;\n    this.up = up;\n    this.root = root;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (key, value, nodelist) {\n    this.key = key;\n    this.value = value;\n    this.nodelist = nodelist || new dd.Template(value).nodelist;\n    this.contents = '';\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (str) {\n    this.contents = document.createTextNode(str);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (tokens) {\n    this.contents = tokens;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "extend"
+  },
+  {
+    "callback": "function (elemental) {\n    elemental.addRenderer(rule, function (element) {\n        callback(element);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (element) {\n    callback(element);\n}",
+    "receiverBase": "elemental",
+    "receiverCallee": "addRenderer"
+  },
+  {
+    "callback": "function (generate, elemental) {\n    value = generate(value, rule);\n    elemental.addRenderer(rule, value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (target) {\n    target = target.splice ? target : [target];\n    for (var i = 0; i < target.length; i++) {\n        var segment = target[i];\n        var returned;\n        utils.when(segment, function (segment) {\n            returned = segment.put && segment.put(value, rule, propertyName);\n        });\n        if (returned) {\n            return returned;\n        }\n    }\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (segment) {\n    returned = segment.put && segment.put(value, rule, propertyName);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (property) {\n    var set = base[property];\n    if (set) {\n        derivative[property] = create(set);\n    }\n}",
+    "receiverBase": "LIT:values,variables,calls",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (name, value) {\n    derivative.setValue(name, value);\n}",
+    "receiverBase": "base",
+    "receiverCallee": "eachProperty"
+  },
+  {
+    "callback": "function (fold) {\n    fold.setFoldLine(foldLine);\n}",
+    "receiverBase": "subFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (subFold) {\n    fold.subFolds.push(subFold.clone());\n}",
+    "receiverBase": "subFolds",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < touchCoordinates.length; i += 2) {\n        if (touchCoordinates[i] == x && touchCoordinates[i + 1] == y) {\n            touchCoordinates.splice(i, i + 2);\n            return;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (event) {\n    tapping = true;\n    tapElement = event.target ? event.target : event.srcElement;\n    if (tapElement.nodeType == 3) {\n        tapElement = tapElement.parentNode;\n    }\n    startTime = Date.now();\n    var touches = event.touches && event.touches.length ? event.touches : [event];\n    var e = touches[0].originalEvent || touches[0];\n    touchStartX = e.clientX;\n    touchStartY = e.clientY;\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    resetState();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    resetState();\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    expressionFn(scope, { $event: event });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (event) {\n    scope.$apply(function () {\n        expressionFn(scope, { $event: event });\n    });\n}",
+    "receiverBase": "element",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    expressionFn(scope, { $event: event });\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function (rs) {\n    callback(null, rs);\n}",
+    "receiverBase": "items",
+    "receiverCallee": "joinModel"
+  },
+  {
+    "callback": "function (error, results) {\n    fn(null, items);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "parallel"
+  },
+  {
+    "callback": "function (file) {\n    var name = path.basename(file, path.extname(file));\n    if (exports.isEmptyFile(file)) {\n        grunt.verbose.warn('Skipping empty path:'.yellow, file);\n    } else {\n        if (opts.namespace === true) {\n            obj[name] = exports.readData(file);\n        } else {\n            obj = exports.readData(file);\n        }\n    }\n}",
+    "receiverBase": "expand",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (meta) {\n    if (_.isString(meta)) {\n        return _.merge(metadata, exports.readDataFiles(meta, opts));\n    } else if (_.isObject(meta)) {\n        return _.extend(metadata, meta);\n    }\n}",
+    "receiverBase": "optsData",
+    "receiverCallee": "map"
+  }
+]

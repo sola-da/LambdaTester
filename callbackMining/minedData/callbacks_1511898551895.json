@@ -1,0 +1,1722 @@
+[
+  {
+    "callback": "function ($timeout) {\n    var _queue = new Array();\n    function queue() {\n        return _queue;\n    }\n    function add(fn, delay) {\n        _queue.push($timeout(fn, delay));\n    }\n    function clear() {\n        for (var i = 0; i < _queue.length; i++) {\n            $timeout.cancel(_queue[i]);\n        }\n        _queue = [];\n    }\n    return {\n        queue: queue,\n        add: add,\n        clear: clear\n    };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (cmp) {\n    cmp.on('expand', function () {\n        target.fireEvent('wizardstepexpanded', target.items.indexOf(cmp));\n    });\n}",
+    "receiverBase": "target",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    target.fireEvent('wizardstepexpanded', target.items.indexOf(cmp));\n}",
+    "receiverBase": "cmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    it('should convert boolean values to unicode checkmark or cross', function () {\n        expect(angular.filter.checkmark(true)).toBe('\\u2713');\n        expect(angular.filter.checkmark(false)).toBe('\\u2718');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect(angular.filter.checkmark(true)).toBe('\\u2713');\n    expect(angular.filter.checkmark(false)).toBe('\\u2718');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (script) {\n    if (script.src.match(re)) {\n        basePath = script.src.replace(re, '');\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return s._multiwriting ? s.once('_writeEmpty', stop) : stop();\n    function stop() {\n        return source.stopWriting ? source.stopWriting(done) : done();\n    }\n    function done(err) {\n        if (err) {\n            s.emit('error', err);\n        } else {\n            s.emit('stop');\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return s._multiwriting ? s.once('_writeEmpty', stop) : stop();\n    function stop() {\n        return source.stopWriting ? source.stopWriting(done) : done();\n    }\n    function done(err) {\n        if (err)\n            s.emit('error', err);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return callback(err);\n    stream.startWriting = true;\n    stream._write(obj, encoding, callback);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "startWriting"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    stream.stats.done++;\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "putTileRetry"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return done(err);\n    stream.stats.done++;\n    done();\n}",
+    "receiverBase": "source",
+    "receiverCallee": "putInfo"
+  },
+  {
+    "callback": "function ($rootScope, $http, $location) {\n    $rootScope.user = {};\n    $http.get('/user').success(function (data) {\n        $rootScope.user.username = data.username;\n    }).error(function (data) {\n    });\n    $rootScope.logout = function () {\n        $rootScope.user = {};\n        $http.post('user/logout', {});\n        $location.path('/');\n    };\n}",
+    "receiverBase": "config",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (data) {\n    $rootScope.user.username = data.username;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data) {\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (elem, i) {\n    return callback.call(elem, i, elem);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function doScrollCheck() {\n    if (!jQuery.isReady) {\n        try {\n            top.doScroll('left');\n        } catch (e) {\n            return setTimeout(doScrollCheck, 50);\n        }\n        detach();\n        jQuery.ready();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i, name) {\n    class2type['[object ' + name + ']'] = name.toLowerCase();\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (argument) {\n    argument = +argument;\n    return markFunction(function (seed, matches) {\n        var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n        while (i--) {\n            if (seed[j = matchIndexes[i]]) {\n                seed[j] = !(matches[j] = seed[j]);\n            }\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var j, matchIndexes = fn([], seed.length, argument), i = matchIndexes.length;\n    while (i--) {\n        if (seed[j = matchIndexes[i]]) {\n            seed[j] = !(matches[j] = seed[j]);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    setDocument();\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<a href=\\'#\\'></a>';\n    addHandle('type|href|height|width', interpolationHandler, div.firstChild.getAttribute('href') === '#');\n    addHandle(booleans, boolHandler, div.getAttribute('disabled') == null);\n    div.className = 'i';\n    return !div.getAttribute('className');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<input>';\n    div.firstChild.setAttribute('value', '');\n    return div.firstChild.getAttribute('value') === '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.appendChild(doc.createComment(''));\n    return !div.getElementsByTagName('*').length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<div class=\\'a\\'></div><div class=\\'a i\\'></div>';\n    div.firstChild.className = 'i';\n    return div.getElementsByClassName('i').length === 2;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    docElem.appendChild(div).id = expando;\n    return !doc.getElementsByName || !doc.getElementsByName(expando).length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    div.innerHTML = '<select><option selected=\\'\\'></option></select>';\n    if (!div.querySelectorAll('[selected]').length) {\n        rbuggyQSA.push('\\\\[' + whitespace + '*(?:value|' + booleans + ')');\n    }\n    if (!div.querySelectorAll(':checked').length) {\n        rbuggyQSA.push(':checked');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    var input = doc.createElement('input');\n    input.setAttribute('type', 'hidden');\n    div.appendChild(input).setAttribute('t', '');\n    if (div.querySelectorAll('[t^=\\'\\']').length) {\n        rbuggyQSA.push('[*^$]=' + whitespace + '*(?:\\'\\'|\"\")');\n    }\n    if (!div.querySelectorAll(':enabled').length) {\n        rbuggyQSA.push(':enabled', ':disabled');\n    }\n    div.querySelectorAll('*,:x');\n    rbuggyQSA.push(',.*:');\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div) {\n    support.disconnectedMatch = matches.call(div, 'div');\n    matches.call(div, '[s!=\\'\\']:x');\n    rbuggyMatches.push('!=', pseudos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (div1) {\n    return div1.compareDocumentPosition(doc.createElement('div')) & 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "assert"
+  },
+  {
+    "callback": "function (elem) {\n    return pattern.test(typeof elem.className === 'string' && elem.className || typeof elem.getAttribute !== strundefined && elem.getAttribute('class') || '');\n}",
+    "receiverBase": "",
+    "receiverCallee": "classCache"
+  },
+  {
+    "callback": "function (seed, matches) {\n    var idx, matched = fn(seed, argument), i = matched.length;\n    while (i--) {\n        idx = indexOf.call(seed, matched[i]);\n        seed[idx] = !(matches[idx] = matched[i]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (seed, matches, context, xml) {\n    var elem, unmatched = matcher(seed, null, xml, []), i = seed.length;\n    while (i--) {\n        if (elem = unmatched[i]) {\n            seed[i] = !(matches[i] = elem);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (selector) {\n    return function (elem) {\n        return Sizzle(selector, elem).length > 0;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function (text) {\n    return function (elem) {\n        return (elem.textContent || elem.innerText || getText(elem)).indexOf(text) > -1;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "markFunction"
+  },
+  {
+    "callback": "function () {\n    return [0];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    return [length - 1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    return [argument < 0 ? argument + length : argument];\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 0;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length) {\n    var i = 1;\n    for (; i < length; i += 2) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; --i >= 0;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (matchIndexes, length, argument) {\n    var i = argument < 0 ? argument + length : argument;\n    for (; ++i < length;) {\n        matchIndexes.push(i);\n    }\n    return matchIndexes;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createPositionalPseudo"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === checkContext;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (elem) {\n    return indexOf.call(checkContext, elem) > -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "addCombinator"
+  },
+  {
+    "callback": "function (_, flag) {\n    object[flag] = true;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function add(args) {\n    jQuery.each(args, function (_, arg) {\n        var type = jQuery.type(arg);\n        if (type === 'function') {\n            if (!options.unique || !self.has(arg)) {\n                list.push(arg);\n            }\n        } else if (arg && arg.length && type !== 'string') {\n            add(arg);\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (_, arg) {\n    var type = jQuery.type(arg);\n    if (type === 'function') {\n        if (!options.unique || !self.has(arg)) {\n            list.push(arg);\n        }\n    } else if (arg && arg.length && type !== 'string') {\n        add(arg);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, arg) {\n    var index;\n    while ((index = jQuery.inArray(arg, list, index)) > -1) {\n        list.splice(index, 1);\n        if (firing) {\n            if (index <= firingLength) {\n                firingLength--;\n            }\n            if (index <= firingIndex) {\n                firingIndex--;\n            }\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var action = tuple[0], fn = jQuery.isFunction(fns[i]) && fns[i];\n    deferred[tuple[1]](function () {\n        var returned = fn && fn.apply(this, arguments);\n        if (returned && jQuery.isFunction(returned.promise)) {\n            returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n        } else {\n            newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n        }\n    });\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var returned = fn && fn.apply(this, arguments);\n    if (returned && jQuery.isFunction(returned.promise)) {\n        returned.promise().done(newDefer.resolve).fail(newDefer.reject).progress(newDefer.notify);\n    } else {\n        newDefer[action + 'With'](this === promise ? newDefer.promise() : this, fn ? [returned] : arguments);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "deferred"
+  },
+  {
+    "callback": "function (i, tuple) {\n    var list = tuple[2], stateString = tuple[3];\n    promise[tuple[1]] = list.add;\n    if (stateString) {\n        list.add(function () {\n            state = stateString;\n        }, tuples[i ^ 1][2].disable, tuples[2][2].lock);\n    }\n    deferred[tuple[0]] = function () {\n        deferred[tuple[0] + 'With'](this === deferred ? promise : this, arguments);\n        return this;\n    };\n    deferred[tuple[0] + 'With'] = list.fireWith;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    state = stateString;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    support.noCloneEvent = false;\n}",
+    "receiverBase": "div",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    support.boxSizing = div.offsetWidth === 4;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "swap"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.data(this, key, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeData(this, key);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery._removeData(elem, type + 'queue');\n    jQuery._removeData(elem, key);\n}",
+    "receiverBase": "Callbacks",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var queue = jQuery.queue(this, type, data);\n    jQuery._queueHooks(this, type);\n    if (type === 'fx' && queue[0] !== 'inprogress') {\n        jQuery.dequeue(this, type);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.dequeue(this, type);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (next, hooks) {\n    var timeout = setTimeout(next, time);\n    hooks.stop = function () {\n        clearTimeout(timeout);\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function () {\n    jQuery.removeAttr(this, name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    try {\n        this[name] = undefined;\n        delete this[name];\n    } catch (e) {\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).addClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (j) {\n    jQuery(this).removeClass(value.call(this, j, this.className));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).toggleClass(value.call(this, i, this.className, stateVal), stateVal);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value == null ? '' : value + '';\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.attrHooks[name] = {\n        set: function (elem, value) {\n            if (value === '') {\n                elem.setAttribute(name, 'auto');\n                return value;\n            }\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.propHooks[name] = {\n        get: function (elem) {\n            return elem.getAttribute(name, 4);\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.propFix[this.toLowerCase()] = this;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.valHooks[this] = {\n        set: function (elem, value) {\n            if (jQuery.isArray(value)) {\n                return elem.checked = jQuery.inArray(jQuery(elem).val(), value) >= 0;\n            }\n        }\n    };\n    if (!jQuery.support.checkOn) {\n        jQuery.valHooks[this].get = function (elem) {\n            return elem.getAttribute('value') === null ? 'on' : elem.value;\n        };\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target, form = jQuery.nodeName(elem, 'input') || jQuery.nodeName(elem, 'button') ? elem.form : undefined;\n    if (form && !jQuery._data(form, 'submitBubbles')) {\n        jQuery.event.add(form, 'submit._submit', function (event) {\n            event._submit_bubble = true;\n        });\n        jQuery._data(form, 'submitBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    event._submit_bubble = true;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (event.originalEvent.propertyName === 'checked') {\n        this._just_changed = true;\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this._just_changed && !event.isTrigger) {\n        this._just_changed = false;\n    }\n    jQuery.event.simulate('change', this, event, true);\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (e) {\n    var elem = e.target;\n    if (rformElems.test(elem.nodeName) && !jQuery._data(elem, 'changeBubbles')) {\n        jQuery.event.add(elem, 'change._change', function (event) {\n            if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n                jQuery.event.simulate('change', this.parentNode, event, true);\n            }\n        });\n        jQuery._data(elem, 'changeBubbles', true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event) {\n    if (this.parentNode && !event.isSimulated && !event.isTrigger) {\n        jQuery.event.simulate('change', this.parentNode, event, true);\n    }\n}",
+    "receiverBase": "event",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.add(this, types, fn, data, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.remove(this, types, fn, selector);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jQuery.event.trigger(type, data, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < len; i++) {\n        if (jQuery.contains(self[i], this)) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    for (i = 0; i < len; i++) {\n        if (jQuery.contains(this, targets[i])) {\n            return true;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (elem) {\n    return elem.nodeType === 1;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem, i) {\n    return !!qualifier.call(elem, i, elem) !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return elem === qualifier !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (elem) {\n    return jQuery.inArray(elem, qualifier) >= 0 !== not;\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function (value) {\n    return value === undefined ? jQuery.text(this) : this.empty().append((this[0] && this[0].ownerDocument || document).createTextNode(value));\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        var target = manipulationTarget(this, elem);\n        target.appendChild(elem);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.nodeType === 1 || this.nodeType === 11 || this.nodeType === 9) {\n        var target = manipulationTarget(this, elem);\n        target.insertBefore(elem, target.firstChild);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (elem) {\n    if (this.parentNode) {\n        this.parentNode.insertBefore(elem, this.nextSibling);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function () {\n    return jQuery.clone(this, dataAndEvents, deepDataAndEvents);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem) {\n    return [\n        elem.nextSibling,\n        elem.parentNode\n    ];\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (elem) {\n    var next = args[i++], parent = args[i++];\n    if (parent) {\n        if (next && next.parentNode !== parent) {\n            next = this.nextSibling;\n        }\n        jQuery(this).remove();\n        parent.insertBefore(elem, next);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "domManip"
+  },
+  {
+    "callback": "function (index) {\n    var self = set.eq(index);\n    if (isFunction) {\n        args[0] = value.call(this, index, self.html());\n    }\n    self.domManip(args, callback, allowIntersection);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, original) {\n    jQuery.fn[name] = function (selector) {\n        var elems, i = 0, ret = [], insert = jQuery(selector), last = insert.length - 1;\n        for (; i <= last; i++) {\n            elems = i === last ? this : this.clone(true);\n            jQuery(insert[i])[original](elems);\n            core_push.apply(ret, elems.get());\n        }\n        return this.pushStack(ret);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elem = this;\n    while (elem.firstChild && elem.firstChild.nodeType === 1) {\n        elem = elem.firstChild;\n    }\n    return elem;\n}",
+    "receiverBase": "wrap",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapInner(html.call(this, i));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var self = jQuery(this), contents = self.contents();\n    if (contents.length) {\n        contents.wrapAll(html);\n    } else {\n        self.append(html);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    jQuery(this).wrapAll(isFunction ? html.call(this, i) : html);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!jQuery.nodeName(this, 'body')) {\n        jQuery(this).replaceWith(this.childNodes);\n    }\n}",
+    "receiverBase": "parent",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem, name, value) {\n    var len, styles, map = {}, i = 0;\n    if (jQuery.isArray(name)) {\n        styles = getStyles(elem);\n        len = name.length;\n        for (; i < len; i++) {\n            map[name[i]] = jQuery.css(elem, name[i], false, styles);\n        }\n        return map;\n    }\n    return value !== undefined ? jQuery.style(elem, name, value) : jQuery.css(elem, name);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "access"
+  },
+  {
+    "callback": "function () {\n    if (bool ? state : isHidden(this)) {\n        jQuery(this).show();\n    } else {\n        jQuery(this).hide();\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return getWidthOrHeight(elem, name, extra);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "swap"
+  },
+  {
+    "callback": "function (i, prop) {\n    jQuery.cssHooks[prop] = {\n        get: function (elem, computed) {\n            if (computed) {\n                computed = curCSS(elem, prop);\n                return rnumnonpx.test(computed) ? jQuery(elem).position()[prop] + 'px' : computed;\n            }\n        }\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var elements = jQuery.prop(this, 'elements');\n    return elements ? jQuery.makeArray(elements) : this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var type = this.type;\n    return this.name && !jQuery(this).is(':disabled') && rsubmittable.test(this.nodeName) && !rsubmitterTypes.test(type) && (this.checked || !manipulation_rcheckableType.test(type));\n}",
+    "receiverBase": "map",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, elem) {\n    var val = jQuery(this).val();\n    return val == null ? null : jQuery.isArray(val) ? jQuery.map(val, function (val) {\n        return {\n            name: elem.name,\n            value: val.replace(rCRLF, '\\r\\n')\n        };\n    }) : {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return {\n        name: elem.name,\n        value: val.replace(rCRLF, '\\r\\n')\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    add(this.name, this.value);\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, v) {\n    if (traditional || rbracket.test(prefix)) {\n        add(prefix, v);\n    } else {\n        buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, name) {\n    jQuery.fn[name] = function (data, fn) {\n        return arguments.length > 0 ? this.on(name, null, data, fn) : this.trigger(name);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_, prefilterOrFactory) {\n    var dataTypeOrTransport = prefilterOrFactory(options, originalOptions, jqXHR);\n    if (typeof dataTypeOrTransport === 'string' && !seekingTransport && !inspected[dataTypeOrTransport]) {\n        options.dataTypes.unshift(dataTypeOrTransport);\n        inspect(dataTypeOrTransport);\n        return false;\n    } else if (seekingTransport) {\n        return !(selected = dataTypeOrTransport);\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (responseText) {\n    response = arguments;\n    self.html(selector ? jQuery('<div>').append(jQuery.parseHTML(responseText)).find(selector) : responseText);\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (i, type) {\n    jQuery.fn[type] = function (fn) {\n        return this.on(type, fn);\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jqXHR.abort('timeout');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, method) {\n    jQuery[method] = function (url, data, callback, type) {\n        if (jQuery.isFunction(data)) {\n            type = type || callback;\n            callback = data;\n            data = undefined;\n        }\n        return jQuery.ajax({\n            url: url,\n            type: method,\n            dataType: type,\n            data: data,\n            success: callback\n        });\n    };\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    if (s.cache === undefined) {\n        s.cache = false;\n    }\n    if (s.crossDomain) {\n        s.type = 'GET';\n        s.global = false;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "ajaxPrefilter"
+  },
+  {
+    "callback": "function () {\n    window[callbackName] = overwritten;\n    if (s[callbackName]) {\n        s.jsonpCallback = originalSettings.jsonpCallback;\n        oldCallbacks.push(callbackName);\n    }\n    if (responseContainer && jQuery.isFunction(overwritten)) {\n        overwritten(responseContainer[0]);\n    }\n    responseContainer = overwritten = undefined;\n}",
+    "receiverBase": "jqXHR",
+    "receiverCallee": "always"
+  },
+  {
+    "callback": "function () {\n    return jQuery;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (dep) {\n    switch (dep) {\n    case 'require':\n        return req;\n    case 'exports':\n        return module.exports;\n    case 'module':\n        return module;\n    default:\n        return req(dep);\n    }\n}",
+    "receiverBase": "deps",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    doc.applyDeltas(e.data);\n    if (_self.$timeout)\n        return deferredUpdate.schedule(_self.$timeout);\n    _self.onUpdate();\n}",
+    "receiverBase": "sender",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    function makeArray(l) {\n        var a = new Array(l + 2);\n        a[0] = a[1] = 0;\n        return a;\n    }\n    var array = [], lengthBefore;\n    array.splice.apply(array, makeArray(20));\n    array.splice.apply(array, makeArray(26));\n    lengthBefore = array.length;\n    array.splice(5, 0, 'XXX');\n    lengthBefore + 1 == array.length;\n    if (lengthBefore + 1 == array.length) {\n        return true;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "freeze"
+  },
+  {
+    "callback": "function freeze(freezeObject) {\n    return function freeze(object) {\n        if (typeof object == 'function') {\n            return object;\n        } else {\n            return freezeObject(object);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function newCallback() {\n    _self.removeEventListener(eventName, newCallback);\n    callback.apply(null, arguments);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (str) {\n    matches.push({\n        offset: arguments[arguments.length - 2],\n        length: str.length\n    });\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (e) {\n    var n = t[o][1][e];\n    return s(n ? n : e);\n}",
+    "receiverBase": "t",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (value, index, list) {\n    results.push(iterator.call(context, value, index, list));\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    if (!initial) {\n        memo = value;\n        initial = true;\n    } else {\n        memo = iterator.call(context, memo, value, index, list);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    index = keys ? keys[--length] : --length;\n    if (!initial) {\n        memo = obj[index];\n        initial = true;\n    } else {\n        memo = iterator.call(context, memo, obj[index], index, list);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    if (predicate.call(context, value, index, list)) {\n        result = value;\n        return true;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (value, index, list) {\n    if (predicate.call(context, value, index, list))\n        results.push(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    return !predicate.call(context, value, index, list);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (value, index, list) {\n    if (!(result = result && predicate.call(context, value, index, list)))\n        return breaker;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    if (result || (result = predicate.call(context, value, index, list)))\n        return breaker;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    return value === target;\n}",
+    "receiverBase": "",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (value) {\n    return (isFunc ? method : value[method]).apply(value, args);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, index, list) {\n    var computed = iterator ? iterator.call(context, value, index, list) : value;\n    if (computed > lastComputed) {\n        result = value;\n        lastComputed = computed;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    var computed = iterator ? iterator.call(context, value, index, list) : value;\n    if (computed < lastComputed) {\n        result = value;\n        lastComputed = computed;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value) {\n    rand = _.random(index++);\n    shuffled[index - 1] = shuffled[rand];\n    shuffled[rand] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index, list) {\n    return {\n        value: value,\n        index: index,\n        criteria: iterator.call(context, value, index, list)\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (left, right) {\n    var a = left.criteria;\n    var b = right.criteria;\n    if (a !== b) {\n        if (a > b || a === void 0)\n            return 1;\n        if (a < b || b === void 0)\n            return -1;\n    }\n    return left.index - right.index;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (value, index) {\n    var key = iterator.call(context, value, index, obj);\n    behavior(result, key, value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (result, key, value) {\n    _.has(result, key) ? result[key].push(value) : result[key] = [value];\n}",
+    "receiverBase": "",
+    "receiverCallee": "group"
+  },
+  {
+    "callback": "function (result, key, value) {\n    result[key] = value;\n}",
+    "receiverBase": "",
+    "receiverCallee": "group"
+  },
+  {
+    "callback": "function (result, key) {\n    _.has(result, key) ? result[key]++ : result[key] = 1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "group"
+  },
+  {
+    "callback": "function (value) {\n    if (_.isArray(value) || _.isArguments(value)) {\n        shallow ? push.apply(output, value) : flatten(value, shallow, output);\n    } else {\n        output.push(value);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elem) {\n    (predicate(elem) ? pass : fail).push(elem);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, index) {\n    if (isSorted ? !index || seen[seen.length - 1] !== value : !_.contains(seen, value)) {\n        seen.push(value);\n        results.push(array[index]);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    return _.every(rest, function (other) {\n        return _.contains(other, item);\n    });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (other) {\n    return _.contains(other, item);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (value) {\n    return !_.contains(rest, value);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (f) {\n    obj[f] = _.bind(obj[f], obj);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return func.apply(null, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (source) {\n    if (source) {\n        for (var prop in source) {\n            obj[prop] = source[prop];\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key) {\n    if (key in obj)\n        copy[key] = obj[key];\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (source) {\n    if (source) {\n        for (var prop in source) {\n            if (obj[prop] === void 0)\n                obj[prop] = source[prop];\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    _['is' + name] = function (obj) {\n        return toString.call(obj) == '[object ' + name + ']';\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (method) {\n    _[method] = function (string) {\n        if (string == null)\n            return '';\n        return ('' + string).replace(entityRegexes[method], function (match) {\n            return entityMap[method][match];\n        });\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match) {\n    return entityMap[method][match];\n}",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (name) {\n    var func = _[name] = obj[name];\n    _.prototype[name] = function () {\n        var args = [this._wrapped];\n        push.apply(args, arguments);\n        return result.call(this, func.apply(_, args));\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match) {\n    return '\\\\' + escapes[match];\n}",
+    "receiverBase": "slice",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (name) {\n    var method = ArrayProto[name];\n    _.prototype[name] = function () {\n        var obj = this._wrapped;\n        method.apply(obj, arguments);\n        if ((name == 'shift' || name == 'splice') && obj.length === 0)\n            delete obj[0];\n        return result.call(this, obj);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    var method = ArrayProto[name];\n    _.prototype[name] = function () {\n        return result.call(this, method.apply(this._wrapped, arguments));\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return _;\n}",
+    "receiverBase": "ace",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (a, b) {\n    var r = data[b];\n    return typeof r === 'string' || typeof r === 'number' ? r : a;\n}",
+    "receiverBase": "str",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (name) {\n    if (_.has(JSHINT.blacklist, name))\n        return;\n    dest[name] = src[name];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    return ignored[err.line];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "reject"
+  },
+  {
+    "callback": "function (g) {\n    g = g.split(':');\n    var key = (g[0] || '').trim();\n    var val = (g[1] || '').trim();\n    if (key.charAt(0) === '-') {\n        key = key.slice(1);\n        val = false;\n        JSHINT.blacklist[key] = key;\n        delete predefined[key];\n    } else {\n        predef[key] = val === 'true';\n    }\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    exported[e] = true;\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (m) {\n    var ch1 = m.charAt(0);\n    var ch2 = m.charAt(m.length - 1);\n    if (ch1 === ch2 && (ch1 === '\"' || ch1 === '\\'')) {\n        m = m.substr(1, m.length - 2).replace('\\\\\"', '\"');\n    }\n    membersOnly[m] = false;\n}",
+    "receiverBase": "body",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (typeof v === 'function') {\n        v(this);\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "reserve"
+  },
+  {
+    "callback": "function (t) {\n    if (t && funct[t.value] === 'const') {\n        error('E013', t, t.value);\n    }\n}",
+    "receiverBase": "first",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (left, that) {\n    if (state.option.bitwise) {\n        warning('W016', that, that.id);\n    }\n    if (left) {\n        if (left.id === '.' || left.id === '[' || left.identifier && !isReserved(left)) {\n            expression(10);\n            return that;\n        }\n        if (left === state.syntax['function']) {\n            warning('W023', state.tokens.curr);\n        }\n        return that;\n    }\n    error('E031', that);\n}",
+    "receiverBase": "",
+    "receiverCallee": "assignop"
+  },
+  {
+    "callback": "function (tok) {\n    isundef(funct, 'W117', tok.token, tok.id);\n}",
+    "receiverBase": "values",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "type"
+  },
+  {
+    "callback": "function (x) {\n    if (state.directive['use strict'] && funct['(global)']) {\n        warning('E008', x);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "reservevar"
+  },
+  {
+    "callback": "function (x) {\n    if (state.directive['use strict'] && !state.option.validthis && (funct['(statement)'] && funct['(name)'].charAt(0) > 'Z' || funct['(global)'])) {\n        warning('W040', x);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "reservevar"
+  },
+  {
+    "callback": "function (left, that) {\n    var expr;\n    that.exprs = [left];\n    if (!comma({ peek: true })) {\n        return that;\n    }\n    while (true) {\n        if (!(expr = expression(10))) {\n            break;\n        }\n        that.exprs.push(expr);\n        if (state.tokens.next.value !== ',' || !comma()) {\n            break;\n        }\n    }\n    return that;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function (left, that) {\n    increaseComplexityCount();\n    that.left = left;\n    that.right = expression(10);\n    advance(':');\n    that['else'] = expression(10);\n    return that;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function (left, that) {\n    increaseComplexityCount();\n    that.left = left;\n    that.right = expression(orPrecendence);\n    return that;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function (left, right) {\n    if (isTypoTypeof(right, left)) {\n        warning('W122', this, right.value);\n    } else if (isTypoTypeof(left, right)) {\n        warning('W122', this, left.value);\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "relation"
+  },
+  {
+    "callback": "function (left, right) {\n    if (isTypoTypeof(right, left)) {\n        warning('W122', this, right.value);\n    } else if (isTypoTypeof(left, right)) {\n        warning('W122', this, left.value);\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "relation"
+  },
+  {
+    "callback": "function (left, that) {\n    var right = expression(130);\n    if (left && right && left.id === '(string)' && right.id === '(string)') {\n        left.value += right.value;\n        left.character = right.character;\n        if (!state.option.scripturl && reg.javascriptURL.test(left.value)) {\n            warning('W050', left);\n        }\n        return left;\n    }\n    that.left = left;\n    that.right = right;\n    return that;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function () {\n    warning('W007');\n    this.right = expression(150);\n    this.arity = 'unary';\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function (left) {\n    warning('W007');\n    this.left = left;\n    this.right = expression(130);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function () {\n    warning('W006');\n    this.right = expression(150);\n    this.arity = 'unary';\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function (left) {\n    warning('W006');\n    this.left = left;\n    this.right = expression(130);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "infix"
+  },
+  {
+    "callback": "function () {\n    var p = expression(10);\n    if (!p || p.id !== '.' && p.id !== '[') {\n        warning('W051');\n    }\n    this.first = p;\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function () {\n    if (state.option.bitwise) {\n        warning('W052', this, '~');\n    }\n    expression(150);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function () {\n    if (!state.option.inESNext()) {\n        warning('W104', this, 'spread/rest operator');\n    }\n    if (!state.tokens.next.identifier) {\n        error('E030', state.tokens.next, state.tokens.next.value);\n    }\n    expression(150);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function () {\n    this.right = expression(150);\n    this.arity = 'unary';\n    if (!this.right) {\n        quit('E041', this.line || 0);\n    }\n    if (bang[this.right.id] === true) {\n        warning('W018', this, '!');\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function (item) {\n    return !_.contains(_.union(fatarrowparams), item[2]);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (key) {\n    if (key[0] === '(')\n        return;\n    funct['(blockscope)'].unshadow(key);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    var token = val[0];\n    var value = val[1];\n    if (token && value)\n        token.first = value;\n    else if (token && token.first && !value)\n        warning('W080', token.first, token.first.value);\n}",
+    "receiverBase": "zip",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return classdef.call(this, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "blockstmt"
+  },
+  {
+    "callback": "function () {\n    var generator = false;\n    if (state.tokens.next.value === '*') {\n        if (!state.option.inESNext()) {\n            warning('W119', state.tokens.curr, 'function*');\n        }\n        advance('*');\n        generator = true;\n    }\n    var i = optionalidentifier();\n    doFunction(i, undefined, generator);\n    if (!state.option.loopfunc && funct['(loopage)']) {\n        warning('W083');\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "prefix"
+  },
+  {
+    "callback": "function () {\n    var t = state.tokens.next;\n    increaseComplexityCount();\n    state.condition = true;\n    advance('(');\n    checkCondAssignment(expression(0));\n    advance(')', t);\n    state.condition = false;\n    block(true, true);\n    if (state.tokens.next.id === 'else') {\n        advance('else');\n        if (state.tokens.next.id === 'if' || state.tokens.next.id === 'switch') {\n            statement(true);\n        } else {\n            block(true, true);\n        }\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "blockstmt"
+  },
+  {
+    "callback": "function () {\n    var t = state.tokens.next;\n    funct['(breakage)'] += 1;\n    funct['(loopage)'] += 1;\n    increaseComplexityCount();\n    advance('(');\n    checkCondAssignment(expression(0));\n    advance(')', t);\n    block(true, true);\n    funct['(breakage)'] -= 1;\n    funct['(loopage)'] -= 1;\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "blockstmt"
+  },
+  {
+    "callback": "function () {\n    var t = state.tokens.next;\n    if (state.directive['use strict']) {\n        error('E010', state.tokens.curr);\n    } else if (!state.option.withstmt) {\n        warning('W085', state.tokens.curr);\n    }\n    advance('(');\n    expression(0);\n    advance(')', t);\n    block(true, true);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "blockstmt"
+  },
+  {
+    "callback": "function () {\n    if (!state.option.debug) {\n        warning('W087', this);\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "stmt"
+  },
+  {
+    "callback": "function () {\n    funct['(breakage)'] += 1;\n    funct['(loopage)'] += 1;\n    increaseComplexityCount();\n    this.first = block(true, true);\n    advance('while');\n    var t = state.tokens.next;\n    advance('(');\n    checkCondAssignment(expression(0));\n    advance(')', t);\n    funct['(breakage)'] -= 1;\n    funct['(loopage)'] -= 1;\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "stmt"
+  },
+  {
+    "callback": "function (x) {\n    x.exps = true;\n    x.lbp = 25;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    nolinebreak(this);\n    this.first = expression(20);\n    reachable('throw');\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "stmt"
+  },
+  {
+    "callback": "function (elt) {\n    if (elt.value === v) {\n        elt.undef = false;\n        return v;\n    }\n}",
+    "receiverBase": "variables",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (elt) {\n    if (elt.value === v && !elt.undef) {\n        if (elt.unused === true) {\n            elt.unused = false;\n        }\n        return v;\n    }\n}",
+    "receiverBase": "variables",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (v) {\n    if (v.unused)\n        warning('W098', v.token, v.value);\n    if (v.undef)\n        isundef(v.funct, 'W117', v.token, v.value);\n}",
+    "receiverBase": "variables",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (item) {\n    var slice, prop;\n    if (item[0] === '-') {\n        slice = item.slice(1);\n        JSHINT.blacklist[slice] = slice;\n    } else {\n        prop = Object.getOwnPropertyDescriptor(o.predef, item);\n        predefined[item] = prop ? prop.value : false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    exported[item] = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (func) {\n    func(api);\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ev) {\n    warningAt.apply(null, [\n        ev.code,\n        ev.line,\n        ev.character\n    ].concat(ev.data));\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    errorAt.apply(null, [\n        ev.code,\n        ev.line,\n        ev.character\n    ].concat(ev.data));\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    quit('E041', ev.line, ev.from);\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    emitter.emit('Identifier', ev);\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    emitter.emit('String', ev);\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    emitter.emit('Number', ev);\n}",
+    "receiverBase": "lex",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return state.jsonMode && quote !== '\"';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return !state.option.multistr;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return state.jsonMode && state.option.multistr;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return state.jsonMode;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return n >= 0 && n <= 7 && state.directive['use strict'];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return state.jsonMode;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return state.jsonMode;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function (prefix) {\n    return inputTrimmed.indexOf(prefix) === 0;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (suffix) {\n    return inputTrimmed.indexOf(suffix, inputTrimmed.length - suffix.length) !== -1;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return token.base === 16 && state.jsonMode;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function () {\n    return state.directive['use strict'] && token.base === 8;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "triggerAsync"
+  },
+  {
+    "callback": "function (desc, code) {\n    exports.errors[code] = {\n        code: code,\n        desc: desc\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (desc, code) {\n    exports.warnings[code] = {\n        code: code,\n        desc: desc\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (desc, code) {\n    exports.info[code] = {\n        code: code,\n        desc: desc\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function style_scanProto(data) {\n    if (linter.getOption('proto')) {\n        return;\n    }\n    if (data.name === '__proto__') {\n        linter.warn('W103', {\n            line: data.line,\n            char: data.char,\n            data: [data.name]\n        });\n    }\n}",
+    "receiverBase": "linter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function style_scanIterator(data) {\n    if (linter.getOption('iterator')) {\n        return;\n    }\n    if (data.name === '__iterator__') {\n        linter.warn('W104', {\n            line: data.line,\n            char: data.char,\n            data: [data.name]\n        });\n    }\n}",
+    "receiverBase": "linter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function style_scanCamelCase(data) {\n    if (!linter.getOption('camelcase')) {\n        return;\n    }\n    if (data.name.replace(/^_+|_+$/g, '').indexOf('_') > -1 && !data.name.match(/^[A-Z0-9_]*$/)) {\n        linter.warn('W106', {\n            line: data.line,\n            char: data.from,\n            data: [data.name]\n        });\n    }\n}",
+    "receiverBase": "linter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function style_scanJavaScriptURLs(data) {\n    var re = /^(?:javascript|jscript|ecmascript|vbscript|livescript)\\s*:/i;\n    if (linter.getOption('scripturl')) {\n        return;\n    }\n    if (re.test(data.value)) {\n        linter.warn('W107', {\n            line: data.line,\n            char: data.char\n        });\n    }\n}",
+    "receiverBase": "linter",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!hasClass('right_container', 'mode-feedview')) {\n        switchClass('right_container', 'mode-feedview');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    update('reload_button');\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    TreeView.destroy();\n    TreeView.count = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    update('reload_button');\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    setStyle('right_body', { fontSize: app.config.current_font + 'px' });\n    if (_$('config_form')) {\n        Form.fill('config_form', app.config);\n    }\n    update('show_all_button');\n    update(/mode_text.*/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    clearInterval(app.state.reloadTimer);\n    if (!app.config.use_autoreload)\n        return;\n    var freq = Math.max(app.config.autoreload, 60);\n    app.state.reloadTimer = setInterval(function () {\n        if (new Date() - app.state.LastUserAction > freq * 1000) {\n            Control.reload_subs();\n            app.state.LastUserAction = new Date();\n        }\n    }, freq * 200);\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function () {\n    if (new Date() - app.state.LastUserAction > freq * 1000) {\n        Control.reload_subs();\n        app.state.LastUserAction = new Date();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    if (!app.config.use_pinsaver)\n        return;\n    var api = new LDR.API('/api/pin/all');\n    api.post({}, function (pins) {\n        if (!pins || !pins.length) {\n            return;\n        }\n        pins.forEach(function (v) {\n            app.pin.pins.unshift({\n                url: v.link,\n                title: v.title,\n                created_on: v.created_on\n            });\n            app.pin.hash[v.link] = true;\n        });\n        app.pin.update_view();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function (pins) {\n    if (!pins || !pins.length) {\n        return;\n    }\n    pins.forEach(function (v) {\n        app.pin.pins.unshift({\n            url: v.link,\n            title: v.title,\n            created_on: v.created_on\n        });\n        app.pin.hash[v.link] = true;\n    });\n    app.pin.update_view();\n}",
+    "receiverBase": "api",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (v) {\n    app.pin.pins.unshift({\n        url: v.link,\n        title: v.title,\n        created_on: v.created_on\n    });\n    app.pin.hash[v.link] = true;\n}",
+    "receiverBase": "pins",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (feed) {\n    if (feed.ad) {\n        [\n            'right_bottom_navi',\n            'right_top_navi',\n            'feed_next',\n            'feed_prev'\n        ].forEach(function (id) {\n            var el = _$(id);\n            if (el)\n                el.innerHTML = '';\n        });\n        _$('feed_paging').style.display = 'none';\n    } else {\n        _$('feed_paging').style.display = 'block';\n        update('right_bottom_navi', 'right_top_navi', 'feed_next', 'feed_prev');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "register_hook"
+  },
+  {
+    "callback": "function (id) {\n    var el = _$(id);\n    if (el)\n        el.innerHTML = '';\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var actual = grunt.file.read('test/tmp/fixture.html');\n    assert.strictEqual(actual, '<div class=\"slide nodejs\"></div>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    al.hide('fade', function () {\n        wrap.remove();\n    });\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    wrap.remove();\n}",
+    "receiverBase": "al",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function (ev) {\n    var top = ev.clientY + 5;\n    var horiz = ev.clientX;\n    if ($('body').hasClass('synchtube'))\n        horiz -= profile.outerWidth();\n    profile.css('left', horiz + 'px').css('top', top + 'px');\n}",
+    "receiverBase": "name",
+    "receiverCallee": "mousemove"
+  },
+  {
+    "callback": "function () {\n    profile.remove();\n}",
+    "receiverBase": "name",
+    "receiverCallee": "mouseleave"
+  },
+  {
+    "callback": "function () {\n    if (IGNORED.indexOf(name) == -1) {\n        ignore.text('Unignore User');\n        IGNORED.push(name);\n    } else {\n        ignore.text('Ignore User');\n        IGNORED.splice(IGNORED.indexOf(name), 1);\n    }\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    initPm(name).find('.panel-heading').click();\n    menu.hide();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('assignLeader', { name: '' });\n}",
+    "receiverBase": "ldr",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('assignLeader', { name: name });\n}",
+    "receiverBase": "ldr",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var reason = prompt('Enter kick reason (optional)');\n    if (reason === null) {\n        return;\n    }\n    socket.emit('chatMsg', {\n        msg: '/kick ' + name + ' ' + reason,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('chatMsg', {\n        msg: '/mute ' + name,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('chatMsg', {\n        msg: '/smute ' + name,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('chatMsg', {\n        msg: '/unmute ' + name,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var reason = prompt('Enter ban reason (optional)');\n    if (reason === null) {\n        return;\n    }\n    socket.emit('chatMsg', {\n        msg: '/ban ' + name + ' ' + reason,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var reason = prompt('Enter ban reason (optional)');\n    if (reason === null) {\n        return;\n    }\n    socket.emit('chatMsg', {\n        msg: '/ipban ' + name + ' ' + reason,\n        meta: {}\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    if (menu.has(e.target).length === 0 && entry.parent().has(e.target).length === 0) {\n        menu.hide();\n        $(document).unbind('mouseup.userlist-ddown');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (index, item) {\n    var data = { rank: $(item).data('rank') };\n    if (data.rank >= 255)\n        breakdown['Site Admins']++;\n    else if (data.rank >= 3)\n        breakdown['Channel Admins']++;\n    else if (data.rank == 2)\n        breakdown['Moderators']++;\n    else if (data.rank >= 1)\n        breakdown['Regular Users']++;\n    else\n        breakdown['Guests']++;\n    total++;\n    if ($(item).data('afk'))\n        breakdown['AFK']++;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (item) {\n    $(item).detach();\n}",
+    "receiverBase": "list",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    $(item).appendTo($('#userlist'));\n}",
+    "receiverBase": "list",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    socket.emit('jumpTo', li.data('uid'));\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('moveMedia', {\n        from: li.data('uid'),\n        after: PL_CURRENT\n    });\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('setTemp', {\n        uid: li.data('uid'),\n        temp: !li.data('temp')\n    });\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('delete', li.data('uid'));\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var icon = $(this).find('.glyphicon');\n    $(this).html('');\n    icon.appendTo(this);\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.shiftKey)\n        return true;\n    ev.preventDefault();\n    if (menu.css('display') == 'none')\n        menu.show('blind');\n    else\n        menu.hide('blind');\n    return false;\n}",
+    "receiverBase": "li",
+    "receiverCallee": "contextmenu"
+  },
+  {
+    "callback": "function () {\n    var li = $(this);\n    (function (i, r) {\n        setTimeout(function () {\n            if (REBUILDING != r)\n                return;\n            addQueueButtons(li);\n            if (i == qli.length - 1) {\n                scrollQueue();\n                REBUILDING = false;\n            }\n        }, 10 * i);\n    }(i, r));\n    i++;\n}",
+    "receiverBase": "qli",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, r) {\n    setTimeout(function () {\n        if (REBUILDING != r)\n            return;\n        addQueueButtons(li);\n        if (i == qli.length - 1) {\n            scrollQueue();\n            REBUILDING = false;\n        }\n    }, 10 * i);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (REBUILDING != r)\n        return;\n    addQueueButtons(li);\n    if (i == qli.length - 1) {\n        scrollQueue();\n        REBUILDING = false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    unhidePlayer();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($('#chatline').val().trim()) {\n        socket.emit('chatMsg', {\n            msg: $('#chatline').val(),\n            meta: {}\n        });\n        $('#chatline').val('');\n    }\n}",
+    "receiverBase": "btn",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    menu.remove();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var opts = [];\n    menu.find('.poll-menu-option').each(function () {\n        if ($(this).val() != '')\n            opts.push($(this).val());\n    });\n    socket.emit('newPoll', {\n        title: title.val(),\n        opts: opts,\n        obscured: hidden.prop('checked'),\n        timeout: timeout.val() ? parseInt(timeout.val()) : undefined\n    });\n    menu.remove();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if ($(this).val() != '')\n        opts.push($(this).val());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    setVisible(selector, bool);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    USEROPTS.first_visit = false;\n    storeOpts();\n    al.hide('fade', function () {\n        al.remove();\n    });\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    al.remove();\n}",
+    "receiverBase": "al",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    socket.emit('closePoll');\n}",
+    "receiverBase": "insertAfter",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    wtf.addClass('pull-right');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    socket.emit('queue', {\n        id: id,\n        pos: 'next',\n        type: type,\n        temp: $('.add-temp').prop('checked')\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('queue', {\n        id: id,\n        pos: 'end',\n        type: type,\n        temp: $('.add-temp').prop('checked')\n    });\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('uncache', { id: id });\n    li.hide('fade', function () {\n        li.remove();\n    });\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    li.remove();\n}",
+    "receiverBase": "li",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    lifrom.detach();\n    lifrom.prependTo(q);\n    lifrom.show('blind', cb);\n}",
+    "receiverBase": "lifrom",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    lifrom.detach();\n    lifrom.appendTo(q);\n    lifrom.show('blind', cb);\n}",
+    "receiverBase": "lifrom",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    lifrom.detach();\n    lifrom.insertAfter(liafter);\n    lifrom.show('blind', cb);\n}",
+    "receiverBase": "lifrom",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function (kv) {\n    kv = kv.split('=');\n    params[kv[0]] = kv[1];\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (seconds) {\n    socket.emit('mediaUpdate', {\n        id: PLAYER.videoId,\n        currentTime: seconds,\n        paused: PLAYER.paused,\n        type: PLAYER.type\n    });\n}",
+    "receiverBase": "PLAYER",
+    "receiverCallee": "getTime"
+  },
+  {
+    "callback": "function () {\n    if (SCROLLCHAT) {\n        scrollChat();\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n    $('.chat-msg-' + safeUsername).addClass('nick-hover');\n}",
+    "receiverBase": "div",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function () {\n    $('.nick-hover').removeClass('nick-hover');\n}",
+    "receiverBase": "div",
+    "receiverCallee": "mouseleave"
+  },
+  {
+    "callback": "function () {\n    if (document.title == '*Chat*')\n        document.title = PAGETITLE;\n    else\n        document.title = '*Chat*';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    $('#channeloptions').modal();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var perms = {};\n    form.find('select').each(function () {\n        perms[$(this).data('key')] = parseFloat($(this).val());\n    });\n    socket.emit('setPermissions', perms);\n}",
+    "receiverBase": "submit",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    perms[$(this).data('key')] = parseFloat($(this).val());\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    msggroup.hide('fade', function () {\n        msggroup.remove();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    msggroup.remove();\n}",
+    "receiverBase": "msggroup",
+    "receiverCallee": "hide"
+  },
+  {
+    "callback": "function () {\n    waitUntilDefined(obj, key, fn);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    div.remove();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    morelinks.toggle();\n}",
+    "receiverBase": "tag",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (ln) {\n    return ln.indexOf('[') === 0 && ln.indexOf(']') > 0;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (ln) {\n    keys[getKey(ln)] = true;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    $('<option/>').attr('value', key).text(key).appendTo(select);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (ln) {\n    var key = getKey(ln);\n    if (!filter || !key && filter.indexOf('chat') !== -1) {\n        show.push(ln);\n    } else if (filter.indexOf(key) >= 0) {\n        show.push(ln);\n    }\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    unhidePlayer();\n    wrap.remove();\n}",
+    "receiverBase": "wrap",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a.rank === b.rank) {\n        var x = a.name.toLowerCase();\n        var y = b.name.toLowerCase();\n        return y == x ? 0 : x < y ? -1 : 1;\n    }\n    return b.rank - a.rank;\n}",
+    "receiverBase": "entries",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    socket.emit('setChannelRank', {\n        name: entry.name,\n        rank: r.rank\n    });\n}",
+    "receiverBase": "a",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (a, b) {\n    var x = a.name.toLowerCase(), y = b.name.toLowerCase();\n    return x === y ? 0 : x > y ? 1 : -1;\n}",
+    "receiverBase": "flat",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    socket.emit('unban', {\n        id: entry.id,\n        name: entry.name\n    });\n}",
+    "receiverBase": "unban",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (showmore.data('elems')) {\n        showmore.data('elems').forEach(function (e) {\n            e.remove();\n        });\n        showmore.data('elems', null);\n    } else {\n        var elems = [];\n        bans.forEach(function (b) {\n            elems.push(addBanRow(b, first));\n        });\n        showmore.data('elems', elems);\n    }\n}",
+    "receiverBase": "showmore",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    e.remove();\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (b) {\n    elems.push(addBanRow(b, first));\n}",
+    "receiverBase": "bans",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    socket.emit('removeFilter', f);\n}",
+    "receiverBase": "del",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    f.active = $(this).prop('checked');\n    socket.emit('updateFilter', f);\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    reset();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    socket.emit('removeEmote', f);\n}",
+    "receiverBase": "del",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.keyCode === 13) {\n        finish();\n    }\n}",
+    "receiverBase": "edit",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (a, b) {\n    var x = a.name.toLowerCase();\n    var y = b.name.toLowerCase();\n    return x == y ? 0 : x < y ? -1 : 1;\n}",
+    "receiverBase": "list",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    socket.emit('queuePlaylist', {\n        name: pl.name,\n        pos: 'end',\n        temp: $('.add-temp').prop('checked')\n    });\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('queuePlaylist', {\n        name: pl.name,\n        pos: 'next',\n        temp: $('.add-temp').prop('checked')\n    });\n}",
+    "receiverBase": "prependTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    socket.emit('deletePlaylist', { name: pl.name });\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    e.regex = new RegExp(e.source, 'gi');\n    CHANNEL.emotes.push(e);\n}",
+    "receiverBase": "data",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    msg = msg.replace(e.regex, '$1<img class=\"channel-emote\" src=\"' + e.image + '\" title=\"' + e.name + '\">');\n}",
+    "receiverBase": "emotes",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    pm.remove();\n    $('#pm-placeholder-' + user).remove();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    body.toggle();\n    pm.removeClass('panel-primary').addClass('panel-default');\n    if (!body.is(':hidden')) {\n        placeholder = $('<div/>').addClass('pm-panel-placeholder').attr('id', 'pm-placeholder-' + user).insertAfter(pm);\n        var left = pm.position().left;\n        pm.css('position', 'absolute').css('bottom', '0px').css('left', left);\n    } else {\n        pm.css('position', '');\n        $('#pm-placeholder-' + user).remove();\n    }\n}",
+    "receiverBase": "title",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    killVideoUntilItIsDead($(this));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    killVideoUntilItIsDead($(this));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    checkScriptAccess(source, type, cb);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    dialog.remove();\n    cb('DENY');\n}",
+    "receiverBase": "close",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var save = $('#chanjs-save-pref').is(':checked');\n    dialog.remove();\n    if (save) {\n        JSPREF[CHANNEL.name.toLowerCase() + '_' + type] = 'ALLOW';\n        setOpt('channel_js_pref', JSPREF);\n    }\n    cb('ALLOW');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var save = $('#chanjs-save-pref').is(':checked');\n    dialog.remove();\n    if (save) {\n        JSPREF[CHANNEL.name.toLowerCase() + '_' + type] = 'DENY';\n        setOpt('channel_js_pref', JSPREF);\n    }\n    cb('DENY');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (allow.is(':checked')) {\n        JSPREF[channel] = 'ALLOW';\n        setOpt('channel_js_pref', JSPREF);\n        deny.prop('checked', false);\n    }\n}",
+    "receiverBase": "allow",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    if (deny.is(':checked')) {\n        JSPREF[channel] = 'DENY';\n        setOpt('channel_js_pref', JSPREF);\n        allow.prop('checked', false);\n    }\n}",
+    "receiverBase": "deny",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    delete JSPREF[channel];\n    setOpt('channel_js_pref', JSPREF);\n    tr.remove();\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (a) {\n    var c = meta[a];\n    return typeof c === 'string' ? c : '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "string",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (a) {\n    return '\\\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  }
+]

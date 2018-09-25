@@ -1,0 +1,679 @@
+[
+  {
+    "callback": "function (match) {\n    chunkObj.startTag = chunkObj.startTag + match;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.startTag = chunkObj.startTag + match;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.endTag = match + chunkObj.endTag;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    chunkObj.endTag = match + chunkObj.endTag;\n    return '';\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, flagsPart) {\n    flags = flagsPart;\n    return '';\n}",
+    "receiverBase": "pattern",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (range) {\n    stateObj.before = inputArea.session.getTextRange(new Range(0, 0, range.start.row, range.start.column));\n    stateObj.selection = inputArea.session.getTextRange();\n    stateObj.after = inputArea.session.getTextRange(new Range(range.end.row, range.end.column, Number.MAX_VALUE, Number.MAX_VALUE));\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (posStart, posEnd) {\n    return new Range(posStart.row, posStart.column, posEnd.row, posEnd.column);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (posStart, posEnd) {\n    return new Range(posStart.row, posStart.column, posEnd.row, posEnd.column);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (line, marked) {\n    if (new re('^' + that.prefixes, '').test(line)) {\n        return line;\n    }\n    return marked + '\\n';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, id, link, newlines, title) {\n    defsToAdd[id] = totalMatch.replace(/\\s*$/, '');\n    if (newlines) {\n        defsToAdd[id] = totalMatch.replace(/[\"(](.+?)[\")]$/, '');\n        return newlines + title;\n    }\n    return '';\n}",
+    "receiverBase": "text",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (querypart) {\n    return querypart.replace(/\\+/g, ' ');\n}",
+    "receiverBase": "link",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (querypart) {\n    return querypart.replace(/\\+/g, '%2b');\n}",
+    "receiverBase": "link",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch) {\n    chunk.selection = wholeMatch;\n    return '';\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, newlinesBefore, text, newlinesAfter) {\n    chunk.before += newlinesBefore;\n    chunk.after = newlinesAfter + chunk.after;\n    return text;\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, blankLine) {\n    chunk.selection = blankLine + chunk.selection;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, markdown) {\n    return '\\n' + markdown.replace(/^[ ]{0,3}>?[ \\t]*$/gm, replacement) + '\\n';\n}",
+    "receiverBase": "startTag",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch, markdown) {\n    return '\\n' + markdown.replace(/^[ ]{0,3}>?[ \\t]*$/gm, replacement) + '\\n';\n}",
+    "receiverBase": "endTag",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (wholeMatch, blanks) {\n    chunk.startTag += blanks;\n    return '';\n}",
+    "receiverBase": "selection",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (totalMatch) {\n    chunk.selection = totalMatch + chunk.selection;\n    return '';\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (_) {\n    return getItemPrefix();\n}",
+    "receiverBase": "itemText",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (itemText) {\n    if (/^\\s*([*+-])/.test(itemText)) {\n        bullet = re.$1;\n    }\n    nLinesUp = /[^\\n]\\n\\n[^\\n]/.test(itemText) ? 1 : 0;\n    return getPrefixedItem(itemText);\n}",
+    "receiverBase": "before",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (itemText) {\n    nLinesDown = /[^\\n]\\n\\n[^\\n]/.test(itemText) ? 1 : 0;\n    return getPrefixedItem(itemText);\n}",
+    "receiverBase": "after",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (dojo, dijit) {\n    console.warn('dijit-all may include much more code than your application actually requires. We strongly recommend that you investigate a custom build or the web build tool');\n    return dijit;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    removeHighlights();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    removeHighlights();\n    clearTimer();\n    var verse = $(this), verseId = verse.attr('data-osis');\n    $('.' + verseClass).removeClass(verseClass);\n    $('span.' + verseId.replace(/\\./gi, '_')).addClass(verseClass);\n}",
+    "receiverBase": "content",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    startTimer();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return function () {\n        throw new Error('The `tabs` directive is deprecated, please migrate to `tabset`. Instructions can be found at http://github.com/angular-ui/bootstrap/tree/master/CHANGELOG.md');\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (tab) {\n    tab.active = false;\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return {\n        restrict: 'EA',\n        transclude: true,\n        scope: {},\n        controller: 'TabsetController',\n        templateUrl: 'template/tabs/tabset.html',\n        link: function (scope, element, attrs) {\n            scope.vertical = angular.isDefined(attrs.vertical) ? scope.$eval(attrs.vertical) : false;\n            scope.type = angular.isDefined(attrs.type) ? scope.$parent.$eval(attrs.type) : 'tabs';\n        }\n    };\n}",
+    "receiverBase": "controller",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function updateActive(value) {\n    if (!!value && scope.disabled) {\n        setActive(scope.$parent, false);\n    } else {\n        scope.active = !!value;\n    }\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (active) {\n    setActive(scope.$parent, active);\n    if (active) {\n        tabsetCtrl.select(scope);\n        scope.onSelect();\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (value) {\n    scope.disabled = !!value;\n}",
+    "receiverBase": "$parent",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function () {\n    tabsetCtrl.removeTab(scope);\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (el) {\n    if (el.tagName && (el.hasAttribute('tab-heading') || el.hasAttribute('data-tab-heading') || el.tagName.toLowerCase() == 'tab-heading' || el.tagName.toLowerCase() == 'data-tab-heading')) {\n        heading = el;\n    } else {\n        contents.push(el);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function updateHeadingElement(heading) {\n    if (heading) {\n        elm.html('');\n        elm.append(heading);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (tab) {\n    elm.html('');\n    if (tab) {\n        elm.append(tab.contentElement);\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: 'b' })).to.equal('a=b');\n    expect(Qs.stringify({ a: 1 })).to.equal('a=1');\n    expect(Qs.stringify({\n        a: 1,\n        b: 2\n    })).to.equal('a=1&b=2');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: { b: 'c' } })).to.equal('a%5Bb%5D=c');\n    expect(Qs.stringify({ a: { b: { c: { d: 'e' } } } })).to.equal('a%5Bb%5D%5Bc%5D%5Bd%5D=e');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({\n        a: [\n            'b',\n            'c',\n            'd'\n        ]\n    })).to.equal('a%5B0%5D=b&a%5B1%5D=c&a%5B2%5D=d');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({\n        a: {\n            b: [\n                'c',\n                'd'\n            ]\n        }\n    })).to.equal('a%5Bb%5D%5B0%5D=c&a%5Bb%5D%5B1%5D=d');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: [{ b: 'c' }] })).to.equal('a%5B0%5D%5Bb%5D=c');\n    expect(Qs.stringify({ a: [{ b: { c: [1] } }] })).to.equal('a%5B0%5D%5Bb%5D%5Bc%5D%5B0%5D=1');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({\n        a: {\n            b: 'c',\n            d: 'e'\n        }\n    })).to.equal('a%5Bb%5D=c&a%5Bd%5D=e');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: '' })).to.equal('a=');\n    expect(Qs.stringify({\n        a: '',\n        b: ''\n    })).to.equal('a=&b=');\n    expect(Qs.stringify({ a: null })).to.equal('a=');\n    expect(Qs.stringify({ a: { b: null } })).to.equal('a%5Bb%5D=');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: undefined })).to.equal('');\n    expect(Qs.stringify({\n        a: {\n            b: undefined,\n            c: null\n        }\n    })).to.equal('a%5Bc%5D=');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: 'b c' })).to.equal('a=b%20c');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var now = new Date();\n    var str = 'a=' + encodeURIComponent(now.toISOString());\n    expect(Qs.stringify({ a: now })).to.equal(str);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ 'my weird field': 'q1!2\"\\'w$5&7/z8)?' })).to.equal('my%20weird%20field=q1!2%22\\'w%245%267%2Fz8)%3F');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    Object.prototype.crash = 'test';\n    expect(Qs.stringify({ a: 'b' })).to.equal('a=b');\n    expect(Qs.stringify({ a: { b: 'c' } })).to.equal('a%5Bb%5D=c');\n    delete Object.prototype.crash;\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: true })).to.equal('a=true');\n    expect(Qs.stringify({ a: { b: true } })).to.equal('a%5Bb%5D=true');\n    expect(Qs.stringify({ b: false })).to.equal('b=false');\n    expect(Qs.stringify({ b: { c: false } })).to.equal('b%5Bc%5D=false');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({ a: new Buffer('test') })).to.equal('a=test');\n    expect(Qs.stringify({ a: { b: new Buffer('test') } })).to.equal('a%5Bb%5D=test');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    expect(Qs.stringify({\n        a: 'b',\n        c: 'd'\n    }, { delimiter: ';' })).to.equal('a=b;c=d');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var tempBuffer = global.Buffer;\n    delete global.Buffer;\n    expect(Qs.stringify({\n        a: 'b',\n        c: 'd'\n    })).to.equal('a=b&c=d');\n    global.Buffer = tempBuffer;\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (val, key) {\n    return util.format('cb:error [%s] -> %s', key, val);\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    this.add({ one: 'anything' });\n    this.add({ two: 'anything' });\n    this.add({ three: 'anything' });\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function (fields, validOnly) {\n    if (fields.one !== fields.two) {\n        if (validOnly) {\n            delete fields.one;\n            delete fields.two;\n        } else {\n            return 'One and Two are different';\n        }\n    }\n    if (fields.three !== 'three') {\n        if (validOnly) {\n            delete fields.three;\n        } else {\n            return 'Three is not three';\n        }\n    }\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "postValidate"
+  },
+  {
+    "callback": "function (fields, validOnly) {\n    if (fields.one === 'heya' && fields.two === 'heya') {\n        if (validOnly) {\n            delete fields.one;\n            delete fields.two;\n        } else {\n            return 'One and Two are heya';\n        }\n    }\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "postValidate"
+  },
+  {
+    "callback": "function () {\n    instance.foo = this;\n    arglen.foo = arguments.length;\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    instance.bar = this;\n    arglen.bar = arguments.length;\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    instance = this;\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    instance = this;\n}",
+    "receiverBase": "validator",
+    "receiverCallee": "context"
+  },
+  {
+    "callback": "function () {\n    test.models.User = test.db.define('users', {\n        id: {\n            type: test.Sequelize.INTEGER,\n            autoIncrement: true,\n            primaryKey: true\n        },\n        username: {\n            type: test.Sequelize.STRING,\n            unique: true\n        },\n        email: {\n            type: test.Sequelize.STRING,\n            unique: true,\n            validate: { isEmail: true }\n        }\n    }, {\n        underscored: true,\n        timestamps: false\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (done) {\n    test.initializeDatabase(function () {\n        test.initializeServer(function () {\n            rest.initialize({\n                app: test.app,\n                sequelize: test.Sequelize\n            });\n            test.userResource = rest.resource({\n                model: test.models.User,\n                endpoints: [\n                    '/users',\n                    '/users/:id'\n                ]\n            });\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    test.initializeServer(function () {\n        rest.initialize({\n            app: test.app,\n            sequelize: test.Sequelize\n        });\n        test.userResource = rest.resource({\n            model: test.models.User,\n            endpoints: [\n                '/users',\n                '/users/:id'\n            ]\n        });\n        done();\n    });\n}",
+    "receiverBase": "test",
+    "receiverCallee": "initializeDatabase"
+  },
+  {
+    "callback": "function () {\n    rest.initialize({\n        app: test.app,\n        sequelize: test.Sequelize\n    });\n    test.userResource = rest.resource({\n        model: test.models.User,\n        endpoints: [\n            '/users',\n            '/users/:id'\n        ]\n    });\n    done();\n}",
+    "receiverBase": "test",
+    "receiverCallee": "initializeServer"
+  },
+  {
+    "callback": "function (done) {\n    test.clearDatabase(function () {\n        test.server.close(function () {\n            delete test.userResource;\n            done();\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    test.server.close(function () {\n        delete test.userResource;\n        done();\n    });\n}",
+    "receiverBase": "test",
+    "receiverCallee": "clearDatabase"
+  },
+  {
+    "callback": "function () {\n    delete test.userResource;\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "close"
+  },
+  {
+    "callback": "function () {\n    ContinueMiddleware = {\n        results: {\n            beforeCalled: false,\n            actionCalled: false\n        },\n        create: {\n            write: {\n                action: function (req, res, context) {\n                    ContinueMiddleware.results.actionCalled = true;\n                    context.continue();\n                }\n            }\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(ContinueMiddleware.results.beforeCalled).to.be.true;\n    expect(ContinueMiddleware.results.actionCalled).to.be.true;\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    ContinueMiddleware.create.write.before = function (req, res, context) {\n        ContinueMiddleware.results.beforeCalled = true;\n        context.continue();\n    };\n    test.userResource.use(ContinueMiddleware);\n    checkContinued(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    ContinueMiddleware.create.write.before = function (req, res, context) {\n        ContinueMiddleware.results.beforeCalled = true;\n        return context.continue;\n    };\n    test.userResource.use(ContinueMiddleware);\n    checkContinued(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    ContinueMiddleware.create.write.before = function (req, res, context) {\n        ContinueMiddleware.results.beforeCalled = true;\n        return new Promise(function (resolve) {\n            resolve(context.continue);\n        });\n    };\n    test.userResource.use(ContinueMiddleware);\n    checkContinued(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    StopMiddleware = {\n        results: {\n            beforeCalled: false,\n            actionCalled: false\n        },\n        create: {\n            write: {\n                action: function (req, res, context) {\n                    StopMiddleware.results.actionCalled = true;\n                    context.continue();\n                }\n            }\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(StopMiddleware.results.beforeCalled).to.be.true;\n    expect(StopMiddleware.results.actionCalled).to.be.false;\n    expect(response.statusCode).to.be.eql(420);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    StopMiddleware.create.write.before = function (req, res, context) {\n        StopMiddleware.results.beforeCalled = true;\n        setResponse(res);\n        context.stop();\n    };\n    test.userResource.use(StopMiddleware);\n    checkStopped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    StopMiddleware.create.write.before = function (req, res, context) {\n        StopMiddleware.results.beforeCalled = true;\n        setResponse(res);\n        return context.stop;\n    };\n    test.userResource.use(StopMiddleware);\n    checkStopped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    StopMiddleware.create.write.before = function (req, res, context) {\n        StopMiddleware.results.beforeCalled = true;\n        return new Promise(function (resolve) {\n            setResponse(res);\n            resolve(context.stop);\n        });\n    };\n    test.userResource.use(StopMiddleware);\n    checkStopped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    StopMiddleware.create.write.before = function (req, res, context) {\n        StopMiddleware.results.beforeCalled = true;\n        setResponse(res);\n        throw new RequestCompleted();\n    };\n    test.userResource.use(StopMiddleware);\n    checkStopped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(SkipMiddleware.results.beforeCalled).to.be.true;\n    expect(SkipMiddleware.results.actionCalled).to.be.false;\n    expect(SkipMiddleware.results.sendCalled).to.be.true;\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    SkipMiddleware.create.write.before = function (req, res, context) {\n        SkipMiddleware.results.beforeCalled = true;\n        context.skip();\n    };\n    test.userResource.use(SkipMiddleware);\n    checkSkipped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    SkipMiddleware.create.write.before = function (req, res, context) {\n        SkipMiddleware.results.beforeCalled = true;\n        return context.skip;\n    };\n    test.userResource.use(SkipMiddleware);\n    checkSkipped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    SkipMiddleware.create.write.before = function (req, res, context) {\n        SkipMiddleware.results.beforeCalled = true;\n        return new Promise(function (resolve) {\n            resolve(context.skip);\n        });\n    };\n    test.userResource.use(SkipMiddleware);\n    checkSkipped(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    ErrorMiddleware = {\n        results: {\n            beforeCalled: false,\n            actionCalled: false\n        },\n        create: {\n            write: {\n                action: function (req, res, context) {\n                    ErrorMiddleware.results.actionCalled = true;\n                    context.continue();\n                }\n            }\n        }\n    };\n    error = new EpilogueError(420, 'test error', [\n        'test',\n        'error'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(ErrorMiddleware.results.beforeCalled).to.be.true;\n    expect(ErrorMiddleware.results.actionCalled).to.be.false;\n    expect(response.statusCode).to.be.eql(error.status);\n    expect(body.message).to.be.eql(error.message);\n    expect(body.errors).to.be.eql(error.errors);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (done) {\n    ErrorMiddleware.create.write.before = function (req, res, context) {\n        ErrorMiddleware.results.beforeCalled = true;\n        throw error;\n    };\n    test.userResource.use(ErrorMiddleware);\n    checkErrored(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    ErrorMiddleware.create.write.before = function (req, res, context) {\n        ErrorMiddleware.results.beforeCalled = true;\n        return new Promise(function (resolve) {\n            throw error;\n        });\n    };\n    test.userResource.use(ErrorMiddleware);\n    checkErrored(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    ErrorMiddleware.create.write.before = function (req, res, context) {\n        ErrorMiddleware.results.beforeCalled = true;\n        setTimeout(function () {\n            context.error(error);\n        }, 200);\n    };\n    test.userResource.use(ErrorMiddleware);\n    checkErrored(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context.error(error);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (done) {\n    ErrorMiddleware.create.write.before = function (req, res, context) {\n        ErrorMiddleware.results.beforeCalled = true;\n        context.error(420, 'test error', [\n            'test',\n            'error'\n        ]);\n    };\n    test.userResource.use(ErrorMiddleware);\n    checkErrored(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(body).to.equal(expectedBody);\n    expect(response.statusCode).to.equal(400);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(SkipMiddleware.results.afterCalled).to.be.true;\n    expect(SkipMiddleware.results.beforeCalled).to.be.true;\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(SkipMiddleware.results.beforeCalled).to.be.true;\n    expect(SkipMiddleware.results.actionCalled).to.be.false;\n    expect(SkipMiddleware.results.afterCalled).to.be.false;\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    try {\n        test.userResource.controllers.create.milestone('stert', function (req, res, context) {\n        });\n    } catch (error) {\n        expect(error.message).to.equal('invalid milestone: stert');\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, context) {\n}",
+    "receiverBase": "create",
+    "receiverCallee": "milestone"
+  },
+  {
+    "callback": "function (done) {\n    var startCount;\n    test.userResource.read.start(function (req, res, context) {\n        startCount = 1;\n        return context.continue;\n    });\n    test.userResource.read.start(function (req, res, context) {\n        startCount++;\n        return context.continue;\n    });\n    request.get({ url: test.baseUrl + '/users/1' }, function (err, response, body) {\n        expect(startCount).to.equal(2);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (req, res, context) {\n    startCount = 1;\n    return context.continue;\n}",
+    "receiverBase": "read",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (req, res, context) {\n    startCount++;\n    return context.continue;\n}",
+    "receiverBase": "read",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(startCount).to.equal(2);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (req, res, context) {\n    context.instance = mockData;\n    return context.skip;\n}",
+    "receiverBase": "fetch",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(err).to.be.null;\n    expect(response.statusCode).to.equal(201);\n    var path = response.headers.location;\n    request.get({ url: test.baseUrl + path }, function (err, response, body) {\n        var record = _.isObject(body) ? body : JSON.parse(body);\n        delete record.id;\n        expect(response.statusCode).to.equal(200);\n        expect(record).to.eql(mockData);\n        done();\n    });\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, response, body) {\n    var record = _.isObject(body) ? body : JSON.parse(body);\n    delete record.id;\n    expect(response.statusCode).to.equal(200);\n    expect(record).to.eql(mockData);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (req, res, context) {\n    context.instance.email = 'injected@email.com';\n    return context.skip;\n}",
+    "receiverBase": "fetch",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function (err, response, body) {\n    expect(err).to.be.null;\n    expect(response.statusCode).to.equal(201);\n    var path = response.headers.location;\n    request.get({ url: test.baseUrl + path }, function (err, response, body) {\n        var record = _.isObject(body) ? body : JSON.parse(body);\n        delete record.id;\n        expect(response.statusCode).to.equal(200);\n        expect(record).to.eql(expected);\n        done();\n    });\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (err, response, body) {\n    var record = _.isObject(body) ? body : JSON.parse(body);\n    delete record.id;\n    expect(response.statusCode).to.equal(200);\n    expect(record).to.eql(expected);\n    done();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    request(app).get('/filtermatching/bits/im_not_ts.js').expect(200).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    request(app).get('/filtermatching/xcoffee/im_not_coffee.js').expect(200).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    request(app).get('/filtermatching/unless/im_not_less.css').expect(200).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    request(app).get('/filtermatching/badstyle/im_not_stylus.css').expect(200).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (d) {\n    data += d;\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, res, body) {\n    t.equal(err, null);\n    t.equal(res.statusCode, 200);\n    t.deepEqual(body, options.json ? { status: 'done' } : 'done');\n    server.close(function () {\n        t.end();\n    });\n}",
+    "receiverBase": "request",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    t.end();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "close"
+  },
+  {
+    "callback": "function (t) {\n    runTest(t, { json: false });\n}",
+    "receiverBase": "",
+    "receiverCallee": "tape"
+  },
+  {
+    "callback": "function (t) {\n    runTest(t, { json: true });\n}",
+    "receiverBase": "",
+    "receiverCallee": "tape"
+  },
+  {
+    "callback": "function (t) {\n    runTest(t, {\n        json: false,\n        auth: true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "tape"
+  },
+  {
+    "callback": "function (require, exports, module) {\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : canplaythrough');\n    jPlayerObj._trigger($.jPlayer.event.canplaythrough);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        if (DEBUG)\n            console.log('Trigger : loadeddata');\n        jPlayerObj._trigger($.jPlayer.event.loadeddata);\n    }, 0);\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : loadeddata');\n    jPlayerObj._trigger($.jPlayer.event.loadeddata);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    checkDuration(event);\n    checkCanPlayThrough(event);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    checkDuration(event);\n    checkCanPlayThrough(event);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    setTimeout(function () {\n        if (DEBUG)\n            console.log('Trigger : playing');\n        jPlayerObj._trigger($.jPlayer.event.playing);\n    }, 0);\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (DEBUG)\n        console.log('Trigger : playing');\n    jPlayerObj._trigger($.jPlayer.event.playing);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.jPlayer.flash.used) {\n        jPlayerFlashEventsPatch();\n    }\n    $(this).jPlayer('setMedia', jpMedia).jPlayer('load');\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (DEBUG)\n        console.log('Dispatched event: ' + name + (event && event.jPlayer ? ' (' + event.jPlayer.status.currentTime + 's)' : ''));\n    media.dispatchEvent(name);\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (DEBUG)\n        console.log('Dispatched event: loadeddata' + (event && event.jPlayer ? ' (' + event.jPlayer.status.currentTime + 's)' : ''));\n    media.dispatchEvent('loadeddata');\n    ready = true;\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    duration = event.jPlayer.status.duration;\n    dispatchDurationChange();\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    error = event.jPlayer.error;\n    if (error.type === $.jPlayer.error.URL) {\n        error.code = 4;\n    } else {\n        error.code = 0;\n    }\n    if (DEBUG)\n        console.log('Dispatched event: error');\n    if (DEBUG)\n        console.dir(error);\n    media.dispatchEvent('error');\n}",
+    "receiverBase": "myPlayer",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    jPlayerDownloading = false;\n    jPlayerInit();\n}",
+    "receiverBase": "Popcorn",
+    "receiverCallee": "getScript"
+  },
+  {
+    "callback": "function () {\n    jQueryDownloading = false;\n    jPlayerCheck();\n}",
+    "receiverBase": "Popcorn",
+    "receiverCallee": "getScript"
+  }
+]

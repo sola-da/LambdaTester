@@ -1,0 +1,242 @@
+[
+  {
+    "callback": "function (exist) {\n    if (!exist)\n        return {};\n    return self.render.render({ path: configPath });\n}",
+    "receiverBase": "exists",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (config) {\n    if (!config)\n        config = {};\n    var result = '';\n    setProperty(config, key, castValue(value));\n    if (extname === '.json') {\n        result = JSON.stringify(config);\n    } else {\n        result = yaml.safeDump(config);\n    }\n    return fs.writeFile(configPath, result);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    fileBrowser = new mFileBrowser.FileBrowser({\n        parent: 'fileBrowser',\n        selectorNumber: 1,\n        useSHA: true,\n        serviceRegistry: serviceRegistry\n    });\n}",
+    "receiverBase": "start",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return quailTestRunner.setup({\n        url: 'http://localhost:9999/elementAttributesAreValid/elementAttributesAreValid.html',\n        assessments: ['elementAttributesAreValid']\n    }).spread(function (_client_, _assessments_, _quailResults_) {\n        client = _client_;\n        assessments = _assessments_;\n        quailResults = _quailResults_;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (_client_, _assessments_, _quailResults_) {\n    client = _client_;\n    assessments = _assessments_;\n    quailResults = _quailResults_;\n}",
+    "receiverBase": "setup",
+    "receiverCallee": "spread"
+  },
+  {
+    "callback": "function () {\n    return quailTestRunner.teardown(client);\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    expect(quailResults.stats.tests).to.equal(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(quailResults.stats.cases).to.equal(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(quailResults.tests).to.include.keys('elementAttributesAreValid');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    cases = quailResults.tests.elementAttributesAreValid.cases;\n    expect(cases).quailGetById('assert-1').to.have.quailStatus('passed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (i, parser) {\n    var match = parser.re.exec(val), values = match && parser.parse(match), space = parser.space || 'rgba';\n    if (values) {\n        if (space === 'hsla') {\n            that.value = CPGlobal.RGBtoHSB.apply(null, CPGlobal.HSLtoRGB.apply(null, values));\n        } else {\n            that.value = CPGlobal.RGBtoHSB.apply(null, values);\n        }\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this.element.trigger('create', [this]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), data = $this.data('colorpicker'), options = typeof option === 'object' && option;\n    if (!data) {\n        if (option !== 'destroy') {\n            $this.data('colorpicker', data = new Colorpicker(this, $.extend({}, $.fn.colorpicker.defaults, options)));\n        }\n    } else {\n        if (typeof option === 'string') {\n            data[option](value);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    time = { advance: 0 };\n    spf.__now = spf.now;\n    spf.now = function () {\n        return +new Date() + time.advance;\n    };\n    storage = spf.cache.storage_();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    spf.config.clear();\n    spf.cache.storage_({});\n    storage = null;\n    spf.now = spf.__now;\n    time = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    expect(storage['foo']).toBeUndefined();\n    spf.cache.set('foo', 'value');\n    expect(storage['foo']).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(spf.cache.get('foo')).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spf.cache.set('foo', 'value');\n    expect(spf.cache.get('foo')).toEqual('value');\n    var value = [\n            1,\n            2,\n            { 'a': 'b' },\n            3,\n            4\n        ];\n    spf.cache.set('foo', value);\n    expect(spf.cache.get('foo')).toBe(value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spf.cache.set('foo', 'value1', 100);\n    spf.cache.set('bar', 'value2', 200);\n    expect(spf.cache.get('foo')).toEqual('value1');\n    expect(spf.cache.get('bar')).toEqual('value2');\n    time.advance = 100;\n    expect(spf.cache.get('foo')).toBeUndefined();\n    expect(spf.cache.get('bar')).toEqual('value2');\n    time.advance = 200;\n    expect(spf.cache.get('foo')).toBeUndefined();\n    expect(spf.cache.get('bar')).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    if (!Object.keys) {\n        return;\n    }\n    spf.config.set('cache-max', 5);\n    for (var i = 1; i < 6; i++) {\n        spf.cache.set('foo' + i, 'value' + i);\n    }\n    expect(spf.cache.get('foo5')).toEqual('value5');\n    spf.cache.set('foo6', 'value6');\n    spf.cache.collect();\n    expect(spf.cache.get('foo1')).toBeUndefined();\n    expect(spf.cache.get('foo6')).toEqual('value6');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spf.config.set('cache-max', 5);\n    for (var i = 1; i < 6; i++) {\n        spf.cache.set('foo' + i, 'value' + i);\n    }\n    expect(spf.cache.get('foo5')).toEqual('value5');\n    spf.cache.set('foo6', 'value6');\n    expect(spf.cache.get('foo1')).toEqual('value1');\n    expect(spf.cache.get('foo6')).toEqual('value6');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spf.config.set('cache-max', 0);\n    for (var i = 0; i < 10; i++) {\n        spf.cache.set('foo' + i, 'value' + i);\n    }\n    expect(spf.cache.get('foo1')).toBeUndefined();\n    expect(spf.cache.get('foo9')).toBeUndefined();\n    spf.config.set('cache-max', -5);\n    for (var j = 10; j < 20; j++) {\n        spf.cache.set('foo' + j, 'value' + j);\n    }\n    expect(spf.cache.get('foo10')).toBeUndefined();\n    expect(spf.cache.get('foo19')).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        spf.cache.remove('foo');\n    }).not.toThrow();\n    spf.cache.set('foo', 'value');\n    expect(spf.cache.get('foo')).toEqual('value');\n    spf.cache.remove('foo');\n    expect(storage['foo']).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    spf.cache.remove('foo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    spf.cache.set('foo', 'value1');\n    spf.cache.set('bar', 'value2');\n    spf.cache.clear();\n    storage = spf.cache.storage_();\n    expect(spf.cache.get('foo')).toBeUndefined();\n    expect(spf.cache.get('bar')).toBeUndefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    if (!Object.keys) {\n        return;\n    }\n    spf.config.set('cache-max', 5);\n    for (var i = 1; i < 6; i++) {\n        spf.cache.set('foo' + i, 'value' + i);\n    }\n    spf.cache.set('foo6', 'value6', 100);\n    expect('foo1' in storage).toBe(true);\n    expect('foo6' in storage).toBe(true);\n    time.advance = 100;\n    spf.cache.collect();\n    expect('foo1' in storage).toBe(true);\n    expect('foo6' in storage).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    return e.refKey || e.key;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return keyMap[val];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return val === key ? null : keyMap[val];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return e === prevKey ? key : e;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    return e === prevKey ? null : e;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    var node = keyMap[val];\n    return node.isDescendantOf(rootNode) ? node : null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (val) {\n    return keyMap[val];\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (idx, n) {\n    $(n[scpn]).toggleClass('fancytree-active-clone', flag !== false);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this._connect();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    this.init(this.url, this._props);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (data) {\n    this._cometd._polling = false;\n    this._cometd.deliver(data);\n    this._cometd._backon();\n    this.tunnelCollapse();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (err) {\n    this._cometd._polling = false;\n    var metaMsg = {\n            failure: true,\n            error: err,\n            advice: this._cometd._advice\n        };\n    this._cometd._publishMeta('connect', false, metaMsg);\n    this._cometd._backoff();\n    this.tunnelCollapse();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (err) {\n    this._cometd._publishMeta('publish', false, { messages: messages });\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function ($scope) {\n}",
+    "receiverBase": "module",
+    "receiverCallee": "controller"
+  },
+  {
+    "callback": "function (socket) {\n    socket.end(body);\n    connections++;\n}",
+    "receiverBase": "tls",
+    "receiverCallee": "Server"
+  },
+  {
+    "callback": "function () {\n    var client = tls.connect({\n            port: common.PORT,\n            rejectUnauthorized: false\n        });\n    client.on('data', function (d) {\n        process.stdout.write('.');\n        recvCount += d.length;\n        client.pause();\n        process.nextTick(function () {\n            client.resume();\n        });\n    });\n    client.on('close', function () {\n        console.error('close');\n        server.close();\n        clearTimeout(timeout);\n    });\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (d) {\n    process.stdout.write('.');\n    recvCount += d.length;\n    client.pause();\n    process.nextTick(function () {\n        client.resume();\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    client.resume();\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    console.error('close');\n    server.close();\n    clearTimeout(timeout);\n}",
+    "receiverBase": "client",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    displayCounts();\n    assert.equal(1, connections);\n    assert.equal(body.length, recvCount);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (event) {\n    that.hide();\n}",
+    "receiverBase": "picker",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    that.visual.object.visible = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  }
+]

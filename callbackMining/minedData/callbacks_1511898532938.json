@@ -1,0 +1,582 @@
+[
+  {
+    "callback": "function (t) {\n    var agent = helper.instrumentMockedAgent();\n    var router = require('express').Router();\n    this.tearDown(function cb_tearDown() {\n        helper.unloadAgent(agent);\n    });\n    router.get('/test', function () {\n    });\n    router.get('/test2', function () {\n    });\n    t.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "router",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "router",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (_, res) {\n    t.ok(true);\n    res.end();\n}",
+    "receiverBase": "router",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    request.get('http://localhost:8089/test', function (error, response, body) {\n        server.close();\n        t.ifError(error);\n        t.end();\n    });\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (error, response, body) {\n    server.close();\n    t.ifError(error);\n    t.end();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send({ yep: true });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (req, res) {\n    res.render('index', { title: 'yo dawg' });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    var stats = agent.metrics.getMetric('View/index/Rendering');\n    t.equal(stats.callCount, 1, 'should note the view rendering');\n}",
+    "receiverBase": "agent",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (error, response, body) {\n    if (error)\n        t.fail(error);\n    t.equal(response.statusCode, 200, 'response code should be 200');\n    t.equal(body, BODY, 'template should still render fine');\n    t.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (req, res) {\n    var rum = api.getBrowserTimingHeader();\n    t.equal(rum.substr(0, 7), '<script');\n    res.render('index', {\n        title: 'yo dawg',\n        rum: rum\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    var stats = agent.metrics.getMetric('View/index/Rendering');\n    t.equal(stats.callCount, 1, 'should note the view rendering');\n}",
+    "receiverBase": "agent",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (error, response, body) {\n    if (error)\n        t.fail(error);\n    t.equal(response.statusCode, 200, 'response code should be 200');\n    t.equal(body, BODY, 'template should still render fine');\n    t.end();\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function () {\n    var hmm;\n    hmm.ohno.failure.is.terrible();\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (error, response, body) {\n    if (error)\n        t.fail(error);\n    t.ok(response, 'got a response from Express');\n    t.ok(body, 'got back a body');\n    var errors = agent.errors.errors;\n    t.ok(errors, 'errors were found');\n    t.equal(errors.length, 1, 'Only one error thrown.');\n    var first = errors[0];\n    t.ok(first, 'have the first error');\n    t.equal(first[2], 'Cannot read property \\'ohno\\' of undefined', 'got the expected error');\n    t.end();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (request, response) {\n    t.ok(agent.getTransaction(), 'the transaction should be visible inside the Express handler');\n    setTimeout(function () {\n        response.send(BODY);\n    }, DELAY);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    response.send(BODY);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function cb_some(pair) {\n    return pair[0] === 'Dispatcher' && pair[1] === 'express';\n}",
+    "receiverBase": "toJSON",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function cb_some(pair) {\n    return pair[0] === 'Framework' && pair[1] === 'express';\n}",
+    "receiverBase": "toJSON",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function cb_tearDown() {\n    server.close();\n    helper.unloadAgent(agent);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "tearDown"
+  },
+  {
+    "callback": "function (request, response) {\n    t.ok(agent.getTransaction(), 'the transaction should be visible inside the Express handler');\n    t.equal('/ham', request.url);\n    response.send(BODY);\n}",
+    "receiverBase": "app",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function ready() {\n    request.get(TEST_URL + '/ham', function (error, response, body) {\n        if (error)\n            t.fail(error);\n        t.notOk(agent.getTransaction(), 'transaction shouldn\\'t be visible from request');\n        t.equals(body, BODY, 'response and original page text match');\n        var stats = agent.metrics.getMetric('WebTransaction/Expressjs/GET//');\n        t.ok(stats, 'Statistics should have been found for request.');\n        t.end();\n    });\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (error, response, body) {\n    if (error)\n        t.fail(error);\n    t.notOk(agent.getTransaction(), 'transaction shouldn\\'t be visible from request');\n    t.equals(body, BODY, 'response and original page text match');\n    var stats = agent.metrics.getMetric('WebTransaction/Expressjs/GET//');\n    t.ok(stats, 'Statistics should have been found for request.');\n    t.end();\n}",
+    "receiverBase": "request",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (idx) {\n    sap.ui.getCore().createUIArea(this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    textArea.value = editorSession.toString();\n}",
+    "receiverBase": "editorSession",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (View) {\n    View.mixin = Backbone.View.mixin;\n    View.mixin(ExpandableModule);\n    View.prototype.triggers[transitionendEvent] = 'expandCollapseTransitionend';\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var ctrl;\n    var $scope;\n    beforeEach(module('<%= jablConfig.angular.appModuleName.camelized %>'));\n    beforeEach(inject(function ($rootScope, $controller) {\n        $scope = $rootScope.$new();\n        ctrl = $controller('<%= config.controllerName.classified %>', { $scope: $scope });\n    }));\n    it('should be defined', function () {\n        expect(ctrl).toBeDefined();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function ($rootScope, $controller) {\n    $scope = $rootScope.$new();\n    ctrl = $controller('<%= config.controllerName.classified %>', { $scope: $scope });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    expect(ctrl).toBeDefined();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (railsSerializerProvider) {\n    expect(railsSerializerProvider.underscore(function (value) {\n        overrideCalled = true;\n        return value;\n    })).toBe(railsSerializerProvider);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (value) {\n    overrideCalled = true;\n    return value;\n}",
+    "receiverBase": "railsSerializerProvider",
+    "receiverCallee": "underscore"
+  },
+  {
+    "callback": "function (railsSerializer, RailsResourceInjector) {\n    var test = {\n            id: 1,\n            firstName: 'George',\n            middleName: 'R. R.',\n            lastName: 'Martin'\n        };\n    expect(RailsResourceInjector.createService(railsSerializer()).serialize(test)).toEqualData(test);\n    expect(overrideCalled).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (railsSerializerProvider) {\n    expect(railsSerializerProvider.camelize(function (value) {\n        overrideCalled = true;\n        return value;\n    })).toBe(railsSerializerProvider);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (value) {\n    overrideCalled = true;\n    return value;\n}",
+    "receiverBase": "railsSerializerProvider",
+    "receiverCallee": "camelize"
+  },
+  {
+    "callback": "function (railsSerializer, RailsResourceInjector) {\n    var test = {\n            id: 1,\n            first_name: 'George',\n            middle_name: 'R. R.',\n            last_name: 'Martin'\n        };\n    expect(RailsResourceInjector.createService(railsSerializer()).deserialize(test)).toEqualData(test);\n    expect(overrideCalled).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    module('rails', function (railsSerializerProvider) {\n        expect(railsSerializerProvider.pluralize(function (value) {\n            return value + 'ies';\n        })).toBe(railsSerializerProvider);\n    });\n    inject(function (railsSerializer, RailsResourceInjector) {\n        expect(RailsResourceInjector.createService(railsSerializer()).pluralize('cook')).toEqual('cookies');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (railsSerializerProvider) {\n    expect(railsSerializerProvider.pluralize(function (value) {\n        return value + 'ies';\n    })).toBe(railsSerializerProvider);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (value) {\n    return value + 'ies';\n}",
+    "receiverBase": "railsSerializerProvider",
+    "receiverCallee": "pluralize"
+  },
+  {
+    "callback": "function (railsSerializer, RailsResourceInjector) {\n    expect(RailsResourceInjector.createService(railsSerializer()).pluralize('cook')).toEqual('cookies');\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (railsSerializerProvider) {\n    expect(railsSerializerProvider.exclusionMatchers(['_'])).toBe(railsSerializerProvider);\n}",
+    "receiverBase": "",
+    "receiverCallee": "module"
+  },
+  {
+    "callback": "function (railsSerializer, RailsResourceInjector) {\n    var test = {\n            id: 1,\n            _firstName: 'George',\n            _middleName: 'R. R.',\n            lastName: 'Martin'\n        };\n    expect(RailsResourceInjector.createService(railsSerializer()).serialize(test)).toEqualData({\n        id: 1,\n        last_name: 'Martin'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (railsSerializer, RailsResourceInjector) {\n    factory = railsSerializer;\n    railsInjector = RailsResourceInjector;\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function () {\n    serializer = createSerializer();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var called = false;\n    createSerializer(function () {\n        called = true;\n    });\n    expect(called).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    var called = false;\n    createSerializer({}, function () {\n        called = true;\n    });\n    expect(called).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    called = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    var orig = {\n            id: 1,\n            firstName: 'George',\n            middleName: 'R. R.',\n            lastName: 'Martin'\n        }, result = serializer.serialize(orig);\n    expect(result).toEqualData({\n        id: 1,\n        first_name: 'George',\n        middle_name: 'R. R.',\n        last_name: 'Martin'\n    });\n    result = serializer.deserialize(result);\n    expect(result).toEqualData(orig);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result = serializer.serialize({\n            id: 1,\n            firstName: 'George',\n            middleName: 'R. R.',\n            lastName: 'Martin',\n            $books: [],\n            getNumBooks: function () {\n                this.$books.length;\n            }\n        });\n    expect(result).toEqualData({\n        id: 1,\n        first_name: 'George',\n        middle_name: 'R. R.',\n        last_name: 'Martin'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result, serializer = createSerializer(function (config) {\n            config.exclude('books');\n        });\n    result = serializer.serialize(camelizedAuthor);\n    expect(result).toEqualData({\n        id: 1,\n        first_name: 'George',\n        middle_name: 'R. R.',\n        last_name: 'Martin',\n        birth_date: '1948-09-20'\n    });\n    result = serializer.deserialize(underscoredAuthor);\n    expect(result).toEqualData(camelizedAuthor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (config) {\n    config.exclude('books');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    var result, serializer = createSerializer(function (config) {\n            config.exclude('books', 'birthDate');\n        });\n    result = serializer.serialize(camelizedAuthor);\n    expect(result).toEqualData({\n        id: 1,\n        first_name: 'George',\n        middle_name: 'R. R.',\n        last_name: 'Martin'\n    });\n    result = serializer.deserialize(underscoredAuthor);\n    expect(result).toEqualData(camelizedAuthor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (config) {\n    config.exclude('books', 'birthDate');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function (config) {\n    this.exclude('books', 'birthDate');\n    this.rename('id', 'authorId');\n    this.rename('firstName', 'first');\n    this.rename('middleName', 'middle');\n    config.rename('lastName', 'last');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    this.nestedAttribute('books');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    var result, serializer = createSerializer(function () {\n            this.add('numBooks', function (author) {\n                return author.books.length;\n            });\n        });\n    result = serializer.serialize(camelizedAuthor);\n    expect(result['num_books']).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.add('numBooks', function (author) {\n        return author.books.length;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function (author) {\n    return author.books.length;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var result, serializer = createSerializer(function () {\n            this.add('numBooks', 2);\n        });\n    result = serializer.serialize(camelizedAuthor);\n    expect(result['num_books']).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    this.add('numBooks', 2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    this.serializeWith('books', factory(function () {\n        this.add('publisherId', function (book) {\n            return book.publisher.id;\n        });\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    this.add('publisherId', function (book) {\n        return book.publisher.id;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (book) {\n    return book.publisher.id;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    this.serializeWith('books', factory(function () {\n        this.add('publisherId', 3);\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    this.add('publisherId', 3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    this.serializeWith('books', factory(function () {\n        this.rename('publicationDate', 'published');\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n    this.rename('publicationDate', 'published');\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (config) {\n    this.only('id');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function (config) {\n    this.only('id', 'last');\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function (config) {\n    this.only('id', 'books');\n    this.nestedAttribute('books');\n    this.serializeWith('books', factory(function () {\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "createSerializer"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (railsResourceFactory, railsSerializer) {\n    return railsResourceFactory({\n        name: 'team',\n        serializer: railsSerializer(function () {\n            this.nestedAttribute('members');\n            this.resource('members', 'Member');\n            this.add('vehicle_id', function (team) {\n                return team.vehicle.id;\n            });\n            this.exclude('vehicle');\n        })\n    });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    this.nestedAttribute('members');\n    this.resource('members', 'Member');\n    this.add('vehicle_id', function (team) {\n        return team.vehicle.id;\n    });\n    this.exclude('vehicle');\n}",
+    "receiverBase": "",
+    "receiverCallee": "railsSerializer"
+  },
+  {
+    "callback": "function (team) {\n    return team.vehicle.id;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    this.resource('user', 'User');\n    this.resource('slot', 'Slot');\n    this.add('user_id', function (member) {\n        return member.user.id;\n    });\n    this.add('slot_id', function (member) {\n        return member.slot.id;\n    });\n    this.exclude('user', 'slot');\n}",
+    "receiverBase": "",
+    "receiverCallee": "railsSerializer"
+  },
+  {
+    "callback": "function (member) {\n    return member.user.id;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (member) {\n    return member.slot.id;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (railsResourceFactory) {\n    return railsResourceFactory({ name: 'slot' });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (railsResourceFactory) {\n    return railsResourceFactory({ name: 'user' });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (railsResourceFactory) {\n    return railsResourceFactory({ name: 'vehicle' });\n}",
+    "receiverBase": "module",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function () {\n    it('should be immutable', function () {\n        var oldValue = 42;\n        var newValue = 24;\n        var x = Vars.set('x', oldValue);\n        x = Vars.set('x', newValue);\n        expect(Vars.get('x')).toEqual(FILL_ME_IN);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var oldValue = 42;\n    var newValue = 24;\n    var x = Vars.set('x', oldValue);\n    x = Vars.set('x', newValue);\n    expect(Vars.get('x')).toEqual(FILL_ME_IN);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should be used to repeatedly do something', function () {\n        var reverse = function (str) {\n            if (str.length == 0) {\n                return str;\n            } else {\n                return reverse(str.substr(1, str.length)) + str.substr(0, 1);\n            }\n        };\n        expect(reverse('RACECAR')).toEqual(FILL_ME_IN);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var reverse = function (str) {\n        if (str.length == 0) {\n            return str;\n        } else {\n            return reverse(str.substr(1, str.length)) + str.substr(0, 1);\n        }\n    };\n    expect(reverse('RACECAR')).toEqual(FILL_ME_IN);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (ri) {\n    newArgs = ri(hubName, methodName, newArgs);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    handler.apply(handler, promiseArgs);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (handler) {\n    var serverProxy = createServerProxy(handler.hubName, ServerConnectionBackend.server(handler.hubName));\n    handler.hub.server = serverProxy;\n    handler.doneFn();\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    if (openConnections.length < 1) {\n        return;\n    }\n    log('[ServerConnection] Received disconnected message whilst a connection is still required. Reconnecting in ' + reconnectTimeout + 'ms');\n    $timeout(function () {\n        connectionOpen = false;\n        ServerConnectionBackend.start().done(function () {\n            connectionOpen = true;\n        });\n    }, reconnectTimeout, false);\n}",
+    "receiverBase": "ServerConnectionBackend",
+    "receiverCallee": "onDisconnect"
+  },
+  {
+    "callback": "function () {\n    connectionOpen = false;\n    ServerConnectionBackend.start().done(function () {\n        connectionOpen = true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function () {\n    connectionOpen = true;\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (fnName) {\n    self.server[fnName] = function () {\n        throw Error('Cannot call the ' + fnName + ' function on the ' + name + ' hub because the server connection is not established. Place your server calls within the connect(...).done() block');\n    };\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var args = applyResponseInterceptors(name, listenerKey, arguments);\n    angular.forEach(allListeners[listenerKey], function (scopeListener) {\n        scopeListener.listener.apply(this, args);\n    });\n}",
+    "receiverBase": "ServerConnectionBackend",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (scopeListener) {\n    scopeListener.listener.apply(this, args);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    connectionOpen = true;\n    $timeout(completeConnection, 0);\n}",
+    "receiverBase": "start",
+    "receiverCallee": "done"
+  },
+  {
+    "callback": "function (methodKey) {\n    var hubMethods = allListeners[methodKey];\n    for (var j = hubMethods.length - 1; j >= 0; j--) {\n        if (hubMethods[j].scope === scope) {\n            hubMethods.splice(j, 1);\n        }\n    }\n    if (hubMethods.length === 0) {\n        ServerConnectionBackend.off(name, methodKey);\n    }\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    oldHashWarning(profile.hashAlgorithm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (bytes) {\n    if (bytes > 0) {\n        Settings.syncDataAvailable = true;\n    }\n}",
+    "receiverBase": "sync",
+    "receiverCallee": "getBytesInUse"
+  },
+  {
+    "callback": "function () {\n    oldHashWarning(selected.hashAlgorithm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (node) {\n    match = node.get('className').match(search);\n    return match;\n}",
+    "receiverBase": "root",
+    "receiverCallee": "ancestor"
+  },
+  {
+    "callback": "function (error) {\n    return error.type === 'invalid.git.version';\n}",
+    "receiverBase": "",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (acc, e) {\n    if (acc.indexOf(e.type) === -1) {\n        acc.push(e.type);\n    }\n    return acc;\n}",
+    "receiverBase": "errors",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (k) {\n    return [\n        'name',\n        'version',\n        'dependencies'\n    ].indexOf(k) === -1;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (k) {\n    if (!newShrinkwrap[k]) {\n        newShrinkwrap[k] = oldShrinkwrap[k];\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, newShrinkwrap) {\n    if (err) {\n        return callback(err);\n    }\n    if (_oldShrinkwrap) {\n        newShrinkwrap = trimNested(_oldShrinkwrap, newShrinkwrap, opts);\n    }\n    var buf = JSON.stringify(newShrinkwrap, null, 2) + '\\n';\n    fs.writeFile(fileName, buf, 'utf8', function (err) {\n        if (err) {\n            return callback(err);\n        }\n        readJSON(fileName, onfinalwrap);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "readJSON"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return callback(err);\n    }\n    readJSON(fileName, onfinalwrap);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return callback(err);\n    }\n    onsync(null, shrinkwrap);\n}",
+    "receiverBase": "",
+    "receiverCallee": "sync"
+  },
+  {
+    "callback": "function (node, key, parent) {\n    var errs = opts.validators.map(function (f) {\n            return f(node, key, parent);\n        }).filter(Boolean);\n    if (errs.length) {\n        errors = errors.concat(errs);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "walkDeps"
+  },
+  {
+    "callback": "function (f) {\n    return f(node, key, parent);\n}",
+    "receiverBase": "validators",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    delete require.cache[key];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  }
+]

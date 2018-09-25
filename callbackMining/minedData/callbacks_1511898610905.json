@@ -1,0 +1,160 @@
+[
+  {
+    "callback": "function (key) {\n    return {\n        events: 'model:change',\n        getter: function (view) {\n            return view.model.get(key);\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (key) {\n    return {\n        getter: function (view) {\n            return view[key];\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    this.dropDown.onCancel();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function () {\n    var value = this._urlInput.get('value');\n    return this._urlRegExp.test(value) || this._emailRegExp.test(value);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    fixupUrl(url);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this.connect(this.editor.editNode, 'ondblclick', this._onDblClick);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    this.button.set('disabled', false);\n    this.button.openDropDown();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    this.connect(this.editor.editNode, 'onmousedown', this._selectTag);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function () {\n    this.button.set('disabled', false);\n    this.button.openDropDown();\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (o) {\n    if (o.plugin) {\n        return;\n    }\n    switch (o.args.name) {\n    case 'createLink':\n        o.plugin = new dijit._editor.plugins.LinkDialog({ command: o.args.name });\n        break;\n    case 'insertImage':\n        o.plugin = new dijit._editor.plugins.ImgLinkDialog({ command: o.args.name });\n        break;\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (model) {\n    return model.toJSON();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (model) {\n    return model.get(attr);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (method) {\n    Backbone.Collection.prototype[method] = function () {\n        return _[method].apply(_, [this.models].concat(_.toArray(arguments)));\n    };\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (fragment) {\n    var args = this._extractParameters(route, fragment);\n    callback.apply(this, args);\n    this.trigger.apply(this, ['route:' + name].concat(args));\n}",
+    "receiverBase": "_",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (handler) {\n    if (handler.route.test(fragment)) {\n        handler.callback(fragment);\n        return true;\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (id) {\n    try {\n        return require(id);\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (id) {\n    if (id === 'jquery') {\n        return root.jQuery || root.Zepto || root.ender;\n    } else {\n        return root._;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "factory"
+  },
+  {
+    "callback": "function (node) {\n    if (tagName == '*' || tagName == node.tagName) {\n        foundElements.push(node);\n        return node.childNodes;\n    }\n}",
+    "receiverBase": "Base",
+    "receiverCallee": "nodeWalk"
+  },
+  {
+    "callback": "function (jQuery) {\n    'use strict';\n    var MessagePageRenderer = {};\n    MessagePageRenderer.render = function (oRm, oMessagePage) {\n        oRm.write('<div');\n        oRm.writeControlData(oMessagePage);\n        oRm.addClass('sapMMessagePage');\n        oRm.writeClasses();\n        oRm.write('>');\n        oRm.renderControl(oMessagePage.getAggregation('_page'));\n        oRm.write('</div>');\n    };\n    return MessagePageRenderer;\n}",
+    "receiverBase": "ui",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {\n    $urlRouterProvider.otherwise('/');\n    $locationProvider.html5Mode(true);\n    $httpProvider.interceptors.push('authInterceptor');\n}",
+    "receiverBase": "module",
+    "receiverCallee": "config"
+  },
+  {
+    "callback": "function ($rootScope, $location, Auth) {\n    var moveTo = '/';\n    $rootScope.$on('login-successful', function () {\n        $location.path(moveTo);\n    });\n    $rootScope.$on('$stateChangeStart', function (event, next) {\n        Auth.isLoggedInAsync(function (loggedIn) {\n            if (next.authenticate && !loggedIn) {\n                moveTo = next.url;\n                event.preventDefault();\n                $('#login-dialog').modal();\n            }\n        });\n    });\n}",
+    "receiverBase": "factory",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    $location.path(moveTo);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (event, next) {\n    Auth.isLoggedInAsync(function (loggedIn) {\n        if (next.authenticate && !loggedIn) {\n            moveTo = next.url;\n            event.preventDefault();\n            $('#login-dialog').modal();\n        }\n    });\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (loggedIn) {\n    if (next.authenticate && !loggedIn) {\n        moveTo = next.url;\n        event.preventDefault();\n        $('#login-dialog').modal();\n    }\n}",
+    "receiverBase": "Auth",
+    "receiverCallee": "isLoggedInAsync"
+  },
+  {
+    "callback": "function (value) {\n    console.log(JSON.stringify(value, undefined, 2));\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "helper"
+  },
+  {
+    "callback": "function (value) {\n    return new Ember.Handlebars.SafeString(value);\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "helper"
+  },
+  {
+    "callback": "function (context) {\n    return new Date(context).toLocaleTimeString();\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "helper"
+  },
+  {
+    "callback": "function (text, networkId) {\n    var network = this.get('controllers.network.socket.networks').findBy('_id', networkId);\n    return new Ember.Handlebars.SafeString(App.Parser.exec(text, network));\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "registerBoundHelper"
+  },
+  {
+    "callback": "function (options) {\n    var data = options.data, fn = options.fn, view = data.view, childView;\n    childView = view.createChildView(Ember._MetamorphView, {\n        context: Ember.get(view, 'context'),\n        template: function (context, options) {\n            options.data.insideGroup = true;\n            return fn(context, options);\n        }\n    });\n    view.appendChild(childView);\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "registerHelper"
+  },
+  {
+    "callback": "function (messages) {\n    var str = '', network = this.get('parentController.parentController.content');\n    messages.forEach(function (text) {\n        str += App.Parser.exec(text, network) + '<br />';\n    });\n    return new Ember.Handlebars.SafeString(str);\n}",
+    "receiverBase": "Handlebars",
+    "receiverCallee": "helper"
+  },
+  {
+    "callback": "function (text) {\n    str += App.Parser.exec(text, network) + '<br />';\n}",
+    "receiverBase": "messages",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (a, b, c) {\n    return b == c.indexOf(a);\n}",
+    "receiverBase": "ids",
+    "receiverCallee": "filter"
+  }
+]

@@ -1,0 +1,1032 @@
+[
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(result == 4);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    var cb = lighttest.protect(function (result) {\n            plugin.disconnect();\n            lighttest.check(result == val * val);\n            lighttest.done();\n        });\n    plugin.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(result == val * val);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (cb) {\n    waitCalled = true;\n    setTimeout(cb, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    var cb = lighttest.protect(function (result) {\n            plugin.disconnect();\n            lighttest.check(waitCalled);\n            lighttest.check(result == val * val);\n            lighttest.done();\n        });\n    plugin.remote.squareDelayed(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(waitCalled);\n    lighttest.check(result == val * val);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    var cb1 = lighttest.protect(function () {\n            cb(val * val);\n        });\n    plugin.remote.wait(cb1);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, waitCalled) {\n    plugin.disconnect();\n    lighttest.check(result == 4);\n    lighttest.check(waitCalled);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    if (replied1 && replied2) {\n        lighttest.check(true);\n        lighttest.done();\n    }\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    var cb = lighttest.protect(function (result) {\n            replied1 = true;\n            plugin1.disconnect();\n            lighttest.check(result == val * val);\n            finalize();\n        });\n    plugin1.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    replied1 = true;\n    plugin1.disconnect();\n    lighttest.check(result == val * val);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 3;\n    var cb = function (result) {\n        replied2 = true;\n        plugin2.disconnect();\n        lighttest.check(result == val * val);\n        finalize();\n    };\n    plugin2.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val1 * val1);\n    setTimeout(step2, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val2 = 3;\n    var cb2 = lighttest.protect(function (result) {\n            plugin.disconnect();\n            lighttest.check(result == val2 * val2);\n            lighttest.done();\n        });\n    plugin.remote.square(val2, cb2);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(result == val2 * val2);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (cb) {\n    lighttest.check(attempt == 1);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin1.disconnect();\n    lighttest.check(true);\n    step2();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    attempt = 2;\n    var api2 = {\n            checkAttempt: lighttest.protect(function (cb) {\n                lighttest.check(attempt == 2);\n                cb();\n            }),\n            done: lighttest.protect(function () {\n                plugin2.disconnect();\n                lighttest.check(true);\n                lighttest.done();\n            })\n        };\n    var plugin2 = new jailed.Plugin(path, api2);\n    plugin2.whenFailed(whenFailed);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (cb) {\n    lighttest.check(attempt == 2);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin2.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (cb) {\n    cb(1);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result == 1);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    done1 = true;\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (cb) {\n    cb(2);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result == 2);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    done2 = true;\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    if (done1 && done2) {\n        plugin1.disconnect();\n        plugin2.disconnect();\n        lighttest.check(true);\n        lighttest.done();\n    }\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    disconnected = true;\n    lighttest.check(true);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    plugin.disconnect();\n    setTimeout(finalize, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    disconnected = true;\n    lighttest.check(true);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    var val = 2;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            setTimeout(lighttest.protect(function () {\n                plugin.remote.killYourself();\n            }), 1000);\n        });\n    plugin.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    setTimeout(lighttest.protect(function () {\n        plugin.remote.killYourself();\n    }), 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.remote.killYourself();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 2;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            step2();\n        });\n    plugin1.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    step2();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var connected2 = lighttest.protect(function () {\n            var val = 7;\n            var cb = lighttest.protect(function (result) {\n                    lighttest.check(result == val * val);\n                    step3();\n                });\n            plugin2.remote.square(val, cb);\n        });\n    plugin2 = new jailed.Plugin(path);\n    plugin2.whenConnected(connected2);\n    plugin2.whenFailed(whenFailed);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 7;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            step3();\n        });\n    plugin2.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    step3();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin1.disconnect();\n    setTimeout(step4, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 11;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            finalize();\n        });\n    plugin2.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin2.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (success, sCb, fCb) {\n    if (success) {\n        sCb();\n    } else {\n        fCb();\n    }\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    var cb = lighttest.protect(function () {\n            lighttest.check(false);\n            pluginBad.disconnect();\n            lighttest.done();\n        });\n    pluginBad.remote.infinite(cb);\n    setTimeout(step2, 2000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(false);\n    pluginBad.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    pluginBad.disconnect();\n    setTimeout(step3, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    pluginBad = new jailed.Plugin(pathBad);\n    pluginBad.whenConnected(step4);\n    pluginBad.whenFailed(whenFailed);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb = lighttest.protect(function () {\n            lighttest.check(false);\n            pluginBad.disconnect();\n            lighttest.done();\n        });\n    pluginBad.remote.infinite(cb);\n    setTimeout(step5, 2000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(false);\n    pluginBad.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    pluginGood = new jailed.Plugin(pathGood);\n    pluginGood.whenConnected(step6);\n    pluginGood.whenFailed(whenFailed);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 8;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            pluginGood.disconnect();\n            pluginBad.disconnect();\n            lighttest.done();\n        });\n    pluginGood.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    pluginGood.disconnect();\n    pluginBad.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    disconnected = true;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    failed = true;\n    setTimeout(finalize, 500);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(failed && disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    disconnected = true;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    failed = true;\n    setTimeout(finalize, 500);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(failed && disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    disconnected = true;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    failed = true;\n    setTimeout(finalize, 500);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(failed && disconnected);\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    disconnected = true;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    failed = true;\n    setTimeout(finalize, 500);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(failed && disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb = lighttest.protect(function () {\n            plugin.disconnect();\n            clearTimeout(timeout);\n            lighttest.check(false);\n            lighttest.done();\n        });\n    plugin.remote.broken(cb);\n    var timeout = setTimeout(step2, 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    clearTimeout(timeout);\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var timeout = setTimeout(lighttest.protect(function () {\n            plugin.disconnect();\n            lighttest.check(false);\n            lighttest.done();\n        }), 1000);\n    var cb = lighttest.protect(function () {\n            clearTimeout(timeout);\n            lighttest.check(true);\n            step3();\n        });\n    plugin.remote.brokenDelayed(cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timeout);\n    lighttest.check(true);\n    step3();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb = lighttest.protect(function () {\n            clearTimeout(timeout);\n            plugin.disconnect();\n            lighttest.check(false);\n            lighttest.done();\n        });\n    plugin.remote.broken(cb);\n    var timeout = setTimeout(step4, 500);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timeout);\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 6;\n    var cb = lighttest.protect(function (result) {\n            plugin.disconnect();\n            lighttest.check(result = val * val);\n            lighttest.done();\n        });\n    plugin.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(result = val * val);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var valCube = 7;\n    var cbCube = lighttest.protect(function (result) {\n            lighttest.check(result == valCube * valCube * valCube);\n            cubeFinished = true;\n            finalize();\n        });\n    plugin.remote.cubeDelayed(valCube, cbCube);\n    step2();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == valCube * valCube * valCube);\n    cubeFinished = true;\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 8;\n    var cb = lighttest.protect(function (result) {\n            lighttest.check(result == val * val);\n            squareFinished = true;\n            finalize();\n        });\n    plugin.remote.square(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result == val * val);\n    squareFinished = true;\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    if (cubeFinished && squareFinished) {\n        plugin.disconnect();\n        lighttest.check(true);\n        lighttest.done();\n    }\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    setTimeout(lighttest.protect(function () {\n        cb(val * val * val);\n    }), 1000);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    cb(val * val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb0 = lighttest.protect(function () {\n            lighttest.check(false);\n            step2();\n        });\n    var cb1 = lighttest.protect(function () {\n            lighttest.check(true);\n            step2();\n        });\n    plugin.remote.callback(1, cb0, cb1);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(false);\n    step2();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    step2();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb0 = lighttest.protect(function () {\n            lighttest.check(true);\n            finalize();\n        });\n    var cb1 = lighttest.protect(function () {\n            lighttest.check(false);\n            finalize();\n        });\n    plugin.remote.callback(0, cb0, cb1);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(false);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (num, cb0, cb1) {\n    if (num == 0) {\n        cb0();\n    } else {\n        cb1();\n    }\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (val, cb) {\n    plugin.remote.wait(lighttest.protect(function () {\n        cb(val * val);\n    }));\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    cb(val * val);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var val = 54;\n    var cb = lighttest.protect(function (result) {\n            plugin.disconnect();\n            lighttest.check(result == val * val);\n            lighttest.done();\n        });\n    plugin.remote.squareDelayed(val, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    plugin.disconnect();\n    lighttest.check(result == val * val);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var notYetCalled = true;\n    var cb = lighttest.protect(function () {\n            lighttest.check(notYetCalled);\n            notYetCalled = false;\n        });\n    plugin.remote.callme(cb, cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(notYetCalled);\n    notYetCalled = false;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result) {\n    lighttest.check(result);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    var cb = lighttest.protect(function () {\n            plugin.disconnect();\n            lighttest.check(true);\n        });\n    plugin.remote.brokenDelayed(cb);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    setTimeout(finalize, 300);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    setTimeout(finalize, 300);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(false);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    disconnected = true;\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(disconnected);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(connectionCompleted);\n    setTimeout(stage2, 300);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.whenConnected(connected);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(failureCompleted);\n    setTimeout(stage3, 300);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.whenFailed(failed);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(disconnectCompleted);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.whenDisconnected(disconnected);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    lighttest.check(true);\n    lighttest.done();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function (result, cb) {\n    lighttest.check(result);\n    cb();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    lighttest.check(true);\n    pluginFinished++;\n    disconnect();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    beforeConnect1Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    beforeConnect2Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    beforeDisconnect1Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    beforeDisconnect2Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    afterConnect1Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    afterConnect2Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    afterDisconnect1Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    afterDisconnect2Finished++;\n    lighttest.check(true);\n    finalize();\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.disconnect();\n    setTimeout(lighttest.protect(function () {\n        plugin.whenDisconnected(afterDisconnect);\n    }), 300);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.whenDisconnected(afterDisconnect);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    plugin.whenConnected(afterConnect1);\n    plugin.whenConnected(afterConnect2);\n    plugin.whenDisconnected(afterDisconnect1);\n    plugin.whenDisconnected(afterDisconnect2);\n}",
+    "receiverBase": "lighttest",
+    "receiverCallee": "protect"
+  },
+  {
+    "callback": "function () {\n    $.validity.start();\n    f.apply(self);\n    return $.validity.end().valid;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (obj) {\n    if ($(obj).val()) {\n        return $(obj).val() != null && !!$(obj).val().length;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return obj.value.length <= max;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return obj.value.length >= min;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    for (var idx = 0; idx < obj.value.length; ++idx) {\n        if (alpha.indexOf(obj.value.charAt(idx)) == -1) {\n            chars.push(obj.value.charAt(idx));\n            return false;\n        }\n    }\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return (obj.value.match(charClass) || []).length >= min;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return (obj.value.match(charClass) || []).length <= max;\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return $.validity.patterns.nonHtml.test(obj.value);\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function (obj) {\n    return transform(obj.value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (obj) {\n    return transform(obj.value);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (obj) {\n    return !$(obj).is(':checkbox') || $(obj).is(':checked');\n}",
+    "receiverBase": "",
+    "receiverCallee": "validate"
+  },
+  {
+    "callback": "function () {\n    if (regimen(this)) {\n        elements.push(this);\n    } else {\n        raiseError(this, format(message, { field: infer(this) }));\n    }\n}",
+    "receiverBase": "$reduction",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var n = parseFloat(this.value);\n    accumulator += isNaN(n) ? 0 : n;\n}",
+    "receiverBase": "obj",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $obj.focus();\n    $(this).fadeOut();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    tooltip.fadeOut();\n}",
+    "receiverBase": "$obj",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if ($obj.length) {\n        $obj[0].select();\n    }\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (!root.disabled) {\n        if (root.checked) {\n            $(this).empty();\n            root.checked = false;\n            $this.prop('checked', false);\n        } else {\n            $(this).append('<div class=\"' + settings.tickClass + '\">' + settings.tickInnerHTML + '</div>');\n            root.checked = true;\n            $this.prop('checked', true);\n        }\n    }\n}",
+    "receiverBase": "next",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (!root.checked) {\n        $this.next().empty();\n        root.checked = false;\n        $this.prop('checked', false);\n    } else {\n        $this.next().append('<div class=\"' + settings.tickClass + '\">' + settings.tickInnerHTML + '</div>');\n        root.checked = true;\n        $this.prop('checked', true);\n    }\n}",
+    "receiverBase": "$this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var root = this;\n    var $this = $(this);\n    $this.css('display', 'inline-block');\n    $this.next().remove();\n    return this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var root = this;\n    var $this = $(this);\n    $this.next().addClass(root.disbgclass);\n    $this.next().children().addClass(root.distickclass);\n    root.disabled = true;\n    $this.prop('disabled', true);\n    return this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var root = this;\n    var $this = $(this);\n    $this.next().removeClass(root.disbgclass);\n    $this.next().children().removeClass(root.distickclass);\n    root.disabled = false;\n    $this.prop('disabled', false);\n    return this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var root = this;\n    var $this = $(this);\n    $this.next().append('<div class=\"' + root.tickclass + '\">' + root.tickinner + '</div>');\n    if (root.disabled) {\n        $this.next().children().addClass(root.distickclass);\n    }\n    root.checked = true;\n    $this.prop('checked', true);\n    return this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var root = this;\n    var $this = $(this);\n    $this.next().empty();\n    root.checked = false;\n    $this.prop('checked', false);\n    return this;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (require) {\n    var Engine = require('core/engine');\n    return Engine;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    equals(testParent.readAttribute('name'), 'Parent Name', 'readAttribute should be correct for name attribute');\n    equals(testParent.readAttribute('nothing'), null, 'readAttribute should be correct for invalid key');\n    same(testParent.readAttribute('info'), {\n        type: 'ChildRecordTest',\n        name: 'Child Name',\n        value: 'Blue Goo',\n        guid: '5001'\n    }, 'readAttribute should be correct for info child attribute');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var plugin;\n    beforeEach(function () {\n        plugin = new Plugin({});\n    });\n    it('should be an object', function () {\n        expect(plugin).to.be.ok;\n    });\n    it('should has #onCompile method', function () {\n        expect(plugin.onCompile).to.be.an.instanceof(Function);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    plugin = new Plugin({});\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(plugin).to.be.ok;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(plugin.onCompile).to.be.an.instanceof(Function);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (watches) {\n    test.assignWatches(watches);\n    l = watches.length;\n    for (; i < l; i++) {\n        watches[i].changed = self._conditionChangeBind;\n    }\n    self._condition.evaluate();\n}",
+    "receiverBase": "create",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    cacheStub.clear();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    src = gulp.src(filename);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    src.pipe(minifyCSS({})).pipe(es.map(function (file) {\n        expect(cacheStub.size()).to.be.equal(0);\n        done();\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    expect(cacheStub.size()).to.be.equal(0);\n    done();\n}",
+    "receiverBase": "es",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (done) {\n    src.pipe(minifyCSS(options)).pipe(es.map(function (file) {\n        setTimeout(function () {\n            expect(cacheStub.size()).to.be.equal(1);\n            expect(cacheStub.get(filename)).to.deep.equal({\n                raw: rawContents,\n                minified: compiled,\n                options: options\n            });\n            done();\n        }, 100);\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    setTimeout(function () {\n        expect(cacheStub.size()).to.be.equal(1);\n        expect(cacheStub.get(filename)).to.deep.equal({\n            raw: rawContents,\n            minified: compiled,\n            options: options\n        });\n        done();\n    }, 100);\n}",
+    "receiverBase": "es",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    expect(cacheStub.size()).to.be.equal(1);\n    expect(cacheStub.get(filename)).to.deep.equal({\n        raw: rawContents,\n        minified: compiled,\n        options: options\n    });\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    src = gulp.src(filename, { buffer: false });\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (done) {\n    src.pipe(minifyCSS({})).pipe(es.map(function (file) {\n        expect(cacheStub.size()).to.be.equal(0);\n        done();\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    expect(cacheStub.size()).to.be.equal(0);\n    done();\n}",
+    "receiverBase": "es",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (done) {\n    src.pipe(minifyCSS(options)).pipe(es.map(function (file) {\n        setTimeout(function () {\n            expect(cacheStub.size()).to.be.equal(1);\n            expect(cacheStub.get(filename)).to.deep.equal({\n                raw: rawContents,\n                minified: compiled,\n                options: options\n            });\n            done();\n        }, 100);\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    setTimeout(function () {\n        expect(cacheStub.size()).to.be.equal(1);\n        expect(cacheStub.get(filename)).to.deep.equal({\n            raw: rawContents,\n            minified: compiled,\n            options: options\n        });\n        done();\n    }, 100);\n}",
+    "receiverBase": "es",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    expect(cacheStub.size()).to.be.equal(1);\n    expect(cacheStub.get(filename)).to.deep.equal({\n        raw: rawContents,\n        minified: compiled,\n        options: options\n    });\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (name, callback) {\n    callback(null, 'Hi ' + name + ', I am the server');\n}",
+    "receiverBase": "server",
+    "receiverCallee": "on"
+  }
+]

@@ -1,0 +1,519 @@
+[
+  {
+    "callback": "function (re) {\n    return re.test(req.headers['user-agent']);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "any"
+  },
+  {
+    "callback": "function (error, stdout, stderr) {\n    if (!error && /<html/i.test(stdout)) {\n        res.writeHead(200, { 'Content-Type': 'text/html; charset=UTF-8' });\n        res.end(stdout);\n    } else {\n        if (error && error.code === 127)\n            Meteor._debug('spiderable: phantomjs not installed. Download and install from http://phantomjs.org/');\n        else\n            Meteor._debug('spiderable: phantomjs failed:', error, '\\nstderr:', stderr, '\\nstdout:', stdout);\n        next();\n    }\n}",
+    "receiverBase": "child_process",
+    "receiverCallee": "execFile"
+  },
+  {
+    "callback": "function () {\n    it('should add the dispatcher to itself', function () {\n        var dispatcher = sinon.stub();\n        var projects = new Projects(dispatcher);\n        assert.equal(projects.dispatcher, dispatcher);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = sinon.stub();\n    var projects = new Projects(dispatcher);\n    assert.equal(projects.dispatcher, dispatcher);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('should handle the creation', function () {\n        var dispatcher = {};\n        var projects = new Projects(dispatcher);\n        projects.dispatchPost = sinon.stub();\n        var data = { name: 'Test' };\n        projects.create(data);\n        assert(projects.dispatchPost.calledWithExactly('/projects', data));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPost = sinon.stub();\n    var data = { name: 'Test' };\n    projects.create(data);\n    assert(projects.dispatchPost.calledWithExactly('/projects', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPost = sinon.stub();\n    var id = 1;\n    var data = { name: 'Test' };\n    projects.createInWorkspace(id, data);\n    assert(projects.dispatchPost.calledWithExactly('/workspaces/1/projects', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPost = sinon.stub();\n    var id = '1';\n    var data = { name: 'Test' };\n    projects.createInWorkspace(id, data);\n    assert(projects.dispatchPost.calledWithExactly('/workspaces/1/projects', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPost = sinon.stub();\n    var id = 'foobar';\n    var data = { name: 'Test' };\n    projects.createInWorkspace(id, data);\n    assert(projects.dispatchPost.calledWithExactly('/workspaces/NaN/projects', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    projects.findAll();\n    assert(projects.dispatchGetCollection.calledWithExactly('/projects', undefined));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    projects.findAll(params);\n    assert(projects.dispatchGetCollection.calledWithExactly('/projects', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGet = sinon.stub();\n    var id = 1;\n    projects.findById(id);\n    assert(projects.dispatchGet.calledWithExactly('/projects/1', undefined));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGet = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = 1;\n    projects.findById(id, params);\n    assert(projects.dispatchGet.calledWithExactly('/projects/1', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGet = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = '1';\n    projects.findById(id, params);\n    assert(projects.dispatchGet.calledWithExactly('/projects/1', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGet = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = 'foobar';\n    projects.findById(id, params);\n    assert(projects.dispatchGet.calledWithExactly('/projects/NaN', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    var id = 1;\n    projects.findByWorkspace(id);\n    assert(projects.dispatchGetCollection.calledWithExactly('/workspaces/1/projects', undefined));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = 1;\n    projects.findByWorkspace(id, params);\n    assert(projects.dispatchGetCollection.calledWithExactly('/workspaces/1/projects', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = '1';\n    projects.findByWorkspace(id, params);\n    assert(projects.dispatchGetCollection.calledWithExactly('/workspaces/1/projects', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchGetCollection = sinon.stub();\n    var params = { 'opt_fields': 'id,name' };\n    var id = 'foobar';\n    projects.findByWorkspace(id, params);\n    assert(projects.dispatchGetCollection.calledWithExactly('/workspaces/NaN/projects', params));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPut = sinon.stub();\n    var id = 1;\n    var data = { name: 'Test' };\n    projects.update(id, data);\n    assert(projects.dispatchPut.calledWithExactly('/projects/1', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPut = sinon.stub();\n    var id = '1';\n    var data = { name: 'Test' };\n    projects.update(id, data);\n    assert(projects.dispatchPut.calledWithExactly('/projects/1', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchPut = sinon.stub();\n    var id = 'foobar';\n    var data = { name: 'Test' };\n    projects.update(id, data);\n    assert(projects.dispatchPut.calledWithExactly('/projects/NaN', data));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchDelete = sinon.stub();\n    var id = 1;\n    projects.delete(id);\n    assert(projects.dispatchDelete.calledWithExactly('/projects/1'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchDelete = sinon.stub();\n    var id = '1';\n    projects.delete(id);\n    assert(projects.dispatchDelete.calledWithExactly('/projects/1'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var dispatcher = {};\n    var projects = new Projects(dispatcher);\n    projects.dispatchDelete = sinon.stub();\n    var id = 'foobar';\n    projects.delete(id);\n    assert(projects.dispatchDelete.calledWithExactly('/projects/NaN'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return a - b;\n}",
+    "receiverBase": "chunksToRequest",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    this._handleFocus();\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleFocus();\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (Dom.hasClass(this.get('cont').parentNode, 'yui-toolbar-container-collapsed')) {\n        this.collapse(false);\n    } else {\n        this.collapse();\n    }\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function () {\n    this._button = _oButton;\n}",
+    "receiverBase": "showEvent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n    this._buttonClick(ev, oButton);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    if (!oButton.menucmd) {\n        oButton.menucmd = oButton.value;\n    }\n    oButton.value = ev.value;\n    this._buttonClick(ev, oButton);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev, args) {\n    var oMenu = args[1];\n    YAHOO.util.Event.stopEvent(args[0]);\n    tmp._onMenuClick(args[0], tmp);\n    if (!oButton.menucmd) {\n        oButton.menucmd = oButton.value;\n    }\n    oButton.value = oMenu.value ? oMenu.value : oMenu._oText.nodeValue;\n    self._buttonClick.call(self, args[1], oButton);\n    tmp._hideMenu();\n    return false;\n}",
+    "receiverBase": "mouseDownEvent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (ev, args) {\n    YAHOO.util.Event.stopEvent(args[0]);\n}",
+    "receiverBase": "clickEvent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (ev, args) {\n    YAHOO.util.Event.stopEvent(args[0]);\n}",
+    "receiverBase": "mouseUpEvent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    YAHOO.util.Event.stopEvent(ev);\n}",
+    "receiverBase": "tmp",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    document.body.appendChild(picker);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    picker.innerHTML = html;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (ev) {\n    var picker = this._colorPicker;\n    var em = picker.getElementsByTagName('em')[0];\n    var strong = picker.getElementsByTagName('strong')[0];\n    var tar = Event.getTarget(ev);\n    if (tar.tagName.toLowerCase() == 'a') {\n        em.style.backgroundColor = tar.style.backgroundColor;\n        strong.innerHTML = this._colorData['#' + tar.innerHTML] + '<br>' + tar.innerHTML;\n    }\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _oButton.menu.cfg.setProperty('zindex', 5);\n    _oButton.menu.cfg.setProperty('context', [\n        this.getButtonById(_oButton.id).get('element'),\n        'tl',\n        'bl'\n    ]);\n    this._resetColorPicker();\n    var _p = this._colorPicker;\n    if (_p.parentNode) {\n        _p.parentNode.removeChild(_p);\n    }\n    _oButton.menu.setBody('');\n    _oButton.menu.appendToBody(_p);\n    this._colorPicker.style.display = 'block';\n}",
+    "receiverBase": "beforeShowEvent",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    Event.stopEvent(ev);\n}",
+    "receiverBase": "Event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var href = document.location.href;\n    if (href.indexOf('?') !== -1) {\n        href = href.substring(0, href.indexOf('?'));\n    }\n    href = href.substring(0, href.lastIndexOf('/')) + '/';\n    return href;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    self._writeDomPath.call(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._checkLoaded.call(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (el) {\n    el.className = 'yui-non';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_swapEl"
+  },
+  {
+    "callback": "function () {\n    self.operaEvent = false;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._nodeChangeTimer = null;\n    self.nodeChange.call(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tar.parentNode.style.display = 'block';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    par.style.display = 'block';\n    par.parentNode.style.display = 'block';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    par.parentNode.parentNode.style.display = 'block';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._fixNodes.call(self);\n    self._fixNodesTimer = null;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._focusWindow.call(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.nodeChange.call(self);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var br = YAHOO.env.ua;\n    if (br.webkit >= 420) {\n        br.webkit3 = br.webkit;\n    } else {\n        br.webkit3 = 0;\n    }\n    return br;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    this.DOMReady = true;\n    this.fireQueue();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var self = this;\n    setTimeout(function () {\n        self._focusWindow.call(self, true);\n        self.editorDirty = false;\n    }, 400);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self._focusWindow.call(self, true);\n    self.editorDirty = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this._renderPanel();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.get('iframe').setStyle('height', '100%');\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._render.call(self);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._setInitialContent.call(self);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (this.currentWindow) {\n        this.moveWindow();\n    }\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (this.currentWindow) {\n        this.moveWindow();\n    }\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (o) {\n    this._handleFontSize(o);\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (o) {\n    this._handleColorPicker(o);\n    return false;\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (o) {\n    this._handleAlign(o);\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleAfterNodeChange();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleInsertImageClick();\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleInsertImageWindowClose();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleCreateLinkClick();\n}",
+    "receiverBase": "toolbar",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this._handleCreateLinkWindowClose();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self._setupAfterElement.call(self);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this.unsubscribeAll('afterExecCommand');\n    this.nodeChange();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (el) {\n    el.className = 'yui-non';\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "_swapEl"
+  },
+  {
+    "callback": "function () {\n    var liso = self._getDoc().getElementsByTagName('li');\n    for (var i = 0; i < liso.length; i++) {\n        if (liso[i].innerHTML.toLowerCase() == '<br>') {\n            liso[i].parentNode.parentNode.removeChild(liso[i].parentNode);\n        }\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self._setInitialContent.call(self);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (context.isShow()) {\n        context.hide();\n    }\n}",
+    "receiverBase": "$E",
+    "receiverCallee": "addObserver"
+  },
+  {
+    "callback": "function () {\n    context.hideSubmenu();\n    $E.notifyObservers(context, 'onHide');\n}",
+    "receiverBase": "$E",
+    "receiverCallee": "addObserver"
+  },
+  {
+    "callback": "function () {\n    this.moveMouseTo(target, callback, scope, offset);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitForTarget"
+  },
+  {
+    "callback": "function () {\n    me.endAsync(async);\n    me.processCallbackFromTest(callback, null, scope || me);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    this.genericMouseClick(el, callback, scope, options, method, offset);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitForTarget"
+  },
+  {
+    "callback": "function (step) {\n    queue.addStep(step);\n}",
+    "receiverBase": "A",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    me.endAsync(async);\n    me.processCallbackFromTest(callback, null, scope || me);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    callback && callback.apply(me, args);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "moveMouse"
+  },
+  {
+    "callback": "function () {\n    this.dragTo(source, target, callback, scope, options, dragOnly, sourceOffset, targetOffset);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitForTarget"
+  },
+  {
+    "callback": "function () {\n    this.dragBy(source, delta, callback, scope, options, dragOnly, offset);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "waitForTarget"
+  },
+  {
+    "callback": "function () {\n    me.endAsync(async);\n    me.processCallbackFromTest(callback, null, scope || me);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (root) {\n    var current = lang.clone(root.root), availableLocales = getAvailableLocales(!root._v1x && root, locale, bundlePath, bundleName);\n    require(availableLocales, function () {\n        for (var i = 1; i < availableLocales.length; i++) {\n            current = lang.mixin(lang.clone(current), arguments[i]);\n        }\n        var target = bundlePathAndName + '/' + locale;\n        cache[target] = current;\n        load();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function () {\n    for (var i = 1; i < availableLocales.length; i++) {\n        current = lang.mixin(lang.clone(current), arguments[i]);\n    }\n    var target = bundlePathAndName + '/' + locale;\n    cache[target] = current;\n    load();\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (locale) {\n    var target = bundlePathAndName + '/' + locale;\n    if (has('dojo-preload-i18n-Api')) {\n        checkForLegacyModules(target);\n    }\n    if (!cache[target]) {\n        doLoad(require, bundlePathAndName, bundlePath, bundleName, locale, finish);\n    } else {\n        finish();\n    }\n}",
+    "receiverBase": "array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (rollup) {\n    for (var p in rollup) {\n        cache[p + '/' + locale] = rollup[p];\n    }\n    --preloading;\n    while (!preloading && preloadWaitQueue.length) {\n        load.apply(null, preloadWaitQueue.shift());\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (bundle) {\n    results.push(cache[url] = bundle);\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (result_) {\n    result = result_;\n}",
+    "receiverBase": "",
+    "receiverCallee": "load"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (DOMClass) {\n    'use strict';\n    return DOMClass.extend({\n        destroy: function () {\n            this.sup();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  }
+]

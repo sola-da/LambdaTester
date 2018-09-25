@@ -1,0 +1,358 @@
+[
+  {
+    "callback": "function (name, context, definition) {\n    if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {\n        module.exports = definition();\n    } else if (typeof define === 'function' && typeof define.amd === 'object') {\n        define(function () {\n            return definition();\n        });\n    } else {\n        context[name] = definition();\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return definition();\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (chain) {\n    Assertion.addProperty(chain, function () {\n        return this;\n    });\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return this;\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'negate', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'deep', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(flag(this, 'object'), 'expected #{this} to be truthy', 'expected #{this} to be falsy');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(true === flag(this, 'object'), 'expected #{this} to be true', 'expected #{this} to be false', this.negate ? false : true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(false === flag(this, 'object'), 'expected #{this} to be false', 'expected #{this} to be true', this.negate ? true : false);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(null === flag(this, 'object'), 'expected #{this} to be null', 'expected #{this} not to be null');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(undefined === flag(this, 'object'), 'expected #{this} to be undefined', 'expected #{this} not to be undefined');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    this.assert(null != flag(this, 'object'), 'expected #{this} to exist', 'expected #{this} to not exist');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function () {\n    var obj = flag(this, 'object'), expected = obj;\n    if (Array.isArray(obj) || 'string' === typeof object) {\n        expected = obj.length;\n    } else if (typeof obj === 'object') {\n        expected = Object.keys(obj).length;\n    }\n    this.assert(!expected, 'expected #{this} to be empty', 'expected #{this} not to be empty');\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function (obj) {\n    this.assert(_.eql(obj, flag(this, 'object')), 'expected #{this} to deeply equal #{exp}', 'expected #{this} to not deeply equal #{exp}', obj);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (re) {\n    var obj = flag(this, 'object');\n    this.assert(re.exec(obj), 'expected #{this} to match ' + re, 'expected #{this} not to match ' + re);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (str) {\n    var obj = flag(this, 'object');\n    new Assertion(obj).is.a('string');\n    this.assert(~obj.indexOf(str), 'expected #{this} to contain ' + _.inspect(str), 'expected #{this} to not contain ' + _.inspect(str));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (key) {\n    return ~actual.indexOf(key);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function (key) {\n    return _.inspect(key);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (method) {\n    var obj = flag(this, 'object'), itself = flag(this, 'itself'), context = 'function' === typeof obj && !itself ? obj.prototype[method] : obj[method];\n    this.assert('function' === typeof context, 'expected #{this} to respond to ' + _.inspect(method), 'expected #{this} to not respond to ' + _.inspect(method));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function () {\n    flag(this, 'itself', true);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addProperty"
+  },
+  {
+    "callback": "function (matcher) {\n    var obj = flag(this, 'object');\n    this.assert(matcher(obj), 'expected #{this} to satisfy ' + _.inspect(matcher), 'expected #{this} to not satisfy' + _.inspect(matcher), this.negate ? false : true, matcher(obj));\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function (expected, delta) {\n    var obj = flag(this, 'object');\n    this.assert(Math.abs(obj - expected) <= delta, 'expected #{this} to be close to ' + expected + ' +/- ' + delta, 'expected #{this} not to be close to ' + expected + ' +/- ' + delta);\n}",
+    "receiverBase": "Assertion",
+    "receiverCallee": "addMethod"
+  },
+  {
+    "callback": "function alias(name, as) {\n    assert[as] = assert[name];\n    return alias;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (chai, util) {\n        chai.expect = function (val, message) {\n            return new chai.Assertion(val, message);\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (asserterName) {\n    var pd = Object.getOwnPropertyDescriptor(ctx, asserterName), functionProtoPD = Object.getOwnPropertyDescriptor(Function.prototype, asserterName);\n    if (functionProtoPD && !functionProtoPD.configurable)\n        return;\n    if (asserterName === 'arguments')\n        return;\n    Object.defineProperty(assert, asserterName, pd);\n}",
+    "receiverBase": "asserterNames",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (ctx, name, method) {\n        ctx[name] = function () {\n            var result = method.apply(this, arguments);\n            return result === undefined ? this : result;\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (ctx, name, getter) {\n        Object.defineProperty(ctx, name, {\n            get: function () {\n                var result = getter.call(this);\n                return result === undefined ? this : result;\n            },\n            configurable: true\n        });\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (obj, key, value) {\n        var flags = obj.__flags || (obj.__flags = Object.create(null));\n        if (arguments.length === 3) {\n            flags[key] = value;\n        } else {\n            return flags[key];\n        }\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (obj, args) {\n        var actual = args[4];\n        return 'undefined' !== actual ? actual : obj._obj;\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (func) {\n        if (func.name)\n            return func.name;\n        var match = /^\\s?function ([^(]*)\\(/.exec(func);\n        return match && match[1] ? match[1] : '';\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (value) {\n    var re = /\\[(\\d+)\\]$/, mArr = re.exec(value);\n    if (mArr)\n        return { i: parseFloat(mArr[1]) };\n    else\n        return { p: value };\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key) {\n    if (!key.match(/^\\d+$/)) {\n        output.push(formatProperty(ctx, value, recurseTimes, visibleKeys, key, true));\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (line) {\n    return '  ' + line;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (line) {\n    return '   ' + line;\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (prev, cur) {\n    numLinesEst++;\n    if (cur.indexOf('\\n') >= 0)\n        numLinesEst++;\n    return prev + cur.length + 1;\n}",
+    "receiverBase": "output",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (ctx, name, method) {\n        var _method = ctx[name], _super = function () {\n                return this;\n            };\n        if (_method && 'function' === typeof _method)\n            _super = _method;\n        ctx[name] = function () {\n            var result = method(_super).apply(this, arguments);\n            return result === undefined ? this : result;\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    var flag = require('./flag');\n    module.exports = function (obj, args) {\n        var negate = flag(obj, 'negate'), expr = args[0];\n        return negate ? !expr : expr;\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (err, res) {\n    if (err)\n        return console.error(err);\n    console.dir(res);\n}",
+    "receiverBase": "keen",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (form) {\n    console.log(form.data);\n}",
+    "receiverBase": "form",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.notebook.set_dirty();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    that.notebook.execute_selected_cell();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    that.notebook.delete_cell();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (event) {\n    that.show_sections(!that.showInput, true);\n}",
+    "receiverBase": "optionBar",
+    "receiverCallee": "dblclick"
+  },
+  {
+    "callback": "function () {\n    that.tooltip_msg_id = IPython.notebook.request_tool_tip(that, pre_cursor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    tooltip.removeClass('smalltooltip');\n    tooltip.addClass('bigtooltip');\n    expandlink.remove();\n    setTimeout(function () {\n        that.code_mirror.focus();\n    }, 50);\n}",
+    "receiverBase": "expandlink",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    that.code_mirror.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    that.remove_and_cancel_tooltip();\n    tooltip.remove();\n    setTimeout(function () {\n        that.code_mirror.focus();\n    }, 50);\n}",
+    "receiverBase": "closelink",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    that.code_mirror.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (x) {\n    return x.charCodeAt(0);\n}",
+    "receiverBase": "chararr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    that.code_mirror.focus();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    console.log('option changed ');\n}",
+    "receiverBase": "$option",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function (e) {\n    var match = $(this).children('option:selected').data('match_data');\n    detail.html('');\n    for (var prop in match) {\n        if (prop !== 'completion') {\n            detail.append('<h5>' + prop + '</h5>');\n            detail.append('<span>' + match[prop] + '</span>');\n        }\n    }\n}",
+    "receiverBase": "select",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function (m) {\n    return m.completion;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (x) {\n    return re.test(x.completion);\n}",
+    "receiverBase": "matches",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (event) {\n    downandpress(event, 1);\n}",
+    "receiverBase": "select",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (event) {\n    downandpress(event, 0);\n}",
+    "receiverBase": "select",
+    "receiverCallee": "keypress"
+  },
+  {
+    "callback": "function () {\n    cellContents.style.backgroundColor = oldBackgroundColor;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (Observable) {\n    Observable.scopedEval($toinsert)();\n}",
+    "receiverBase": "",
+    "receiverCallee": "curl"
+  },
+  {
+    "callback": "function () {\n    eval(js);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    that.clear_out_timeout = null;\n    that._clear_stdout = that._clear_stderr = that._clear_other = null;\n    that.clear_output_callback(stdout, stderr, other);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (req, res) {\n    res.sendfile(join('node_modules', 'dronestream', 'dist', 'nodecopter-client.js'));\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (value) {\n    return value > 5 ? 'A big value.' : 'A small value.';\n}",
+    "receiverBase": "SliderBase",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    oneChangeEventCount++;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    twoChangeEventCount++;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    oneChangeEventCount++;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    twoChangeEventCount++;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (evt) {\n    e = evt;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (buf) {\n    src += buf;\n}",
+    "receiverBase": "pack",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    Function('t', src)(t);\n}",
+    "receiverBase": "pack",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (item) {\n    parts = parts.concat(_createPart({\n        name: p,\n        content: item\n    }, boundary));\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (item) {\n    tmp = tmp.concat(_createPart(item, boundary));\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  }
+]

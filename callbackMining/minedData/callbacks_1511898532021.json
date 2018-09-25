@@ -1,0 +1,852 @@
+[
+  {
+    "callback": "function (e) {\n    this.sourceData = e.items.results;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "proxy"
+  },
+  {
+    "callback": "function () {\n    $(this).closest('form').parent().triggerHandler('resize');\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (k, v) {\n    text.push(v && typeof v === 'object' ? that.formatSelection(v) : v);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, isInitial) {\n    if (!isInitial) {\n        $(this).closest('form').submit();\n    }\n}",
+    "receiverBase": "$input",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    $.Model('Seccubus.Models.Scanner', { findAll: 'json/getScanners.pl' }, {});\n}",
+    "receiverBase": "",
+    "receiverCallee": "steal"
+  },
+  {
+    "callback": "function () {\n    var zoom = map.getView().getZoom();\n    gaOverlay.setVisibility(zoom);\n}",
+    "receiverBase": "gaDebounce",
+    "receiverCallee": "debounce"
+  },
+  {
+    "callback": "function (data) {\n    $scope.results = data.results;\n    $scope.options.announceResults($scope.type, data.results.length);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function (data, statuscode) {\n    if (statuscode !== 0) {\n        $scope.options.announceResults($scope.type, 0);\n    }\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function (newval) {\n    cancel();\n    if (newval != '') {\n        triggerSearch();\n    } else {\n        unregisterMove();\n    }\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function (result) {\n    selectedFeatures[key] = result.feature;\n    cb(result.feature);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function () {\n    cb(selectedFeatures[key]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (f) {\n    $rootScope.$broadcast('gaTriggerTooltipRequest', {\n        features: [f],\n        onCloseCB: angular.noop\n    });\n    gaPreviewFeatures.zoom($scope.map, geojsonParser.readFeature(f));\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadGeometry"
+  },
+  {
+    "callback": "function (layers) {\n    searchableLayers = [];\n    timeEnabled = [];\n    timeStamps = [];\n    angular.forEach(layers, function (layer) {\n        var ts = '';\n        if (layer.time && layer.time.substr(0, 4) != '9999') {\n            ts = layer.time.substr(0, 4);\n        }\n        searchableLayers.push(layer.bodId);\n        timeEnabled.push(layer.timeEnabled);\n        timeStamps.push(ts);\n    });\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$watchCollection"
+  },
+  {
+    "callback": "function (layer) {\n    var ts = '';\n    if (layer.time && layer.time.substr(0, 4) != '9999') {\n        ts = layer.time.substr(0, 4);\n    }\n    searchableLayers.push(layer.bodId);\n    timeEnabled.push(layer.timeEnabled);\n    timeStamps.push(ts);\n}",
+    "receiverBase": "angular",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (attr) {\n    if (attr.value === '') {\n        item.removeAttr(attr.name);\n    }\n}",
+    "receiverBase": "item",
+    "receiverCallee": "eachAttr"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    module.exports = function (type) {\n        return function () {\n        };\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    exports.isatty = function () {\n        return true;\n    };\n    exports.getWindowSize = function () {\n        return [\n            window.innerHeight,\n            window.innerWidth\n        ];\n    };\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (key, val) {\n    if ('_runnable' == key)\n        return;\n    if ('test' == key)\n        return;\n    return val;\n}",
+    "receiverBase": "JSON",
+    "receiverCallee": "stringify"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    exports.bdd = require('./bdd');\n    exports.tdd = require('./tdd');\n    exports.qunit = require('./qunit');\n    exports.exports = require('./exports');\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (file) {\n    file = path.resolve(file);\n    suite.emit('pre-require', global, file);\n    suite.emit('require', require(file), file);\n    suite.emit('post-require', global, file);\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var stats = reporter.stats;\n    if (stats.failures) {\n        var msg = stats.failures + ' of ' + runner.total + ' tests failed';\n        notify(msg, {\n            name: 'mocha',\n            title: 'Failed',\n            image: image('error')\n        });\n    } else {\n        notify(stats.passes + ' tests passed in ' + stats.duration + 'ms', {\n            name: 'mocha',\n            title: 'Passed',\n            image: image('ok')\n        });\n    }\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (str, i) {\n    return pad(++i, width) + ' |' + ' ' + str;\n}",
+    "receiverBase": "lines",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    stats.start = new Date();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    stats.suites = stats.suites || 0;\n    suite.root || stats.suites++;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    stats.tests = stats.tests || 0;\n    stats.tests++;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    stats.passes = stats.passes || 0;\n    var medium = exports.slow / 2;\n    test.speed = test.duration > exports.slow ? 'slow' : test.duration > medium ? 'medium' : 'fast';\n    stats.passes++;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    stats.failures = stats.failures || 0;\n    stats.failures++;\n    test.err = err;\n    failures.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stats.end = new Date();\n    stats.duration = new Date() - stats.start;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stats.pending++;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (str) {\n    if (/^(\\n+)$/.test(str.value))\n        str.value = Array(++RegExp.$1.length).join('<newline>');\n    if (str.added)\n        return colorLines('diff added', str.value);\n    if (str.removed)\n        return colorLines('diff removed', str.value);\n    return str.value;\n}",
+    "receiverBase": "diff",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (str) {\n    return color(name, str);\n}",
+    "receiverBase": "split",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (suite) {\n    if (suite.root)\n        return;\n    ++indents;\n    console.log('%s<section class=\"suite\">', indent());\n    ++indents;\n    console.log('%s<h1>%s</h1>', indent(), suite.title);\n    console.log('%s<dl>', indent());\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    if (suite.root)\n        return;\n    console.log('%s</dl>', indent());\n    --indents;\n    console.log('%s</section>', indent());\n    --indents;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('%s  <dt>%s</dt>', indent(), test.title);\n    var code = utils.escape(utils.clean(test.fn.toString()));\n    console.log('%s  <dd><pre><code>%s</code></pre></dd>', indent(), code);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write('\\n  ');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    process.stdout.write(color('pending', '.'));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    if (++n % width == 0)\n        process.stdout.write('\\n  ');\n    if ('slow' == test.speed) {\n        process.stdout.write(color('bright yellow', '.'));\n    } else {\n        process.stdout.write(color(test.speed, '.'));\n    }\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    if (++n % width == 0)\n        process.stdout.write('\\n  ');\n    process.stdout.write(color('fail', '.'));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log();\n    self.epilogue();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write(fn({\n        cov: self.cov,\n        coverageClass: coverageClass\n    }));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    if (suite.root)\n        return;\n    var url = location.protocol + '//' + location.host + location.pathname + '?grep=^' + utils.escapeRegexp(suite.fullTitle());\n    var el = fragment('<li class=\"suite\"><h1><a href=\"%s\">%s</a></h1></li>', url, suite.title);\n    stack[0].appendChild(el);\n    stack.unshift(document.createElement('ul'));\n    el.appendChild(stack[0]);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    if (suite.root)\n        return;\n    stack.shift();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    if ('hook' == test.type || err.uncaught)\n        runner.emit('test end', test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    pre.style.display = 'none' == pre.style.display ? 'block' : 'none';\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (_, type) {\n    switch (type) {\n    case 's':\n        return String(args[i++]);\n    case 'e':\n        return escape(args[i++]);\n    }\n}",
+    "receiverBase": "html",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (test) {\n    tests.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    passes.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    failures.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var cov = global._$jscoverage || {};\n    var result = self.cov = map(cov);\n    result.stats = self.stats;\n    result.tests = tests.map(clean);\n    result.failures = failures.map(clean);\n    result.passes = passes.map(clean);\n    if (!output)\n        return;\n    process.stdout.write(JSON.stringify(result, null, 2));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (line, num) {\n    num++;\n    if (data[num] === 0) {\n        ret.misses++;\n        ret.sloc++;\n    } else if (data[num] !== undefined) {\n        ret.hits++;\n        ret.sloc++;\n    }\n    ret.source[num] = {\n        source: line,\n        coverage: data[num] === undefined ? '' : data[num]\n    };\n}",
+    "receiverBase": "source",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    console.log(JSON.stringify([\n        'start',\n        { total: total }\n    ]));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log(JSON.stringify([\n        'pass',\n        clean(test)\n    ]));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    console.log(JSON.stringify([\n        'fail',\n        clean(test)\n    ]));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write(JSON.stringify([\n        'end',\n        self.stats\n    ]));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    tests.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    passes.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    failures.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var obj = {\n            stats: self.stats,\n            tests: tests.map(clean),\n            failures: failures.map(clean),\n            passes: passes.map(clean)\n        };\n    process.stdout.write(JSON.stringify(obj, null, 2));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stream.write('\\n  ');\n    cursor.hide();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cursor.show();\n    console.log();\n    self.epilogue();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    process.stdout.write(color('pass', '    ' + test.fullTitle() + ': '));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    var fmt = color('checkmark', '  -') + color('pending', ' %s');\n    console.log(fmt, test.fullTitle());\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    var fmt = color('checkmark', '  \\u2713') + color('pass', ' %s: ') + color(test.speed, '%dms');\n    cursor.CR();\n    console.log(fmt, test.fullTitle(), test.duration);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    cursor.CR();\n    console.log(color('fail', '  %d) %s'), ++n, test.fullTitle());\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    mapTOC(suite, obj);\n}",
+    "receiverBase": "suites",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (suite) {\n    ++level;\n    var slug = utils.slug(suite.fullTitle());\n    buf += '<a name=\"' + slug + '\" />' + '\\n';\n    buf += title(suite.title) + '\\n';\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    --level;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    var code = utils.clean(test.fn.toString());\n    buf += test.title + '.\\n';\n    buf += '\\n```js\\n';\n    buf += code + '\\n';\n    buf += '```\\n\\n';\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write('# TOC\\n');\n    process.stdout.write(generateTOC(runner.suite));\n    process.stdout.write(buf);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    var Base = require('./base');\n    exports = module.exports = Min;\n    function Min(runner) {\n        Base.call(this, runner);\n        runner.on('start', function () {\n            process.stdout.write('\\x1B[2J');\n            process.stdout.write('\\x1B[1;3H');\n        });\n        runner.on('end', this.epilogue.bind(this));\n    }\n    Min.prototype = new Base();\n    Min.prototype.constructor = Min;\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    process.stdout.write('\\x1B[2J');\n    process.stdout.write('\\x1B[1;3H');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    Base.cursor.hide();\n    self.draw('start');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    self.draw('pending');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    self.draw('pass');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    self.draw('fail');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    Base.cursor.show();\n    for (var i = 0; i < self.numberOfLines; i++)\n        write('\\n');\n    self.epilogue();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (line, index) {\n    write('\\x1B[' + self.scoreboardWidth + 'C');\n    write(line.join(''));\n    write('\\n');\n}",
+    "receiverBase": "trajectories",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    console.log();\n    cursor.hide();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cursor.show();\n    console.log();\n    self.epilogue();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    ++indents;\n    console.log(color('suite', '%s%s'), indent(), suite.title);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (suite) {\n    --indents;\n    if (1 == indents)\n        console.log();\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    process.stdout.write(indent() + color('pass', '  \\u25E6 ' + test.title + ': '));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    var fmt = indent() + color('pending', '  - %s');\n    console.log(fmt, test.title);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    if ('fast' == test.speed) {\n        var fmt = indent() + color('checkmark', '  \\u2713') + color('pass', ' %s ');\n        cursor.CR();\n        console.log(fmt, test.title);\n    } else {\n        var fmt = indent() + color('checkmark', '  \\u2713') + color('pass', ' %s ') + color(test.speed, '(%dms)');\n        cursor.CR();\n        console.log(fmt, test.title, test.duration);\n    }\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    cursor.CR();\n    console.log(indent() + color('fail', '  %d) %s'), ++n, test.title);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('%d..%d', 1, total);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    ++n;\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('ok %d %s # SKIP -', n, title(test));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('ok %d %s', n, title(test));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    console.log('not ok %d %s', n, title(test));\n    console.log(err.stack.replace(/^/gm, '  '));\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('##teamcity[testSuiteStarted name=\\'mocha.suite\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('##teamcity[testStarted name=\\'' + escape(test.fullTitle()) + '\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test, err) {\n    console.log('##teamcity[testFailed name=\\'' + escape(test.fullTitle()) + '\\' message=\\'' + escape(err.message) + '\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('##teamcity[testIgnored name=\\'' + escape(test.fullTitle()) + '\\' message=\\'pending\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    console.log('##teamcity[testFinished name=\\'' + escape(test.fullTitle()) + '\\' duration=\\'' + test.duration + '\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('##teamcity[testSuiteFinished name=\\'mocha.suite\\' duration=\\'' + stats.duration + '\\']');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    tests.push(test);\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log(tag('testsuite', {\n        name: 'Mocha Tests',\n        tests: stats.tests,\n        failures: stats.failures,\n        errors: stats.failures,\n        skip: stats.tests - stats.failures - stats.passes,\n        timestamp: new Date().toUTCString(),\n        time: stats.duration / 1000\n    }, false));\n    tests.forEach(test);\n    console.log('</testsuite>');\n}",
+    "receiverBase": "runner",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (key, val) {\n    if ('_' == key[0])\n        return;\n    if ('parent' == key)\n        return '#<Suite>';\n    if ('ctx' == key)\n        return '#<Context>';\n    return val;\n}",
+    "receiverBase": "JSON",
+    "receiverCallee": "stringify"
+  },
+  {
+    "callback": "function () {\n    self.callback(new Error('timeout of ' + ms + 'ms exceeded'));\n    self.timedOut = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    done(new Error('timeout of ' + ms + 'ms exceeded'));\n    self.timedOut = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err) {\n    if (err instanceof Error)\n        return done(err);\n    if (null != err)\n        return done(new Error('done() invoked with non-Error: ' + err));\n    done();\n}",
+    "receiverBase": "fn",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (test) {\n    self.checkGlobals(test);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (hook) {\n    self.checkGlobals(hook);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (test) {\n    if (self._grep.test(test.fullTitle()))\n        total++;\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "eachTest"
+  },
+  {
+    "callback": "function (arr) {\n    this._globals.push(arr);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err) {\n    self.failHook(hook, err);\n}",
+    "receiverBase": "hook",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    hook.removeAllListeners('error');\n    var testError = hook.error();\n    if (testError)\n        self.fail(self.test, testError);\n    if (err)\n        return self.failHook(hook, err);\n    self.emit('hook end', hook);\n    next(++i);\n}",
+    "receiverBase": "hook",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    next(0);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        self.suite = orig;\n        return fn(err);\n    }\n    next(suites.pop());\n}",
+    "receiverBase": "self",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function (err) {\n    self.fail(test, err);\n}",
+    "receiverBase": "test",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    self.currentRunnable = self.test;\n    self.runTest(function (err) {\n        test = self.test;\n        if (err) {\n            self.fail(test, err);\n            self.emit('test end', test);\n            return self.hookUp('afterEach', next);\n        }\n        test.state = 'passed';\n        self.emit('pass', test);\n        self.emit('test end', test);\n        self.hookUp('afterEach', next);\n    });\n}",
+    "receiverBase": "self",
+    "receiverCallee": "hookDown"
+  },
+  {
+    "callback": "function (err) {\n    test = self.test;\n    if (err) {\n        self.fail(test, err);\n        self.emit('test end', test);\n        return self.hookUp('afterEach', next);\n    }\n    test.state = 'passed';\n    self.emit('pass', test);\n    self.emit('test end', test);\n    self.hookUp('afterEach', next);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "runTest"
+  },
+  {
+    "callback": "function () {\n    self.emit('suite end', suite);\n    fn();\n}",
+    "receiverBase": "self",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function () {\n    self.runTests(suite, next);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function () {\n    debug('end');\n    process.removeListener('uncaughtException', uncaught);\n    fn(self.failures);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    debug('finished running');\n    self.emit('end');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "runSuite"
+  },
+  {
+    "callback": "function (key) {\n    var matched = filter(ok, function (ok) {\n            if (~ok.indexOf('*'))\n                return 0 == key.indexOf(ok.split('*')[0]);\n            return key == ok;\n        });\n    return matched.length == 0 && (!global.navigator || 'onerror' !== key);\n}",
+    "receiverBase": "",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (ok) {\n    if (~ok.indexOf('*'))\n        return 0 == key.indexOf(ok.split('*')[0]);\n    return key == ok;\n}",
+    "receiverBase": "",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (sum, suite) {\n    return sum + suite.total();\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (suite) {\n    suite.eachTest(fn);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (module, exports, require) {\n    var Runnable = require('./runnable');\n    module.exports = Test;\n    function Test(title, fn) {\n        Runnable.call(this, title, fn);\n        this.pending = !fn;\n        this.type = 'test';\n    }\n    Test.prototype = new Runnable();\n    Test.prototype.constructor = Test;\n}",
+    "receiverBase": "require",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (file) {\n    debug('file %s', file);\n    fs.watchFile(file, options, function (curr, prev) {\n        if (prev.mtime < curr.mtime)\n            fn(file);\n    });\n}",
+    "receiverBase": "files",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (curr, prev) {\n    if (prev.mtime < curr.mtime)\n        fn(file);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "watchFile"
+  },
+  {
+    "callback": "function (path) {\n    path = join(dir, path);\n    if (fs.statSync(path).isDirectory()) {\n        exports.files(path, ret);\n    } else if (path.match(/\\.(js|coffee)$/)) {\n        ret.push(path);\n    }\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    if (e.source == window && e.data == name) {\n        if (e.stopPropagation)\n            e.stopPropagation();\n        if (timeouts.length)\n            timeouts.shift()();\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (obj, pair) {\n    var i = pair.indexOf('='), key = pair.slice(0, i), val = pair.slice(++i);\n    obj[key] = decodeURIComponent(val);\n    return obj;\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var p = new Ext.Panel({\n            title: 'My Panel',\n            collapsible: true,\n            renderTo: 'container',\n            width: 400,\n            html: Ext.example.bogusMarkup\n        });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "onReady"
+  },
+  {
+    "callback": "function () {\n    return null;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function () {\n    return null;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function () {\n    return partialAccount;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function (account) {\n    test.equal(account.email, TEST_EMAIL);\n    test.ok(getByEmailStub.calledWith(TEST_EMAIL));\n    test.ok(putUserStub.calledWith(emailMatch));\n    test.done();\n}",
+    "receiverBase": "getOrCreateUserByEmail",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "getOrCreateUserByEmail",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    getByKeyStub.restore();\n    getByEmailStub.restore();\n    putUserStub.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return partialAccount;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function (account) {\n    test.equal(account.email, TEST_EMAIL);\n    test.ok(getByEmailStub.calledWith(TEST_EMAIL));\n    test.done();\n}",
+    "receiverBase": "getOrCreateUserByEmail",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "getOrCreateUserByEmail",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    getByEmailStub.restore();\n    putUserStub.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return retLog;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function (canFulfillQuery) {\n    test.equal(canFulfillQuery, true);\n    test.done();\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    findAPIKeyUsageStub.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return retLog;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function (canFulfillQuery) {\n    test.equal(canFulfillQuery, false);\n    test.done();\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    findAPIKeyUsageStub.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return retLog;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function (canFulfillQuery) {\n    var matchingDates = findAPIKeyUsageStub.calledWith(TEST_API_KEY, startDateMatch, endDateMatch);\n    test.ok(matchingDates);\n    test.done();\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "canFulfillQueryWithThrottle",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    findAPIKeyUsageStub.restore();\n    clock.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function () {\n    test.ok(reportUsageStub.calledWith(TEST_API_KEY, partialQuery));\n    test.ok(removeStub.calledWith(TEST_API_KEY, endDateMatch, false));\n    test.done();\n}",
+    "receiverBase": "updateAccountLog",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "updateAccountLog",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    reportUsageStub.restore();\n    removeStub.restore();\n    clock.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  },
+  {
+    "callback": "function () {\n    return;\n}",
+    "receiverBase": "q",
+    "receiverCallee": "fcall"
+  },
+  {
+    "callback": "function () {\n    var rightRemoveParams = removeStub.calledWith(TEST_API_KEY, endDateMatch, false);\n    var rightReportParams = reportUsageStub.calledWith(TEST_API_KEY, partialQuery, testError);\n    test.ok(rightRemoveParams);\n    test.ok(rightReportParams);\n    test.done();\n}",
+    "receiverBase": "updateAccountLog",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "updateAccountLog",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    testUtil.reportAsyncError(test, error);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "fail"
+  },
+  {
+    "callback": "function () {\n    reportUsageStub.restore();\n    removeStub.restore();\n    clock.restore();\n}",
+    "receiverBase": "fail",
+    "receiverCallee": "fin"
+  }
+]

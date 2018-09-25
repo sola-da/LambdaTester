@@ -1,0 +1,305 @@
+[
+  {
+    "callback": "function (keyValue) {\n    processKeyValue(keyValue.key || keyValue['unknown'], keyValue.value);\n}",
+    "receiverBase": "utils",
+    "receiverCallee": "arrayForEach"
+  },
+  {
+    "callback": "function (color) {\n    if (color)\n        this.getDialog().getContentElement('info', 'bgColor').setValue(color);\n    this.focus();\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "getColorFromDialog"
+  },
+  {
+    "callback": "function (color) {\n    if (color)\n        this.getDialog().getContentElement('info', 'borderColor').setValue(color);\n    this.focus();\n}",
+    "receiverBase": "editor",
+    "receiverCallee": "getColorFromDialog"
+  },
+  {
+    "callback": "function () {\n    it('should return the same value', function (done) {\n        test.resultProperty = 'filter';\n        test.brightness('.5', 'brightness(0.5)', done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    test.resultProperty = 'filter';\n    test.brightness('.5', 'brightness(0.5)', done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    e.Intl.add('calendar-base', 'hu', {\n        very_short_weekdays: [\n            'V',\n            'H',\n            'K',\n            'Sze',\n            'Cs',\n            'P',\n            'Szo'\n        ],\n        first_weekday: 1,\n        weekends: [\n            0,\n            6\n        ]\n    });\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS(opts).on('error', done).on('data', function (file) {\n        expect(file.isNull()).to.be.equal(true);\n        done();\n    }).end(new File());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    expect(file.isNull()).to.be.equal(true);\n    done();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS(opts).on('error', done).on('data', function (file) {\n        expect(String(file.contents)).to.be.equal(expected);\n        done();\n    }).end(new File({ contents: new Buffer(fixture) }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    expect(String(file.contents)).to.be.equal(expected);\n    done();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS(opts).on('error', done).on('finish', function () {\n        expect(opts).to.be.eql({\n            keepSpecialComments: 1,\n            keepBreaks: true\n        });\n        done();\n    }).end(new File({ contents: new Buffer(fixture) }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(opts).to.be.eql({\n        keepSpecialComments: 1,\n        keepBreaks: true\n    });\n    done();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS().on('error', function (err) {\n        expect(err).to.be.instanceOf(PluginError);\n        expect(err.fileName).to.be.equal('foo.css');\n        done();\n    }).end(new File({\n        path: 'foo.css',\n        contents: new Buffer('@import url(\"../../external.css\");')\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.be.instanceOf(PluginError);\n    expect(err.fileName).to.be.equal('foo.css');\n    done();\n}",
+    "receiverBase": "minifyCSS",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS(opts).on('error', done).on('data', function (file) {\n        file.contents.on('data', function (data) {\n            expect(file.isStream()).to.be.equal(true);\n            expect(String(data)).to.be.equal(expected);\n            done();\n        });\n    }).end(new File({ contents: bufferstream(new Buffer(fixture)) }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    file.contents.on('data', function (data) {\n        expect(file.isStream()).to.be.equal(true);\n        expect(String(data)).to.be.equal(expected);\n        done();\n    });\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    expect(file.isStream()).to.be.equal(true);\n    expect(String(data)).to.be.equal(expected);\n    done();\n}",
+    "receiverBase": "contents",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS().on('error', function (err) {\n        expect(err).to.be.instanceOf(PluginError);\n        expect(err.fileName).to.be.equal('foo.css');\n        done();\n    }).end(new File({\n        path: 'foo.css',\n        contents: bufferstream(new Buffer('@import url(\"../../external.css\");'))\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.be.instanceOf(PluginError);\n    expect(err.fileName).to.be.equal('foo.css');\n    done();\n}",
+    "receiverBase": "minifyCSS",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    it('should minify include external files', function (done) {\n        minifyCSS().on('error', done).on('data', function (file) {\n            expect(String(file.contents)).to.be.equal('p{text-align:center;color:green}');\n            done();\n        }).end(new File({\n            path: 'test/fixtures/foo/bar/importer.css',\n            contents: new Buffer('@import url(\"../../external.css\");')\n        }));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function (done) {\n    minifyCSS().on('error', done).on('data', function (file) {\n        expect(String(file.contents)).to.be.equal('p{text-align:center;color:green}');\n        done();\n    }).end(new File({\n        path: 'test/fixtures/foo/bar/importer.css',\n        contents: new Buffer('@import url(\"../../external.css\");')\n    }));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (file) {\n    expect(String(file.contents)).to.be.equal('p{text-align:center;color:green}');\n    done();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ball) {\n    var c = 0.5 * scrawl.physics.airDensity * scrawl.physics.windSpeed * scrawl.physics.windSpeed, wind = scrawl.v.set({\n            x: c * ball.get('area') * ball.get('drag'),\n            y: 0,\n            z: 0\n        });\n    ball.load.vectorAdd(wind);\n}",
+    "receiverBase": "pBall",
+    "receiverCallee": "addForce"
+  },
+  {
+    "callback": "function () {\n    scrawl.init();\n    mycode();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(0) td:eq(2)').hasClass('unittest') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    oSession.fnRestore();\n    $('#example').dataTable({\n        'bServerSide': true,\n        'sAjaxSource': '../../../examples/examples_support/server_processing.php',\n        'aoColumns': [\n            null,\n            null,\n            { 'sClass': 'unittest' },\n            null,\n            null\n        ]\n    });\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(1) td:eq(2)').hasClass('unittest');\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(3) td:eq(2)').hasClass('unittest');\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(9) td:eq(2)').hasClass('unittest');\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(3) td:eq(0)').hasClass('unittest') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(3) td:eq(4)').hasClass('unittest') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    $('#example_next').click();\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(6) td:eq(2)').hasClass('unittest');\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example thead tr:eq(3) th:eq(4)').hasClass('unittest') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example thead tr:eq(3) th:eq(4)').hasClass('unittest') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    oSession.fnRestore();\n    $('#example').dataTable({\n        'bServerSide': true,\n        'sAjaxSource': '../../../examples/examples_support/server_processing.php',\n        'aoColumns': [\n            { 'sClass': 'unittest2' },\n            null,\n            null,\n            { 'sClass': 'unittest1' },\n            null\n        ]\n    });\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    var bReturn = $('#example tbody tr:eq(3) td:eq(0)').hasClass('unittest2') && $('#example tbody tr:eq(8) td:eq(3)').hasClass('unittest1');\n    return bReturn;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(0) td:eq(4)').hasClass('unittest1') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return $('#example tbody tr:eq(6) td:eq(4)').hasClass('unittest2') == false;\n}",
+    "receiverBase": "oTest",
+    "receiverCallee": "fnWaitTest"
+  },
+  {
+    "callback": "function () {\n    return Ext.String.format('<div class=\"{0}{1}-shadow\" role=\"presentation\"></div>', Ext.baseCSSPrefix, Ext.isIE && !Ext.supports.CSS3BoxShadow ? 'ie' : 'css');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, size) {\n    if (err) {\n        callback(err);\n    } else {\n        self.write_pos = size;\n        self.openFile(function (err) {\n            if (err) {\n                callback(err);\n            } else {\n                callback(null, self);\n            }\n        });\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "writtenSize"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n    } else {\n        callback(null, self);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "openFile"
+  },
+  {
+    "callback": "function (err, fd) {\n    if (err) {\n        callback(err);\n    } else {\n        if (self._rawWrite) {\n            self.rawWrite = self._rawWrite;\n        }\n        if (self._fetch) {\n            self.fetch = self._fetch;\n        }\n        self.fd = fd;\n        callback(null);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "open"
+  },
+  {
+    "callback": "function tryWrite() {\n    fs.write(self.fd, buffer, 0, length, pos, function (err, written) {\n        if (err) {\n            self.dequeue();\n            callback(err);\n            self._needsEnd();\n        } else {\n            if (written == length) {\n                self.dequeue();\n                callback(null, pos, length);\n                self._needsEnd();\n            } else {\n                process.nextTick(tryWrite);\n            }\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, written) {\n    if (err) {\n        self.dequeue();\n        callback(err);\n        self._needsEnd();\n    } else {\n        if (written == length) {\n            self.dequeue();\n            callback(null, pos, length);\n            self._needsEnd();\n        } else {\n            process.nextTick(tryWrite);\n        }\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "write"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        fs.stat(self.file_path, function (err, stat) {\n            if (err) {\n                callback(err);\n            } else {\n                callback(null, stat.size);\n            }\n        });\n    } else {\n        callback(null, 0);\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (err, stat) {\n    if (err) {\n        callback(err);\n    } else {\n        callback(null, stat.size);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "stat"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    callback(null);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "_releaseLock"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        fs.unlink(self.file_path, function (err) {\n            if (err) {\n                callback(err);\n            } else {\n                callback(null);\n            }\n        });\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n    } else {\n        callback(null);\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function (err, stdout, stderr) {\n    if (err) {\n        fs.unlink(lock_file_path, function (err) {\n            if (err) {\n                callback(err);\n                return;\n            }\n            return self._acquireLock(callback);\n        });\n    } else {\n        callback(new Error(self.file_path + ' is locked by process with PID ' + locked_by_pid));\n    }\n}",
+    "receiverBase": "child_process",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    return self._acquireLock(callback);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    callback(null);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "writeFile"
+  },
+  {
+    "callback": "function (err, locked_by_pid) {\n    if (err) {\n        callback(err);\n        return;\n    }\n    if (locked_by_pid != process.pid.toString()) {\n        callback(new Error('Cannot unlock. Lock file ' + lock_file_path + ' locked by another process with PID ' + locked_by_pid));\n        return;\n    }\n    fs.unlink(lock_file_path, function (err) {\n        delete self.releasing_lock;\n        callback(err);\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function (err) {\n    delete self.releasing_lock;\n    callback(err);\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n    } else {\n        var old_lock_path = self._lockFilePath();\n        self.file_path = new_name;\n        path.exists(old_lock_path, function (exists) {\n            if (exists) {\n                fs.rename(old_lock_path, self._lockFilePath(), callback);\n            } else {\n                callback(null);\n            }\n        });\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "rename"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        fs.rename(old_lock_path, self._lockFilePath(), callback);\n    } else {\n        callback(null);\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (exists) {\n    if (exists) {\n        fs.unlink(self.file_path, function (err) {\n            if (err) {\n                callback(err);\n            } else {\n                self.openFile(function (err) {\n                    self.write_pos = 0;\n                    callback(err);\n                });\n            }\n        });\n    } else {\n        self.openFile(function (err) {\n            self.write_pos = 0;\n            callback(err);\n        });\n    }\n}",
+    "receiverBase": "path",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        callback(err);\n    } else {\n        self.openFile(function (err) {\n            self.write_pos = 0;\n            callback(err);\n        });\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function (err) {\n    self.write_pos = 0;\n    callback(err);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "openFile"
+  },
+  {
+    "callback": "function (err) {\n    self.write_pos = 0;\n    callback(err);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "openFile"
+  }
+]

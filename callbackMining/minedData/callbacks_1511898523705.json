@@ -1,0 +1,310 @@
+[
+  {
+    "callback": "function (line) {\n    if (line.indexOf(jasmineFilename) == -1) {\n        lines.push(line);\n    }\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    jasmineEnv.it('Error', function () {\n        throw e;\n    });\n}",
+    "receiverBase": "jasmineEnv",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    throw e;\n}",
+    "receiverBase": "jasmineEnv",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $div = $('div', '<div><span>foo</span><span>bar</span></div>');\n    var span = $div.children()[1];\n    expect($(span).html()).to.equal('bar');\n    expect($.html(span)).to.equal('<span>bar</span>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $span = $('<span>foo</span>');\n    expect($.html($span[0])).to.equal('<span>foo</span>');\n    expect($.html($span)).to.equal('<span>foo</span>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $elem = $('<span>foo</span>').html('');\n    expect($.html($elem)).to.equal('<span></span>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect($().html()).to.be(null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var _$ = $.load(fixtures.fruits);\n    expect(_$.html('.pear')).to.equal('<li class=\"pear\">Pear</li>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $html = $.load('<body><ul id=\"fruits\"></ul></body>');\n    expect($html('body')).to.have.length(1);\n    $html('<script>');\n    expect($html('body')).to.have.length(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $html = $.load('<BODY><ul id=\"fruits\"></ul></BODY>', { lowerCaseTags: true });\n    expect($html.html()).to.be('<body><ul id=\"fruits\"></ul></body>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var $html = $.load('<body><a href=\"http://yahoo.com\">Yahoo</a> <a href=\"http://google.com\">Google</a></body>', { ignoreWhitespace: true });\n    expect($html.html()).to.be('<body><a href=\"http://yahoo.com\">Yahoo</a><a href=\"http://google.com\">Google</a></body>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('() : should return a copy', function () {\n        var $src = $('<div><span>foo</span><span>bar</span><span>baz</span></div>').children();\n        var $elem = $src.clone();\n        expect($elem.length).to.equal(3);\n        expect($elem.parent().length).to.equal(1);\n        expect($elem.parent()[0].type).to.equal('root');\n        expect($elem.text()).to.equal($src.text());\n        $src.text('rofl');\n        expect($elem.text()).to.not.equal($src.text());\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var $src = $('<div><span>foo</span><span>bar</span><span>baz</span></div>').children();\n    var $elem = $src.clone();\n    expect($elem.length).to.equal(3);\n    expect($elem.parent().length).to.equal(1);\n    expect($elem.parent()[0].type).to.equal('root');\n    expect($elem.text()).to.equal($src.text());\n    $src.text('rofl');\n    expect($elem.text()).to.not.equal($src.text());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('() : should return a cheerio-wrapped root object', function () {\n        var $html = $.load('<div><span>foo</span><span>bar</span></div>');\n        $html.root().append('<div id=\"test\"></div>');\n        expect($html.html()).to.equal('<div><span>foo</span><span>bar</span></div><div id=\"test\"></div>');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var $html = $.load('<div><span>foo</span><span>bar</span></div>');\n    $html.root().append('<div id=\"test\"></div>');\n    expect($html.html()).to.equal('<div><span>foo</span><span>bar</span></div><div id=\"test\"></div>');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (Opa5, Common) {\n    'use strict';\n    Opa5.createPageObjects({\n        onPage2: {\n            baseClass: Common,\n            assertions: {\n                iShouldSeeThePage2Text: function () {\n                    return this.iShouldSeeTheText('text2', 'This is Page 2');\n                }\n            }\n        }\n    });\n}",
+    "receiverBase": "ui",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (m, dot, doubleDot, remainder) {\n    if (doubleDot)\n        removeLevels++;\n    return remainder || '';\n}",
+    "receiverBase": "normId",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (deps) {\n    def.deps = deps;\n    try {\n        return core.executeDefFunc(def);\n    } catch (ex) {\n        def.reject(ex);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function () {\n    origResolve(cache[def.id] = urlCache[def.url] = execute(deps));\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    if (def.exports) {\n        execute(deps);\n        def.progress(msgFactoryExecuted);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (a, b) {\n    return pathMap[b].specificity - pathMap[a].specificity;\n}",
+    "receiverBase": "pathList",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (match) {\n    pathInfo = pathMap[match] || {};\n    pkgCfg = pathInfo.config;\n    return pathInfo.path || '';\n}",
+    "receiverBase": "absId",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m, rq, id, qq) {\n    if (qq) {\n        currQuote = currQuote == qq ? undef : currQuote;\n    } else if (!currQuote) {\n        ids.push(id);\n    }\n    return '';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (dep) {\n    exportOnce(dep);\n    resolveCollector(dep, index);\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function (dep) {\n    exportCollector(dep, index);\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function () {\n    var args = argsNet;\n    argsNet = undef;\n    if (def.useNet !== false) {\n        if (!args || args.ex) {\n            def.reject(new Error(args && args.ex || 'define() missing or duplicated: ' + def.url));\n        } else {\n            core.defineResource(def, args);\n        }\n    }\n}",
+    "receiverBase": "core",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (script) {\n    var main;\n    main = script.getAttribute(runModuleAttr);\n    if (main)\n        cfg.main = main;\n    return main;\n}",
+    "receiverBase": "core",
+    "receiverCallee": "findScript"
+  },
+  {
+    "callback": "function () {\n    preload = pPromise;\n}",
+    "receiverBase": "core",
+    "receiverCallee": "nextTurn"
+  },
+  {
+    "callback": "function (deps) {\n    if (resolved)\n        resolved.apply(undef, deps);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (ex) {\n    if (rejected)\n        rejected(ex);\n    else\n        throw ex;\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    when(isPreload || preload, function () {\n        when(waitFor, function () {\n            core.getDeps(ctx);\n        }, errback);\n    });\n}",
+    "receiverBase": "core",
+    "receiverCallee": "nextTurn"
+  },
+  {
+    "callback": "function () {\n    when(waitFor, function () {\n        core.getDeps(ctx);\n    }, errback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    core.getDeps(ctx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    it('should raise 2 to the power of 2', function () {\n        var result = math.pow(2, 2);\n        result.should.equal(4);\n    });\n    it('should raise 2 to the power of 3', function () {\n        var result = math.pow(2, 3);\n        result.should.equal(8);\n    });\n    it('should raise 2 to the power of -1', function () {\n        var result = math.pow(2, -1);\n        result.should.equal(0.5);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var result = math.pow(2, 2);\n    result.should.equal(4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result = math.pow(2, 3);\n    result.should.equal(8);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var result = math.pow(2, -1);\n    result.should.equal(0.5);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(fooMember.longname).toBe(memberName);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(fooVariable.longname).toBe(variableName);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    checkLongnames(jasmine.getDocSetFromFile('test/fixtures/funcExpression.js'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    checkLongnames(jasmine.getDocSetFromFile('test/fixtures/funcExpression2.js'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    checkLongnames(jasmine.getDocSetFromFile('test/fixtures/funcExpression3.js'), 'ns.');\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    if (document.documentMode) {\n        return document.documentMode;\n    } else {\n        for (var i = 7; i > 4; i--) {\n            var div = document.createElement('div');\n            div.innerHTML = '<!--[if IE ' + i + ']><span></span><![endif]-->';\n            if (div.getElementsByTagName('span').length) {\n                div = null;\n                return i;\n            }\n        }\n    }\n    return undefined;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var timeLast = 0;\n    return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {\n        var timeCurrent = new Date().getTime(), timeDelta;\n        timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));\n        timeLast = timeCurrent + timeDelta;\n        return setTimeout(function () {\n            callback(timeCurrent + timeDelta);\n        }, timeDelta);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    callback(timeCurrent + timeDelta);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, name) {\n    baseEasings[name] = function (p) {\n        return Math.pow(p, i + 2);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, easeIn) {\n    velocity.Easings['easeIn' + name] = easeIn;\n    velocity.Easings['easeOut' + name] = function (p) {\n        return 1 - easeIn(1 - p);\n    };\n    velocity.Easings['easeInOut' + name] = function (p) {\n        return p < 0.5 ? easeIn(p * 2) / 2 : 1 - easeIn(p * -2 + 2) / 2;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, r, g, b) {\n    return r + r + g + g + b + b;\n}",
+    "receiverBase": "hex",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, subMatch) {\n    return subMatch.toUpperCase();\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    return match.toUpperCase();\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (next) {\n    velocity.velocityQueueEntryFlag = true;\n    setTimeout(next, parseFloat(opts.delay));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (match) {\n    unitType = match;\n    return '';\n}",
+    "receiverBase": "toLowerCase",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, subMatch) {\n    operator = subMatch;\n    return '';\n}",
+    "receiverBase": "separatedValue",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (next) {\n    velocity.velocityQueueEntryFlag = true;\n    buildQueue(next);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (a, b) {\n    return a[0] - b[0] || b[1] - a[1];\n}",
+    "receiverBase": "ranges",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (ch) {\n    var cc = ch.charCodeAt(0);\n    return '[' + String.fromCharCode(cc & ~32, cc | 32) + ']';\n}",
+    "receiverBase": "p",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    this._addLabel(x.color, x.name);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var link = this._getDoc().createElement('link');\n    link.rel = 'stylesheet';\n    link.type = 'text/css';\n    link.href = 'code.css';\n    this._getDoc().getElementsByTagName('head')[0].appendChild(link);\n    this.highlight(true);\n    if (this.browser.ie) {\n        this._getDoc().body.style.marginLeft = '';\n    }\n}",
+    "receiverBase": "myEditor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.ev.keyCode == 13 || ev.ev.keyCode == 9) {\n        Lang.later(100, this, this.highlight);\n    }\n}",
+    "receiverBase": "myEditor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (ev) {\n    if (ev.ev.keyCode == 32 || ev.ev.charCode == 59 || ev.ev.charCode == 32 || ev.ev.keyCode == 13 || ev.ev.charCode == 40 || ev.ev.charCode == 123) {\n        Lang.later(100, this, this.highlight);\n    }\n}",
+    "receiverBase": "myEditor",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    throw e;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (!canceled) {\n        callbackFunction();\n    }\n}",
+    "receiverBase": "soon",
+    "receiverCallee": "_asynchronizer"
+  }
+]

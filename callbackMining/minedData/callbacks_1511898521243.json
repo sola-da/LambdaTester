@@ -1,0 +1,445 @@
+[
+  {
+    "callback": "function (idx) {\n    doStepDeinit.call(jmpress, this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    jmpress.append($(this));\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, callback) {\n    result.value = callback.call(jmpress, element, eventData) || result.value;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    callCallback.call(this, 'idle', delegated, callbackData);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    canvas.append($(this));\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx) {\n    doStepInit.call(jmpress, this, idx);\n}",
+    "receiverBase": "steps",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, attr) {\n    if (attr.nodeName.substr(0, 5) === 'data-') {\n        returnDataset[toCamelcase(attr.nodeName.substr(5))] = attr.nodeValue;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, element) {\n    result = f.apply(element, args);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, element) {\n    if (backwards) {\n        next = func(element, selector, backwards);\n        if (next) {\n            return false;\n        }\n    }\n    if ($(element).is(selector)) {\n        next = element;\n        return false;\n    }\n    if (!backwards) {\n        next = func(element, selector, backwards);\n        if (next) {\n            return false;\n        }\n    }\n}",
+    "receiverBase": "elements",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, element) {\n    if (backwards && $(element).is(selector)) {\n        next = element;\n        return false;\n    }\n    next = findNextInSiblings(element, selector, backwards);\n    if (next) {\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, element) {\n    var near = (backwards ? false : findNextInChildren(element, selector, backwards)) || findNextInSiblings(element, selector, backwards) || findNextInParents(element, selector, backwards);\n    if (near) {\n        array.push(near);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (idx, item) {\n    var coord = [\n            'X',\n            'Y'\n        ];\n    if (item[0] === 'translate') {\n        anitarget.left = Math.round(item[1] || 0) + 'px';\n        anitarget.top = Math.round(item[2] || 0) + 'px';\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($.jmpress('pfx', 'perspective')) {\n        return engines[3];\n    } else if ($.jmpress('pfx', 'transform')) {\n        return engines[2];\n    } else {\n        return engines[1];\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (nil, eventData) {\n    var stepSelector = eventData.settings.stepSelector, current = eventData.current;\n    current.perspectiveScale = 1;\n    current.maxNestedDepth = 0;\n    var nestedSteps = $(eventData.jmpress).find(stepSelector).children(stepSelector);\n    while (nestedSteps.length) {\n        current.maxNestedDepth++;\n        nestedSteps = nestedSteps.children(stepSelector);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "jmpress"
+  },
+  {
+    "callback": "function (idx, item) {\n    if (item.length <= 1) {\n        return;\n    }\n    if (item[0] === 'rotate' && item[1] % 360 === 0 && item[2] % 360 === 0 && item[3] % 360 === 0) {\n        return;\n    }\n    if (item[0] === 'scale') {\n        lastScale = idx;\n    } else {\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (step, eventData) {\n    var settings = eventData.settings, activeClassSetting = settings[activeClass], nestedActiveClassSettings = settings[nestedActiveClass];\n    if (activeClassSetting) {\n        $(step).removeClass(activeClassSetting);\n    }\n    if (nestedActiveClassSettings) {\n        $.each(eventData.parents, function (idx, element) {\n            $(element).removeClass(nestedActiveClassSettings);\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (idx, element) {\n    $(element).removeClass(nestedActiveClassSettings);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (step, eventData) {\n    var settings = eventData.settings, activeClassSetting = settings[activeClass], nestedActiveClassSettings = settings[nestedActiveClass];\n    if (activeClassSetting) {\n        $(step).addClass(activeClassSetting);\n    }\n    if (nestedActiveClassSettings) {\n        $.each(eventData.parents, function (idx, element) {\n            $(element).addClass(nestedActiveClassSettings);\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (idx, element) {\n    $(element).addClass(nestedActiveClassSettings);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (step, eventData) {\n    eventData.stepData.exclude = eventData.data.exclude && [\n        'false',\n        'no'\n    ].indexOf(eventData.data.exclude) === -1;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (step, eventData) {\n    return $(this).find(eventData.settings.stepSelector).last();\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (step, eventData) {\n    return prevOrNext(this, step, eventData, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (step, eventData) {\n    return prevOrNext(this, step, eventData);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (event) {\n    var urlItem = getElementFromUrl(settings);\n    if (jmpress.jmpress('initialized')) {\n        jmpress.jmpress('scrollFix');\n    }\n    if (urlItem && urlItem.length) {\n        if (urlItem.attr('id') !== jmpress.jmpress('active').attr('id')) {\n            jmpress.jmpress('select', urlItem);\n        }\n        setHash(urlItem.attr('id'));\n    }\n    event.preventDefault();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    var href = $(this).attr('href');\n    try {\n        if ($(href).is(settings.stepSelector)) {\n            jmpress.jmpress('select', href);\n            event.preventDefault();\n            event.stopPropagation();\n        }\n    } catch (e) {\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (nil, eventData) {\n    $(hashLink).off(eventData.current.hashNamespace);\n    $(window).unbind(eventData.current.hashNamespace);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (step, eventData) {\n    var settings = eventData.settings, current = eventData.current;\n    if (settings.hash.use && settings.hash.update) {\n        clearTimeout(current.hashtimeout);\n        current.hashtimeout = setTimeout(function () {\n            setHash($(eventData.delegatedFrom).attr('id'));\n        }, settings.transitionDuration + 200);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function () {\n    setHash($(eventData.delegatedFrom).attr('id'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (event) {\n    for (var nodeName in ignoreKeyboardSettings) {\n        if (event.target.nodeName === nodeName && ignoreKeyboardSettings[nodeName].indexOf(event.which) !== -1) {\n            return;\n        }\n    }\n    if (event.which >= 37 && event.which <= 40 || event.which === 32) {\n        stopEvent(event);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (nil, eventData) {\n    $(document).unbind(eventData.current.keyboardNamespace);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function (event) {\n    if (!settings.mouse.clickSelects || current.userZoom) {\n        return;\n    }\n    var clickedStep = $(event.target).closest(stepSelector);\n    if (clickedStep.is(jmpress.jmpress('active'))) {\n        return;\n    }\n    if (clickedStep.length) {\n        jmpress.jmpress('select', clickedStep[0], 'click');\n        event.preventDefault();\n        event.stopPropagation();\n    }\n}",
+    "receiverBase": "jmpress",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (nil, eventData) {\n    $(this).unbind(eventData.current.clickableStepsNamespace);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$jmpress"
+  },
+  {
+    "callback": "function () {\n    this.colors = 6;\n    this.current = 0;\n    this.get = _.memoize(function (nick) {\n        var colorIndex = this.current;\n        this.current++;\n        if (this.current == this.colors)\n            this.current = 0;\n        return colorIndex;\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "service"
+  },
+  {
+    "callback": "function (nick) {\n    var colorIndex = this.current;\n    this.current++;\n    if (this.current == this.colors)\n        this.current = 0;\n    return colorIndex;\n}",
+    "receiverBase": "_",
+    "receiverCallee": "memoize"
+  },
+  {
+    "callback": "function () {\n    console.log('Saved settings.');\n}",
+    "receiverBase": "PortService",
+    "receiverCallee": "saveSettings"
+  },
+  {
+    "callback": "function (settings) {\n    self._settings = _.defaults(settings.settings || {}, self._defaults);\n    console.log('Loaded settings:', self._settings);\n    $rootScope.$apply();\n}",
+    "receiverBase": "PortService",
+    "receiverCallee": "loadSettings"
+  },
+  {
+    "callback": "function (val, key) {\n    return _.str.include(key, term);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (obj) {\n    return obj.network + obj.channel.toLowerCase();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "sortBy"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < self._handlers.length; i++) {\n        var description = commandHelp(self._handlers[i]);\n        this.statusChannel.addLine(1, null, '%s%s', ColorService._white, description);\n        this.statusChannel.addLine(1, null, '%s    %s', ColorService.black, self._handlers[i].desc);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (server, _displayname, _nick, _pass) {\n    var network = Network({\n            name: _displayname || server,\n            servers: [server],\n            nick: Nick(_nick || 'Idel'),\n            password: _pass,\n            joinChannels: []\n        });\n    IRCService.networks.push(network);\n    $rootScope.$broadcast('ui::switch-channel', {\n        network: network.name,\n        channel: 'Status'\n    });\n    network.connect();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    this.network.disconnect();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (channel) {\n    this.network.writeLine('JOIN %s', channel);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (_channel) {\n    this.network.writeLine('PART %s :', _channel || this.channel.name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (line) {\n    this.network.writeLine(_.toArray(arguments).join(' '));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (layout) {\n    SettingsService.set('theme.layout', 'layouts/%s.html'.format(layout));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (theme) {\n    SettingsService.set('theme.user-css', theme);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    this.channel.buffer = [];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (term) {\n    _.each(_.filter(this.channel.buffer, function (line) {\n        return _.str.include(line.message.toLowerCase(), term.toLowerCase());\n    }), function (message) {\n        this.channel.addLine(1, null, '%s%s: %s', ColorService._red, message.nick ? message.nick : 'status', message.message);\n    }, this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (line) {\n    return _.str.include(line.message.toLowerCase(), term.toLowerCase());\n}",
+    "receiverBase": "_",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (message) {\n    this.channel.addLine(1, null, '%s%s: %s', ColorService._red, message.nick ? message.nick : 'status', message.message);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (nick) {\n    this.network.writeLine('NICK %s', nick);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (topic) {\n    this.network.writeLine('TOPIC %s :%s', this.channel.name, _.toArray(arguments).join(' '));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (nick, message) {\n    var args = _.toArray(arguments);\n    this.network.writeLine('PRIVMSG %s :%s', args.shift(), args.join(' '));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (nick, message) {\n    var args = _.toArray(arguments);\n    this.network.writeLine('PRIVMSG %s :\\x01%s\\x01', args.shift(), args.join(' '));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (message) {\n    this.network.writeLine('PRIVMSG %s :\\x01ACTION %s\\x01', this.channel.name, _.toArray(arguments).join(' '));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    this.statusChannel.addLine(1, null, '%sYou can report bugs either via:', ColorService.yellow);\n    this.statusChannel.addLine(1, null, '%sGitHub%s - https://github.com/ZaneA/Idel-IRC/issues', ColorService.green, ColorService.reset);\n    this.statusChannel.addLine(1, null, '%sEmail%s - %szane.a+idel@demonastery.org', ColorService.green, ColorService.reset, ColorService._white);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (_remote) {\n    SettingsService.save(_remote);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (_remote) {\n    SettingsService.load(_remote);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    if (this.channel.name == 'Status') {\n        this.network.disconnect();\n        IRCService.networks = _.reject(IRCService.networks, { name: this.network.name });\n    } else {\n        this.network.channels = _.reject(this.network.channels, { name: this.channel.name });\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function () {\n    var colors = '_white black blue green _red red purple yellow _yellow _green cyan _cyan _blue _purple _black'.split(' ');\n    for (var i = 0; i < colors.length; i++) {\n        this[colors[i]] = '\\x03%02f'.format(i);\n    }\n    this.white = this.reset = '\\x0F';\n}",
+    "receiverBase": "app",
+    "receiverCallee": "service"
+  },
+  {
+    "callback": "function () {\n    this.template = '';\n    this.display = function (template) {\n        this.template = 'js/templates/%s.html'.format(template);\n    };\n}",
+    "receiverBase": "app",
+    "receiverCallee": "service"
+  },
+  {
+    "callback": "function (r, s) {\n    r[o[s]] = s;\n    return r;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (mod) {\n    if (typeof exports == 'object' && typeof module == 'object')\n        mod(require('../../lib/codemirror'));\n    else if (typeof define == 'function' && define.amd)\n        define(['../../lib/codemirror'], mod);\n    else\n        mod(CodeMirror);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return _this.container_mousedown();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return _this.blur_test();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (input_field) {\n    if (!$(this).hasClass('chzn-done'))\n        return new Chosen(this, options);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.container_mousedown(evt);\n}",
+    "receiverBase": "container",
+    "receiverCallee": "mousedown"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.container_mouseup(evt);\n}",
+    "receiverBase": "container",
+    "receiverCallee": "mouseup"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.mouse_enter(evt);\n}",
+    "receiverBase": "container",
+    "receiverCallee": "mouseenter"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.mouse_leave(evt);\n}",
+    "receiverBase": "container",
+    "receiverCallee": "mouseleave"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.search_results_mouseup(evt);\n}",
+    "receiverBase": "search_results",
+    "receiverCallee": "mouseup"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.search_results_mouseover(evt);\n}",
+    "receiverBase": "search_results",
+    "receiverCallee": "mouseover"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.search_results_mouseout(evt);\n}",
+    "receiverBase": "search_results",
+    "receiverCallee": "mouseout"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.results_update_field(evt);\n}",
+    "receiverBase": "form_field_jq",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.input_blur(evt);\n}",
+    "receiverBase": "search_field",
+    "receiverCallee": "blur"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.keyup_checker(evt);\n}",
+    "receiverBase": "search_field",
+    "receiverCallee": "keyup"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.keydown_checker(evt);\n}",
+    "receiverBase": "search_field",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.choices_click(evt);\n}",
+    "receiverBase": "search_choices",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.input_focus(evt);\n}",
+    "receiverBase": "search_field",
+    "receiverCallee": "focus"
+  },
+  {
+    "callback": "function (evt) {\n    return evt.preventDefault();\n}",
+    "receiverBase": "container",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (evt) {\n    return _this.choice_destroy_link_click(evt);\n}",
+    "receiverBase": "link",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    'use strict';\n    var FileSystem = brackets.getModule('filesystem/FileSystem');\n    var _oldFilter = FileSystem._FileSystem.prototype._indexFilter;\n    FileSystem._FileSystem.prototype._indexFilter = function (path, name) {\n        var result = _oldFilter.apply(this, arguments);\n        if (!result) {\n            return false;\n        }\n        return !name.match(/node_modules/);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (event) {\n    WinList.setIndex(jQuery(this).data('id'));\n    event.stopImmediatePropagation();\n    return false;\n}",
+    "receiverBase": "data",
+    "receiverCallee": "mousedown"
+  },
+  {
+    "callback": "function () {\n    deviceReady = true;\n    deviceReadyDeps.changed();\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "Reload",
+    "receiverCallee": "_onMigrate"
+  }
+]

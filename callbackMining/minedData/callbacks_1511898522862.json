@@ -1,0 +1,1515 @@
+[
+  {
+    "callback": "function () {\n    var footer_height = 66;\n    var h = $(document).height() - footer_height;\n    $('.left-column').height(h);\n    $('.right-column').height(h);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function () {\n    var footer_height = 66;\n    var h = $(document).height() - footer_height;\n    $('.left-column').height(h);\n    $('.right-column').height(h);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function (data) {\n    var title = graph;\n    if (data[0] && data[0].title)\n        title = data[0].title.value;\n    events.fire(new Event(EventCode.GRAPH.LOAD, {\n        uri: graph,\n        title: title\n    }, self));\n    if (OPTIONS.COOKIES_ENABLED)\n        setCookie('graph', graph);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Error', 'Could not load graph');\n    if (OPTIONS.COOKIES_ENABLED)\n        resetCookie('graph');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function () {\n    alert('could not read languages');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "graphLanguages"
+  },
+  {
+    "callback": "function () {\n    alert('could not read first language');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "graphFirstLanguage"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: uri }));\n}",
+    "receiverBase": "exists",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Error', 'Could not load graph');\n    if (OPTIONS.COOKIES_ENABLED)\n        resetCookie('graph');\n}",
+    "receiverBase": "exists",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function (event) {\n    self.reset();\n    loadGraph(event.data.uri);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: graph }, self));\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    menu_items[name].addClass('hover');\n    $('ul:first', menu_items[name]).css('visibility', 'visible');\n}",
+    "receiverBase": "menu_items",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    menu_items[name].removeClass('hover');\n    $('ul:first', menu_items[name]).css('visibility', 'hidden');\n}",
+    "receiverBase": "menu_items",
+    "receiverCallee": "hover"
+  },
+  {
+    "callback": "function () {\n    if (menu_point.hasClass('disabled'))\n        return false;\n    action();\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (open_new_graph.hasClass('disabled'))\n        return false;\n    events.fire(new Event(EventCode.GRAPH.CREATE));\n}",
+    "receiverBase": "self",
+    "receiverCallee": "createMenuItem"
+  },
+  {
+    "callback": "function () {\n    if (new_concept.hasClass('disabled'))\n        return false;\n    events.fire(new Event(EventCode.CONCEPT.CREATE, current));\n}",
+    "receiverBase": "self",
+    "receiverCallee": "createMenuItem"
+  },
+  {
+    "callback": "function () {\n    if (settings.hasClass('disabled'))\n        return false;\n    events.fire(new Event(EventCode.SETTINGS.UPDATE, current));\n}",
+    "receiverBase": "self",
+    "receiverCallee": "createMenuItem"
+  },
+  {
+    "callback": "function () {\n    popups.info('About', HTML_TEMPLATES.about);\n}",
+    "receiverBase": "self",
+    "receiverCallee": "createMenuItem"
+  },
+  {
+    "callback": "function (event) {\n    new_concept.removeClass('disabled');\n    settings.removeClass('disabled');\n    current = {\n        uri: event.data.uri,\n        type: 'graph'\n    };\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    current = {\n        uri: event.data.uri,\n        type: event.data.type\n    };\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.ctrlKey) {\n        switch (event.which) {\n        case 71:\n            events.fire(new Event(EventCode.GRAPH.CREATE));\n            event.preventDefault();\n            break;\n        case 78:\n            if (!new_concept.hasClass('disabled'))\n                events.fire(new Event(EventCode.CONCEPT.CREATE, current));\n            event.preventDefault();\n            break;\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function (event) {\n    init(event);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.data.language == settings.getLanguage()) {\n        if (event.data.property == 'http://www.w3.org/2004/02/skos/core#prefLabel' || event.data.property == 'http://www.w3.org/2000/01/rdf-schema#label') {\n            $('.concept_' + event.data.uri.md5()).text(event.data.value);\n        }\n    } else if (event.data.property == 'http://purl.org/dc/terms/title') {\n        $('.concept_' + event.data.uri.md5()).text(event.data.value);\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.data.language == settings.getLanguage()) {\n        if (event.data.property == 'http://www.w3.org/2004/02/skos/core#prefLabel' || event.data.property == 'http://www.w3.org/2000/01/rdf-schema#label') {\n            $('.concept_' + event.data.uri.md5()).text(event.data.uri);\n        }\n    } else if (event.data.property == 'http://purl.org/dc/terms/title') {\n        $('.concept_' + event.data.uri.md5()).text(event.data.value);\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.data.language == settings.getLanguage()) {\n        if (event.data.property == 'http://www.w3.org/2004/02/skos/core#prefLabel' || event.data.property == 'http://www.w3.org/2000/01/rdf-schema#label') {\n            $('.concept_' + event.data.uri.md5()).text(event.data.value);\n        }\n    } else if (event.data.property == 'http://purl.org/dc/terms/title') {\n        $('.concept_' + event.data.uri.md5()).text(event.data.value);\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    if (event.source != source) {\n        console.log('TODO: open to selected');\n        if (current.uri != event.data.uri) {\n            $('.concept_' + current.uri.md5()).removeClass('activeNode');\n            current = event.data;\n            $('.concept_' + current.uri.md5()).addClass('activeNode');\n        }\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    current = event.data;\n    load();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    open(event.data);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    switch (event.data.type) {\n    case 'broader':\n        reload(event.data.broader);\n        loadFreeConcepts();\n        break;\n    case 'narrower':\n        reload(event.data.broader);\n        loadFreeConcepts();\n        break;\n    case 'broaderNarrower':\n        reload(event.data.broader);\n        loadFreeConcepts();\n        break;\n    case 'topConcept':\n        reload(event.data.parent);\n        loadFreeConcepts();\n        break;\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    switch (event.data.type) {\n    case 'broader':\n        reload(event.data.broader);\n        loadFreeConcepts();\n        break;\n    case 'narrower':\n        reload(event.data.broader);\n        loadFreeConcepts();\n        break;\n    case 'topConcept':\n        reload(event.data.parent);\n        loadFreeConcepts();\n        break;\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    if (!item.children().eq(0).hasClass('minus')) {\n        test();\n    } else {\n        setCurrent(item.children().eq(2).children().first());\n        loading = false;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    $('.navi').removeClass('navi');\n    item = undefined;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    current = data;\n    $(this).removeClass('activeNode');\n    var parent = $(this).parent();\n    parent.get(0).data.children.value = 'true';\n    var _li = createNode(parent.get(0).data, parent.get(0).datatype);\n    if (parent.hasClass('last'))\n        _li.addClass('last');\n    parent.replaceWith(_li);\n    _li.children().first().click();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    $('.activeNode').removeClass('activeNode');\n    $(this).addClass('activeNode');\n    select(graph.uri, 'graph');\n}",
+    "receiverBase": "addClass",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (data) {\n    for (var i = 0; i < data.length; i++) {\n        _childs.append(createNode(data[i], 'scheme'));\n    }\n    _childs.children().last().addClass('last');\n    $('.concept_' + current.uri.md5()).first().click();\n}",
+    "receiverBase": "list",
+    "receiverCallee": "schemes"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not load schemes');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "schemes"
+  },
+  {
+    "callback": "function (data) {\n    free.empty();\n    for (var i = 0; i < data.length; i++) {\n        free.append(createNode(data[i], 'concept'));\n    }\n    free.children().last().addClass('last');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "freeConcepts"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not load free concepts');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "freeConcepts"
+  },
+  {
+    "callback": "function (data) {\n    rewrite(data, type, container);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "scheme"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not reload scheme');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "scheme"
+  },
+  {
+    "callback": "function (data) {\n    rewrite(data, type, container);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not reload concept');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    $('.activeNode').removeClass('activeNode');\n    $('.concept_' + data.uri.value.md5()).addClass('activeNode').focus();\n    select(data.uri.value, type);\n}",
+    "receiverBase": "addClass",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (data) {\n    for (var i = 0; i < data.length; i++) {\n        _childs.append(createNode(data[i], _child_type));\n    }\n    _childs.children().last().addClass('last');\n    _more.removeClass('loading').addClass('minus');\n    _li.attr('closed', 'false');\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadChildren"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not load children');\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadChildren"
+  },
+  {
+    "callback": "function (e) {\n    if ($(this).hasClass('plus')) {\n        $(this).click();\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGSTART));\n    this.style.opacity = '0.4';\n    e.dataTransfer.setData('text/uri-list', data.uri.value);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    $(this).addClass('dragover');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.preventDefault) {\n        e.preventDefault();\n    }\n    return false;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    $(this).removeClass('dragover');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'topConcept',\n        parent: data.uri.value,\n        child: uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            data.uri.value,\n            uri\n        ]\n    }));\n}",
+    "receiverBase": "set",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not add narrower');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'broaderNarrower',\n        broader: data.uri.value,\n        narrower: uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            data.uri.value,\n            uri\n        ]\n    }));\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not add narrower');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGEND));\n    $('.dragover').removeClass('dragover');\n    $('.draggable').css('opacity', 1);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (event) {\n    graph = event.data.uri;\n    $('#search_input').val('');\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    suggestions.hide();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "focusout"
+  },
+  {
+    "callback": "function (event) {\n    if (event.ctrlKey) {\n        switch (event.which) {\n        case 70:\n            input_field.val('').focus();\n            break;\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function () {\n    if ($(this).hasClass('current')) {\n        found = true;\n        $(this).removeClass('current');\n        var prev = $(this).prev();\n        if (prev.length != 0) {\n            prev.addClass('current');\n            selected.uri = prev.attr('uri');\n            selected.title = prev.attr('name');\n        } else\n            found = false;\n        return false;\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if ($(this).hasClass('current')) {\n        found = true;\n        $(this).removeClass('current');\n        var next = $(this).next();\n        if (next.length != 0) {\n            next.addClass('current');\n            selected.uri = next.attr('uri');\n            selected.title = next.attr('name');\n        } else\n            found = false;\n        return false;\n    }\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not return suggestions');\n}",
+    "receiverBase": "search",
+    "receiverCallee": "suggestion"
+  },
+  {
+    "callback": "function (event) {\n    current = event.data;\n    show(event.data.uri, event.data.type);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    graph = event.data.uri;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    for (var i in event.data.uris) {\n        var uri = event.data.uris[i];\n        for (var j in views) {\n            if (views[j].getProperty() == uri) {\n                views[j].reload();\n                console.info(uri);\n            }\n        }\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    OPTIONS.RDF_LINK(uri);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.CONCEPT.DELETE, current, self));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGSTART));\n    this.style.opacity = '0.4';\n    e.dataTransfer.setData('text/uri-list', uri);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGEND));\n    $('.dragover').removeClass('dragover');\n    $('.draggable').css('opacity', 1);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.data.uri == current.uri) {\n        view.reload();\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    if (e.data.uri == current.uri) {\n        view.reload();\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    if (e.data.uri == current.uri) {\n        view.reload();\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    switch (e.data.type) {\n    case 'broader':\n        if (e.data.narrower == current.uri)\n            view.reload();\n        break;\n    case 'narrower':\n        if (e.data.broader == current.uri)\n            view.reload();\n        break;\n    case 'topConcept':\n        if (e.data.parent == current.uri)\n            view.reload();\n        break;\n    default:\n        if (e.data.concept1 = current.uri)\n            view.reload();\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    switch (e.data.type) {\n    case 'broader':\n        if (e.data.narrower == current.uri)\n            view.reload();\n        break;\n    case 'narrower':\n        if (e.data.broader == current.uri)\n            view.reload();\n        break;\n    case 'topConcept':\n        if (e.data.parent == current.uri)\n            view.reload();\n        break;\n    }\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not list values ' + property);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "values"
+  },
+  {
+    "callback": "function () {\n    load();\n}",
+    "receiverBase": "update",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    alert('Could not set value!');\n}",
+    "receiverBase": "update",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    load();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    alert('Could not set value!');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not list values ' + property);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "values"
+  },
+  {
+    "callback": "function () {\n    templ1.hide();\n    templ2.show();\n    templ2.find('.literal_input').focus();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    templ1.hide();\n    templ2.show();\n    templ2.find('.literal_input').focus();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.UPDATED, {\n        uri: current.uri,\n        property: property,\n        language: language,\n        value: n3str\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    templ1.find('.literal_text').html(htmlStr);\n    templ1.find('.literal_text').attr('original', n3str);\n    templ2.hide();\n    templ1.show();\n}",
+    "receiverBase": "update",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    templ2.hide();\n    templ2.find('.literal_input').val(templ1.find('.literal_text').attr('original'));\n    templ1.show();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.DELETED, {\n        uri: current.uri,\n        property: property,\n        language: language\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    load();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.CREATED, {\n        uri: current.uri,\n        property: property,\n        language: language,\n        value: inp\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    load();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "value"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not list values ' + property);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "values"
+  },
+  {
+    "callback": "function () {\n    templ1.hide();\n    templ2.show();\n    templ2.find('.literal_input').focus();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    templ1.hide();\n    templ2.show();\n    templ2.find('.literal_input').focus();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.UPDATED, {\n        uri: current.uri,\n        property: property,\n        value: newT\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    templ1.find('.literal_text').text(newT);\n    templ2.hide();\n    templ1.show();\n}",
+    "receiverBase": "update",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    templ2.hide();\n    templ2.find('.literal_input').val(templ1.find('.literal_text').text());\n    templ1.show();\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (confirm('delete property?')) {\n        skos._delete.uri(graph, current.uri, property, templ1.find('.literal_text').text(), function () {\n            events.fire(new Event(EventCode.PROPERTY.DELETED, {\n                uri: current.uri,\n                property: property\n            }, source));\n            events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n            load();\n        });\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.DELETED, {\n        uri: current.uri,\n        property: property\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    load();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.PROPERTY.CREATED, {\n        uri: current.uri,\n        property: property,\n        value: inp\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [current.uri] }));\n    load();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not list values ' + property);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "concepts"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.CONCEPT.SELECTED, {\n        uri: data.uri.value,\n        type: 'concept'\n    }, source));\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGSTART));\n    this.style.opacity = '0.4';\n    e.dataTransfer.setData('text/uri-list', data.uri.value);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGEND));\n    $('.dragover').removeClass('dragover');\n    $('.draggable').css('opacity', 1);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.DELETED, {\n        type: 'broader',\n        narrower: current.uri,\n        broader: data.uri.value\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri.value\n        ]\n    }));\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not delete relation');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.DELETED, {\n        type: 'narrower',\n        narrower: data.uri.value,\n        broader: current.uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri.value\n        ]\n    }));\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not delete relation');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.DELETED, {\n        type: 'topConcept',\n        parent: current.uri,\n        child: data.uri.value\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri.value\n        ]\n    }));\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not delete relation');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.DELETED, {\n        type: 'related',\n        concept1: current.uri,\n        concept2: data.uri.value\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri.value\n        ]\n    }));\n    load();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "related"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not delete relation');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "related"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: property,\n        concept1: current.uri,\n        concept2: data.uri.value\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri.value\n        ]\n    }));\n    load();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create relation');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.CONCEPT.SELECT, current, source));\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGSTART));\n    this.style.opacity = '0.4';\n    e.dataTransfer.setData('text/uri-list', data.uri.value);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    events.fire(new Event(EventCode.CONCEPT.DRAGEND));\n    $('.dragover').removeClass('dragover');\n    $('.draggable').css('opacity', 1);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    content.addClass('boxDragover');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    if (e.preventDefault) {\n        e.preventDefault();\n    }\n    return false;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    content.removeClass('boxDragover');\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'broader',\n        broader: uri,\n        narrower: current.uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri\n        ]\n    }));\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not set relation');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'narrower',\n        narrower: uri,\n        broader: current.uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri\n        ]\n    }));\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not set relation');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "broaderNarrower"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'topConcept',\n        parent: current.uri,\n        child: uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri\n        ]\n    }));\n}",
+    "receiverBase": "set",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not set relation');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "topConcept"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: 'related',\n        concept1: current.uri,\n        concept2: uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri\n        ]\n    }));\n    load();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "related"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create relation');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "related"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.RELATION.CREATED, {\n        type: property,\n        concept1: current.uri,\n        concept2: uri\n    }, source));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, {\n        uris: [\n            current.uri,\n            data.uri\n        ]\n    }));\n    load();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create relation');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "uri"
+  },
+  {
+    "callback": "function () {\n    new SelectGraphPopup();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (event) {\n    new CreateConceptPopup(event.data);\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    new SettingsPopup();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    graph = e.data.uri;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: graph }, self));\n    var list = [];\n    for (var i in data) {\n        if (data[i].uri.value != event.data.uri) {\n            list.push(data[i].uri.value);\n        }\n    }\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: list }));\n    events.fire(new Event(EventCode.SCHEME.DELETED, { uri: event.data.uri }));\n    close();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "incomings"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: graph }, self));\n    var list = [];\n    for (var i in data) {\n        if (data[i].uri.value != event.data.uri) {\n            list.push(data[i].uri.value);\n        }\n    }\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: list }));\n    events.fire(new Event(EventCode.CONCEPT.DELETED, { uri: event.data.uri }));\n    close();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "incomings"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: graph }, self));\n    var list = [];\n    for (var i in data) {\n        if (data[i].uri.value != event.data.uri) {\n            list.push(data[i].uri.value);\n        }\n    }\n    list.push(event.data.uri);\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: list }));\n    close();\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "skosRelations"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "_delete",
+    "receiverCallee": "skosRelations"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'Could not delete scheme!');\n}",
+    "receiverBase": "list",
+    "receiverCallee": "incomings"
+  },
+  {
+    "callback": "function () {\n    close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    if (_conf_self.onclose)\n        _conf_self.onclose();\n    close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    func.action();\n    close();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    self.close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    close();\n    if (action)\n        action();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    close();\n    if (action)\n        action();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    close();\n    if (action)\n        action();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    close();\n    if (action)\n        action();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which == 13) {\n        $('#popup_create').click();\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.SCHEME.CREATED, {\n        parent: graph,\n        uri: uri,\n        type: 'scheme'\n    }));\n    events.fire(new Event(EventCode.GRAPH.UPDATED, { uris: [graph] }));\n    close();\n}",
+    "receiverBase": "create",
+    "receiverCallee": "scheme"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create concept', close);\n}",
+    "receiverBase": "create",
+    "receiverCallee": "scheme"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.CONCEPT.CREATED, {\n        parent: parent,\n        uri: uri,\n        type: 'top-concept'\n    }));\n    events.fire(new Event(EventCode.SCHEME.UPDATED, { uris: [parent] }));\n    close();\n}",
+    "receiverBase": "create",
+    "receiverCallee": "top_concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create concept', close);\n}",
+    "receiverBase": "create",
+    "receiverCallee": "top_concept"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.CONCEPT.CREATED, {\n        parent: parent,\n        uri: uri,\n        type: 'concept'\n    }));\n    events.fire(new Event(EventCode.CONCEPT.UPDATED, { uris: [parent] }));\n    close();\n}",
+    "receiverBase": "create",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create concept', close);\n}",
+    "receiverBase": "create",
+    "receiverCallee": "concept"
+  },
+  {
+    "callback": "function () {\n    close();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.CREATED, { uri: uri }));\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: uri }));\n    close();\n}",
+    "receiverBase": "create",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not create graph', close);\n}",
+    "receiverBase": "create",
+    "receiverCallee": "graph"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which == 13) {\n        $('#popup_create').click();\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "keydown"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.SELECTED, { uri: item.uri.value }));\n    close();\n}",
+    "receiverBase": "text",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    popups.alert('Alert', 'could not list graphs', close);\n}",
+    "receiverBase": "list",
+    "receiverCallee": "graphs"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(timeout);\n    close();\n    if (updated)\n        events.fire(new Event(EventCode.SETTINGS.UPDATED));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    setFirstLang($('#settings_language_firstLanguageSelect').val());\n}",
+    "receiverBase": "$",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    var n = $('#settings_language_newLanguageInput').val();\n    if (n == '')\n        writeInfo('language may not be empty');\n    else {\n        addLang(n);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    removeLang(l);\n}",
+    "receiverBase": "html",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.UPDATED, { uris: [graph] }));\n    settings.setLanguages(ls2);\n    updated = true;\n    write();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphLanguages"
+  },
+  {
+    "callback": "function () {\n    alert('could not set languages');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphLanguages"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.UPDATED, { uris: [graph] }));\n    updated = true;\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphFirstLanguage"
+  },
+  {
+    "callback": "function () {\n    alert('could not set language');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphFirstLanguage"
+  },
+  {
+    "callback": "function () {\n    events.fire(new Event(EventCode.GRAPH.UPDATED, { uris: [graph] }));\n    settings.setLanguages(ls);\n    updated = true;\n    write();\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphLanguages"
+  },
+  {
+    "callback": "function () {\n    alert('could not set languages');\n}",
+    "receiverBase": "set",
+    "receiverCallee": "graphLanguages"
+  },
+  {
+    "callback": "function () {\n    $('#settings_language_info').empty();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    add();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    active = false;\n    direction = undefined;\n    remove();\n}",
+    "receiverBase": "events",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    active = true;\n    direction = 'top';\n    scroll();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    active = false;\n    direction = undefined;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    active = true;\n    direction = 'bottom';\n    scroll();\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    active = false;\n    direction = undefined;\n}",
+    "receiverBase": "get",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    uiGridCtrl.grid.refresh().then(function () {\n        getDimensions();\n        startTimeout();\n    });\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$apply"
+  },
+  {
+    "callback": "function () {\n    getDimensions();\n    startTimeout();\n}",
+    "receiverBase": "refresh",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(resizeTimeoutId);\n}",
+    "receiverBase": "$scope",
+    "receiverCallee": "$on"
+  },
+  {
+    "callback": "function (err, json) {\n    var expected = '--- Trace ---\\n' + JSON.stringify(JSON.parse(json), null, 2) + '\\n';\n    test.equal(written, expected);\n    test.done();\n}",
+    "receiverBase": "formatters",
+    "receiverCallee": "formatForRestkin"
+  },
+  {
+    "callback": "function (annotation) {\n    self.tracer.record([[\n            t,\n            [annotation]\n        ]]);\n    test.equal(self.sent_traces.length, 0);\n}",
+    "receiverBase": "non_end_annotations",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (annotation) {\n    self.tracer.record([[\n            t,\n            [annotation]\n        ]]);\n}",
+    "receiverBase": "non_end_annotations",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    var method = map[name];\n    defineProperty(object, name, method, false);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (_) {\n    return originalFromCodePoint.apply(this, arguments);\n}",
+    "receiverBase": "",
+    "receiverCallee": "defineProperty"
+  },
+  {
+    "callback": "function () {\n    return new StringIterator(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "addIterator"
+  },
+  {
+    "callback": "function () {\n    return this.values();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addIterator"
+  },
+  {
+    "callback": "function (item, idx) {\n    return idx === 0;\n}",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (item, idx) {\n    return idx === 0;\n}",
+    "receiverCallee": "findIndex"
+  },
+  {
+    "callback": "function (target, source) {\n    return Object.keys(Object(source)).reduce(function (target, key) {\n        target[key] = source[key];\n        return target;\n    }, target);\n}",
+    "receiverBase": "reduce",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (target, key) {\n    target[key] = source[key];\n    return target;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var FAKENULL = Object.create(null);\n    var gpo = Object.getPrototypeOf, spo = Object.setPrototypeOf;\n    Object.getPrototypeOf = function (o) {\n        var result = gpo(o);\n        return result === FAKENULL ? null : result;\n    };\n    Object.setPrototypeOf = function (o, p) {\n        if (p === null) {\n            p = FAKENULL;\n        }\n        return spo(o, p);\n    };\n    Object.setPrototypeOf.polyfill = false;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (arg) {\n    var num = Number(arg);\n    if (Number.isNaN(num))\n        anyNaN = true;\n    else if (num === Infinity || num === -Infinity)\n        anyInfinity = true;\n    else if (num !== 0)\n        allZero = false;\n    if (anyInfinity) {\n        return false;\n    } else if (!anyNaN) {\n        numbers.push(Math.abs(num));\n    }\n    return true;\n}",
+    "receiverBase": "every",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (a, b) {\n    return b - a;\n}",
+    "receiverBase": "numbers",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (number) {\n    return number / largest;\n}",
+    "receiverBase": "numbers",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (sum, number) {\n    return sum += number * number;\n}",
+    "receiverBase": "divided",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (S) {\n    return S.resolve(42) instanceof S;\n}",
+    "receiverBase": "",
+    "receiverCallee": "supportsSubclassing"
+  },
+  {
+    "callback": "function () {\n    try {\n        globals.Promise.reject(42).then(null, 5).then(null, function () {\n        });\n        return true;\n    } catch (ex) {\n        return false;\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return this.entries();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addIterator"
+  },
+  {
+    "callback": "function (k) {\n    if (k.charCodeAt(0) === 36) {\n        k = k.slice(1);\n    } else {\n        k = +k;\n    }\n    m.set(k, k);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, key) {\n    callback.call(context, key, key, entireSet);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return this.values();\n}",
+    "receiverBase": "",
+    "receiverCallee": "addIterator"
+  },
+  {
+    "callback": "function (M) {\n    return new M([]) instanceof M;\n}",
+    "receiverBase": "",
+    "receiverCallee": "supportsSubclassing"
+  },
+  {
+    "callback": "function (v) {\n    d = v.split('.');\n    o = window[d[0]] = window[d[0]] || {};\n    Ext.each(d.slice(1), function (v2) {\n        o = o[v2] = o[v2] || {};\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v2) {\n    o = o[v2] = o[v2] || {};\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, item) {\n    empty = Ext.isEmpty(item);\n    Ext.each(empty ? key : item, function (val) {\n        buf.push('&', e(key), '=', !Ext.isEmpty(val) && (val != key || !empty) ? Ext.isDate(val) ? Ext.encode(val).replace(/\"/g, '') : e(val) : '');\n    });\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "iterate"
+  },
+  {
+    "callback": "function (val) {\n    buf.push('&', e(key), '=', !Ext.isEmpty(val) && (val != key || !empty) ? Ext.isDate(val) ? Ext.encode(val).replace(/\"/g, '') : e(val) : '');\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (pair) {\n    pair = pair.split('=');\n    name = d(pair[0]);\n    value = d(pair[1]);\n    obj[name] = overwrite || !obj[name] ? value : [].concat(obj[name]).concat(value);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return isIE ? function (a, i, j, res) {\n        res = [];\n        for (var x = 0, len = a.length; x < len; x++) {\n            res.push(a[x]);\n        }\n        return res.slice(i || 0, j || res.length);\n    } : function (a, i, j) {\n        return Array.prototype.slice.call(a, i || 0, j || a.length);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var head;\n    return function () {\n        if (head == undefined) {\n            head = Ext.get(DOC.getElementsByTagName('head')[0]);\n        }\n        return head;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var d;\n    return function (n) {\n        if (n && n.tagName != 'BODY') {\n            Ext.enableNestedListenerRemoval ? Ext.EventManager.purgeElement(n, true) : Ext.EventManager.removeAll(n);\n            d = d || DOC.createElement('div');\n            d.appendChild(n);\n            d.innerHTML = '';\n            delete Ext.elCache[n.id];\n        }\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (m, i) {\n    return args[i];\n}",
+    "receiverBase": "format",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (v) {\n    t = v.indexOf(':');\n    if (t >= 0) {\n        s = v.substr(0, t).toLowerCase();\n        if (v.charAt(t + 1) == ' ') {\n            ++t;\n        }\n        headerObj[s] = v.substr(t + 1);\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix();\n    assert.deepEqual(m._size, [0]);\n    assert.deepEqual(m._data, []);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            new DenseMatrix([\n                1,\n                2\n            ]),\n            new DenseMatrix([\n                3,\n                4\n            ])\n        ]);\n    assert.deepEqual(m, new DenseMatrix([\n        [\n            1,\n            2\n        ],\n        [\n            3,\n            4\n        ]\n    ]));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        DenseMatrix();\n    }, /Constructor must be called with the new operator/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    DenseMatrix();\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    assert.equal(new DenseMatrix([\n        [\n            1,\n            2\n        ],\n        [\n            3,\n            4\n        ]\n    ]).toString(), '[[1, 2], [3, 4]]');\n    assert.equal(new DenseMatrix([\n        [\n            1,\n            2\n        ],\n        [\n            3,\n            1 / 3\n        ]\n    ]).toString(), '[[1, 2], [3, 0.3333333333333333]]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.deepEqual(new DenseMatrix([\n        [\n            1,\n            2\n        ],\n        [\n            3,\n            4\n        ]\n    ]).toJSON(), {\n        mathjs: 'DenseMatrix',\n        data: [\n            [\n                1,\n                2\n            ],\n            [\n                3,\n                4\n            ]\n        ],\n        size: [\n            2,\n            2\n        ]\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([]);\n    m.resize([3], math.uninitialized);\n    assert.deepEqual(m.valueOf(), arr(uninit, uninit, uninit));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.equal(m.get([\n        1,\n        0\n    ]), 2);\n    assert.equal(m.get([\n        0,\n        1\n    ]), 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        m.get([\n            3,\n            0\n        ]);\n    });\n    assert.throws(function () {\n        m.get([\n            1,\n            5\n        ]);\n    });\n    assert.throws(function () {\n        m.get([1]);\n    });\n    assert.throws(function () {\n        m.get([]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.get([\n        3,\n        0\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get([\n        1,\n        5\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get([1]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get([]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        m.get([\n            0,\n            2,\n            0,\n            2,\n            0,\n            2\n        ]);\n    }, /Dimension mismatch/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.get([\n        0,\n        2,\n        0,\n        2,\n        0,\n        2\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        m.get([\n            1.2,\n            2\n        ]);\n    });\n    assert.throws(function () {\n        m.get([\n            1,\n            -2\n        ]);\n    });\n    assert.throws(function () {\n        m.get(1, 1);\n    });\n    assert.throws(function () {\n        m.get(math.index(1, 1));\n    });\n    assert.throws(function () {\n        m.get([[\n                1,\n                1\n            ]]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.get([\n        1.2,\n        2\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get([\n        1,\n        -2\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get(1, 1);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get(math.index(1, 1));\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.get([[\n            1,\n            1\n        ]]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix();\n    var defaultValue = 0;\n    m.set([2], 4, defaultValue);\n    assert.deepEqual(m, new DenseMatrix([\n        0,\n        0,\n        4\n    ]));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.set([\n        2.5,\n        0\n    ], 5);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.set([1], 5);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.set([\n        -1,\n        1\n    ], 5);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.set(math.index([\n        0,\n        0\n    ]), 5);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset([-1]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset([\n        1,\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset([\n        3,\n        0\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset([1]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix();\n    assert.throws(function () {\n        m.subset();\n    }, /Wrong number of arguments/);\n    assert.throws(function () {\n        m.subset(1, 2, 3, 4);\n    }, /Wrong number of arguments/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.subset();\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset(1, 2, 3, 4);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                2,\n                3\n            ],\n            [\n                4,\n                5,\n                6\n            ]\n        ]);\n    assert.throws(function () {\n        m.subset(index([\n            0,\n            2\n        ]));\n    }, /Dimension mismatch/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.subset(index([\n        0,\n        2\n    ]));\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        new DenseMatrix().subset('no index', 2);\n    }, /Invalid index/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new DenseMatrix().subset('no index', 2);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    assert.throws(function () {\n        new DenseMatrix().subset(index(0), [\n            2,\n            3\n        ]);\n    }, /Scalar expected/);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    new DenseMatrix().subset(index(0), [\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset(index([\n        0,\n        2\n    ]), [\n        100,\n        100\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.subset(index([\n        0,\n        2\n    ], [\n        0,\n        2\n    ]), [\n        100,\n        100\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function (value) {\n    return value * 2;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value) {\n    return value * 2;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value) {\n    return value * 2;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([]);\n    var m2 = m.map(function (value) {\n            return value * 2;\n        });\n    assert.deepEqual(m2.toArray(), []);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value) {\n    return value * 2;\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value, index, obj) {\n    return math.clone([\n        value,\n        index,\n        obj === m\n    ]);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (value) {\n    output.push(value);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    output.push(value);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    output.push(value);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([]);\n    var output = [];\n    m.forEach(function (value) {\n        output.push(value);\n    });\n    assert.deepEqual(output, []);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value) {\n    output.push(value);\n}",
+    "receiverBase": "m",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value, index, obj) {\n    output.push(math.clone([\n        value,\n        index,\n        obj === m\n    ]));\n}",
+    "receiverBase": "m",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    it('should clone the matrix properly', function () {\n        var m1 = new DenseMatrix([\n                [\n                    1,\n                    2,\n                    3\n                ],\n                [\n                    4,\n                    5,\n                    6\n                ]\n            ]);\n        var m2 = m1.clone();\n        assert.deepEqual(m1._data, m2._data);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var m1 = new DenseMatrix([\n            [\n                1,\n                2,\n                3\n            ],\n            [\n                4,\n                5,\n                6\n            ]\n        ]);\n    var m2 = m1.clone();\n    assert.deepEqual(m1._data, m2._data);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], 1);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            1\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], 1, 1);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            1\n        ],\n        [\n            0,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], 1, -1);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            0,\n            0\n        ],\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], [\n            1,\n            2,\n            3\n        ]);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            2,\n            0\n        ],\n        [\n            0,\n            0,\n            3\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], [\n            1,\n            2\n        ], 1);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            2\n        ],\n        [\n            0,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            3\n        ], [\n            1,\n            2\n        ], -1);\n    assert.deepEqual(m._size, [\n        3,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            0,\n            0\n        ],\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            2,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            4,\n            3\n        ], 1);\n    assert.deepEqual(m._size, [\n        4,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            1\n        ],\n        [\n            0,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            4,\n            3\n        ], 1, 1);\n    assert.deepEqual(m._size, [\n        4,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            1\n        ],\n        [\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            4,\n            3\n        ], 1, -1);\n    assert.deepEqual(m._size, [\n        4,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            0,\n            0\n        ],\n        [\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            1\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            4,\n            3\n        ], [\n            1,\n            2\n        ], 1);\n    assert.deepEqual(m._size, [\n        4,\n        3\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            2\n        ],\n        [\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], 1);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            1,\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            1,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], 1, 1);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            1,\n            0\n        ],\n        [\n            0,\n            0,\n            0,\n            1\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], 1, -1);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            0,\n            0,\n            0\n        ],\n        [\n            1,\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            1,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], [\n            1,\n            2,\n            3\n        ]);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            1,\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            2,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            3,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], [\n            1,\n            2,\n            3\n        ], 1);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            1,\n            0,\n            0\n        ],\n        [\n            0,\n            0,\n            2,\n            0\n        ],\n        [\n            0,\n            0,\n            0,\n            3\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = DenseMatrix.diagonal([\n            3,\n            4\n        ], [\n            1,\n            2\n        ], -1);\n    assert.deepEqual(m._size, [\n        3,\n        4\n    ]);\n    assert.deepEqual(m.toArray(), [\n        [\n            0,\n            0,\n            0,\n            0\n        ],\n        [\n            1,\n            0,\n            0,\n            0\n        ],\n        [\n            0,\n            2,\n            0,\n            0\n        ]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0\n            ],\n            [\n                0,\n                1,\n                0\n            ],\n            [\n                0,\n                0,\n                1\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(), [\n        1,\n        1,\n        1\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                2,\n                0\n            ],\n            [\n                0,\n                1,\n                3\n            ],\n            [\n                0,\n                0,\n                1\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(1), [\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0\n            ],\n            [\n                2,\n                1,\n                0\n            ],\n            [\n                0,\n                3,\n                1\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(-1), [\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0\n            ],\n            [\n                0,\n                1,\n                0\n            ],\n            [\n                0,\n                0,\n                1\n            ],\n            [\n                0,\n                0,\n                0\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(), [\n        1,\n        1,\n        1\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                2,\n                0\n            ],\n            [\n                0,\n                1,\n                3\n            ],\n            [\n                0,\n                0,\n                1\n            ],\n            [\n                0,\n                0,\n                0\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(1), [\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0\n            ],\n            [\n                2,\n                1,\n                0\n            ],\n            [\n                0,\n                3,\n                1\n            ],\n            [\n                0,\n                0,\n                4\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(-1), [\n        2,\n        3,\n        4\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0,\n                0\n            ],\n            [\n                0,\n                1,\n                0,\n                0\n            ],\n            [\n                0,\n                0,\n                1,\n                0\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(), [\n        1,\n        1,\n        1\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                2,\n                0,\n                0\n            ],\n            [\n                0,\n                1,\n                3,\n                0\n            ],\n            [\n                0,\n                0,\n                1,\n                4\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(1), [\n        2,\n        3,\n        4\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                0,\n                0,\n                0\n            ],\n            [\n                2,\n                1,\n                0,\n                0\n            ],\n            [\n                4,\n                3,\n                1,\n                0\n            ]\n        ]);\n    assert.deepEqual(m.diagonal(-1), [\n        2,\n        3\n    ]);\n    assert.deepEqual(m.diagonal(-2), [4]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([[]]);\n    assert.throws(function () {\n        m.transpose();\n    });\n    m = new DenseMatrix([\n        [\n            [1],\n            [2]\n        ],\n        [\n            [3],\n            [4]\n        ]\n    ]);\n    assert.throws(function () {\n        m.transpose();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.transpose();\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    m.transpose();\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                1,\n                2,\n                3\n            ],\n            [\n                4,\n                5,\n                6\n            ]\n        ]);\n    assert.throws(function () {\n        m.trace();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    m.trace();\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    var m = new DenseMatrix([\n            [\n                2,\n                0\n            ],\n            [\n                4,\n                0\n            ]\n        ]);\n    var r = m.multiply([\n            [2],\n            [4]\n        ]);\n    assert.deepEqual(r.valueOf(), [\n        [4],\n        [8]\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var a = new DenseMatrix([[\n                1,\n                2,\n                3\n            ]]);\n    var b = new DenseMatrix([\n            [4],\n            [5],\n            [6]\n        ]);\n    assert.strictEqual(a.multiply(b), 32);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var a = new DenseMatrix([[\n                1,\n                2,\n                3\n            ]]);\n    var b = [\n            4,\n            5,\n            6\n        ];\n    assert.strictEqual(a.multiply(b), 32);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    math.matrix([\n        1,\n        1\n    ], 'dense').multiply([\n        1,\n        1,\n        1\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    math.matrix([[\n            1,\n            1\n        ]], 'dense').multiply([[\n            1,\n            1\n        ]]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    math.matrix([[\n            1,\n            1\n        ]], 'dense').multiply([\n        [\n            1,\n            1\n        ],\n        [\n            1,\n            1\n        ],\n        [\n            1,\n            1\n        ]\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    math.matrix([\n        [\n            1,\n            1\n        ],\n        [\n            1,\n            1\n        ]\n    ], 'dense').multiply([\n        1,\n        1,\n        1\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n    math.matrix([\n        1,\n        1,\n        1\n    ], 'dense').multiply([\n        [\n            1,\n            1\n        ],\n        [\n            1,\n            1\n        ]\n    ]);\n}",
+    "receiverBase": "assert",
+    "receiverCallee": "throws"
+  }
+]

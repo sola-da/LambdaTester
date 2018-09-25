@@ -1,0 +1,282 @@
+[
+  {
+    "callback": "function (Em, tabListController, TabMenuItemView) {\n    var TabMenuView = Em.CollectionView.extend({\n            tagName: 'ul',\n            classNames: [\n                'nav',\n                'tab-menu'\n            ],\n            controller: tabListController,\n            contentBinding: 'controller.tabs',\n            itemViewClass: TabMenuItemView\n        });\n    return TabMenuView;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    if (connection.authorized) {\n        logger.log('Connected to the PZH TLS server');\n        cb(true, connection);\n    } else {\n        logger.error('connection failed ' + connection.authorizationError);\n    }\n}",
+    "receiverBase": "tls",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (_buffer) {\n    util.webinosMsgProcessing.readJson(this, _buffer, function (obj) {\n        var userid = obj.user.identifier || obj.user;\n        if (userid in callbackStorage && callbackStorage[userid][obj.payload.type]) {\n            callbackStorage[userid][obj.payload.type].success(obj.payload);\n            delete callbackStorage[userid][obj.payload.type];\n        }\n    });\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (obj) {\n    var userid = obj.user.identifier || obj.user;\n    if (userid in callbackStorage && callbackStorage[userid][obj.payload.type]) {\n        callbackStorage[userid][obj.payload.type].success(obj.payload);\n        delete callbackStorage[userid][obj.payload.type];\n    }\n}",
+    "receiverBase": "webinosMsgProcessing",
+    "receiverCallee": "readJson"
+  },
+  {
+    "callback": "function (err) {\n    logger.error(err.message);\n    cb(false, err);\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cb(false, 'Connection ended');\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    __exports__['default'] = Ember.Object.extend(Ember.Evented, {\n        restore: function (data) {\n            return new Ember.RSVP.reject();\n        },\n        authenticate: function (options) {\n            return new Ember.RSVP.reject();\n        },\n        invalidate: function (data) {\n            return new Ember.RSVP.resolve();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    __exports__['default'] = Ember.Object.extend({\n        session: null,\n        authorize: function (jqXHR, requestOptions) {\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (container, config) {\n    this.applicationRootUrl = container.lookup('router:main').get('rootURL') || '/';\n}",
+    "receiverBase": "",
+    "receiverCallee": "loadConfig"
+  },
+  {
+    "callback": "function (__dependency1__) {\n    'use strict';\n    var initializer = __dependency1__['default'];\n    Ember.onLoad('Ember.Application', function (Application) {\n        Application.initializer(initializer);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (Application) {\n    Application.initializer(initializer);\n}",
+    "receiverBase": "Ember",
+    "receiverCallee": "onLoad"
+  },
+  {
+    "callback": "function (event) {\n    _this.get(Configuration.sessionPropertyName).on(event, function (error) {\n        Array.prototype.unshift.call(arguments, event);\n        transition.send.apply(transition, arguments);\n    });\n}",
+    "receiverBase": "A",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (error) {\n    Array.prototype.unshift.call(arguments, event);\n    transition.send.apply(transition, arguments);\n}",
+    "receiverBase": "get",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (content) {\n    _this.setup(authenticator, content, true);\n    resolve();\n}",
+    "receiverBase": "authenticate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    _this.clear();\n    _this.trigger('sessionAuthenticationFailed', error);\n    reject(error);\n}",
+    "receiverBase": "authenticate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    authenticator.off('sessionDataUpdated');\n    _this.clear(true);\n    resolve();\n}",
+    "receiverBase": "invalidate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (error) {\n    _this.trigger('sessionInvalidationFailed', error);\n    reject(error);\n}",
+    "receiverBase": "invalidate",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (content) {\n    _this.setup(authenticator, content);\n    resolve();\n}",
+    "receiverBase": "restore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    _this.store.clear();\n    reject();\n}",
+    "receiverBase": "restore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (content) {\n    _this.setup(_this.authenticator, content);\n}",
+    "receiverBase": "authenticator",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (content) {\n    _this.clear(true);\n}",
+    "receiverBase": "authenticator",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (content) {\n    var authenticator = content.authenticator;\n    if (!!authenticator) {\n        delete content.authenticator;\n        _this.container.lookup(authenticator).restore(content).then(function (content) {\n            _this.setup(authenticator, content, true);\n        }, function () {\n            _this.clear(true);\n        });\n    } else {\n        _this.clear(true);\n    }\n}",
+    "receiverBase": "store",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (content) {\n    _this.setup(authenticator, content, true);\n}",
+    "receiverBase": "restore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    _this.clear(true);\n}",
+    "receiverBase": "restore",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (component) {\n    container.injection(component, Configuration.sessionPropertyName, Configuration.session);\n}",
+    "receiverBase": "A",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (origin) {\n    return extractLocationOrigin(origin);\n}",
+    "receiverBase": "A",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (options, originalOptions, jqXHR) {\n    if (!authorizer.isDestroyed && shouldAuthorizeRequest(options)) {\n        jqXHR.__simple_auth_authorized__ = true;\n        authorizer.authorize(jqXHR, options);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ajaxPrefilter"
+  },
+  {
+    "callback": "function (event, jqXHR, setting, exception) {\n    if (!!jqXHR.__simple_auth_authorized__ && jqXHR.status === 401) {\n        session.trigger('authorizationFailed');\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ajaxError"
+  },
+  {
+    "callback": "function (__dependency1__, __exports__) {\n    'use strict';\n    var objectsAreEqual = __dependency1__['default'];\n    __exports__['default'] = Ember.Object.extend(Ember.Evented, {\n        persist: function (data) {\n        },\n        restore: function () {\n            return {};\n        },\n        clear: function () {\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (e) {\n    var data = _this.restore();\n    if (!objectsAreEqual(data, _this._lastData)) {\n        _this._lastData = data;\n        _this.trigger('sessionDataUpdated', data);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (__exports__) {\n    'use strict';\n    var global = typeof window !== 'undefined' ? window : {};\n    __exports__['default'] = function (scope) {\n        return Ember.get(global, 'ENV.' + scope) || {};\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    new Script('for(var x in x) { }')();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    parent = div();\n    child = div();\n    target = div();\n    parent.appendChild(child);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(_.inDoc(target)).toBe(false);\n    document.body.appendChild(target);\n    expect(_.inDoc(target)).toBe(true);\n    document.body.removeChild(target);\n    expect(_.inDoc(target)).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    target.setAttribute('v-test', 'ok');\n    var val = _.attr(target, 'test');\n    expect(val).toBe('ok');\n    expect(target.hasAttribute('v-test')).toBe(false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    _.before(target, child);\n    expect(target.parentNode).toBe(parent);\n    expect(target.nextSibling).toBe(child);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    _.after(target, child);\n    expect(target.parentNode).toBe(parent);\n    expect(child.nextSibling).toBe(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var sibling = div();\n    parent.appendChild(sibling);\n    _.after(target, child);\n    expect(target.parentNode).toBe(parent);\n    expect(child.nextSibling).toBe(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    _.remove(child);\n    expect(child.parentNode).toBeNull();\n    expect(parent.childNodes.length).toBe(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    _.prepend(target, parent);\n    expect(target.parentNode).toBe(parent);\n    expect(parent.firstChild).toBe(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    parent.removeChild(child);\n    _.prepend(target, parent);\n    expect(target.parentNode).toBe(parent);\n    expect(parent.firstChild).toBe(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    _.replace(child, target);\n    expect(parent.childNodes.length).toBe(1);\n    expect(parent.firstChild).toBe(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    parent.setAttribute('test1', 1);\n    parent.setAttribute('test2', 2);\n    _.copyAttributes(parent, target);\n    expect(target.attributes.length).toBe(2);\n    expect(target.getAttribute('test1')).toBe('1');\n    expect(target.getAttribute('test2')).toBe('2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    document.body.appendChild(target);\n    var spy = jasmine.createSpy();\n    _.on(target, 'click', spy);\n    var e = document.createEvent('HTMLEvents');\n    e.initEvent('click', true, true);\n    target.dispatchEvent(e);\n    expect(spy.calls.count()).toBe(1);\n    expect(spy).toHaveBeenCalledWith(e);\n    _.off(target, 'click', spy);\n    target.dispatchEvent(e);\n    expect(spy.calls.count()).toBe(1);\n    document.body.removeChild(target);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = document.createElement('div');\n    el.className = 'aa bb cc';\n    _.removeClass(el, 'bb');\n    expect(el.className).toBe('aa cc');\n    _.removeClass(el, 'aa');\n    expect(el.className).toBe('cc');\n    _.addClass(el, 'bb');\n    expect(el.className).toBe('cc bb');\n    _.addClass(el, 'bb');\n    expect(el.className).toBe('cc bb');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var el = document.createElementNS('http://www.w3.org/2000/svg', 'circle');\n    el.setAttribute('class', 'aa bb cc');\n    _.removeClass(el, 'bb');\n    expect(el.getAttribute('class')).toBe('aa cc');\n    _.removeClass(el, 'aa');\n    expect(el.getAttribute('class')).toBe('cc');\n    _.addClass(el, 'bb');\n    expect(el.getAttribute('class')).toBe('cc bb');\n    _.addClass(el, 'bb');\n    expect(el.getAttribute('class')).toBe('cc bb');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (property) {\n    var name = property.name;\n    var type = property.type;\n    var loggingMessage = property.loggingMessage;\n    if (type == 'attribute') {\n        var dummy = Device[name];\n    } else {\n        Device[name]();\n    }\n    this.assertErrorInLogs(loggingMessage, 1);\n}",
+    "receiverBase": "Array",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    function Test() {\n        babelHelpers.classCallCheck(this, Test);\n    }\n    babelHelpers.createClass(Test, [{\n            key: 'test',\n            set: function (val) {\n                this._test = val;\n            }\n        }]);\n    return Test;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (errors) {\n    expect(errors).to.have.length.above(0);\n    if (options.jshint) {\n        expect(errors[0].lint).to.exist;\n        expect(errors[0].lint.reason).to.be.equal(options.reason);\n    } else {\n        var $html = $('<div>' + errors[0].text + '</div>');\n        expect($html.text()).to.be.equal(options.reason);\n    }\n    done();\n}",
+    "receiverBase": "Output",
+    "receiverCallee": "runCode"
+  },
+  {
+    "callback": "function () {\n    var host, scripts = document.getElementsByTagName('script');\n    for (var i = 0, script; script = scripts[i]; i++) {\n        host = script.src && /^(.+\\.nytimes.com)\\/js\\/app\\/analytics\\/trackingTags_v1\\.1\\.js/.test(script.src) ? RegExp.$1 : '';\n        if (host) {\n            break;\n        }\n        ;\n    }\n    ;\n    return {\n        imageHost: host,\n        jsHost: host,\n        cssHost: host\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    windowLoaded = true;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    windowLoaded = true;\n}",
+    "receiverBase": "window",
+    "receiverCallee": "attachEvent"
+  },
+  {
+    "callback": "function () {\n    callback();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var metaTagEls = document.getElementsByTagName('meta');\n    for (var i = 0; i < metaTagEls.length; i++) {\n        if (metaTagEls[i].name == 'CG') {\n            return metaTagEls[i].content.toLowerCase();\n        }\n    }\n    return '';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var d = new Image(1, 1);\n    d.onerror = d.onload = function () {\n        d.onerror = d.onload = null;\n    };\n    d.src = [\n        '//secure-us.imrworldwide.com/cgi-bin/m?ci=us-nytimes&cg=0&cc=1&si=',\n        escape(window.location.href),\n        '&rp=',\n        escape(document.referrer),\n        '&ts=compact&rnd=',\n        new Date().getTime()\n    ].join('');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    return arguments[0].toUpperCase();\n}",
+    "receiverBase": "toLowerCase",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (key, item) {\n    this.assertEquals(this._storage.getItem(key), item);\n    i++;\n}",
+    "receiverBase": "_storage",
+    "receiverCallee": "forEach"
+  }
+]

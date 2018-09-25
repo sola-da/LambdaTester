@@ -1,0 +1,295 @@
+[
+  {
+    "callback": "function (p) {\n    if (p instanceof Function) {\n        return;\n    }\n    return p;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (ext) {\n    str += '; ' + ext;\n}",
+    "receiverBase": "extensions",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "store",
+    "receiverCallee": "removeCookie"
+  },
+  {
+    "callback": "function (err, cookies) {\n    if (err) {\n        return cb(err);\n    }\n    cookies = cookies.filter(matchingCookie);\n    if (options.sort !== false) {\n        cookies = cookies.sort(cookieCompare);\n    }\n    var now = new Date();\n    cookies.forEach(function (c) {\n        c.lastAccessed = now;\n    });\n    cb(null, cookies);\n}",
+    "receiverBase": "store",
+    "receiverCallee": "findCookies"
+  },
+  {
+    "callback": "function (c) {\n    c.lastAccessed = now;\n}",
+    "receiverBase": "cookies",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (c) {\n    return c.cookieString();\n}",
+    "receiverBase": "cookies",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return c.toString();\n}",
+    "receiverBase": "cookies",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function syncCb(err, result) {\n    syncErr = err;\n    syncResult = result;\n}",
+    "receiverBase": "args",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (method) {\n    CookieJar.prototype[method + 'Sync'] = syncWrap(method);\n}",
+    "receiverBase": "CAN_BE_SYNC",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (done) {\n    alasql('SET AUTOCOMMIT OFF');\n    assert(!alasql.options.autocommit);\n    alasql('DROP localStorage DATABASE IF EXISTS ls150');\n    assert(!localStorage['ls150']);\n    assert(!localStorage['ls150.one']);\n    alasql('CREATE localStorage DATABASE IF NOT EXISTS ls150');\n    assert(localStorage['ls150']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var res = alasql('SHOW localStorage DATABASES');\n    var found = false;\n    res.forEach(function (d) {\n        found = found || d.databaseid == 'ls150';\n    });\n    assert(found);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (d) {\n    found = found || d.databaseid == 'ls150';\n}",
+    "receiverBase": "res",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (done) {\n    alasql('ATTACH LOCALSTORAGE DATABASE ls150 AS test150');\n    assert(alasql.databases.test150);\n    assert(alasql.databases.test150.engineid == 'LOCALSTORAGE');\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    alasql('CREATE TABLE IF NOT EXISTS test150.one (a int, b string)');\n    assert(localStorage['ls150.one']);\n    assert(JSON.parse(localStorage['ls150']).tables.one);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var res = alasql('SELECT * FROM test150.one');\n    assert(res.length == 3);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var res = alasql('SELECT a*2 as a, b INTO test150.one FROM test150.one');\n    assert(res == 3);\n    var res = alasql('SELECT * FROM test150.one');\n    assert(res.length == 6);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    alasql('USE test150');\n    var res = alasql('COMMIT TRANSACTION');\n    assert(res, 1);\n    var res = alasql('SELECT * FROM test150.one');\n    assert(res.length == 6);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var res = alasql('DROP TABLE test150.one');\n    assert(!localStorage['ls150.one']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    alasql('DROP DATABASE test150a');\n    assert(!alasql.databases.test150a);\n    alasql('DETACH DATABASE test150');\n    assert(!alasql.databases.test150);\n    alasql('DROP LOCALSTORAGE DATABASE ls150');\n    assert(!localStorage['ls150']);\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (name) {\n    cbs['on' + name] = empty;\n}",
+    "receiverBase": "EVENTS",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (name) {\n    console.log('Test', name, 'took', ben(150, function () {\n        parser.parseComplete(tests[name]);\n    }));\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    parser.parseComplete(tests[name]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "ben"
+  },
+  {
+    "callback": "function () {\n    loader.hide().appendTo('body');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (parent, beginToken) {\n    assert.equal('with', beginToken[2]);\n    base.call(this, parent, beginToken);\n    this.echo(beginToken[0]);\n    this.next();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (err, out, code) {\n    if (err instanceof Error)\n        throw err;\n    process.stderr.write(err);\n    process.stdout.write(out);\n    process.exit(code);\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function ($ionicBind, $rootScope, $interpolate) {\n    $bind = $ionicBind;\n    scope = $rootScope.$new();\n    attr = {\n        $observe: jasmine.createSpy('observe').andCallFake(function (name, fn) {\n            $observeFn = fn;\n        })\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "inject"
+  },
+  {
+    "callback": "function (name, fn) {\n    $observeFn = fn;\n}",
+    "receiverBase": "createSpy",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.coffee = 2;\n    attr.eq = 'coffee';\n    $bind(scope, attr, { eq: '=' });\n    scope.$apply();\n    expect(scope.eq).toEqual(2);\n    scope.$parent.$apply('coffee = 100');\n    expect(scope.eq).toEqual(100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.coffee = 2;\n    attr.eq = 'coffee';\n    $bind(scope, attr, { coolVar: '=eq' });\n    scope.$apply();\n    expect(scope.coolVar).toEqual(scope.$parent.coffee);\n    scope.$parent.$apply('coffee = 100');\n    expect(scope.coolVar).toEqual(100);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.foo = 2;\n    attr.espresso = 'foo';\n    $bind(scope, attr, { foo: '=espresso' });\n    scope.$apply();\n    expect(scope.$parent.foo).toBe(2);\n    scope.$parent.$apply('foo = 4');\n    expect(scope.$parent.foo).toBe(4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var watchUnregister = jasmine.createSpy('watchUnreg');\n    spyOn(scope.$parent, '$watch').andCallFake(function () {\n        return watchUnregister;\n    });\n    attr.binding = 'something';\n    $bind(scope, attr, { binding: '=' });\n    scope.$destroy();\n    expect(watchUnregister).toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return watchUnregister;\n}",
+    "receiverBase": "spyOn",
+    "receiverCallee": "andCallFake"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.coffee = 'cool';\n    attr.special = '{{coffee}}';\n    $bind(scope, attr, { special: '@' });\n    expect(attr.$observe).toHaveBeenCalledWith('special', $observeFn);\n    expect(scope.special).toBe('cool');\n    scope.$parent.coffee = 'espresso';\n    $observeFn(scope.$parent.coffee);\n    expect(scope.special).toBe('espresso');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.coffee = 'cool';\n    attr.special = '{{coffee}}';\n    $bind(scope, attr, { scopeName: '@special' });\n    expect(scope.scopeName).toBe('cool');\n    scope.$parent.coffee = 'espresso';\n    $observeFn(scope.$parent.coffee);\n    expect(scope.scopeName).toBe('espresso');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.coffee = 'cool';\n    attr.special = '{{coffee}}';\n    $bind(scope, attr, { coffee: '@special' });\n    expect(scope.coffee).toBe('cool');\n    scope.$parent.coffee = 'espresso';\n    $observeFn(scope.$parent.coffee);\n    expect(scope.coffee).toBe('espresso');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    attr.math = '1+1';\n    $bind(scope, attr, { two: '&math' });\n    expect(scope.two()).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    attr.doIt = 'fun()';\n    scope.$parent.fun = function () {\n        return 'this is cool!';\n    };\n    $bind(scope, attr, { party: '&doIt' });\n    expect(scope.party()).toBe('this is cool!');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    scope.$parent.foo = function () {\n    };\n    attr.bar = 'foo()';\n    expect(function () {\n        $bind(scope, attr, { foo: '&bar' });\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    $bind(scope, attr, { foo: '&bar' });\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var mozApps = navigator.mozApps;\n    if (mozApps) {\n        var installing = navigator.mozApps.install('http://orion.eclipse.org/webapp/orion-manifest.webapp');\n        installing.onsuccess = function (e) {\n            var installApp = document.getElementById('install-app');\n            installApp.textContent = 'Orion App Already Installed';\n            installApp.disabled = true;\n        };\n    }\n}",
+    "receiverBase": "installApp",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    run();\n}",
+    "receiverBase": "TBUtils",
+    "receiverCallee": "getModSubs"
+  },
+  {
+    "callback": "function done(succ, err) {\n    if (succ) {\n        run();\n    } else {\n        self.log(err.responseText);\n    }\n}",
+    "receiverBase": "TBUtils",
+    "receiverCallee": "postToWiki"
+  },
+  {
+    "callback": "function () {\n    run();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    TBUtils.forEachChunked(subs, 10, 500, processSub);\n}",
+    "receiverBase": "TBUtils",
+    "receiverCallee": "forEachChunked"
+  },
+  {
+    "callback": "function (resp) {\n    if (!resp || resp === TBUtils.WIKI_PAGE_UNKNOWN) {\n        return;\n    }\n    if (resp === TBUtils.NO_WIKI_PAGE) {\n        TBUtils.noConfig.push(currsub);\n        return;\n    }\n    TBUtils.configCache[currsub] = resp;\n    setTag(resp, currsub);\n}",
+    "receiverBase": "TBUtils",
+    "receiverCallee": "readFromWiki"
+  },
+  {
+    "callback": "function (key, value) {\n    $color_selector.append($('<option>').attr('value', value).text(key));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (d) {\n    if (d.name === domainTag.name) {\n        var idx = config.domainTags.indexOf(d), updateType;\n        if (domainTag.color === 'none') {\n            config.domainTags.splice(idx, 1);\n            updateType = 'delete';\n        } else {\n            config.domainTags[idx] = domainTag;\n            updateType = 'update';\n        }\n        postToWiki(subreddit, config, updateType + ' tag \"' + domainTag.name + '\"');\n        return d;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "grep"
+  },
+  {
+    "callback": "function () {\n    $(this).parents('.dtagger-popup').remove();\n}",
+    "receiverBase": "$body",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    window.addEventListener('TBModuleLoaded', function () {\n        domaintagger();\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    domaintagger();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (model, value, options) {\n    this.update_bindings(model.previous('widgets') || [], value);\n    this.update_value(this.get('widgets')[0]);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (model, collection, options) {\n    this.update_bindings(this.get('widgets'), []);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (elt) {\n    elt[0].off('change:' + elt[1], null, that);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (elt) {\n    elt[0].on('change:' + elt[1], function (model, value, options) {\n        that.update_value(elt);\n    }, that);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (model, value, options) {\n    that.update_value(elt);\n}",
+    "receiverBase": "elt",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (element, index, list) {\n    if (element[0]) {\n        element[0].set(element[1], new_value);\n        element[0].save_changes();\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (this.source) {\n        this.source[0].off('change:' + this.source[1], null, this);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    this.update_value(this.source);\n}",
+    "receiverBase": "source",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (element, index, list) {\n    if (element[0]) {\n        element[0].set(element[1], new_value);\n        element[0].save_changes();\n    }\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  }
+]

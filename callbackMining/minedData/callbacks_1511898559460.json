@@ -1,0 +1,697 @@
+[
+  {
+    "callback": "function (e) {\n    if (document.activeElement.tagName == 'INPUT' || document.activeElement.tagName == 'TEXTAREA') {\n        return;\n    }\n    switch (e.keyCode) {\n    case KEYS.SHIFT:\n        shiftKeyPress = false;\n        break;\n    default:\n        break;\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    $rootScope.$$postDigest(function () {\n        rootAnimateState.running = false;\n    });\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    rootAnimateState.running = false;\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    performAnimation('enter', 'ng-enter', element, parentElement, afterElement, noop, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    performAnimation('leave', 'ng-leave', element, null, null, function () {\n        $delegate.leave(element);\n    }, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    $delegate.leave(element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    performAnimation('move', 'ng-move', element, parentElement, afterElement, noop, doneCallback);\n}",
+    "receiverBase": "$rootScope",
+    "receiverCallee": "$$postDigest"
+  },
+  {
+    "callback": "function () {\n    $delegate.addClass(element, className);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    $delegate.removeClass(element, className);\n}",
+    "receiverBase": "",
+    "receiverCallee": "performAnimation"
+  },
+  {
+    "callback": "function () {\n    cleanup(element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (element) {\n    element = angular.element(element);\n    var data = element.data(NG_ANIMATE_STATE);\n    if (data) {\n        cancelAnimations(data.animations);\n        cleanup(element);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (animation) {\n    if (!animations.beforeComplete) {\n        (animation.beforeEnd || noop)(isCancelledFlag);\n    }\n    if (!animations.afterComplete) {\n        (animation.afterEnd || noop)(isCancelledFlag);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (fn) {\n    fn();\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (elm) {\n    elementQueueSnapshot.push(elm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    closeAllAnimations(elementQueueSnapshot, animationCounterSnapshot);\n    elementQueueSnapshot = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "$timeout"
+  },
+  {
+    "callback": "function (element) {\n    var elementData = element.data(NG_ANIMATE_CSS_DATA_KEY);\n    if (elementData && elementData.animationCount == count) {\n        (elementData.closeAnimationFn || noop)();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (value) {\n    maxValue = Math.max(parseFloat(value) || 0, maxValue);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (klass, i) {\n    activeClassName += (i > 0 ? ' ' : '') + klass + '-active';\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (val, i) {\n    style += (i > 0 ? ',' : '') + (index * staggerDelay + parseInt(val, 10)) + 's';\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element);\n    unblockKeyframeAnimations(element);\n    cancel = animateAfter(element, className, animationComplete);\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (klass) {\n    clone.removeClass(klass);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element);\n    unblockKeyframeAnimations(element);\n    animationCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function () {\n    unblockTransitions(element);\n    unblockKeyframeAnimations(element);\n    animationCompleted();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterReflow"
+  },
+  {
+    "callback": "function (klass, i) {\n    if (klass && klass.length > 0) {\n        className += (i > 0 ? ' ' : '') + klass + suffix;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.locals.assets = assets;\n    mean.aggregated('js', 'header', function (data) {\n        res.locals.headerJs = data;\n        next();\n    });\n}",
+    "receiverBase": "app",
+    "receiverCallee": "use"
+  },
+  {
+    "callback": "function (data) {\n    res.locals.headerJs = data;\n    next();\n}",
+    "receiverBase": "mean",
+    "receiverCallee": "aggregated"
+  },
+  {
+    "callback": "function (v) {\n    newStyles[v] = from.getStyle(v);\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (v) {\n    if (v !== '' && v.substr(0, 4) !== 'yui_') {\n        classes.push(v);\n    }\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    this._currentSelectionClear = true;\n}",
+    "receiverBase": "Y",
+    "receiverCallee": "later"
+  },
+  {
+    "callback": "function ($timeout) {\n    return {\n        scope: { trigger: '=focusMe' },\n        link: function (scope, element) {\n            scope.$watch('trigger', function (value) {\n                if (value === true) {\n                    element[0].focus();\n                    scope.trigger = false;\n                }\n            });\n        }\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "directive"
+  },
+  {
+    "callback": "function (value) {\n    if (value === true) {\n        element[0].focus();\n        scope.trigger = false;\n    }\n}",
+    "receiverBase": "scope",
+    "receiverCallee": "$watch"
+  },
+  {
+    "callback": "function constructor(args) {\n    if ($.loadingMask.images) {\n        useImages = true;\n        $.loadingInner.remove($.loadingIndicator);\n        $.loadingIndicator = null;\n    } else {\n        $.loadingInner.remove($.loadingImages);\n        $.loadingImages = null;\n    }\n    args = null;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    console.log('Watching for Meteor app changes...');\n    var watcher = gulp.watch('../app/client/*', ['rerun']);\n    watcher.on('change', function (event) {\n        console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');\n    });\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function (event) {\n    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');\n}",
+    "receiverBase": "watcher",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    runSequence('clean', 'build', 'copy');\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    runSequence('setup', 'build', 'copy', 'clean', 'open');\n}",
+    "receiverBase": "gulp",
+    "receiverCallee": "task"
+  },
+  {
+    "callback": "function () {\n    for (var opt in optionHandlers)\n        if (optionHandlers.propertyIsEnumerable(opt))\n            optionHandlers[opt](this, options[opt], Init);\n    for (var i = 0; i < initHooks.length; ++i)\n        initHooks[i](this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line) {\n    if (line.stateAfter)\n        line.stateAfter = null;\n    if (line.styles)\n        line.styles = null;\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function () {\n    updateScrollbars(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (line) {\n    var estHeight = est(line);\n    if (estHeight != line.height)\n        updateLineHeight(line, estHeight);\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function () {\n    alignHorizontally(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (line) {\n    var len = lineLength(doc, line);\n    if (len > d.maxLineLength) {\n        d.maxLineLength = len;\n        d.maxLine = line;\n    }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (a, b) {\n    return a.from - b.from;\n}",
+    "receiverBase": "intact",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function () {\n    display.cursor.style.visibility = display.otherCursor.style.visibility = (on = !on) ? '' : 'hidden';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < changed.length; ++i)\n        regChange(this, changed[i].start, changed[i].end);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line) {\n    processLine(cm, line, state);\n    var save = pos == n - 1 || pos % 5 == 0 || pos >= display.showingFrom && pos < display.showingTo;\n    line.stateAfter = save ? copyState(doc.mode, state) : null;\n    ++pos;\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function () {\n    readInput(cm);\n    if (cm.state.focused)\n        slowPoll(cm);\n}",
+    "receiverBase": "poll",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (e) {\n    if (signalDOMEvent(cm, e))\n        return;\n    var pos = posFromMouse(cm, e);\n    if (!pos || clickInGutter(cm, e) || eventInWidget(cm.display, e))\n        return;\n    e_preventDefault(e);\n    var word = findWordAt(getLine(cm.doc, pos.line).text, pos);\n    extendSelection(cm.doc, word.from, word.to);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (e) {\n    signalDOMEvent(cm, e) || e_preventDefault(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (!eventInWidget(d, e))\n        e_preventDefault(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    onContextMenu(cm, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (d.scroller.clientHeight) {\n        setScrollTop(cm, d.scroller.scrollTop);\n        setScrollLeft(cm, d.scroller.scrollLeft, true);\n        signal(cm, 'scroll', cm);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (d.scroller.clientHeight)\n        setScrollTop(cm, d.scrollbarV.scrollTop);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (d.scroller.clientHeight)\n        setScrollLeft(cm, d.scrollbarH.scrollLeft);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    onScrollWheel(cm, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    onScrollWheel(cm, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    d.wrapper.scrollTop = d.wrapper.scrollLeft = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    resizeTimer = null;\n    d.cachedCharWidth = d.cachedTextHeight = knownScrollbarWidth = null;\n    clearCaches(cm);\n    runInOp(cm, bind(regChange, cm));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (signalDOMEvent(cm, e) || cm.options.onKeyEvent && cm.options.onKeyEvent(cm, addStop(e)))\n        return;\n    if (e.keyCode == 16)\n        cm.doc.sel.shift = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (e) {\n    onDragStart(cm, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (eventInWidget(d, e))\n        return;\n    focusInput(cm);\n    fastPoll(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    cm.state.pasteIncoming = true;\n    fastPoll(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    if (document.activeElement == d.input)\n        d.input.blur();\n    focusInput(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    display.scroller.draggable = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e2) {\n    if (webkit)\n        display.scroller.draggable = false;\n    cm.state.draggingText = false;\n    off(document, 'mouseup', dragEnd);\n    off(display.scroller, 'drop', dragEnd);\n    if (Math.abs(e.clientX - e2.clientX) + Math.abs(e.clientY - e2.clientY) < 10) {\n        e_preventDefault(e2);\n        extendSelection(cm.doc, start);\n        focusInput(cm);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function () {\n    if (counter == curCount)\n        extend(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function () {\n    if (counter != curCount)\n        return;\n    display.scroller.scrollTop += outside;\n    extend(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (e) {\n    if (!ie && !e_button(e))\n        done(e);\n    else\n        extend(e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function () {\n    if (getKeyMap(cm.options.keyMap) == startMap) {\n        cm.options.keyMap = next.call ? next.call(null, cm) : next;\n        keyMapChanged(cm);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (b) {\n    return doHandleBinding(cm, b, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "lookupKey"
+  },
+  {
+    "callback": "function (b) {\n    if (typeof b == 'string' ? /^go[A-Z]/.test(b) : b.motion)\n        return doHandleBinding(cm, b);\n}",
+    "receiverBase": "",
+    "receiverCallee": "lookupKey"
+  },
+  {
+    "callback": "function (b) {\n    return doHandleBinding(cm, b);\n}",
+    "receiverBase": "",
+    "receiverCallee": "lookupKey"
+  },
+  {
+    "callback": "function (b) {\n    return doHandleBinding(cm, b, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "lookupKey"
+  },
+  {
+    "callback": "function () {\n    indentLine(cm, cm.doc.sel.to.line, 'smart');\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function () {\n    if (!cm.state.focused)\n        cm.doc.sel.shift = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (doc, sharedHist) {\n    if (!sharedHist && indexOf(rebased, doc.history) == -1) {\n        rebaseHist(doc.history, change);\n        rebased.push(doc.history);\n    }\n    makeChangeSingleDoc(doc, change, null, stretchSpansOverChange(doc, change));\n}",
+    "receiverBase": "",
+    "receiverCallee": "linkedDocs"
+  },
+  {
+    "callback": "function (doc, sharedHist) {\n    if (!sharedHist && indexOf(rebased, doc.history) == -1) {\n        rebaseHist(doc.history, change);\n        rebased.push(doc.history);\n    }\n    makeChangeSingleDoc(doc, change, null, mergeOldSpans(doc, change));\n}",
+    "receiverBase": "",
+    "receiverCallee": "linkedDocs"
+  },
+  {
+    "callback": "function (line) {\n    if (line == display.maxLine) {\n        recomputeMaxLength = true;\n        return true;\n    }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (line) {\n    var len = lineLength(doc, line);\n    if (len > display.maxLineLength) {\n        display.maxLine = line;\n        display.maxLineLength = len;\n        display.maxLineChanged = true;\n        recomputeMaxLength = false;\n    }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (spec, options) {\n    var mode = spec.token ? spec : CodeMirror.getMode(this.options, spec);\n    if (mode.startState)\n        throw new Error('Overlays may not be stateful.');\n    this.state.overlays.push({\n        mode: mode,\n        modeSpec: spec,\n        opaque: options && options.opaque\n    });\n    this.state.modeGen++;\n    regChange(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (spec) {\n    var overlays = this.state.overlays;\n    for (var i = 0; i < overlays.length; ++i) {\n        var cur = overlays[i].modeSpec;\n        if (cur == spec || typeof spec == 'string' && cur.name == spec) {\n            overlays.splice(i, 1);\n            this.state.modeGen++;\n            regChange(this);\n            return;\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (n, dir, aggressive) {\n    if (typeof dir != 'string' && typeof dir != 'number') {\n        if (dir == null)\n            dir = this.options.smartIndent ? 'smart' : 'prev';\n        else\n            dir = dir ? 'add' : 'subtract';\n    }\n    if (isLine(this.doc, n))\n        indentLine(this, n, dir, aggressive);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (how) {\n    var sel = this.doc.sel;\n    if (posEq(sel.from, sel.to))\n        return indentLine(this, sel.from.line, how);\n    var e = sel.to.line - (sel.to.ch ? 0 : 1);\n    for (var i = sel.from.line; i <= e; ++i)\n        indentLine(this, i, how);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line, gutterID, value) {\n    return changeLine(this, line, function (line) {\n        var markers = line.gutterMarkers || (line.gutterMarkers = {});\n        markers[gutterID] = value;\n        if (!value && isEmpty(markers))\n            line.gutterMarkers = null;\n        return true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line) {\n    var markers = line.gutterMarkers || (line.gutterMarkers = {});\n    markers[gutterID] = value;\n    if (!value && isEmpty(markers))\n        line.gutterMarkers = null;\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "changeLine"
+  },
+  {
+    "callback": "function (gutterID) {\n    var cm = this, doc = cm.doc, i = doc.first;\n    doc.iter(function (line) {\n        if (line.gutterMarkers && line.gutterMarkers[gutterID]) {\n            line.gutterMarkers[gutterID] = null;\n            regChange(cm, i, i + 1);\n            if (isEmpty(line.gutterMarkers))\n                line.gutterMarkers = null;\n        }\n        ++i;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line) {\n    if (line.gutterMarkers && line.gutterMarkers[gutterID]) {\n        line.gutterMarkers[gutterID] = null;\n        regChange(cm, i, i + 1);\n        if (isEmpty(line.gutterMarkers))\n            line.gutterMarkers = null;\n    }\n    ++i;\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (handle, where, cls) {\n    return changeLine(this, handle, function (line) {\n        var prop = where == 'text' ? 'textClass' : where == 'background' ? 'bgClass' : 'wrapClass';\n        if (!line[prop])\n            line[prop] = cls;\n        else if (new RegExp('(?:^|\\\\s)' + cls + '(?:$|\\\\s)').test(line[prop]))\n            return false;\n        else\n            line[prop] += ' ' + cls;\n        return true;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (line) {\n    var prop = where == 'text' ? 'textClass' : where == 'background' ? 'bgClass' : 'wrapClass';\n    if (!line[prop])\n        line[prop] = cls;\n    else if (new RegExp('(?:^|\\\\s)' + cls + '(?:$|\\\\s)').test(line[prop]))\n        return false;\n    else\n        line[prop] += ' ' + cls;\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "changeLine"
+  },
+  {
+    "callback": "function (handle, node, options) {\n    return addLineWidget(this, handle, node, options);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (dir, unit) {\n    var sel = this.doc.sel, pos;\n    if (sel.shift || sel.extend || posEq(sel.from, sel.to))\n        pos = findPosH(this.doc, sel.head, dir, unit, this.options.rtlMoveVisually);\n    else\n        pos = dir < 0 ? sel.from : sel.to;\n    extendSelection(this.doc, pos, pos, dir);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (dir, unit) {\n    var sel = this.doc.sel;\n    if (!posEq(sel.from, sel.to))\n        replaceRange(this.doc, '', sel.from, sel.to, '+delete');\n    else\n        replaceRange(this.doc, '', sel.from, findPosH(this.doc, sel.head, dir, unit, false), '+delete');\n    this.curOp.userSelChange = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (dir, unit) {\n    var sel = this.doc.sel;\n    var pos = cursorCoords(this, sel.head, 'div');\n    if (sel.goalColumn != null)\n        pos.left = sel.goalColumn;\n    var target = findPosV(this, pos, dir, unit);\n    if (unit == 'page')\n        addToScrollPos(this, 0, charCoords(this, target, 'div').top - pos.top);\n    extendSelection(this.doc, target, target, dir);\n    sel.goalColumn = pos.left;\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (x, y) {\n    updateScrollPos(this, x, y);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function () {\n    clearCaches(this);\n    updateScrollPos(this, this.doc.scrollLeft, this.doc.scrollTop);\n    regChange(this);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (doc) {\n    var old = this.doc;\n    old.cm = null;\n    attachDoc(this, doc);\n    clearCaches(this);\n    resetInput(this, true);\n    updateScrollPos(this, doc.scrollLeft, doc.scrollTop);\n    return old;\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (cm, val) {\n    cm.setValue(val);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    cm.doc.modeOption = val;\n    loadMode(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    loadMode(cm);\n    clearCaches(cm);\n    regChange(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    themeChanged(cm);\n    guttersChanged(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    setGuttersForLineNumbers(cm.options);\n    guttersChanged(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    cm.display.gutters.style.left = val ? compensateForHScroll(cm.display) + 'px' : '0';\n    cm.refresh();\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    setGuttersForLineNumbers(cm.options);\n    guttersChanged(cm);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (integer) {\n    return integer;\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    if (val == 'nocursor') {\n        onBlur(cm);\n        cm.display.input.blur();\n    } else if (!val)\n        resetInput(cm, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    cm.doc.history.undoDepth = val;\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    cm.refresh();\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm) {\n    loadMode(cm);\n    cm.refresh();\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    if (!val)\n        cm.display.inputDiv.style.top = cm.display.inputDiv.style.left = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function (cm, val) {\n    cm.display.input.tabIndex = val || '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "option"
+  },
+  {
+    "callback": "function () {\n    return {\n        token: function (stream) {\n            stream.skipToEnd();\n        }\n    };\n}",
+    "receiverBase": "CodeMirror",
+    "receiverCallee": "defineMode"
+  },
+  {
+    "callback": "function () {\n    cm.replaceSelection('\\n', 'end', '+input');\n    cm.indentLine(cm.getCursor().line, null, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "operation"
+  },
+  {
+    "callback": "function (node) {\n    textarea.parentNode.insertBefore(node, textarea.nextSibling);\n}",
+    "receiverBase": "",
+    "receiverCallee": "CodeMirror"
+  },
+  {
+    "callback": "function () {\n    cm.curOp.selectionChanged = true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "runInOp"
+  },
+  {
+    "callback": "function (line) {\n    if (lineIsHidden(doc, line))\n        updateLineHeight(line, 0);\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function () {\n    marker.clear();\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.clear();\n}",
+    "receiverBase": "",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (doc) {\n    if (widget)\n        options.replacedWith = widget.cloneNode(true);\n    markers.push(markText(doc, clipPos(doc, from), clipPos(doc, to), options, type));\n    for (var i = 0; i < doc.linked.length; ++i)\n        if (doc.linked[i].isParent)\n            return;\n    primary = lst(markers);\n}",
+    "receiverBase": "",
+    "receiverCallee": "linkedDocs"
+  },
+  {
+    "callback": "function (line) {\n    if (line.markedSpans)\n        for (var i = 0; i < line.markedSpans.length; ++i) {\n            var mark = line.markedSpans[i].marker;\n            if (mark.readOnly && (!markers || indexOf(markers, mark) == -1))\n                (markers || (markers = [])).push(mark);\n        }\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function () {\n    var ws = this.line.widgets, no = lineNo(this.line);\n    if (no == null || !ws)\n        return;\n    for (var i = 0; i < ws.length; ++i)\n        if (ws[i] == this)\n            ws.splice(i--, 1);\n    if (!ws.length)\n        this.line.widgets = null;\n    updateLineHeight(this.line, Math.max(0, this.line.height - widgetHeight(this)));\n    regChange(this.cm, no, no + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "widgetOperation"
+  },
+  {
+    "callback": "function () {\n    var oldH = this.height;\n    this.height = null;\n    var diff = widgetHeight(this) - oldH;\n    if (!diff)\n        return;\n    updateLineHeight(this.line, this.line.height + diff);\n    var no = lineNo(this.line);\n    regChange(this.cm, no, no + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "widgetOperation"
+  },
+  {
+    "callback": "function (line) {\n    (line.widgets || (line.widgets = [])).push(widget);\n    widget.line = line;\n    if (!lineIsHidden(cm.doc, line) || widget.showIfHidden) {\n        var aboveVisible = heightAtLine(cm, line) < cm.display.scroller.scrollTop;\n        updateLineHeight(line, line.height + widgetHeight(widget));\n        if (aboveVisible)\n            addToScrollPos(cm, 0, widget.height);\n    }\n    return true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "changeLine"
+  },
+  {
+    "callback": "function (end, style) {\n    st.push(end, style);\n}",
+    "receiverBase": "",
+    "receiverCallee": "runMode"
+  },
+  {
+    "callback": "function (line, ch, extend) {\n    var pos = clipPos(this, typeof line == 'number' ? Pos(line, ch || 0) : line);\n    if (extend)\n        extendSelection(this, pos);\n    else\n        setSelection(this, pos, pos);\n}",
+    "receiverBase": "",
+    "receiverCallee": "docOperation"
+  },
+  {
+    "callback": "function (anchor, head) {\n    setSelection(this, clipPos(this, anchor), clipPos(this, head || anchor));\n}",
+    "receiverBase": "",
+    "receiverCallee": "docOperation"
+  },
+  {
+    "callback": "function (from, to) {\n    extendSelection(this, clipPos(this, from), to && clipPos(this, to));\n}",
+    "receiverBase": "",
+    "receiverCallee": "docOperation"
+  },
+  {
+    "callback": "function () {\n    makeChangeFromHistory(this, 'undo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "docOperation"
+  },
+  {
+    "callback": "function () {\n    makeChangeFromHistory(this, 'redo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "docOperation"
+  },
+  {
+    "callback": "function (line) {\n    var sps = line.markedSpans;\n    if (sps)\n        for (var i = 0; i < sps.length; ++i)\n            if (sps[i].from != null)\n                markers.push(sps[i].marker);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (line) {\n    var sz = line.text.length + 1;\n    if (sz > off) {\n        ch = off;\n        return true;\n    }\n    off -= sz;\n    ++lineNo;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (line) {\n    index += line.text.length + 1;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (doc) {\n    splitIds.push(doc.id);\n}",
+    "receiverBase": "",
+    "receiverCallee": "linkedDocs"
+  },
+  {
+    "callback": "function (method) {\n    return function () {\n        return method.apply(this.doc, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (line) {\n    var text = line.text;\n    if (n == end.line)\n        text = text.slice(0, end.ch);\n    if (n == start.line)\n        text = text.slice(start.ch);\n    out.push(text);\n    ++n;\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (line) {\n    out.push(line.text);\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (line) {\n    if (line.markedSpans)\n        (existing || (existing = change['spans_' + doc.id] = {}))[n] = line.markedSpans;\n    ++n;\n}",
+    "receiverBase": "doc",
+    "receiverCallee": "iter"
+  },
+  {
+    "callback": "function (doc) {\n    attachLocalSpans(doc, histChange, change.from.line, change.to.line + 1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "linkedDocs"
+  },
+  {
+    "callback": "function () {\n    if (ie_lt9)\n        return false;\n    var div = elt('div');\n    return 'draggable' in div || 'dragDrop' in div;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var e = elt('div');\n    if ('oncopy' in e)\n        return true;\n    e.setAttribute('oncopy', 'return;');\n    return typeof e.oncopy == 'function';\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    for (var i = 0; i < 10; i++)\n        keyNames[i + 48] = String(i);\n    for (var i = 65; i <= 90; i++)\n        keyNames[i] = String.fromCharCode(i);\n    for (var i = 1; i <= 12; i++)\n        keyNames[i + 111] = keyNames[i + 63235] = 'F' + i;\n}",
+    "receiverBase": ""
+  }
+]

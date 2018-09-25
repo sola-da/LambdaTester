@@ -1,0 +1,678 @@
+[
+  {
+    "callback": "function (o) {\n    lst.options[lst.options.length] = new Option(o[0], o[1]);\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, name) {\n    if (value === '') {\n        delete args[name];\n    }\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (sv) {\n    sv = dom.getStyle(e, 'border-' + sv + '-width');\n    if (!sv || sv != v && v !== 0) {\n        v = 0;\n        return false;\n    }\n    if (sv)\n        v = sv;\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    secretKey = new sjcl.ecc.ecdsa.secretKey(sjcl.ecc.curves.k256, sjcl.bn.fromBits(sjcl.codec.hex.toBits('adf5f3601e0af2a91fa3728468469ff92fd82fdd04859887676cc3b9261ef06f')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    r = '571ae293bf6428c41d2ea2bf5145ae87a9d352c003e152c0e72397d3dc675b5b';\n    s = '6ab96bd6dcd2198bc81a2506102f1c5fa75d70c3aaa964edbb9112016e61fa7b';\n    rs = sjcl.codec.hex.toBits(r + s);\n    rsDER = secretKey.encodeDER(rs);\n    rsDERBytes = sjcl.codec.bytes.fromBits(rsDER);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[0].toString(16);\n    expect(actual).toEqual('30');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[1];\n    expect(actual).toEqual(68);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[2];\n    expect(actual).toEqual(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[3];\n    expect(actual).toEqual(32);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = sjcl.codec.hex.fromBits(sjcl.bitArray.bitSlice(rsDER, 4 * 8, 4 * 8 + 32 * 8));\n    expect(actual).toEqual(r);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[4 + 32];\n    expect(actual).toEqual(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[4 + 32 + 1];\n    expect(actual).toEqual(32);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = sjcl.codec.hex.fromBits(sjcl.bitArray.bitSlice(rsDER, (4 + 32 + 2) * 8, (4 + 32 + 2) * 8 + 32 * 8));\n    expect(actual).toEqual(s);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    r = 'f81ae293bf6428c41d2ea2bf5145ae87a9d352c003e152c0e72397d3dc675b5b';\n    s = 'ffb96bd6dcd2198bc81a2506102f1c5fa75d70c3aaa964edbb9112016e61fa7b';\n    rs = sjcl.codec.hex.toBits(r + s);\n    rsDER = secretKey.encodeDER(rs);\n    rsDERBytes = sjcl.codec.bytes.fromBits(rsDER);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[0].toString(16);\n    expect(actual).toEqual('30');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[1];\n    expect(actual).toEqual(70);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[2];\n    expect(actual).toEqual(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[3];\n    expect(actual).toEqual(33);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = sjcl.codec.hex.fromBits(sjcl.bitArray.bitSlice(rsDER, 4 * 8, 4 * 8 + 33 * 8));\n    expect(actual).toEqual('00' + r);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[4 + 33];\n    expect(actual).toEqual(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = rsDERBytes[4 + 33 + 1];\n    expect(actual).toEqual(33);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual = sjcl.codec.hex.fromBits(sjcl.bitArray.bitSlice(rsDER, (4 + 33 + 2) * 8, (4 + 33 + 2) * 8 + 33 * 8));\n    expect(actual).toEqual('00' + s);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (target, process) {\n    grunt.log.ok('Saw process for target: ' + target);\n    seleniumChildProcesses[target] = process;\n}",
+    "receiverBase": "event",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    grunt.log.writeln('Attempting to clean up running selenium server.');\n    for (var target in seleniumChildProcesses) {\n        grunt.log.ok('Killing selenium target: ' + target);\n        try {\n            seleniumChildProcesses[target].kill('SIGTERM');\n        } catch (e) {\n            grunt.log.warn('Unable to stop selenium target: ' + target);\n        }\n    }\n}",
+    "receiverBase": "hooker",
+    "receiverCallee": "hook"
+  },
+  {
+    "callback": "function (e) {\n    this.debug('Moved to: ' + e.getData().left + 'x' + e.getData().top);\n}",
+    "receiverBase": "win",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    this.debug('Resized to: ' + e.getData().width + 'x' + e.getData().height);\n}",
+    "receiverBase": "win",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setShowClose(e.getData());\n}",
+    "receiverBase": "showClose",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setShowMaximize(e.getData());\n}",
+    "receiverBase": "showMaximize",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setShowMinimize(e.getData());\n}",
+    "receiverBase": "showMinimize",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setAllowClose(e.getData());\n}",
+    "receiverBase": "allowClose",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setAllowMaximize(e.getData());\n}",
+    "receiverBase": "allowMaximize",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setAllowMinimize(e.getData());\n}",
+    "receiverBase": "allowMinimize",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setShowStatusbar(e.getData());\n}",
+    "receiverBase": "showStatusbar",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setUseResizeFrame(e.getData());\n}",
+    "receiverBase": "resizeFrame",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setMovable(e.getData());\n}",
+    "receiverBase": "movable",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    win.setUseMoveFrame(e.getData());\n}",
+    "receiverBase": "moveFrame",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    wm1.setModal(e.getData());\n}",
+    "receiverBase": "chkm1",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    wm2.close();\n}",
+    "receiverBase": "btn3",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (e) {\n    alert('Sorry, please tap \\'Yes\\'!');\n}",
+    "receiverBase": "btn4",
+    "receiverCallee": "addListener"
+  },
+  {
+    "callback": "function (d) {\n    try {\n        this.editor.document.execCommand('insertBrOnReturn', false, true);\n    } catch (e) {\n    }\n    return d;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (node) {\n    newP.appendChild(node);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node) {\n    newP.appendChild(node);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    pList.push(p);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    if (p.previousSibling && (p.previousSibling.nodeName == 'P' || dojo.style(p.previousSibling, 'display') != 'block')) {\n        var newP = p.parentNode.insertBefore(this.document.createElement('p'), p);\n        newP.innerHTML = noWhiteSpaceInEmptyP ? '' : '&nbsp;';\n    }\n    splitP(p);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (cb) {\n    kv.get(infoKey, function (err, eps) {\n        var endpoints = {};\n        if (err)\n            return cb(err);\n        if (eps)\n            endpoints = eps.value;\n        endpoints[endpoint] = +new Date();\n        var casid = eps ? eps.casid : null;\n        kv.cas(infoKey, endpoints, casid, cb);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "retryLoop"
+  },
+  {
+    "callback": "function (err, eps) {\n    var endpoints = {};\n    if (err)\n        return cb(err);\n    if (eps)\n        endpoints = eps.value;\n    endpoints[endpoint] = +new Date();\n    var casid = eps ? eps.casid : null;\n    kv.cas(infoKey, endpoints, casid, cb);\n}",
+    "receiverBase": "kv",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return request.reply(Hapi.Error.internal(err));\n    var response = new Hapi.Response.Raw(request).code(204);\n    return request.reply(response);\n}",
+    "receiverBase": "",
+    "receiverCallee": "retryLoop"
+  },
+  {
+    "callback": "function (cb) {\n    kv.get(infoKey, function (err, endpoints) {\n        if (err)\n            return cb(err);\n        if (!endpoints || !endpoints.value[endpoint]) {\n            return cb('unknownEndpoint');\n        }\n        delete endpoints.value[endpoint];\n        var casid = endpoints ? endpoints.casid : null;\n        kv.cas(infoKey, endpoints.value, casid, cb);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "retryLoop"
+  },
+  {
+    "callback": "function (err, endpoints) {\n    if (err)\n        return cb(err);\n    if (!endpoints || !endpoints.value[endpoint]) {\n        return cb('unknownEndpoint');\n    }\n    delete endpoints.value[endpoint];\n    var casid = endpoints ? endpoints.casid : null;\n    kv.cas(infoKey, endpoints.value, casid, cb);\n}",
+    "receiverBase": "kv",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err) {\n    if (err)\n        return request.reply(Hapi.Error.internal(err));\n    var response = new Hapi.Response.Raw(request).code(204);\n    return request.reply(response);\n}",
+    "receiverBase": "",
+    "receiverCallee": "retryLoop"
+  },
+  {
+    "callback": "function (userid, collection, version) {\n    if (!collection || !version)\n        return;\n    var infoKey = 'endpoints/' + userid;\n    kv.get(infoKey, function (err, endpoints) {\n        if (!endpoints || err)\n            return;\n        Object.keys(endpoints.value).forEach(function (ep) {\n            request.put(ep, { form: { version: version } }, function (err, res) {\n                console.log('notified endpoint', ep, res.statusCode, err);\n            });\n        });\n    });\n}",
+    "receiverBase": "store",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, endpoints) {\n    if (!endpoints || err)\n        return;\n    Object.keys(endpoints.value).forEach(function (ep) {\n        request.put(ep, { form: { version: version } }, function (err, res) {\n            console.log('notified endpoint', ep, res.statusCode, err);\n        });\n    });\n}",
+    "receiverBase": "kv",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (ep) {\n    request.put(ep, { form: { version: version } }, function (err, res) {\n        console.log('notified endpoint', ep, res.statusCode, err);\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, res) {\n    console.log('notified endpoint', ep, res.statusCode, err);\n}",
+    "receiverBase": "request",
+    "receiverCallee": "put"
+  },
+  {
+    "callback": "function (err) {\n    if (!err)\n        return cb(null);\n    if (err !== errType)\n        return cb(err);\n    if (numRetries > maxAttempts)\n        return cb('too many conflicts');\n    numRetries++;\n    process.nextTick(attempt);\n}",
+    "receiverBase": "",
+    "receiverCallee": "fn"
+  },
+  {
+    "callback": "function () {\n    expect($type(Animal)).toEqual('class');\n    expect(Class.type(Animal)).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(typeOf(Animal)).toEqual('class');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var animal = new Animal('lamina');\n    expect(animal.name).toEqual('lamina');\n    expect(animal.initialized).toBeTruthy();\n    expect(animal.say()).toEqual('animal:say:lamina');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var cat = new Cat('fluffy');\n    expect(cat.name).toEqual('fluffy');\n    expect(cat.sound).toEqual('miao');\n    expect(cat.ferocious).toBeFalsy();\n    expect(cat.say()).toEqual('animal:say:fluffy');\n    expect(cat.eat()).toEqual('cat:eat:fluffy');\n    expect(cat.play()).toEqual('cat:play:fluffy');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var leo = new Lion('leo');\n    expect(leo.name).toEqual('leo');\n    expect(leo.sound).toEqual('rarr');\n    expect(leo.ferocious).toBeTruthy();\n    expect(leo.say()).toEqual('animal:say:leo');\n    expect(leo.eat()).toEqual('lion:eat:leo');\n    expect(leo.play()).toEqual('cat:play:leo');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Implements: Animal });\n    var rover = new Dog('rover');\n    expect(rover.name).toEqual('rover');\n    expect(rover.initialized).toBeTruthy();\n    expect(rover.eat()).toEqual('animal:eat:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Extends: Animal });\n    var rover = new Dog('rover');\n    Dog.implement({\n        jump: function () {\n            return 'dog:jump:' + this.name;\n        }\n    });\n    var spot = new Dog('spot');\n    expect(spot.jump()).toEqual('dog:jump:spot');\n    expect(rover.jump()).toEqual('dog:jump:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Extends: Animal });\n    var rover = new Dog('rover');\n    Animal.implement({\n        jump: function () {\n            return 'animal:jump:' + this.name;\n        }\n    });\n    var spot = new Dog('spot');\n    expect(spot.jump()).toEqual('animal:jump:spot');\n    expect(rover.jump()).toEqual('animal:jump:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Extends: Animal });\n    var rover = new Dog('rover');\n    expect(rover.say()).toEqual('animal:say:rover');\n    Animal.implement({\n        say: function () {\n            return 'NEW:animal:say:' + this.name;\n        }\n    });\n    var spot = new Dog('spot');\n    expect(spot.say()).toEqual('NEW:animal:say:spot');\n    expect(rover.say()).toEqual('NEW:animal:say:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Extends: Animal });\n    Dog.implement(new Actions());\n    var rover = new Dog('rover');\n    expect(rover.name).toEqual('rover');\n    expect(rover.jump()).toEqual('actions:jump:rover');\n    expect(rover.sleep()).toEqual('actions:sleep:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var Dog = new Class({ Extends: Animal });\n    Dog.implement(new Actions()).implement(new Attributes());\n    var rover = new Dog('rover');\n    expect(rover.name).toEqual('rover');\n    expect(rover.jump()).toEqual('actions:jump:rover');\n    expect(rover.sleep()).toEqual('actions:sleep:rover');\n    expect(rover.size()).toEqual('attributes:size:rover');\n    expect(rover.color()).toEqual('attributes:color:rover');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = new Element('div', { 'class': 'my-element' });\n    var instance = new MyParentElement(element);\n    expect(document.id(instance)).toBe(element);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = new Element('div', { 'class': 'my-element' });\n    var instance = new MyChildElement(element);\n    expect(document.id(instance)).toBe(element);\n    expect(instance instanceof MyParentElement).toEqual(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var element = new Element('div', { 'class': 'my-element' });\n    var instance = new MyArrayElement(element);\n    expect(document.id(instance)).toBe(element);\n    expect(instance instanceof Array).toEqual(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item) {\n    dojo[i++ % 2 === 0 ? 'addClass' : 'removeClass'](item, 'sortListItemOdd');\n    this.containerNode.appendChild(item);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (node) {\n    this.selected.push(node.innerHTML);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    channel.onDOMContentLoaded.fire();\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    try {\n        func();\n    } catch (e) {\n        console.log('Failed to run constructor: ' + e);\n    }\n}",
+    "receiverBase": "onCordovaReady",
+    "receiverCallee": "subscribeOnce"
+  },
+  {
+    "callback": "function (prop) {\n    var oldFunk = obj[prop];\n    var funkId = objLabel + '_' + prop;\n    return function () {\n        if (!logHash[funkId]) {\n            console.log('[DEPRECATION NOTICE] The \"' + objLabel + '\" global will be removed in version 2.0, please use lowercase \"cordova\".');\n            logHash[funkId] = true;\n        }\n        oldFunk.apply(obj, arguments);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (prop) {\n    return obj[prop];\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var Acceleration = function (x, y, z, timestamp) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n        this.timestamp = timestamp || new Date().getTime();\n    };\n    module.exports = Acceleration;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var Camera = require('cordova/plugin/CameraConstants');\n    var CameraPopoverOptions = function (x, y, width, height, arrowDir) {\n        this.x = x || 0;\n        this.y = y || 32;\n        this.width = width || 320;\n        this.height = height || 480;\n        this.arrowDir = arrowDir || Camera.PopoverArrowDirection.ARROW_ANY;\n    };\n    module.exports = CameraPopoverOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var CaptureAudioOptions = function () {\n        this.limit = 1;\n        this.duration = 0;\n        this.mode = null;\n    };\n    module.exports = CaptureAudioOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var CaptureError = function (c) {\n        this.code = c || null;\n    };\n    CaptureError.CAPTURE_INTERNAL_ERR = 0;\n    CaptureError.CAPTURE_APPLICATION_BUSY = 1;\n    CaptureError.CAPTURE_INVALID_ARGUMENT = 2;\n    CaptureError.CAPTURE_NO_MEDIA_FILES = 3;\n    CaptureError.CAPTURE_NOT_SUPPORTED = 20;\n    module.exports = CaptureError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var CaptureImageOptions = function () {\n        this.limit = 1;\n        this.mode = null;\n    };\n    module.exports = CaptureImageOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var CaptureVideoOptions = function () {\n        this.limit = 1;\n        this.duration = 0;\n        this.mode = null;\n    };\n    module.exports = CaptureVideoOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var CompassError = function (err) {\n        this.code = err !== undefined ? err : null;\n    };\n    CompassError.COMPASS_INTERNAL_ERR = 0;\n    CompassError.COMPASS_NOT_SUPPORTED = 20;\n    module.exports = CompassError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    function ConfigurationData() {\n        this.type = null;\n        this.height = 0;\n        this.width = 0;\n    }\n    module.exports = ConfigurationData;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    module.exports = {\n        UNKNOWN: 'unknown',\n        ETHERNET: 'ethernet',\n        WIFI: 'wifi',\n        CELL_2G: '2g',\n        CELL_3G: '3g',\n        CELL_4G: '4g',\n        NONE: 'none'\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var ContactError = function (err) {\n        this.code = typeof err != 'undefined' ? err : null;\n    };\n    ContactError.UNKNOWN_ERROR = 0;\n    ContactError.INVALID_ARGUMENT_ERROR = 1;\n    ContactError.TIMEOUT_ERROR = 2;\n    ContactError.PENDING_OPERATION_ERROR = 3;\n    ContactError.IO_ERROR = 4;\n    ContactError.NOT_SUPPORTED_ERROR = 5;\n    ContactError.PERMISSION_DENIED_ERROR = 20;\n    module.exports = ContactError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var ContactField = function (type, value, pref) {\n        this.id = null;\n        this.type = type && type.toString() || null;\n        this.value = value && value.toString() || null;\n        this.pref = typeof pref != 'undefined' ? pref : false;\n    };\n    module.exports = ContactField;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var ContactFindOptions = function (filter, multiple) {\n        this.filter = filter || '';\n        this.multiple = typeof multiple != 'undefined' ? multiple : false;\n    };\n    module.exports = ContactFindOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var ContactName = function (formatted, familyName, givenName, middle, prefix, suffix) {\n        this.formatted = formatted || null;\n        this.familyName = familyName || null;\n        this.givenName = givenName || null;\n        this.middleName = middle || null;\n        this.honorificPrefix = prefix || null;\n        this.honorificSuffix = suffix || null;\n    };\n    module.exports = ContactName;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var ContactOrganization = function (pref, type, name, dept, title) {\n        this.id = null;\n        this.pref = typeof pref != 'undefined' ? pref : false;\n        this.type = type || null;\n        this.name = name || null;\n        this.department = dept || null;\n        this.title = title || null;\n    };\n    module.exports = ContactOrganization;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var File = function (name, fullPath, type, lastModifiedDate, size) {\n        this.name = name || '';\n        this.fullPath = fullPath || null;\n        this.type = type || null;\n        this.lastModifiedDate = lastModifiedDate || null;\n        this.size = size || 0;\n    };\n    module.exports = File;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (filePointer) {\n    var writer = new FileWriter(filePointer);\n    if (writer.fileName === null || writer.fileName === '') {\n        if (typeof errorCallback === 'function') {\n            errorCallback(new FileError(FileError.INVALID_STATE_ERR));\n        }\n    } else {\n        if (typeof successCallback === 'function') {\n            successCallback(writer);\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "file"
+  },
+  {
+    "callback": "function (r) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.result = r;\n    if (typeof me.onload === 'function') {\n        me.onload(new ProgressEvent('load', { target: me }));\n    }\n    me.readyState = FileReader.DONE;\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.readyState = FileReader.DONE;\n    me.result = null;\n    me.error = new FileError(e);\n    if (typeof me.onerror === 'function') {\n        me.onerror(new ProgressEvent('error', { target: me }));\n    }\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (r) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.readyState = FileReader.DONE;\n    me.result = r;\n    if (typeof me.onload === 'function') {\n        me.onload(new ProgressEvent('load', { target: me }));\n    }\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.readyState = FileReader.DONE;\n    me.result = null;\n    me.error = new FileError(e);\n    if (typeof me.onerror === 'function') {\n        me.onerror(new ProgressEvent('error', { target: me }));\n    }\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var DirectoryEntry = require('cordova/plugin/DirectoryEntry');\n    var FileSystem = function (name, root) {\n        this.name = name || null;\n        if (root) {\n            this.root = new DirectoryEntry(root.name, root.fullPath);\n        }\n    };\n    module.exports = FileSystem;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var FileTransferError = function (code) {\n        this.code = code || null;\n    };\n    FileTransferError.FILE_NOT_FOUND_ERR = 1;\n    FileTransferError.INVALID_URL_ERR = 2;\n    FileTransferError.CONNECTION_ERR = 3;\n    module.exports = FileTransferError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var FileUploadOptions = function (fileKey, fileName, mimeType, params) {\n        this.fileKey = fileKey || null;\n        this.fileName = fileName || null;\n        this.mimeType = mimeType || null;\n        this.params = params || null;\n    };\n    module.exports = FileUploadOptions;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var FileUploadResult = function () {\n        this.bytesSent = 0;\n        this.responseCode = null;\n        this.response = null;\n    };\n    module.exports = FileUploadResult;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (r) {\n    if (me.readyState === FileWriter.DONE) {\n        return;\n    }\n    me.position += r;\n    me.length = me.position;\n    me.readyState = FileWriter.DONE;\n    if (typeof me.onwrite === 'function') {\n        me.onwrite(new ProgressEvent('write', { 'target': me }));\n    }\n    if (typeof me.onwriteend === 'function') {\n        me.onwriteend(new ProgressEvent('writeend', { 'target': me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    if (me.readyState === FileWriter.DONE) {\n        return;\n    }\n    me.readyState = FileWriter.DONE;\n    me.error = new FileError(e);\n    if (typeof me.onerror === 'function') {\n        me.onerror(new ProgressEvent('error', { 'target': me }));\n    }\n    if (typeof me.onwriteend === 'function') {\n        me.onwriteend(new ProgressEvent('writeend', { 'target': me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (r) {\n    if (me.readyState === FileWriter.DONE) {\n        return;\n    }\n    me.readyState = FileWriter.DONE;\n    me.length = r;\n    me.position = Math.min(me.position, r);\n    if (typeof me.onwrite === 'function') {\n        me.onwrite(new ProgressEvent('write', { 'target': me }));\n    }\n    if (typeof me.onwriteend === 'function') {\n        me.onwriteend(new ProgressEvent('writeend', { 'target': me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    if (me.readyState === FileWriter.DONE) {\n        return;\n    }\n    me.readyState = FileWriter.DONE;\n    me.error = new FileError(e);\n    if (typeof me.onerror === 'function') {\n        me.onerror(new ProgressEvent('error', { 'target': me }));\n    }\n    if (typeof me.onwriteend === 'function') {\n        me.onwriteend(new ProgressEvent('writeend', { 'target': me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    function Flags(create, exclusive) {\n        this.create = create || false;\n        this.exclusive = exclusive || false;\n    }\n    module.exports = Flags;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var exec = require('cordova/exec');\n    var LocalFileSystem = function () {\n    };\n    LocalFileSystem.TEMPORARY = 0;\n    LocalFileSystem.PERSISTENT = 1;\n    module.exports = LocalFileSystem;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    me._position = 0;\n    me.successCallback();\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (p) {\n    me._position = p;\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (p) {\n    me._position = p;\n    success(p);\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var MediaError = function (code, msg) {\n        this.code = code !== undefined ? code : null;\n        this.message = msg || '';\n    };\n    MediaError.MEDIA_ERR_NONE_ACTIVE = 0;\n    MediaError.MEDIA_ERR_ABORTED = 1;\n    MediaError.MEDIA_ERR_NETWORK = 2;\n    MediaError.MEDIA_ERR_DECODE = 3;\n    MediaError.MEDIA_ERR_NONE_SUPPORTED = 4;\n    module.exports = MediaError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var MediaFileData = function (codecs, bitrate, height, width, duration) {\n        this.codecs = codecs || null;\n        this.bitrate = bitrate || 0;\n        this.height = height || 0;\n        this.width = width || 0;\n        this.duration = duration || 0;\n    };\n    module.exports = MediaFileData;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var Metadata = function (time) {\n        this.modificationTime = typeof time != 'undefined' ? new Date(time) : null;\n    };\n    module.exports = Metadata;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var PositionError = function (code, message) {\n        this.code = code || null;\n        this.message = message || '';\n    };\n    PositionError.PERMISSION_DENIED = 1;\n    PositionError.POSITION_UNAVAILABLE = 2;\n    PositionError.TIMEOUT = 3;\n    module.exports = PositionError;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    return function ProgressEvent(type, dict) {\n        this.type = type;\n        this.bubbles = false;\n        this.cancelBubble = false;\n        this.cancelable = false;\n        this.lengthComputable = false;\n        this.loaded = dict && dict.loaded ? dict.loaded : 0;\n        this.total = dict && dict.total ? dict.total : 0;\n        this.target = dict && dict.target ? dict.target : null;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (a) {\n    var tempListeners = listeners.slice(0);\n    accel = new Acceleration(a.x, a.y, a.z, a.timestamp);\n    for (var i = 0, l = tempListeners.length; i < l; i++) {\n        tempListeners[i].win(accel);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    var tempListeners = listeners.slice(0);\n    for (var i = 0, l = tempListeners.length; i < l; i++) {\n        tempListeners[i].fail(e);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "createCallbackPair"
+  },
+  {
+    "callback": "function (e) {\n    errorCallback(e);\n    removeListeners(p);\n}",
+    "receiverBase": "",
+    "receiverCallee": "createCallbackPair"
+  },
+  {
+    "callback": "function () {\n    if (accel) {\n        successCallback(accel);\n    }\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    compass.getCurrentHeading(successCallback, errorCallback);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    clearTimeout(t);\n    t = null;\n    errorCallback({\n        code: PositionError.TIMEOUT,\n        message: 'Position retrieval timed out.'\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    module.exports = {\n        toURL: function () {\n            return 'file://localhost' + this.fullPath;\n        },\n        toURI: function () {\n            console.log('DEPRECATED: Update your code to use \\'toURL\\'');\n            return 'file://localhost' + this.fullPath;\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (r) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.result = decodeURIComponent(r);\n    if (typeof me.onload === 'function') {\n        me.onload(new ProgressEvent('load', { target: me }));\n    }\n    me.readyState = FileReader.DONE;\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (e) {\n    if (me.readyState === FileReader.DONE) {\n        return;\n    }\n    me.readyState = FileReader.DONE;\n    me.result = null;\n    me.error = new FileError(e);\n    if (typeof me.onerror === 'function') {\n        me.onerror(new ProgressEvent('error', { target: me }));\n    }\n    if (typeof me.onloadend === 'function') {\n        me.onloadend(new ProgressEvent('loadend', { target: me }));\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var exec = require('cordova/exec');\n    module.exports = {\n        newContactUI: function (successCallback) {\n            exec(successCallback, null, 'Contacts', 'newContact', []);\n        },\n        chooseContact: function (successCallback, options) {\n            exec(successCallback, null, 'Contacts', 'chooseContact', [options]);\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var cordova = require('cordova');\n    module.exports = function () {\n        var json = JSON.stringify(cordova.commandQueue);\n        cordova.commandQueue = [];\n        return json;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var Media = require('cordova/plugin/Media');\n    module.exports = {\n        beep: function (count) {\n            new Media('beep.wav').play();\n        }\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (info) {\n    me.type = info;\n    if (info === 'none') {\n        me._timer = setTimeout(function () {\n            cordova.fireDocumentEvent('offline');\n            me._timer = null;\n        }, me.timeout);\n    } else {\n        if (me._timer !== null) {\n            clearTimeout(me._timer);\n            me._timer = null;\n        }\n        cordova.fireDocumentEvent('online');\n    }\n    if (me._firstRun) {\n        me._firstRun = false;\n        channel.onCordovaConnectionReady.fire();\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "getInfo"
+  },
+  {
+    "callback": "function () {\n    cordova.fireDocumentEvent('offline');\n    me._timer = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (e) {\n    if (me._firstRun) {\n        me._firstRun = false;\n        channel.onCordovaConnectionReady.fire();\n    }\n    console.log('Error initializing Network Connection: ' + e);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "getInfo"
+  },
+  {
+    "callback": "function () {\n    fail(FileError.ENCODING_ERR);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var exec = require('cordova/exec');\n    var splashscreen = {\n            hide: function () {\n                exec(null, null, 'SplashScreen', 'hide', []);\n            }\n        };\n    module.exports = splashscreen;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var F = function () {\n    };\n    return function (Child, Parent) {\n        F.prototype = Parent.prototype;\n        Child.prototype = new F();\n        Child.__super__ = Parent.prototype;\n        Child.prototype.constructor = Child;\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    require('cordova').fireDocumentEvent('deviceready');\n}",
+    "receiverBase": "channel",
+    "receiverCallee": "join"
+  },
+  {
+    "callback": "function () {\n    $('#connectivity .visible').removeClass('visible');\n    $('#connectivity .' + messageId).addClass('visible');\n    padeditbar.toggleDropDown('connectivity');\n}",
+    "receiverBase": "padeditbar",
+    "receiverCallee": "toggleDropDown"
+  },
+  {
+    "callback": "function () {\n    return { version: '0.2.1' };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (pSender) {\n    var a2 = cc.DelayTime.create(1);\n    var a3 = cc.MoveBy.create(1, cc.p(100 + 100 * Math.random(), 0));\n    pSender.runAction(cc.RepeatForever.create(cc.Sequence.create(a2, a3, a2.copy(), a3.reverse())));\n}",
+    "receiverBase": "CallFunc",
+    "receiverCallee": "create"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "callback": "function (x) {\n    if (!this.isRoot || !skip) {\n        acc = cb.call(this, acc, x);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    acc.push(this.path);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    acc.push(this.node);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    dst[key] = clone(src[key]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key, i) {\n    path.push(key);\n    if (modifiers.pre)\n        modifiers.pre.call(state, state.node[key], key);\n    var child = walker(state.node[key]);\n    child.isLast = i == keys.length - 1;\n    child.isFirst = i == 0;\n    if (modifiers.post)\n        modifiers.post.call(state, child);\n    path.pop();\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (key) {\n    Traverse[key] = function (obj) {\n        var args = [].slice.call(arguments, 1);\n        var t = Traverse(obj);\n        return t[key].apply(t, args);\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, data) {\n    callback(err, data);\n}",
+    "receiverBase": "imageApi",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, data) {\n    callback(err, data);\n}",
+    "receiverBase": "imageApi",
+    "receiverCallee": "getImageList"
+  },
+  {
+    "callback": "function () {\n    return function () {\n        var store = {};\n        this.get = function (key) {\n            return store[key];\n        };\n        this.set = function (key, value) {\n            store[key] = value;\n        };\n        this.remove = function (key) {\n            delete store[key];\n        };\n        this.clear = function () {\n            store = {};\n        };\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (canvas) {\n    var context;\n    if (canvas.getContext && (context = canvas.getContext('2d'))) {\n        context.fillStyle = canvas.getAttribute('data-color');\n        context.fillRect(0, 0, 10, 10);\n    }\n}",
+    "receiverBase": "tinymce",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (_lhs, _rhs) {\n    return semver.compare(_lhs.version, _rhs.version);\n}",
+    "receiverBase": "migrations",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (Y) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (dep) {\n    console.log(dep, dep.length);\n    if (dep.length > 0) {\n        var depName = dep.trim().replace(/['\"]/g, '');\n        if (deps.indexOf(depName) < 0) {\n            deps.push(depName);\n        }\n    }\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (obj) {\n    srcFiles = srcFiles.concat(obj.srcFiles);\n}",
+    "receiverBase": "modules",
+    "receiverCallee": "forEach"
+  }
+]

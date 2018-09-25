@@ -1,0 +1,271 @@
+[
+  {
+    "callback": "function (point) {\n    scalars.push(new Vector(point).dotProduct(axis));\n}",
+    "receiverBase": "points",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (e) {\n    self.setPolygonPoints();\n    self.imageLoaded = true;\n}",
+    "receiverBase": "image",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (e) {\n    self.drawImage(context);\n}",
+    "receiverBase": "image",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    $('#main').empty();\n    $('#content h1').html('');\n    $('#footer-navi li:not(.perm)').remove();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function (context) {\n    header('Buckets', Rekon.baseUrl());\n    context.render('buckets.html.template').appendTo('#main');\n    Rekon.client.buckets(function (buckets) {\n        bucketRows = buckets.map(function (bucket) {\n            return { bucket: encode(bucket) };\n        });\n        context.renderEach('bucket-row.html.template', bucketRows).replace('#buckets tbody').then(function () {\n            searchable('#buckets table tbody tr');\n        });\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (buckets) {\n    bucketRows = buckets.map(function (bucket) {\n        return { bucket: encode(bucket) };\n    });\n    context.renderEach('bucket-row.html.template', bucketRows).replace('#buckets tbody').then(function () {\n        searchable('#buckets table tbody tr');\n    });\n}",
+    "receiverBase": "client",
+    "receiverCallee": "buckets"
+  },
+  {
+    "callback": "function (bucket) {\n    return { bucket: encode(bucket) };\n}",
+    "receiverBase": "buckets",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    searchable('#buckets table tbody tr');\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (keys) {\n    if (keys.length > 0) {\n        keyRows = keys.map(function (key) {\n            return {\n                bucket: name,\n                key: encode(key)\n            };\n        });\n        context.renderEach('key-row.html.template', keyRows).replace('#keys tbody').then(function () {\n            searchable('#bucket table tbody tr');\n        });\n    } else {\n        context.render('bucket-empty.html.template').replace('#keys tbody');\n    }\n}",
+    "receiverBase": "bucket",
+    "receiverCallee": "keys"
+  },
+  {
+    "callback": "function (key) {\n    return {\n        bucket: name,\n        key: encode(key)\n    };\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    searchable('#bucket table tbody tr');\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    var $selects, $select, i;\n    $selects = $('select[data-select-value]');\n    $('select#n_val').val($('select#n_val').attr('data-select-value'));\n    Rekon.capControlsSelector();\n    for (i = 0; i < $selects.length; i++) {\n        $select = $($selects[i]);\n        $select.val($select.attr('data-select-value'));\n    }\n    $('select#n_val').change(Rekon.capControlsSelector);\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    context.render('key-meta.html.template', { object: object }).appendTo('#key tbody');\n}",
+    "receiverBase": "context",
+    "receiverCallee": "render"
+  },
+  {
+    "callback": "function (html) {\n    context.render('key-meta.html.template', { object: object }).appendTo('#edit-key tbody');\n}",
+    "receiverBase": "context",
+    "receiverCallee": "render"
+  },
+  {
+    "callback": "function (html) {\n    $select = $('select[name=content-type]');\n    $select.val(object.contentType);\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (context) {\n    header('Node Stats', document.location.origin + '/stats');\n    $.getJSON('/stats', function (data) {\n        context.render('stats.html.template', { stats: data }).appendTo('#main').then(function () {\n            searchable('#stats tbody tr');\n        });\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (data) {\n    context.render('stats.html.template', { stats: data }).appendTo('#main').then(function () {\n        searchable('#stats tbody tr');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function () {\n    searchable('#stats tbody tr');\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (context) {\n    var name = this.params['bucket'];\n    this.redirect('#/buckets/' + name);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function (context) {\n    var app = this;\n    var name = encode(this.params['bucket']);\n    var bucket = new RiakBucket(name, Rekon.client);\n    var props = Rekon.typecastBucketProps(this.params['props']);\n    bucket.props = props;\n    bucket.store(function () {\n        app.redirect('#/bucket-props/' + name);\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "post"
+  },
+  {
+    "callback": "function () {\n    app.redirect('#/bucket-props/' + name);\n}",
+    "receiverBase": "bucket",
+    "receiverCallee": "store"
+  },
+  {
+    "callback": "function (status, rObject) {\n    switch (status) {\n    case 'siblings':\n        alert('Oh noes! Siblings have been born and Rekon doesn\\'t handle that yet.');\n        break;\n    case 'failed':\n        alert('There was an error creating a new Riak object.');\n        break;\n    case 'ok':\n    default:\n        console.log(rObject);\n        app.redirect('#/buckets/' + name + '/keys/' + rObject.key);\n        break;\n    }\n}",
+    "receiverBase": "object",
+    "receiverCallee": "store"
+  },
+  {
+    "callback": "function (status, rObject) {\n    switch (status) {\n    case 'siblings':\n        alert('Oh noes! Siblings have been born and Rekon doesn\\'t handle that yet.');\n        break;\n    case 'failure':\n        alert('There was an error saving to Riak.');\n        break;\n    case 'ok':\n    default:\n        app.redirect('#/buckets/' + name + '/keys/' + key);\n        break;\n    }\n}",
+    "receiverBase": "object",
+    "receiverCallee": "store"
+  },
+  {
+    "callback": "function (context) {\n    header('Node Stats', document.location.origin + '/stats');\n    $.getJSON('/stats', function (data) {\n        context.render('stats.html.template', { stats: data }).appendTo('#main').then(function () {\n            searchable('#stats tbody tr');\n        });\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (data) {\n    context.render('stats.html.template', { stats: data }).appendTo('#main').then(function () {\n        searchable('#stats tbody tr');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function () {\n    searchable('#stats tbody tr');\n}",
+    "receiverBase": "appendTo",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (j, option) {\n    var $option = $(option);\n    if (parseInt($option.val(), 10) > nVal) {\n        $option.remove();\n    }\n}",
+    "receiverBase": "find",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    var link = this;\n    e.preventDefault();\n    if (!confirm('Are you sure you want to delete:\\n' + $(link).attr('href'))) {\n        return;\n    }\n    $.ajax({\n        type: 'DELETE',\n        url: $(link).attr('href')\n    }).success(function () {\n        $(link).closest('tr').remove();\n    }).error(function () {\n        alert('There was an error deleting this object from Riak.');\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "live"
+  },
+  {
+    "callback": "function () {\n    $(link).closest('tr').remove();\n}",
+    "receiverBase": "ajax",
+    "receiverCallee": "success"
+  },
+  {
+    "callback": "function () {\n    alert('There was an error deleting this object from Riak.');\n}",
+    "receiverBase": "success",
+    "receiverCallee": "error"
+  },
+  {
+    "callback": "function ($) {\n    rekonApp.run('#/buckets');\n}",
+    "receiverBase": "",
+    "receiverCallee": "jQuery"
+  },
+  {
+    "callback": "function (chunk) {\n    content += chunk;\n}",
+    "receiverBase": "request",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    try {\n        JSON.parse(content).forEach(putter);\n    } catch (e) {\n        response.writeHead(400, headers);\n        response.end(JSON.stringify({ error: e.toString() }));\n        return;\n    }\n    response.writeHead(200, headers);\n    response.end('{}');\n}",
+    "receiverBase": "request",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    return gNonStrict();\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var value3 = new Float32Array(3);\n    for (var i = 0, il = input.length / 3; i < il; i += 3) {\n        value3[0] = input[i + 0];\n        value3[1] = input[i + 1];\n        value3[2] = input[i + 2];\n        value3[0] *= 1.01;\n        value3[1] *= 1.03;\n        value3[2] *= 0.98;\n        output[i + 0] = value3[0];\n        output[i + 1] = value3[1];\n        output[i + 2] = value3[2];\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var value2 = [\n            0,\n            0,\n            0\n        ];\n    for (var i = 0, il = input.length / 3; i < il; i += 3) {\n        value2[0] = input[i + 0];\n        value2[1] = input[i + 1];\n        value2[2] = input[i + 2];\n        value2[0] *= 1.01;\n        value2[1] *= 1.03;\n        value2[2] *= 0.98;\n        output[i + 0] = value2[0];\n        output[i + 1] = value2[1];\n        output[i + 2] = value2[2];\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var x, y, z;\n    for (var i = 0, il = input.length / 3; i < il; i += 3) {\n        x = input[i + 0];\n        y = input[i + 1];\n        z = input[i + 2];\n        x *= 1.01;\n        y *= 1.03;\n        z *= 0.98;\n        output[i + 0] = x;\n        output[i + 1] = y;\n        output[i + 2] = z;\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var value = new THREE.Vector3();\n    for (var i = 0, il = input.length / 3; i < il; i += 3) {\n        value.x = input[i + 0];\n        value.y = input[i + 1];\n        value.z = input[i + 2];\n        value.x *= 1.01;\n        value.y *= 1.03;\n        value.z *= 0.98;\n        output[i + 0] = value.x;\n        output[i + 1] = value.y;\n        output[i + 2] = value.z;\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    for (var i = 0, il = inputVectors.length; i < il; i++) {\n        outputVectors[i].copy(inputVectors[i]);\n        outputVectors[i].x *= 1.01;\n        outputVectors[i].y *= 1.03;\n        outputVectors[i].z *= 0.98;\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    var value = new THREE.Vector3();\n    for (var i = 0, il = inputVectors.length; i < il; i++) {\n        value.copy(inputVectors[i]);\n        value.x *= 1.01;\n        value.y *= 1.03;\n        value.z *= 0.98;\n        outputVectors[i].copy(value);\n    }\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (event, bench) {\n    console.log(String(event.target));\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    console.log('Fastest is ' + this.filter('fastest').pluck('name'));\n    console.log('Done');\n}",
+    "receiverBase": "suite",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    app.set('view engine', 'jade');\n    app.set('view options', {\n        layout: false,\n        pretty: true\n    });\n    app.set('views', path.join(__dirname, 'views'));\n    app.enable('view cache');\n    app.use(express.bodyParser());\n    app.use(express.static(path.join(__dirname, 'public')));\n}",
+    "receiverBase": "app",
+    "receiverCallee": "configure"
+  },
+  {
+    "callback": "function (req, res, next) {\n    res.render('basic');\n    return;\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (bucket, needle) {\n    if (needle < bucket[1]) {\n        return 1;\n    } else if (needle >= bucket[2]) {\n        return -1;\n    } else {\n        return 0;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "binarySearch"
+  },
+  {
+    "callback": "function () {\n    var bb = this.getBBox();\n    if (!bb.width || !bb.height) {\n        issue = true;\n    }\n}",
+    "receiverBase": "matched",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return 'http://www.w3.org/2000/svg';\n}",
+    "receiverBase": "domdoc_",
+    "receiverCallee": "evaluate"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "LIT:",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return null;\n}",
+    "receiverBase": "LIT:xyz",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    return 1;\n}",
+    "receiverBase": "LIT:xyz",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (query, name) {\n    if (_classNames[name]) {\n        var result = this.all(query);\n        if (index !== undefined) {\n            result = result.item(index);\n        }\n        if (result) {\n            result.addClass(_classNames[name]);\n        }\n    }\n}",
+    "receiverBase": "Object",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node) {\n    if (node.get('nodeType') === 3) {\n        node.remove();\n    }\n}",
+    "receiverBase": "get",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name) {\n    result[name] = util.sortObject(object[name]);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (value, name) {\n    var pattern = new RegExp(('${' + name + '}').replace(/[^a-z0-9]/g, '\\\\$&'), 'g');\n    string = string.replace(pattern, value);\n}",
+    "receiverBase": "util",
+    "receiverCallee": "each"
+  }
+]

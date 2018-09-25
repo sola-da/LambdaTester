@@ -1,0 +1,370 @@
+[
+  {
+    "callback": "function () {\n    it('should parse basic values', function () {\n        var chrome23 = browser_support.parseBrowser('chr23');\n        assert.equal(chrome23.browser, 'chrome');\n        assert.equal(chrome23.version, 23);\n        var ie9 = browser_support.parseBrowser('ie9');\n        assert.equal(ie9.browser, 'ie');\n        assert.equal(ie9.version, 9);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var chrome23 = browser_support.parseBrowser('chr23');\n    assert.equal(chrome23.browser, 'chrome');\n    assert.equal(chrome23.version, 23);\n    var ie9 = browser_support.parseBrowser('ie9');\n    assert.equal(ie9.browser, 'ie');\n    assert.equal(ie9.version, 9);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (plat) {\n    kw.browser_min[plat.browser] = plat.version;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    assert(browser_support.supportsDeclaration('foo', {}));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert(browser_support.supportsDeclaration('foo', getMins('ie1000,fx1000,chr1000')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var kw = getMins('ie1,fx1,chr1');\n    assert(browser_support.supportsDeclaration('-moz-border-radius', kw));\n    assert.equal(crass.parse('a{-moz-border-radius:0}').optimize(kw).toString(), 'a{-moz-border-radius:0}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var kw = getMins('ie1,fx5,chr1');\n    assert(!browser_support.supportsDeclaration('-moz-border-radius', kw));\n    assert.equal(crass.parse('a{-moz-border-radius:0}').optimize(kw).toString(), '');\n    assert.equal(crass.parse('a{-moz-border-radius:0;foo:bar}').optimize(kw).toString(), 'a{foo:bar}');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var oldIE = getMins('ie1,fx1,chr1');\n    var newIE = getMins('ie7,fx1,chr1');\n    assert(browser_support.supportsDeclaration('_font-face', oldIE));\n    assert(!browser_support.supportsDeclaration('_font-face', newIE));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert(browser_support.supportsKeyframe('-webkit-', getMins('ie1,fx1,chr1')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert(browser_support.supportsKeyframe('-webkit-', getMins('ie1000,fx1,chr1')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert(!browser_support.supportsKeyframe('-webkit-', getMins('ie1,fx1,chr1000')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert(!browser_support.supportsKeyframe('-ms-', {}));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (a) {\n}",
+    "receiverBase": "YUI",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function ($) {\n    $.fn.outerHtml = function () {\n        if (this.length == 0)\n            return false;\n        var elem = this[0], name = elem.tagName.toLowerCase();\n        if (elem.outerHTML)\n            return elem.outerHTML;\n        var attrs = $.map(elem.attributes, function (i) {\n                return i.name + '=\"' + i.value + '\"';\n            });\n        return '<' + name + (attrs.length > 0 ? ' ' + attrs.join(' ') : '') + '>' + elem.innerHTML + '</' + name + '>';\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (i) {\n    return i.name + '=\"' + i.value + '\"';\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    popoverTriggerEl.popover('hide');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (m) {\n    return '\\\\' + m;\n}",
+    "receiverBase": "value",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m) {\n    count += 1;\n    if (Ext.Array.indexOf(me.indexes, idx) === -1) {\n        me.indexes.push(idx);\n    }\n    if (me.currentIndex === null) {\n        me.currentIndex = idx;\n    }\n    return '<span class=\"' + me.matchCls + '\">' + m + '</span>';\n}",
+    "receiverBase": "cellHTML",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    cellHTML = cellHTML.replace(me.tagsProtect, match);\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var cls = new Class();\n    t.notOk(getFunctionName(cls.Ctor));\n    t.notOk(cls.definition);\n    t.notOk(cls.parent);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var definition = function () {\n    };\n    var cls = new Class(definition);\n    t.notOk(getFunctionName(cls.Ctor));\n    t.equal(cls.definition, definition);\n    t.notOk(cls.parent);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var definition = function () {\n    };\n    var cls = new Class('Foo', definition);\n    t.equal(getFunctionName(cls.Ctor), 'Foo');\n    t.equal(cls.definition, definition);\n    t.notOk(cls.parent);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var definition = function () {\n    };\n    var parent = new Class(function () {\n        });\n    var cls = new Class(definition, parent);\n    t.notOk(getFunctionName(cls.Ctor));\n    t.equal(cls.definition, definition);\n    t.equal(cls.parent, parent);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var definition = function () {\n    };\n    var parent = new Class(function () {\n        });\n    var cls = new Class('Bar', definition, parent);\n    t.equal(getFunctionName(cls.Ctor), 'Bar');\n    t.equal(cls.definition, definition);\n    t.equal(cls.parent, parent);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(1);\n    var cls = new Class(function () {\n        });\n    t.ok(cls.Ctor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(4);\n    var parent = new Class(function () {\n        });\n    var cls = new Class(function () {\n        }, parent);\n    t.equal(cls.parent, parent);\n    t.equal(cls.Ctor.super_, parent.Ctor);\n    t.equal(cls.Ctor.prototype.super, parent.Ctor.prototype);\n    t.equal(cls.protectedMethods.super, parent.protectedMethods);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(4);\n    var cls = new Class(function () {\n        });\n    t.ok(cls.protectedKey);\n    t.ok(cls.protectedMethods);\n    t.ok(cls.privateKey);\n    t.ok(cls.privateMethods);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(3);\n    var parent = new Class(function () {\n        });\n    var cls = new Class(function () {\n        }, parent);\n    var unrelated = new Class(function () {\n        });\n    t.equal(cls.protectedKey, parent.protectedKey);\n    t.notEqual(cls.protectedKey, unrelated.protectedKey);\n    t.notEqual(parent.protectedKey, unrelated.protectedKey);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(1);\n    var parent = new Class(function () {\n        });\n    var cls = new Class(function () {\n        }, parent);\n    t.equal(Object.getPrototypeOf(cls.protectedMethods), parent.protectedMethods);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    var parent = new Class(function () {\n        });\n    var cls = new Class(function () {\n        }, parent);\n    t.equal(Object.getPrototypeOf(parent.protectedKey(new parent.Ctor())), parent.protectedMethods);\n    t.equal(Object.getPrototypeOf(parent.protectedKey(new cls.Ctor())), cls.protectedMethods);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    var cls = new Class(function () {\n        });\n    t.ok(cls.Ctor.subclass);\n    t.ok(cls.Ctor.final);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(4);\n    var definition = sinon.spy();\n    var cls = new Class(definition);\n    var ctor = cls.construct();\n    t.equal(ctor, cls.Ctor);\n    t.ok(definition.called);\n    t.ok(definition.calledOn(cls.Ctor));\n    t.ok(definition.calledWith(cls.Ctor.prototype, cls.protectedKey, cls.protectedMethods, cls.privateKey, cls.privateMethods));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    var cls = new Class();\n    var ctor;\n    t.doesNotThrow(function () {\n        ctor = cls.construct();\n    });\n    t.ok(ctor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    ctor = cls.construct();\n}",
+    "receiverBase": "t",
+    "receiverCallee": "doesNotThrow"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(2);\n    var cls = new Class(function () {\n        });\n    var Ctor = cls.construct();\n    var SubCtor = Ctor.subclass(function () {\n        });\n    var subInst = new SubCtor();\n    t.ok(subInst instanceof Ctor);\n    t.equal(SubCtor.super_, Ctor);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ctor",
+    "receiverCallee": "subclass"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(1);\n    var cls = new Class(function () {\n        });\n    var Ctor = cls.construct();\n    var SubCtor = Ctor.subclass(function () {\n        });\n    SubCtor.final();\n    t.throws(function () {\n        SubCtor.subclass(function () {\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "Ctor",
+    "receiverCallee": "subclass"
+  },
+  {
+    "callback": "function () {\n    SubCtor.subclass(function () {\n    });\n}",
+    "receiverBase": "t",
+    "receiverCallee": "throws"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "SubCtor",
+    "receiverCallee": "subclass"
+  },
+  {
+    "callback": "function (t) {\n    t.plan(1);\n    var init = sinon.spy();\n    var cls = new Class(function (prototype) {\n            prototype.init = init;\n        });\n    var Ctor = cls.construct();\n    new Ctor('foo', 'bar');\n    t.ok(init.calledWith('foo', 'bar'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    return this._id.toHexString();\n}",
+    "receiverBase": "virtual",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    return JSON.stringify({\n        email: this.email,\n        series: this.series,\n        token: this.token\n    });\n}",
+    "receiverBase": "virtual",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (next) {\n    this.token = uuid();\n    this.created = new Date();\n    next();\n}",
+    "receiverBase": "loginTokenSchema",
+    "receiverCallee": "pre"
+  },
+  {
+    "callback": "function (d) {\n    return d;\n}",
+    "receiverBase": "selectAll",
+    "receiverCallee": "data"
+  },
+  {
+    "callback": "function () {\n    display(g, 'inline');\n    dispatch.enter();\n}",
+    "receiverBase": "attr",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    display(g, 'none');\n    dispatch.out();\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    t.flip();\n    if (typeof callback === 'function') {\n        callback();\n    }\n}",
+    "receiverBase": "timer",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (i, digit) {\n    i += offset;\n    var list = t.factory.lists[i];\n    if (list) {\n        var currentDigit = list.digit;\n        list.select(digit);\n        if (digit != currentDigit && !doNotAddPlayClass) {\n            list.play();\n        }\n    } else {\n        t.addDigit(digit);\n        reFlip = true;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    t.$obj.removeClass(t.factory.classes.play);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, value) {\n    value = value.toString();\n    if (value.length == 1) {\n        value = '0' + value;\n    }\n    for (var x = 0; x < value.length; x++) {\n        data.push(value[x]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i, digit) {\n    if (i < totalDigits) {\n        total += parseInt(digits[i], 10);\n    } else {\n        newArray.push(digits[i]);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    t._interval(callback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function () {\n    var formObj = document.forms[0];\n    formObj.width.value = formObj.height.value = '';\n}",
+    "receiverBase": "tinyMCE",
+    "receiverCallee": "addEvent"
+  },
+  {
+    "callback": "function (x) {\n    x = x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&apos;').replace(/\\s+/gi, '#_#');\n    return x;\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    return x.toLowerCase();\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    return x.toLowerCase();\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    x = x.replace(/&/g, '&amp;').replace(/&amp;amp;/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\\s+/gi, '#_#');\n    return x;\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    return x.toLowerCase();\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x) {\n    return x.toLowerCase();\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    var imageAlt = rule('Images should include an alt attribute');\n    afterEach(teardownFixtures);\n    it('Warns of img tags that lack an alt attribute', function () {\n        fixture('<img src=\"noalt.jpg\"/>');\n        fixture('<img src=\"emptyalt.jpg\" alt=\"\"/>');\n        fixture('<img src=\"somealt.jpg\" alt=\"alt text\"/>');\n        var results = run(imageAlt);\n        expect(results.warnings.length).toEqual(2);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    fixture('<img src=\"noalt.jpg\"/>');\n    fixture('<img src=\"emptyalt.jpg\" alt=\"\"/>');\n    fixture('<img src=\"somealt.jpg\" alt=\"alt text\"/>');\n    var results = run(imageAlt);\n    expect(results.warnings.length).toEqual(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (ele) {\n    $button.click(function () {\n        createUI(ele);\n        showList(ele, icons);\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    createUI(ele);\n    showList(ele, icons);\n}",
+    "receiverBase": "$button",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    mouseOver = true;\n}",
+    "receiverBase": "$popup",
+    "receiverCallee": "mouseenter"
+  },
+  {
+    "callback": "function () {\n    mouseOver = false;\n}",
+    "receiverBase": "mouseenter",
+    "receiverCallee": "mouseleave"
+  },
+  {
+    "callback": "function (e) {\n    e.stopPropagation();\n    var dir = $(this).attr('data-dir');\n    start_index = start_index + per_page * dir;\n    start_index = start_index < 0 ? 0 : start_index;\n    if (start_index + per_page <= 210) {\n        $.each($('.icon-list>ul li'), function (i) {\n            if (i >= start_index && i < start_index + per_page) {\n                $(this).show();\n            } else {\n                $(this).hide();\n            }\n        });\n    } else {\n        start_index = 180;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (i) {\n    if (i >= start_index && i < start_index + per_page) {\n        $(this).show();\n    } else {\n        $(this).hide();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (lastVal != $(this).val()) {\n        lastVal = $(this).val();\n        if (lastVal == '') {\n            showList(icons);\n        } else {\n            showList($element, $(icons).map(function (i, v) {\n                if (v.toLowerCase().indexOf(lastVal.toLowerCase()) != -1) {\n                    return v;\n                }\n            }).get());\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (i, v) {\n    if (v.toLowerCase().indexOf(lastVal.toLowerCase()) != -1) {\n        return v;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (e) {\n    if (!$popup.is(e.target) && $popup.has(e.target).length === 0) {\n        removeInstance();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "mouseup"
+  },
+  {
+    "callback": "function (e) {\n    e.preventDefault();\n    var title = $(this).attr('title');\n    $element.val('glyphicon glyphicon-' + title);\n    removeInstance();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (require, exports, module) {\n    var marionette = require('marionette');\n    var handlebars = require('handlebars');\n    marionette.TemplateCache.prototype.compileTemplate = function (rawTemplate) {\n        return handlebars.compile(rawTemplate);\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  }
+]

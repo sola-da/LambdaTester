@@ -1,0 +1,1524 @@
+[
+  {
+    "callback": "function (err, res) {\n    results = results.concat(res);\n    if (!--pending)\n        done(null, results);\n}",
+    "receiverBase": "",
+    "receiverCallee": "walk"
+  },
+  {
+    "callback": "function (element, index, array) {\n    var ghFile = element.split(snippetsServer)[1];\n    ghFile = ghFile.substr(0, ghFile.length - 1);\n    checkScript(ghFile);\n}",
+    "receiverBase": "snippetsHTMLArray",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    app.registerDirective('appVersion', [\n        'version',\n        function (versionValue) {\n            return function (scope, elm, attrs) {\n                elm.text(versionValue);\n            };\n        }\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (x, $1, $2) {\n    keys[i] = $2;\n    return '.@' + i++;\n}",
+    "receiverBase": "locator",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (x, $1) {\n    keys[i] = parseInt($1, 10) | 0;\n    return '.@' + i++;\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    window.scrollTo(0, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'CREATE TABLE IF NOT EXISTS tasks (' + 'id INTEGER PRIMARY KEY ASC,' + 'desc TEXT,' + 'due DATETIME,' + 'complete BOOLEAN' + ')';\n    tx.executeSql(sql, [], loadTasks);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'INSERT INTO tasks(desc, due, complete) ' + 'VALUES(?, ?, ?)', args = [\n            task.desc,\n            task.due,\n            task.complete\n        ];\n    tx.executeSql(sql, args, updateView);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'UPDATE tasks SET complete = ? WHERE id = ?', args = [\n            complete,\n            task.id\n        ];\n    tx.executeSql(sql, args);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'DELETE FROM tasks WHERE id = ?', args = [id];\n    tx.executeSql(sql, args, loadTasks);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function (tx) {\n    var sql = 'DELETE FROM tasks';\n    tx.executeSql(sql, [], loadTasks);\n}",
+    "receiverBase": "db",
+    "receiverCallee": "transaction"
+  },
+  {
+    "callback": "function () {\n    appCache.swapCache();\n    if (confirm('App update is available. Update now?')) {\n        w.location.reload();\n    }\n}",
+    "receiverBase": "appCache",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    new Tasks();\n}",
+    "receiverBase": "window",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (n) {\n    rg.addElement(n);\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    dijit._justMouseDowned = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    delete dijit._clearActiveWidgetsTimer;\n    dijit._setStack([]);\n    dijit._prevFocus = null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    var handle = dijit.registerWin(window);\n    if (dojo.isIE) {\n        dojo.addOnWindowUnload(function () {\n            dijit.unregisterWin(handle);\n            handle = null;\n        });\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "addOnLoad"
+  },
+  {
+    "callback": "function () {\n    dijit.unregisterWin(handle);\n    handle = null;\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "addOnWindowUnload"
+  },
+  {
+    "callback": "function () {\n    stream.end();\n    fs.readFile(__dirname + '/test-rolling-file-stream-write-less', 'utf8', that.callback);\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "write"
+  },
+  {
+    "callback": "function (file) {\n    return file.indexOf('test-rolling-file-stream-write-less') > -1;\n}",
+    "receiverBase": "files",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (i, cb) {\n    stream.write(i + '.cheese\\n', 'utf8', cb);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    stream.end();\n    that.callback();\n}",
+    "receiverBase": "async",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (file) {\n    return file.indexOf('test-rolling-file-stream-write-more') > -1;\n}",
+    "receiverBase": "files",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function (e) {\n    fired = true;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (e) {\n    fired = true;\n}",
+    "receiverBase": "events",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    return instance;\n}",
+    "receiverBase": "pr",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        2,\n        3,\n        undefined,\n        true,\n        'hej',\n        null,\n        false,\n        0\n    ];\n    delete testSubject[1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (e, i) {\n    o[i] = e;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    expected = {\n        0: 2,\n        2: undefined,\n        3: true,\n        4: 'hej',\n        5: null,\n        6: false,\n        7: 0\n    };\n    actual = {};\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback'), array = ['1'];\n    array.forEach(callback);\n    expect(callback).toHaveBeenCalledWith('1', 0, array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.forEach(function (a) {\n        i++;\n        arr.push(a + 3);\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n    i++;\n    arr.push(a + 3);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var context;\n    [1].forEach(function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    testSubject.forEach(function (obj, index) {\n        actual[index] = obj;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var o = { a: actual };\n    testSubject.forEach(function (obj, index) {\n        this.a[index] = obj;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject);\n    Array.prototype.forEach.call(ts, function (obj, index) {\n        actual[index] = obj;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject), o = { a: actual };\n    Array.prototype.forEach.call(ts, function (obj, index) {\n        this.a[index] = obj;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    actual = [];\n    Array.prototype.forEach.call(str, function (item, index) {\n        actual[index] = item;\n    });\n    expect(actual).toExactlyMatch(str.split(''));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index) {\n    actual[index] = item;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    actual = [];\n    var o = { a: actual };\n    Array.prototype.forEach.call(str, function (item, index) {\n        this.a[index] = item;\n    }, o);\n    expect(actual).toExactlyMatch(str.split(''));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index) {\n    this.a[index] = item;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.forEach.call('foo', function (item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    expected = {\n        0: 2,\n        2: undefined,\n        3: true\n    };\n    actual = {};\n    numberOfRuns = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback');\n    var array = ['1'];\n    array.some(callback);\n    expect(callback).toHaveBeenCalledWith('1', 0, array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.some(function (a) {\n        i++;\n        arr.push(a + 3);\n        return i > 3;\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n    i++;\n    arr.push(a + 3);\n    return i > 3;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    var context;\n    [1].some(function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    actual = testSubject.some(function () {\n    });\n    expect(actual).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    actual = testSubject.some(function () {\n        return true;\n    });\n    expect(actual).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    actual = [].some(function () {\n        return true;\n    });\n    expect(actual).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    testSubject.some(function (obj, index) {\n        actual[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return true;\n        }\n        return false;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return true;\n    }\n    return false;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    var o = { a: actual };\n    testSubject.some(function (obj, index) {\n        this.a[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return true;\n        }\n        return false;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return true;\n    }\n    return false;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject);\n    Array.prototype.some.call(ts, function (obj, index) {\n        actual[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return true;\n        }\n        return false;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return true;\n    }\n    return false;\n}",
+    "receiverBase": "some",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject);\n    var o = { a: actual };\n    Array.prototype.some.call(ts, function (obj, index) {\n        this.a[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return true;\n        }\n        return false;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return true;\n    }\n    return false;\n}",
+    "receiverBase": "some",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.some.call('foo', function (item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "some",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    expected = {\n        0: 2,\n        2: undefined,\n        3: true\n    };\n    actual = {};\n    numberOfRuns = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback');\n    var array = ['1'];\n    array.every(callback);\n    expect(callback).toHaveBeenCalledWith('1', 0, array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.every(function (a) {\n        i++;\n        arr.push(a + 3);\n        return i <= 3;\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n    i++;\n    arr.push(a + 3);\n    return i <= 3;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    var context;\n    [1].every(function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    actual = [].every(function () {\n        return true;\n    });\n    expect(actual).toBeTruthy();\n    actual = [].every(function () {\n        return false;\n    });\n    expect(actual).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    actual = [\n        1,\n        2,\n        3\n    ].every(function () {\n        return true;\n    });\n    expect(actual).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return true;\n}",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    actual = [\n        1,\n        2,\n        3\n    ].every(function () {\n        return false;\n    });\n    expect(actual).toBeFalsy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    testSubject.every(function (obj, index) {\n        actual[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return false;\n        }\n        return true;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    var o = { a: actual };\n    testSubject.every(function (obj, index) {\n        this.a[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return false;\n        }\n        return true;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "every"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject);\n    Array.prototype.every.call(ts, function (obj, index) {\n        actual[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return false;\n        }\n        return true;\n    });\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    actual[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "every",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var ts = createArrayLikeFromArray(testSubject);\n    var o = { a: actual };\n    Array.prototype.every.call(ts, function (obj, index) {\n        this.a[index] = obj;\n        numberOfRuns += 1;\n        if (numberOfRuns == 3) {\n            return false;\n        }\n        return true;\n    }, o);\n    expect(actual).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (obj, index) {\n    this.a[index] = obj;\n    numberOfRuns += 1;\n    if (numberOfRuns == 3) {\n        return false;\n    }\n    return true;\n}",
+    "receiverBase": "every",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.every.call('foo', function (item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "every",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        2,\n        3,\n        undefined,\n        true,\n        'hej',\n        null,\n        2,\n        false,\n        0\n    ];\n    delete testSubject[1];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expected = 4;\n    actual = testSubject.indexOf('hej');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = testSubject.indexOf('mus');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = testSubject.indexOf(undefined);\n    expect(actual).not.toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = 2;\n    actual = testSubject.indexOf(undefined);\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    actual = testSubject.indexOf(null);\n    expect(actual).toEqual(5);\n    actual = testSubject.indexOf('2');\n    expect(actual).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.indexOf(2, 2)).toEqual(6);\n    expect(testSubject.indexOf(2, 0)).toEqual(0);\n    expect(testSubject.indexOf(2, 6)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.indexOf(2, -3)).toEqual(6);\n    expect(testSubject.indexOf(2, -9)).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.indexOf(0, 20)).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.indexOf('hej', -20)).toEqual(4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function beforeEach() {\n    testAL = {};\n    testSubject = [\n        2,\n        3,\n        undefined,\n        true,\n        'hej',\n        null,\n        2,\n        false,\n        0\n    ];\n    testSubject.forEach(function (o, i) {\n        testAL[i] = o;\n    });\n    testAL.length = testSubject.length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (o, i) {\n    testAL[i] = o;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    expected = 4;\n    actual = indexOf.call(testAL, 'hej');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = indexOf.call(testAL, 'mus');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = indexOf.call(testAL, undefined);\n    expect(actual).not.toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = 2;\n    actual = indexOf.call(testAL, undefined);\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    actual = Array.prototype.indexOf.call(testAL, null);\n    expect(actual).toEqual(5);\n    actual = Array.prototype.indexOf.call(testAL, '2');\n    expect(actual).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(indexOf.call(testAL, 2, 2)).toEqual(6);\n    expect(indexOf.call(testAL, 2, 0)).toEqual(0);\n    expect(indexOf.call(testAL, 2, 6)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(indexOf.call(testAL, 2, -3)).toEqual(6);\n    expect(indexOf.call(testAL, 2, -9)).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(indexOf.call(testAL, 0, 20)).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(indexOf.call(testAL, 'hej', -20)).toEqual(4);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        2,\n        3,\n        undefined,\n        true,\n        'hej',\n        null,\n        2,\n        3,\n        false,\n        0\n    ];\n    delete testSubject[1];\n    delete testSubject[7];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expected = 4;\n    actual = testSubject.lastIndexOf('hej');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = testSubject.lastIndexOf('mus');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = testSubject.lastIndexOf(undefined);\n    expect(actual).not.toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = 2;\n    actual = testSubject.lastIndexOf(undefined);\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    actual = testSubject.lastIndexOf(null);\n    expect(actual).toEqual(5);\n    actual = testSubject.lastIndexOf('2');\n    expect(actual).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.lastIndexOf(2, 2)).toEqual(0);\n    expect(testSubject.lastIndexOf(2, 0)).toEqual(0);\n    expect(testSubject.lastIndexOf(2, 6)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.lastIndexOf(2, -3)).toEqual(6);\n    expect(testSubject.lastIndexOf(2, -9)).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.lastIndexOf(2, 20)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.lastIndexOf(2, -20)).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testAL = {};\n    testSubject.forEach(function (o, i) {\n        testAL[i] = o;\n    });\n    testAL.length = testSubject.length;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function (o, i) {\n    testAL[i] = o;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    expected = 4;\n    actual = lastIndexOf.call(testAL, 'hej');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = lastIndexOf.call(testAL, 'mus');\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = -1;\n    actual = lastIndexOf.call(testAL, undefined);\n    expect(actual).not.toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expected = 2;\n    actual = lastIndexOf.call(testAL, undefined);\n    expect(actual).toEqual(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    actual = lastIndexOf.call(testAL, null);\n    expect(actual).toEqual(5);\n    actual = lastIndexOf.call(testAL, '2');\n    expect(actual).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(lastIndexOf.call(testAL, 2, 2)).toEqual(0);\n    expect(lastIndexOf.call(testAL, 2, 0)).toEqual(0);\n    expect(lastIndexOf.call(testAL, 2, 6)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(lastIndexOf.call(testAL, 2, -3)).toEqual(6);\n    expect(lastIndexOf.call(testAL, 2, -9)).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(lastIndexOf.call(testAL, 2, 20)).toEqual(6);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(lastIndexOf.call(testAL, 2, -20)).toEqual(-1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        2,\n        3,\n        undefined,\n        true,\n        'hej',\n        3,\n        null,\n        false,\n        0\n    ];\n    delete testSubject[1];\n    filteredArray = [\n        2,\n        undefined,\n        'hej',\n        null,\n        false,\n        0\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback'), arr = ['1'];\n    arr.filter(callback);\n    expect(callback).toHaveBeenCalledWith('1', 0, arr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.filter(function (a) {\n        i++;\n        if (i <= 4) {\n            arr.push(a + 3);\n        }\n        return true;\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n    i++;\n    if (i <= 4) {\n        arr.push(a + 3);\n    }\n    return true;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var passedValues = {};\n    testSubject = [\n        1,\n        2,\n        3,\n        4\n    ];\n    delete testSubject[1];\n    testSubject.filter(function (o, i) {\n        passedValues[i] = o;\n        return true;\n    });\n    expect(passedValues).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    passedValues[i] = o;\n    return true;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var passedValues = {};\n    testSubject = [\n        1,\n        2,\n        3,\n        4\n    ];\n    delete testSubject[1];\n    testSubject.filter(function (o, i) {\n        this[i] = o;\n        return true;\n    }, passedValues);\n    expect(passedValues).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    this[i] = o;\n    return true;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var context;\n    [1].filter(function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    var result = testSubject.filter(callback);\n    expect(result).toExactlyMatch(filteredArray);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var copy = testSubject.slice();\n    testSubject.filter(callback);\n    expect(testSubject).toExactlyMatch(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var results = [\n            1,\n            2,\n            3\n        ].filter(function (value, index, array) {\n            array[index] = 'a';\n            return true;\n        });\n    expect(results).toEqual([\n        1,\n        2,\n        3\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (value, index, array) {\n    array[index] = 'a';\n    return true;\n}",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    testSubject = createArrayLikeFromArray(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback'), arr = createArrayLikeFromArray(['1']);\n    Array.prototype.filter.call(arr, callback);\n    expect(callback).toHaveBeenCalledWith('1', 0, arr);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = createArrayLikeFromArray([\n            1,\n            2,\n            3\n        ]), i = 0;\n    Array.prototype.filter.call(arr, function (a) {\n        i++;\n        if (i <= 4) {\n            arr[i + 2] = a + 3;\n        }\n        return true;\n    });\n    delete arr.length;\n    expect(arr).toExactlyMatch([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a) {\n    i++;\n    if (i <= 4) {\n        arr[i + 2] = a + 3;\n    }\n    return true;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var passedValues = {};\n    testSubject = createArrayLikeFromArray([\n        1,\n        2,\n        3,\n        4\n    ]);\n    delete testSubject[1];\n    Array.prototype.filter.call(testSubject, function (o, i) {\n        passedValues[i] = o;\n        return true;\n    });\n    delete testSubject.length;\n    expect(passedValues).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    passedValues[i] = o;\n    return true;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var context;\n    Array.prototype.filter.call(createArrayLikeFromArray([1]), function () {\n        context = this;\n    }, undefined);\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var passedValues = {};\n    testSubject = createArrayLikeFromArray([\n        1,\n        2,\n        3,\n        4\n    ]);\n    delete testSubject[1];\n    Array.prototype.filter.call(testSubject, function (o, i) {\n        this[i] = o;\n        return true;\n    }, passedValues);\n    delete testSubject.length;\n    expect(passedValues).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    this[i] = o;\n    return true;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var result = Array.prototype.filter.call(testSubject, callback);\n    expect(result).toExactlyMatch(filteredArray);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var copy = createArrayLikeFromArray(testSubject);\n    Array.prototype.filter.call(testSubject, callback);\n    expect(testSubject).toExactlyMatch(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.filter.call('foo', function (item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var i = 0;\n    callback = function () {\n        return i++;\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback'), array = [1];\n    array.map(callback);\n    expect(callback).toHaveBeenCalledWith(1, 0, array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var context = {};\n    testSubject.map(function (o, i) {\n        this[i] = o;\n    }, context);\n    expect(context).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    this[i] = o;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var context;\n    [1].map(function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var copy = testSubject.slice();\n    testSubject.map(callback);\n    expect(testSubject).toExactlyMatch(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.map(function (o) {\n        arr.push(o + 3);\n        i++;\n        return o;\n    });\n    expect(arr).toExactlyMatch([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o) {\n    arr.push(o + 3);\n    i++;\n    return o;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var result = testSubject.map(callback), expected = [\n            0,\n            0,\n            1,\n            2,\n            3,\n            4,\n            5,\n            6\n        ];\n    delete expected[1];\n    expect(result).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var array = [\n            1,\n            2,\n            3,\n            4\n        ], i = 0;\n    delete array[2];\n    array.map(function () {\n        i++;\n    });\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    i++;\n}",
+    "receiverBase": "array",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    testSubject = createArrayLikeFromArray(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var callback = jasmine.createSpy('callback'), array = createArrayLikeFromArray([1]);\n    Array.prototype.map.call(array, callback);\n    expect(callback).toHaveBeenCalledWith(1, 0, array);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var context = {};\n    Array.prototype.map.call(testSubject, function (o, i) {\n        this[i] = o;\n    }, context);\n    delete testSubject.length;\n    expect(context).toExactlyMatch(testSubject);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o, i) {\n    this[i] = o;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var context;\n    Array.prototype.map.call(createArrayLikeFromArray([1]), function () {\n        context = this;\n    });\n    expect(context).toBe(function () {\n        return this;\n    }.call());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    context = this;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var copy = createArrayLikeFromArray(testSubject);\n    Array.prototype.map.call(testSubject, callback);\n    expect(testSubject).toExactlyMatch(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = createArrayLikeFromArray([\n            1,\n            2,\n            3\n        ]), i = 0;\n    Array.prototype.map.call(arr, function (o) {\n        Array.prototype.push.call(arr, o + 3);\n        i++;\n        return o;\n    });\n    delete arr.length;\n    expect(arr).toExactlyMatch([\n        1,\n        2,\n        3,\n        4,\n        5,\n        6\n    ]);\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (o) {\n    Array.prototype.push.call(arr, o + 3);\n    i++;\n    return o;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var result = Array.prototype.map.call(testSubject, callback), expected = [\n            0,\n            0,\n            1,\n            2,\n            3,\n            4,\n            5,\n            6\n        ];\n    delete expected[1];\n    expect(result).toExactlyMatch(expected);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var array = createArrayLikeFromArray([\n            1,\n            2,\n            3,\n            4\n        ]), i = 0;\n    delete array[2];\n    Array.prototype.map.call(array, function () {\n        i++;\n    });\n    expect(i).toBe(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    i++;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.map.call('foo', function (item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "map",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        1,\n        2,\n        3\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduce(spy);\n    expect(spy.calls[0].args).toExactlyMatch([\n        1,\n        2,\n        1,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduce(spy, 0);\n    expect(spy.calls[0].args).toExactlyMatch([\n        0,\n        1,\n        0,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.reduce(function (a, b) {\n        i++;\n        if (i <= 4) {\n            arr.push(a + 3);\n        }\n        ;\n        return b;\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        4,\n        5\n    ]);\n    expect(i).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    i++;\n    if (i <= 4) {\n        arr.push(a + 3);\n    }\n    ;\n    return b;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy();\n    expect(function () {\n        [].reduce(spy);\n    }).toThrow();\n    expect(spy).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    [].reduce(spy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        testSubject.reduce();\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject.reduce();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduce(function (a, b) {\n        return (a || '').toString() + (b || '').toString();\n    })).toEqual(testSubject.join(''));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a || '').toString() + (b || '').toString();\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var copy = testSubject.slice();\n    testSubject.reduce(function (a, b) {\n        return a + b;\n    });\n    expect(testSubject).toEqual(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    delete testSubject[1];\n    var visited = {};\n    testSubject.reduce(function (a, b) {\n        if (a)\n            visited[a] = true;\n        if (b)\n            visited[b] = true;\n        return 0;\n    });\n    expect(visited).toEqual({\n        '1': true,\n        '3': true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a)\n        visited[a] = true;\n    if (b)\n        visited[b] = true;\n    return 0;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduce.length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject = createArrayLikeFromArray(testSubject);\n    testSubject.reduce = Array.prototype.reduce;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduce(spy);\n    expect(spy.calls[0].args).toExactlyMatch([\n        1,\n        2,\n        1,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduce(spy, 0);\n    expect(spy.calls[0].args).toExactlyMatch([\n        0,\n        1,\n        0,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = createArrayLikeFromArray([\n            1,\n            2,\n            3\n        ]), i = 0;\n    Array.prototype.reduce.call(arr, function (a, b) {\n        i++;\n        if (i <= 4) {\n            arr[i + 2] = a + 3;\n        }\n        ;\n        return b;\n    });\n    expect(arr).toEqual({\n        0: 1,\n        1: 2,\n        2: 3,\n        3: 4,\n        4: 5,\n        length: 3\n    });\n    expect(i).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    i++;\n    if (i <= 4) {\n        arr[i + 2] = a + 3;\n    }\n    ;\n    return b;\n}",
+    "receiverBase": "reduce",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy();\n    expect(function () {\n        Array.prototype.reduce.call({ length: 0 }, spy);\n    }).toThrow();\n    expect(spy).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    Array.prototype.reduce.call({ length: 0 }, spy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        testSubject.reduce();\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject.reduce();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduce(function (a, b) {\n        return (a || '').toString() + (b || '').toString();\n    })).toEqual('123');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a || '').toString() + (b || '').toString();\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    var copy = createArrayLikeFromArray(testSubject);\n    testSubject.reduce(function (a, b) {\n        return a + b;\n    });\n    delete testSubject.reduce;\n    expect(testSubject).toEqual(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    delete testSubject[1];\n    var visited = {};\n    testSubject.reduce(function (a, b) {\n        if (a)\n            visited[a] = true;\n        if (b)\n            visited[b] = true;\n        return 0;\n    });\n    expect(visited).toEqual({\n        '1': true,\n        '3': true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a)\n        visited[a] = true;\n    if (b)\n        visited[b] = true;\n    return 0;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduce.length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var actual;\n    Array.prototype.reduce.call('foo', function (accumulator, item, index, list) {\n        actual = list;\n    });\n    expect(typeof actual).toBe('object');\n    expect(toString.call(actual)).toBe('[object String]');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (accumulator, item, index, list) {\n    actual = list;\n}",
+    "receiverBase": "reduce",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    testSubject = [\n        1,\n        2,\n        3\n    ];\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduceRight(spy);\n    expect(spy.calls[0].args).toExactlyMatch([\n        3,\n        2,\n        1,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduceRight(spy, 0);\n    expect(spy.calls[0].args).toExactlyMatch([\n        0,\n        3,\n        2,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = [\n            1,\n            2,\n            3\n        ], i = 0;\n    arr.reduceRight(function (a, b) {\n        i++;\n        if (i <= 4) {\n            arr.push(a + 3);\n        }\n        ;\n        return b;\n    });\n    expect(arr).toEqual([\n        1,\n        2,\n        3,\n        6,\n        5\n    ]);\n    expect(i).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    i++;\n    if (i <= 4) {\n        arr.push(a + 3);\n    }\n    ;\n    return b;\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy();\n    expect(function () {\n        [].reduceRight(spy);\n    }).toThrow();\n    expect(spy).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    [].reduceRight(spy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy(), result;\n    result = [].reduceRight(spy, '');\n    expect(spy).not.toHaveBeenCalled();\n    expect(result).toBe('');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        testSubject.reduceRight();\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject.reduceRight();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduceRight(function (a, b) {\n        return (a || '').toString() + (b || '').toString();\n    })).toEqual('321');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a || '').toString() + (b || '').toString();\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    var copy = testSubject.slice();\n    testSubject.reduceRight(function (a, b) {\n        return a + b;\n    });\n    expect(testSubject).toEqual(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    delete testSubject[1];\n    var visited = {};\n    testSubject.reduceRight(function (a, b) {\n        if (a)\n            visited[a] = true;\n        if (b)\n            visited[b] = true;\n        return 0;\n    });\n    expect(visited).toEqual({\n        '1': true,\n        '3': true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a)\n        visited[a] = true;\n    if (b)\n        visited[b] = true;\n    return 0;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduceRight.length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject = createArrayLikeFromArray(testSubject);\n    testSubject.reduceRight = Array.prototype.reduceRight;\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduceRight(spy);\n    expect(spy.calls[0].args).toExactlyMatch([\n        3,\n        2,\n        1,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy().andReturn(0);\n    testSubject.reduceRight(spy, 0);\n    expect(spy.calls[0].args).toExactlyMatch([\n        0,\n        3,\n        2,\n        testSubject\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var arr = createArrayLikeFromArray([\n            1,\n            2,\n            3\n        ]), i = 0;\n    Array.prototype.reduceRight.call(arr, function (a, b) {\n        i++;\n        if (i <= 4) {\n            arr[i + 2] = a + 3;\n        }\n        ;\n        return b;\n    });\n    expect(arr).toEqual({\n        0: 1,\n        1: 2,\n        2: 3,\n        3: 6,\n        4: 5,\n        length: 3\n    });\n    expect(i).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    i++;\n    if (i <= 4) {\n        arr[i + 2] = a + 3;\n    }\n    ;\n    return b;\n}",
+    "receiverBase": "reduceRight",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    var spy = jasmine.createSpy();\n    expect(function () {\n        Array.prototype.reduceRight.call({ length: 0 }, spy);\n    }).toThrow();\n    expect(spy).not.toHaveBeenCalled();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    Array.prototype.reduceRight.call({ length: 0 }, spy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(function () {\n        testSubject.reduceRight();\n    }).toThrow();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    testSubject.reduceRight();\n}",
+    "receiverBase": "",
+    "receiverCallee": "expect"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduceRight(function (a, b) {\n        return (a || '').toString() + (b || '').toString();\n    })).toEqual('321');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return (a || '').toString() + (b || '').toString();\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    var copy = createArrayLikeFromArray(testSubject);\n    testSubject.reduceRight(function (a, b) {\n        return a + b;\n    });\n    delete testSubject.reduceRight;\n    expect(testSubject).toEqual(copy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    return a + b;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    delete testSubject[1];\n    var visited = {};\n    testSubject.reduceRight(function (a, b) {\n        if (a)\n            visited[a] = true;\n        if (b)\n            visited[b] = true;\n        return 0;\n    });\n    expect(visited).toEqual({\n        '1': true,\n        '3': true\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (a, b) {\n    if (a)\n        visited[a] = true;\n    if (b)\n        visited[b] = true;\n    return 0;\n}",
+    "receiverBase": "testSubject",
+    "receiverCallee": "reduceRight"
+  },
+  {
+    "callback": "function () {\n    expect(testSubject.reduceRight.length).toBe(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var ret = Array.isArray([]);\n    expect(ret).toBe(true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var objects = [\n            'someString',\n            true,\n            false,\n            42,\n            0,\n            {},\n            Object.create && Object.create(null) || null,\n            /foo/,\n            arguments\n        ];\n    if (typeof document !== 'undefined') {\n        objects.push(document.getElementsByTagName('div'));\n    }\n    objects.forEach(function (v) {\n        expect(Array.isArray(v)).toBe(false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (v) {\n    expect(Array.isArray(v)).toBe(false);\n}",
+    "receiverBase": "objects",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    it('should return length', function () {\n        expect([].unshift(0)).toEqual(1);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    expect([].unshift(0)).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test = a.slice(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(test.splice(0)).toEqual(a);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    test.splice(0, 2);\n    expect(test).toEqual([b]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var array = [];\n    array.splice(0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);\n    array.splice(1, 0, 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'F13', 'F14', 'F15', 'F16', 'F17', 'F18', 'F19', 'F20', 'F21', 'F22', 'F23', 'F24', 'F25', 'F26');\n    array.splice(5, 0, 'XXX');\n    return array.join('|');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var array = makeArray(6);\n    array.splice(array.length - 1, 1, '');\n    array.splice(0, 1, 1, 2, 3, 4);\n    array.splice(0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45);\n    array.splice(4, 0, '99999999999999');\n    return array.join('|');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    expect(test.splice()).toEqual([]);\n    expect(test).toEqual(a);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var test2 = test.slice(0);\n    expect(test.splice(void 0, 2)).toEqual(test2.splice(0, 2));\n    expect(test).toEqual(test2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(test.splice(0)).toEqual(a);\n    expect(test).toEqual([]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(test.splice(2)).toEqual([b]);\n    expect(test).toEqual([\n        1,\n        'a'\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    expect(test.splice.length).toBe(2);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = {};\n    test.splice.call(obj, 0, 0, 1, 2, 3);\n    expect(obj.length).toEqual(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = {\n            0: 1,\n            length: 1\n        };\n    test.splice.call(obj, 1, 0, 2, 3);\n    expect(obj.length).toEqual(3);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = {\n            0: 1,\n            1: 2,\n            2: 3,\n            length: 3\n        };\n    test.splice.call(obj, 0, 3);\n    expect(obj.length).toEqual(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var obj = {\n            0: 99,\n            length: 1\n        };\n    test.splice.call(obj, 0, 1, 1, 2, 3);\n    expect(obj.length).toEqual(3);\n    expect(obj[0]).toEqual(1);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (item) {\n    item.cleanGroup(s);\n}",
+    "receiverBase": "df",
+    "receiverCallee": "forEachRev"
+  },
+  {
+    "callback": "function (item) {\n    return typeof item == 'number' || item && !item.hasOwnProperty('x');\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "some"
+  },
+  {
+    "callback": "function (v, i) {\n    return {\n        x: ht(i + rsegment.index + 1) + offsets.l,\n        y: dim.height - offsets.b - vt(v),\n        data: v\n    };\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v) {\n    return {\n        x: ht(v.x) + offsets.l,\n        y: dim.height - offsets.b - vt(v.y),\n        data: v\n    };\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (v, i) {\n    return {\n        x: ht(i + rsegment.index + 1) + offsets.l,\n        y: dim.height - offsets.b - vt(v),\n        data: v\n    };\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return {\n        x: c.x + shadow.dx,\n        y: c.y + shadow.dy\n    };\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (c) {\n    return this.createPath(run, s, 'M' + c.x + ' ' + c.y + ' ' + theme.symbol).setStroke(shadow).setFill(shadow.color);\n}",
+    "receiverBase": "arr",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    me.setEditable(me.editable);\n    me.setEditModeStyling(me.editModeStyling);\n}",
+    "receiverBase": "editablePluginInstance",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.getEl().on('mouseover', function (evt, el) {\n        handleMouseEvent.call(me, evt, el, 'mouseover');\n    });\n    this.getEl().on('mousedown', function (evt, el) {\n        handleMouseEvent.call(me, evt, el, 'mousedown');\n    });\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt, el) {\n    handleMouseEvent.call(me, evt, el, 'mouseover');\n}",
+    "receiverBase": "getEl",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (evt, el) {\n    handleMouseEvent.call(me, evt, el, 'mousedown');\n}",
+    "receiverBase": "getEl",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    try {\n        me.getEl().focus();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    this.coverCell();\n}",
+    "receiverBase": "headerCt",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    me.focusCell(position);\n    try {\n        me.getEl().focus();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    Ext.EventManager.un(document.body, 'keyup', me.onKeyUp);\n}",
+    "receiverBase": "getView",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    selectionRange.each(function (position) {\n        me.clearPosition(position);\n    }, function onComplete() {\n        if (view.editable && view.editable.editModeStyling && view.editable.editable) {\n            view.editable.displayCellsEditing(true);\n        }\n        if (me.loadMask) {\n            loadMask.hide();\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (position) {\n    me.clearPosition(position);\n}",
+    "receiverBase": "selectionRange",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function onComplete() {\n    if (view.editable && view.editable.editModeStyling && view.editable.editable) {\n        view.editable.displayCellsEditing(true);\n    }\n    if (me.loadMask) {\n        loadMask.hide();\n    }\n}",
+    "receiverBase": "selectionRange",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (!me.hasClipboard()) {\n        me.createClipboard();\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "onReady"
+  },
+  {
+    "callback": "function () {\n    pasteDataCallback(me.el.dom.value);\n    me.el.dom.value = '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    try {\n        view.getEl().focus();\n    } catch (e) {\n    }\n    me.el.dom.style.display = 'none';\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.initEditingColumns();\n    me.initEventing();\n}",
+    "receiverBase": "getView",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    try {\n        me.cellCoverEditFieldEl.dom.focus();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    try {\n        me.getView().focus();\n    } catch (e) {\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    me.fireEvent('editablechange', me, allowEditing);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "displayCellsEditing"
+  },
+  {
+    "callback": "function () {\n    me.fireEvent('editablechange', me, allowEditing);\n}",
+    "receiverBase": "me",
+    "receiverCallee": "displayCellsEditing"
+  },
+  {
+    "callback": "function () {\n    chunkCellProcessor(startIdx, stopIdx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (clipboardData) {\n    var pastedDataArray = Spread.util.TSVTransformer.transformToArray(clipboardData);\n    me.updateRecordFieldsInStore(pastedDataArray, selectionPositions, selModel);\n    me.fireEvent('paste', me, selModel, selectionPositions, pastedDataArray);\n    if (me.loadMask) {\n        loadMask.hide();\n    }\n}",
+    "receiverBase": "me",
+    "receiverCallee": "prepareForClipboardPaste"
+  },
+  {
+    "callback": "function (field) {\n    if (field.name === fieldName && field.type.type !== 'auto') {\n        type = field.type.type;\n    }\n}",
+    "receiverBase": "fields",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    me.dataChangedRecently = true;\n}",
+    "receiverBase": "store",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    Ext.EventManager.un(document.body, 'mouseup', me.onCellMouseUp);\n}",
+    "receiverBase": "grid",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    this.fireEvent('keynavigate', this, direction, evt);\n    var newCurrentFocusPosition = this.tryMoveToPosition(this.getCurrentFocusPosition(), direction, evt);\n    if (this.setCurrentFocusPosition(newCurrentFocusPosition)) {\n        if (evt.shiftKey && evt.getKey() !== evt.TAB) {\n            this.selectFocusRange();\n        } else {\n            this.setOriginSelectionPosition(newCurrentFocusPosition);\n        }\n    }\n}",
+    "receiverBase": "Function",
+    "receiverCallee": "bind"
+  }
+]

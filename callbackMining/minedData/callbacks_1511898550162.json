@@ -1,0 +1,1117 @@
+[
+  {
+    "callback": "function () {\n    var TextEditorComponentExt = {\n            getUrl: function () {\n                return CONTEXT_PATH + 'plugin/pentaho-cdf-dd/api/editor/getExternalEditor?';\n            }\n        };\n    return TextEditorComponentExt;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    router.emit('commandContinue', item, context);\n    router.doCommand(requestName, spec, context, ++index);\n}",
+    "receiverBase": "cmd",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    router.emit('commandComplete', spec, context);\n}",
+    "receiverBase": "cmd",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    router.emit('commandListInterrupted', requestName, spec, context);\n    router.stop = true;\n}",
+    "receiverBase": "cmd",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (routeName, newCxt) {\n    router.emit('reroute', routeName, newCxt);\n    router.handleRequest(routeName, newCxt);\n}",
+    "receiverBase": "cmd",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    router.emit('commandListInterrupted', requestName, spec, context);\n    router.emit('error', err, context);\n}",
+    "receiverBase": "cmd",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (v, i) {\n    var firstColon = v.indexOf(':');\n    var origin = v.substring(0, firstColon).toLowerCase();\n    var key = v.substring(firstColon + 1);\n    switch (origin) {\n    case 'context':\n    case 'cxt':\n    case 'c':\n        retval = cxt.get(key);\n        return;\n    case 'arg':\n        break;\n    default:\n        var ds = cxt.getDatasource(origin);\n        if (ds != undefined) {\n            retval = ds[key];\n            return;\n        }\n    }\n}",
+    "receiverBase": "split",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    mass;\n}",
+    "receiverBase": "LIT:/mass/",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (node) {\n    node.setAttribute(name, '');\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (template) {\n    this.applyScopeToContent(template.content, name);\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (s) {\n    s.textContent = this.convertPolyfillDirectives(s.textContent, name);\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (p) {\n    p = p.trim();\n    if (p.match(hostElementRe)) {\n        p = p.replace(hostElementRe, name + '$1$3, ' + is + '$1$3');\n    } else if (p.match(hostFixableRe)) {\n        p = name + p + ', ' + is + p;\n    }\n    r.push(p);\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    if (s.parentNode) {\n        s.parentNode.removeChild(s);\n    }\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (rule) {\n    if (rule.selectorText && (rule.style && rule.style.cssText)) {\n        cssText += this.scopeSelector(rule.selectorText, name, this.strictStyling) + ' {\\n\\t';\n        cssText += this.propertiesFromRule(rule) + '\\n}\\n\\n';\n    } else if (rule.media) {\n        cssText += '@media ' + rule.media.mediaText + ' {\\n';\n        cssText += this.scopeRules(rule.cssRules, name);\n        cssText += '\\n}\\n\\n';\n    } else if (rule.cssText) {\n        cssText += rule.cssText + '\\n\\n';\n    }\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function (p) {\n    p = p.trim();\n    if (this.selectorNeedsScoping(p, name)) {\n        p = strict ? this.applyStrictSelectorScope(p, name) : this.applySimpleSelectorScope(p, name);\n    }\n    r.push(p);\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (sep) {\n    var parts = scoped.split(sep);\n    scoped = parts.map(function (p) {\n        var t = p.trim();\n        if (t && splits.indexOf(t) < 0 && t.indexOf(attrName) < 0) {\n            p = t.replace(/([^:]*)(:*)(.*)/, '$1' + attrName + '$2$3');\n        }\n        return p;\n    }).join(sep);\n}",
+    "receiverBase": "splits",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (p) {\n    var t = p.trim();\n    if (t && splits.indexOf(t) < 0 && t.indexOf(attrName) < 0) {\n        p = t.replace(/([^:]*)(:*)(.*)/, '$1' + attrName + '$2$3');\n    }\n    return p;\n}",
+    "receiverBase": "parts",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    cssText += s.textContent + '\\n\\n';\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    jscoverage_inLengthyOperation = false;\n    progressBar.style.visibility = 'hidden';\n    var progressLabel = document.getElementById('progressLabel');\n    progressLabel.style.visibility = 'hidden';\n    progressLabel.innerHTML = '';\n    var tabs = document.getElementById('tabs').getElementsByTagName('div');\n    var i;\n    for (i = 0; i < tabs.length; i++) {\n        tabs.item(i).style.cursor = '';\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (showMissingColumn) {\n        jscoverage_appendMissingColumn();\n    } else {\n        jscoverage_removeMissingColumn();\n    }\n    jscoverage_recalculateSummaryTab();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (c) {\n    switch (c) {\n    case '\\b':\n        return '\\\\b';\n    case '\\f':\n        return '\\\\f';\n    case '\\n':\n        return '\\\\n';\n    case '\\r':\n        return '\\\\r';\n    case '\\t':\n        return '\\\\t';\n    case '\"':\n        return '\\\\\"';\n    case '\\\\':\n        return '\\\\\\\\';\n    default:\n        return '\\\\u' + jscoverage_pad(c.charCodeAt(0).toString(16));\n    }\n}",
+    "receiverBase": "s",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (pair) {\n    var eq_idx = pair.indexOf('=');\n    var key = pair.substr(0, eq_idx).trim();\n    var val = pair.substr(++eq_idx, pair.length).trim();\n    if ('\"' == val[0]) {\n        val = val.slice(1, -1);\n    }\n    if (undefined == obj[key]) {\n        obj[key] = decode(val);\n    }\n}",
+    "receiverBase": "pairs",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (g) {\n    'use strict';\n    var _DEBUG = !!g._APPSPRESSO_DEBUG;\n    var ax = g.ax;\n    var deviceapis = g.deviceapis;\n    function Pim() {\n    }\n    ax.def(g).constant('Pim', Pim);\n    ax.def(deviceapis).constant('pim', new Pim());\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (factory) {\n    'use strict';\n    if (typeof define === 'function' && define.amd) {\n        define('datatables', ['jquery'], factory);\n    } else if (typeof exports === 'object') {\n        factory(require('jquery'));\n    } else if (jQuery && !jQuery.fn.dataTable) {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (key, val) {\n    match = key.match(/^([^A-Z]+?)([A-Z])/);\n    if (match && hungarian.indexOf(match[1] + ' ') !== -1) {\n        newKey = key.replace(match[0], match[2].toLowerCase());\n        map[newKey] = key;\n        if (match[1] === 'o') {\n            _fnHungarianMap(o[key]);\n        }\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, i) {\n    if (val[sParam]) {\n        a.push(i);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i, el) {\n    row = _fnGetRowElements(settings, el);\n    return _fnAddData(settings, row.data, el, row.cells);\n}",
+    "receiverBase": "trs",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (s) {\n    return s.replace('\\\\.', '.');\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (key, val) {\n    if (val) {\n        o[key] = _fnGetObjectDataFn(val);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, val) {\n    var match = val.name.match(rbracket);\n    if (match) {\n        var name = match[0];\n        if (!tmp[name]) {\n            tmp[name] = [];\n        }\n        tmp[name].push(val.value);\n    } else {\n        tmp[val.name] = val.value;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (val, key) {\n    return {\n        name: key,\n        value: val\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (json) {\n    _fnAjaxUpdateDraw(oSettings, json);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnBuildAjax"
+  },
+  {
+    "callback": "function (i, val) {\n    d.order.push({\n        column: val.col,\n        dir: val.dir\n    });\n    param('iSortCol_' + i, val.col);\n    param('sSortDir_' + i, val.dir);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    if (e.keyCode == 13) {\n        return false;\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    try {\n        if (jqFilter[0] !== document.activeElement) {\n            jqFilter.val(previousSearch.sSearch);\n        }\n    } catch (e) {\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (word) {\n    return word.charAt(0) === '\"' ? word.match(/^\"(.*)\"$/)[1] : word;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    _fnInitialise(settings);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (json) {\n    var aData = _fnAjaxDataSrc(settings, json);\n    for (i = 0; i < aData.length; i++) {\n        _fnAddData(settings, aData[i]);\n    }\n    settings.iInitDisplayStart = iAjaxStart;\n    _fnReDraw(settings);\n    _fnProcessingDisplay(settings, false);\n    _fnInitComplete(settings, json);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnBuildAjax"
+  },
+  {
+    "callback": "function (e) {\n    _fnLengthChange(settings, $(this).val());\n    _fnDraw(settings);\n}",
+    "receiverBase": "val",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e, s, len) {\n    $('select', div).val(len);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    var scrollLeft = this.scrollLeft;\n    scrollHead.scrollLeft = scrollLeft;\n    if (footer) {\n        scrollFoot.scrollLeft = scrollLeft;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "scroll"
+  },
+  {
+    "callback": "function (i, el) {\n    idx = _fnVisibleToColumnIndex(settings, i);\n    el.style.width = settings.aoColumns[idx].sWidth;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (n) {\n    n.style.width = '';\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nSizer) {\n    headerContent.push(nSizer.innerHTML);\n    headerWidths.push(_fnStringToCss($(nSizer).css('width')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nToSize, i) {\n    nToSize.style.width = headerWidths[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nSizer) {\n    footerWidths.push(_fnStringToCss($(nSizer).css('width')));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nToSize, i) {\n    nToSize.style.width = footerWidths[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nSizer, i) {\n    nSizer.innerHTML = '<div class=\"dataTables_sizing\" style=\"height:0;overflow:hidden;\">' + headerContent[i] + '</div>';\n    nSizer.style.width = headerWidths[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function (nSizer, i) {\n    nSizer.innerHTML = '';\n    nSizer.style.width = footerWidths[i];\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyToChildren"
+  },
+  {
+    "callback": "function () {\n    _fnAdjustColumnSizing(oSettings);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnThrottle"
+  },
+  {
+    "callback": "function () {\n    last = undefined;\n    fn.apply(that, args);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (a, b) {\n    var x, y, k, test, sort, len = aSort.length, dataA = aoData[a]._aSortData, dataB = aoData[b]._aSortData;\n    for (k = 0; k < len; k++) {\n        sort = aSort[k];\n        x = dataA[sort.col];\n        y = dataB[sort.col];\n        test = x < y ? -1 : x > y ? 1 : 0;\n        if (test !== 0) {\n            return sort.dir === 'asc' ? test : -test;\n        }\n    }\n    x = aiOrig[a];\n    y = aiOrig[b];\n    return x < y ? -1 : x > y ? 1 : 0;\n}",
+    "receiverBase": "displayMaster",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (e) {\n    if (col.bSortable === false) {\n        return;\n    }\n    _fnProcessingDisplay(settings, true);\n    setTimeout(function () {\n        _fnSortListener(settings, colIdx, e.shiftKey, callback);\n        if (_fnDataSource(settings) !== 'ssp') {\n            _fnProcessingDisplay(settings, false);\n        }\n    }, 0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnBindAction"
+  },
+  {
+    "callback": "function () {\n    _fnSortListener(settings, colIdx, e.shiftKey, callback);\n    if (_fnDataSource(settings) !== 'ssp') {\n        _fnProcessingDisplay(settings, false);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, val) {\n    if ($.isArray(val)) {\n        _fnMap(ret, src, val[0], val[1]);\n    } else {\n        _fnMap(ret, src, val);\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e) {\n    n.blur();\n    fn(e);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (e) {\n    if (e.which === 13) {\n        fn(e);\n    }\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    return false;\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function (val, i) {\n    return val.fn.apply(settings.oInstance, args);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (json) {\n    _fnLanguageCompat(json);\n    _fnCamelToHungarian(defaults.oLanguage, json);\n    $.extend(true, oSettings.oLanguage, oInit.oLanguage, json);\n    _fnInitialise(oSettings);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "getJSON"
+  },
+  {
+    "callback": "function (el, i) {\n    return rowOne.hasClass(el);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (iCol, oDef) {\n    _fnColumnOptions(oSettings, iCol, oDef);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnApplyColumnDefs"
+  },
+  {
+    "callback": "function () {\n    if (oSettings.bSorted) {\n        var aSort = _fnSortFlatten(oSettings);\n        var sortedColumns = {};\n        $.each(aSort, function (i, val) {\n            sortedColumns[val.src] = val.dir;\n        });\n        _fnCallbackFire(oSettings, null, 'order', [\n            oSettings,\n            aSort,\n            sortedColumns\n        ]);\n        _fnSortAria(oSettings);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnCallbackReg"
+  },
+  {
+    "callback": "function (i, val) {\n    sortedColumns[val.src] = val.dir;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    if (oSettings.bSorted || _fnDataSource(oSettings) === 'ssp' || features.bDeferRender) {\n        _fnSortingClasses(oSettings);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnCallbackReg"
+  },
+  {
+    "callback": "function () {\n    this._captionSide = $(this).css('caption-side');\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (el, i) {\n    return el.nTable;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    idx = $.inArray(this, tables);\n    return idx !== -1 ? settings[idx] : null;\n}",
+    "receiverBase": "jq",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (el) {\n    return el[prop];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var ret = val.apply(this, arguments);\n    if (ret === this) {\n        return this;\n    } else if (ret instanceof _Api) {\n        return ret.length ? $.isArray(ret[0]) ? new _Api(ret.context, ret[0]) : ret[0] : undefined;\n    }\n    return ret;\n}",
+    "receiverBase": "_Api",
+    "receiverCallee": "register"
+  },
+  {
+    "callback": "function (el, i) {\n    return el.nTable;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (i) {\n    var idx = $.inArray(this, nodes);\n    return a[idx];\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (selector) {\n    return selector ? new _Api(__table_selector(selector, this.context)) : this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (selector) {\n    var tables = this.tables(selector);\n    var ctx = tables.context;\n    return ctx.length ? new _Api(ctx[0]) : tables;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (ctx) {\n        return ctx.nTable;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (ctx) {\n    return ctx.nTable;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (ctx) {\n        return ctx.nTBody;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (ctx) {\n    return ctx.nTBody;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (ctx) {\n        return ctx.nTHead;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (ctx) {\n    return ctx.nTHead;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (ctx) {\n        return ctx.nTFoot;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (ctx) {\n    return ctx.nTFoot;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (resetPaging) {\n    return this.iterator('table', function (settings) {\n        _fnReDraw(settings, resetPaging === false);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnReDraw(settings, resetPaging === false);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (action) {\n    if (action === undefined) {\n        return this.page.info().page;\n    }\n    return this.iterator('table', function (settings) {\n        _fnPageChange(settings, action);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnPageChange(settings, action);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (len) {\n    if (len === undefined) {\n        return this.context.length !== 0 ? this.context[0]._iDisplayLength : undefined;\n    }\n    return this.iterator('table', function (settings) {\n        _fnLengthChange(settings, len);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnLengthChange(settings, len);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (json) {\n    _fnClearTable(settings);\n    var data = _fnAjaxDataSrc(settings, json);\n    for (var i = 0, ien = data.length; i < ien; i++) {\n        _fnAddData(settings, data[i]);\n    }\n    _fnReDraw(settings, holdPosition);\n    _fnProcessingDisplay(settings, false);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_fnBuildAjax"
+  },
+  {
+    "callback": "function () {\n    callback(api.ajax.json());\n}",
+    "receiverBase": "api",
+    "receiverCallee": "one"
+  },
+  {
+    "callback": "function () {\n    var ctx = this.context;\n    if (ctx.length > 0) {\n        return ctx[0].json;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    var ctx = this.context;\n    if (ctx.length > 0) {\n        return ctx[0].oAjaxData;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (callback, resetPaging) {\n    return this.iterator('table', function (settings) {\n        __reload(settings, resetPaging === false, callback);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    __reload(settings, resetPaging === false, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (url) {\n    var ctx = this.context;\n    if (url === undefined) {\n        if (ctx.length === 0) {\n            return undefined;\n        }\n        ctx = ctx[0];\n        return ctx.ajax ? $.isPlainObject(ctx.ajax) ? ctx.ajax.url : ctx.ajax : ctx.sAjaxSource;\n    }\n    return this.iterator('table', function (settings) {\n        if ($.isPlainObject(settings.ajax)) {\n            settings.ajax.url = url;\n        } else {\n            settings.ajax = url;\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    if ($.isPlainObject(settings.ajax)) {\n        settings.ajax.url = url;\n    } else {\n        settings.ajax = url;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (callback, resetPaging) {\n    return this.iterator('table', function (ctx) {\n        __reload(ctx, resetPaging === false, callback);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (ctx) {\n    __reload(ctx, resetPaging === false, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (el, i) {\n    return $.inArray(el, displayFiltered) === -1 ? el : null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return this._DT_RowIndex;\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (selector, opts) {\n    if (selector === undefined) {\n        selector = '';\n    } else if ($.isPlainObject(selector)) {\n        opts = selector;\n        selector = '';\n    }\n    opts = _selector_opts(opts);\n    var inst = this.iterator('table', function (settings) {\n            return __row_selector(settings, selector, opts);\n        });\n    inst.selector.rows = selector;\n    inst.selector.opts = opts;\n    return inst;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    return __row_selector(settings, selector, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('row', function (settings, row) {\n        return settings.aoData[row].nTr || undefined;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings, row) {\n    return settings.aoData[row].nTr || undefined;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator(true, 'rows', function (settings, rows) {\n        return _pluck_order(settings.aoData, rows, '_aData');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings, rows) {\n    return _pluck_order(settings.aoData, rows, '_aData');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (type) {\n    return this.iterator('row', function (settings, row) {\n        var r = settings.aoData[row];\n        return type === 'search' ? r._aFilterData : r._aSortData;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row) {\n    var r = settings.aoData[row];\n    return type === 'search' ? r._aFilterData : r._aSortData;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (src) {\n    return this.iterator('row', function (settings, row) {\n        _fnInvalidateRow(settings, row, src);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row) {\n    _fnInvalidateRow(settings, row, src);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('row', function (settings, row) {\n        return row;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row) {\n    return row;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (settings, row, thatIdx) {\n    var data = settings.aoData;\n    data.splice(row, 1);\n    for (var i = 0, ien = data.length; i < ien; i++) {\n        if (data[i].nTr !== null) {\n            data[i].nTr._DT_RowIndex = i;\n        }\n    }\n    var displayIndex = $.inArray(row, settings.aiDisplay);\n    _fnDeleteIndex(settings.aiDisplayMaster, row);\n    _fnDeleteIndex(settings.aiDisplay, row);\n    _fnDeleteIndex(that[thatIdx], row, false);\n    _fnLengthOverflow(settings);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (settings) {\n    var row, i, ien;\n    var out = [];\n    for (i = 0, ien = rows.length; i < ien; i++) {\n        row = rows[i];\n        if (row.nodeName && row.nodeName.toUpperCase() === 'TR') {\n            out.push(_fnAddTr(settings, row)[0]);\n        } else {\n            out.push(_fnAddData(settings, row));\n        }\n    }\n    return out;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (selector, opts) {\n    return _selector_first(this.rows(selector, opts));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (data) {\n    var ctx = this.context;\n    if (data === undefined) {\n        return ctx.length && this.length ? ctx[0].aoData[this[0]]._aData : undefined;\n    }\n    ctx[0].aoData[this[0]]._aData = data;\n    _fnInvalidateRow(ctx[0], this[0], 'data');\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    var ctx = this.context;\n    return ctx.length && this.length ? ctx[0].aoData[this[0]].nTr || null : null;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (row) {\n    if (row instanceof $ && row.length) {\n        row = row[0];\n    }\n    var rows = this.iterator('table', function (settings) {\n            if (row.nodeName && row.nodeName.toUpperCase() === 'TR') {\n                return _fnAddTr(settings, row)[0];\n            }\n            return _fnAddData(settings, row);\n        });\n    return this.row(rows[0]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    if (row.nodeName && row.nodeName.toUpperCase() === 'TR') {\n        return _fnAddTr(settings, row)[0];\n    }\n    return _fnAddData(settings, row);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    api.rows({ page: 'current' }).eq(0).each(function (idx) {\n        var row = settings.aoData[idx];\n        if (row._detailsShow) {\n            row._details.insertAfter(row.nTr);\n        }\n    });\n}",
+    "receiverBase": "api",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (idx) {\n    var row = settings.aoData[idx];\n    if (row._detailsShow) {\n        row._details.insertAfter(row.nTr);\n    }\n}",
+    "receiverBase": "eq",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, settings, idx, vis) {\n    var row, visible = _fnVisbleColumns(settings);\n    for (var i = 0, ien = settings.aoData.length; i < ien; i++) {\n        row = settings.aoData[i];\n        if (row._details) {\n            row._details.children('td[colspan]').attr('colspan', visible);\n        }\n    }\n}",
+    "receiverBase": "api",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data, klass) {\n    var ctx = this.context;\n    if (data === undefined) {\n        return ctx.length && this.length ? ctx[0].aoData[this[0]]._details : undefined;\n    } else if (ctx.length && this.length) {\n        __details_add(ctx[0], ctx[0].aoData[this[0]], data, klass);\n    }\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    __details_display.call(this, true);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    __details_display.call(this, false);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    var ctx = this.context;\n    if (ctx.length && this.length) {\n        return ctx[0].aoData[this[0]]._detailsShow || false;\n    }\n    return false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (col, i) {\n    return col.bVisible ? i : null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (name, i) {\n    return name === match[1] ? i : null;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    return $.inArray(this, nodes);\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (selector, opts) {\n    if (selector === undefined) {\n        selector = '';\n    } else if ($.isPlainObject(selector)) {\n        opts = selector;\n        selector = '';\n    }\n    opts = _selector_opts(opts);\n    var inst = this.iterator('table', function (settings) {\n            return __column_selector(settings, selector, opts);\n        });\n    inst.selector.cols = selector;\n    inst.selector.opts = opts;\n    return inst;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    return __column_selector(settings, selector, opts);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (selector, opts) {\n    return this.iterator('column', function (settings, column) {\n        return settings.aoColumns[column].nTh;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column) {\n    return settings.aoColumns[column].nTh;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (selector, opts) {\n    return this.iterator('column', function (settings, column) {\n        return settings.aoColumns[column].nTf;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column) {\n    return settings.aoColumns[column].nTf;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('column-rows', function (settings, column, i, j, rows) {\n        var a = [];\n        for (var row = 0, ien = rows.length; row < ien; row++) {\n            a.push(_fnGetCellData(settings, rows[row], column, ''));\n        }\n        return a;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column, i, j, rows) {\n    var a = [];\n    for (var row = 0, ien = rows.length; row < ien; row++) {\n        a.push(_fnGetCellData(settings, rows[row], column, ''));\n    }\n    return a;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (type) {\n    return this.iterator('column-rows', function (settings, column, i, j, rows) {\n        return _pluck_order(settings.aoData, rows, type === 'search' ? '_aFilterData' : '_aSortData', column);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column, i, j, rows) {\n    return _pluck_order(settings.aoData, rows, type === 'search' ? '_aFilterData' : '_aSortData', column);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('column-rows', function (settings, column, i, j, rows) {\n        return _pluck_order(settings.aoData, rows, 'anCells', column);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column, i, j, rows) {\n    return _pluck_order(settings.aoData, rows, 'anCells', column);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (vis) {\n    return this.iterator('column', function (settings, column) {\n        return vis === undefined ? settings.aoColumns[column].bVisible : __setColumnVis(settings, column, vis);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column) {\n    return vis === undefined ? settings.aoColumns[column].bVisible : __setColumnVis(settings, column, vis);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (type) {\n    return this.iterator('column', function (settings, column) {\n        return type === 'visible' ? _fnColumnIndexToVisible(settings, column) : column;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, column) {\n    return type === 'visible' ? _fnColumnIndexToVisible(settings, column) : column;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (settings) {\n        _fnAdjustColumnSizing(settings);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnAdjustColumnSizing(settings);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (type, idx) {\n    if (this.context.length !== 0) {\n        var ctx = this.context[0];\n        if (type === 'fromVisible' || type === 'toData') {\n            return _fnVisibleToColumnIndex(ctx, idx);\n        } else if (type === 'fromData' || type === 'toVisible') {\n            return _fnColumnIndexToVisible(ctx, idx);\n        }\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (selector, opts) {\n    return _selector_first(this.columns(selector, opts));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (i, el) {\n    row = el.parentNode._DT_RowIndex;\n    return {\n        row: row,\n        column: $.inArray(el, data[row].anCells)\n    };\n}",
+    "receiverBase": "filter",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (settings) {\n    return __cell_selector(settings, rowSelector, _selector_opts(opts));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (settings, idx) {\n    a = [];\n    for (i = 0, ien = rows[idx].length; i < ien; i++) {\n        for (j = 0, jen = columns[idx].length; j < jen; j++) {\n            a.push({\n                row: rows[idx][i],\n                column: columns[idx][j]\n            });\n        }\n    }\n    return a;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('cell', function (settings, row, column) {\n        return settings.aoData[row].anCells[column];\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row, column) {\n    return settings.aoData[row].anCells[column];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('cell', function (settings, row, column) {\n        return _fnGetCellData(settings, row, column);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings, row, column) {\n    return _fnGetCellData(settings, row, column);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (type) {\n    type = type === 'search' ? '_aFilterData' : '_aSortData';\n    return this.iterator('cell', function (settings, row, column) {\n        return settings.aoData[row][type][column];\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row, column) {\n    return settings.aoData[row][type][column];\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('cell', function (settings, row, column) {\n        return {\n            row: row,\n            column: column,\n            columnVisible: _fnColumnIndexToVisible(settings, column)\n        };\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_registerPlural"
+  },
+  {
+    "callback": "function (settings, row, column) {\n    return {\n        row: row,\n        column: column,\n        columnVisible: _fnColumnIndexToVisible(settings, column)\n    };\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (src) {\n    var selector = this.selector;\n    this.rows(selector.rows, selector.opts).invalidate(src);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (rowSelector, columnSelector, opts) {\n    return _selector_first(this.cells(rowSelector, columnSelector, opts));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (data) {\n    var ctx = this.context;\n    var cell = this[0];\n    if (data === undefined) {\n        return ctx.length && cell.length ? _fnGetCellData(ctx[0], cell[0].row, cell[0].column) : undefined;\n    }\n    _fnSetCellData(ctx[0], cell[0].row, cell[0].column, data);\n    _fnInvalidateRow(ctx[0], cell[0].row, 'data', cell[0].column);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (order, dir) {\n    var ctx = this.context;\n    if (order === undefined) {\n        return ctx.length !== 0 ? ctx[0].aaSorting : undefined;\n    }\n    if (typeof order === 'number') {\n        order = [[\n                order,\n                dir\n            ]];\n    } else if (!$.isArray(order[0])) {\n        order = Array.prototype.slice.call(arguments);\n    }\n    return this.iterator('table', function (settings) {\n        settings.aaSorting = order.slice();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    settings.aaSorting = order.slice();\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (node, column, callback) {\n    return this.iterator('table', function (settings) {\n        _fnSortAttachListener(settings, node, column, callback);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnSortAttachListener(settings, node, column, callback);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (dir) {\n    var that = this;\n    return this.iterator('table', function (settings, i) {\n        var sort = [];\n        $.each(that[i], function (j, col) {\n            sort.push([\n                col,\n                dir\n            ]);\n        });\n        settings.aaSorting = sort;\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings, i) {\n    var sort = [];\n    $.each(that[i], function (j, col) {\n        sort.push([\n            col,\n            dir\n        ]);\n    });\n    settings.aaSorting = sort;\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (j, col) {\n    sort.push([\n        col,\n        dir\n    ]);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (settings) {\n    if (!settings.oFeatures.bFilter) {\n        return;\n    }\n    _fnFilterComplete(settings, $.extend({}, settings.oPreviousSearch, {\n        'sSearch': input + '',\n        'bRegex': regex === null ? false : regex,\n        'bSmart': smart === null ? true : smart,\n        'bCaseInsensitive': caseInsen === null ? true : caseInsen\n    }), 1);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (i, o) {\n    if (o.nTable === t || o.nScrollHead === t || o.nScrollFoot === t) {\n        is = true;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (o) {\n    if (!visible || visible && $(o.nTable).is(':visible')) {\n        return o.nTable;\n    }\n}",
+    "receiverBase": "jQuery",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (selector, opts) {\n    var rows = this.rows(opts).nodes(), jqRows = $(rows);\n    return $([].concat(jqRows.filter(selector).toArray(), jqRows.find(selector).toArray()));\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (i, key) {\n    _api_register(key + '()', function () {\n        var args = Array.prototype.slice.call(arguments);\n        if (args[0].indexOf('.dt') === -1) {\n            args[0] += '.dt';\n        }\n        var inst = $(this.tables().nodes());\n        inst[key].apply(inst, args);\n        return this;\n    });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var args = Array.prototype.slice.call(arguments);\n    if (args[0].indexOf('.dt') === -1) {\n        args[0] += '.dt';\n    }\n    var inst = $(this.tables().nodes());\n    inst[key].apply(inst, args);\n    return this;\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (settings) {\n        _fnClearTable(settings);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    _fnClearTable(settings);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function () {\n    return new _Api(this.context, this.context);\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function () {\n    return this.iterator('table', function (settings) {\n        return _pluck(settings.aoData, '_aData');\n    }).flatten();\n}",
+    "receiverBase": "",
+    "receiverCallee": "_api_register"
+  },
+  {
+    "callback": "function (settings) {\n    return _pluck(settings.aoData, '_aData');\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "iterator"
+  },
+  {
+    "callback": "function (r) {\n    return r.nTr;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    var wrapper = $('div.' + classes.sSortJUIWrapper, this);\n    $(this).append(wrapper.contents());\n    wrapper.detach();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (i) {\n    $(this).addClass(settings.asDestroyStripes[i % ien]);\n}",
+    "receiverBase": "children",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (key, fn) {\n    _ext.type.order[key + decimalPlace + '-pre'] = fn;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (e, settings, sorting, columns) {\n    var colIdx = column.idx;\n    cell.removeClass(column.sSortingClass + ' ' + classes.sSortAsc + ' ' + classes.sSortDesc).addClass(columns[colIdx] == 'asc' ? classes.sSortAsc : columns[colIdx] == 'desc' ? classes.sSortDesc : column.sSortingClass);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (prop, val) {\n    $.fn.DataTable[prop] = val;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    return {\n        editor: { css: ['editor.css'] },\n        dialog: { css: ['dialog.css'] },\n        separator: { canGroup: false },\n        templates: { css: ['templates.css'] },\n        margins: [\n            0,\n            14,\n            18,\n            14\n        ]\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '{') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.end.column, range.end.column + 1);\n        if (rightChar == '}') {\n            range.end.column++;\n            return range;\n        } else {\n            context.maybeInsertedBrackets--;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '(') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ')') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && selected == '[') {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == ']') {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function (state, action, editor, session, range) {\n    var selected = session.doc.getTextRange(range);\n    if (!range.isMultiLine() && (selected == '\"' || selected == '\\'')) {\n        initContext(editor);\n        var line = session.doc.getLine(range.start.row);\n        var rightChar = line.substring(range.start.column + 1, range.start.column + 2);\n        if (rightChar == selected) {\n            range.end.column++;\n            return range;\n        }\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "add"
+  },
+  {
+    "callback": "function () {\n    if (document.documentMode) {\n        return document.documentMode;\n    } else {\n        for (var i = 7; i > 4; i--) {\n            var div = document.createElement('div');\n            div.innerHTML = '<!--[if IE ' + i + ']><span></span><![endif]-->';\n            if (div.getElementsByTagName('span').length) {\n                div = null;\n                return i;\n            }\n        }\n    }\n    return undefined;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var timeLast = 0;\n    return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {\n        var timeCurrent = new Date().getTime(), timeDelta;\n        timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));\n        timeLast = timeCurrent + timeDelta;\n        return setTimeout(function () {\n            callback(timeCurrent + timeDelta);\n        }, timeDelta);\n    };\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    callback(timeCurrent + timeDelta);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (i, name) {\n    baseEasings[name] = function (p) {\n        return Math.pow(p, i + 2);\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (name, easeIn) {\n    velocity.Easings['easeIn' + name] = easeIn;\n    velocity.Easings['easeOut' + name] = function (p) {\n        return 1 - easeIn(1 - p);\n    };\n    velocity.Easings['easeInOut' + name] = function (p) {\n        return p < 0.5 ? easeIn(p * 2) / 2 : 1 - easeIn(p * -2 + 2) / 2;\n    };\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (m, r, g, b) {\n    return r + r + g + g + b + b;\n}",
+    "receiverBase": "hex",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, subMatch) {\n    return subMatch.toUpperCase();\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match) {\n    return match.toUpperCase();\n}",
+    "receiverBase": "property",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (elementIndex, element) {\n    velocity.Sequences[propertiesMap].call(element, element, options || {}, elementIndex, elementsLength);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (next) {\n    velocity.velocityQueueEntryFlag = true;\n    setTimeout(next, parseFloat(opts.delay));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (match) {\n    unitType = match;\n    return '';\n}",
+    "receiverBase": "toLowerCase",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, subMatch) {\n    operator = subMatch;\n    return '';\n}",
+    "receiverBase": "separatedValue",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (next) {\n    velocity.velocityQueueEntryFlag = true;\n    buildQueue(next);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "queue"
+  },
+  {
+    "callback": "function (jQuery, _, Backbone, Modernizr, Mustache) {\n    jQuery.noConflict();\n    _.noConflict();\n    Backbone.noConflict();\n    Modernizr = !Modernizr ? window.Modernizr : 'undefined';\n    return {\n        'jQuery': jQuery,\n        '$': jQuery,\n        '_': _,\n        'Backbone': Backbone,\n        'Modernizr': Modernizr,\n        'Mustache': Mustache\n    };\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    realMozSetMessageHandler = navigator.mozSetMessageHandler;\n    navigator.mozSetMessageHandler = MockNavigatormozSetMessageHandler;\n    MockNavigatormozSetMessageHandler.mSetup();\n    realNotification = window.Notification;\n    window.Notification = MockNotification;\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteSetup"
+  },
+  {
+    "callback": "function () {\n    MockNavigatormozSetMessageHandler.mTeardown();\n    navigator.mozSetMessageHandler = realMozSetMessageHandler;\n    window.Notification = realNotification;\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteTeardown"
+  },
+  {
+    "callback": "function () {\n    subject = BaseModule.instantiate('NotificationsSystemMessage');\n    systemMessageHandlerSpy = this.sinon.spy(navigator, 'mozSetMessageHandler');\n    processSystemMessageSpy = this.sinon.spy(subject, 'processSystemMessage');\n    subject.start();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    subject.stop();\n}",
+    "receiverBase": "",
+    "receiverCallee": "teardown"
+  },
+  {
+    "callback": "function () {\n    sinon.assert.calledOnce(systemMessageHandlerSpy);\n    sinon.assert.calledWith(systemMessageHandlerSpy, 'notification');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.registerTarget(moduleName, ctxt, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.isDefined(subject._handlers[moduleName]);\n    assert.isDefined(subject._handlers[moduleName].name);\n    assert.equal(subject._handlers[moduleName].name, moduleName);\n    assert.isDefined(subject._handlers[moduleName].context);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.registerTarget(moduleName, ctxt, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    subject.unregisterTarget(moduleName, ctxt);\n    assert.equal(Object.keys(subject._handlers).length, 0);\n    assert.isUndefined(subject._handlers[moduleName]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.registerTarget(moduleName, ctxt, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.registerTarget(moduleName, ctxt2, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.unregisterTarget(moduleName, ctxt);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.registerTarget(moduleName, ctxt, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.unregisterTarget('module2', ctxt);\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.unregisterTarget(moduleName, ctxt);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.registerTarget(moduleName, ctxt, {});\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.unregisterTarget(moduleName, ctxt2);\n    assert.equal(Object.keys(subject._handlers).length, 1);\n    assert.equal(subject._handlers[moduleName].context, ctxt);\n    subject.unregisterTarget(moduleName, ctxt);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    closeCompatSpy = this.sinon.spy(subject, 'closeOldNotification');\n    checkTargetSpy = this.sinon.spy(subject, 'hasRegisteredTarget');\n    callTargetSpy = this.sinon.spy(subject, 'callRegisteredTarget');\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    MockNavigatormozSetMessageHandler.mTrigger('notification', {});\n    sinon.assert.calledOnce(processSystemMessageSpy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    MockNavigatormozSetMessageHandler.mTrigger('notification', {});\n    sinon.assert.notCalled(closeCompatSpy);\n    sinon.assert.notCalled(checkTargetSpy);\n    sinon.assert.notCalled(callTargetSpy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var msg = { clicked: true };\n    MockNavigatormozSetMessageHandler.mTrigger('notification', msg);\n    sinon.assert.calledOnce(closeCompatSpy);\n    sinon.assert.notCalled(checkTargetSpy);\n    sinon.assert.notCalled(callTargetSpy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    var msg = {\n            clicked: true,\n            data: { systemMessageTarget: 'module' }\n        };\n    MockNavigatormozSetMessageHandler.mTrigger('notification', msg);\n    sinon.assert.notCalled(closeCompatSpy);\n    sinon.assert.calledOnce(checkTargetSpy);\n    sinon.assert.notCalled(callTargetSpy);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    subject.closeOldNotification(systemMessageNotification);\n    assert.isTrue(window.Notification.get.calledOnce);\n    assert.isTrue(notifCloseSpy.calledOnce);\n    assert.isTrue(warnSpy.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    notification.tag = '';\n    systemMessageNotification.tag = undefined;\n    subject.closeOldNotification(systemMessageNotification);\n    assert.isTrue(window.Notification.get.calledOnce);\n    assert.isTrue(notifCloseSpy.calledOnce);\n    assert.isTrue(warnSpy.calledOnce);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    notification.data = { systemMessageTarget: 'screenshot' };\n    systemMessageNotification.data = { systemMessageTarget: 'screenshot' };\n    subject.closeOldNotification(systemMessageNotification);\n    assert.isTrue(window.Notification.get.calledOnce);\n    assert.isTrue(notifCloseSpy.notCalled);\n    assert.isTrue(warnSpy.notCalled);\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  }
+]

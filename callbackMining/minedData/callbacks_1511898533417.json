@@ -1,0 +1,380 @@
+[
+  {
+    "callback": "function () {\n    return root.QUnit || (root.addEventListener || (root.addEventListener = noop), root.setTimeout || (root.setTimeout = noop), root.QUnit = load('../node_modules/qunitjs/qunit/qunit.js') || root.QUnit, addEventListener === noop && delete root.addEventListener, root.QUnit);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    forEach(data, function (item) {\n        var reversed = esrever.reverse(item.input);\n        equal(reversed, item.expected, item.description);\n        equal(esrever.reverse(reversed), item.input, 'Reversing twice: ' + item.description);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (item) {\n    var reversed = esrever.reverse(item.input);\n    equal(reversed, item.expected, item.description);\n    equal(esrever.reverse(reversed), item.input, 'Reversing twice: ' + item.description);\n}",
+    "receiverBase": "",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, saved) {\n    if (saved) {\n        message._id = saved._id;\n    }\n    return cb(err, saved);\n}",
+    "receiverBase": "message",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err, saved) {\n    if (err) {\n        return done(err);\n    }\n    restrictedCommunity = saved;\n    return callback(null, saved);\n}",
+    "receiverBase": "restrictedCommunity",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err, saved) {\n    if (err) {\n        return done(err);\n    }\n    community = saved;\n    return callback(null, saved);\n}",
+    "receiverBase": "community",
+    "receiverCallee": "save"
+  },
+  {
+    "callback": "function (err) {\n    done(err);\n}",
+    "receiverBase": "async",
+    "receiverCallee": "series"
+  },
+  {
+    "callback": "function (done) {\n    this.mongoose.connection.db.dropDatabase();\n    this.mongoose.disconnect(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function (done) {\n    request(app).post('/api/messages').expect(401).end(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            description: message,\n            objectType: 'whatsup'\n        }\n    });\n    req.expect(400).end(function (err, res) {\n        expect(err).to.not.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            yolo: 'hey',\n            objectType: 'whatsup'\n        },\n        targets: [target]\n    });\n    req.expect(500).end(function (err, res) {\n        expect(err).to.not.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            description: message,\n            objectType: 'whatsup'\n        },\n        targets: [target]\n    });\n    req.expect(400).end(function (err) {\n        expect(err).to.not.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.not.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            description: message,\n            objectType: 'whatsup'\n        },\n        targets: [\n            invalidtarget,\n            target\n        ]\n    });\n    req.expect(201).end(function (err, res) {\n        expect(err).to.not.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            description: message,\n            objectType: 'whatsup'\n        },\n        targets: [target]\n    });\n    req.expect(201).end(function (err, res) {\n        expect(err).to.not.exist;\n        expect(res.body).to.exist;\n        expect(res.body._id).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    expect(res.body).to.exist;\n    expect(res.body._id).to.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    expect(res.body).to.exist;\n    expect(res.body._id).to.exist;\n    expect(res.body.parentId).to.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    var cookies = res.headers['set-cookie'].pop().split(';')[0];\n    var req = request(app).post('/api/messages');\n    req.cookies = cookies;\n    req.send({\n        object: {\n            description: message,\n            objectType: 'whatsup'\n        },\n        targets: [target]\n    });\n    req.expect(201).end(function (err, res) {\n        expect(err).to.not.exist;\n        expect(res.body).to.exist;\n        expect(res.body._id).to.exist;\n        done();\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    expect(res.body).to.exist;\n    expect(res.body._id).to.exist;\n    done();\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.not.exist;\n    process.nextTick(function () {\n        TimelineEntry.find({}, function (err, results) {\n            expect(results).to.exist;\n            expect(results.length).to.equal[0];\n            done();\n        });\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    TimelineEntry.find({}, function (err, results) {\n        expect(results).to.exist;\n        expect(results.length).to.equal[0];\n        done();\n    });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, results) {\n    expect(results).to.exist;\n    expect(results.length).to.equal[0];\n    done();\n}",
+    "receiverBase": "TimelineEntry",
+    "receiverCallee": "find"
+  },
+  {
+    "callback": "function (err) {\n    expect(err).to.not.exist;\n    process.nextTick(function () {\n        Whatsup.findById(messageId, function (err, message) {\n            if (err) {\n                return done(err);\n            }\n            expect(message).to.exist;\n            expect(message.responses).to.exists;\n            expect(message.responses.length).to.equal(0);\n            done();\n        });\n    });\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    Whatsup.findById(messageId, function (err, message) {\n        if (err) {\n            return done(err);\n        }\n        expect(message).to.exist;\n        expect(message.responses).to.exists;\n        expect(message.responses.length).to.equal(0);\n        done();\n    });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, message) {\n    if (err) {\n        return done(err);\n    }\n    expect(message).to.exist;\n    expect(message.responses).to.exists;\n    expect(message.responses.length).to.equal(0);\n    done();\n}",
+    "receiverBase": "Whatsup",
+    "receiverCallee": "findById"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.be.null;\n    expect(res.body).to.be.an.array;\n    expect(res.body.length).to.equal(2);\n    expect(res.body[0].error).to.be.an('object');\n    expect(res.body[0].error.code).to.equal(404);\n    expect(res.body[1].error).to.be.an('object');\n    expect(res.body[1].error.code).to.equal(404);\n    done();\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.be.null;\n    expect(res.body).to.be.an.array;\n    expect(res.body.length).to.equal(2);\n    expect(res.body[0].author).to.be.an('object');\n    expect(res.body[0].author._id).to.equal(testuser._id.toString());\n    expect(res.body[1].author).to.be.an('object');\n    expect(res.body[1].author._id).to.equal(restrictedUser._id.toString());\n    done();\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, loggedInAsUser) {\n    if (err) {\n        return done(err);\n    }\n    var req = loggedInAsUser(request(app).get('/api/messages/' + message1._id));\n    req.expect(200);\n    req.end(function (err, res) {\n        expect(err).to.be.null;\n        expect(res.body).to.be.an('object');\n        expect(res.body.author).to.be.an('object');\n        expect(res.body.author._id).to.equal(testuser._id.toString());\n        done();\n    });\n}",
+    "receiverBase": "api",
+    "receiverCallee": "loginAsUser"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.be.null;\n    expect(res.body).to.be.an('object');\n    expect(res.body.author).to.be.an('object');\n    expect(res.body.author._id).to.equal(testuser._id.toString());\n    done();\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.be.null;\n    expect(res.body).to.be.an.array;\n    expect(res.body.length).to.equal(2);\n    expect(res.body[0].author).to.be.an('object');\n    expect(res.body[0].author._id).to.equal(testuser._id.toString());\n    expect(res.body[1].error).to.be.an('object');\n    expect(res.body[1].error.code).to.equal(403);\n    done();\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function (done) {\n    this.helpers.api.loginAsUser(app, email, password, function (err, loggedInAsUser) {\n        if (err) {\n            return done(err);\n        }\n        var req = loggedInAsUser(request(app).post('/api/messages/' + message1._id + '/shares'));\n        req.send({\n            'resource': {\n                'objecType': 'activitystream',\n                'id': '7fd3e254-394f-46eb-994d-a2ec23e7cf27'\n            }\n        });\n        req.expect(400);\n        req.end(done);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, loggedInAsUser) {\n    if (err) {\n        return done(err);\n    }\n    var req = loggedInAsUser(request(app).post('/api/messages/' + message1._id + '/shares'));\n    req.send({\n        'resource': {\n            'objecType': 'activitystream',\n            'id': '7fd3e254-394f-46eb-994d-a2ec23e7cf27'\n        }\n    });\n    req.expect(400);\n    req.end(done);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "loginAsUser"
+  },
+  {
+    "callback": "function (err, loggedInAsUser) {\n    if (err) {\n        return done(err);\n    }\n    var req = loggedInAsUser(request(app).post('/api/messages/' + message1._id + '/shares'));\n    req.send({\n        'target': [{\n                'objectType': 'activitystream',\n                'id': '976f55e7-b72f-4ac0-afb2-400a85c50951'\n            }]\n    });\n    req.expect(400);\n    req.end(done);\n}",
+    "receiverBase": "api",
+    "receiverCallee": "loginAsUser"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.be.null;\n    expect(res.body._id).to.exist;\n    process.nextTick(function () {\n        Whatsup.findOne({ _id: res.body._id }, function (err, message) {\n            expect(message).to.exist;\n            expect(message.responses).to.be.empty;\n            done();\n        });\n    });\n}",
+    "receiverBase": "req",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    Whatsup.findOne({ _id: res.body._id }, function (err, message) {\n        expect(message).to.exist;\n        expect(message.responses).to.be.empty;\n        done();\n    });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, message) {\n    expect(message).to.exist;\n    expect(message.responses).to.be.empty;\n    done();\n}",
+    "receiverBase": "Whatsup",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, message) {\n    expect(message).to.exist;\n    expect(message.attachments).to.exist;\n    expect(message.attachments.length).to.equal(1);\n    expect(message.attachments[0]._id + '').to.equal(attachmentId + '');\n    expect(message.attachments[0].name).to.equal(attachment.name);\n    expect(message.attachments[0].contentType).to.equal(attachment.contentType);\n    expect(message.attachments[0].length).to.equal(attachment.length);\n    done();\n}",
+    "receiverBase": "Whatsup",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (err, meta) {\n    if (err) {\n        return done(err);\n    }\n    expect(meta).to.exist;\n    expect(meta.metadata).to.exist;\n    expect(meta.metadata.referenced).to.exist;\n    expect(meta.metadata.referenced.length).to.equal(1);\n    expect(meta.metadata.referenced[0].objectType).to.exist;\n    expect(meta.metadata.referenced[0].objectType).to.equal('message');\n    expect(meta.metadata.referenced[0].id + '').to.equal(message._id + '');\n    done();\n}",
+    "receiverBase": "filestore",
+    "receiverCallee": "getMeta"
+  },
+  {
+    "callback": "function (err, res) {\n    expect(err).to.not.exist;\n    expect(res.body).to.exist;\n    expect(res.body._id).to.exist;\n    process.nextTick(function () {\n        Whatsup.findOne({ _id: res.body._id }, function (err, message) {\n            expect(message).to.exist;\n            expect(message.parsers).to.exist;\n            expect(message.parsers).to.have.length(1);\n            expect(message.parsers[0].name).to.equal('markdown');\n            done();\n        });\n    });\n}",
+    "receiverBase": "expect",
+    "receiverCallee": "end"
+  },
+  {
+    "callback": "function () {\n    Whatsup.findOne({ _id: res.body._id }, function (err, message) {\n        expect(message).to.exist;\n        expect(message.parsers).to.exist;\n        expect(message.parsers).to.have.length(1);\n        expect(message.parsers[0].name).to.equal('markdown');\n        done();\n    });\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function (err, message) {\n    expect(message).to.exist;\n    expect(message.parsers).to.exist;\n    expect(message.parsers).to.have.length(1);\n    expect(message.parsers[0].name).to.equal('markdown');\n    done();\n}",
+    "receiverBase": "Whatsup",
+    "receiverCallee": "findOne"
+  },
+  {
+    "callback": "function (key) {\n    delete custom_fields[key];\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (match, eachName, inName) {\n    return '``;\\rvar $' + eachName + '_keys = keys(' + inName + ');\\rfor(var $' + eachName + '_i = 0; $' + eachName + '_i < $' + eachName + '_keys.length; $' + eachName + '_i++) {\\rvar $' + eachName + '_last = ($' + eachName + '_i == $' + eachName + '_keys.length-1);\\rvar $' + eachName + '_key = $' + eachName + '_keys[$' + eachName + '_i];\\rvar ' + eachName + ' = ' + inName + '[$' + eachName + '_key];\\routput+=``';\n}",
+    "receiverBase": "code",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, code) {\n    code = code.replace(/\"/g, '``');\n    code = code.replace(/(\\r?\\n)/g, ' ');\n    return '``+ (' + code + ') +``';\n}",
+    "receiverBase": "code",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (match, code) {\n    code = code.replace(/\"/g, '``');\n    code = code.replace(/(\\n)/g, ' ');\n    return '``; ' + code + ';\\routput+=``';\n}",
+    "receiverBase": "code",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function () {\n    require('mock-modules').dumpCache();\n    CSSProperty = require('CSSProperty');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    expect(CSSProperty.isUnitlessNumber.lineClamp).toBeTruthy();\n    expect(CSSProperty.isUnitlessNumber.WebkitLineClamp).toBeTruthy();\n    expect(CSSProperty.isUnitlessNumber.msFlexGrow).toBeTruthy();\n    expect(CSSProperty.isUnitlessNumber.MozFlexGrow).toBeTruthy();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        pool.release(conn);\n        return cb(err);\n    }\n    if (args.db || args.db === 0) {\n        conn.select(args.db);\n    }\n    cb(null, conn);\n}",
+    "receiverBase": "pool",
+    "receiverCallee": "acquire"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        return cb(err);\n    }\n    conn.get(getKey(key), function (err, result) {\n        pool.release(conn);\n        if (err) {\n            return cb(err);\n        }\n        cb(null, JSON.parse(result));\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, result) {\n    pool.release(conn);\n    if (err) {\n        return cb(err);\n    }\n    cb(null, JSON.parse(result));\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        return cb(err);\n    }\n    if (ttl) {\n        conn.setex(getKey(key), ttl, JSON.stringify(value), function (err, result) {\n            pool.release(conn);\n            cb(err, result);\n        });\n    } else {\n        conn.set(getKey(key), JSON.stringify(value), function (err, result) {\n            pool.release(conn);\n            cb(err, result);\n        });\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, result) {\n    pool.release(conn);\n    cb(err, result);\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "setex"
+  },
+  {
+    "callback": "function (err, result) {\n    pool.release(conn);\n    cb(err, result);\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "set"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        return cb(err);\n    }\n    conn.del(getKey(key), function (err, result) {\n        pool.release(conn);\n        cb(err, result);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, result) {\n    pool.release(conn);\n    cb(err, result);\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "del"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        return cb(err);\n    }\n    conn.keys(self.id + '*', function (err, keys) {\n        if (err) {\n            return cb(err);\n        }\n        keys.push(function (err, result) {\n            pool.release(conn);\n            cb(err, result);\n        });\n        conn.del.apply(conn, keys);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, keys) {\n    if (err) {\n        return cb(err);\n    }\n    keys.push(function (err, result) {\n        pool.release(conn);\n        cb(err, result);\n    });\n    conn.del.apply(conn, keys);\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "keys"
+  },
+  {
+    "callback": "function (err, result) {\n    pool.release(conn);\n    cb(err, result);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function (err, conn) {\n    if (err) {\n        return cb(err);\n    }\n    conn.keys(self.id + '*', function (err, keys) {\n        if (err) {\n            return cb(err);\n        }\n        pool.release(conn);\n        cb(err, keys);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "connect"
+  },
+  {
+    "callback": "function (err, keys) {\n    if (err) {\n        return cb(err);\n    }\n    pool.release(conn);\n    cb(err, keys);\n}",
+    "receiverBase": "conn",
+    "receiverCallee": "keys"
+  },
+  {
+    "callback": "function () {\n    stream.emit('data', '\\x04');\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    terminalExit++;\n    testRegularMode();\n}",
+    "receiverBase": "r1",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    stream.emit('end');\n}",
+    "receiverBase": "process",
+    "receiverCallee": "nextTick"
+  },
+  {
+    "callback": "function () {\n    regularExit++;\n}",
+    "receiverBase": "r2",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert.equal(terminalExit, 1);\n    assert.equal(regularExit, 1);\n}",
+    "receiverBase": "process",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function testBasic() {\n    var err = new Error('something went wrong');\n    var trace = stackTrace.parse(err);\n    assert.strictEqual(trace[0].getFileName(), __filename);\n    assert.strictEqual(trace[0].getFunctionName(), 'testBasic');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function testWrapper() {\n    (function testBelowFn() {\n        var err = new Error('something went wrong');\n        var trace = stackTrace.parse(err);\n        assert.strictEqual(trace[0].getFunctionName(), 'testBelowFn');\n        assert.strictEqual(trace[1].getFunctionName(), 'testWrapper');\n    }());\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function testBelowFn() {\n    var err = new Error('something went wrong');\n    var trace = stackTrace.parse(err);\n    assert.strictEqual(trace[0].getFunctionName(), 'testBelowFn');\n    assert.strictEqual(trace[1].getFunctionName(), 'testWrapper');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function testNoStack() {\n    var err = { stack: undefined };\n    var trace = stackTrace.parse(err);\n    assert.deepEqual(trace, []);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function testCorruptStack() {\n    var err = {};\n    err.stack = 'AssertionError: true == false\\n' + '    fuck' + '    at Test.run (/Users/felix/code/node-fast-or-slow/lib/test.js:45:10)\\n' + 'oh no' + '    at TestCase.run (/Users/felix/code/node-fast-or-slow/lib/test_case.js:61:8)\\n';\n    var trace = stackTrace.parse(err);\n    assert.equal(trace.length, 2);\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function testStackWithMultilineMessage() {\n    var err = {};\n    err.stack = 'AssertionError: true == false\\nAnd some more shit\\n' + '   at /Users/felix/code/node-fast-or-slow/lib/test_case.js:80:10';\n    var trace = stackTrace.parse(err);\n    var callSite = trace[0];\n    assert.strictEqual(callSite.getFileName(), '/Users/felix/code/node-fast-or-slow/lib/test_case.js');\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (self.emitOpen)\n        self._emitAcrossAllDbInstances(self, null, 'open', null, null, null);\n    self._emitAcrossAllDbInstances(self, null, 'fullsetup', null, null, null);\n}",
+    "receiverBase": "",
+    "receiverCallee": "processor"
+  },
+  {
+    "callback": "function (err, result) {\n    callback(err, result);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function () {\n    self._emitAcrossAllDbInstances(self, null, 'close', null, null, true);\n}",
+    "receiverBase": "",
+    "receiverCallee": "processor"
+  }
+]

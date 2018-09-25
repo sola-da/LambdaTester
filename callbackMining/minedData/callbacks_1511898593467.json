@@ -1,0 +1,351 @@
+[
+  {
+    "callback": "function () {\n    fn(tx);\n}",
+    "receiverBase": "tx",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function () {\n    that.executeSql('COMMIT', null, callback);\n}",
+    "receiverBase": "session",
+    "receiverCallee": "flush"
+  },
+  {
+    "callback": "function () {\n    session.clean();\n    callback();\n}",
+    "receiverBase": "that",
+    "receiverCallee": "executeSql"
+  },
+  {
+    "callback": "function (col) {\n    return '`' + col + '`';\n}",
+    "receiverBase": "columns",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (k) {\n    copy[k] = obj[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (x) {\n    if (i >= len)\n        return x;\n    switch (x) {\n    case '%s':\n        return String(args[i++]);\n    case '%d':\n        return Number(args[i++]);\n    case '%j':\n        return JSON.stringify(args[i++], safeCycles());\n    case '%%':\n        return '%';\n    default:\n        return x;\n    }\n}",
+    "receiverBase": "String",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (err) {\n    self.emit('error', err, s);\n}",
+    "receiverBase": "stream",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (field) {\n    var serializer = serializers[field];\n    if (typeof serializer !== 'function') {\n        throw new TypeError(format('invalid serializer for \"%s\" field: must be a function', field));\n    } else {\n        self.serializers[field] = serializer;\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (k) {\n    self.fields[k] = fields[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (s) {\n    return s.level;\n}",
+    "receiverBase": "streams",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (k) {\n    rec[k] = recFields[k];\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    return [str || rec && log._emit(rec, true) || log._emit(mkRecord(msgArgs), true)];\n}",
+    "receiverBase": "probes",
+    "receiverCallee": "fire"
+  },
+  {
+    "callback": "function () {\n    self.rotate();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (delErr) {\n    moves();\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "unlink"
+  },
+  {
+    "callback": "function (exists) {\n    if (!exists) {\n        moves();\n    } else {\n        if (_DEBUG)\n            console.log('mv %s %s', before, after);\n        mv(before, after, function (mvErr) {\n            if (mvErr) {\n                self.emit('error', mvErr);\n                finish();\n            } else {\n                moves();\n            }\n        });\n    }\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "exists"
+  },
+  {
+    "callback": "function (mvErr) {\n    if (mvErr) {\n        self.emit('error', mvErr);\n        finish();\n    } else {\n        moves();\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "mv"
+  },
+  {
+    "callback": "function () {\n    var href = $(this).attr('href');\n    if (!href)\n        return;\n    href = href.replace(/&width=[0-9]+/g, '');\n    href = href.replace(/&height=[0-9]+/g, '');\n    $(this).attr('href', href + '&width=' + (W - 80) + '&height=' + (H - 85 - adminbar_height));\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    tb_position();\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    tb_click.call(this);\n    $('#TB_title').css({\n        'background-color': '#222',\n        'color': '#cfcfcf'\n    });\n    $('#TB_ajaxWindowTitle').html('<strong>' + plugininstallL10n.plugin_information + '</strong>&nbsp;' + $(this).attr('title'));\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var tab = $(this).attr('name');\n    $('#plugin-information-header a.current').removeClass('current');\n    $(this).addClass('current');\n    $('#section-holder div.section').hide();\n    $('#section-' + tab).show();\n    return false;\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    return confirm(plugininstallL10n.ays);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function (table) {\n    return USE_TYPEDARRAY ? new Uint32Array(table) : table;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (prop) {\n    if (typeof src[prop] !== 'undefined')\n        target[prop] = compiler.aup(src[prop], target[prop]);\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prop) {\n    if (typeof src[prop] !== 'undefined')\n        target[prop] = compiler.abottom(src[prop], target[prop]);\n}",
+    "receiverBase": "properties",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (serie) {\n    seriesOptions = merge(serie.options, {\n        animation: false,\n        showCheckbox: false,\n        visible: serie.visible\n    });\n    if (!seriesOptions.isInternal) {\n        if (seriesOptions && seriesOptions.marker && /^url\\(/.test(seriesOptions.marker.symbol)) {\n            seriesOptions.marker.symbol = 'circle';\n        }\n        options.series.push(seriesOptions);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axisType) {\n    each(chart[axisType], function (axis, i) {\n        var axisCopy = chartCopy[axisType][i], extremes = axis.getExtremes(), userMin = extremes.userMin, userMax = extremes.userMax;\n        if (userMin !== UNDEFINED || userMax !== UNDEFINED) {\n            axisCopy.setExtremes(userMin, userMax, true, false);\n        }\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (axis, i) {\n    var axisCopy = chartCopy[axisType][i], extremes = axis.getExtremes(), userMin = extremes.userMin, userMax = extremes.userMax;\n    if (userMin !== UNDEFINED || userMax !== UNDEFINED) {\n        axisCopy.setExtremes(userMin, userMax, true, false);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (s) {\n    return s.toLowerCase();\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (name) {\n    createElement('input', {\n        type: HIDDEN,\n        name: name,\n        value: {\n            filename: options.filename || 'chart',\n            type: options.type,\n            width: options.width,\n            svg: svg\n        }[name]\n    }, null, form);\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (node, i) {\n    if (node.nodeType === 1) {\n        origDisplay[i] = node.style.display;\n        node.style.display = NONE;\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    origParent.appendChild(container);\n    each(childNodes, function (node, i) {\n        if (node.nodeType === 1) {\n            node.style.display = origDisplay[i];\n        }\n    });\n    chart.isPrinting = false;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (node, i) {\n    if (node.nodeType === 1) {\n        node.style.display = origDisplay[i];\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    symbol.attr({\n        stroke: btnOptions.hoverSymbolStroke,\n        fill: btnOptions.hoverSymbolFill\n    });\n    box.attr({ stroke: btnOptions.hoverBorderColor });\n}",
+    "receiverBase": "css",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    onclick.apply(chart, arguments);\n}",
+    "receiverBase": "button",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chart) {\n    var n, exportingOptions = chart.options.exporting, buttons = exportingOptions.buttons;\n    if (exportingOptions.enabled !== false) {\n        for (n in buttons) {\n            chart.addButton(buttons[n]);\n        }\n        addEvent(chart, 'destroy', chart.destroyExport);\n    }\n}",
+    "receiverBase": "callbacks",
+    "receiverCallee": "push"
+  },
+  {
+    "callback": "function () {\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    $('#startupload').prop('disabled', true);\n    data.context = $('#startupload').text('Importing');\n    data.submit();\n    $('#startupload').off('click');\n}",
+    "receiverBase": "prop",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    console.dir(cache.query('beep'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "setInterval"
+  },
+  {
+    "callback": "function (err, attrs) {\n    if (!!err)\n        return self.error(self, err, 'getZoneAttrs');\n    self.setName(attrs.CurrentZoneName);\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "getZoneAttrs"
+  },
+  {
+    "callback": "function (request, taskID, actor, perform, parameter) {\n    if (actor !== 'device/' + self.deviceID)\n        return;\n    if (request === 'perform')\n        return self.perform(self, taskID, perform, parameter);\n}",
+    "receiverBase": "broker",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (method, headers, content) {\n    if (method === 'notify')\n        self.notify(self, headers, content);\n}",
+    "receiverBase": "broker",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function () {\n    self.jumpstart(self, path);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.jumpstart(self, path);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    self.jumpstart(self, path);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        return self.error(self, err, 'setName');\n    self.setName(params.name);\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "setName"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        return self.error(self, err, 'setPlayMode');\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "setPlayMode"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        return self.error(self, err, 'seek');\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "seek"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        return self.error(self, err, 'setVolume');\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "setVolume"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        return self.error(self, err, 'setMuted');\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "setMuted"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        self.error(self, err, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "sonos"
+  },
+  {
+    "callback": "function (err, data) {\n    if (!!err)\n        self.error(self, err, e);\n}",
+    "receiverBase": "",
+    "receiverCallee": "sonos"
+  },
+  {
+    "callback": "function (err, topology) {\n    var status;\n    if (!!err)\n        return self.error(self, err, 'getZoneTopologyStatus');\n    if (!topology)\n        return;\n    status = topology.$.coordinator === 'true' ? self.status : 'zoned';\n    if (status !== 'zoned')\n        self.refresh2(self);\n    if (self.status === status)\n        return;\n    self.status = status;\n    self.changed();\n}",
+    "receiverBase": "self",
+    "receiverCallee": "getZoneTopologyStatus"
+  },
+  {
+    "callback": "function () {\n    self.refresh(self);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err, volume) {\n    if (self.status === 'zoned')\n        return;\n    if (!!err)\n        return self.error(self, err, 'getVolume');\n    if (volume !== undefined && self.info.volume !== volume) {\n        self.info.volume = volume;\n        self.changed();\n    }\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "getVolume"
+  },
+  {
+    "callback": "function (err, muted) {\n    if (self.status === 'zoned')\n        return;\n    if (!!err)\n        return self.error(self, err, 'getMuted');\n    if (muted !== undefined && self.info.muted !== (muted ? 'on' : 'off')) {\n        self.info.muted = muted ? 'on' : 'off';\n        self.changed();\n    }\n}",
+    "receiverBase": "sonos",
+    "receiverCallee": "getMuted"
+  },
+  {
+    "callback": "function (data) {\n    content += data.toString();\n}",
+    "receiverBase": "response",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err, data) {\n    var i, player, players;\n    if (!!err)\n        return callback(err);\n    players = data.ZPSupportInfo.ZonePlayers[0].ZonePlayer;\n    for (i = 0; i < players.length; i++) {\n        player = players[i];\n        if (player.$.uuid === self.udn)\n            return callback(null, player);\n    }\n    callback(null, null);\n}",
+    "receiverBase": "parser",
+    "receiverCallee": "parseString"
+  },
+  {
+    "callback": "function () {\n    callback(new Error('premature eof'));\n}",
+    "receiverBase": "on",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (request, taskID, actor, perform, parameter) {\n    if (actor !== 'device/' + self.deviceID)\n        return;\n    if (request === 'perform')\n        return devices.perform(self, taskID, perform, parameter);\n}",
+    "receiverBase": "broker",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (request, taskID, actor, perform, parameter) {\n    if (actor !== 'device/' + self.deviceID)\n        return;\n    if (request === 'perform')\n        return devices.perform(self, taskID, perform, parameter);\n}",
+    "receiverBase": "broker",
+    "receiverCallee": "subscribe"
+  },
+  {
+    "callback": "function (upnp) {\n    if (upnp.root.device[0].nodelName[0].indexOf('Sonos DOCK') === 0)\n        return '/device/media/sonos/dock';\n}",
+    "receiverBase": "discovery",
+    "receiverCallee": "upnp_register"
+  },
+  {
+    "callback": "function (exit, enter, reason) {\n    switch (reason) {\n    case 'input-commit':\n        return commitInputResult();\n    case 'input-cancel':\n        return exitInputMode();\n    }\n}",
+    "receiverBase": "fsm",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    if (fsm.state() == 'input') {\n        fsm.jump('normal', 'input-commit');\n    }\n}",
+    "receiverBase": "minder",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (e) {\n    if (e.type == 'viewchange' && fsm.state() != 'input')\n        return;\n    updatePosition();\n}",
+    "receiverBase": "minder",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    var box = focusNode.getRenderBox('TextRenderer');\n    receiverElement.style.left = Math.round(box.x) + 'px';\n    receiverElement.style.top = (debug.flaged ? Math.round(box.bottom + 30) : Math.round(box.y)) + 'px';\n    receiverElement.focus();\n    planed.timer = 0;\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    return CREATE_TEST_DB(this, 'testdb_bug_65').bind(this).then(function () {\n        return this.db.class.create('Member', 'V');\n    }).then(function (item) {\n        this.class = item;\n        return this.class.property.create([\n            {\n                name: 'name',\n                type: 'String'\n            },\n            {\n                name: 'altName',\n                type: 'String'\n            }\n        ]);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "before"
+  },
+  {
+    "callback": "function () {\n    return this.db.class.create('Member', 'V');\n}",
+    "receiverBase": "bind",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (item) {\n    this.class = item;\n    return this.class.property.create([\n        {\n            name: 'name',\n            type: 'String'\n        },\n        {\n            name: 'altName',\n            type: 'String'\n        }\n    ]);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    return DELETE_TEST_DB('testdb_bug_65');\n}",
+    "receiverBase": "",
+    "receiverCallee": "after"
+  },
+  {
+    "callback": "function () {\n    return this.db.index.create([\n        {\n            name: 'Member.name',\n            type: 'unique'\n        },\n        {\n            name: 'Member.altName',\n            type: 'unique'\n        }\n    ]);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  }
+]

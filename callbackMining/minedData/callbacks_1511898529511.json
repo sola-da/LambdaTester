@@ -1,0 +1,338 @@
+[
+  {
+    "callback": "function () {\n    filesystem.remove(fso.path, genericFileSystemCallback);\n}",
+    "receiverBase": "confirm",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $log.info('Delete modal dismissed');\n}",
+    "receiverBase": "confirm",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    var oldPath = fso.path;\n    var newPath = p.resolve(fso.dir, value);\n    filesystem.rename(oldPath, newPath, genericFileSystemCallback);\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $log.info('Rename modal dismissed');\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    filesystem.mkfile(p.resolve(fso.path, value), genericFileSystemCallback);\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $log.info('Make file modal dismissed');\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (value) {\n    filesystem.mkdir(p.resolve(fso.path, value), genericFileSystemCallback);\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $log.info('Make directory modal dismissed');\n}",
+    "receiverBase": "prompt",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'uijet_dir/uijet',\n            'uijet_dir/widgets/Base'\n        ], function (uijet) {\n            return factory(uijet);\n        });\n    } else {\n        factory(uijet);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (uijet) {\n    return factory(uijet);\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function (collections) {\n    return collections;\n}",
+    "receiverBase": "",
+    "receiverCallee": "define"
+  },
+  {
+    "callback": "function () {\n    var ln = errorLine(err);\n    if (ln)\n        editor.gotoLine(ln, false);\n    highlightItem(this);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "click"
+  },
+  {
+    "callback": "function () {\n    var y = $('body').height() - $('#errors').height();\n    alert(y);\n    $('#editor').css({ bottom: y });\n}",
+    "receiverBase": "$",
+    "receiverCallee": "resize"
+  },
+  {
+    "callback": "function () {\n    DNode.connect(setup);\n}",
+    "receiverBase": "$",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (filename) {\n    Services[filename.match(/^(.+)\\.js$/)[1]] = require(__dirname + '/services/' + filename);\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (err, json) {\n    if (err)\n        return callback(err);\n    if (!json || !json['s:Envelope'] || !util.isArray(json['s:Envelope']['s:Body'])) {\n        return callback(new Error('Invalid response for ' + action + ': ' + JSON.stringify(json)));\n    }\n    if (typeof json['s:Envelope']['s:Body'][0]['s:Fault'] !== 'undefined')\n        return callback(json['s:Envelope']['s:Body'][0]['s:Fault']);\n    return callback(null, json['s:Envelope']['s:Body'][0][responseTag]);\n}",
+    "receiverCallee": "parseString"
+  },
+  {
+    "callback": "function (err, data) {\n    var track;\n    if (err)\n        return callback(err, data);\n    track = _this.parseDIDL(data);\n    track.position = position;\n    track.duration = duration;\n    track.albumArtURL = !track.albumArtURI ? null : track.albumArtURI.indexOf('http') !== -1 ? track.albumArtURI : 'http://' + _this.host + ':' + _this.port + track.albumArtURI;\n    return callback(null, track);\n}",
+    "receiverCallee": "parseString"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    callback(null, parseInt(data[0].CurrentVolume[0], 10));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    callback(null, parseInt(data[0].CurrentMute[0], 10) ? true : false);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        return cb(err);\n    }\n    return self.play(cb);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "queueNext"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return cb(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return cb(null, true);\n    } else {\n        return cb(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        return callback(err);\n    }\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err) {\n        return callback(err);\n    }\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return callback(null, true);\n    } else {\n        return callback(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return cb(err);\n    if (data[0].$['xmlns:u'] === 'urn:schemas-upnp-org:service:AVTransport:1') {\n        return cb(null, true);\n    } else {\n        return cb(new Error({\n            err: err,\n            data: data\n        }), false);\n    }\n}",
+    "receiverBase": "self",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (callback) {\n        return callback(err, data);\n    } else {\n        return null;\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err, data);\n    if (data[0] && data[0].CurrentLEDState && data[0].CurrentLEDState[0])\n        return callback(null, data[0].CurrentLEDState[0]);\n    callback(new Error('unknown response'));\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err) {\n    return callback(err);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err, data);\n    var output = {};\n    for (var d in data[0])\n        if (data[0].hasOwnProperty(d) && d !== '$')\n            output[d] = data[0][d][0];\n    callback(null, output);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    if (err)\n        return callback(err, data);\n    var output = {};\n    for (var d in data[0])\n        if (data[0].hasOwnProperty(d) && d !== '$')\n            output[d] = data[0][d][0];\n    callback(null, output);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, res, body) {\n    if (err)\n        return callback(err);\n    if (res.statusCode !== 200)\n        return callback(new Error('non 200 errorCode'));\n    new xml2js.Parser().parseString(body, function (err, json) {\n        if (err)\n            return callback(err);\n        var output = {};\n        for (var d in json.root.device[0])\n            if (json.root.device[0].hasOwnProperty(d))\n                output[d] = json.root.device[0][d][0];\n        callback(null, output);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, json) {\n    if (err)\n        return callback(err);\n    var output = {};\n    for (var d in json.root.device[0])\n        if (json.root.device[0].hasOwnProperty(d))\n            output[d] = json.root.device[0][d][0];\n    callback(null, output);\n}",
+    "receiverCallee": "parseString"
+  },
+  {
+    "callback": "function (str) {\n    return str === '&' ? '&amp;' : '&lt;';\n}",
+    "receiverBase": "name",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (err, data) {\n    return callback(err, data);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (zone) {\n    return _.extend(zone.$, { name: zone._ });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (zone) {\n    return _.extend(zone.$, { name: zone._ });\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (buffer, rinfo) {\n    buffer = buffer.toString();\n    if (buffer.match(/.+Sonos.+/)) {\n        var modelCheck = buffer.match(/SERVER.*\\((.*)\\)/);\n        var model = modelCheck.length > 1 ? modelCheck[1] : null;\n        _this.emit('DeviceAvailable', new Sonos(rinfo.address), model);\n    }\n}",
+    "receiverBase": "dgram",
+    "receiverCallee": "createSocket"
+  },
+  {
+    "callback": "function (err) {\n    _this.emit('error', err);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    _this.socket.setBroadcast(true);\n    _this.socket.send(PLAYER_SEARCH, 0, PLAYER_SEARCH.length, 1900, '239.255.255.250');\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    _this.socket.close();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (evt) {\n    window.removeEventListener('storage', storageListener, false);\n    if (resultsHandler) {\n        resultsHandler.call(null, this.SUCCESS, key, null, namespace);\n    }\n}",
+    "receiverBase": "dojo",
+    "receiverCallee": "hitch"
+  },
+  {
+    "callback": "function (req, res) {\n    res.send('200 OK');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function () {\n    debug('Server listening on port ' + app.get('port') + ' ' + 'in ' + app.get('env') + ' mode');\n}",
+    "receiverBase": "app",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function () {\n    $(this).remove();\n}",
+    "receiverBase": "stop",
+    "receiverCallee": "fadeOut"
+  },
+  {
+    "callback": "function () {\n    if (tipsy.hoverState == 'in')\n        tipsy.show();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    if (tipsy.hoverState == 'out')\n        tipsy.hide();\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function () {\n    get(this);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var pointee = $.data(this, 'tipsy-pointee');\n    if (!pointee || !isElementInDOM(pointee)) {\n        $(this).remove();\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (socket, port, address, proxyReady) {\n    var proxy;\n    proxy = net.createConnection(port, address, proxyReady);\n    proxy.on('data', function (data) {\n        socket.write(data);\n    });\n    socket.on('data', function (data) {\n        proxy.write(data);\n    });\n    proxy.on('close', function () {\n        socket.end();\n    });\n    socket.on('close', function () {\n        proxy.removeAllListeners('data');\n        proxy.end();\n    });\n}",
+    "receiverBase": "socks",
+    "receiverCallee": "createServer"
+  },
+  {
+    "callback": "function (data) {\n    socket.write(data);\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (data) {\n    proxy.write(data);\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    socket.end();\n}",
+    "receiverBase": "proxy",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    proxy.removeAllListeners('data');\n    proxy.end();\n}",
+    "receiverBase": "socket",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "server",
+    "receiverCallee": "listen"
+  },
+  {
+    "callback": "function (err) {\n    throw err;\n}",
+    "receiverBase": "server",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (res, err) {\n    var data = '';\n    assert.ifError(err);\n    assert.equal(res.statusCode, 200);\n    res.setEncoding('utf8');\n    if (readableStreams) {\n        res.on('readable', function () {\n            data += res.read();\n        });\n    } else {\n        res.on('data', function (chunk) {\n            data += chunk;\n        });\n    }\n    res.on('end', function () {\n        assert(-1 !== data.indexOf('<html'));\n        assert(-1 !== data.indexOf('</html>'));\n        done();\n    });\n}",
+    "receiverBase": "https",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function () {\n    data += res.read();\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (chunk) {\n    data += chunk;\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    assert(-1 !== data.indexOf('<html'));\n    assert(-1 !== data.indexOf('</html>'));\n    done();\n}",
+    "receiverBase": "res",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    assert.fail(err);\n}",
+    "receiverBase": "req",
+    "receiverCallee": "on"
+  }
+]

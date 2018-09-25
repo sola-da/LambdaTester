@@ -1,0 +1,246 @@
+[
+  {
+    "callback": "function (url) {\n    if (url.match('login') || url.match('register')) {\n        browser.get('#/login');\n        $('.auth-form-container #login_username').sendKeys(username);\n        $('.auth-form-container #login_password').sendKeys(password);\n        $('#loginBtn').click().then(function () {\n            helpers.waitForNavigation('#/balance');\n        });\n    }\n}",
+    "receiverBase": "getCurrentUrl",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    helpers.waitForNavigation('#/balance');\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    helpers.waitForNavigation('#/register');\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (url) {\n    if (!url.match('login')) {\n        $('.mainnav .settings').click().then(function () {\n            $('.mainnav .settings .dropdown-menu .logout').click().then(function () {\n                helpers.waitForNavigation('#/login');\n            });\n        });\n    } else {\n        browser.get('#/login');\n    }\n}",
+    "receiverBase": "getCurrentUrl",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    $('.mainnav .settings .dropdown-menu .logout').click().then(function () {\n        helpers.waitForNavigation('#/login');\n    });\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    helpers.waitForNavigation('#/login');\n}",
+    "receiverBase": "click",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function () {\n    _baton.pass(result);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (f) {\n    jWorkflow.order(f).start(join);\n}",
+    "receiverBase": "func",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (prev, baton) {\n    baton.take();\n    setTimeout(function () {\n        baton.pass(prev);\n    }, time);\n}",
+    "receiverBase": "_self",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function () {\n    baton.pass(prev);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (param) {\n    if (param.nodeType && param.nodeType !== 3) {\n        elems.push(param);\n    } else {\n        each(lookup(param), push);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    console.log(msg);\n}",
+    "receiverBase": "workflow",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function () {\n    console.info('workflow.start');\n}",
+    "receiverBase": "workflow",
+    "receiverCallee": "start"
+  },
+  {
+    "callback": "function (plugin) {\n    var func = core.plugins[plugin];\n    animation[plugin] = function () {\n        var args = arguments;\n        workflow.andThen(function () {\n            func.apply(document.getElementById(id), args);\n        });\n        return animation;\n    };\n}",
+    "receiverBase": "forEach",
+    "receiverCallee": "call"
+  },
+  {
+    "callback": "function () {\n    func.apply(document.getElementById(id), args);\n}",
+    "receiverBase": "workflow",
+    "receiverCallee": "andThen"
+  },
+  {
+    "callback": "function () {\n    AniElems = alice.elements(elems);\n    for (i = 0; i < AniElems.length; i++) {\n        document.getElementById(AniElems[i].getAttribute('id')).removeAttribute('style');\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    AniObj = alice.elements(elems);\n    for (ob = 0; ob < AniObj.length; ob++) {\n        var animationElement = document.getElementById(AniObj[ob].getAttribute('id'));\n        animationElement.parentNode.removeChild(animationElement);\n    }\n}",
+    "receiverBase": "document",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function () {\n    name = nameEl.val();\n    localStorage.setItem('username', name);\n}",
+    "receiverBase": "nameEl",
+    "receiverCallee": "change"
+  },
+  {
+    "callback": "function () {\n    modelA = new Backbone.Model();\n    modelB = new Backbone.Model();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    var binding = Bobun.Binding(modelA);\n    expect(binding).to.be.equal(Bobun.Binding(binding));\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    modelB.on('change:foo', spy);\n    Bobun.Binding(modelA).bindTo(modelB, 'foo');\n    modelA.set('foo', 'bar');\n    expect(spy.called).to.be.true;\n    expect(modelB.get('foo')).to.equal('bar');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    modelB.on('change:foo', spy);\n    modelB.on('change:bar', spy);\n    Bobun.Binding(modelA).bindTo(modelB, [\n        'foo',\n        'bar'\n    ]);\n    modelA.set('foo', 'bar');\n    modelA.set('bar', 'foo');\n    expect(spy.calledTwice).to.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    modelB.on('change:bar', spy);\n    Bobun.Binding(modelA).bindTo(modelB, { 'foo': 'bar' });\n    modelA.set('foo', 'bar');\n    expect(spy.called).to.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    modelB.on('change:bar', spy);\n    Bobun.Binding.bindTo(modelA, modelB, { 'foo': 'bar' });\n    modelA.set('foo', 'bar');\n    expect(spy.called).to.be.true;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    it('obj.bind(bindedObj, property)', function () {\n        var spy = sinon.spy();\n        modelA.on('change:foo', spy);\n        modelB.on('change:foo', spy);\n        Bobun.Binding(modelA).bind(modelB, 'foo');\n        modelA.set('foo', 'bar');\n        expect(spy.callCount).to.equal(2);\n        expect(modelB.get('foo')).to.equal('bar');\n        modelB.set('foo', 'bar2');\n        expect(spy.callCount).to.equal(4);\n        expect(modelA.get('foo')).to.equal('bar2');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "describe"
+  },
+  {
+    "callback": "function () {\n    var spy = sinon.spy();\n    modelA.on('change:foo', spy);\n    modelB.on('change:foo', spy);\n    Bobun.Binding(modelA).bind(modelB, 'foo');\n    modelA.set('foo', 'bar');\n    expect(spy.callCount).to.equal(2);\n    expect(modelB.get('foo')).to.equal('bar');\n    modelB.set('foo', 'bar2');\n    expect(spy.callCount).to.equal(4);\n    expect(modelA.get('foo')).to.equal('bar2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-sc', 3, 12);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-tb', 3, 12);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-tb-css', 5, 12);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-st', 4, 2);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-std', 4, 12);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-flat', 4, 0);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function () {\n    checkSpreadedChildren('spread-tall', 4, 12);\n}",
+    "receiverBase": "d",
+    "receiverCallee": "getTestCallback"
+  },
+  {
+    "callback": "function (factory) {\n    if (typeof define === 'function' && define.amd) {\n        define([\n            'jquery',\n            '../jquery.validate'\n        ], factory);\n    } else {\n        factory(jQuery);\n    }\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function (ret, name) {\n    ret[name] = genesis.lookupType(fields[name]);\n    keys.push(name);\n    offsets[name] = bytes;\n    bytes += ret[name].bytes;\n    return ret;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (field) {\n    if (!field in fields)\n        throw new Error('Invalid field \"' + field + '\"');\n    field in fields && initField(this, StructT, field).write(values[field]);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    Object.defineProperty(target.prototype, field, {\n        enumerable: true,\n        configurable: true,\n        get: function () {\n            return initField(this, target, field);\n        },\n        set: function (v) {\n            initField(this, target, field).write(v);\n        }\n    });\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field, current) {\n    current = o[field];\n    if (current != null) {\n        this[field] = current.reify ? current.reify() : current;\n    } else if (current === null) {\n        this[field] = null;\n    }\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    if (deallocate)\n        this[field] = null;\n    else\n        this[field].realign(offset);\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function (field) {\n    this[field] = val;\n}",
+    "receiverBase": "keys",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function ($0) {\n    return $0 in flags ? flags[$0] : $0.slice(1, $0.length - 1);\n}",
+    "receiverBase": "mask",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (node) {\n    node.innerHTML = this.getRelativeTime(node.innerHTML);\n}",
+    "receiverBase": "query",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    fs.readFile(__filename, function () {\n        _.map([\n            'Error 1',\n            'Error 2'\n        ], function foo(v) {\n            setTimeout(function () {\n                throw new Error(v);\n            }, 10);\n        });\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "trycatch"
+  },
+  {
+    "callback": "function () {\n    _.map([\n        'Error 1',\n        'Error 2'\n    ], function foo(v) {\n        setTimeout(function () {\n            throw new Error(v);\n        }, 10);\n    });\n}",
+    "receiverBase": "fs",
+    "receiverCallee": "readFile"
+  },
+  {
+    "callback": "function foo(v) {\n    setTimeout(function () {\n        throw new Error(v);\n    }, 10);\n}",
+    "receiverBase": "_",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function () {\n    throw new Error(v);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (err) {\n    console.log('Async error caught!\\n', err.stack);\n}",
+    "receiverBase": "",
+    "receiverCallee": "trycatch"
+  },
+  {
+    "callback": "function (i, parser) {\n    var match = parser.re.exec(val), values = match && parser.parse(match), space = parser.space || 'rgba';\n    if (values) {\n        if (space === 'hsla') {\n            that.value = CPGlobal.RGBtoHSB.apply(null, CPGlobal.HSLtoRGB.apply(null, values));\n        } else {\n            that.value = CPGlobal.RGBtoHSB.apply(null, values);\n        }\n        return false;\n    }\n}",
+    "receiverBase": "$",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    var $this = $(this), data = $this.data('colorpicker'), options = typeof option === 'object' && option;\n    if (!data) {\n        $this.data('colorpicker', data = new Colorpicker(this, $.extend({}, $.fn.colorpicker.defaults, options)));\n    }\n    if (typeof option === 'string')\n        data[option](val);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  }
+]

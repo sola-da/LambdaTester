@@ -1,0 +1,174 @@
+[
+  {
+    "callback": "function () {\n    sinon.stub(console, 'error');\n    sinon.stub(process, 'kill');\n    sinon.stub(process, 'exit');\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeEach"
+  },
+  {
+    "callback": "function () {\n    console.error.restore();\n    process.kill.restore();\n    process.exit.restore();\n}",
+    "receiverBase": "",
+    "receiverCallee": "afterEach"
+  },
+  {
+    "callback": "function () {\n    checkStatus('master', 100);\n    assertStatus('master', 100, 'alive');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    checkStatus('worker', 100, 0);\n    assertStatus('worker1', 100, 'alive');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    process.kill.throws({ code: 'ESRCH' });\n    checkStatus('master', 100);\n    assertStatus('master', 100, 'dead');\n    process.exit.calledWith(1).should.be.ok;\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    process.kill.throws({ code: 'ESRCH' });\n    checkStatus('worker', 100, 0);\n    assertStatus('worker1', 100, 'dead');\n    process.exit.callCount.should.equal(0);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    process.kill.throws({ code: 'FOO' });\n    (function () {\n        checkStatus('master', 100);\n    }.should.throwError());\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    [\n        100,\n        200,\n        300\n    ].forEach(checkStatus.bind(null, 'worker'));\n    assertStatus('worker1', 100, 'alive');\n    assertStatus('worker2', 200, 'alive');\n    assertStatus('worker3', 300, 'alive');\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    if (this.options.miniMapControl) {\n        this.miniMapControl = new L.Control.MiniMap().addTo(this);\n    }\n}",
+    "receiverBase": "Map",
+    "receiverCallee": "addInitHook"
+  },
+  {
+    "callback": "function ($, undefined) {\n    $.widget('mobile.page', $.mobile.widget, {\n        options: {\n            theme: 'c',\n            domCache: false\n        },\n        _create: function () {\n            this._trigger('beforecreate');\n            this.element.attr('tabindex', '0').addClass('ui-page ui-body-' + this.options.theme);\n        }\n    });\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _results;\n    _results = [];\n    for (_i = 0, _len = evts.length; _i < _len; _i++) {\n        evt = evts[_i];\n        if (should_keep_event(evt)) {\n            _results.push(evt);\n        }\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var _i, _len, _ref1, _results;\n    _ref1 = document.getElementsByTagName('template');\n    _results = [];\n    for (_i = 0, _len = _ref1.length; _i < _len; _i++) {\n        template = _ref1[_i];\n        _results.push(template);\n    }\n    return _results;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    var element, template;\n    element = document.getElementById(url.slice(1));\n    template = element != null ? element.innerHTML : '';\n    if (!isString(template)) {\n        template = '';\n    }\n    _this.cacheTemplate(url, template);\n    return callback(template);\n}",
+    "receiverBase": "Falcon",
+    "receiverCallee": "ready"
+  },
+  {
+    "callback": "function (model) {\n    return model.set(attribute, value);\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (template) {\n    _this.template = template;\n    return _this.__falcon_view__loaded_template__(template);\n}",
+    "receiverBase": "templateAdapter",
+    "receiverCallee": "resolveTemplate"
+  },
+  {
+    "callback": "function (template) {\n    var element;\n    element = document.createElement('div');\n    element.innerHTML = template;\n    return callback({\n        template: element.childNodes,\n        createViewModel: function (params) {\n            var view;\n            view = new view_definition(params);\n            params['__falcon_component_view__'] = view;\n            view._render();\n            return view.createViewModel();\n        }\n    });\n}",
+    "receiverBase": "templateAdapter",
+    "receiverCallee": "resolveTemplate"
+  },
+  {
+    "callback": "function () {\n    return callback.call(context != null ? context : this);\n}",
+    "receiverBase": "ko",
+    "receiverCallee": "computed"
+  },
+  {
+    "callback": "function () {\n    return _tryUnrender(view);\n}",
+    "receiverBase": "domNodeDisposal",
+    "receiverCallee": "addDisposeCallback"
+  },
+  {
+    "callback": "function () {\n    return continuation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeDispose"
+  },
+  {
+    "callback": "function () {\n    return continuation();\n}",
+    "receiverBase": "",
+    "receiverCallee": "beforeDispose"
+  },
+  {
+    "callback": "function (element, valueAccessor) {\n    return console.log(ko.unwrap(valueAccessor()));\n}",
+    "receiverBase": "Falcon",
+    "receiverCallee": "addBinding"
+  },
+  {
+    "callback": "function () {\n    var params, view;\n    if (!isObject(value = ko.unwrap(valueAccessor()))) {\n        return;\n    }\n    if (!isObject(params = value['params'])) {\n        return;\n    }\n    if (!Falcon.isView(view = params['__falcon_component_view__'])) {\n        return;\n    }\n    return view._unrender();\n}",
+    "receiverBase": "Falcon",
+    "receiverCallee": "onDispose"
+  },
+  {
+    "callback": "function (gravatarService) {\n    return function (email, size) {\n        if (!email) {\n            return gravatarService.url('', {\n                default: 'mm',\n                size: size\n            });\n        }\n        return gravatarService.url(email, {\n            default: 'wavatar',\n            size: size\n        });\n    };\n}",
+    "receiverBase": "module",
+    "receiverCallee": "filter"
+  },
+  {
+    "callback": "function () {\n    SC.Observers.suspendPropertyObserving();\n    SC.Observers.suspendPropertyObserving();\n    obj.set('foo');\n    equals(callCount, 0, 'should not notify observer while suspended');\n    SC.Observers.resumePropertyObserving();\n    equals(callCount, 0, 'should not notify observer while still suspended');\n    SC.Observers.resumePropertyObserving();\n    equals(callCount, 1, 'should notify observer when resumed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    SC.Observers.suspendPropertyObserving();\n    obj.beginPropertyChanges();\n    obj.set('foo');\n    equals(callCount, 0, 'should not notify observer while suspended');\n    obj.endPropertyChanges();\n    equals(callCount, 0, 'should not notify observer while suspended');\n    SC.Observers.resumePropertyObserving();\n    equals(callCount, 1, 'should notify observer when resumed');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function ($, one, two, three) {\n    console.log('one: %o, two: %o, three: %o', one, two, three);\n}",
+    "receiverBase": "",
+    "receiverCallee": "require"
+  },
+  {
+    "callback": "function (err) {\n    if (err) {\n        deferred.reject(new DirectoryCreationErrorException(directoryPath));\n        return;\n    }\n    deferred.resolve(directoryPath);\n}",
+    "receiverBase": "",
+    "receiverCallee": "exec"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(self);\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (err) {\n    deferred.reject(new ConnectionErrorException(err.message));\n}",
+    "receiverBase": "connection",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(self);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (e) {\n    deferred.reject(e);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(self);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (e) {\n    deferred.reject(e);\n}",
+    "receiverBase": "queue",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function () {\n    deferred.resolve(files);\n}",
+    "receiverBase": "all",
+    "receiverCallee": "then"
+  },
+  {
+    "callback": "function (e) {\n    deferred.reject(e);\n}",
+    "receiverBase": "then",
+    "receiverCallee": "catch"
+  }
+]

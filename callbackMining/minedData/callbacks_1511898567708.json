@@ -1,0 +1,297 @@
+[
+  {
+    "callback": "function (data) {\n    var lobby = network.channels[0];\n    var msg = new Msg({\n            type: Msg.Type.ERROR,\n            text: data.message\n        });\n    client.emit('msg', {\n        chan: lobby.id,\n        msg: msg\n    });\n    if (!network.connected) {\n        if (data.cmd == 'ERR_NICKNAMEINUSE') {\n            var random = irc.me + Math.floor(10 + Math.random() * 89);\n            irc.nick(random);\n        }\n    }\n}",
+    "receiverBase": "irc",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = 'testString';\n    var expectedValue = 'testString';\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = 'testString';\n    var expectedValue = 'differentString';\n    var expectedResult = {\n            match: false,\n            diffs: [{\n                    expected: 'differentString',\n                    actual: 'testString'\n                }]\n        };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = 'testString';\n    var expectedValue = '${var}String';\n    var variables = { 'var': 'test' };\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue, variables);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = 1;\n    var expectedValue = 1;\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = 1;\n    var expectedValue = 2;\n    var expectedResult = {\n            match: false,\n            diffs: [{\n                    expected: 2,\n                    actual: 1\n                }]\n        };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = [];\n    var expectedValue = [];\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = [\n            1,\n            2,\n            3\n        ];\n    var expectedValue = [\n            1,\n            2,\n            3\n        ];\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = [\n            1,\n            2,\n            3\n        ];\n    var expectedValue = [\n            3,\n            1,\n            2\n        ];\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = [\n            { 'prop1': 'val1' },\n            { 'prop2': 'val2' }\n        ];\n    var expectedValue = [\n            { 'prop1': 'val1' },\n            { 'prop2': 'val2' }\n        ];\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = [\n            { 'prop1': 'val1' },\n            { 'prop2': 'val2' }\n        ];\n    var expectedValue = [\n            { 'prop2': 'val2' },\n            { 'prop1': 'val1' }\n        ];\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Expected result does not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = {\n            'prop1': 'val1',\n            'prop2': 'val2'\n        };\n    var expectedValue = {\n            'prop1': 'val1',\n            'prop2': 'val2'\n        };\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(result, expectedResult), 'Results do not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = {\n            'prop1': 'val1',\n            'prop2': 'val2',\n            'prop3': 'val3'\n        };\n    var expectedValue = {\n            'prop1': 'val1',\n            'prop2': 'val2'\n        };\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(result, expectedResult), 'Results do not match, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    var actualValue = {\n            'prop1': 5,\n            'prop2': 5\n        };\n    var expectedValue = {\n            'prop1': { '$gt': 4 },\n            'prop2': { '$lt': 6 }\n        };\n    var expectedResult = { match: true };\n    var result = comparer.areEqual(actualValue, expectedValue);\n    assert(_.isEqual(expectedResult, result), 'Result does not match expected, got ' + JSON.stringify(result));\n    done();\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (done) {\n    EmeServer(client, function (err, _server) {\n        server = _server;\n        done(err);\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteSetup"
+  },
+  {
+    "callback": "function (err, _server) {\n    server = _server;\n    done(err);\n}",
+    "receiverBase": "",
+    "receiverCallee": "EmeServer"
+  },
+  {
+    "callback": "function (done) {\n    server.close(done);\n}",
+    "receiverBase": "",
+    "receiverCallee": "suiteTeardown"
+  },
+  {
+    "callback": "function () {\n    actions = client.loader.getActions();\n    selectors = Collection.Selectors;\n    collection = new Collection(client);\n    home = client.loader.getAppClass('verticalhome');\n    system = client.loader.getAppClass('system');\n    system.waitForStartup();\n    home.waitForLaunch();\n    EmeServer.setServerURL(client, server);\n}",
+    "receiverBase": "",
+    "receiverCallee": "setup"
+  },
+  {
+    "callback": "function () {\n    collection.enterCreateScreen(1);\n    var collectionName = 'Around Me';\n    collection.selectNew(collectionName);\n    client.apps.switchToApp(home.URL);\n    var collectionIcon = collection.getCollectionByName(collectionName);\n    actions.tap(collectionIcon).press(collectionIcon).wait(2).release().perform();\n    assert.ok(!home.containsClass(Home.Selectors.grid, 'edit-mode'));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function (m, dot, doubleDot, remainder) {\n    if (doubleDot)\n        removeLevels++;\n    return remainder || '';\n}",
+    "receiverBase": "normId",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (deps) {\n    def.deps = deps;\n    try {\n        return core.executeDefFunc(def);\n    } catch (ex) {\n        def.reject(ex);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function () {\n    origResolve(cache[def.id] = urlCache[def.url] = execute(deps));\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    if (def.exports) {\n        execute(deps);\n        def.progress(msgFactoryExecuted);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (a, b) {\n    return pathMap[b].specificity - pathMap[a].specificity;\n}",
+    "receiverBase": "pathList",
+    "receiverCallee": "sort"
+  },
+  {
+    "callback": "function (match) {\n    pathInfo = pathMap[match] || {};\n    pkgCfg = pathInfo.config;\n    return pathInfo.path || '';\n}",
+    "receiverBase": "absId",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (m, rq, id, qq) {\n    if (qq) {\n        currQuote = currQuote == qq ? undef : currQuote;\n    } else if (!currQuote) {\n        ids.push(id);\n    }\n    return '';\n}",
+    "receiverBase": "replace",
+    "receiverCallee": "replace"
+  },
+  {
+    "callback": "function (dep) {\n    exportOnce(dep);\n    resolveCollector(dep, index);\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function (dep) {\n    exportCollector(dep, index);\n}",
+    "receiverBase": "",
+    "receiverCallee": "countdown"
+  },
+  {
+    "callback": "function () {\n    var args = argsNet;\n    argsNet = undef;\n    if (def.useNet !== false) {\n        if (!args || args.ex) {\n            def.reject(new Error(args && args.ex || 'define() missing or duplicated: ' + def.url));\n        } else {\n            core.defineResource(def, args);\n        }\n    }\n}",
+    "receiverBase": "core",
+    "receiverCallee": "loadScript"
+  },
+  {
+    "callback": "function (script) {\n    var run;\n    run = script.getAttribute(bootScriptAttr);\n    if (run)\n        attr = run;\n    return run;\n}",
+    "receiverBase": "core",
+    "receiverCallee": "findScript"
+  },
+  {
+    "callback": "function () {\n    preload = pPromise;\n}",
+    "receiverBase": "core",
+    "receiverCallee": "nextTurn"
+  },
+  {
+    "callback": "function (deps) {\n    if (resolved)\n        resolved.apply(undef, deps);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function (ex) {\n    if (rejected)\n        rejected(ex);\n    else\n        throw ex;\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    when(isPreload || preload, function () {\n        when(waitFor, function () {\n            core.getDeps(ctx);\n        }, errback);\n    });\n}",
+    "receiverBase": "core",
+    "receiverCallee": "nextTurn"
+  },
+  {
+    "callback": "function () {\n    when(waitFor, function () {\n        core.getDeps(ctx);\n    }, errback);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    core.getDeps(ctx);\n}",
+    "receiverBase": "",
+    "receiverCallee": "when"
+  },
+  {
+    "callback": "function () {\n    return new goog.ui.DimensionPicker();\n}",
+    "receiverBase": "registry",
+    "receiverCallee": "setDecoratorByClassName"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.get(MISSING, function (err) {\n        assert.ok(err.code == 'EADDRNOTAVAIL' || err.code == 'ECONNREFUSED');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.ok(err.code == 'EADDRNOTAVAIL' || err.code == 'ECONNREFUSED');\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.request({ url: MISSING }, function (err) {\n        assert.ok(err.code == 'EADDRNOTAVAIL' || err.code == 'ECONNREFUSED');\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.ok(err.code == 'EADDRNOTAVAIL' || err.code == 'ECONNREFUSED');\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "request"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.get(HN_CLONE, function (err) {\n        assert.ok(!err);\n        assert.equal(as.getStatusCode(), 200);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.ok(!err);\n    assert.equal(as.getStatusCode(), 200);\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.get(HN_CLONE, function (err) {\n        assert.ok(!err);\n        assert.ok(!!as.getResponse());\n        assert.equal(as.getResponse().statusCode, 200);\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.ok(!err);\n    assert.ok(!!as.getResponse());\n    assert.equal(as.getResponse().statusCode, 200);\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.get(HN_CLONE, function (err) {\n        assert.ok(!err);\n        assert.equal(as.getBody(), fs.readFileSync(__dirname + '/static/hacker-news-clone.html').toString());\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (err) {\n    assert.ok(!err);\n    assert.equal(as.getBody(), fs.readFileSync(__dirname + '/static/hacker-news-clone.html').toString());\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "get"
+  },
+  {
+    "callback": "function (done) {\n    var as = new AbstractScraper();\n    as.loadBody(function () {\n        done();\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    done();\n}",
+    "receiverBase": "as",
+    "receiverCallee": "loadBody"
+  },
+  {
+    "callback": "function () {\n    var as = new AbstractScraper();\n    as.scrape(function () {\n        assert.fail('Function shouldn\\'t be called');\n    }, function () {\n        assert.fail('Function shouldn\\'t be called');\n    });\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    assert.fail('Function shouldn\\'t be called');\n}",
+    "receiverBase": "as",
+    "receiverCallee": "scrape"
+  },
+  {
+    "callback": "function () {\n    assert.fail('Function shouldn\\'t be called');\n}",
+    "receiverBase": "as",
+    "receiverCallee": "scrape"
+  },
+  {
+    "callback": "function () {\n    var as = new AbstractScraper();\n    assert.ok(as.close() === undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function () {\n    var as = new AbstractScraper();\n    assert.ok(as.clone() === undefined);\n}",
+    "receiverBase": "",
+    "receiverCallee": "it"
+  },
+  {
+    "callback": "function (e) {\n    if (handlers[e.key]) {\n        return handlers[e.key](e);\n    }\n}",
+    "receiverBase": "wrappedDialog_",
+    "receiverCallee": "addEventListener"
+  },
+  {
+    "callback": "function (item) {\n    item = path.join(root, item);\n    return fs.statSync(item).isDirectory() ? getFiles(item) : item;\n}",
+    "receiverBase": "readdirSync",
+    "receiverCallee": "map"
+  },
+  {
+    "callback": "function (memo, value) {\n    return memo.concat(Array.isArray(value) ? flatten(value) : value);\n}",
+    "receiverBase": "array",
+    "receiverCallee": "reduce"
+  },
+  {
+    "callback": "function (data) {\n    callback(/^(?:yes|y)$/i.test(data.toString().trim()));\n}",
+    "receiverBase": "stdin",
+    "receiverCallee": "once"
+  },
+  {
+    "callback": "function (err) {\n    util.print((err ? 'ERROR!!!' : 'done.') + '\\n');\n    callback();\n}",
+    "receiverBase": "util",
+    "receiverCallee": "pump"
+  }
+]

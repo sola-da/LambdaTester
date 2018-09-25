@@ -1,0 +1,101 @@
+[
+  {
+    "callback": "function (view) {\n    var idx = view.contentIndex;\n    if (indexes.contains(idx)) {\n        ok(true, 'should find childView for contentIndex %@ (nowShowing=%@)'.fmt(idx, set));\n    } else {\n        ok(false, 'should NOT find childView for contentIndex %@ (nowShowing=%@)'.fmt(idx, set));\n    }\n    indexes.remove(idx);\n}",
+    "receiverBase": "views",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var listView = pane.view('Custom Row Heights').contentView;\n    same(listView.get('nowShowing'), SC.IndexSet.create(0, 10), 'nowShowing should be smaller IndexSet');\n    equals(listView.get('childViews').length, listView.get('nowShowing').get('length'), 'should have same number of childViews as nowShowing length');\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    scrollView.scrollTo(0, 61);\n}",
+    "receiverBase": "SC",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    scrollView.scrollTo(0, 83);\n}",
+    "receiverBase": "SC",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    scrollView.scrollTo(0, 66);\n}",
+    "receiverBase": "SC",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    var scrollView = pane2.view('Custom Row Heights 2'), listView = scrollView.contentView, correctSet = SC.IndexSet.create(1, 7);\n    SC.run(function () {\n        scrollView.scrollTo(0, 36);\n    });\n    same(listView.get('nowShowing'), correctSet, 'nowShowing should %@'.fmt(correctSet));\n}",
+    "receiverBase": "",
+    "receiverCallee": "test"
+  },
+  {
+    "callback": "function () {\n    scrollView.scrollTo(0, 36);\n}",
+    "receiverBase": "SC",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function () {\n    listView.set('altRowHeight', 80);\n    listView.rowHeightDidChangeForIndexes(listView.adjustableRows);\n}",
+    "receiverBase": "SC",
+    "receiverCallee": "run"
+  },
+  {
+    "callback": "function (msg) {\n    $('#messages').append('<p>' + msg + '</p>');\n}",
+    "receiverBase": "messageBus",
+    "receiverCallee": "on"
+  },
+  {
+    "callback": "function () {\n    messageBus.emit('message', 'Hello from example 2');\n}",
+    "receiverBase": "",
+    "receiverCallee": "$"
+  },
+  {
+    "callback": "function (todo) {\n    todo.clear();\n}",
+    "receiverBase": "_",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    thisObj.setReady(name, true);\n}",
+    "receiverBase": "image",
+    "receiverCallee": "bind"
+  },
+  {
+    "callback": "function () {\n    thisObj.setReady(name, true);\n}",
+    "receiverBase": "OneShotTimeout",
+    "receiverCallee": "create"
+  },
+  {
+    "callback": "function () {\n    if (fn(params, alasql)) {\n        self.loopstat.execute(databaseid, params, loop);\n    } else {\n        res = cb(res);\n    }\n}",
+    "receiverBase": "",
+    "receiverCallee": "setTimeout"
+  },
+  {
+    "callback": "function (data) {\n    res.push(data);\n    idx++;\n    if (idx < self.statements.length)\n        return runone();\n    if (cb)\n        res = cb(res);\n}",
+    "receiverBase": "statements",
+    "receiverCallee": "execute"
+  },
+  {
+    "callback": "function (e) {\n    rt = Ext.fly(insertEl, '_internal').insertSibling(e, where, returnDom);\n    if (isAfter) {\n        insertEl = rt;\n    }\n}",
+    "receiverBase": "Ext",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function (tickable) {\n    if (!tickable.getStave()) {\n        tickable.setStave(this.stave);\n    }\n}",
+    "receiverBase": "tickables",
+    "receiverCallee": "forEach"
+  },
+  {
+    "callback": "function () {\n    var n = navigator.userAgent, r = /msie\\s\\d+/i, v;\n    if (n.search(r) > 0) {\n        v = r.exec(n).toString();\n        v = v.split(' ')[1];\n        if (v < 9) {\n            $('html').addClass('lt-ie9');\n            return true;\n        }\n    }\n    return false;\n}",
+    "receiverBase": ""
+  },
+  {
+    "callback": "function () {\n    if (!$.data(this, 'ionRangeSlider')) {\n        $.data(this, 'ionRangeSlider', new IonRangeSlider(this, options, plugin_count++));\n    }\n}",
+    "receiverBase": "LIT:this",
+    "receiverCallee": "each"
+  },
+  {
+    "callback": "function () {\n    callback(currTime + timeToCall);\n}",
+    "receiverBase": "window",
+    "receiverCallee": "setTimeout"
+  }
+]
