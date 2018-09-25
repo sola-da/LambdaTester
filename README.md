@@ -23,7 +23,6 @@ Directories in this repository:
 4. **polyfills** - array polyfills and promise libraries
 5. **setupCode** - two files: *setupArray.js* the setup code to generate tests for array polyfills and *setupPromise.js*, the setup code to generate tests for promises.
 6. **utilities** - utility files for test generation 
-7. **jalangi2** - symbolic link to **jalangi2** project
 
 ## Test Generation
 To generate tests use the following command:
